@@ -2,9 +2,6 @@ require('dotenv').config();
 const { Client, Attachment } = require('discord.js');
 const fs = require('fs');
 
-// Carga el token desde config.json
-const config = JSON.parse(fs.readFileSync('config.json', 'utf-8'));
-const token = config.token;
 
 // Crea una instancia de un cliente de Discord
 const client = new Client({
