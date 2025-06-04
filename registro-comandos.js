@@ -10,12 +10,64 @@ const comandos = [
         name: 'division',
         description: 'La división en la que se jugó la partida.',
         type: ApplicationCommandOptionType.String,
+        choices: [
+          {
+            name: 'primera_division',
+            value: 'primera_division',
+          },
+          {
+            name: 'segunda_division',
+            value: 'segunda_division',
+          },
+          {
+            name: 'division_amateur',
+            value: 'division_amateur',
+          },
+          {
+            name: 'divisional_D',
+            value: 'divisional_D',
+          },
+          {
+            name: 'divisional_E',
+            value: 'divisional_E',
+          },
+        ],
         required: true,
       },
       {
         name: 'ronda',
         description: 'La ronda en el que se jugó la partida.',
         type: ApplicationCommandOptionType.String,
+        choices: [
+          {
+            name: '1 ronda',
+            value: '1 Ronda',
+          },
+          {
+            name: '2ronda',
+            value: '2 Ronda',
+          },
+          {
+            name: '3ronda',
+            value: '3 Ronda',
+          },
+          {
+            name: 'cuartos',
+            value: 'Cuartosdefinal',
+          },
+          {
+            name: 'semi',
+            value: 'Semifinal',
+          },
+          {
+            name: 'finallb',
+            value: 'FinalLB',
+          },
+          {
+            name: 'finalwb',
+            value: 'FinalWB',
+          },
+        ],
         required: true,
       },
       {
@@ -84,16 +136,24 @@ const comandos = [
         type: ApplicationCommandOptionType.String,
         choices: [
           {
-            name: 'max1700',
-            value: '1700',
+            name: 'primera_division',
+            value: 'primera_division',
           },
           {
-            name: 'max1600',
-            value: '1600',
+            name: 'segunda_division',
+            value: 'segunda_division',
           },
           {
-            name: 'max1500',
-            value: '1500',
+            name: 'division_amateur',
+            value: 'division_amateur',
+          },
+          {
+            name: 'divisional_D',
+            value: 'divisional_D',
+          },
+          {
+            name: 'divisional_E',
+            value: 'divisional_E',
           },
         ],
         required: true,
@@ -101,27 +161,35 @@ const comandos = [
       {
         name: 'ronda',
         description: 'Ronda que juegas',
-        type: ApplicationCommandOptionType.Number,
+        type: ApplicationCommandOptionType.String,
         choices: [
           {
-            name: '1ronda',
-            value: '1',
+            name: '1 ronda',
+            value: '1 Ronda',
           },
           {
             name: '2ronda',
-            value: '2',
+            value: '2 Ronda',
           },
           {
             name: '3ronda',
-            value: '3',
+            value: '3 Ronda',
           },
           {
             name: 'cuartos',
-            value: '3',
+            value: 'Cuartosdefinal',
           },
           {
             name: 'semi',
-            value: '3',
+            value: 'Semifinal',
+          },
+          {
+            name: 'finallb',
+            value: 'FinalLB',
+          },
+          {
+            name: 'finalwb',
+            value: 'FinalWB',
           },
         ],
         required: true,
@@ -147,7 +215,7 @@ const comandos = [
       {
         name: 'horario',
         description: 'Horario del encuentro formato 24hs',
-        type: ApplicationCommandOptionType.Integer,
+        type: ApplicationCommandOptionType.String,
         required: true,
       },
       {
@@ -157,6 +225,42 @@ const comandos = [
         required: false,
       },
     ],
+  },
+  {
+    name: 'inscripciones',
+    description: 'Inscripcion al Torneo.',
+    options: [
+      {
+        name: 'nombre',
+        description: 'Nick en steam.',
+        type: ApplicationCommandOptionType.String,
+        required: true,
+      },
+      {
+        name: 'eloactual',
+        description: 'Elo actual',
+        type: ApplicationCommandOptionType.Number,
+        required: true,
+      },
+      {
+        name: 'elomaximo',
+        description: 'Elo Maximo alcanzado',
+        type: ApplicationCommandOptionType.Number,
+        required: true,
+      },
+      {
+        name: 'link',
+        description: 'Link de aoe2insights',
+        type: ApplicationCommandOptionType.String,
+        required: true,
+      },
+      {
+        name: 'archivo',
+        description: 'Logo o foto.',
+        type: ApplicationCommandOptionType.Attachment,
+        required: false,
+      },
+     ],
   },
 ];
 
