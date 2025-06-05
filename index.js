@@ -6,6 +6,13 @@ const { type } = require("os");
 const { createCanvas, loadImage } = require("canvas");
 const fetch = require("node-fetch");
 const keep_alive = require("./keep_alive.js")
+const { obtenerEloActual } = require('./elo.js');
+const { asociarUsuario, obtenerAoeId } = require('./asociar.js');
+const cron = require('node-cron');
+const { actualizarYPublicarRanking } = require('./rankingClan');
+const { actualizarYPublicarRankingUru} = require('./rankingUru');
+
+
 // Configura el prefijo del comando y el ID del canal de bienvenida
 const prefix = "!"; // Puedes cambiar el prefijo si lo deseas
 const welcomeChannelId = '1302823386552205355'; // Cambia esto por el ID de tu canal de bienvenida
@@ -28,6 +35,18 @@ const client = new Client({
 
 client.on("ready", (c) => {
   console.log(`${c.user.username} is online`);
+
+    // Programar tarea para las 00:00 horas todos los días
+  cron.schedule('0 0 * * *', () => {
+    console.log('Ejecutando actualización diaria de ranking...');
+    actualizarYPublicarRanking(client);
+  });
+
+   // Programar tarea para las 00:00 horas todos los días
+  cron.schedule('0 1 * * *', () => {
+    console.log('Ejecutando actualización diaria de ranking...');
+    actualizarYPublicarRankingUru(client);
+  });
 
   c.user.setActivity(`Age of Empire II: Definitive Edition`, {
     type: ActivityType.Playing,
@@ -82,7 +101,76 @@ client.on('guildMemberAdd', async member => {
 //   }
 // });
 
+client.on('interactionCreate', async interaction => {
+  if (!interaction.isChatInputCommand()) return;
 
+  const { commandName, options, user } = interaction;
+
+
+if (commandName === 'vincular') {
+  const ID_CANAL_VINCULAR = "1380280393357590578"; // tu ID de canal
+
+  if (interaction.channelId !== ID_CANAL_VINCULAR) {
+    await interaction.reply({ content: "⚠️ Este comando solo se puede usar en el canal de #vincular-usuario ", ephemeral: true });
+    return;
+  }
+
+  const urlCompleta = options.getString('aoe2id');
+  const match = urlCompleta.match(/\/user\/(\d+)\//);
+
+  if (!match) {
+    await interaction.reply("❌ La URL que ingresaste no es válida. Debe ser algo como https://www.aoe2insights.com/user/2583713/");
+    return;
+  }
+
+  const aoeId = match[1];
+  asociarUsuario(user.id, aoeId);
+  await interaction.reply(`✅ Tu cuenta fue vinculada con AOE2 ID: ${aoeId}`);
+}
+
+/*if (commandName === 'vincular') {
+  // Obtiene la URL completa pasada por el usuario
+  const urlCompleta = options.getString('aoe2id');
+
+  // Extraer el número del ID usando regex (por ejemplo, la parte después de /user/)
+  const match = urlCompleta.match(/\/user\/(\d+)\//);
+
+  if (!match) {
+    await interaction.reply("❌ La URL que ingresaste no es válida. Debe ser algo como https://www.aoe2insights.com/user/2583713/");
+    return;
+  }
+
+  const aoeId = match[1]; // aquí tenemos solo el número
+
+  asociarUsuario(user.id, aoeId);
+  await interaction.reply(`✅ Tu cuenta fue vinculada con AOE2 ID: ${aoeId}`);
+}*/
+
+
+  if (commandName === 'elos') {
+    const jugador = options.getUser('jugador') || user;
+    const aoeId = obtenerAoeId(jugador.id);
+    if (!aoeId) {
+      await interaction.reply(`❌ ${jugador.username} no ha vinculado su cuenta aún. Usa /vincular.`);
+      return;
+    }
+
+    const datos = await obtenerEloActual(aoeId);
+    if (!datos) {
+      await interaction.reply("❌ No se pudo obtener el ELO.");
+      return;
+    }
+
+    await interaction.reply(
+      `🏆 **${datos.nombre}**\n` +
+      `🌍 País: ${datos.pais}\n` +
+      `🎯 ELO 1v1: ${datos.elo}\n` +
+      `📈 Rank global: #${datos.rank}\n` +
+      ` :scroll: ${datos.clan}\n` +
+      `✅ Ganadas: ${datos.wins} | ❌ Perdidas: ${datos.losses}`
+    );
+  }
+});
 
 
 client.on("interactionCreate", async (interaction) => {

@@ -262,6 +262,31 @@ const comandos = [
       },
      ],
   },
+  {
+  name: 'vincular',
+  description: 'Vincula tu cuenta de Discord con tu ID de aoe2insights.',
+  options: [
+    {
+      name: 'aoe2id',
+      description: 'Link de tu pefil de aoe2insights.',
+      type: ApplicationCommandOptionType.String,
+      required: true,
+    },
+  ],
+},
+{
+  name: 'elos',
+  description: 'Muestra el ELO actual de un jugador.',
+  options: [
+    {
+      name: 'jugador',
+      description: 'Usuario de Discord vinculado.',
+      type: ApplicationCommandOptionType.User,
+      required: true,
+    },
+  ],
+},
+
 ];
 
 
