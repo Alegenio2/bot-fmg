@@ -10,7 +10,7 @@ const { obtenerEloActual } = require('./elo.js');
 const { asociarUsuario, obtenerAoeId } = require('./asociar.js');
 const cron = require('node-cron');
 const { actualizarYPublicarRanking } = require('./rankingClan');
-const { actualizarYPublicarRankingUru} = require('./rankingUru');
+
 
 
 // Configura el prefijo del comando y el ID del canal de bienvenida
@@ -42,11 +42,6 @@ client.on("ready", (c) => {
     actualizarYPublicarRanking(client);
   });
 
-   // Programar tarea para las 00:00 horas todos los días
-  cron.schedule('0 1 * * *', () => {
-    console.log('Ejecutando actualización diaria de ranking...');
-    actualizarYPublicarRankingUru(client);
-  });
 
   c.user.setActivity(`Age of Empire II: Definitive Edition`, {
     type: ActivityType.Playing,
