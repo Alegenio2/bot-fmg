@@ -265,11 +265,11 @@ const comandos = [
   },
   {
   name: 'vincular',
-  description: 'Vincula tu cuenta de Discord con tu ID de aoe2insights.',
+  description: 'Vincula tu cuenta de Discord con tu ID de aoe2companion.',
   options: [
     {
       name: 'aoe2id',
-      description: 'Link de tu pefil de aoe2insights.',
+      description: 'Link de tu pefil de aoe2companion.',
       type: ApplicationCommandOptionType.String,
       required: true,
     },
