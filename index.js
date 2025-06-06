@@ -127,10 +127,10 @@ if (commandName === 'vincular') {
   }
 
   const urlCompleta = options.getString('aoe2id');
-  const match = urlCompleta.match(/\/user\/(\d+)\//);
+ const match = urlCompleta.match(/\/profile\/(\d+)/); // Cambiado aquí
 
   if (!match) {
-    await interaction.reply("❌ La URL que ingresaste no es válida. Debe ser algo como https://www.aoe2insights.com/user/2583713/");
+    await interaction.reply("❌ La URL que ingresaste no es válida. Debe ser algo como https://www.aoe2companion.com/profile/2583713");
     return;
   }
 
