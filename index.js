@@ -12,6 +12,7 @@ const cron = require('node-cron');
 const { actualizarYPublicarRankingClan } = require('./rankingClan');
 const { actualizarYPublicarRankingURU } = require('./rankingUru');
 const botConfig = require('./botConfig.json'); // o como se llame
+require('./registro-comandos.js'); // registra los comandos al iniciar
 
 
 // Configura el prefijo del comando y el ID del canal de bienvenida
