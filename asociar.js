@@ -6,14 +6,9 @@ const archivo = './usuarios.json';
 
 function cargarAsociaciones() {
   try {
-    if (!fs.existsSync(archivo)) {
-      return {};
-    }
+    if (!fs.existsSync(archivo)) return {};
     const data = fs.readFileSync(archivo, 'utf8');
-    if (!data.trim()) {
-      // archivo vacío
-      return {};
-    }
+    if (!data.trim()) return {};
     return JSON.parse(data);
   } catch (error) {
     console.error('Error leyendo el archivo usuarios.json:', error);
@@ -24,9 +19,7 @@ function cargarAsociaciones() {
 function guardarAsociaciones(asociaciones) {
   try {
     fs.writeFileSync(archivo, JSON.stringify(asociaciones, null, 2), 'utf8');
-     
-    // 🔁 Subir automáticamente el archivo actualizado a GitHub
-    guardarYSubirCambiosArchivo('usuarios.json', 'Actualización automática de usuarios.json');
+    guardarYSubirCambiosArchivo(archivo); // <- 🚀 Subida automática a GitHub
   } catch (error) {
     console.error('Error guardando el archivo usuarios.json:', error);
   }
