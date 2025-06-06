@@ -6,9 +6,13 @@ const archivo = './usuarios.json';
 
 function cargarAsociaciones() {
   try {
-    if (!fs.existsSync(archivo)) return {};
+    if (!fs.existsSync(archivo)) {
+      return {};
+    }
     const data = fs.readFileSync(archivo, 'utf8');
-    if (!data.trim()) return {};
+    if (!data.trim()) {
+      return {};
+    }
     return JSON.parse(data);
   } catch (error) {
     console.error('Error leyendo el archivo usuarios.json:', error);
@@ -19,7 +23,7 @@ function cargarAsociaciones() {
 function guardarAsociaciones(asociaciones) {
   try {
     fs.writeFileSync(archivo, JSON.stringify(asociaciones, null, 2), 'utf8');
-    guardarYSubirCambiosArchivo(archivo); // <- 🚀 Subida automática a GitHub
+    guardarYSubirCambiosArchivo(); // << ✅ sube cambios a GitHub
   } catch (error) {
     console.error('Error guardando el archivo usuarios.json:', error);
   }
@@ -40,3 +44,4 @@ module.exports = {
   asociarUsuario,
   obtenerAoeId
 };
+
