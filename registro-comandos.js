@@ -294,16 +294,12 @@ const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
 
 (async () => {
   try {
-    const servidores = Object.keys(config.servidores);
-
-    for (const guildId of servidores) {
-      await rest.put(
-        Routes.applicationGuildCommands(process.env.CLIENT_ID, guildId),
-        { body: comandos }
-      );
-      console.log(`✅ Comandos registrados en guild ${guildId}`);
-    }
+    await rest.put(
+      Routes.applicationCommands(process.env.CLIENT_ID),
+      { body: comandos }
+    );
+    console.log(`✅ Comandos registrados globalmente`);
   } catch (error) {
-    console.error('❌ Error al registrar comandos:', error);
+    console.error('❌ Error al registrar comandos globales:', error);
   }
 })();
