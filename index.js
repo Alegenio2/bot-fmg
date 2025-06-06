@@ -38,13 +38,13 @@ client.on("ready", (c) => {
   console.log(`${c.user.username} is online`);
 
   // 📅 Tarea programada para ranking del clan - todos los días a las 00:00
-  cron.schedule('0 0 * * *', () => {
+  cron.schedule('0 09 * * *', () => {
     console.log('📊 Ejecutando actualización diaria de Ranking Clan...');
     actualizarYPublicarRankingClan(client, '693245375615860838');
   });
 
-  // 📅 Tarea programada para ranking URU - todos los días a la 01:00
-  cron.schedule('0 1 * * *', () => {
+  // 📅 Tarea programada para ranking URU - todos los días a la 22:00
+  cron.schedule('0 22 * * *', () => {
     console.log('📊 Ejecutando actualización diaria de Ranking URU...');
     const rankingURU = require('./rankingConfig.json').rankingURU;
     for (const guildId of Object.keys(rankingURU)) {
