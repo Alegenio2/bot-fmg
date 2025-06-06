@@ -1,21 +1,33 @@
-// guardarGit.js
+//guardarGit.js 
 const { execSync } = require('child_process');
+const fs = require('fs');
 
-function guardarYSubirCambiosArchivo(archivo, mensaje = "Actualización automática del archivo") {
+function guardarYSubirCambiosArchivo(rutaArchivo, mensajeCommit = '📦 Actualización automática') {
   try {
-    execSync('git config user.name "Alegenio2"');
-    execSync('git config user.email "alegenio2@gmail.com"');
+    // Verifica que el archivo exista antes de continuar
+    if (!fs.existsSync(rutaArchivo)) {
+      console.error(`❌ El archivo ${rutaArchivo} no existe.`);
+      return;
+    }
 
-    execSync(`git add ${archivo}`);
-    execSync(`git commit -m "${mensaje}"`);
+    // Configura Git si no está hecho
+    execSync('git config user.name "FMG Bot"');
+    execSync('git config user.email "bot@fmg.uy"');
 
-    // 🧠 IMPORTANTE: Traer cambios remotos antes de pushear
-    execSync('git pull --rebase');
+    // Añadir archivo, commit y push
+    execSync(`git add ${rutaArchivo}`);
+    execSync(`git commit -m "${mensajeCommit}"`);
 
-    execSync(`git push https://ghp_TU_TOKEN@github.com/Alegenio2/bot-fmg.git main`);
-    console.log(`✅ Archivo ${archivo} subido correctamente.`);
-  } catch (err) {
-    console.error("❌ Error al subir cambios a GitHub:", err.message);
+    // Establece remote con token solo si es necesario
+    const repoUrl = `https://${process.env.GITHUB_TOKEN}@github.com/Alegenio2/bot-fmg.git`;
+    execSync(`git remote set-url origin ${repoUrl}`);
+
+    // Push usando HEAD:main para que funcione en Render (detached HEAD)
+    execSync(`git push origin HEAD:main`);
+
+    console.log('✅ Cambios subidos correctamente a GitHub');
+  } catch (error) {
+    console.error('❌ Error al subir cambios a GitHub:', error.message || error);
   }
 }
 
