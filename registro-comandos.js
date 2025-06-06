@@ -1,5 +1,6 @@
 require('dotenv').config();
 const { REST, Routes, ApplicationCommandOptionType } = require("discord.js")
+const config = require('./botConfig.json');
 
 const comandos = [
   {
@@ -289,18 +290,20 @@ const comandos = [
 
 ];
 
-
-const rest = new REST({ version: '10' }).setToken(process.env.token);
+const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
 
 (async () => {
   try {
-    await rest.put(
-      Routes.applicationGuildCommands(process.env.CLIENT_ID, process.env.GUILD_ID),
-      { body: comandos }
-    )
-    console.log('Comando Registrado')
-  } catch (error) {
-    console.log(`Hay un error: ${error}`)
-  }
+    const servidores = Object.keys(config.servidores);
 
+    for (const guildId of servidores) {
+      await rest.put(
+        Routes.applicationGuildCommands(process.env.CLIENT_ID, guildId),
+        { body: comandos }
+      );
+      console.log(`✅ Comandos registrados en guild ${guildId}`);
+    }
+  } catch (error) {
+    console.error('❌ Error al registrar comandos:', error);
+  }
 })();

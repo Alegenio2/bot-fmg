@@ -1,14 +1,18 @@
-// rankingClan.js
 const fs = require('fs');
 const path = require('path');
 const { obtenerEloActual } = require('./elo');
+const rankingConfig = require('./rankingConfig.json');
 
 const usuariosPath = path.resolve(__dirname, 'usuarios.json');
-
 const CLAN_BUSCADO = 'FUMAG';
-const CANAL_DISCORD_ID = '1380268923831980063';
 
-async function actualizarYPublicarRanking(client) {
+async function actualizarYPublicarRankingClan(client, guildId) {
+  const canalId = rankingConfig.rankingClan[guildId];
+  if (!canalId) {
+    console.log(`❌ No hay canal configurado para rankingClan en guild ${guildId}`);
+    return;
+  }
+
   if (!fs.existsSync(usuariosPath)) {
     console.log('No hay usuarios vinculados.');
     return;
@@ -29,7 +33,7 @@ async function actualizarYPublicarRanking(client) {
         discordId,
         nombre: datos.nombre,
         elo: datos.elo,
-        pais: datos.pais,
+        pais: datos.country || datos.pais,
       });
     }
   }
@@ -47,12 +51,18 @@ async function actualizarYPublicarRanking(client) {
   });
 
   try {
-    const canal = await client.channels.fetch(CANAL_DISCORD_ID);
+    const canal = await client.channels.fetch(canalId);
+    const mensajes = await canal.messages.fetch({ limit: 10 });
+   // Buscar el último mensaje del bot en el canal
+    const ultimoMensajeBot = mensajes.find(msg => msg.author.id === client.user.id);
+    if (ultimoMensajeBot) {
+      await ultimoMensajeBot.delete();
+    }
     await canal.send(mensaje);
-    console.log('Ranking publicado correctamente.');
+    console.log('✅ Ranking del clan publicado correctamente.');
   } catch (error) {
-    console.error('Error al publicar el ranking:', error);
+    console.error('❌ Error al publicar el ranking del clan:', error);
   }
 }
 
-module.exports = { actualizarYPublicarRanking };
+module.exports = { actualizarYPublicarRankingClan };

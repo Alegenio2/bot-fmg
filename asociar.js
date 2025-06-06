@@ -1,5 +1,6 @@
 // asociar.js
 const fs = require('fs');
+const { guardarYSubirCambiosArchivo } = require('./guardarGit');
 
 const archivo = './usuarios.json';
 
@@ -23,6 +24,9 @@ function cargarAsociaciones() {
 function guardarAsociaciones(asociaciones) {
   try {
     fs.writeFileSync(archivo, JSON.stringify(asociaciones, null, 2), 'utf8');
+     
+    // 🔁 Subir automáticamente el archivo actualizado a GitHub
+    guardarYSubirCambiosArchivo('usuarios.json', 'Actualización automática de usuarios.json');
   } catch (error) {
     console.error('Error guardando el archivo usuarios.json:', error);
   }

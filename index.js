@@ -9,8 +9,9 @@ const keep_alive = require("./keep_alive.js")
 const { obtenerEloActual } = require('./elo.js');
 const { asociarUsuario, obtenerAoeId } = require('./asociar.js');
 const cron = require('node-cron');
-const { actualizarYPublicarRanking } = require('./rankingClan');
-
+const { actualizarYPublicarRankingClan } = require('./rankingClan');
+const { actualizarYPublicarRankingURU } = require('./rankingUru');
+const botConfig = require('./botConfig.json'); // o como se llame
 
 
 // Configura el prefijo del comando y el ID del canal de bienvenida
@@ -36,50 +37,61 @@ const client = new Client({
 client.on("ready", (c) => {
   console.log(`${c.user.username} is online`);
 
-    // Programar tarea para las 00:00 horas todos los días
+  // 📅 Tarea programada para ranking del clan - todos los días a las 19:11
   cron.schedule('0 0 * * *', () => {
-    console.log('Ejecutando actualización diaria de ranking...');
-    actualizarYPublicarRanking(client);
+    console.log('📊 Ejecutando actualización diaria de Ranking Clan...');
+    actualizarYPublicarRankingClan(client, '693245375615860838');
   });
 
+  // 📅 Tarea programada para ranking URU - todos los días a la 01:00
+  cron.schedule('22 19 * * *', () => {
+    console.log('📊 Ejecutando actualización diaria de Ranking URU...');
+    const rankingURU = require('./rankingConfig.json').rankingURU;
+    for (const guildId of Object.keys(rankingURU)) {
+      actualizarYPublicarRankingURU(client, guildId);
+    }
+  });
 
-  c.user.setActivity(`Age of Empire II: Definitive Edition`, {
+  // 🎮 Establecer actividad del bot
+  c.user.setActivity(`Age of Empires II: Definitive Edition`, {
     type: ActivityType.Playing,
   });
 });
 
 client.on('guildMemberAdd', async member => {
-    
-    const Canvas = require('canvas');
-    const canvas = Canvas.createCanvas(1028, 468);
-    const ctx = canvas.getContext('2d');
-    
-       // Array con las rutas de las dos imágenes de fondo
-     const backgroundImages = ["./img/bg.png", "./img/bg2.png"];
-    
-     // Elegir aleatoriamente una de las imágenes de fondo
-     const randomIndex = Math.floor(Math.random() * backgroundImages.length);
-     const selectedBackgroundImg = backgroundImages[randomIndex];
- 
-     const backgroundImg = await Canvas.loadImage(selectedBackgroundImg);
-     ctx.drawImage(backgroundImg, 0, 0, canvas.width, canvas.height);    
-    
-    ctx.font = 'bold 40px Arial';
-    ctx.fillStyle = '#ffffff';
-    ctx.textAlign = 'center';
-    ctx.fillText(`¡Bienvenido, ${member.user.username}!`, canvas.width / 2, 100);
-    const avatarURL = member.user.displayAvatarURL({ size:1024, extension: "png" });
-    const avatar = await Canvas.loadImage(avatarURL);
-    ctx.drawImage(avatar, 800, 130, 150, 150);
-    const attachment = new AttachmentBuilder(canvas.toBuffer("image/png"), { name: 'welcome-image.png' });
-    const channel = member.guild.channels.cache.get(welcomeChannelId);
-    if (channel) {
-       //await channel.send(`¡Bienvenido, ${member}!`);
-       await channel.send({files: [attachment]});
-        // await member.reply({files: [attachment] })
-       // channel.send(`¡Bienvenido/a, ${member}!`, attachment.attachment);
-    }
+  const Canvas = require('canvas');
+  const config = require('./bienvenidaConfig.json');
+
+  const canvas = Canvas.createCanvas(1028, 468);
+  const ctx = canvas.getContext('2d');
+
+  const backgroundImages = ["./img/bg.png", "./img/bg2.png"];
+  const randomIndex = Math.floor(Math.random() * backgroundImages.length);
+  const selectedBackgroundImg = backgroundImages[randomIndex];
+
+  const backgroundImg = await Canvas.loadImage(selectedBackgroundImg);
+  ctx.drawImage(backgroundImg, 0, 0, canvas.width, canvas.height);    
+
+  ctx.font = 'bold 40px Arial';
+  ctx.fillStyle = '#ffffff';
+  ctx.textAlign = 'center';
+  ctx.fillText(`¡Bienvenido, ${member.user.username}!`, canvas.width / 2, 100);
+
+  const avatarURL = member.user.displayAvatarURL({ size:1024, extension: "png" });
+  const avatar = await Canvas.loadImage(avatarURL);
+  ctx.drawImage(avatar, 800, 130, 150, 150);
+
+  const attachment = new AttachmentBuilder(canvas.toBuffer("image/png"), { name: 'welcome-image.png' });
+
+  const channelId = config[member.guild.id];
+  if (!channelId) return; // si no hay canal configurado, salir
+
+  const channel = member.guild.channels.cache.get(channelId);
+  if (channel) {
+    await channel.send({ files: [attachment] });
+  }
 });
+
 
 // client.on('messageCreate', message => {
    // if (message.author.bot || !message.content.startsWith(prefix)) return;
@@ -98,15 +110,18 @@ client.on('guildMemberAdd', async member => {
 
 client.on('interactionCreate', async interaction => {
   if (!interaction.isChatInputCommand()) return;
-
   const { commandName, options, user } = interaction;
 
-
+  
 if (commandName === 'vincular') {
-  const ID_CANAL_VINCULAR = "1380280393357590578"; // tu ID de canal
+  const guildId = interaction.guildId;
+  const canalVincular = botConfig.servidores[guildId]?.canalVincular;
 
-  if (interaction.channelId !== ID_CANAL_VINCULAR) {
-    await interaction.reply({ content: "⚠️ Este comando solo se puede usar en el canal de #vincular-usuario ", ephemeral: true });
+  if (!canalVincular || interaction.channelId !== canalVincular) {
+    await interaction.reply({
+      content: "⚠️ Este comando solo se puede usar en el canal de vinculación correspondiente.",
+      ephemeral: true
+    });
     return;
   }
 
@@ -122,7 +137,6 @@ if (commandName === 'vincular') {
   asociarUsuario(user.id, aoeId);
   await interaction.reply(`✅ Tu cuenta fue vinculada con AOE2 ID: ${aoeId}`);
 }
-
 /*if (commandName === 'vincular') {
   // Obtiene la URL completa pasada por el usuario
   const urlCompleta = options.getString('aoe2id');
