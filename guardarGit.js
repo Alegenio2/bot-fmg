@@ -6,7 +6,7 @@ const GITHUB_REPO = 'Alegenio2/bot-fmg'; // tu usuario/repositorio
 const FILE_PATH = 'usuarios.json';
 const BRANCH = 'main'; // o el branch que uses
 
-const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
+const GH_TOKEN = process.env.GH_TOKEN;
 
 async function guardarYSubirCambiosArchivo() {
   const nuevoContenido = fs.readFileSync(FILE_PATH, 'utf8');
