@@ -1,33 +1,51 @@
 //guardarGit.js 
-const { execSync } = require('child_process');
+const axios = require('axios');
 const fs = require('fs');
 
-function guardarYSubirCambiosArchivo(rutaArchivo, mensajeCommit = '📦 Actualización automática') {
+const GITHUB_REPO = 'Alegenio2/bot-fmg'; // tu usuario/repositorio
+const FILE_PATH = 'usuarios.json';
+const BRANCH = 'main'; // o el branch que uses
+
+const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
+
+async function guardarYSubirCambiosArchivo() {
+  const nuevoContenido = fs.readFileSync(FILE_PATH, 'utf8');
+  const nuevoContenidoBase64 = Buffer.from(nuevoContenido).toString('base64');
+
   try {
-    // Verifica que el archivo exista antes de continuar
-    if (!fs.existsSync(rutaArchivo)) {
-      console.error(`❌ El archivo ${rutaArchivo} no existe.`);
-      return;
-    }
+    // 1. Obtener el SHA actual del archivo
+    const { data: fileData } = await axios.get(
+      `https://api.github.com/repos/${GITHUB_REPO}/contents/${FILE_PATH}?ref=${BRANCH}`,
+      {
+        headers: {
+          Authorization: `Bearer ${GH_TOKEN}`,
+          Accept: 'application/vnd.github+json'
+        }
+      }
+    );
 
-    // Configura Git si no está hecho
-    execSync('git config user.name "Alegenio2"');
-    execSync('git config user.email "alegenio2@gmail.com"');
+    const shaActual = fileData.sha;
 
-    // Añadir archivo, commit y push
-    execSync(`git add ${rutaArchivo}`);
-    execSync(`git commit -m "${mensajeCommit}"`);
+    // 2. Enviar PUT para actualizar
+    await axios.put(
+      `https://api.github.com/repos/${GITHUB_REPO}/contents/${FILE_PATH}`,
+      {
+        message: 'Actualización automática de usuarios.json',
+        content: nuevoContenidoBase64,
+        sha: shaActual,
+        branch: BRANCH
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${GH_TOKEN}`,
+          Accept: 'application/vnd.github+json'
+        }
+      }
+    );
 
-    // Establece remote con token solo si es necesario
-    const repoUrl = `https://${process.env.GITHUB_TOKEN}@github.com/Alegenio2/bot-fmg.git`;
-    execSync(`git remote set-url origin ${repoUrl}`);
-
-    // Push usando HEAD:main para que funcione en Render (detached HEAD)
-    execSync(`git push origin HEAD:main`);
-
-    console.log('✅ Cambios subidos correctamente a GitHub');
+    console.log('✅ Archivo usuarios.json actualizado en GitHub');
   } catch (error) {
-    console.error('❌ Error al subir cambios a GitHub:', error.message || error);
+    console.error('❌ Error al subir archivo:', error.response?.data || error.message);
   }
 }
 
