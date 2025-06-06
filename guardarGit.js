@@ -2,6 +2,8 @@ const { execSync } = require("child_process");
 const path = require("path");
 const fs = require("fs");
 
+
+
 function guardarYSubirCambiosArchivo(archivo, mensaje = "Actualización automática del archivo") {
   try {
     // Verifica que el archivo existe
@@ -18,6 +20,7 @@ function guardarYSubirCambiosArchivo(archivo, mensaje = "Actualización automát
     // Agrega, comitea y pushea
     execSync(`git add ${archivo}`);
     execSync(`git commit -m "${mensaje}"`);
+    execSync(`git pull --rebase`); // ⬅️ importante para evitar conflictos
     execSync(`git push https://${process.env.GH_TOKEN}@github.com/Alegenio2/bot-fmg.git main`);
 
     console.log(`✅ Cambios subidos con éxito a GitHub.`);
