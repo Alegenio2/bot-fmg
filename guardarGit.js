@@ -11,8 +11,8 @@ function guardarYSubirCambiosArchivo(rutaArchivo, mensajeCommit = '📦 Actualiz
     }
 
     // Configura Git si no está hecho
-    execSync('git config user.name "FMG Bot"');
-    execSync('git config user.email "bot@fmg.uy"');
+    execSync('git config user.name "Alegenio2"');
+    execSync('git config user.email "alegenio2@gmail.com"');
 
     // Añadir archivo, commit y push
     execSync(`git add ${rutaArchivo}`);
