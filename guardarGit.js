@@ -18,7 +18,7 @@ function guardarYSubirCambiosArchivo(archivo, mensaje = "Actualización automát
     // Agrega, comitea y pushea
     execSync(`git add ${archivo}`);
     execSync(`git commit -m "${mensaje}"`);
-    execSync(`git push https://${process.env.GH_TOKEN}@github.com/${process.env.GIT_USERNAME}/bot-fmg.git main`);
+    execSync(`git push https://${process.env.GH_TOKEN}@github.com/Alegenio2/bot-fmg.git main`);
 
     console.log(`✅ Cambios subidos con éxito a GitHub.`);
   } catch (err) {
