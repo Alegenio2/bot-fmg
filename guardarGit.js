@@ -1,32 +1,24 @@
-const { execSync } = require("child_process");
-const path = require("path");
-const fs = require("fs");
-
-
+// guardarGit.js
+const { execSync } = require('child_process');
 
 function guardarYSubirCambiosArchivo(archivo, mensaje = "Actualización automática del archivo") {
   try {
-    // Verifica que el archivo existe
-    const archivoPath = path.resolve(__dirname, archivo);
-    if (!fs.existsSync(archivoPath)) {
-      console.log(`❌ Archivo no encontrado: ${archivo}`);
-      return;
-    }
+    execSync('git config user.name "Alegenio2"');
+    execSync('git config user.email "alegenio2@gmail.com"');
 
-    // Configura el usuario de git (por si no está)
-    execSync(`git config user.name "${process.env.GIT_USERNAME}"`);
-    execSync(`git config user.email "${process.env.GIT_EMAIL}"`);
-
-    // Agrega, comitea y pushea
     execSync(`git add ${archivo}`);
     execSync(`git commit -m "${mensaje}"`);
-    execSync(`git pull --rebase`); // ⬅️ importante para evitar conflictos
-    execSync(`git push https://${process.env.GH_TOKEN}@github.com/Alegenio2/bot-fmg.git main`);
 
-    console.log(`✅ Cambios subidos con éxito a GitHub.`);
+    // 🧠 IMPORTANTE: Traer cambios remotos antes de pushear
+    execSync('git pull --rebase');
+
+    execSync(`git push https://ghp_TU_TOKEN@github.com/Alegenio2/bot-fmg.git main`);
+    console.log(`✅ Archivo ${archivo} subido correctamente.`);
   } catch (err) {
     console.error("❌ Error al subir cambios a GitHub:", err.message);
   }
 }
 
-module.exports = { guardarYSubirCambiosArchivo };
+module.exports = {
+  guardarYSubirCambiosArchivo
+};
