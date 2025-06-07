@@ -261,6 +261,37 @@ client.on("interactionCreate", async (interaction) => {
     // Enviar la respuesta al usuario
     await interaction.reply(mensaje);
   }
+    if (interaction.commandName === 'inscripciones_vinculado') {
+    await interaction.deferReply({ ephemeral: false });
+
+    const vinculados = require('./usuarios.json');
+    const { obtenerEloActual } = require('./elo');
+
+    const userId = interaction.user.id;
+    const profileId = vinculados[userId];
+    const nombre = interaction.options.getString('nombre');
+
+    if (!profileId) {
+      await interaction.editReply('⚠️ No estás vinculado. Por favor usa el comando /inscripciones.');
+      return;
+    }
+
+    const datos = await obtenerEloActual(profileId);
+
+    if (!datos) {
+      await interaction.editReply('⚠️ No se pudo obtener tu perfil de AOE2 Companion.');
+      return;
+    }
+
+    const mensaje = `✅ Inscripto a la Copa Uruguaya 2025 (vía vinculación)
+Nick Steam: ${nombre}
+ELO Actual: ${datos.elo}
+ELO Maximo: ${datos.elomax}
+País: ${datos.pais}
+Link: https://www.aoe2companion.com/profile/${profileId}`;
+
+    await interaction.editReply(mensaje);
+  }
 });
 
 function convertirFormatoFecha(fecha) {
