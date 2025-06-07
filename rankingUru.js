@@ -45,7 +45,7 @@ async function actualizarYPublicarRankingURU(client, guildId) {
 
   jugadores.sort((a, b) => b.elo - a.elo);
 
-  let mensaje = `**Ranking ELO Uruguay**\n\n Actualización diaria 22h`;
+  let mensaje = `**Ranking ELO Uruguay**\n Actualización diaria 19h\n\n `;
   jugadores.forEach((jugador, i) => {
     mensaje += `${i + 1}. ${jugador.nombre} — ELO: ${jugador.elo} — País: ${jugador.pais.toUpperCase()}\n`;
   });
