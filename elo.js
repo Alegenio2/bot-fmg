@@ -24,6 +24,8 @@ async function obtenerEloActual(profileId) {
       pais: data.countryIcon,
       country : data.country,
       clan: data.clan || null,
+      elomax: leaderboard1v1.maxRating,
+      ultimapartida: leaderboard1v1.lastMatchTime || null,
     };
   } catch (error) {
     console.error("Error al obtener ELO:", error);
