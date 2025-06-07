@@ -264,6 +264,18 @@ const comandos = [
      ],
   },
   {
+    name: "inscripciones_vinculado",
+    description: "Inscripción al torneo para usuarios vinculados.",
+    options: [
+      {
+        name: "nombre",
+        description: "Nick en Steam",
+        type: ApplicationCommandOptionType.String,
+        required: true,
+      },
+    ],
+  },
+  {
   name: 'vincular',
   description: 'Vincula tu cuenta de Discord con tu ID de aoe2companion.',
   options: [
