@@ -269,7 +269,7 @@ client.on("interactionCreate", async (interaction) => {
 
     const userId = interaction.user.id;
     const profileId = vinculados[userId];
-    const nombre = interaction.options.getString('nombre');
+    
 
     if (!profileId) {
       await interaction.editReply('⚠️ No estás vinculado. Por favor usa el comando /inscripciones.');
@@ -284,7 +284,7 @@ client.on("interactionCreate", async (interaction) => {
     }
 
     const mensaje = `✅ Inscripto a la Copa Uruguaya 2025 (vía vinculación)
-Nick Steam: ${nombre}
+Nick Steam: ${datos.nombre}
 ELO Actual: ${datos.elo}
 ELO Maximo: ${datos.elomax}
 País: ${datos.pais}
