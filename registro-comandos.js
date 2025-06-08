@@ -307,14 +307,8 @@ const rest = new REST({ version: "10" }).setToken(process.env.TOKEN);
 
 (async () => {
   try {
-    // Global
-    await rest.put(Routes.applicationCommands(process.env.CLIENT_ID), {
-      body: comandos,
-    });
-    console.log(`✅ Comandos registrados globalmente`);
-
-    // Guild-specific (para desarrollo o prioridad)
     const servidores = Object.keys(config.servidores);
+
     for (const guildId of servidores) {
       await rest.put(
         Routes.applicationGuildCommands(process.env.CLIENT_ID, guildId),
@@ -322,6 +316,10 @@ const rest = new REST({ version: "10" }).setToken(process.env.TOKEN);
       );
       console.log(`✅ Comandos registrados en guild ${guildId}`);
     }
+
+    // Limpia los comandos globales (opcional, útil si antes los registraste)
+    await rest.put(Routes.applicationCommands(process.env.CLIENT_ID), { body: [] });
+    console.log("🧹 Comandos globales eliminados");
   } catch (error) {
     console.error("❌ Error al registrar comandos:", error);
   }
