@@ -260,6 +260,21 @@ client.on("interactionCreate", async (interaction) => {
 
     // Enviar la respuesta al usuario
     await interaction.reply(mensaje);
+
+  // ID del servidor y del rol (configurado en tu JSON o hardcodeado temporalmente)
+const guildId = interaction.guildId;
+const rolInscripto = botConfig.servidores[guildId]?.rolInscripto; // Asegurate de tener esto en tu config
+
+try {
+  const member = interaction.member;
+  if (rolInscripto && member) {
+    await member.roles.add(rolInscripto);
+  }
+} catch (error) {
+  console.error('Error al asignar rol en /inscripciones:', error);
+}
+    
+      
   }
     if (interaction.commandName === 'inscripciones_vinculado') {
     await interaction.deferReply({ ephemeral: false });
@@ -290,7 +305,21 @@ ELO Maximo: ${datos.elomax}
 País: ${datos.pais}
 Link: https://www.aoe2companion.com/profile/${profileId}`;
 
-    await interaction.editReply(mensaje);
+await interaction.editReply(mensaje);
+
+ const guildId = interaction.guildId;
+const rolInscripto = botConfig.servidores[guildId]?.rolInscripto;
+
+try {
+  const member = interaction.member;
+  if (rolInscripto && member) {
+    await member.roles.add(rolInscripto);
+  }
+} catch (error) {
+  console.error('Error al asignar rol en /inscripciones_vinculado:', error);
+}       
+        
+        
   }
 });
 
