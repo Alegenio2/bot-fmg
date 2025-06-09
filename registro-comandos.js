@@ -312,6 +312,18 @@ const rest = new REST({ version: "10" }).setToken(process.env.TOKEN);
     // Limpia los comandos globales (opcional, útil si antes los registraste)
     await rest.put(Routes.applicationCommands(process.env.CLIENT_ID), { body: [] });
     console.log("🧹 Comandos globales eliminados");
+
+     // Verificación de comandos cargados en cada servidor
+    for (const guildId of servidores) {
+      const comandosRegistrados = await rest.get(
+        Routes.applicationGuildCommands(process.env.CLIENT_ID, guildId)
+      );
+      console.log(`📋 Comandos en ${guildId}:`);
+      comandosRegistrados.forEach(cmd => {
+        console.log(`- ${cmd.name}`);
+      });
+    }
+    
   } catch (error) {
     console.error("❌ Error al registrar comandos:", error);
   }
