@@ -13,6 +13,8 @@ const { actualizarYPublicarRankingClan } = require('./rankingClan');
 const { actualizarYPublicarRankingURU } = require('./rankingUru');
 const botConfig = require('./botConfig.json'); // o como se llame
 require('./registro-comandos.js'); // registra los comandos al iniciar
+const { asignarRolesPorPromedio } = require("./utiles/asignarRoles");
+
 
 
 // Configura el prefijo del comando y el ID del canal de bienvenida
@@ -251,28 +253,33 @@ client.on("interactionCreate", async (interaction) => {
     // Verificar si hay archivos adjuntos en la interacción
     const archivoAdjunto = interaction.options.get("archivo");
 
-    // Procesar la interacción
-    let mensaje = `Inscripto a la Copa Uruguaya 2025 \nNick Steam: ${nombre} \nElo Actual: ${eloactual}.\nElo Maximo: ${elomaximo} \nLink de perfil: ${link}`;
+   // Calcular promedio
+    const promedio = Math.round((eloactual + elomaximo) / 2);
+
+    // Mensaje con emojis
+    let mensaje = `✅ Inscripto a la Copa Uruguaya 2025
+
+🎮 **Nick Steam**: ${nombre}
+📈 **ELO Actual**: ${eloactual}
+📉 **ELO Máximo**: ${elomaximo}
+📊 **Promedio**: ${promedio}
+🔗 **Perfil**: ${link}`;
+
     if (archivoAdjunto) {
-      // Si hay un archivo adjunto, agregar su nombre al mensaje
-      mensaje += `\nLogo: ${archivoAdjunto.attachment.url}`;
+      mensaje += `\n🖼️ **Logo**: ${archivoAdjunto.attachment.url}`;
     }
 
     // Enviar la respuesta al usuario
     await interaction.reply(mensaje);
 
-  // ID del servidor y del rol (configurado en tu JSON o hardcodeado temporalmente)
-const guildId = interaction.guildId;
-const rolInscripto = botConfig.servidores[guildId]?.rolInscripto; // Asegurate de tener esto en tu config
+  // Obtener IDs de roles desde configuración
+    const guildId = interaction.guildId;
+    const configServidor = botConfig.servidores[guildId];
+    const member = interaction.member;
 
-try {
-  const member = interaction.member;
-  if (rolInscripto && member) {
-    await member.roles.add(rolInscripto);
-  }
-} catch (error) {
-  console.error('Error al asignar rol en /inscripciones:', error);
-}
+    if (member) {
+      await asignarRolesPorPromedio(member, promedio, configServidor);
+    }
     
       
   }
@@ -297,27 +304,25 @@ try {
       await interaction.editReply('⚠️ No se pudo obtener tu perfil de AOE2 Companion.');
       return;
     }
-
-    const mensaje = `✅ Inscripto a la Copa Uruguaya 2025 (vía vinculación)
-Nick Steam: ${datos.nombre}
-ELO Actual: ${datos.elo}
-ELO Maximo: ${datos.elomax}
-País: ${datos.pais}
-Link: https://www.aoe2companion.com/profile/${profileId}`;
+const promedio = Math.round((datos.elo + datos.elomax) / 2);
+const mensaje = `✅ Inscripto a la Copa Uruguaya 2025 (vía vinculación)
+🎮 **Nick Steam**: ${datos.nombre}
+📈 **ELO Actual**: ${datos.elo}
+📉 **ELO Máximo**: ${datos.elomax}
+📊 **Promedio**: ${promedio}
+🌍 **País**: ${datos.pais}
+🔗 **Perfil**: https://www.aoe2companion.com/profile/${profileId}`;
 
 await interaction.editReply(mensaje);
 
- const guildId = interaction.guildId;
-const rolInscripto = botConfig.servidores[guildId]?.rolInscripto;
 
-try {
-  const member = interaction.member;
-  if (rolInscripto && member) {
-    await member.roles.add(rolInscripto);
-  }
-} catch (error) {
-  console.error('Error al asignar rol en /inscripciones_vinculado:', error);
-}       
+    const guildId = interaction.guildId;
+    const configServidor = botConfig.servidores[guildId];
+    const member = interaction.member;
+
+    if (member) {
+      await asignarRolesPorPromedio(member, promedio, configServidor);
+    }
         
         
   }
