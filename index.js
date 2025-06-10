@@ -13,7 +13,7 @@ const { actualizarYPublicarRankingClan } = require('./rankingClan');
 const { actualizarYPublicarRankingURU } = require('./rankingUru');
 const botConfig = require('./botConfig.json'); // o como se llame
 require('./registro-comandos.js'); // registra los comandos al iniciar
-const { asignarRolesPorPromedio } = require("./utiles/asignarRoles");
+const { asignarRolesPorPromedio } = require("./utiles/asignarRoles.js");
 
 
 
