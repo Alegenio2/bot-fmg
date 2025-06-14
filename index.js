@@ -1,6 +1,6 @@
 require("dotenv").config();
 //const Discord = require("discord.js");
-const {Client, Attachment, ActivityType, GatewayIntentBits, AttachmentBuilder ,Partials} = require("discord.js")
+const {Client, Attachment, ActivityType, GatewayIntentBits, AttachmentBuilder ,Partials,ActionRowBuilder, ButtonBuilder, ButtonStyle} = require("discord.js")
 const fs = require("fs");
 const { type } = require("os");
 const { createCanvas, loadImage } = require("canvas");
