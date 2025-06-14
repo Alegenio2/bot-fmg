@@ -129,16 +129,34 @@ if (commandName === 'vincular') {
   }
 
   const urlCompleta = options.getString('aoe2id');
- const match = urlCompleta.match(/\/profile\/(\d+)/); // Cambiado aquí
+    // Regex más precisa
+    const match = urlCompleta.match(/^https:\/\/(www\.)?aoe2companion\.com\/profile\/(\d+)$/);
 
-  if (!match) {
-    await interaction.reply("❌ La URL que ingresaste no es válida. Debe ser algo como https://www.aoe2companion.com/profile/2583713");
-    return;
-  }
 
-  const aoeId = match[1];
-  asociarUsuario(user.id, aoeId);
-  await interaction.reply(`✅ Tu cuenta fue vinculada con AOE2 ID: ${aoeId}`);
+   if (!match) {
+      const row = new ActionRowBuilder().addComponents(
+        new ButtonBuilder()
+          .setLabel("Buscar tu perfil en AoE2 Companion")
+          .setStyle(ButtonStyle.Link)
+          .setURL("https://www.aoe2companion.com/")
+      );
+
+      await interaction.reply({
+        content: "❌ La URL no es válida. Asegurate de que sea algo como:\n`https://www.aoe2companion.com/profile/2587873713`",
+        components: [row],
+        ephemeral: true
+      });
+      return;
+    }
+
+
+  const aoeId = match[2]; // extrae el número
+    asociarUsuario(user.id, aoeId);
+
+    await interaction.reply({
+      content: `✅ Tu cuenta fue vinculada con AOE2 ID: ${aoeId}`,
+      ephemeral: true
+    });
 }
 /*if (commandName === 'vincular') {
   // Obtiene la URL completa pasada por el usuario
