@@ -228,6 +228,36 @@ const comandos = [
     ],
   },
   {
+  name: "re-coordinar",
+  description: "Edita un encuentro coordinado existente",
+  options: [
+    {
+      name: "id",
+      description: "ID del encuentro",
+      type: ApplicationCommandOptionType.Number,
+      required: true
+    },
+    {
+      name: "fecha",
+      description: "Nueva fecha (ej: 20-07-2025)",
+      type: ApplicationCommandOptionType.String,
+      required: true
+    },
+    {
+      name: "horario",
+      description: "Nuevo horario (ej: 22:00)",
+      type: ApplicationCommandOptionType.String,
+      required: true
+    },
+    {
+      name: "gmt",
+      description: "Zona horaria (por defecto GMT-3)",
+      type: ApplicationCommandOptionType.String,
+      required: false
+    }
+  ]
+},
+  {
     name: 'inscripciones',
     description: 'Inscripcion al Torneo.',
     options: [
