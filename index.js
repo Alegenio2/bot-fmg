@@ -238,30 +238,63 @@ client.on("interactionCreate", async (interaction) => {
     await interaction.reply(mensaje);
   }
 
-  if (interaction.commandName === "coordinado") {
-    const division = interaction.options.getString("division");
-    const ronda = interaction.options.getString("ronda");
-    const fecha = interaction.options.getString("fecha");
-    const jugador = interaction.options.getUser("jugador");
-    const rival = interaction.options.getUser("rival");
-    const horario = interaction.options.getString("horario");
-    let gmt = interaction.options.getString("gmt");
+  const fs = require('fs');
+const path = require('path');
 
-    if (!gmt) {
-      gmt = "GMT-3";
-    }
+if (interaction.commandName === "coordinado") {
+  const division = interaction.options.getString("division");
+  const ronda = interaction.options.getString("ronda");
+  const fecha = interaction.options.getString("fecha");
+  const jugador = interaction.options.getUser("jugador");
+  const rival = interaction.options.getUser("rival");
+  const horario = interaction.options.getString("horario");
+  let gmt = interaction.options.getString("gmt");
 
-    const fechaFormatoCorrecto = convertirFormatoFecha(fecha);
+  if (!gmt) gmt = "GMT-3";
 
-    // Obtener el día de la semana a partir de la fecha proporcionada
-    const diaSemana = obtenerDiaSemana(fechaFormatoCorrecto);
+  const fechaFormatoCorrecto = convertirFormatoFecha(fecha);
+  const diaSemana = obtenerDiaSemana(fechaFormatoCorrecto);
 
-    // Procesar la interacción
-    const mensaje = `Copa Uruguaya \nEncuentro coordinado: División ${division}, Etapa ${ronda}.\nFecha: ${fecha} ${horario}-hs ${gmt}\n ${jugador} vs ${rival}`;
+  const mensaje = `📅 Copa Uruguaya\n🗂 División: ${division}, Etapa: ${ronda}\n📆 Fecha: ${fecha} (${diaSemana}) a las ${horario}-hs ${gmt}\n👥 ${jugador} vs ${rival}`;
 
-    // Enviar la respuesta al usuario
-    await interaction.reply(mensaje);
+  await interaction.reply(mensaje);
+
+  // 📁 Guardar encuentro en JSON
+  const nuevoEncuentro = {
+    division,
+    ronda,
+    fecha,
+    diaSemana,
+    horario,
+    gmt,
+    jugador: {
+      id: jugador.id,
+      nombre: jugador.username,
+    },
+    rival: {
+      id: rival.id,
+      nombre: rival.username,
+    },
+    creadoPor: {
+      id: interaction.user.id,
+      nombre: interaction.user.username,
+    },
+    timestamp: new Date().toISOString()
+  };
+
+  const filePath = path.join(__dirname, 'coordinados.json');
+
+  try {
+    const data = fs.existsSync(filePath)
+      ? JSON.parse(fs.readFileSync(filePath, 'utf8'))
+      : [];
+
+    data.push(nuevoEncuentro);
+    fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+  } catch (error) {
+    console.error("❌ Error al guardar el encuentro:", error);
   }
+}
   if (interaction.commandName === "inscripciones") {
     const nombre = interaction.options.getString("nombre");
     const eloactual = interaction.options.getNumber("eloactual");
