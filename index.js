@@ -295,20 +295,37 @@ if (interaction.commandName === "coordinado") {
     console.error("❌ Error al guardar el encuentro:", error);
   }
 }
-  if (interaction.commandName === "inscripciones") {
-    const nombre = interaction.options.getString("nombre");
-    const eloactual = interaction.options.getNumber("eloactual");
-    const elomaximo = interaction.options.getNumber("elomaximo");
-    const link = interaction.options.getString("link");
+ if (interaction.commandName === "inscripciones") {
+  const fs = require("fs");
+  const path = require("path");
 
-    // Verificar si hay archivos adjuntos en la interacción
-    const archivoAdjunto = interaction.options.get("archivo");
+  const nombre = interaction.options.getString("nombre");
+  const eloactual = interaction.options.getNumber("eloactual");
+  const elomaximo = interaction.options.getNumber("elomaximo");
+  const link = interaction.options.getString("link");
+  const archivoAdjunto = interaction.options.get("archivo");
 
-   // Calcular promedio
-    const promedio = Math.round((eloactual + elomaximo) / 2);
+  // Validar el link e intentar extraer el ID
+  const match = link.match(/\/profile\/(\d+)/);
+  if (!match) {
+    await interaction.reply({
+      content:
+        "❌ El link no es válido. Debe ser algo como:\nhttps://www.aoe2companion.com/profile/2587873713",
+      ephemeral: true,
+    });
+    return;
+  }
 
-    // Mensaje con emojis
-    let mensaje = `✅ Inscripto a la Copa Uruguaya 2025
+  const aoeId = match[1];
+
+  // Guardar en usuarios.json
+  asociarUsuario(interaction.user.id, aoeId);
+
+  // Calcular promedio
+  const promedio = Math.round((eloactual + elomaximo) / 2);
+
+  // Crear mensaje con emojis
+  let mensaje = `✅ Inscripto a la Copa Uruguaya 2025
 
 🎮 **Nick Steam**: ${nombre}
 📈 **ELO Actual**: ${eloactual}
@@ -316,24 +333,22 @@ if (interaction.commandName === "coordinado") {
 📊 **Promedio**: ${promedio}
 🔗 **Perfil**: ${link}`;
 
-    if (archivoAdjunto) {
-      mensaje += `\n🖼️ **Logo**: ${archivoAdjunto.attachment.url}`;
-    }
-
-    // Enviar la respuesta al usuario
-    await interaction.reply(mensaje);
-
-  // Obtener IDs de roles desde configuración
-    const guildId = interaction.guildId;
-    const configServidor = botConfig.servidores[guildId];
-    const member = interaction.member;
-
-    if (member) {
-      await asignarRolesPorPromedio(member, promedio, configServidor);
-    }
-    
-      
+  if (archivoAdjunto) {
+    mensaje += `\n🖼️ **Logo**: ${archivoAdjunto.attachment.url}`;
   }
+
+  // Enviar mensaje al usuario
+  await interaction.reply(mensaje);
+
+  // Asignar roles por promedio
+  const guildId = interaction.guildId;
+  const configServidor = botConfig.servidores[guildId];
+  const member = interaction.member;
+
+  if (member) {
+    await asignarRolesPorPromedio(member, promedio, configServidor);
+  }
+}
     if (interaction.commandName === 'inscripciones_vinculado') {
     await interaction.deferReply({ ephemeral: false });
 
