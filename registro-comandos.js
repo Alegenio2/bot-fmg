@@ -13,24 +13,24 @@ const comandos = [
         type: ApplicationCommandOptionType.String,
         choices: [
           {
-            name: 'primera_division',
-            value: 'primera_division',
+            name: 'campeon',
+            value: 'categoria_a',
           },
           {
-            name: 'segunda_division',
-            value: 'segunda_division',
+            name: 'mandoble',
+            value: 'categoria_b',
           },
           {
-            name: 'division_amateur',
-            value: 'division_amateur',
+            name: 'espada_larga',
+            value: 'categoria_c',
           },
           {
-            name: 'divisional_D',
-            value: 'divisional_D',
+            name: 'hombre_de_armas',
+            value: 'categoria_d',
           },
           {
-            name: 'divisional_E',
-            value: 'divisional_E',
+            name: 'milicia',
+            value: 'categoria_e',
           },
         ],
         required: true,
