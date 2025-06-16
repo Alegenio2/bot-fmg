@@ -236,6 +236,7 @@ if (interaction.commandName === "coordinado") {
   await interaction.reply(mensaje);
 
   const nuevoEncuentro = {
+    id: Date.now(),
     division,
     ronda,
     fecha,
