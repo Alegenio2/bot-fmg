@@ -20,5 +20,27 @@
       "nombre": "jabsuy"
     },
     "timestamp": "2025-06-16T20:21:18.808Z"
+  },
+  {
+    "id": 1750107577660,
+    "division": "categoria_a",
+    "ronda": "Primera",
+    "fecha": "20-07-2025",
+    "diaSemana": "Domingo",
+    "horario": "23",
+    "gmt": "GMT-3",
+    "jugador": {
+      "id": "1212098591934652487",
+      "nombre": "AldeanoOscar"
+    },
+    "rival": {
+      "id": "286607198854053890",
+      "nombre": "jabsuy"
+    },
+    "creadoPor": {
+      "id": "286607198854053890",
+      "nombre": "jabsuy"
+    },
+    "timestamp": "2025-06-16T20:59:37.660Z"
   }
 ]
