@@ -233,8 +233,11 @@ if (interaction.commandName === "coordinado") {
   const diaSemana = obtenerDiaSemana(fechaFormatoCorrecto);
 
   const mensaje = `📅 Copa Uruguaya\n🗂 División: ${division}, Etapa: ${ronda}\n📆 Fecha: ${fecha} (${diaSemana}) a las ${horario}-hs ${gmt}\n👥 ${jugador} vs ${rival}`;
-  await interaction.reply(mensaje);
-
+  await interaction.reply({
+  content: mensaje, // el mensaje con toda la info del encuentro
+  fetchReply: true
+                    });
+   
   const nuevoEncuentro = {
     id: Date.now(),
     division,
@@ -258,6 +261,12 @@ if (interaction.commandName === "coordinado") {
     timestamp: new Date().toISOString()
   };
 
+  // Respuesta con ID solo para el autor
+await interaction.followUp({
+  content: `🆔 ID de este encuentro (para poder re-coordinar): \`${nuevoEncuentro.id}\``,
+  ephemeral: true
+});  
+    
   const filePath = path.join(__dirname, 'coordinados.json');
   try {
     const data = fs.existsSync(filePath)
@@ -273,7 +282,42 @@ if (interaction.commandName === "coordinado") {
     console.error("❌ Error al guardar el encuentro:", error);
   }
 }
+if (interaction.commandName === "re-coordinar") {
+  const id = interaction.options.getNumber("id");
+  const nuevaFecha = interaction.options.getString("fecha");
+  const nuevoHorario = interaction.options.getString("horario");
+  const nuevoGMT = interaction.options.getString("gmt") || "GMT-3";
 
+  const filePath = path.join(__dirname, 'coordinados.json');
+  if (!fs.existsSync(filePath)) {
+    await interaction.reply({ content: "❌ No hay ningún archivo de encuentros todavía.", ephemeral: true });
+    return;
+  }
+
+  let coordinados = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+  const index = coordinados.findIndex(encuentro => encuentro.id === id);
+
+  if (index === -1) {
+    await interaction.reply({ content: `❌ No se encontró ningún encuentro con ID: ${id}`, ephemeral: true });
+    return;
+  }
+
+  // Actualizar datos
+  coordinados[index].fecha = nuevaFecha;
+  coordinados[index].horario = nuevoHorario;
+  coordinados[index].gmt = nuevoGMT;
+  coordinados[index].diaSemana = obtenerDiaSemana(convertirFormatoFecha(nuevaFecha));
+  coordinados[index].timestamp = new Date().toISOString(); // registrar modificación
+
+  // Guardar cambios
+  fs.writeFileSync(filePath, JSON.stringify(coordinados, null, 2));
+  await sincronizarCoordinados();
+
+  await interaction.reply({
+    content: `✅ Encuentro actualizado con éxito:\n📅 Nueva fecha: ${nuevaFecha} (${coordinados[index].diaSemana})\n🕒 Nuevo horario: ${nuevoHorario} ${nuevoGMT}`,
+    ephemeral: true
+  });
+}
  if (interaction.commandName === "inscripciones") {
   const nombre = interaction.options.getString("nombre");
   const eloactual = interaction.options.getNumber("eloactual");
