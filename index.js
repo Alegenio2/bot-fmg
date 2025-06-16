@@ -2,6 +2,7 @@ require("dotenv").config();
 //const Discord = require("discord.js");
 const {Client, Attachment, ActivityType, GatewayIntentBits, AttachmentBuilder ,Partials,ActionRowBuilder, ButtonBuilder, ButtonStyle} = require("discord.js")
 const fs = require("fs");
+const path = require('path');
 const { type } = require("os");
 const { createCanvas, loadImage } = require("canvas");
 const fetch = require("node-fetch");
@@ -14,7 +15,7 @@ const { actualizarYPublicarRankingURU } = require('./rankingUru');
 const botConfig = require('./botConfig.json'); // o como se llame
 require('./registro-comandos.js'); // registra los comandos al iniciar
 const { asignarRolesPorPromedio } = require("./utiles/asignarRoles.js");
-
+const { sincronizarCoordinados } = require('./sincronizarCoordinados');
 
 
 // Configura el prefijo del comando y el ID del canal de bienvenida
@@ -158,25 +159,6 @@ if (commandName === 'vincular') {
       ephemeral: true
     });
 }
-/*if (commandName === 'vincular') {
-  // Obtiene la URL completa pasada por el usuario
-  const urlCompleta = options.getString('aoe2id');
-
-  // Extraer el número del ID usando regex (por ejemplo, la parte después de /user/)
-  const match = urlCompleta.match(/\/user\/(\d+)\//);
-
-  if (!match) {
-    await interaction.reply("❌ La URL que ingresaste no es válida. Debe ser algo como https://www.aoe2insights.com/user/2583713/");
-    return;
-  }
-
-  const aoeId = match[1]; // aquí tenemos solo el número
-
-  asociarUsuario(user.id, aoeId);
-  await interaction.reply(`✅ Tu cuenta fue vinculada con AOE2 ID: ${aoeId}`);
-}*/
-
-
   if (commandName === 'elos') {
     const jugador = options.getUser('jugador') || user;
     const aoeId = obtenerAoeId(jugador.id);
@@ -237,10 +219,6 @@ client.on("interactionCreate", async (interaction) => {
     // Enviar la respuesta al canal de interacción
     await interaction.reply(mensaje);
   }
-
-  const fs = require('fs');
-const path = require('path');
-
 if (interaction.commandName === "coordinado") {
   const division = interaction.options.getString("division");
   const ronda = interaction.options.getString("ronda");
@@ -249,17 +227,14 @@ if (interaction.commandName === "coordinado") {
   const rival = interaction.options.getUser("rival");
   const horario = interaction.options.getString("horario");
   let gmt = interaction.options.getString("gmt");
-
   if (!gmt) gmt = "GMT-3";
 
   const fechaFormatoCorrecto = convertirFormatoFecha(fecha);
   const diaSemana = obtenerDiaSemana(fechaFormatoCorrecto);
 
   const mensaje = `📅 Copa Uruguaya\n🗂 División: ${division}, Etapa: ${ronda}\n📆 Fecha: ${fecha} (${diaSemana}) a las ${horario}-hs ${gmt}\n👥 ${jugador} vs ${rival}`;
-
   await interaction.reply(mensaje);
 
-  // 📁 Guardar encuentro en JSON
   const nuevoEncuentro = {
     division,
     ronda,
@@ -283,7 +258,6 @@ if (interaction.commandName === "coordinado") {
   };
 
   const filePath = path.join(__dirname, 'coordinados.json');
-
   try {
     const data = fs.existsSync(filePath)
       ? JSON.parse(fs.readFileSync(filePath, 'utf8'))
@@ -291,10 +265,14 @@ if (interaction.commandName === "coordinado") {
 
     data.push(nuevoEncuentro);
     fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+
+    // ✅ Subir a GitHub
+    await sincronizarCoordinados();
   } catch (error) {
     console.error("❌ Error al guardar el encuentro:", error);
   }
 }
+
  if (interaction.commandName === "inscripciones") {
   const nombre = interaction.options.getString("nombre");
   const eloactual = interaction.options.getNumber("eloactual");
