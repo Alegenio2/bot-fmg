@@ -41,32 +41,32 @@ const comandos = [
         type: ApplicationCommandOptionType.String,
         choices: [
           {
-            name: '1 ronda',
-            value: '1 Ronda',
+            name: 'primera',
+            value: 'primera',
           },
           {
-            name: '2ronda',
-            value: '2 Ronda',
+            name: 'segunda',
+            value: 'segunda',
           },
           {
-            name: '3ronda',
-            value: '3 Ronda',
+            name: 'tercera',
+            value: 'tercera',
           },
           {
-            name: 'cuartos',
-            value: 'Cuartosdefinal',
+            name: 'cuarta',
+            value: 'cuarta',
           },
           {
-            name: 'semi',
-            value: 'Semifinal',
+            name: 'quinta',
+            value: 'quinta',
           },
           {
-            name: 'finallb',
-            value: 'FinalLB',
+            name: 'sexta',
+            value: 'sexta',
           },
           {
-            name: 'finalwb',
-            value: 'FinalWB',
+            name: 'septima',
+            value: 'septima',
           },
         ],
         required: true,
@@ -137,62 +137,32 @@ const comandos = [
         type: ApplicationCommandOptionType.String,
         choices: [
           {
-            name: 'primera_division',
-            value: 'primera_division',
+            name: 'campeon',
+            value: 'categoria_a',
           },
           {
-            name: 'segunda_division',
-            value: 'segunda_division',
+            name: 'mandoble',
+            value: 'categoria_b',
           },
           {
-            name: 'division_amateur',
-            value: 'division_amateur',
+            name: 'espada_larga',
+            value: 'categoria_c',
           },
           {
-            name: 'divisional_D',
-            value: 'divisional_D',
+            name: 'hombre_de_armas',
+            value: 'categoria_d',
           },
           {
-            name: 'divisional_E',
-            value: 'divisional_E',
+            name: 'milicia',
+            value: 'categoria_e',
           },
         ],
         required: true,
       },
       {
         name: 'ronda',
-        description: 'Ronda que juegas',
+        description: 'La Fecha que juegas (Ej Primera)',
         type: ApplicationCommandOptionType.String,
-        choices: [
-          {
-            name: '1 ronda',
-            value: '1 Ronda',
-          },
-          {
-            name: '2ronda',
-            value: '2 Ronda',
-          },
-          {
-            name: '3ronda',
-            value: '3 Ronda',
-          },
-          {
-            name: 'cuartos',
-            value: 'Cuartosdefinal',
-          },
-          {
-            name: 'semi',
-            value: 'Semifinal',
-          },
-          {
-            name: 'finallb',
-            value: 'FinalLB',
-          },
-          {
-            name: 'finalwb',
-            value: 'FinalWB',
-          },
-        ],
         required: true,
       },
       {
