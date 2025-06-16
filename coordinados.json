@@ -1,3 +1,24 @@
 [
-  
+  {
+    "id": 1750105278808,
+    "division": "primera_division",
+    "ronda": "1 Ronda",
+    "fecha": "20-06-2025",
+    "diaSemana": "Viernes",
+    "horario": "22",
+    "gmt": "GMT-3",
+    "jugador": {
+      "id": "286607198854053890",
+      "nombre": "jabsuy"
+    },
+    "rival": {
+      "id": "369911696023879681",
+      "nombre": "alecellis"
+    },
+    "creadoPor": {
+      "id": "286607198854053890",
+      "nombre": "jabsuy"
+    },
+    "timestamp": "2025-06-16T20:21:18.808Z"
+  }
 ]
