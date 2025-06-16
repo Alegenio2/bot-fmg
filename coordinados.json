@@ -1,4 +1,23 @@
 [
-
-  
+  {
+    "division": "primera_division",
+    "ronda": "1 Ronda",
+    "fecha": "17-06-2025",
+    "diaSemana": "Martes",
+    "horario": "22",
+    "gmt": "GMT-3",
+    "jugador": {
+      "id": "286607198854053890",
+      "nombre": "jabsuy"
+    },
+    "rival": {
+      "id": "1212098591934652487",
+      "nombre": "AldeanoOscar"
+    },
+    "creadoPor": {
+      "id": "286607198854053890",
+      "nombre": "jabsuy"
+    },
+    "timestamp": "2025-06-16T19:31:53.521Z"
+  }
 ]
