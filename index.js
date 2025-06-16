@@ -288,7 +288,7 @@ if (interaction.commandName === "re-coordinar") {
   const nuevoHorario = interaction.options.getString("horario");
   const nuevoGMT = interaction.options.getString("gmt") || "GMT-3";
 
-  const fechaFormatoCorrecto = convertirFormatoFecha(fecha);
+  const fechaFormatoCorrecto = convertirFormatoFecha(nuevaFecha);
   const diaSemana = obtenerDiaSemana(fechaFormatoCorrecto);  
     
   const filePath = path.join(__dirname, 'coordinados.json');
