@@ -296,35 +296,37 @@ if (interaction.commandName === "coordinado") {
   }
 }
  if (interaction.commandName === "inscripciones") {
-  const fs = require("fs");
-  const path = require("path");
-
   const nombre = interaction.options.getString("nombre");
   const eloactual = interaction.options.getNumber("eloactual");
   const elomaximo = interaction.options.getNumber("elomaximo");
   const link = interaction.options.getString("link");
   const archivoAdjunto = interaction.options.get("archivo");
 
-  // Validar el link e intentar extraer el ID
-  const match = link.match(/\/profile\/(\d+)/);
+  // Validar el link y extraer AOE2 ID
+  const match = link.match(/^https:\/\/(www\.)?aoe2companion\.com\/profile\/(\d+)$/);
   if (!match) {
+    const row = new ActionRowBuilder().addComponents(
+      new ButtonBuilder()
+        .setLabel("Buscar tu perfil en AoE2 Companion")
+        .setStyle(ButtonStyle.Link)
+        .setURL("https://www.aoe2companion.com/")
+    );
+
     await interaction.reply({
-      content:
-        "❌ El link no es válido. Debe ser algo como:\nhttps://www.aoe2companion.com/profile/2587873713",
-      ephemeral: true,
+      content: "❌ La URL no es válida. Asegurate de que sea algo como:\n`https://www.aoe2companion.com/profile/2587873713`",
+      components: [row],
+      ephemeral: true
     });
     return;
   }
 
-  const aoeId = match[1];
-
-  // Guardar en usuarios.json
-  asociarUsuario(interaction.user.id, aoeId);
+  const aoeId = match[2];
+  asociarUsuario(interaction.user.id, aoeId); // ✅ Guardar en usuarios.json y subir
 
   // Calcular promedio
   const promedio = Math.round((eloactual + elomaximo) / 2);
 
-  // Crear mensaje con emojis
+  // Construir mensaje
   let mensaje = `✅ Inscripto a la Copa Uruguaya 2025
 
 🎮 **Nick Steam**: ${nombre}
@@ -337,10 +339,10 @@ if (interaction.commandName === "coordinado") {
     mensaje += `\n🖼️ **Logo**: ${archivoAdjunto.attachment.url}`;
   }
 
-  // Enviar mensaje al usuario
+  // Enviar mensaje al canal
   await interaction.reply(mensaje);
 
-  // Asignar roles por promedio
+  // Asignar roles
   const guildId = interaction.guildId;
   const configServidor = botConfig.servidores[guildId];
   const member = interaction.member;
@@ -349,7 +351,7 @@ if (interaction.commandName === "coordinado") {
     await asignarRolesPorPromedio(member, promedio, configServidor);
   }
 }
-    if (interaction.commandName === 'inscripciones_vinculado') {
+   if (interaction.commandName === 'inscripciones_vinculado') {
     await interaction.deferReply({ ephemeral: false });
 
     const vinculados = require('./usuarios.json');
