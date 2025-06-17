@@ -1,7 +1,7 @@
 // utiles/torneoLiga.js
 const fs = require('fs');
 const path = require('path');
-const { obtenerEloActual } = require('./elo'); // tu función para la API
+const { obtenerEloActual } = require('../elo'); // tu función para la API
 const usuariosMap = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'usuarios.json'), 'utf8'));
 
 async function ejecutarTorneoLiga(interaction, categoria) {
