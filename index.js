@@ -141,7 +141,11 @@ if (interaction.commandName === 'actualizar_categoria') {
 
     fs.writeFileSync(archivo, JSON.stringify(jugadores, null, 2), 'utf8');
 
-    await interaction.reply(`✅ Categoría **${letra.toUpperCase()}** actualizada con **${jugadores.length}** jugadores.`);
+// Agregá esta línea 👇 para subir a GitHub
+const { guardarYSubirCategorias } = require('./guardarCategoriasGit.js');
+await guardarYSubirCategorias();
+
+await interaction.reply(`✅ Categoría **${letra.toUpperCase()}** actualizada con **${jugadores.length}** jugadores y subida a GitHub.`);
   }
 
     
