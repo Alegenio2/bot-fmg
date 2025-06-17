@@ -25,7 +25,7 @@ const welcomeChannelId = '1302823386552205355'; // Cambia esto por el ID de tu c
 // Crea una instancia de un cliente de Discord
 const client = new Client({
     restTimeOffset:0,
-    partials:[Partials.Message, Partials.Channel,Partials.ReactionREACTION,Partials.GuildMember,Partials.User],
+    partials:[Partials.Message, Partials.Channel,Partials.MessageReaction,Partials.GuildMember,Partials.User],
   intents: [
     GatewayIntentBits.DirectMessages,
     GatewayIntentBits.MessageContent,
@@ -96,16 +96,18 @@ client.on('guildMemberAdd', async member => {
   }
 });
 
-client.on('interactionCreate', async interaction => {
+client.on('interactionCreate', async (interaction) => {
   if (!interaction.isChatInputCommand()) return;
-  const { commandName, options, user } = interaction;
-    
-if (interaction.commandName === 'actualizar_categoria') {
+
+  const { commandName, options, user, guildId, member, channelId } = interaction;
+
+  // Comando: actualizar_categoria
+  if (commandName === 'actualizar_categoria') {
     const ownerId = botConfig.ownerId;
 
-    // Verificar si el usuario tiene permisos
-    const esOwner = interaction.user.id === ownerId;
-    const tienePermisos = interaction.member.permissions.has(PermissionsBitField.Flags.ManageRoles);
+    // Verificar permisos: owner o permisos ManageRoles
+    const esOwner = user.id === ownerId;
+    const tienePermisos = member.permissions.has(PermissionsBitField.Flags.ManageRoles);
 
     if (!esOwner && !tienePermisos) {
       return interaction.reply({
@@ -114,8 +116,8 @@ if (interaction.commandName === 'actualizar_categoria') {
       });
     }
 
-    const letra = interaction.options.getString('categoria');
-    const configServidor = botConfig.servidores[interaction.guildId];
+    const letra = options.getString('categoria');
+    const configServidor = botConfig.servidores[guildId];
     if (!configServidor) {
       return interaction.reply({ content: '❌ Configuración del servidor no encontrada.', ephemeral: true });
     }
@@ -125,7 +127,8 @@ if (interaction.commandName === 'actualizar_categoria') {
       return interaction.reply({ content: `❌ No se encontró el rol para la categoría ${letra.toUpperCase()}.`, ephemeral: true });
     }
 
-    await interaction.guild.members.fetch(); // asegura que estén todos cargados
+    await interaction.guild.members.fetch(); // asegurar carga miembros
+
     const miembrosConRol = interaction.guild.members.cache.filter(m => m.roles.cache.has(rolCategoria));
     const jugadores = miembrosConRol.map(m => ({
       id: m.id,
@@ -135,305 +138,253 @@ if (interaction.commandName === 'actualizar_categoria') {
     const carpeta = path.join(__dirname, 'categorias');
     const archivo = path.join(carpeta, `categoria_${letra}.json`);
 
-    if (!fs.existsSync(carpeta)) {
-      fs.mkdirSync(carpeta);
-    }
+    if (!fs.existsSync(carpeta)) fs.mkdirSync(carpeta);
 
     fs.writeFileSync(archivo, JSON.stringify(jugadores, null, 2), 'utf8');
 
-// Agregá esta línea 👇 para subir a GitHub
-const { guardarYSubirCategorias } = require('./guardarCategoriasGit.js');
-await guardarYSubirCategorias();
+    // Subir a GitHub
+    const { guardarYSubirCategorias } = require('./guardarCategoriasGit.js');
+    await guardarYSubirCategorias();
 
-await interaction.reply(`✅ Categoría **${letra.toUpperCase()}** actualizada con **${jugadores.length}** jugadores y subida a GitHub.`);
+    return interaction.reply(`✅ Categoría **${letra.toUpperCase()}** actualizada con **${jugadores.length}** jugadores y subida a GitHub.`);
   }
 
-    
-  
-if (commandName === 'vincular') {
-  const guildId = interaction.guildId;
-  const canalVincular = botConfig.servidores[guildId]?.canalVincular;
+  // Comando: vincular
+  if (commandName === 'vincular') {
+    const canalVincular = botConfig.servidores[guildId]?.canalVincular;
+    if (!canalVincular || channelId !== canalVincular) {
+      return interaction.reply({
+        content: "⚠️ Este comando solo se puede usar en el canal de vinculación correspondiente.",
+        ephemeral: true
+      });
+    }
 
-  if (!canalVincular || interaction.channelId !== canalVincular) {
-    await interaction.reply({
-      content: "⚠️ Este comando solo se puede usar en el canal de vinculación correspondiente.",
-      ephemeral: true
-    });
-    return;
-  }
-
-  const urlCompleta = options.getString('aoe2id');
-    // Regex más precisa
+    const urlCompleta = options.getString('aoe2id');
     const match = urlCompleta.match(/^https:\/\/(www\.)?aoe2companion\.com\/profile\/(\d+)$/);
-
-
-   if (!match) {
+    if (!match) {
       const row = new ActionRowBuilder().addComponents(
         new ButtonBuilder()
           .setLabel("Buscar tu perfil en AoE2 Companion")
           .setStyle(ButtonStyle.Link)
           .setURL("https://www.aoe2companion.com/")
       );
-
-      await interaction.reply({
+      return interaction.reply({
         content: "❌ La URL no es válida. Asegurate de que sea algo como:\n`https://www.aoe2companion.com/profile/2587873713`",
         components: [row],
         ephemeral: true
       });
-      return;
     }
 
-
-  const aoeId = match[2]; // extrae el número
+    const aoeId = match[2];
     asociarUsuario(user.id, aoeId);
 
-    await interaction.reply({
+    return interaction.reply({
       content: `✅ Tu cuenta fue vinculada con AOE2 ID: ${aoeId}`,
       ephemeral: true
     });
-}
+  }
+
+  // Comando: elos
   if (commandName === 'elos') {
     const jugador = options.getUser('jugador') || user;
     const aoeId = obtenerAoeId(jugador.id);
+
     if (!aoeId) {
-      await interaction.reply(`❌ ${jugador.username} no ha vinculado su cuenta aún. Usa /vincular.`);
-      return;
+      return interaction.reply(`❌ ${jugador.username} no ha vinculado su cuenta aún. Usa /vincular.`);
     }
 
     const datos = await obtenerEloActual(aoeId);
     if (!datos) {
-      await interaction.reply("❌ No se pudo obtener el ELO.");
-      return;
+      return interaction.reply("❌ No se pudo obtener el ELO.");
     }
 
-    await interaction.reply(
+    return interaction.reply(
       `🏆 **${datos.nombre}**\n` +
       `🌍 País: ${datos.pais}\n` +
       `🎯 ELO 1v1: ${datos.elo}\n` +
       `📈 Rank global: #${datos.rank}\n` +
-      ` :scroll: ${datos.clan}\n` +
+      `:scroll: ${datos.clan}\n` +
       `✅ Ganadas: ${datos.wins} | ❌ Perdidas: ${datos.losses}`
     );
   }
-});
 
+  // Comando: resultado
+  if (commandName === 'resultado') {
+    const division = options.getString('division');
+    const ronda = options.getString('ronda');
+    const fecha = options.getString('fecha');
+    const jugador = options.getUser('jugador');
+    const puntosjugador = options.getNumber('puntosjugador');
+    const otrojugador = options.getUser('otrojugador');
+    const puntosotrojugador = options.getNumber('puntosotrojugador');
+    const draftmapas = options.getString('draftmapas');
+    const draftcivis = options.getString('draftcivis');
 
-client.on("interactionCreate", async (interaction) => {
-  if (!interaction.isCommand()) return;
+    const archivoAdjunto = options.get('archivo');
 
-  if (interaction.commandName === "resultado") {
-    const options = interaction.options;
-
-    const division = options.getString("division");
-    const ronda = options.getString("ronda");
-    const fecha = options.getString("fecha");
-    const jugador = options.getUser("jugador");
-    const puntosjugador = options.getNumber("puntosjugador");
-    const otrojugador = options.getUser("otrojugador");
-    const puntosotrojugador = options.getNumber("puntosotrojugador");
-    const draftmapas = options.getString("draftmapas");
-    const draftcivis = options.getString("draftcivis");
-
-    // Verificar si hay archivos adjuntos en la interacción
-    const archivoAdjunto = interaction.options.get("archivo");
-
-    // Formatear el mensaje con los datos proporcionados
     let mensaje = `Copa Uruguaya\n División ${division} - Etapa: ${ronda} - Fecha ${fecha}\n ${jugador}  ||${puntosjugador} - ${puntosotrojugador}|| ${otrojugador} \n Mapas:${draftmapas} \n Civs:${draftcivis}`;
 
-    // Verificar si hay un archivo adjunto
     if (archivoAdjunto) {
-      // Si hay un archivo adjunto, agregar su nombre al mensaje
       mensaje += `\nRec: ${archivoAdjunto.attachment.url}`;
     } else {
-      // Si no hay archivo adjunto, agregar un mensaje indicando que no se adjuntó ningún archivo
       mensaje += `\nNo se adjuntó ningún archivo`;
     }
 
-    // Enviar la respuesta al canal de interacción
-    await interaction.reply(mensaje);
-  }
-if (interaction.commandName === "coordinado") {
-  const division = interaction.options.getString("division");
-  const ronda = interaction.options.getString("ronda");
-  const fecha = interaction.options.getString("fecha");
-  const jugador = interaction.options.getUser("jugador");
-  const rival = interaction.options.getUser("rival");
-  const horario = interaction.options.getString("horario");
-  let gmt = interaction.options.getString("gmt");
-  if (!gmt) gmt = "GMT-3";
-
-  const fechaFormatoCorrecto = convertirFormatoFecha(fecha);
-  const diaSemana = obtenerDiaSemana(fechaFormatoCorrecto);
-
-  const mensaje = `📅 Copa Uruguaya\n🗂 División: ${division}, Etapa: ${ronda}\n📆 Fecha: ${fecha} (${diaSemana}) a las ${horario}-hs ${gmt}\n👥 ${jugador} vs ${rival}`;
-  await interaction.reply({
-  content: mensaje, // el mensaje con toda la info del encuentro
-  fetchReply: true
-                    });
-   
-  const nuevoEncuentro = {
-    id: Date.now(),
-    division,
-    ronda,
-    fecha,
-    diaSemana,
-    horario,
-    gmt,
-    jugador: {
-      id: jugador.id,
-      nombre: jugador.username,
-    },
-    rival: {
-      id: rival.id,
-      nombre: rival.username,
-    },
-    creadoPor: {
-      id: interaction.user.id,
-      nombre: interaction.user.username,
-    },
-    timestamp: new Date().toISOString()
-  };
-
-  // Respuesta con ID solo para el autor
-await interaction.followUp({
-  content: `🆔 ID de este encuentro (para poder re-coordinar): \`${nuevoEncuentro.id}\``,
-  ephemeral: true
-});  
-    
-  const filePath = path.join(__dirname, 'coordinados.json');
-  try {
-    const data = fs.existsSync(filePath)
-      ? JSON.parse(fs.readFileSync(filePath, 'utf8'))
-      : [];
-
-    data.push(nuevoEncuentro);
-    fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
-
-    // ✅ Subir a GitHub
-    await sincronizarCoordinados();
-  } catch (error) {
-    console.error("❌ Error al guardar el encuentro:", error);
-  }
-}
-if (interaction.commandName === "re-coordinar") {
-  const id = interaction.options.getNumber("id");
-  const nuevaFecha = interaction.options.getString("fecha");
-  const nuevoHorario = interaction.options.getString("horario");
-  const nuevoGMT = interaction.options.getString("gmt") || "GMT-3";
-
-  const fechaFormatoCorrecto = convertirFormatoFecha(nuevaFecha);
-  const diaSemana = obtenerDiaSemana(fechaFormatoCorrecto);  
-    
-  const filePath = path.join(__dirname, 'coordinados.json');
-  if (!fs.existsSync(filePath)) {
-    await interaction.reply({ content: "❌ No hay ningún archivo de encuentros todavía.", ephemeral: true });
-    return;
+    return interaction.reply(mensaje);
   }
 
-  let coordinados = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-  const index = coordinados.findIndex(encuentro => encuentro.id === id);
+  // Comando: coordinado
+  if (commandName === 'coordinado') {
+    const division = options.getString('division');
+    const ronda = options.getString('ronda');
+    const fecha = options.getString('fecha');
+    const jugador = options.getUser('jugador');
+    const rival = options.getUser('rival');
+    const horario = options.getString('horario');
+    let gmt = options.getString('gmt') || "GMT-3";
 
-  if (index === -1) {
-    await interaction.reply({ content: `❌ No se encontró ningún encuentro con ID: ${id}`, ephemeral: true });
-    return;
-  }
+    const fechaFormatoCorrecto = convertirFormatoFecha(fecha);
+    const diaSemana = obtenerDiaSemana(fechaFormatoCorrecto);
 
-  // Actualizar datos
-  coordinados[index].fecha = nuevaFecha;
-  coordinados[index].horario = nuevoHorario;
-  coordinados[index].gmt = nuevoGMT;
-  coordinados[index].diaSemana = obtenerDiaSemana(convertirFormatoFecha(nuevaFecha));
-  coordinados[index].timestamp = new Date().toISOString(); // registrar modificación
+    const mensaje = `📅 Copa Uruguaya\n🗂 División: ${division}, Etapa: ${ronda}\n📆 Fecha: ${fecha} (${diaSemana}) a las ${horario}-hs ${gmt}\n👥 ${jugador} vs ${rival}`;
+    await interaction.reply({ content: mensaje, fetchReply: true });
 
-  // Guardar cambios
-  fs.writeFileSync(filePath, JSON.stringify(coordinados, null, 2));
-  await sincronizarCoordinados();
+    const nuevoEncuentro = {
+      id: Date.now(),
+      division,
+      ronda,
+      fecha,
+      diaSemana,
+      horario,
+      gmt,
+      jugador: { id: jugador.id, nombre: jugador.username },
+      rival: { id: rival.id, nombre: rival.username },
+      creadoPor: { id: user.id, nombre: user.username },
+      timestamp: new Date().toISOString()
+    };
 
-  await interaction.reply({
-    content: `✅ Encuentro actualizado con éxito:\n📅 Nueva fecha: ${nuevaFecha} (${coordinados[index].diaSemana})\n🕒 Nuevo horario: ${nuevoHorario} ${nuevoGMT}`,
-    ephemeral: true
-  });
-}
- if (interaction.commandName === "inscripciones") {
-  const nombre = interaction.options.getString("nombre");
-  const eloactual = interaction.options.getNumber("eloactual");
-  const elomaximo = interaction.options.getNumber("elomaximo");
-  const link = interaction.options.getString("link");
-  const archivoAdjunto = interaction.options.get("archivo");
-
-  // Validar el link y extraer AOE2 ID
-  const match = link.match(/^https:\/\/(www\.)?aoe2companion\.com\/profile\/(\d+)$/);
-  if (!match) {
-    const row = new ActionRowBuilder().addComponents(
-      new ButtonBuilder()
-        .setLabel("Buscar tu perfil en AoE2 Companion")
-        .setStyle(ButtonStyle.Link)
-        .setURL("https://www.aoe2companion.com/")
-    );
-
-    await interaction.reply({
-      content: "❌ La URL no es válida. Asegurate de que sea algo como:\n`https://www.aoe2companion.com/profile/2587873713`",
-      components: [row],
+    await interaction.followUp({
+      content: `🆔 ID de este encuentro (para poder re-coordinar): \`${nuevoEncuentro.id}\``,
       ephemeral: true
     });
+
+    const filePath = path.join(__dirname, 'coordinados.json');
+    try {
+      const data = fs.existsSync(filePath) ? JSON.parse(fs.readFileSync(filePath, 'utf8')) : [];
+      data.push(nuevoEncuentro);
+      fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+
+      await sincronizarCoordinados();
+    } catch (error) {
+      console.error("❌ Error al guardar el encuentro:", error);
+    }
     return;
   }
 
-  const aoeId = match[2];
-  asociarUsuario(interaction.user.id, aoeId); // ✅ Guardar en usuarios.json y subir
+  // Comando: re-coordinar
+  if (commandName === 're-coordinar') {
+    const id = options.getNumber('id');
+    const nuevaFecha = options.getString('fecha');
+    const nuevoHorario = options.getString('horario');
+    const nuevoGMT = options.getString('gmt') || "GMT-3";
 
-  // Calcular promedio
-  const promedio = Math.round((eloactual + elomaximo) / 2);
+    const filePath = path.join(__dirname, 'coordinados.json');
+    if (!fs.existsSync(filePath)) {
+      return interaction.reply({ content: "❌ No hay ningún archivo de encuentros todavía.", ephemeral: true });
+    }
 
-  // Construir mensaje
-  let mensaje = `✅ Inscripto a la Copa Uruguaya 2025
+    let coordinados = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    const index = coordinados.findIndex(e => e.id === id);
 
+    if (index === -1) {
+      return interaction.reply({ content: `❌ No se encontró ningún encuentro con ID: ${id}`, ephemeral: true });
+    }
+
+    coordinados[index].fecha = nuevaFecha;
+    coordinados[index].horario = nuevoHorario;
+    coordinados[index].gmt = nuevoGMT;
+    coordinados[index].diaSemana = obtenerDiaSemana(convertirFormatoFecha(nuevaFecha));
+    coordinados[index].timestamp = new Date().toISOString();
+
+    fs.writeFileSync(filePath, JSON.stringify(coordinados, null, 2));
+    await sincronizarCoordinados();
+
+    return interaction.reply({
+      content: `✅ Encuentro actualizado con éxito:\n📅 Nueva fecha: ${nuevaFecha} (${coordinados[index].diaSemana})\n🕒 Nuevo horario: ${nuevoHorario} ${nuevoGMT}`,
+      ephemeral: true
+    });
+  }
+
+  // Comando: inscripciones
+  if (commandName === 'inscripciones') {
+    const nombre = options.getString('nombre');
+    const eloactual = options.getNumber('eloactual');
+    const elomaximo = options.getNumber('elomaximo');
+    const link = options.getString('link');
+    const archivoAdjunto = options.get('archivo');
+
+    const match = link.match(/^https:\/\/(www\.)?aoe2companion\.com\/profile\/(\d+)$/);
+    if (!match) {
+      const row = new ActionRowBuilder().addComponents(
+        new ButtonBuilder()
+          .setLabel("Buscar tu perfil en AoE2 Companion")
+          .setStyle(ButtonStyle.Link)
+          .setURL("https://www.aoe2companion.com/")
+      );
+      return interaction.reply({
+        content: "❌ La URL no es válida. Asegurate de que sea algo como:\n`https://www.aoe2companion.com/profile/2587873713`",
+        components: [row],
+        ephemeral: true
+      });
+    }
+
+    const aoeId = match[2];
+    asociarUsuario(user.id, aoeId);
+
+    const promedio = Math.round((eloactual + elomaximo) / 2);
+
+    let mensaje = `✅ Inscripto a la Copa Uruguaya 2025
 🎮 **Nick Steam**: ${nombre}
 📈 **ELO Actual**: ${eloactual}
 📉 **ELO Máximo**: ${elomaximo}
 📊 **Promedio**: ${promedio}
 🔗 **Perfil**: ${link}`;
 
-  if (archivoAdjunto) {
-    mensaje += `\n🖼️ **Logo**: ${archivoAdjunto.attachment.url}`;
+    if (archivoAdjunto) {
+      mensaje += `\n🖼️ **Logo**: ${archivoAdjunto.attachment.url}`;
+    }
+
+    await interaction.reply(mensaje);
+
+    const configServidor = botConfig.servidores[guildId];
+    if (member) {
+      await asignarRolesPorPromedio(member, promedio, configServidor);
+      await actualizarCategoriasDesdeRoles(interaction.guild);
+    }
+    return;
   }
 
-  // Enviar mensaje al canal
-  await interaction.reply(mensaje);
-
-  // Asignar roles
-  const guildId = interaction.guildId;
-  const configServidor = botConfig.servidores[guildId];
-  const member = interaction.member;
-
-  if (member) {
-    await asignarRolesPorPromedio(member, promedio, configServidor);
-    await actualizarCategoriasDesdeRoles(interaction.guild); // 👈 se actualiza json + sube a GitHub  
-  }
-}
-   if (interaction.commandName === 'inscripciones_vinculado') {
+  // Comando: inscripciones_vinculado
+  if (commandName === 'inscripciones_vinculado') {
     await interaction.deferReply({ ephemeral: false });
 
     const vinculados = require('./usuarios.json');
     const { obtenerEloActual } = require('./elo');
 
-    const userId = interaction.user.id;
+    const userId = user.id;
     const profileId = vinculados[userId];
-    
 
     if (!profileId) {
-      await interaction.editReply('⚠️ No estás vinculado. Por favor usa el comando /inscripciones.');
-      return;
+      return interaction.editReply('⚠️ No estás vinculado. Por favor usa el comando /inscripciones.');
     }
 
     const datos = await obtenerEloActual(profileId);
-
     if (!datos) {
-      await interaction.editReply('⚠️ No se pudo obtener tu perfil de AOE2 Companion.');
-      return;
+      return interaction.editReply('⚠️ No se pudo obtener tu perfil de AOE2 Companion.');
     }
-const promedio = Math.round((datos.elo + datos.elomax) / 2);
-const mensaje = `✅ Inscripto a la Copa Uruguaya 2025 (vía vinculación)
+
+    const promedio = Math.round((datos.elo + datos.elomax) / 2);
+    const mensaje = `✅ Inscripto a la Copa Uruguaya 2025 (vía vinculación)
 🎮 **Nick Steam**: ${datos.nombre}
 📈 **ELO Actual**: ${datos.elo}
 📉 **ELO Máximo**: ${datos.elomax}
@@ -441,61 +392,61 @@ const mensaje = `✅ Inscripto a la Copa Uruguaya 2025 (vía vinculación)
 🌍 **País**: ${datos.pais}
 🔗 **Perfil**: https://www.aoe2companion.com/profile/${profileId}`;
 
-await interaction.editReply(mensaje);
+    await interaction.editReply(mensaje);
 
-
-    const guildId = interaction.guildId;
     const configServidor = botConfig.servidores[guildId];
-    const member = interaction.member;
-
     if (member) {
       await asignarRolesPorPromedio(member, promedio, configServidor);
-      await actualizarCategoriasDesdeRoles(interaction.guild); // 👈 actualiza y sube  
+      await actualizarCategoriasDesdeRoles(interaction.guild);
     }
-        
-        
-  }
-    if (interaction.commandName === 'torneoliga') {
-  const categoria = interaction.options.getString('categoria');
-
-    if (interaction.user.id !== botConfig.ownerId) {
-    return interaction.reply({ content: '❌ Solo el organizador puede usar este comando.', ephemeral: true });
+    return;
   }
 
-  // 👇 Aquí llamás a la lógica del comando que ya preparamos
-  const { ejecutarTorneoLiga } = require('./utiles/torneoLiga.js');
-  await ejecutarTorneoLiga(interaction, categoria);
-}
-if (interaction.commandName === 'listar_encuentros') {
-  const categoria = interaction.options.getString('categoria');
-  const filePath = path.join(__dirname, 'ligas', `liga_${categoria}.json`);
+  // Comando: torneoliga
+  if (commandName === 'torneoliga') {
+    const categoria = options.getString('categoria');
 
-  if (!fs.existsSync(filePath)) {
-    return await interaction.reply({
-      content: `⚠️ No existe una liga para la categoría **${categoria.toUpperCase()}**.`,
-      ephemeral: true
+    if (user.id !== botConfig.ownerId) {
+      return interaction.reply({ content: '❌ Solo el organizador puede usar este comando.', ephemeral: true });
+    }
+
+    const { ejecutarTorneoLiga } = require('./utiles/torneoLiga.js');
+    await ejecutarTorneoLiga(interaction, categoria);
+    return;
+  }
+
+  // Comando: listar_encuentros
+  if (commandName === 'listar_encuentros') {
+    const categoria = options.getString('categoria');
+    const filePath = path.join(__dirname, 'ligas', `liga_${categoria}.json`);
+
+    if (!fs.existsSync(filePath)) {
+      return interaction.reply({
+        content: `⚠️ No existe una liga para la categoría **${categoria.toUpperCase()}**.`,
+        ephemeral: true
+      });
+    }
+
+    const liga = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    const usuarios = liga.participantes.reduce((acc, jugador) => {
+      acc[jugador.id] = jugador.nombre;
+      return acc;
+    }, {});
+
+    const encuentros = liga.encuentros.map((e, i) => {
+      const nombre1 = usuarios[e.jugador1] || e.jugador1;
+      const nombre2 = usuarios[e.jugador2] || e.jugador2;
+      const resultado = e.resultado ? e.resultado : '🕓 Pendiente';
+      return `**${i + 1}.** ${nombre1} vs ${nombre2} → ${resultado}`;
     });
+
+    const respuesta = `📋 **Encuentros de la Liga ${categoria.toUpperCase()}**\n\n${encuentros.join('\n')}`;
+
+    return interaction.reply({ content: respuesta.slice(0, 2000), ephemeral: true });
   }
-
-  const liga = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-  const usuarios = liga.participantes.reduce((acc, jugador) => {
-    acc[jugador.id] = jugador.nombre;
-    return acc;
-  }, {});
-
-  const encuentros = liga.encuentros.map((e, i) => {
-    const nombre1 = usuarios[e.jugador1] || e.jugador1;
-    const nombre2 = usuarios[e.jugador2] || e.jugador2;
-    const resultado = e.resultado ? e.resultado : '🕓 Pendiente';
-    return `**${i + 1}.** ${nombre1} vs ${nombre2} → ${resultado}`;
-  });
-
-  const respuesta = `📋 **Encuentros de la Liga ${categoria.toUpperCase()}**\n\n${encuentros.join('\n')}`;
-
-  await interaction.reply({ content: respuesta.slice(0, 2000), ephemeral: true }); // Discord tiene límite de 2000 caracteres
-}
 
 });
+
 
 function convertirFormatoFecha(fecha) {
   let separador = "-";
