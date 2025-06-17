@@ -42,5 +42,27 @@
       "nombre": "jabsuy"
     },
     "timestamp": "2025-06-16T20:59:37.660Z"
+  },
+  {
+    "id": 1750135463808,
+    "division": "categoria_a",
+    "ronda": "Segunda",
+    "fecha": "18-06-2025",
+    "diaSemana": "Miércoles",
+    "horario": "22",
+    "gmt": "GMT-3",
+    "jugador": {
+      "id": "341001672786575360",
+      "nombre": "nadie6689"
+    },
+    "rival": {
+      "id": "238414625417330688",
+      "nombre": "rxon"
+    },
+    "creadoPor": {
+      "id": "286607198854053890",
+      "nombre": "jabsuy"
+    },
+    "timestamp": "2025-06-17T04:44:23.808Z"
   }
 ]
