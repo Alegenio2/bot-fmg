@@ -3,6 +3,25 @@ const { REST, Routes, ApplicationCommandOptionType } = require("discord.js")
 const config = require('./botConfig.json');
 
 const comandos = [
+    {
+  name: 'listar_encuentros',
+  description: 'Lista los cruces de la liga de una categoría.',
+  options: [
+    {
+      name: 'categoria',
+      description: 'Letra de la categoría',
+      type: ApplicationCommandOptionType.String,
+      required: true,
+      choices: [
+        { name: 'Campeón', value: 'a' },
+        { name: 'Mandoble', value: 'b' },
+        { name: 'Espada Larga', value: 'c' },
+        { name: 'Hombre de Armas', value: 'd' },
+        { name: 'Milicia', value: 'e' }
+      ]
+    }
+  ]
+},
   {
   name: 'actualizar_categoria',
   description: 'Actualiza el archivo JSON de una categoría según los roles de los usuarios.',
