@@ -3,7 +3,7 @@ const axios = require('axios');
 const fs = require('fs');
 
 const GITHUB_REPO = 'Alegenio2/bot-fmg'; // tu usuario/repositorio
-const FILE_PATH = './categorias/categoria_b.json';
+const FILE_PATH = '../categorias/categoria_b.json';
 const BRANCH = 'main'; // o el branch que uses
 
 const GH_TOKEN = process.env.GH_TOKEN;
