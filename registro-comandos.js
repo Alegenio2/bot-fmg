@@ -291,7 +291,18 @@ const comandos = [
     },
   ],
 },
-
+ {
+    name: 'torneoliga',
+    description: 'Organiza un torneo tipo liga con los participantes de una categoría.',
+    options: [
+      {
+        name: 'categoria',
+        description: 'Categoría para crear la liga',
+        type: ApplicationCommandOptionType.String,
+        required: true,
+      }
+    ],
+  },
 ];
 
 
