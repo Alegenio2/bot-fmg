@@ -18,8 +18,8 @@ jobs:
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
           git clone https://x-access-token:${{ secrets.PUBLIC_REPO_TOKEN }}@github.com/Alegenio2/civs.git
-          cp coordinados.json civs/
+          cp usuarios.json civs/
           cd civs
           git add usuarios.json
-          git commit -m "Sync automático de coordinados.json desde bot-fmg" || echo "Sin cambios"
+          git commit -m "Sync automático de usuarios.json desde bot-fmg" || echo "Sin cambios"
           git push
