@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const { Client, GatewayIntentBits } = require('discord.js');
 const config = require('./botConfig.json');
+const { guardarYSubirCategorias } = require('./guardarCategoriasGit'); // 👈 asegurate que esté bien nombrado
 
 const client = new Client({
   intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers]
@@ -34,13 +35,25 @@ client.once('ready', async () => {
         nombre: m.user.username
       }));
 
-      const savePath = path.join(__dirname, 'categorias', `categoria_${letra}.json`);
+      const carpeta = path.join(__dirname, 'categorias');
+      if (!fs.existsSync(carpeta)) fs.mkdirSync(carpeta);
+
+      const savePath = path.join(carpeta, `categoria_${letra}.json`);
       fs.writeFileSync(savePath, JSON.stringify(jugadores, null, 2), 'utf8');
       console.log(`📂 Actualizado categoria_${letra}.json con ${jugadores.length} jugadores.`);
     }
+  }
+
+  // ☁️ Subida automática a GitHub
+  try {
+    await guardarYSubirCategorias();
+    console.log('☁️ Categorías subidas correctamente a GitHub');
+  } catch (error) {
+    console.error('❌ Error al subir las categorías a GitHub:', error.message);
   }
 
   client.destroy();
 });
 
 client.login(process.env.TOKEN);
+
