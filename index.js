@@ -101,7 +101,7 @@ client.on('interactionCreate', async interaction => {
   const { commandName, options, user } = interaction;
     
 if (interaction.commandName === 'actualizar_categoria') {
-    const ownerId = config.ownerId;
+    const ownerId = botConfig.ownerId;
 
     // Verificar si el usuario tiene permisos
     const esOwner = interaction.user.id === ownerId;
@@ -115,7 +115,7 @@ if (interaction.commandName === 'actualizar_categoria') {
     }
 
     const letra = interaction.options.getString('categoria');
-    const configServidor = config.servidores[interaction.guildId];
+    const configServidor = botConfig.servidores[interaction.guildId];
     if (!configServidor) {
       return interaction.reply({ content: '❌ Configuración del servidor no encontrada.', ephemeral: true });
     }
