@@ -3,7 +3,6 @@ const fs = require('fs');
 const path = require('path');
 const { Client, GatewayIntentBits } = require('discord.js');
 const config = require('./botConfig.json');
-const { guardarYSubirCategorias } = require('./guardarCategoriasGit'); // 👈 asegurate que esté bien nombrado
 
 const client = new Client({
   intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers]
@@ -44,15 +43,7 @@ client.once('ready', async () => {
     }
   }
 
-  // ☁️ Subida automática a GitHub
-  try {
-    await guardarYSubirCategorias();
-    console.log('☁️ Categorías subidas correctamente a GitHub');
-  } catch (error) {
-    console.error('❌ Error al subir las categorías a GitHub:', error.message);
-  }
-
-  client.destroy();
+   client.destroy();
 });
 
 client.login(process.env.TOKEN);
