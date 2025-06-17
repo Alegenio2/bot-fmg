@@ -4,6 +4,25 @@ const config = require('./botConfig.json');
 
 const comandos = [
   {
+  name: 'actualizar_categoria',
+  description: 'Actualiza el archivo JSON de una categoría según los roles de los usuarios.',
+  options: [
+    {
+      name: 'categoria',
+      description: 'Elige la categoría a actualizar',
+      type: ApplicationCommandOptionType.String,
+      required: true,
+      choices: [
+        { name: 'Campeón', value: 'a' },
+        { name: 'Mandoble', value: 'b' },
+        { name: 'Espada Larga', value: 'c' },
+        { name: 'Hombre de Armas', value: 'd' },
+        { name: 'Milicia', value: 'e' }
+      ]
+    }
+  ]
+},
+  {
     name: 'resultado',
     description: 'Registra el resultado de una partida.',
     options: [
