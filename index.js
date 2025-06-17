@@ -423,12 +423,12 @@ await interaction.editReply(mensaje);
     if (interaction.commandName === 'torneoliga') {
   const categoria = interaction.options.getString('categoria');
 
-  if (interaction.user.id !== process.env.OWNER_ID) {
+    if (interaction.user.id !== config.ownerId) {
     return interaction.reply({ content: '❌ Solo el organizador puede usar este comando.', ephemeral: true });
   }
 
   // 👇 Aquí llamás a la lógica del comando que ya preparamos
-  const { ejecutarTorneoLiga } = require('./utils/torneoLiga');
+  const { ejecutarTorneoLiga } = require('./utiles/torneoLiga.js');
   await ejecutarTorneoLiga(interaction, categoria);
 }
 
