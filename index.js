@@ -458,7 +458,7 @@ await interaction.editReply(mensaje);
     if (interaction.commandName === 'torneoliga') {
   const categoria = interaction.options.getString('categoria');
 
-    if (interaction.user.id !== config.ownerId) {
+    if (interaction.user.id !== botConfig.ownerId) {
     return interaction.reply({ content: '❌ Solo el organizador puede usar este comando.', ephemeral: true });
   }
 
