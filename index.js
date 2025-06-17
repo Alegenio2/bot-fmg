@@ -142,9 +142,26 @@ client.on('interactionCreate', async (interaction) => {
 
     fs.writeFileSync(archivo, JSON.stringify(jugadores, null, 2), 'utf8');
 
-    // Subir a GitHub
-    const { guardarYSubirCategorias } = require('./guardarCategoriasGit.js');
-    await guardarYSubirCategorias();
+     // Subir a GitHub solo la categoría correspondiente
+const { guardarYSubirCatA } = require('./git/guardarGit_Cat_A.js');
+const { guardarYSubirCatB } = require('./git/guardarGit_Cat_B.js');
+const { guardarYSubirCatC } = require('./git/guardarGit_Cat_C.js');
+const { guardarYSubirCatD } = require('./git/guardarGit_Cat_D.js');
+const { guardarYSubirCatE } = require('./git/guardarGit_Cat_E.js');
+
+ if (letra === 'a') {
+      await guardarYSubirCatA();
+    } else if (letra === 'b') {
+      await guardarYSubirCatB();
+    } else if (letra === 'c') {
+      await guardarYSubirCatC();
+    } else if (letra === 'd') {
+      await guardarYSubirCatD();
+    } else if (letra === 'e'){
+      await guardarYSubirCatE();
+    } else {
+    return interaction.reply({ content: `⚠️ Subida no configurada para categoría ${letra.toUpperCase()}.`, ephemeral: true });
+  }
 
     return interaction.reply(`✅ Categoría **${letra.toUpperCase()}** actualizada con **${jugadores.length}** jugadores y subida a GitHub.`);
   }
