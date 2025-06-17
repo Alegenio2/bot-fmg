@@ -54,6 +54,3 @@ module.exports = {
 };
 
 
-module.exports = {
-  guardarYSubirCambiosArchivo
-};
