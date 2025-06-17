@@ -466,6 +466,34 @@ await interaction.editReply(mensaje);
   const { ejecutarTorneoLiga } = require('./utiles/torneoLiga.js');
   await ejecutarTorneoLiga(interaction, categoria);
 }
+if (interaction.commandName === 'listar_encuentros') {
+  const categoria = interaction.options.getString('categoria');
+  const filePath = path.join(__dirname, 'ligas', `liga_${categoria}.json`);
+
+  if (!fs.existsSync(filePath)) {
+    return await interaction.reply({
+      content: `⚠️ No existe una liga para la categoría **${categoria.toUpperCase()}**.`,
+      ephemeral: true
+    });
+  }
+
+  const liga = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+  const usuarios = liga.participantes.reduce((acc, jugador) => {
+    acc[jugador.id] = jugador.nombre;
+    return acc;
+  }, {});
+
+  const encuentros = liga.encuentros.map((e, i) => {
+    const nombre1 = usuarios[e.jugador1] || e.jugador1;
+    const nombre2 = usuarios[e.jugador2] || e.jugador2;
+    const resultado = e.resultado ? e.resultado : '🕓 Pendiente';
+    return `**${i + 1}.** ${nombre1} vs ${nombre2} → ${resultado}`;
+  });
+
+  const respuesta = `📋 **Encuentros de la Liga ${categoria.toUpperCase()}**\n\n${encuentros.join('\n')}`;
+
+  await interaction.reply({ content: respuesta.slice(0, 2000), ephemeral: true }); // Discord tiene límite de 2000 caracteres
+}
 
 });
 
