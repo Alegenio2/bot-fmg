@@ -1,24 +1,28 @@
 // utiles/asignarRoles.js
 
+const fs = require('fs');
+const path = require('path');
+
 async function asignarRolesPorPromedio(member, promedio, configServidor) {
   const rolInscripto = configServidor?.rolInscripto;
 
-  // Definir categorías según el promedio
-  let rolCategoria = null;
+  let categoria = null;
   if (promedio >= 1701 && promedio <= 1900) {
-    rolCategoria = configServidor?.categoriaA;
+    categoria = "a";
   } else if (promedio >= 1501 && promedio <= 1700) {
-    rolCategoria = configServidor?.categoriaB;
+    categoria = "b";
   } else if (promedio >= 1301 && promedio <= 1500) {
-    rolCategoria = configServidor?.categoriaC;
+    categoria = "c";
   } else if (promedio >= 1101 && promedio <= 1300) {
-    rolCategoria = configServidor?.categoriaD;
+    categoria = "d";
   } else {
-    rolCategoria = configServidor?.categoriaE;
+    categoria = "e";
   }
 
+  const rolCategoria = configServidor?.[`categoria${categoria.toUpperCase()}`];
+
   try {
-    // Eliminar otras categorías anteriores si existen (opcional)
+    // Quitar roles de otras categorías
     const rolesCategorias = [
       configServidor?.categoriaA,
       configServidor?.categoriaB,
@@ -27,13 +31,34 @@ async function asignarRolesPorPromedio(member, promedio, configServidor) {
       configServidor?.categoriaE,
     ].filter(Boolean);
 
-    await member.roles.remove(rolesCategorias); // Elimina cualquier categoría previa
-
+    await member.roles.remove(rolesCategorias);
     if (rolInscripto) await member.roles.add(rolInscripto);
     if (rolCategoria) await member.roles.add(rolCategoria);
+
+    // Guardar jugador en archivo JSON de su categoría
+    const dataPath = path.join(__dirname, '..', 'categorias');
+    const filePath = path.join(dataPath, `categoria_${categoria}.json`);
+
+    if (!fs.existsSync(dataPath)) {
+      fs.mkdirSync(dataPath);
+    }
+
+    let jugadores = [];
+    if (fs.existsSync(filePath)) {
+      jugadores = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    }
+
+    const yaRegistrado = jugadores.find(j => j.id === member.id);
+    if (!yaRegistrado) {
+      jugadores.push({ id: member.id, nombre: member.user.username });
+      fs.writeFileSync(filePath, JSON.stringify(jugadores, null, 2), 'utf8');
+      console.log(`✅ Agregado ${member.user.username} a categoria_${categoria}.json`);
+    }
+
   } catch (error) {
-    console.error("Error al asignar roles por promedio:", error);
+    console.error("❌ Error al asignar roles o guardar jugador:", error);
   }
 }
 
 module.exports = { asignarRolesPorPromedio };
+
