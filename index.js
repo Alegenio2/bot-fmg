@@ -408,6 +408,7 @@ if (interaction.commandName === "re-coordinar") {
 
   if (member) {
     await asignarRolesPorPromedio(member, promedio, configServidor);
+    await actualizarCategoriasDesdeRoles(interaction.guild); // 👈 se actualiza json + sube a GitHub  
   }
 }
    if (interaction.commandName === 'inscripciones_vinculado') {
@@ -449,6 +450,7 @@ await interaction.editReply(mensaje);
 
     if (member) {
       await asignarRolesPorPromedio(member, promedio, configServidor);
+      await actualizarCategoriasDesdeRoles(interaction.guild); // 👈 actualiza y sube  
     }
         
         
