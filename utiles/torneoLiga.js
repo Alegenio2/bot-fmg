@@ -2,14 +2,13 @@ const fs = require('fs');
 const path = require('path');
 
 async function ejecutarTorneoLiga(interaction, categoria) {
-  const filePath = path.join(__dirname, '..', 'data', 'inscripciones.json');
+  const filePath = path.join(__dirname, '..', 'categorias', `categoria_${categoria}.json`);
 
   if (!fs.existsSync(filePath)) {
-    return await interaction.reply({ content: "⚠️ No hay inscripciones registradas aún.", ephemeral: true });
+    return await interaction.reply({ content: `⚠️ No hay inscriptos registrados en la categoría **${categoria}**.`, ephemeral: true });
   }
 
-  const inscriptos = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-  const participantes = inscriptos.filter(p => p.categoria === categoria);
+  const participantes = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 
   if (participantes.length < 2) {
     return await interaction.reply({ content: `⚠️ Se necesitan al menos 2 jugadores para crear una liga.`, ephemeral: true });
