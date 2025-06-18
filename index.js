@@ -260,34 +260,40 @@ if (interaction.commandName === "resultado") {
   const liga = JSON.parse(fs.readFileSync(filePath, 'utf8'));
   let partidoActualizado = false;
 
-  for (const jornada of liga.jornadas) {
-    for (const partido of jornada.partidos) {
-      const j1 = partido.jugador1Id;
-      const j2 = partido.jugador2Id;
+for (const jornada of liga.jornadas) {
+  for (const partido of jornada.partidos) {
+    const j1 = partido.jugador1Id;
+    const j2 = partido.jugador2Id;
 
-      if (
-        (j1 === jugador.id && j2 === otrojugador.id) ||
-        (j1 === otrojugador.id && j2 === jugador.id)
-      ) {
-        partido.resultado = {
-          [jugador.id]: puntosjugador,
-          [otrojugador.id]: puntosotrojugador,
-          draftmapas,
-          draftcivis,
-          rec: archivoAdjunto?.attachment.url || null,
-          fecha: new Date().toISOString()
-        };
+    console.log(`🔍 Comparando partido: ${j1} vs ${j2}`);
+    console.log(`   Con jugadores: ${jugador.id} vs ${otrojugador.id}`);
 
-        partidoActualizado = true;
-        break;
-      }
+    if (
+      (j1 === jugador.id && j2 === otrojugador.id) ||
+      (j1 === otrojugador.id && j2 === jugador.id)
+    ) {
+      console.log(`✅ Partido encontrado. Actualizando resultado...`);
+
+      partido.resultado = {
+        [jugador.id]: puntosjugador,
+        [otrojugador.id]: puntosotrojugador,
+        draftmapas,
+        draftcivis,
+        rec: archivoAdjunto?.attachment?.url || null,
+        fecha: new Date().toISOString()
+      };
+
+      partidoActualizado = true;
+      break;
     }
-    if (partidoActualizado) break;
   }
+  if (partidoActualizado) break;
+}
 
-  if (partidoActualizado) {
-    fs.writeFileSync(filePath, JSON.stringify(liga, null, 2), 'utf8');
-    console.log(`📝 Resultado actualizado en liga_${division}.json`);
+if (partidoActualizado) {
+  console.log("📝 Guardando cambios en:", filePath);
+  fs.writeFileSync(filePath, JSON.stringify(liga, null, 2), 'utf8');
+  console.log(`✅ Resultado guardado en liga_${division}.json`);
 
     try {
       const { subirTodasLasLigas } = require('../git/guardarLigasGit');
