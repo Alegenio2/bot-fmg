@@ -6,7 +6,7 @@
       "nombre": "BOLSOLOCURA",
       "profileId": "2393008",
       "elo": 1378,
-      "rank": 6115,
+      "rank": 6124,
       "wins": 365,
       "losses": 339,
       "pais": "🇺🇾",
@@ -20,7 +20,7 @@
       "nombre": "CORP_Kroyen",
       "profileId": "828458",
       "elo": 1484,
-      "rank": 4105,
+      "rank": 4097,
       "wins": 62,
       "losses": 43,
       "pais": "🇺🇾",
@@ -34,7 +34,7 @@
       "nombre": "DGHIR | PaginasAmarillas",
       "profileId": "11033804",
       "elo": 1444,
-      "rank": 4756,
+      "rank": 4748,
       "wins": 1033,
       "losses": 993,
       "pais": "🇺🇾",
@@ -62,7 +62,7 @@
       "nombre": "Culero Connor II",
       "profileId": "5736044",
       "elo": 1411,
-      "rank": 5413,
+      "rank": 5416,
       "wins": 302,
       "losses": 289,
       "pais": "🇺🇾",
@@ -90,7 +90,7 @@
       "nombre": "DGHIR | Rorro Knight",
       "profileId": "5627235",
       "elo": 1361,
-      "rank": 6488,
+      "rank": 6485,
       "wins": 983,
       "losses": 952,
       "pais": "🇺🇾",
@@ -104,7 +104,7 @@
       "nombre": "DGHIR | Lionerrt",
       "profileId": "5204719",
       "elo": 1283,
-      "rank": 8554,
+      "rank": 8567,
       "wins": 294,
       "losses": 268,
       "pais": "🇺🇾",
@@ -291,5 +291,5 @@
       ]
     }
   ],
-  "creado": "2025-06-18T05:10:40.715Z"
+  "creado": "2025-06-18T05:27:38.428Z"
 }
