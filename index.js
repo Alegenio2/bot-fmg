@@ -101,7 +101,8 @@ client.on('interactionCreate', async (interaction) => {
   if (!interaction.isChatInputCommand()) return;
 
   const { commandName, options, user, guildId, member, channelId } = interaction;
- 
+    
+// Comando: resultado 
 if (interaction.commandName === "resultado") {
   const options = interaction.options;
   const division = options.getString("division");
@@ -122,9 +123,8 @@ if (interaction.commandName === "resultado") {
     mensaje += `\nNo se adjuntó ningún archivo`;
   }
 
-  await interaction.reply(mensaje);
+  await interaction.reply(mensaje); // Primer y único reply
 
-  // Mapeo para convertir categoría a letra
   const divisionMap = {
     categoria_a: 'a',
     categoria_b: 'b',
@@ -133,12 +133,11 @@ if (interaction.commandName === "resultado") {
     categoria_e: 'e',
   };
 
-  // Obtenemos la letra correspondiente a la división
   const letraDivision = divisionMap[division];
 
   if (!letraDivision) {
     console.warn(`⚠️ División no reconocida: ${division}`);
-    return await interaction.reply("⚠️ División no válida.");
+    return await interaction.followUp("⚠️ División no válida.");
   }
 
   let fileligaPath;
@@ -147,13 +146,13 @@ if (interaction.commandName === "resultado") {
     console.log('Ruta del archivo:', fileligaPath);
   } catch (error) {
     console.error('Error al construir la ruta del archivo:', error);
-    return await interaction.reply("⚠️ Error al construir la ruta del archivo de liga.");
+    return await interaction.followUp("⚠️ Error al construir la ruta del archivo de liga.");
   }
 
   try {
     if (!fs.existsSync(fileligaPath)) {
       console.warn(`⚠️ Archivo no encontrado: ${fileligaPath}`);
-      return await interaction.reply("⚠️ No se encontró el archivo de liga para esa división.");
+      return await interaction.followUp("⚠️ No se encontró el archivo de liga para esa división.");
     }
 
     const liga = JSON.parse(fs.readFileSync(fileligaPath, 'utf8'));
@@ -199,15 +198,16 @@ if (interaction.commandName === "resultado") {
         await subirTodasLasLigas();
       } catch (error) {
         console.warn('⚠️ No se pudo subir a GitHub:', error.message);
+        await interaction.followUp("⚠️ El resultado fue guardado pero no se pudo subir a GitHub.");
       }
     } else {
       console.warn(`⚠️ No se encontró el partido entre ${jugador.id} y ${otrojugador.id} en la liga.`);
-      await interaction.reply(`⚠️ No se encontró el partido entre ${jugador.username} y ${otrojugador.username} en la liga.`);
+      await interaction.followUp(`⚠️ No se encontró el partido entre ${jugador.username} y ${otrojugador.username} en la liga.`);
     }
 
   } catch (error) {
     console.error('Error leyendo o procesando el archivo de liga:', error);
-    await interaction.reply("⚠️ Ocurrió un error al procesar la liga. Revisa los logs.");
+    await interaction.followUp("⚠️ Ocurrió un error al procesar la liga. Revisa los logs.");
   }
 }
   // Comando: fixture_jornada  
