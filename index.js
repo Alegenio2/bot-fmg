@@ -226,30 +226,63 @@ const { guardarYSubirCatE } = require('./git/guardarGit_Cat_E.js');
   }
 
   // Comando: resultado
-  if (commandName === 'resultado') {
-    const division = options.getString('division');
-    const ronda = options.getString('ronda');
-    const fecha = options.getString('fecha');
-    const jugador = options.getUser('jugador');
-    const puntosjugador = options.getNumber('puntosjugador');
-    const otrojugador = options.getUser('otrojugador');
-    const puntosotrojugador = options.getNumber('puntosotrojugador');
-    const draftmapas = options.getString('draftmapas');
-    const draftcivis = options.getString('draftcivis');
+  if (interaction.commandName === "resultado") {
+  const options = interaction.options;
+  const division = options.getString("division");
+  const ronda = options.getString("ronda");
+  const fecha = options.getString("fecha");
+  const jugador = options.getUser("jugador");
+  const puntosjugador = options.getNumber("puntosjugador");
+  const otrojugador = options.getUser("otrojugador");
+  const puntosotrojugador = options.getNumber("puntosotrojugador");
+  const draftmapas = options.getString("draftmapas");
+  const draftcivis = options.getString("draftcivis");
+  const archivoAdjunto = interaction.options.get("archivo");
 
-    const archivoAdjunto = options.get('archivo');
-
-    let mensaje = `Copa Uruguaya\n División ${division} - Etapa: ${ronda} - Fecha ${fecha}\n ${jugador}  ||${puntosjugador} - ${puntosotrojugador}|| ${otrojugador} \n Mapas:${draftmapas} \n Civs:${draftcivis}`;
-
-    if (archivoAdjunto) {
-      mensaje += `\nRec: ${archivoAdjunto.attachment.url}`;
-    } else {
-      mensaje += `\nNo se adjuntó ningún archivo`;
-    }
-
-    return interaction.reply(mensaje);
+  let mensaje = `Copa Uruguaya\n División ${division} - Etapa: ${ronda} - Fecha ${fecha}\n ${jugador}  ||${puntosjugador} - ${puntosotrojugador}|| ${otrojugador} \n Mapas:${draftmapas} \n Civs:${draftcivis}`;
+  if (archivoAdjunto) {
+    mensaje += `\nRec: ${archivoAdjunto.attachment.url}`;
+  } else {
+    mensaje += `\nNo se adjuntó ningún archivo`;
   }
 
+  await interaction.reply(mensaje);
+
+  // Ruta del archivo de liga
+  const filePath = path.join(__dirname, 'ligas', `liga_${division}.json`);
+  if (!fs.existsSync(filePath)) return;
+
+  const liga = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+  const encuentros = liga.encuentros;
+
+  // Buscar el encuentro sin importar el orden
+  const index = encuentros.findIndex(e =>
+    (e.jugador1.id === jugador.id && e.jugador2.id === otrojugador.id) ||
+    (e.jugador1.id === otrojugador.id && e.jugador2.id === jugador.id)
+  );
+
+  if (index !== -1) {
+    encuentros[index].resultado = {
+      [jugador.id]: puntosjugador,
+      [otrojugador.id]: puntosotrojugador,
+      draftmapas,
+      draftcivis,
+      rec: archivoAdjunto?.attachment.url || null,
+      fecha: new Date().toISOString()
+    };
+
+    // Guardar archivo actualizado
+    fs.writeFileSync(filePath, JSON.stringify(liga, null, 2), 'utf8');
+    console.log(`📝 Resultado actualizado en liga_${division}.json`);
+
+  try {
+  const { subirTodasLasLigas } = require('../git/guardarLigasGit');
+  await subirTodasLasLigas();
+} catch (error) {
+  console.warn('⚠️ No se pudo subir a GitHub:', error.message);
+} 
+  }
+}
   // Comando: coordinado
   if (commandName === 'coordinado') {
     const division = options.getString('division');
