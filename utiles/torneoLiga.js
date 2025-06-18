@@ -69,8 +69,12 @@ async function ejecutarTorneoLiga(interaction, categoria) {
   if (!fs.existsSync(path.dirname(savePath))) fs.mkdirSync(path.dirname(savePath));
 
   fs.writeFileSync(savePath, JSON.stringify(torneoData, null, 2), 'utf8');
+ try {
   const { subirTodasLasLigas } = require('../git/guardarLigasGit');
   await subirTodasLasLigas();
+} catch (error) {
+  console.warn('⚠️ No se pudo subir a GitHub:', error.message);
+}
 
   
   await interaction.reply(
