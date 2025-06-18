@@ -1,82 +1,73 @@
-// guardarLigasGit.js
+// git/guardarLigasGit.js
 const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
 
-const GITHUB_REPO = 'Alegenio2/bot-fmg'; // tu usuario/repositorio
-const CARPETA_LIGAS = path.join(__dirname, 'ligas'); // carpeta local
+const GITHUB_REPO = 'Alegenio2/bot-fmg';
 const BRANCH = 'main';
 const GH_TOKEN = process.env.GH_TOKEN;
 
 async function subirTodasLasLigas() {
-  const archivos = fs.readdirSync(CARPETA_LIGAS).filter(file => file.endsWith('.json'));
+  const ligasPath = path.join(__dirname, '..', 'ligas');
+  if (!fs.existsSync(ligasPath)) {
+    console.error(`❌ La carpeta ligas no existe en ${ligasPath}`);
+    return;
+  }
+
+  const archivos = fs.readdirSync(ligasPath);
 
   for (const archivo of archivos) {
-    const rutaLocal = path.join(CARPETA_LIGAS, archivo);
-    const rutaGitHub = `ligas/${archivo}`;
-    const contenido = fs.readFileSync(rutaLocal, 'utf8');
+    const LOCAL_FILE_PATH = path.join(ligasPath, archivo);
+    const RELATIVE_FILE_PATH = `ligas/${archivo}`; // para GitHub
+
+    if (!fs.existsSync(LOCAL_FILE_PATH)) continue;
+
+    const contenido = fs.readFileSync(LOCAL_FILE_PATH, 'utf8');
     const contenidoBase64 = Buffer.from(contenido).toString('base64');
 
+    let sha = undefined;
     try {
-      // 1. Obtener SHA actual (si el archivo ya existe)
       const { data: fileData } = await axios.get(
-        `https://api.github.com/repos/${GITHUB_REPO}/contents/${rutaGitHub}?ref=${BRANCH}`,
+        `https://api.github.com/repos/${GITHUB_REPO}/contents/${RELATIVE_FILE_PATH}?ref=${BRANCH}`,
         {
           headers: {
             Authorization: `Bearer ${GH_TOKEN}`,
-            Accept: 'application/vnd.github+json'
-          }
+            Accept: 'application/vnd.github+json',
+          },
         }
       );
+      sha = fileData.sha;
+    } catch (error) {
+      if (error.response?.status !== 404) {
+        console.error(`❌ Error al obtener SHA de ${RELATIVE_FILE_PATH}`, error.response?.data || error.message);
+        continue;
+      }
+      // si es 404 está bien, es porque el archivo aún no existe en el repo
+    }
 
-      const shaActual = fileData.sha;
-
-      // 2. Actualizar el archivo
+    try {
       await axios.put(
-        `https://api.github.com/repos/${GITHUB_REPO}/contents/${rutaGitHub}`,
+        `https://api.github.com/repos/${GITHUB_REPO}/contents/${RELATIVE_FILE_PATH}`,
         {
-          message: `Actualización automática de ${archivo}`,
+          message: `Subida automática de ${archivo}`,
           content: contenidoBase64,
-          sha: shaActual,
-          branch: BRANCH
+          ...(sha && { sha }),
+          branch: BRANCH,
         },
         {
           headers: {
             Authorization: `Bearer ${GH_TOKEN}`,
-            Accept: 'application/vnd.github+json'
-          }
+            Accept: 'application/vnd.github+json',
+          },
         }
       );
 
-      console.log(`✅ Archivo ${archivo} actualizado en GitHub`);
+      console.log(`✅ Subido correctamente: ${archivo}`);
     } catch (error) {
-      // Si no existe, lo creamos
-      if (error.response?.status === 404) {
-        try {
-          await axios.put(
-            `https://api.github.com/repos/${GITHUB_REPO}/contents/${rutaGitHub}`,
-            {
-              message: `Creación automática de ${archivo}`,
-              content: contenidoBase64,
-              branch: BRANCH
-            },
-            {
-              headers: {
-                Authorization: `Bearer ${GH_TOKEN}`,
-                Accept: 'application/vnd.github+json'
-              }
-            }
-          );
-
-          console.log(`🆕 Archivo ${archivo} creado en GitHub`);
-        } catch (err2) {
-          console.error(`❌ Error al crear ${archivo}:`, err2.response?.data || err2.message);
-        }
-      } else {
-        console.error(`❌ Error al procesar ${archivo}:`, error.response?.data || error.message);
-      }
+      console.error(`❌ Error subiendo ${archivo}:`, error.response?.data || error.message);
     }
   }
 }
 
 module.exports = { subirTodasLasLigas };
+
