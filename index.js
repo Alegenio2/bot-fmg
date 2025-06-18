@@ -245,7 +245,7 @@ if (interaction.commandName === "resultado") {
   const draftcivis = options.getString("draftcivis");
   const archivoAdjunto = interaction.options.get("archivo");
 
-  let mensaje = `Copa Uruguaya\n División ${division} - Etapa: ${ronda} - Fecha ${fecha}\n ${jugador}  ||${puntosjugador} - ${puntosotrojugador}|| ${otrojugador} \n Mapas: ${draftmapas} \n Civs: ${draftcivis}`;
+  let mensaje = `Campeonato Uruguayo\n División ${division} - Etapa: ${ronda} - Fecha ${fecha}\n ${jugador}  ||${puntosjugador} - ${puntosotrojugador}|| ${otrojugador} \n Mapas: ${draftmapas} \n Civs: ${draftcivis}`;
   if (archivoAdjunto) {
     mensaje += `\nRec: ${archivoAdjunto.attachment.url}`;
   } else {
