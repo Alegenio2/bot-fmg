@@ -4,6 +4,31 @@ const config = require('./botConfig.json');
 
 const comandos = [
     {
+  name: 'fixture_jornada',
+  description: 'Muestra los encuentros de una jornada de liga.',
+  options: [
+    {
+      name: 'categoria',
+      description: 'Letra de la categoría',
+      type: ApplicationCommandOptionType.String,
+      required: true,
+      choices: [
+        { name: 'Campeón', value: 'a' },
+        { name: 'Mandoble', value: 'b' },
+        { name: 'Espada Larga', value: 'c' },
+        { name: 'Hombre de Armas', value: 'd' },
+        { name: 'Milicia', value: 'e' }
+      ]
+    },
+    {
+      name: 'jornada',
+      description: 'Número de jornada a mostrar',
+      type: ApplicationCommandOptionType.Integer,
+      required: true
+    }
+  ]
+},
+    {
   name: 'listar_encuentros',
   description: 'Lista los cruces de la liga de una categoría.',
   options: [
