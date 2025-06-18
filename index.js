@@ -475,35 +475,44 @@ if (commandName === 'torneoliga') {
 
 
   // Comando: listar_encuentros
-  if (commandName === 'listar_encuentros') {
-    const categoria = options.getString('categoria');
-    const filePath = path.join(__dirname, 'ligas', `liga_${categoria}.json`);
+ const path = require('path');
+const fs = require('fs');
 
-    if (!fs.existsSync(filePath)) {
-      return interaction.reply({
-        content: `⚠️ No existe una liga para la categoría **${categoria.toUpperCase()}**.`,
-        ephemeral: true
-      });
-    }
+// Comando: listar_encuentros
+if (commandName === 'listar_encuentros') {
+  const categoria = options.getString('categoria');
+  const filePath = path.join(__dirname, 'ligas', `liga_${categoria}.json`);
 
-    const liga = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-    const usuarios = liga.participantes.reduce((acc, jugador) => {
-      acc[jugador.id] = jugador.nombre;
-      return acc;
-    }, {});
-
-   const encuentros = liga.encuentros.map((e, i) => {
-  const nombre1 = e.jugador1.nombre || 'Jugador 1';
-  const nombre2 = e.jugador2.nombre || 'Jugador 2';
-  const resultado = e.resultado ? `✅ ${e.resultado}` : '🕓 Pendiente';
-  return `**${i + 1}.** ${nombre1} vs ${nombre2} → ${resultado}`;
-});
-
-
-    const respuesta = `📋 **Encuentros de la Liga ${categoria.toUpperCase()}**\n\n${encuentros.join('\n')}`;
-
-    return interaction.reply({ content: respuesta.slice(0, 2000), ephemeral: true });
+  if (!fs.existsSync(filePath)) {
+    return interaction.reply({
+      content: `⚠️ No existe una liga para la categoría **${categoria.toUpperCase()}**.`,
+      ephemeral: true
+    });
   }
+
+  const liga = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+
+  // Crear un mapa para buscar participante por id rápido
+  const mapaParticipantes = {};
+  liga.participantes.forEach(p => {
+    mapaParticipantes[p.id] = p.nombre;
+  });
+
+  const encuentrosPorJornada = liga.jornadas.map(jornada => {
+    const encuentros = jornada.partidos.map((partido, i) => {
+      const nombre1 = mapaParticipantes[partido.jugador1Id] || 'Jugador 1';
+      const nombre2 = mapaParticipantes[partido.jugador2Id] || 'Jugador 2';
+      const resultado = partido.resultado ? `✅ ${partido.resultado}` : '🕓 Pendiente';
+      return `  ${i + 1}. ${nombre1} vs ${nombre2} → ${resultado}`;
+    });
+
+    return `🔹 **Jornada ${jornada.ronda}**\n${encuentros.join('\n')}`;
+  });
+
+  const respuesta = `📋 **Encuentros de la Liga ${categoria.toUpperCase()}**\n\n${encuentrosPorJornada.join('\n\n')}`;
+
+  return interaction.reply({ content: respuesta.slice(0, 2000), ephemeral: true });
+}
 
 });
 
