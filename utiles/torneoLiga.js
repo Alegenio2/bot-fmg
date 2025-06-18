@@ -5,10 +5,12 @@ const { obtenerEloActual } = require('../elo'); // tu función para la API
 const usuariosMap = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'usuarios.json'), 'utf8'));
 
 async function ejecutarTorneoLiga(interaction, categoria) {
+  await interaction.deferReply(); // <-- Esto evita el error 10062
+
   const categoriasPath = path.join(__dirname, '..', 'categorias', `categoria_${categoria}.json`);
 
   if (!fs.existsSync(categoriasPath)) {
-    return await interaction.reply({
+    return interaction.editReply({
       content: `⚠️ No hay inscriptos registrados en la categoría **${categoria}**.`,
       ephemeral: true
     });
@@ -17,7 +19,7 @@ async function ejecutarTorneoLiga(interaction, categoria) {
   const participantesBasicos = JSON.parse(fs.readFileSync(categoriasPath, 'utf8'));
 
   if (participantesBasicos.length < 2) {
-    return await interaction.reply({
+    return interaction.editReply({
       content: `⚠️ Se necesitan al menos 2 jugadores para crear una liga.`,
       ephemeral: true
     });
@@ -37,7 +39,7 @@ async function ejecutarTorneoLiga(interaction, categoria) {
     participantesConDatos.push({
       ...participante,
       profileId,
-      ...(datosExtendidos || {}) // solo agrega si existen
+      ...(datosExtendidos || {})
     });
   }
 
@@ -104,7 +106,7 @@ async function ejecutarTorneoLiga(interaction, categoria) {
     console.warn('⚠️ No se pudo subir a GitHub:', error.message);
   }
 
-  await interaction.reply(
+  await interaction.editReply(
     `✅ Liga creada para la categoría **${categoria}** con ${participantesConDatos.length} jugadores y ${jornadas.length} jornadas.`
   );
 }
