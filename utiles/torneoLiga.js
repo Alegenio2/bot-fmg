@@ -69,7 +69,10 @@ async function ejecutarTorneoLiga(interaction, categoria) {
   if (!fs.existsSync(path.dirname(savePath))) fs.mkdirSync(path.dirname(savePath));
 
   fs.writeFileSync(savePath, JSON.stringify(torneoData, null, 2), 'utf8');
+  const { subirTodasLasLigas } = require('../git/guardarLigasGit');
+  await subirTodasLasLigas();
 
+  
   await interaction.reply(
     `✅ Liga creada para la categoría **${categoria}** con ${participantesConDatos.length} jugadores y ${encuentros.length} duelos.`
   );
