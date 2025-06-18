@@ -102,8 +102,8 @@ client.on('interactionCreate', async (interaction) => {
 
   const { commandName, options, user, guildId, member, channelId } = interaction;
 
-   // Comando: resultado     
- if (interaction.commandName === "resultado") {
+// Comando: resultado
+if (interaction.commandName === "resultado") {
   const options = interaction.options;
   const division = options.getString("division");
   const ronda = options.getString("ronda");
@@ -116,45 +116,32 @@ client.on('interactionCreate', async (interaction) => {
   const draftcivis = options.getString("draftcivis");
   const archivoAdjunto = interaction.options.get("archivo");
 
-  let mensaje = `Campeonato Uruguayo\n División ${division} - Etapa: ${ronda} - Fecha ${fecha}\n ${jugador}  ||${puntosjugador} - ${puntosotrojugador}|| ${otrojugador} \n Mapas: ${draftmapas} \n Civs: ${draftcivis}`;
-  if (archivoAdjunto) {
-    mensaje += `\nRec: ${archivoAdjunto.attachment.url}`;
-  } else {
-    mensaje += `\nNo se adjuntó ningún archivo`;
+  // Validación mínima
+  if (!jugador || !otrojugador || puntosjugador == null || puntosotrojugador == null) {
+    return await interaction.reply("❌ Faltan datos obligatorios para registrar el resultado.");
   }
+
+  // Mostrar mensaje de resultado
+  let mensaje = `Campeonato Uruguayo\n División ${division} - Etapa: ${ronda} - Fecha ${fecha}\n ${jugador}  ||${puntosjugador} - ${puntosotrojugador}|| ${otrojugador} \n Mapas: ${draftmapas} \n Civs: ${draftcivis}`;
+  mensaje += archivoAdjunto?.attachment?.url
+    ? `\nRec: ${archivoAdjunto.attachment.url}`
+    : `\nNo se adjuntó ningún archivo`;
 
   await interaction.reply(mensaje); // Primer y único reply
 
-  const divisionMap = {
-    categoria_a: 'a',
-    categoria_b: 'b',
-    categoria_c: 'c',
-    categoria_d: 'd',
-    categoria_e: 'e',
-  };
-
-  const letraDivision = divisionMap[division];
-
-  if (!letraDivision) {
-    console.warn(`⚠️ División no reconocida: ${division}`);
+  const letraDivision = division?.split('_')[1]; // Ej: categoria_a → a
+  if (!letraDivision || letraDivision.length !== 1) {
     return await interaction.followUp("⚠️ División no válida.");
   }
 
-  let filePath;
-  try {
-    filePath = path.join(__dirname, 'ligas', `liga_${letraDivision}.json`);
-    console.log('Ruta del archivo:', filePath);
-  } catch (error) {
-    console.error('Error al construir la ruta del archivo:', error);
-    return await interaction.followUp("⚠️ Error al construir la ruta del archivo de liga.");
+  const filePath = path.join(__dirname, 'ligas', `liga_${letraDivision}.json`);
+
+  if (!fs.existsSync(filePath)) {
+    console.warn(`⚠️ Archivo no encontrado: ${filePath}`);
+    return await interaction.followUp("⚠️ No se encontró el archivo de liga para esa división.");
   }
 
   try {
-    if (!fs.existsSync(filePath)) {
-      console.warn(`⚠️ Archivo no encontrado: ${filePath}`);
-      return await interaction.followUp("⚠️ No se encontró el archivo de liga para esa división.");
-    }
-
     const liga = JSON.parse(fs.readFileSync(filePath, 'utf8'));
     let partidoActualizado = false;
 
@@ -163,22 +150,24 @@ client.on('interactionCreate', async (interaction) => {
         const j1 = partido.jugador1Id;
         const j2 = partido.jugador2Id;
 
-        console.log(`🔍 Comparando partido: ${j1} vs ${j2}`);
-        console.log(`   Con jugadores: ${jugador.id} vs ${otrojugador.id}`);
-
-        if (
+        const esEstePartido =
           (j1 === jugador.id && j2 === otrojugador.id) ||
-          (j1 === otrojugador.id && j2 === jugador.id)
-        ) {
-          console.log(`✅ Partido encontrado. Actualizando resultado...`);
+          (j1 === otrojugador.id && j2 === jugador.id);
+
+        if (esEstePartido) {
+          if (partido.resultado) {
+            return await interaction.followUp("⚠️ Ese partido ya tiene un resultado registrado.");
+          }
+
+          const urlValida = archivoAdjunto?.attachment?.url?.startsWith("http");
 
           partido.resultado = {
             [jugador.id]: puntosjugador,
             [otrojugador.id]: puntosotrojugador,
             draftmapas,
             draftcivis,
-            rec: archivoAdjunto?.attachment?.url || null,
-            fecha: new Date().toISOString()
+            rec: urlValida ? archivoAdjunto.attachment.url : null,
+            fecha: new Date().toISOString(),
           };
 
           partidoActualizado = true;
@@ -189,27 +178,17 @@ client.on('interactionCreate', async (interaction) => {
     }
 
     if (partidoActualizado) {
-      console.log("📝 Guardando cambios en:", filePath);
-      fs.writeFileSync(filePath, JSON.stringify(liga, null, 2), 'utf8');
-      console.log(`✅ Resultado guardado en liga_${letraDivision}.json`);
-
-      try {
-        const { subirTodasLasLigas } = require('../git/guardarLigasGit');
-        await subirTodasLasLigas();
-      } catch (error) {
-        console.warn('⚠️ No se pudo subir a GitHub:', error.message);
-        await interaction.followUp("⚠️ El resultado fue guardado pero no se pudo subir a GitHub.");
-      }
+      await guardarLiga(liga, filePath, letraDivision, interaction);
     } else {
-      console.warn(`⚠️ No se encontró el partido entre ${jugador.id} y ${otrojugador.id} en la liga.`);
+      console.warn(`⚠️ No se encontró el partido entre ${jugador.id} y ${otrojugador.id}`);
       await interaction.followUp(`⚠️ No se encontró el partido entre ${jugador.username} y ${otrojugador.username} en la liga.`);
     }
 
   } catch (error) {
-    console.error('Error leyendo o procesando el archivo de liga:', error);
+    console.error('❌ Error leyendo o procesando el archivo de liga:', error);
     await interaction.followUp("⚠️ Ocurrió un error al procesar la liga. Revisa los logs.");
   }
-}   
+}
   // Comando: fixture_jornada  
  if (commandName === 'fixture_jornada') {
     return fixtureJornada.execute(interaction);
@@ -569,6 +548,7 @@ function convertirFormatoFecha(fecha) {
   const [dia, mes, anio] = fecha.split(separador);
   return `${anio}-${mes}-${dia}`;
 }
+
 // Función para obtener el día de la semana a partir de una fecha en formato YYYY-MM-DD
 function obtenerDiaSemana(fechaString) {
   const diasSemana = [
@@ -588,6 +568,21 @@ function obtenerDiaSemana(fechaString) {
   const dia = fecha.getDay();
   return diasSemana[dia];
 }
+
+// Función auxiliar para guardar y subir
+async function guardarLiga(liga, filePath, letraDivision, interaction) {
+  try {
+    fs.writeFileSync(filePath, JSON.stringify(liga, null, 2), 'utf8');
+    console.log(`✅ Resultado guardado en liga_${letraDivision}.json`);
+
+    const { subirTodasLasLigas } = require('../git/guardarLigasGit');
+    await subirTodasLasLigas();
+  } catch (error) {
+    console.warn('⚠️ No se pudo subir a GitHub:', error.message);
+    await interaction.followUp("⚠️ El resultado fue guardado pero no se pudo subir a GitHub.");
+  }
+}
+
 
 client.on("messageCreate", (mensaje) => {
   console.log(mensaje.content);
