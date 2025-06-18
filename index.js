@@ -483,12 +483,13 @@ const { guardarYSubirCatE } = require('./git/guardarGit_Cat_E.js');
       return acc;
     }, {});
 
-    const encuentros = liga.encuentros.map((e, i) => {
-      const nombre1 = usuarios[e.jugador1] || e.jugador1;
-      const nombre2 = usuarios[e.jugador2] || e.jugador2;
-      const resultado = e.resultado ? e.resultado : '🕓 Pendiente';
-      return `**${i + 1}.** ${nombre1} vs ${nombre2} → ${resultado}`;
-    });
+   const encuentros = liga.encuentros.map((e, i) => {
+  const nombre1 = e.jugador1.nombre || 'Jugador 1';
+  const nombre2 = e.jugador2.nombre || 'Jugador 2';
+  const resultado = e.resultado ? `✅ ${e.resultado}` : '🕓 Pendiente';
+  return `**${i + 1}.** ${nombre1} vs ${nombre2} → ${resultado}`;
+});
+
 
     const respuesta = `📋 **Encuentros de la Liga ${categoria.toUpperCase()}**\n\n${encuentros.join('\n')}`;
 
