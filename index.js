@@ -1,7 +1,7 @@
+const path = require('path');
 require("dotenv").config();
 //const Discord = require("discord.js");
 const {Client,PermissionsBitField , Attachment, ActivityType, GatewayIntentBits, AttachmentBuilder ,Partials,ActionRowBuilder, ButtonBuilder, ButtonStyle} = require("discord.js")
-const path = require('path');
 const fs = require("fs");
 const { type } = require("os");
 const { createCanvas, loadImage } = require("canvas");
@@ -351,7 +351,7 @@ const { guardarYSubirCatE } = require('./git/guardarGit_Cat_E.js');
     const fechaFormatoCorrecto = convertirFormatoFecha(fecha);
     const diaSemana = obtenerDiaSemana(fechaFormatoCorrecto);
 
-    const mensaje = `📅 Copa Uruguaya\n🗂 División: ${division}, Etapa: ${ronda}\n📆 Fecha: ${fecha} (${diaSemana}) a las ${horario}-hs ${gmt}\n👥 ${jugador} vs ${rival}`;
+    const mensaje = `📅 Campeonato Uruguayo\n🗂 División: ${division}, Etapa: ${ronda}\n📆 Fecha: ${fecha} (${diaSemana}) a las ${horario}-hs ${gmt}\n👥 ${jugador} vs ${rival}`;
     await interaction.reply({ content: mensaje, fetchReply: true });
 
     const nuevoEncuentro = {
