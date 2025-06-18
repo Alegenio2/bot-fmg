@@ -1,8 +1,8 @@
 require("dotenv").config();
 //const Discord = require("discord.js");
-const {Client,PermissionsBitField , Attachment, ActivityType, GatewayIntentBits, AttachmentBuilder ,Partials,ActionRowBuilder, ButtonBuilder, ButtonStyle} = require("discord.js")
 const path = require('path');
 const fs = require("fs");
+const {Client,PermissionsBitField , Attachment, ActivityType, GatewayIntentBits, AttachmentBuilder ,Partials,ActionRowBuilder, ButtonBuilder, ButtonStyle} = require("discord.js")
 const { type } = require("os");
 const { createCanvas, loadImage } = require("canvas");
 const fetch = require("node-fetch");
@@ -254,8 +254,30 @@ if (interaction.commandName === "resultado") {
 
   await interaction.reply(mensaje);
 
-  const filePath = path.join(__dirname, 'ligas', `liga_${division}.json`);
-  if (!fs.existsSync(filePath)) return;
+  // Mapeo para convertir categoría a letra
+const divisionMap = {
+  categoria_a: 'a',
+  categoria_b: 'b',
+  categoria_c: 'c',
+  categoria_d: 'd',
+  categoria_e: 'e',
+};
+
+// Obtenemos la letra correspondiente a la división
+const letraDivision = divisionMap[division];
+
+if (!letraDivision) {
+  console.warn(`⚠️ División no reconocida: ${division}`);
+  return await interaction.reply("⚠️ División no válida.");
+}
+
+const filePath = path.join(__dirname, 'ligas', `liga_${letraDivision}.json`);
+
+if (!fs.existsSync(filePath)) {
+  console.warn(`⚠️ Archivo no encontrado: ${filePath}`);
+  return await interaction.reply("⚠️ No se encontró el archivo de liga para esa división.");
+}
+
 
   const liga = JSON.parse(fs.readFileSync(filePath, 'utf8'));
   let partidoActualizado = false;
@@ -293,7 +315,7 @@ for (const jornada of liga.jornadas) {
 if (partidoActualizado) {
   console.log("📝 Guardando cambios en:", filePath);
   fs.writeFileSync(filePath, JSON.stringify(liga, null, 2), 'utf8');
-  console.log(`✅ Resultado guardado en liga_${division}.json`);
+  console.log(`✅ Resultado guardado en liga_${letraDivision}.json`);
 
     try {
       const { subirTodasLasLigas } = require('../git/guardarLigasGit');
