@@ -1,7 +1,7 @@
-const path = require('path');
 require("dotenv").config();
 //const Discord = require("discord.js");
 const {Client,PermissionsBitField , Attachment, ActivityType, GatewayIntentBits, AttachmentBuilder ,Partials,ActionRowBuilder, ButtonBuilder, ButtonStyle} = require("discord.js")
+const path = require('path');
 const fs = require("fs");
 const { type } = require("os");
 const { createCanvas, loadImage } = require("canvas");
@@ -455,113 +455,7 @@ if (commandName === 'listar_encuentros') {
   return interaction.reply({ content: respuesta.slice(0, 2000), ephemeral: true });
 }
 // Comando: resultado 
-if (interaction.commandName === "resultado") {
-  const options = interaction.options;
-  const division = options.getString("division");
-  const ronda = options.getString("ronda");
-  const fecha = options.getString("fecha");
-  const jugador = options.getUser("jugador");
-  const puntosjugador = options.getNumber("puntosjugador");
-  const otrojugador = options.getUser("otrojugador");
-  const puntosotrojugador = options.getNumber("puntosotrojugador");
-  const draftmapas = options.getString("draftmapas");
-  const draftcivis = options.getString("draftcivis");
-  const archivoAdjunto = interaction.options.get("archivo");
 
-  let mensaje = `Campeonato Uruguayo\n División ${division} - Etapa: ${ronda} - Fecha ${fecha}\n ${jugador}  ||${puntosjugador} - ${puntosotrojugador}|| ${otrojugador} \n Mapas: ${draftmapas} \n Civs: ${draftcivis}`;
-  if (archivoAdjunto) {
-    mensaje += `\nRec: ${archivoAdjunto.attachment.url}`;
-  } else {
-    mensaje += `\nNo se adjuntó ningún archivo`;
-  }
-
-  await interaction.reply(mensaje); // Primer y único reply
-
-  const divisionMap = {
-    categoria_a: 'a',
-    categoria_b: 'b',
-    categoria_c: 'c',
-    categoria_d: 'd',
-    categoria_e: 'e',
-  };
-
-  const letraDivision = divisionMap[division];
-
-  if (!letraDivision) {
-    console.warn(`⚠️ División no reconocida: ${division}`);
-    return await interaction.followUp("⚠️ División no válida.");
-  }
-
-  let fileligaPath;
-  try {
-    fileligaPath = path.join(__dirname, 'ligas', `liga_${letraDivision}.json`);
-    console.log('Ruta del archivo:', fileligaPath);
-  } catch (error) {
-    console.error('Error al construir la ruta del archivo:', error);
-    return await interaction.followUp("⚠️ Error al construir la ruta del archivo de liga.");
-  }
-
-  try {
-    if (!fs.existsSync(fileligaPath)) {
-      console.warn(`⚠️ Archivo no encontrado: ${fileligaPath}`);
-      return await interaction.followUp("⚠️ No se encontró el archivo de liga para esa división.");
-    }
-
-    const liga = JSON.parse(fs.readFileSync(fileligaPath, 'utf8'));
-    let partidoActualizado = false;
-
-    for (const jornada of liga.jornadas) {
-      for (const partido of jornada.partidos) {
-        const j1 = partido.jugador1Id;
-        const j2 = partido.jugador2Id;
-
-        console.log(`🔍 Comparando partido: ${j1} vs ${j2}`);
-        console.log(`   Con jugadores: ${jugador.id} vs ${otrojugador.id}`);
-
-        if (
-          (j1 === jugador.id && j2 === otrojugador.id) ||
-          (j1 === otrojugador.id && j2 === jugador.id)
-        ) {
-          console.log(`✅ Partido encontrado. Actualizando resultado...`);
-
-          partido.resultado = {
-            [jugador.id]: puntosjugador,
-            [otrojugador.id]: puntosotrojugador,
-            draftmapas,
-            draftcivis,
-            rec: archivoAdjunto?.attachment?.url || null,
-            fecha: new Date().toISOString()
-          };
-
-          partidoActualizado = true;
-          break;
-        }
-      }
-      if (partidoActualizado) break;
-    }
-
-    if (partidoActualizado) {
-      console.log("📝 Guardando cambios en:", fileligaPath);
-      fs.writeFileSync(fileligaPath, JSON.stringify(liga, null, 2), 'utf8');
-      console.log(`✅ Resultado guardado en liga_${letraDivision}.json`);
-
-      try {
-        const { subirTodasLasLigas } = require('../git/guardarLigasGit');
-        await subirTodasLasLigas();
-      } catch (error) {
-        console.warn('⚠️ No se pudo subir a GitHub:', error.message);
-        await interaction.followUp("⚠️ El resultado fue guardado pero no se pudo subir a GitHub.");
-      }
-    } else {
-      console.warn(`⚠️ No se encontró el partido entre ${jugador.id} y ${otrojugador.id} en la liga.`);
-      await interaction.followUp(`⚠️ No se encontró el partido entre ${jugador.username} y ${otrojugador.username} en la liga.`);
-    }
-
-  } catch (error) {
-    console.error('Error leyendo o procesando el archivo de liga:', error);
-    await interaction.followUp("⚠️ Ocurrió un error al procesar la liga. Revisa los logs.");
-  }
-}
 });
 
 
