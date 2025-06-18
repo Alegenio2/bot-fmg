@@ -84,7 +84,14 @@
         {
           "jugador1Id": "341001672786575360",
           "jugador2Id": "238414625417330688",
-          "resultado": null
+          "resultado": {
+            "238414625417330688": 2,
+            "341001672786575360": 1,
+            "draftmapas": "ma.com",
+            "draftcivis": "ci.com",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1377793919311675453/1384942344679460934/AoE_Definitive_Edition.zip?ex=68544391&is=6852f211&hm=174f62a6eba17a38678ba1649c36bc6a6910e6a467816c90f265c1b8fe0d429d&",
+            "fecha": "2025-06-18T17:06:26.589Z"
+          }
         }
       ]
     },
