@@ -101,7 +101,115 @@ client.on('interactionCreate', async (interaction) => {
   if (!interaction.isChatInputCommand()) return;
 
   const { commandName, options, user, guildId, member, channelId } = interaction;
+ 
+if (interaction.commandName === "resultado") {
+  const options = interaction.options;
+  const division = options.getString("division");
+  const ronda = options.getString("ronda");
+  const fecha = options.getString("fecha");
+  const jugador = options.getUser("jugador");
+  const puntosjugador = options.getNumber("puntosjugador");
+  const otrojugador = options.getUser("otrojugador");
+  const puntosotrojugador = options.getNumber("puntosotrojugador");
+  const draftmapas = options.getString("draftmapas");
+  const draftcivis = options.getString("draftcivis");
+  const archivoAdjunto = interaction.options.get("archivo");
 
+  let mensaje = `Campeonato Uruguayo\n División ${division} - Etapa: ${ronda} - Fecha ${fecha}\n ${jugador}  ||${puntosjugador} - ${puntosotrojugador}|| ${otrojugador} \n Mapas: ${draftmapas} \n Civs: ${draftcivis}`;
+  if (archivoAdjunto) {
+    mensaje += `\nRec: ${archivoAdjunto.attachment.url}`;
+  } else {
+    mensaje += `\nNo se adjuntó ningún archivo`;
+  }
+
+  await interaction.reply(mensaje);
+
+  // Mapeo para convertir categoría a letra
+  const divisionMap = {
+    categoria_a: 'a',
+    categoria_b: 'b',
+    categoria_c: 'c',
+    categoria_d: 'd',
+    categoria_e: 'e',
+  };
+
+  // Obtenemos la letra correspondiente a la división
+  const letraDivision = divisionMap[division];
+
+  if (!letraDivision) {
+    console.warn(`⚠️ División no reconocida: ${division}`);
+    return await interaction.reply("⚠️ División no válida.");
+  }
+
+  let filePath;
+  try {
+    filePath = path.join(__dirname, 'ligas', `liga_${letraDivision}.json`);
+    console.log('Ruta del archivo:', filePath);
+  } catch (error) {
+    console.error('Error al construir la ruta del archivo:', error);
+    return await interaction.reply("⚠️ Error al construir la ruta del archivo de liga.");
+  }
+
+  try {
+    if (!fs.existsSync(filePath)) {
+      console.warn(`⚠️ Archivo no encontrado: ${filePath}`);
+      return await interaction.reply("⚠️ No se encontró el archivo de liga para esa división.");
+    }
+
+    const liga = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    let partidoActualizado = false;
+
+    for (const jornada of liga.jornadas) {
+      for (const partido of jornada.partidos) {
+        const j1 = partido.jugador1Id;
+        const j2 = partido.jugador2Id;
+
+        console.log(`🔍 Comparando partido: ${j1} vs ${j2}`);
+        console.log(`   Con jugadores: ${jugador.id} vs ${otrojugador.id}`);
+
+        if (
+          (j1 === jugador.id && j2 === otrojugador.id) ||
+          (j1 === otrojugador.id && j2 === jugador.id)
+        ) {
+          console.log(`✅ Partido encontrado. Actualizando resultado...`);
+
+          partido.resultado = {
+            [jugador.id]: puntosjugador,
+            [otrojugador.id]: puntosotrojugador,
+            draftmapas,
+            draftcivis,
+            rec: archivoAdjunto?.attachment?.url || null,
+            fecha: new Date().toISOString()
+          };
+
+          partidoActualizado = true;
+          break;
+        }
+      }
+      if (partidoActualizado) break;
+    }
+
+    if (partidoActualizado) {
+      console.log("📝 Guardando cambios en:", filePath);
+      fs.writeFileSync(filePath, JSON.stringify(liga, null, 2), 'utf8');
+      console.log(`✅ Resultado guardado en liga_${letraDivision}.json`);
+
+      try {
+        const { subirTodasLasLigas } = require('../git/guardarLigasGit');
+        await subirTodasLasLigas();
+      } catch (error) {
+        console.warn('⚠️ No se pudo subir a GitHub:', error.message);
+      }
+    } else {
+      console.warn(`⚠️ No se encontró el partido entre ${jugador.id} y ${otrojugador.id} en la liga.`);
+      await interaction.reply(`⚠️ No se encontró el partido entre ${jugador.username} y ${otrojugador.username} en la liga.`);
+    }
+
+  } catch (error) {
+    console.error('Error leyendo o procesando el archivo de liga:', error);
+    await interaction.reply("⚠️ Ocurrió un error al procesar la liga. Revisa los logs.");
+  }
+}
   // Comando: fixture_jornada  
  if (commandName === 'fixture_jornada') {
     return fixtureJornada.execute(interaction);
@@ -230,103 +338,6 @@ const { guardarYSubirCatE } = require('./git/guardarGit_Cat_E.js');
       `✅ Ganadas: ${datos.wins} | ❌ Perdidas: ${datos.losses}`
     );
   }
-
-  // Comando: resultado
-if (interaction.commandName === "resultado") {
-  const options = interaction.options;
-  const division = options.getString("division");
-  const ronda = options.getString("ronda");
-  const fecha = options.getString("fecha");
-  const jugador = options.getUser("jugador");
-  const puntosjugador = options.getNumber("puntosjugador");
-  const otrojugador = options.getUser("otrojugador");
-  const puntosotrojugador = options.getNumber("puntosotrojugador");
-  const draftmapas = options.getString("draftmapas");
-  const draftcivis = options.getString("draftcivis");
-  const archivoAdjunto = interaction.options.get("archivo");
-
-  let mensaje = `Campeonato Uruguayo\n División ${division} - Etapa: ${ronda} - Fecha ${fecha}\n ${jugador}  ||${puntosjugador} - ${puntosotrojugador}|| ${otrojugador} \n Mapas: ${draftmapas} \n Civs: ${draftcivis}`;
-  if (archivoAdjunto) {
-    mensaje += `\nRec: ${archivoAdjunto.attachment.url}`;
-  } else {
-    mensaje += `\nNo se adjuntó ningún archivo`;
-  }
-
-  await interaction.reply(mensaje);
-
-  // Mapeo para convertir categoría a letra
-const divisionMap = {
-  categoria_a: 'a',
-  categoria_b: 'b',
-  categoria_c: 'c',
-  categoria_d: 'd',
-  categoria_e: 'e',
-};
-
-// Obtenemos la letra correspondiente a la división
-const letraDivision = divisionMap[division];
-
-if (!letraDivision) {
-  console.warn(`⚠️ División no reconocida: ${division}`);
-  return await interaction.reply("⚠️ División no válida.");
-}
-
-const filePath = path.join(__dirname, 'ligas', `liga_${letraDivision}.json`);
-
-if (!fs.existsSync(filePath)) {
-  console.warn(`⚠️ Archivo no encontrado: ${filePath}`);
-  return await interaction.reply("⚠️ No se encontró el archivo de liga para esa división.");
-}
-
-
-  const liga = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-  let partidoActualizado = false;
-
-for (const jornada of liga.jornadas) {
-  for (const partido of jornada.partidos) {
-    const j1 = partido.jugador1Id;
-    const j2 = partido.jugador2Id;
-
-    console.log(`🔍 Comparando partido: ${j1} vs ${j2}`);
-    console.log(`   Con jugadores: ${jugador.id} vs ${otrojugador.id}`);
-
-    if (
-      (j1 === jugador.id && j2 === otrojugador.id) ||
-      (j1 === otrojugador.id && j2 === jugador.id)
-    ) {
-      console.log(`✅ Partido encontrado. Actualizando resultado...`);
-
-      partido.resultado = {
-        [jugador.id]: puntosjugador,
-        [otrojugador.id]: puntosotrojugador,
-        draftmapas,
-        draftcivis,
-        rec: archivoAdjunto?.attachment?.url || null,
-        fecha: new Date().toISOString()
-      };
-
-      partidoActualizado = true;
-      break;
-    }
-  }
-  if (partidoActualizado) break;
-}
-
-if (partidoActualizado) {
-  console.log("📝 Guardando cambios en:", filePath);
-  fs.writeFileSync(filePath, JSON.stringify(liga, null, 2), 'utf8');
-  console.log(`✅ Resultado guardado en liga_${letraDivision}.json`);
-
-    try {
-      const { subirTodasLasLigas } = require('../git/guardarLigasGit');
-      await subirTodasLasLigas();
-    } catch (error) {
-      console.warn('⚠️ No se pudo subir a GitHub:', error.message);
-    }
-  } else {
-    console.warn(`⚠️ No se encontró el partido entre ${jugador.id} y ${otrojugador.id} en la liga.`);
-  }
-}
   // Comando: coordinado
   if (commandName === 'coordinado') {
     const division = options.getString('division');
