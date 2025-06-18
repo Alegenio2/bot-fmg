@@ -23,45 +23,72 @@ async function ejecutarTorneoLiga(interaction, categoria) {
     });
   }
 
-  // Para cada participante básico, obtenemos su profileId, luego datos extendidos
+  // Obtener datos extendidos + profileId
   const participantesConDatos = [];
 
   for (const participante of participantesBasicos) {
-    const profileId = usuariosMap[participante.id];
-    if (!profileId) {
-      console.warn(`No se encontró profileId para Discord ID ${participante.id}`);
-      participantesConDatos.push({ ...participante }); // sin datos extendidos
-      continue;
+    const profileId = usuariosMap[participante.id] || null;
+
+    let datosExtendidos = null;
+    if (profileId) {
+      datosExtendidos = await obtenerEloActual(profileId);
     }
 
-    const datosExtendidos = await obtenerEloActual(profileId);
-    if (!datosExtendidos) {
-      participantesConDatos.push({ ...participante }); // si no pudo obtener datos, solo info básica
-    } else {
-      participantesConDatos.push({
-        id: participante.id,
-        nombre: participante.nombre,
-        ...datosExtendidos
-      });
-    }
+    participantesConDatos.push({
+      ...participante,
+      profileId,
+      ...(datosExtendidos || {}) // solo agrega si existen
+    });
   }
 
-  // Crear encuentros
-  const encuentros = [];
-  for (let i = 0; i < participantesConDatos.length; i++) {
-    for (let j = i + 1; j < participantesConDatos.length; j++) {
-      encuentros.push({
-        jugador1: participantesConDatos[i],
-        jugador2: participantesConDatos[j],
-        resultado: null
-      });
+  // Generar fixture con rondas (round-robin)
+  function generarFixtureRoundRobin(participantes) {
+    const total = participantes.length;
+    const esImpar = total % 2 !== 0;
+
+    const jugadores = [...participantes];
+
+    if (esImpar) {
+      jugadores.push(null); // descanso
     }
+
+    const rondas = [];
+    const n = jugadores.length;
+
+    for (let ronda = 0; ronda < n - 1; ronda++) {
+      const partidos = [];
+
+      for (let i = 0; i < n / 2; i++) {
+        const jugador1 = jugadores[i];
+        const jugador2 = jugadores[n - 1 - i];
+
+        if (jugador1 && jugador2) {
+          partidos.push({
+            jugador1Id: jugador1.id,
+            jugador2Id: jugador2.id,
+            resultado: null
+          });
+        }
+      }
+
+      rondas.push({ ronda: ronda + 1, partidos });
+
+      // Rotar (excepto el primero)
+      const fijo = jugadores[0];
+      const resto = jugadores.slice(1);
+      resto.unshift(resto.pop());
+      jugadores.splice(0, jugadores.length, fijo, ...resto);
+    }
+
+    return rondas;
   }
+
+  const jornadas = generarFixtureRoundRobin(participantesConDatos);
 
   const torneoData = {
     categoria,
     participantes: participantesConDatos,
-    encuentros,
+    jornadas,
     creado: new Date().toISOString()
   };
 
@@ -69,16 +96,16 @@ async function ejecutarTorneoLiga(interaction, categoria) {
   if (!fs.existsSync(path.dirname(savePath))) fs.mkdirSync(path.dirname(savePath));
 
   fs.writeFileSync(savePath, JSON.stringify(torneoData, null, 2), 'utf8');
- try {
-  const { subirTodasLasLigas } = require('../git/guardarLigasGit');
-  await subirTodasLasLigas();
-} catch (error) {
-  console.warn('⚠️ No se pudo subir a GitHub:', error.message);
-}
 
-  
+  try {
+    const { subirTodasLasLigas } = require('../git/guardarLigasGit');
+    await subirTodasLasLigas();
+  } catch (error) {
+    console.warn('⚠️ No se pudo subir a GitHub:', error.message);
+  }
+
   await interaction.reply(
-    `✅ Liga creada para la categoría **${categoria}** con ${participantesConDatos.length} jugadores y ${encuentros.length} duelos.`
+    `✅ Liga creada para la categoría **${categoria}** con ${participantesConDatos.length} jugadores y ${jornadas.length} jornadas.`
   );
 }
 
