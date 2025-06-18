@@ -500,7 +500,8 @@ if (commandName === 'torneoliga') {
   // No hace falta reply aquí porque ya está dentro de ejecutarTorneoLiga
   return;
 }
-// Comando: listar_encuentros
+
+    // Comando: listar_encuentros
 if (commandName === 'listar_encuentros') {
   const categoria = options.getString('categoria');
   const filePath = path.join(__dirname, 'ligas', `liga_${categoria}.json`);
@@ -524,7 +525,15 @@ if (commandName === 'listar_encuentros') {
     const encuentros = jornada.partidos.map((partido, i) => {
       const nombre1 = mapaParticipantes[partido.jugador1Id] || 'Jugador 1';
       const nombre2 = mapaParticipantes[partido.jugador2Id] || 'Jugador 2';
-      const resultado = partido.resultado ? `✅ ${partido.resultado}` : '🕓 Pendiente';
+      let resultado;
+      if (partido.resultado) {
+        const r = partido.resultado;
+        const j1 = r[partido.jugador1Id] ?? '?';
+        const j2 = r[partido.jugador2Id] ?? '?';
+        resultado = `✅ ${j1} - ${j2}`;
+      } else {
+        resultado = '🕓 Pendiente';
+      }
       return `  ${i + 1}. ${nombre1} vs ${nombre2} → ${resultado}`;
     });
 
@@ -535,7 +544,6 @@ if (commandName === 'listar_encuentros') {
 
   return interaction.reply({ content: respuesta.slice(0, 2000), ephemeral: true });
 }
-// Comando: resultado 
 
 });
 
