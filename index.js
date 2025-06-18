@@ -458,18 +458,21 @@ const { guardarYSubirCatE } = require('./git/guardarGit_Cat_E.js');
     return;
   }
 
-  // Comando: torneoliga
-  if (commandName === 'torneoliga') {
-    const categoria = options.getString('categoria');
+// Comando: torneoliga
+if (commandName === 'torneoliga') {
+  const categoria = options.getString('categoria');
 
-    if (user.id !== botConfig.ownerId) {
-      return interaction.reply({ content: '❌ Solo el organizador puede usar este comando.', ephemeral: true });
-    }
-
-    const { ejecutarTorneoLiga } = require('./utiles/torneoLiga.js');
-    await ejecutarTorneoLiga(interaction, categoria);
-    return;
+  if (user.id !== botConfig.ownerId) {
+    return interaction.reply({ content: '❌ Solo el organizador puede usar este comando.', ephemeral: true });
   }
+
+  const { ejecutarTorneoLiga } = require('./utiles/torneoLiga.js');
+  await ejecutarTorneoLiga(interaction, categoria);
+
+  // No hace falta reply aquí porque ya está dentro de ejecutarTorneoLiga
+  return;
+}
+
 
   // Comando: listar_encuentros
   if (commandName === 'listar_encuentros') {
