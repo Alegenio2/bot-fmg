@@ -140,22 +140,22 @@ client.on('interactionCreate', async (interaction) => {
     return await interaction.followUp("⚠️ División no válida.");
   }
 
-  let fileligaPath;
+  let filePath;
   try {
-    fileligaPath = path.join(__dirname, 'ligas', `liga_${letraDivision}.json`);
-    console.log('Ruta del archivo:', fileligaPath);
+    filePath = path.join(__dirname, 'ligas', `liga_${letraDivision}.json`);
+    console.log('Ruta del archivo:', filePath);
   } catch (error) {
     console.error('Error al construir la ruta del archivo:', error);
     return await interaction.followUp("⚠️ Error al construir la ruta del archivo de liga.");
   }
 
   try {
-    if (!fs.existsSync(fileligaPath)) {
-      console.warn(`⚠️ Archivo no encontrado: ${fileligaPath}`);
+    if (!fs.existsSync(filePath)) {
+      console.warn(`⚠️ Archivo no encontrado: ${filePath}`);
       return await interaction.followUp("⚠️ No se encontró el archivo de liga para esa división.");
     }
 
-    const liga = JSON.parse(fs.readFileSync(fileligaPath, 'utf8'));
+    const liga = JSON.parse(fs.readFileSync(filePath, 'utf8'));
     let partidoActualizado = false;
 
     for (const jornada of liga.jornadas) {
@@ -189,8 +189,8 @@ client.on('interactionCreate', async (interaction) => {
     }
 
     if (partidoActualizado) {
-      console.log("📝 Guardando cambios en:", fileligaPath);
-      fs.writeFileSync(fileligaPath, JSON.stringify(liga, null, 2), 'utf8');
+      console.log("📝 Guardando cambios en:", filePath);
+      fs.writeFileSync(filePath, JSON.stringify(liga, null, 2), 'utf8');
       console.log(`✅ Resultado guardado en liga_${letraDivision}.json`);
 
       try {
