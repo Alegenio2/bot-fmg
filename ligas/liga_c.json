@@ -1,3 +1,924 @@
-[
-  
-]
+{
+  "categoria": "c",
+  "participantes": [
+    {
+      "id": "335286995486244867",
+      "nombre": "BOLSOLOCURA",
+      "elo": 1378,
+      "rank": 6104,
+      "wins": 365,
+      "losses": 339,
+      "pais": "🇺🇾",
+      "country": "uy",
+      "clan": null,
+      "elomax": 1472,
+      "ultimapartida": "2025-06-18T03:32:29.000Z"
+    },
+    {
+      "id": "485610092092456975",
+      "nombre": "CORP_Kroyen",
+      "elo": 1484,
+      "rank": 4106,
+      "wins": 62,
+      "losses": 43,
+      "pais": "🇺🇾",
+      "country": "uy",
+      "clan": null,
+      "elomax": 1484,
+      "ultimapartida": "2025-06-15T19:26:23.000Z"
+    },
+    {
+      "id": "326046458673365002",
+      "nombre": "DGHIR | PaginasAmarillas",
+      "elo": 1444,
+      "rank": 4749,
+      "wins": 1033,
+      "losses": 993,
+      "pais": "🇺🇾",
+      "country": "uy",
+      "clan": "Dghir",
+      "elomax": 1552,
+      "ultimapartida": "2025-06-13T00:36:41.000Z"
+    },
+    {
+      "id": "709904591453683766",
+      "nombre": "buyanjavyn",
+      "elo": 1369,
+      "rank": 6539,
+      "wins": 78,
+      "losses": 61,
+      "pais": "🇺🇾",
+      "country": "uy",
+      "clan": "Fur89",
+      "elomax": 1369,
+      "ultimapartida": "2025-04-19T23:19:00.000Z"
+    },
+    {
+      "id": "689907393001291884",
+      "nombre": "Culero Connor II",
+      "elo": 1411,
+      "rank": 5407,
+      "wins": 302,
+      "losses": 289,
+      "pais": "🇺🇾",
+      "country": "uy",
+      "clan": null,
+      "elomax": 1545,
+      "ultimapartida": "2025-06-05T21:57:08.000Z"
+    },
+    {
+      "id": "724668688145580062",
+      "nombre": "|FMG| Gral_Artigas",
+      "elo": 1415,
+      "rank": 5655,
+      "wins": 179,
+      "losses": 157,
+      "pais": "🇺🇾",
+      "country": "uy",
+      "clan": "FUMAG",
+      "elomax": 1503,
+      "ultimapartida": "2025-03-25T17:57:29.000Z"
+    },
+    {
+      "id": "959267535524606022",
+      "nombre": "DGHIR | Rorro Knight",
+      "elo": 1361,
+      "rank": 6482,
+      "wins": 983,
+      "losses": 952,
+      "pais": "🇺🇾",
+      "country": "uy",
+      "clan": "Dghir",
+      "elomax": 1454,
+      "ultimapartida": "2025-06-17T01:07:57.000Z"
+    },
+    {
+      "id": "277256502023290881",
+      "nombre": "DGHIR | Lionerrt",
+      "elo": 1283,
+      "rank": 8571,
+      "wins": 294,
+      "losses": 268,
+      "pais": "🇺🇾",
+      "country": "uy",
+      "clan": "Dghir",
+      "elomax": 1435,
+      "ultimapartida": "2025-06-17T22:55:38.000Z"
+    }
+  ],
+  "encuentros": [
+    {
+      "jugador1": {
+        "id": "335286995486244867",
+        "nombre": "BOLSOLOCURA",
+        "elo": 1378,
+        "rank": 6104,
+        "wins": 365,
+        "losses": 339,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": null,
+        "elomax": 1472,
+        "ultimapartida": "2025-06-18T03:32:29.000Z"
+      },
+      "jugador2": {
+        "id": "485610092092456975",
+        "nombre": "CORP_Kroyen",
+        "elo": 1484,
+        "rank": 4106,
+        "wins": 62,
+        "losses": 43,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": null,
+        "elomax": 1484,
+        "ultimapartida": "2025-06-15T19:26:23.000Z"
+      },
+      "resultado": null
+    },
+    {
+      "jugador1": {
+        "id": "335286995486244867",
+        "nombre": "BOLSOLOCURA",
+        "elo": 1378,
+        "rank": 6104,
+        "wins": 365,
+        "losses": 339,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": null,
+        "elomax": 1472,
+        "ultimapartida": "2025-06-18T03:32:29.000Z"
+      },
+      "jugador2": {
+        "id": "326046458673365002",
+        "nombre": "DGHIR | PaginasAmarillas",
+        "elo": 1444,
+        "rank": 4749,
+        "wins": 1033,
+        "losses": 993,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": "Dghir",
+        "elomax": 1552,
+        "ultimapartida": "2025-06-13T00:36:41.000Z"
+      },
+      "resultado": null
+    },
+    {
+      "jugador1": {
+        "id": "335286995486244867",
+        "nombre": "BOLSOLOCURA",
+        "elo": 1378,
+        "rank": 6104,
+        "wins": 365,
+        "losses": 339,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": null,
+        "elomax": 1472,
+        "ultimapartida": "2025-06-18T03:32:29.000Z"
+      },
+      "jugador2": {
+        "id": "709904591453683766",
+        "nombre": "buyanjavyn",
+        "elo": 1369,
+        "rank": 6539,
+        "wins": 78,
+        "losses": 61,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": "Fur89",
+        "elomax": 1369,
+        "ultimapartida": "2025-04-19T23:19:00.000Z"
+      },
+      "resultado": null
+    },
+    {
+      "jugador1": {
+        "id": "335286995486244867",
+        "nombre": "BOLSOLOCURA",
+        "elo": 1378,
+        "rank": 6104,
+        "wins": 365,
+        "losses": 339,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": null,
+        "elomax": 1472,
+        "ultimapartida": "2025-06-18T03:32:29.000Z"
+      },
+      "jugador2": {
+        "id": "689907393001291884",
+        "nombre": "Culero Connor II",
+        "elo": 1411,
+        "rank": 5407,
+        "wins": 302,
+        "losses": 289,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": null,
+        "elomax": 1545,
+        "ultimapartida": "2025-06-05T21:57:08.000Z"
+      },
+      "resultado": null
+    },
+    {
+      "jugador1": {
+        "id": "335286995486244867",
+        "nombre": "BOLSOLOCURA",
+        "elo": 1378,
+        "rank": 6104,
+        "wins": 365,
+        "losses": 339,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": null,
+        "elomax": 1472,
+        "ultimapartida": "2025-06-18T03:32:29.000Z"
+      },
+      "jugador2": {
+        "id": "724668688145580062",
+        "nombre": "|FMG| Gral_Artigas",
+        "elo": 1415,
+        "rank": 5655,
+        "wins": 179,
+        "losses": 157,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": "FUMAG",
+        "elomax": 1503,
+        "ultimapartida": "2025-03-25T17:57:29.000Z"
+      },
+      "resultado": null
+    },
+    {
+      "jugador1": {
+        "id": "335286995486244867",
+        "nombre": "BOLSOLOCURA",
+        "elo": 1378,
+        "rank": 6104,
+        "wins": 365,
+        "losses": 339,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": null,
+        "elomax": 1472,
+        "ultimapartida": "2025-06-18T03:32:29.000Z"
+      },
+      "jugador2": {
+        "id": "959267535524606022",
+        "nombre": "DGHIR | Rorro Knight",
+        "elo": 1361,
+        "rank": 6482,
+        "wins": 983,
+        "losses": 952,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": "Dghir",
+        "elomax": 1454,
+        "ultimapartida": "2025-06-17T01:07:57.000Z"
+      },
+      "resultado": null
+    },
+    {
+      "jugador1": {
+        "id": "335286995486244867",
+        "nombre": "BOLSOLOCURA",
+        "elo": 1378,
+        "rank": 6104,
+        "wins": 365,
+        "losses": 339,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": null,
+        "elomax": 1472,
+        "ultimapartida": "2025-06-18T03:32:29.000Z"
+      },
+      "jugador2": {
+        "id": "277256502023290881",
+        "nombre": "DGHIR | Lionerrt",
+        "elo": 1283,
+        "rank": 8571,
+        "wins": 294,
+        "losses": 268,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": "Dghir",
+        "elomax": 1435,
+        "ultimapartida": "2025-06-17T22:55:38.000Z"
+      },
+      "resultado": null
+    },
+    {
+      "jugador1": {
+        "id": "485610092092456975",
+        "nombre": "CORP_Kroyen",
+        "elo": 1484,
+        "rank": 4106,
+        "wins": 62,
+        "losses": 43,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": null,
+        "elomax": 1484,
+        "ultimapartida": "2025-06-15T19:26:23.000Z"
+      },
+      "jugador2": {
+        "id": "326046458673365002",
+        "nombre": "DGHIR | PaginasAmarillas",
+        "elo": 1444,
+        "rank": 4749,
+        "wins": 1033,
+        "losses": 993,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": "Dghir",
+        "elomax": 1552,
+        "ultimapartida": "2025-06-13T00:36:41.000Z"
+      },
+      "resultado": null
+    },
+    {
+      "jugador1": {
+        "id": "485610092092456975",
+        "nombre": "CORP_Kroyen",
+        "elo": 1484,
+        "rank": 4106,
+        "wins": 62,
+        "losses": 43,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": null,
+        "elomax": 1484,
+        "ultimapartida": "2025-06-15T19:26:23.000Z"
+      },
+      "jugador2": {
+        "id": "709904591453683766",
+        "nombre": "buyanjavyn",
+        "elo": 1369,
+        "rank": 6539,
+        "wins": 78,
+        "losses": 61,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": "Fur89",
+        "elomax": 1369,
+        "ultimapartida": "2025-04-19T23:19:00.000Z"
+      },
+      "resultado": null
+    },
+    {
+      "jugador1": {
+        "id": "485610092092456975",
+        "nombre": "CORP_Kroyen",
+        "elo": 1484,
+        "rank": 4106,
+        "wins": 62,
+        "losses": 43,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": null,
+        "elomax": 1484,
+        "ultimapartida": "2025-06-15T19:26:23.000Z"
+      },
+      "jugador2": {
+        "id": "689907393001291884",
+        "nombre": "Culero Connor II",
+        "elo": 1411,
+        "rank": 5407,
+        "wins": 302,
+        "losses": 289,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": null,
+        "elomax": 1545,
+        "ultimapartida": "2025-06-05T21:57:08.000Z"
+      },
+      "resultado": null
+    },
+    {
+      "jugador1": {
+        "id": "485610092092456975",
+        "nombre": "CORP_Kroyen",
+        "elo": 1484,
+        "rank": 4106,
+        "wins": 62,
+        "losses": 43,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": null,
+        "elomax": 1484,
+        "ultimapartida": "2025-06-15T19:26:23.000Z"
+      },
+      "jugador2": {
+        "id": "724668688145580062",
+        "nombre": "|FMG| Gral_Artigas",
+        "elo": 1415,
+        "rank": 5655,
+        "wins": 179,
+        "losses": 157,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": "FUMAG",
+        "elomax": 1503,
+        "ultimapartida": "2025-03-25T17:57:29.000Z"
+      },
+      "resultado": null
+    },
+    {
+      "jugador1": {
+        "id": "485610092092456975",
+        "nombre": "CORP_Kroyen",
+        "elo": 1484,
+        "rank": 4106,
+        "wins": 62,
+        "losses": 43,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": null,
+        "elomax": 1484,
+        "ultimapartida": "2025-06-15T19:26:23.000Z"
+      },
+      "jugador2": {
+        "id": "959267535524606022",
+        "nombre": "DGHIR | Rorro Knight",
+        "elo": 1361,
+        "rank": 6482,
+        "wins": 983,
+        "losses": 952,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": "Dghir",
+        "elomax": 1454,
+        "ultimapartida": "2025-06-17T01:07:57.000Z"
+      },
+      "resultado": null
+    },
+    {
+      "jugador1": {
+        "id": "485610092092456975",
+        "nombre": "CORP_Kroyen",
+        "elo": 1484,
+        "rank": 4106,
+        "wins": 62,
+        "losses": 43,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": null,
+        "elomax": 1484,
+        "ultimapartida": "2025-06-15T19:26:23.000Z"
+      },
+      "jugador2": {
+        "id": "277256502023290881",
+        "nombre": "DGHIR | Lionerrt",
+        "elo": 1283,
+        "rank": 8571,
+        "wins": 294,
+        "losses": 268,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": "Dghir",
+        "elomax": 1435,
+        "ultimapartida": "2025-06-17T22:55:38.000Z"
+      },
+      "resultado": null
+    },
+    {
+      "jugador1": {
+        "id": "326046458673365002",
+        "nombre": "DGHIR | PaginasAmarillas",
+        "elo": 1444,
+        "rank": 4749,
+        "wins": 1033,
+        "losses": 993,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": "Dghir",
+        "elomax": 1552,
+        "ultimapartida": "2025-06-13T00:36:41.000Z"
+      },
+      "jugador2": {
+        "id": "709904591453683766",
+        "nombre": "buyanjavyn",
+        "elo": 1369,
+        "rank": 6539,
+        "wins": 78,
+        "losses": 61,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": "Fur89",
+        "elomax": 1369,
+        "ultimapartida": "2025-04-19T23:19:00.000Z"
+      },
+      "resultado": null
+    },
+    {
+      "jugador1": {
+        "id": "326046458673365002",
+        "nombre": "DGHIR | PaginasAmarillas",
+        "elo": 1444,
+        "rank": 4749,
+        "wins": 1033,
+        "losses": 993,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": "Dghir",
+        "elomax": 1552,
+        "ultimapartida": "2025-06-13T00:36:41.000Z"
+      },
+      "jugador2": {
+        "id": "689907393001291884",
+        "nombre": "Culero Connor II",
+        "elo": 1411,
+        "rank": 5407,
+        "wins": 302,
+        "losses": 289,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": null,
+        "elomax": 1545,
+        "ultimapartida": "2025-06-05T21:57:08.000Z"
+      },
+      "resultado": null
+    },
+    {
+      "jugador1": {
+        "id": "326046458673365002",
+        "nombre": "DGHIR | PaginasAmarillas",
+        "elo": 1444,
+        "rank": 4749,
+        "wins": 1033,
+        "losses": 993,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": "Dghir",
+        "elomax": 1552,
+        "ultimapartida": "2025-06-13T00:36:41.000Z"
+      },
+      "jugador2": {
+        "id": "724668688145580062",
+        "nombre": "|FMG| Gral_Artigas",
+        "elo": 1415,
+        "rank": 5655,
+        "wins": 179,
+        "losses": 157,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": "FUMAG",
+        "elomax": 1503,
+        "ultimapartida": "2025-03-25T17:57:29.000Z"
+      },
+      "resultado": null
+    },
+    {
+      "jugador1": {
+        "id": "326046458673365002",
+        "nombre": "DGHIR | PaginasAmarillas",
+        "elo": 1444,
+        "rank": 4749,
+        "wins": 1033,
+        "losses": 993,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": "Dghir",
+        "elomax": 1552,
+        "ultimapartida": "2025-06-13T00:36:41.000Z"
+      },
+      "jugador2": {
+        "id": "959267535524606022",
+        "nombre": "DGHIR | Rorro Knight",
+        "elo": 1361,
+        "rank": 6482,
+        "wins": 983,
+        "losses": 952,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": "Dghir",
+        "elomax": 1454,
+        "ultimapartida": "2025-06-17T01:07:57.000Z"
+      },
+      "resultado": null
+    },
+    {
+      "jugador1": {
+        "id": "326046458673365002",
+        "nombre": "DGHIR | PaginasAmarillas",
+        "elo": 1444,
+        "rank": 4749,
+        "wins": 1033,
+        "losses": 993,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": "Dghir",
+        "elomax": 1552,
+        "ultimapartida": "2025-06-13T00:36:41.000Z"
+      },
+      "jugador2": {
+        "id": "277256502023290881",
+        "nombre": "DGHIR | Lionerrt",
+        "elo": 1283,
+        "rank": 8571,
+        "wins": 294,
+        "losses": 268,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": "Dghir",
+        "elomax": 1435,
+        "ultimapartida": "2025-06-17T22:55:38.000Z"
+      },
+      "resultado": null
+    },
+    {
+      "jugador1": {
+        "id": "709904591453683766",
+        "nombre": "buyanjavyn",
+        "elo": 1369,
+        "rank": 6539,
+        "wins": 78,
+        "losses": 61,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": "Fur89",
+        "elomax": 1369,
+        "ultimapartida": "2025-04-19T23:19:00.000Z"
+      },
+      "jugador2": {
+        "id": "689907393001291884",
+        "nombre": "Culero Connor II",
+        "elo": 1411,
+        "rank": 5407,
+        "wins": 302,
+        "losses": 289,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": null,
+        "elomax": 1545,
+        "ultimapartida": "2025-06-05T21:57:08.000Z"
+      },
+      "resultado": null
+    },
+    {
+      "jugador1": {
+        "id": "709904591453683766",
+        "nombre": "buyanjavyn",
+        "elo": 1369,
+        "rank": 6539,
+        "wins": 78,
+        "losses": 61,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": "Fur89",
+        "elomax": 1369,
+        "ultimapartida": "2025-04-19T23:19:00.000Z"
+      },
+      "jugador2": {
+        "id": "724668688145580062",
+        "nombre": "|FMG| Gral_Artigas",
+        "elo": 1415,
+        "rank": 5655,
+        "wins": 179,
+        "losses": 157,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": "FUMAG",
+        "elomax": 1503,
+        "ultimapartida": "2025-03-25T17:57:29.000Z"
+      },
+      "resultado": null
+    },
+    {
+      "jugador1": {
+        "id": "709904591453683766",
+        "nombre": "buyanjavyn",
+        "elo": 1369,
+        "rank": 6539,
+        "wins": 78,
+        "losses": 61,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": "Fur89",
+        "elomax": 1369,
+        "ultimapartida": "2025-04-19T23:19:00.000Z"
+      },
+      "jugador2": {
+        "id": "959267535524606022",
+        "nombre": "DGHIR | Rorro Knight",
+        "elo": 1361,
+        "rank": 6482,
+        "wins": 983,
+        "losses": 952,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": "Dghir",
+        "elomax": 1454,
+        "ultimapartida": "2025-06-17T01:07:57.000Z"
+      },
+      "resultado": null
+    },
+    {
+      "jugador1": {
+        "id": "709904591453683766",
+        "nombre": "buyanjavyn",
+        "elo": 1369,
+        "rank": 6539,
+        "wins": 78,
+        "losses": 61,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": "Fur89",
+        "elomax": 1369,
+        "ultimapartida": "2025-04-19T23:19:00.000Z"
+      },
+      "jugador2": {
+        "id": "277256502023290881",
+        "nombre": "DGHIR | Lionerrt",
+        "elo": 1283,
+        "rank": 8571,
+        "wins": 294,
+        "losses": 268,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": "Dghir",
+        "elomax": 1435,
+        "ultimapartida": "2025-06-17T22:55:38.000Z"
+      },
+      "resultado": null
+    },
+    {
+      "jugador1": {
+        "id": "689907393001291884",
+        "nombre": "Culero Connor II",
+        "elo": 1411,
+        "rank": 5407,
+        "wins": 302,
+        "losses": 289,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": null,
+        "elomax": 1545,
+        "ultimapartida": "2025-06-05T21:57:08.000Z"
+      },
+      "jugador2": {
+        "id": "724668688145580062",
+        "nombre": "|FMG| Gral_Artigas",
+        "elo": 1415,
+        "rank": 5655,
+        "wins": 179,
+        "losses": 157,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": "FUMAG",
+        "elomax": 1503,
+        "ultimapartida": "2025-03-25T17:57:29.000Z"
+      },
+      "resultado": null
+    },
+    {
+      "jugador1": {
+        "id": "689907393001291884",
+        "nombre": "Culero Connor II",
+        "elo": 1411,
+        "rank": 5407,
+        "wins": 302,
+        "losses": 289,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": null,
+        "elomax": 1545,
+        "ultimapartida": "2025-06-05T21:57:08.000Z"
+      },
+      "jugador2": {
+        "id": "959267535524606022",
+        "nombre": "DGHIR | Rorro Knight",
+        "elo": 1361,
+        "rank": 6482,
+        "wins": 983,
+        "losses": 952,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": "Dghir",
+        "elomax": 1454,
+        "ultimapartida": "2025-06-17T01:07:57.000Z"
+      },
+      "resultado": null
+    },
+    {
+      "jugador1": {
+        "id": "689907393001291884",
+        "nombre": "Culero Connor II",
+        "elo": 1411,
+        "rank": 5407,
+        "wins": 302,
+        "losses": 289,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": null,
+        "elomax": 1545,
+        "ultimapartida": "2025-06-05T21:57:08.000Z"
+      },
+      "jugador2": {
+        "id": "277256502023290881",
+        "nombre": "DGHIR | Lionerrt",
+        "elo": 1283,
+        "rank": 8571,
+        "wins": 294,
+        "losses": 268,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": "Dghir",
+        "elomax": 1435,
+        "ultimapartida": "2025-06-17T22:55:38.000Z"
+      },
+      "resultado": null
+    },
+    {
+      "jugador1": {
+        "id": "724668688145580062",
+        "nombre": "|FMG| Gral_Artigas",
+        "elo": 1415,
+        "rank": 5655,
+        "wins": 179,
+        "losses": 157,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": "FUMAG",
+        "elomax": 1503,
+        "ultimapartida": "2025-03-25T17:57:29.000Z"
+      },
+      "jugador2": {
+        "id": "959267535524606022",
+        "nombre": "DGHIR | Rorro Knight",
+        "elo": 1361,
+        "rank": 6482,
+        "wins": 983,
+        "losses": 952,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": "Dghir",
+        "elomax": 1454,
+        "ultimapartida": "2025-06-17T01:07:57.000Z"
+      },
+      "resultado": null
+    },
+    {
+      "jugador1": {
+        "id": "724668688145580062",
+        "nombre": "|FMG| Gral_Artigas",
+        "elo": 1415,
+        "rank": 5655,
+        "wins": 179,
+        "losses": 157,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": "FUMAG",
+        "elomax": 1503,
+        "ultimapartida": "2025-03-25T17:57:29.000Z"
+      },
+      "jugador2": {
+        "id": "277256502023290881",
+        "nombre": "DGHIR | Lionerrt",
+        "elo": 1283,
+        "rank": 8571,
+        "wins": 294,
+        "losses": 268,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": "Dghir",
+        "elomax": 1435,
+        "ultimapartida": "2025-06-17T22:55:38.000Z"
+      },
+      "resultado": null
+    },
+    {
+      "jugador1": {
+        "id": "959267535524606022",
+        "nombre": "DGHIR | Rorro Knight",
+        "elo": 1361,
+        "rank": 6482,
+        "wins": 983,
+        "losses": 952,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": "Dghir",
+        "elomax": 1454,
+        "ultimapartida": "2025-06-17T01:07:57.000Z"
+      },
+      "jugador2": {
+        "id": "277256502023290881",
+        "nombre": "DGHIR | Lionerrt",
+        "elo": 1283,
+        "rank": 8571,
+        "wins": 294,
+        "losses": 268,
+        "pais": "🇺🇾",
+        "country": "uy",
+        "clan": "Dghir",
+        "elomax": 1435,
+        "ultimapartida": "2025-06-17T22:55:38.000Z"
+      },
+      "resultado": null
+    }
+  ],
+  "creado": "2025-06-18T04:27:06.576Z"
+}
