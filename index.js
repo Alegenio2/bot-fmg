@@ -16,6 +16,7 @@ const botConfig = require('./botConfig.json'); // o como se llame
 require('./registro-comandos.js'); // registra los comandos al iniciar
 const { asignarRolesPorPromedio } = require("./utiles/asignarRoles.js");
 const { sincronizarCoordinados } = require('./sincronizarCoordinados');
+const fixtureJornada = require('./utiles/fixtureJornada.js');
 
 
 // Configura el prefijo del comando y el ID del canal de bienvenida
@@ -101,6 +102,11 @@ client.on('interactionCreate', async (interaction) => {
 
   const { commandName, options, user, guildId, member, channelId } = interaction;
 
+  // Comando: fixture_jornada  
+ if (commandName === 'fixture_jornada') {
+    return fixtureJornada.execute(interaction);
+  }
+    
   // Comando: actualizar_categoria
   if (commandName === 'actualizar_categoria') {
     const ownerId = botConfig.ownerId;
