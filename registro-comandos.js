@@ -4,6 +4,25 @@ const config = require('./botConfig.json');
 
 const comandos = [
     {
+    name: 'publicar_tabla',
+    description: 'Publica la tabla de posiciones en el canal correspondiente.',
+    options: [
+      {
+        name: 'categoria',
+        description: 'Letra de la categoría',
+        type: ApplicationCommandOptionType.String,
+        required: true,
+        choices: [
+          { name: 'Campeón', value: 'a' },
+          { name: 'Mandoble', value: 'b' },
+          { name: 'Espada Larga', value: 'c' },
+          { name: 'Hombre de Armas', value: 'd' },
+          { name: 'Milicia', value: 'e' }
+        ]
+      }
+    ]
+  },
+    {
   name: 'fixture_jornada',
   description: 'Muestra los encuentros de una jornada de liga.',
   options: [
