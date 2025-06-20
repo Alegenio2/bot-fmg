@@ -629,45 +629,51 @@ if (commandName === 'publicar_tabla') {
 
   const texto = generarTextoTabla(posiciones, categoria);
 
-  try {
-    const canal = await interaction.client.channels.fetch(canalId);
-    const mensajeTablaId = serverConfig.mensajeTabla?.[categoria];
+try {
+  const canal = await interaction.client.channels.fetch(canalId);
+  const mensajeTablaId = serverConfig.mensajeTabla?.[categoria];
 
-    if (mensajeTablaId) {
-      try {
-        const mensaje = await canal.messages.fetch(mensajeTablaId);
-        await mensaje.edit(texto);
+  console.log(`🟢 Canal obtenido: ${canal.id}`);
+  console.log(`📩 Mensaje a editar: ${mensajeTablaId}`);
 
-        return await interaction.reply({
-          content: `🔁 Tabla actualizada en el mensaje existente para categoría ${categoria.toUpperCase()}.`,
-          ephemeral: true
-        });
+  if (mensajeTablaId) {
+    try {
+      const mensaje = await canal.messages.fetch(mensajeTablaId);
+      console.log(`📝 Editando mensaje existente...`);
+      await mensaje.edit(texto);
 
-      } catch (err) {
-        console.warn(`⚠️ No se pudo editar el mensaje anterior, publicando uno nuevo...`);
-      }
+      return await interaction.reply({
+        content: `🔁 Tabla actualizada en el mensaje existente para categoría ${categoria.toUpperCase()}.`,
+        ephemeral: true
+      });
+
+    } catch (err) {
+      console.warn(`⚠️ No se pudo editar el mensaje anterior, publicando uno nuevo...`);
+      console.error(err); // <-- AGREGAR ESTO
     }
-
-    const nuevoMensaje = await canal.send(texto);
-
-    // Guardar el nuevo mensaje en botConfig.json
-    if (!serverConfig.mensajeTabla) serverConfig.mensajeTabla = {};
-    serverConfig.mensajeTabla[categoria] = nuevoMensaje.id;
-
-    fs.writeFileSync(path.join(__dirname, 'botConfig.json'), JSON.stringify(config, null, 2));
-
-    return await interaction.reply({
-      content: `✅ Tabla publicada para categoría ${categoria.toUpperCase()} y mensaje guardado.`,
-      ephemeral: true
-    });
-
-  } catch (error) {
-    console.error("❌ Error al publicar/editar la tabla:", error);
-    return await interaction.reply({
-      content: "⚠️ No se pudo publicar o actualizar la tabla. Revisá permisos del bot.",
-      ephemeral: true
-    });
   }
+
+  const nuevoMensaje = await canal.send(texto);
+  console.log(`📤 Publicado nuevo mensaje con ID: ${nuevoMensaje.id}`);
+
+  // Guardar el nuevo mensaje
+  if (!serverConfig.mensajeTabla) serverConfig.mensajeTabla = {};
+  serverConfig.mensajeTabla[categoria] = nuevoMensaje.id;
+
+  fs.writeFileSync(path.join(__dirname, 'botConfig.json'), JSON.stringify(botConfig, null, 2));
+
+  return await interaction.reply({
+    content: `✅ Tabla publicada para categoría ${categoria.toUpperCase()} y mensaje guardado.`,
+    ephemeral: true
+  });
+
+} catch (error) {
+  console.error("❌ Error al publicar/editar la tabla:", error); // <-- MUY IMPORTANTE
+  return await interaction.reply({
+    content: "⚠️ No se pudo publicar o actualizar la tabla. Revisá permisos del bot.",
+    ephemeral: true
+  });
+}
 }  
 
 });
