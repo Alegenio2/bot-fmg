@@ -241,12 +241,12 @@ const comandos = [
         ],
         required: true,
       },
-      {
-        name: 'ronda',
-        description: 'La Fecha que juegas (Ej Primera)',
-        type: ApplicationCommandOptionType.String,
-        required: true,
-      },
+     {
+  name: 'ronda',
+  description: 'Número de jornada a coordinar',
+  type: ApplicationCommandOptionType.Integer,
+  required: true
+},
       {
         name: 'fecha',
         description: 'Ingrese la fecha en formato DD-MM-YYYY.',
