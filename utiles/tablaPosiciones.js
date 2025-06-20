@@ -1,7 +1,7 @@
 // utiles/tablaPosiciones.js
 const fs = require('fs');
 const path = require('path');
-const config = require('./botConfig.json'); // o como se llame
+const config = require('../botConfig.json'); // o como se llame
 
 // Calcula la tabla de posiciones a partir del JSON de liga
 function calcularTablaPosiciones(categoria) {
