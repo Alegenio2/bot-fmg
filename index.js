@@ -595,7 +595,7 @@ if (commandName === 'listar_encuentros') {
 // Comando: publicar_tabla
 if (commandName === 'publicar_tabla') {
   const categoria = options.getString('categoria'); // ej: "a", "b", "c"
-  / ✅ Verificación del owner
+  // ✅ Verificación del owner
   if (interaction.user.id !== botConfig.ownerId) {
     return await interaction.reply({
       content: "❌ Solo el organizador puede ejecutar este comando.",
