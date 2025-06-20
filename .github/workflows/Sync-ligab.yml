@@ -1,0 +1,25 @@
+name: Sync liga_c.json to civs repo
+
+on:
+  push:
+    paths:
+      - ligas/liga_b.json  # Ejecuta solo si este archivo cambia
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repositorio privado (bot-fmg)
+        uses: actions/checkout@v3
+
+      - name: Clonar repositorio público (civs)
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
+          git clone https://x-access-token:${{ secrets.PUBLIC_REPO_TOKEN }}@github.com/Alegenio2/civs.git
+          cp ligas/liga_b.json civs/
+          cd civs
+          git add liga_b.json
+          git commit -m "Sync automático de liga_b.json desde bot-fmg" || echo "Sin cambios"
+          git push
