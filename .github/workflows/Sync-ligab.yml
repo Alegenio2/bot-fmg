@@ -20,6 +20,6 @@ jobs:
           git clone https://x-access-token:${{ secrets.PUBLIC_REPO_TOKEN }}@github.com/Alegenio2/civs.git
           cp ligas/liga_b.json civs/ligas/
           cd civs
-          git add liga_b.json
+          git add ligas/liga_b.json
           git commit -m "Sync automático de liga_b.json desde bot-fmg" || echo "Sin cambios"
           git push
