@@ -18,7 +18,7 @@ jobs:
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
           git clone https://x-access-token:${{ secrets.PUBLIC_REPO_TOKEN }}@github.com/Alegenio2/civs.git
-          cp ligas/liga_c.json civs/
+          cp ligas/liga_c.json civs/ligas/
           cd civs
           git add liga_c.json
           git commit -m "Sync automático de liga_c.json desde bot-fmg" || echo "Sin cambios"
