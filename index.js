@@ -317,88 +317,129 @@ const { guardarYSubirCatE } = require('./git/guardarGit_Cat_E.js');
       `✅ Ganadas: ${datos.wins} | ❌ Perdidas: ${datos.losses}`
     );
   }
-  // Comando: coordinado
-  if (commandName === 'coordinado') {
-    const division = options.getString('division');
-    const ronda = options.getString('ronda');
-    const fecha = options.getString('fecha');
-    const jugador = options.getUser('jugador');
-    const rival = options.getUser('rival');
-    const horario = options.getString('horario');
-    let gmt = options.getString('gmt') || "GMT-3";
+ // Comando: coordinado
+if (commandName === 'coordinado') {
+  const division = options.getString('division'); // Ej: categoria_c
+  const ronda = options.getString('ronda');
+  const fecha = options.getString('fecha');
+  const jugador = options.getUser('jugador');
+  const rival = options.getUser('rival');
+  const horario = options.getString('horario');
+  const gmt = options.getString('gmt') || "GMT-3";
 
-    const fechaFormatoCorrecto = convertirFormatoFecha(fecha);
-    const diaSemana = obtenerDiaSemana(fechaFormatoCorrecto);
+  const letraDivision = division?.split('_')[1]; // Ej: "c"
+  const filePath = path.join(__dirname, 'ligas', `liga_${letraDivision}.json`);
 
-    const mensaje = `📅 Campeonato Uruguayo\n🗂 División: ${division}, Etapa: ${ronda}\n📆 Fecha: ${fecha} (${diaSemana}) a las ${horario}-hs ${gmt}\n👥 ${jugador} vs ${rival}`;
-    await interaction.reply({ content: mensaje, fetchReply: true });
+  const fechaFormatoCorrecto = convertirFormatoFecha(fecha);
+  const diaSemana = obtenerDiaSemana(fechaFormatoCorrecto);
 
-    const nuevoEncuentro = {
-      id: Date.now(),
-      division,
-      ronda,
-      fecha,
-      diaSemana,
-      horario,
-      gmt,
-      jugador: { id: jugador.id, nombre: jugador.username },
-      rival: { id: rival.id, nombre: rival.username },
-      creadoPor: { id: user.id, nombre: user.username },
-      timestamp: new Date().toISOString()
-    };
-
-    await interaction.followUp({
-      content: `🆔 ID de este encuentro (para poder re-coordinar): \`${nuevoEncuentro.id}\``,
-      ephemeral: true
-    });
-
-    const filePath = path.join(__dirname, 'coordinados.json');
-    try {
-      const data = fs.existsSync(filePath) ? JSON.parse(fs.readFileSync(filePath, 'utf8')) : [];
-      data.push(nuevoEncuentro);
-      fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
-
-      await sincronizarCoordinados();
-    } catch (error) {
-      console.error("❌ Error al guardar el encuentro:", error);
-    }
-    return;
+  if (!fs.existsSync(filePath)) {
+    return await interaction.reply(`⚠️ No se encontró el archivo de liga para la división **${division}**.`);
   }
 
-  // Comando: re-coordinar
-  if (commandName === 're-coordinar') {
-    const id = options.getNumber('id');
-    const nuevaFecha = options.getString('fecha');
-    const nuevoHorario = options.getString('horario');
-    const nuevoGMT = options.getString('gmt') || "GMT-3";
+  try {
+    const liga = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    let partidoCoordinado = false;
 
-    const filePath = path.join(__dirname, 'coordinados.json');
-    if (!fs.existsSync(filePath)) {
-      return interaction.reply({ content: "❌ No hay ningún archivo de encuentros todavía.", ephemeral: true });
+    for (const jornada of liga.jornadas) {
+      if (jornada.ronda.toString() !== ronda) continue;
+
+      for (const partido of jornada.partidos) {
+        const j1 = partido.jugador1Id;
+        const j2 = partido.jugador2Id;
+
+        const esEstePartido =
+          (j1 === jugador.id && j2 === rival.id) ||
+          (j1 === rival.id && j2 === jugador.id);
+
+        if (esEstePartido) {
+  partido.id = partido.id || Date.now(); // si ya tiene ID, no lo pisa
+  partido.fecha = fecha;
+  partido.diaSemana = diaSemana;
+  partido.horario = horario;
+  partido.gmt = gmt;
+  partido.timestamp = new Date().toISOString();
+  partido.coordinadoPor = {
+    id: interaction.user.id,
+    nombre: interaction.user.username
+  };
+  partidoCoordinado = true;
+
+  await interaction.followUp({
+    content: `🆔 ID del partido (para re-coordinar): \`${partido.id}\``,
+    ephemeral: true
+  });
+
+  break;
+}
+
+      }
+      if (partidoCoordinado) break;
     }
 
-    let coordinados = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-    const index = coordinados.findIndex(e => e.id === id);
+    if (partidoCoordinado) {
+      fs.writeFileSync(filePath, JSON.stringify(liga, null, 2), 'utf8');
 
-    if (index === -1) {
-      return interaction.reply({ content: `❌ No se encontró ningún encuentro con ID: ${id}`, ephemeral: true });
+      await interaction.reply({
+        content: `📅 Partido coordinado en División **${division}**, Ronda **${ronda}**\n🕒 ${fecha} (${diaSemana}) a las ${horario}-hs ${gmt}\n👥 ${jugador} vs ${rival}`,
+        fetchReply: true
+      });
+    } else {
+      await interaction.reply(`⚠️ No se encontró el partido entre **${jugador.username}** y **${rival.username}** en la ronda **${ronda}** de la liga **${division}**.`);
     }
 
-    coordinados[index].fecha = nuevaFecha;
-    coordinados[index].horario = nuevoHorario;
-    coordinados[index].gmt = nuevoGMT;
-    coordinados[index].diaSemana = obtenerDiaSemana(convertirFormatoFecha(nuevaFecha));
-    coordinados[index].timestamp = new Date().toISOString();
+  } catch (error) {
+    console.error("❌ Error al coordinar el encuentro:", error);
+    await interaction.reply("⚠️ Ocurrió un error al intentar coordinar el partido.");
+  }
+}
+ // Comando: re-coordinar
+if (commandName === 're-coordinar') {
+  const id = options.getNumber('id');
+  const nuevaFecha = options.getString('fecha');
+  const nuevoHorario = options.getString('horario');
+  const nuevoGMT = options.getString('gmt') || "GMT-3";
 
-    fs.writeFileSync(filePath, JSON.stringify(coordinados, null, 2));
-    await sincronizarCoordinados();
+  const diaSemana = obtenerDiaSemana(convertirFormatoFecha(nuevaFecha));
 
-    return interaction.reply({
-      content: `✅ Encuentro actualizado con éxito:\n📅 Nueva fecha: ${nuevaFecha} (${coordinados[index].diaSemana})\n🕒 Nuevo horario: ${nuevoHorario} ${nuevoGMT}`,
-      ephemeral: true
-    });
+  // Recorremos todas las ligas posibles
+  const ligasDir = path.join(__dirname, 'ligas');
+  const archivosLigas = fs.readdirSync(ligasDir).filter(f => f.startsWith('liga_') && f.endsWith('.json'));
+
+  let partidoActualizado = false;
+
+  for (const archivo of archivosLigas) {
+    const ligaPath = path.join(ligasDir, archivo);
+    const liga = JSON.parse(fs.readFileSync(ligaPath, 'utf8'));
+
+    for (const jornada of liga.jornadas) {
+      for (const partido of jornada.partidos) {
+        if (partido.id === id) {
+          partido.fecha = nuevaFecha;
+          partido.horario = nuevoHorario;
+          partido.gmt = nuevoGMT;
+          partido.diaSemana = diaSemana;
+          partido.timestamp = new Date().toISOString();
+
+          fs.writeFileSync(ligaPath, JSON.stringify(liga, null, 2), 'utf8');
+          partidoActualizado = true;
+
+          await interaction.reply({
+            content: `✅ Encuentro actualizado con éxito en **${archivo}**:\n📅 Nueva fecha: ${nuevaFecha} (${diaSemana})\n🕒 Nuevo horario: ${nuevoHorario} ${nuevoGMT}`,
+            ephemeral: true
+          });
+          break;
+        }
+      }
+      if (partidoActualizado) break;
+    }
+    if (partidoActualizado) break;
   }
 
+  if (!partidoActualizado) {
+    return interaction.reply({ content: `❌ No se encontró ningún partido con ID: \`${id}\` en las ligas.`, ephemeral: true });
+  }
+}
   // Comando: inscripciones
   if (commandName === 'inscripciones') {
     const nombre = options.getString('nombre');
