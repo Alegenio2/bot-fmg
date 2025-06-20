@@ -17,6 +17,7 @@ require('./registro-comandos.js'); // registra los comandos al iniciar
 const { asignarRolesPorPromedio } = require("./utiles/asignarRoles.js");
 const { sincronizarCoordinados } = require('./sincronizarCoordinados');
 const fixtureJornada = require('./utiles/fixtureJornada.js');
+const { calcularTablaPosiciones, generarTextoTabla } = require('./utiles/tablaPosiciones');
 
 
 // Configura el prefijo del comando y el ID del canal de bienvenida
@@ -179,6 +180,9 @@ if (interaction.commandName === "resultado") {
 
     if (partidoActualizado) {
       await guardarLiga(liga, filePath, letraDivision, interaction);
+      // ⬇️ NUEVA LÍNEA PARA ACTUALIZAR TABLA
+      const { actualizarTablaEnCanal } = require('./utiles/tablaPosiciones.js');
+      await actualizarTablaEnCanal(letraDivision, interaction.client, interaction.guildId);  
     } else {
       console.warn(`⚠️ No se encontró el partido entre ${jugador.id} y ${otrojugador.id}`);
       await interaction.followUp(`⚠️ No se encontró el partido entre ${jugador.username} y ${otrojugador.username} en la liga.`);
@@ -588,6 +592,75 @@ if (commandName === 'listar_encuentros') {
 
   return interaction.reply({ content: respuesta.slice(0, 2000), ephemeral: true });
 }
+// Comando: publicar_tabla
+if (commandName === 'publicar_tabla') {
+  const categoria = options.getString('categoria'); // ej: "a", "b", "c"
+  / ✅ Verificación del owner
+  if (interaction.user.id !== botConfig.ownerId) {
+    return await interaction.reply({
+      content: "❌ Solo el organizador puede ejecutar este comando.",
+      ephemeral: true
+    });
+  }
+  const servidorId = interaction.guildId;
+  const serverConfig = botConfig.servidores[servidorId];
+
+  if (!serverConfig) {
+    return await interaction.reply({ content: "⚠️ Este servidor no está configurado en config.json", ephemeral: true });
+  }
+
+  const canalId = serverConfig[`categoria${categoria.toUpperCase()}`];
+  if (!canalId) {
+    return await interaction.reply({ content: `⚠️ No se encontró un canal configurado para la categoría ${categoria.toUpperCase()}`, ephemeral: true });
+  }
+
+  const posiciones = calcularTablaPosiciones(categoria);
+  if (!posiciones) {
+    return await interaction.reply({ content: `⚠️ No se pudo calcular la tabla para la categoría ${categoria}`, ephemeral: true });
+  }
+
+  const texto = generarTextoTabla(posiciones, categoria);
+
+  try {
+    const canal = await interaction.client.channels.fetch(canalId);
+    const mensajeTablaId = serverConfig.mensajeTabla?.[categoria];
+
+    if (mensajeTablaId) {
+      try {
+        const mensaje = await canal.messages.fetch(mensajeTablaId);
+        await mensaje.edit(texto);
+
+        return await interaction.reply({
+          content: `🔁 Tabla actualizada en el mensaje existente para categoría ${categoria.toUpperCase()}.`,
+          ephemeral: true
+        });
+
+      } catch (err) {
+        console.warn(`⚠️ No se pudo editar el mensaje anterior, publicando uno nuevo...`);
+      }
+    }
+
+    const nuevoMensaje = await canal.send(texto);
+
+    // Guardar el nuevo mensaje en config.json
+    if (!serverConfig.mensajeTabla) serverConfig.mensajeTabla = {};
+    serverConfig.mensajeTabla[categoria] = nuevoMensaje.id;
+
+    fs.writeFileSync(path.join(__dirname, 'config.json'), JSON.stringify(config, null, 2));
+
+    return await interaction.reply({
+      content: `✅ Tabla publicada para categoría ${categoria.toUpperCase()} y mensaje guardado.`,
+      ephemeral: true
+    });
+
+  } catch (error) {
+    console.error("❌ Error al publicar/editar la tabla:", error);
+    return await interaction.reply({
+      content: "⚠️ No se pudo publicar o actualizar la tabla. Revisá permisos del bot.",
+      ephemeral: true
+    });
+  }
+}  
 
 });
 
