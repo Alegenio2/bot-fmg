@@ -326,7 +326,7 @@ if (commandName === 'coordinado') {
   await interaction.deferReply({ ephemeral: true }); // ✅ evita error de interacción
 
   const division = options.getString('division'); // Ej: categoria_c
-  const ronda = options.getString('ronda');
+  const ronda = options.getInteger('ronda');
   const fecha = options.getString('fecha');
   const jugador = options.getUser('jugador');
   const rival = options.getUser('rival');
@@ -401,16 +401,21 @@ if (commandName === 'coordinado') {
 }
 // Comando: re-coordinar
 if (commandName === 're-coordinar') {
-  await interaction.deferReply({ ephemeral: true }); // ✅ prevenir errores de respuesta
+  await interaction.deferReply({ ephemeral: true }); // prevenir error InteractionNotReplied
 
+  const categoria = options.getString('categoria'); // Ej: 'a', 'b', etc.
   const id = options.getNumber('id');
   const nuevaFecha = options.getString('fecha');
   const nuevoHorario = options.getString('horario');
   const nuevoGMT = options.getString('gmt') || "GMT-3";
 
-  const filePath = path.join(__dirname, 'ligas', `liga_a.json`); // ⬅️ Cambiá "a" si es necesario o hacelo dinámico
+  if (!categoria || !id || !nuevaFecha || !nuevoHorario) {
+    return await interaction.editReply("❌ Faltan datos obligatorios.");
+  }
+
+  const filePath = path.join(__dirname, 'ligas', `liga_${categoria}.json`);
   if (!fs.existsSync(filePath)) {
-    return await interaction.editReply("❌ No hay ningún archivo de encuentros todavía.");
+    return await interaction.editReply(`⚠️ No se encontró la liga para la categoría **${categoria.toUpperCase()}**.`);
   }
 
   try {
@@ -434,13 +439,13 @@ if (commandName === 're-coordinar') {
     }
 
     if (!partidoModificado) {
-      return await interaction.editReply(`❌ No se encontró ningún encuentro con ID: \`${id}\``);
+      return await interaction.editReply(`❌ No se encontró ningún encuentro con ID: \`${id}\` en la categoría ${categoria.toUpperCase()}`);
     }
 
     fs.writeFileSync(filePath, JSON.stringify(liga, null, 2), 'utf8');
 
     await interaction.editReply({
-      content: `✅ Encuentro actualizado con éxito:\n📅 Nueva fecha: ${nuevaFecha} (${partidoModificado.diaSemana})\n🕒 Nuevo horario: ${nuevoHorario} ${nuevoGMT}`,
+      content: `✅ Encuentro actualizado con éxito en categoría **${categoria.toUpperCase()}**:\n📅 Nueva fecha: ${nuevaFecha} (${partidoModificado.diaSemana})\n🕒 Nuevo horario: ${nuevoHorario} ${nuevoGMT}`,
     });
 
   } catch (error) {
@@ -448,7 +453,6 @@ if (commandName === 're-coordinar') {
     await interaction.editReply("⚠️ Ocurrió un error al modificar el encuentro.");
   }
 }
-
   // Comando: inscripciones
   if (commandName === 'inscripciones') {
     const nombre = options.getString('nombre');
