@@ -379,8 +379,8 @@ if (commandName === 'coordinado') {
     }
 
     if (partidoCoordinado) {
-      fs.writeFileSync(filePath, JSON.stringify(liga, null, 2), 'utf8');
-
+      // ✅ Subir a GitHub igual que en "resultado"
+      await guardarLiga(liga, filePath, letraDivision, interaction);  
       await interaction.editReply({
         content: `📅 Partido coordinado en División **${division}**, Ronda **${ronda}**\n🕒 ${fecha} (${diaSemana}) a las ${horario}-hs ${gmt}\n👥 ${jugador} vs ${rival}`,
       });
@@ -442,8 +442,8 @@ if (commandName === 're-coordinar') {
       return await interaction.editReply(`❌ No se encontró ningún encuentro con ID: \`${id}\` en la categoría ${categoria.toUpperCase()}`);
     }
 
-    fs.writeFileSync(filePath, JSON.stringify(liga, null, 2), 'utf8');
-
+    await guardarLiga(liga, filePath, categoria, interaction);  
+   
     await interaction.editReply({
       content: `✅ Encuentro actualizado con éxito en categoría **${categoria.toUpperCase()}**:\n📅 Nueva fecha: ${nuevaFecha} (${partidoModificado.diaSemana})\n🕒 Nuevo horario: ${nuevoHorario} ${nuevoGMT}`,
     });
