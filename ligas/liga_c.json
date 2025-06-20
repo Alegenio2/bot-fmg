@@ -6,7 +6,7 @@
       "nombre": "BOLSOLOCURA",
       "profileId": "2393008",
       "elo": 1380,
-      "rank": 6042,
+      "rank": 6054,
       "wins": 368,
       "losses": 342,
       "pais": "🇺🇾",
@@ -17,24 +17,24 @@
     },
     {
       "id": "833806737902534738",
-      "nombre": "Fan de MateYoruga",
-      "profileId": "21850097",
-      "elo": 1098,
-      "rank": 16068,
-      "wins": 43,
-      "losses": 33,
+      "nombre": "Jaka Jaan",
+      "profileId": "2639502",
+      "elo": 1602,
+      "rank": 2669,
+      "wins": 134,
+      "losses": 84,
       "pais": "🇺🇾",
       "country": "uy",
       "clan": "SURU",
-      "elomax": 1145,
-      "ultimapartida": "2025-06-02T22:40:01.000Z"
+      "elomax": 1649,
+      "ultimapartida": "2025-04-01T00:31:58.000Z"
     },
     {
       "id": "485610092092456975",
       "nombre": "CORP_Kroyen",
       "profileId": "828458",
       "elo": 1484,
-      "rank": 4091,
+      "rank": 4089,
       "wins": 62,
       "losses": 43,
       "pais": "🇺🇾",
@@ -48,7 +48,7 @@
       "nombre": "DGHIR | PaginasAmarillas",
       "profileId": "11033804",
       "elo": 1444,
-      "rank": 4739,
+      "rank": 4729,
       "wins": 1033,
       "losses": 993,
       "pais": "🇺🇾",
@@ -76,7 +76,7 @@
       "nombre": "Culero Connor",
       "profileId": "5736044",
       "elo": 1431,
-      "rank": 4982,
+      "rank": 4988,
       "wins": 303,
       "losses": 289,
       "pais": "🇺🇾",
@@ -90,7 +90,7 @@
       "nombre": "|FMG|DavidTG",
       "profileId": "4465309",
       "elo": 1294,
-      "rank": 8245,
+      "rank": 8241,
       "wins": 915,
       "losses": 907,
       "pais": "🇺🇾",
@@ -104,7 +104,7 @@
       "nombre": "|FMG| Gral_Artigas",
       "profileId": "2899006",
       "elo": 1466,
-      "rank": 4375,
+      "rank": 4373,
       "wins": 182,
       "losses": 157,
       "pais": "🇺🇾",
@@ -146,7 +146,7 @@
       "nombre": "DGHIR | Lionerrt",
       "profileId": "5204719",
       "elo": 1299,
-      "rank": 8122,
+      "rank": 8119,
       "wins": 295,
       "losses": 268,
       "pais": "🇺🇾",
@@ -168,17 +168,7 @@
         {
           "jugador1Id": "485610092092456975",
           "jugador2Id": "959267535524606022",
-          "resultado": null,
-          "id": 1750435968829,
-          "fecha": "15-07-2025",
-          "diaSemana": "Martes",
-          "horario": "21",
-          "gmt": "GMT-3",
-          "timestamp": "2025-06-20T16:12:48.829Z",
-          "coordinadoPor": {
-            "id": "286607198854053890",
-            "nombre": "jabsuy"
-          }
+          "resultado": null
         },
         {
           "jugador1Id": "326046458673365002",
@@ -498,5 +488,5 @@
       ]
     }
   ],
-  "creado": "2025-06-20T15:56:25.280Z"
+  "creado": "2025-06-20T16:20:27.172Z"
 }
