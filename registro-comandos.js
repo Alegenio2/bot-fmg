@@ -280,30 +280,43 @@ const comandos = [
     ],
   },
   {
-  name: "re-coordinar",
-  description: "Edita un encuentro coordinado existente",
+  name: 're-coordinar',
+  description: 'Modificar fecha y hora de un partido ya coordinado.',
   options: [
     {
-      name: "id",
-      description: "ID del encuentro",
+      name: 'categoria',
+      description: 'Letra de la categoría (a, b, c, etc.)',
+      type: ApplicationCommandOptionType.String,
+      required: true,
+      choices: [
+        { name: 'Campeón', value: 'a' },
+        { name: 'Mandoble', value: 'b' },
+        { name: 'Espada Larga', value: 'c' },
+        { name: 'Hombre de Armas', value: 'd' },
+        { name: 'Milicia', value: 'e' }
+      ]
+    },
+    {
+      name: 'id',
+      description: 'ID del partido a modificar',
       type: ApplicationCommandOptionType.Number,
       required: true
     },
     {
-      name: "fecha",
-      description: "Nueva fecha (ej: 20-07-2025)",
+      name: 'fecha',
+      description: 'Nueva fecha del partido (ej. 20-06-2025)',
       type: ApplicationCommandOptionType.String,
       required: true
     },
     {
-      name: "horario",
-      description: "Nuevo horario (ej: 22:00)",
+      name: 'horario',
+      description: 'Nuevo horario (ej. 22)',
       type: ApplicationCommandOptionType.String,
       required: true
     },
     {
-      name: "gmt",
-      description: "Zona horaria (por defecto GMT-3)",
+      name: 'gmt',
+      description: 'Zona horaria (por defecto GMT-3)',
       type: ApplicationCommandOptionType.String,
       required: false
     }
