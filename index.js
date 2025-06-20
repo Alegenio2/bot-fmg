@@ -321,8 +321,10 @@ const { guardarYSubirCatE } = require('./git/guardarGit_Cat_E.js');
       `✅ Ganadas: ${datos.wins} | ❌ Perdidas: ${datos.losses}`
     );
   }
- // Comando: coordinado
+// Comando: coordinado
 if (commandName === 'coordinado') {
+  await interaction.deferReply({ ephemeral: true }); // ✅ evita error de interacción
+
   const division = options.getString('division'); // Ej: categoria_c
   const ronda = options.getString('ronda');
   const fecha = options.getString('fecha');
@@ -338,12 +340,13 @@ if (commandName === 'coordinado') {
   const diaSemana = obtenerDiaSemana(fechaFormatoCorrecto);
 
   if (!fs.existsSync(filePath)) {
-    return await interaction.reply(`⚠️ No se encontró el archivo de liga para la división **${division}**.`);
+    return await interaction.editReply(`⚠️ No se encontró el archivo de liga para la división **${division}**.`);
   }
 
   try {
     const liga = JSON.parse(fs.readFileSync(filePath, 'utf8'));
     let partidoCoordinado = false;
+    let partidoId = null;
 
     for (const jornada of liga.jornadas) {
       if (jornada.ronda.toString() !== ronda) continue;
@@ -357,26 +360,20 @@ if (commandName === 'coordinado') {
           (j1 === rival.id && j2 === jugador.id);
 
         if (esEstePartido) {
-  partido.id = partido.id || Date.now(); // si ya tiene ID, no lo pisa
-  partido.fecha = fecha;
-  partido.diaSemana = diaSemana;
-  partido.horario = horario;
-  partido.gmt = gmt;
-  partido.timestamp = new Date().toISOString();
-  partido.coordinadoPor = {
-    id: interaction.user.id,
-    nombre: interaction.user.username
-  };
-  partidoCoordinado = true;
-
-  await interaction.followUp({
-    content: `🆔 ID del partido (para re-coordinar): \`${partido.id}\``,
-    ephemeral: true
-  });
-
-  break;
-}
-
+          partido.id = partido.id || Date.now(); // generar ID si no existe
+          partido.fecha = fecha;
+          partido.diaSemana = diaSemana;
+          partido.horario = horario;
+          partido.gmt = gmt;
+          partido.timestamp = new Date().toISOString();
+          partido.coordinadoPor = {
+            id: interaction.user.id,
+            nombre: interaction.user.username
+          };
+          partidoCoordinado = true;
+          partidoId = partido.id;
+          break;
+        }
       }
       if (partidoCoordinado) break;
     }
@@ -384,37 +381,42 @@ if (commandName === 'coordinado') {
     if (partidoCoordinado) {
       fs.writeFileSync(filePath, JSON.stringify(liga, null, 2), 'utf8');
 
-      await interaction.reply({
+      await interaction.editReply({
         content: `📅 Partido coordinado en División **${division}**, Ronda **${ronda}**\n🕒 ${fecha} (${diaSemana}) a las ${horario}-hs ${gmt}\n👥 ${jugador} vs ${rival}`,
-        fetchReply: true
       });
+
+      await interaction.followUp({
+        content: `🆔 ID del partido (para re-coordinar): \`${partidoId}\``,
+        ephemeral: true
+      });
+
     } else {
-      await interaction.reply(`⚠️ No se encontró el partido entre **${jugador.username}** y **${rival.username}** en la ronda **${ronda}** de la liga **${division}**.`);
+      await interaction.editReply(`⚠️ No se encontró el partido entre **${jugador.username}** y **${rival.username}** en la ronda **${ronda}** de la liga **${division}**.`);
     }
 
   } catch (error) {
     console.error("❌ Error al coordinar el encuentro:", error);
-    await interaction.reply("⚠️ Ocurrió un error al intentar coordinar el partido.");
+    await interaction.editReply("⚠️ Ocurrió un error al intentar coordinar el partido.");
   }
 }
- // Comando: re-coordinar
+// Comando: re-coordinar
 if (commandName === 're-coordinar') {
+  await interaction.deferReply({ ephemeral: true }); // ✅ prevenir errores de respuesta
+
   const id = options.getNumber('id');
   const nuevaFecha = options.getString('fecha');
   const nuevoHorario = options.getString('horario');
   const nuevoGMT = options.getString('gmt') || "GMT-3";
 
-  const diaSemana = obtenerDiaSemana(convertirFormatoFecha(nuevaFecha));
+  const filePath = path.join(__dirname, 'ligas', `liga_a.json`); // ⬅️ Cambiá "a" si es necesario o hacelo dinámico
+  if (!fs.existsSync(filePath)) {
+    return await interaction.editReply("❌ No hay ningún archivo de encuentros todavía.");
+  }
 
-  // Recorremos todas las ligas posibles
-  const ligasDir = path.join(__dirname, 'ligas');
-  const archivosLigas = fs.readdirSync(ligasDir).filter(f => f.startsWith('liga_') && f.endsWith('.json'));
+  try {
+    const liga = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 
-  let partidoActualizado = false;
-
-  for (const archivo of archivosLigas) {
-    const ligaPath = path.join(ligasDir, archivo);
-    const liga = JSON.parse(fs.readFileSync(ligaPath, 'utf8'));
+    let partidoModificado = null;
 
     for (const jornada of liga.jornadas) {
       for (const partido of jornada.partidos) {
@@ -422,28 +424,31 @@ if (commandName === 're-coordinar') {
           partido.fecha = nuevaFecha;
           partido.horario = nuevoHorario;
           partido.gmt = nuevoGMT;
-          partido.diaSemana = diaSemana;
+          partido.diaSemana = obtenerDiaSemana(convertirFormatoFecha(nuevaFecha));
           partido.timestamp = new Date().toISOString();
-
-          fs.writeFileSync(ligaPath, JSON.stringify(liga, null, 2), 'utf8');
-          partidoActualizado = true;
-
-          await interaction.reply({
-            content: `✅ Encuentro actualizado con éxito en **${archivo}**:\n📅 Nueva fecha: ${nuevaFecha} (${diaSemana})\n🕒 Nuevo horario: ${nuevoHorario} ${nuevoGMT}`,
-            ephemeral: true
-          });
+          partidoModificado = partido;
           break;
         }
       }
-      if (partidoActualizado) break;
+      if (partidoModificado) break;
     }
-    if (partidoActualizado) break;
-  }
 
-  if (!partidoActualizado) {
-    return interaction.reply({ content: `❌ No se encontró ningún partido con ID: \`${id}\` en las ligas.`, ephemeral: true });
+    if (!partidoModificado) {
+      return await interaction.editReply(`❌ No se encontró ningún encuentro con ID: \`${id}\``);
+    }
+
+    fs.writeFileSync(filePath, JSON.stringify(liga, null, 2), 'utf8');
+
+    await interaction.editReply({
+      content: `✅ Encuentro actualizado con éxito:\n📅 Nueva fecha: ${nuevaFecha} (${partidoModificado.diaSemana})\n🕒 Nuevo horario: ${nuevoHorario} ${nuevoGMT}`,
+    });
+
+  } catch (error) {
+    console.error("❌ Error en re-coordinar:", error);
+    await interaction.editReply("⚠️ Ocurrió un error al modificar el encuentro.");
   }
 }
+
   // Comando: inscripciones
   if (commandName === 'inscripciones') {
     const nombre = options.getString('nombre');
@@ -492,7 +497,6 @@ if (commandName === 're-coordinar') {
     }
     return;
   }
-
   // Comando: inscripciones_vinculado
   if (commandName === 'inscripciones_vinculado') {
     await interaction.deferReply({ ephemeral: false });
