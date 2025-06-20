@@ -617,7 +617,7 @@ if (commandName === 'publicar_tabla') {
     return await interaction.reply({ content: "⚠️ Este servidor no está configurado en config.json", ephemeral: true });
   }
 
-  const canalId = serverConfig[`categoria${categoria.toUpperCase()}`];
+  const canalId = serverConfig[`tablaCategoria${categoria.toUpperCase()}`];
   if (!canalId) {
     return await interaction.reply({ content: `⚠️ No se encontró un canal configurado para la categoría ${categoria.toUpperCase()}`, ephemeral: true });
   }
