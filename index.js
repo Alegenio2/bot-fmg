@@ -349,7 +349,7 @@ if (commandName === 'coordinado') {
     let partidoId = null;
 
     for (const jornada of liga.jornadas) {
-      if (jornada.ronda.toString() !== ronda) continue;
+     if (Number(jornada.ronda) !== ronda) continue;
 
       for (const partido of jornada.partidos) {
         const j1 = partido.jugador1Id;
