@@ -323,7 +323,7 @@ const { guardarYSubirCatE } = require('./git/guardarGit_Cat_E.js');
   }
 // Comando: coordinado
 if (commandName === 'coordinado') {
-  await interaction.deferReply({ ephemeral: true }); // ✅ evita error de interacción
+  await interaction.deferReply({ ephemeral: false }); // ✅ evita error de interacción
 
   const division = options.getString('division'); // Ej: categoria_c
   const ronda = options.getInteger('ronda');
@@ -401,7 +401,7 @@ if (commandName === 'coordinado') {
 }
 // Comando: re-coordinar
 if (commandName === 're-coordinar') {
-  await interaction.deferReply({ ephemeral: true }); // prevenir error InteractionNotReplied
+  await interaction.deferReply({ ephemeral: false }); // prevenir error InteractionNotReplied
 
   const categoria = options.getString('categoria'); // Ej: 'a', 'b', etc.
   const id = options.getNumber('id');
