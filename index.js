@@ -650,11 +650,11 @@ if (commandName === 'publicar_tabla') {
 
     const nuevoMensaje = await canal.send(texto);
 
-    // Guardar el nuevo mensaje en config.json
+    // Guardar el nuevo mensaje en botConfig.json
     if (!serverConfig.mensajeTabla) serverConfig.mensajeTabla = {};
     serverConfig.mensajeTabla[categoria] = nuevoMensaje.id;
 
-    fs.writeFileSync(path.join(__dirname, 'config.json'), JSON.stringify(config, null, 2));
+    fs.writeFileSync(path.join(__dirname, 'botConfig.json'), JSON.stringify(config, null, 2));
 
     return await interaction.reply({
       content: `✅ Tabla publicada para categoría ${categoria.toUpperCase()} y mensaje guardado.`,
