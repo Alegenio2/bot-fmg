@@ -93,20 +93,13 @@
         {
           "jugador1Id": "286607198854053890",
           "jugador2Id": "244547091362217984",
-          "resultado": {
-            "244547091362217984": 2,
-            "286607198854053890": 1,
-            "draftmapas": "map.com",
-            "draftcivis": "civ.com",
-            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1377793919311675453/1385656728607260763/CU_Stranded.zip?ex=6856dce4&is=68558b64&hm=d4229988e6ba72758faa0df27d0d63f2bab54084c52dc79ffea0154b06469fef&",
-            "fecha": "2025-06-20T16:25:09.035Z"
-          },
-          "id": 1750436637342,
+          "resultado": null,
+          "id": 1750616739566,
           "fecha": "25-07-2025",
           "diaSemana": "Viernes",
-          "horario": "21",
+          "horario": "22",
           "gmt": "GMT-3",
-          "timestamp": "2025-06-20T16:23:57.342Z",
+          "timestamp": "2025-06-22T18:25:39.566Z",
           "coordinadoPor": {
             "id": "286607198854053890",
             "nombre": "jabsuy"
