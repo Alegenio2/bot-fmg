@@ -20,6 +20,7 @@ const { sincronizarCoordinados } = require('./sincronizarCoordinados');
 const fixtureJornada = require('./utiles/fixtureJornada.js');
 const { calcularTablaPosiciones, generarTextoTabla } = require('./utiles/tablaPosiciones');
 const { guardarTorneos } = require('./utiles/guardarTorneos.js');
+const { subirTorneos } = require('./git/subirTorneosGit');
 
 
 // Configura el prefijo del comando y el ID del canal de bienvenida
@@ -61,10 +62,15 @@ client.on("ready", (c) => {
   });
 
   // Torneos (una vez por día a las 08:00)
-  cron.schedule('18 01 * * *', async () => {
+  cron.schedule('28 01 * * *', async () => {
     console.log('🎯 Ejecutando guardado de torneos');
     await guardarTorneos();
   });  
+
+  cron.schedule('30 01 * * *', async () => {
+  console.log('📤 Subiendo torneos a GitHub...');
+  await subirTorneos();
+});
     
   // 🎮 Establecer actividad del bot
   c.user.setActivity(`Age of Empires II: Definitive Edition`, {
