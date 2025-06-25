@@ -61,7 +61,7 @@ client.on("ready", (c) => {
   });
 
   // Torneos (una vez por día a las 08:00)
-  cron.schedule('10 01 * * *', async () => {
+  cron.schedule('18 01 * * *', async () => {
     console.log('🎯 Ejecutando guardado de torneos');
     await guardarTorneos();
   });  
