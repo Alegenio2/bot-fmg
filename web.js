@@ -30,31 +30,32 @@ app.get('/api/tournaments', async (req, res) => {
 
 app.get('/api/torneo-actual', async (req, res) => {
   const ahora = new Date();
+
   const estaActivo = (torneo) =>
     new Date(torneo.start) <= ahora && new Date(torneo.end) >= ahora;
 
-  const buscarTorneoEnTier = async (tier) => {
-    const torneos = await liquipedia.aoe.getTournaments(tier);
-    const planos = torneos.flatMap(grupo => grupo.data);
-    return planos.find(estaActivo);
-  };
+  const esTierValido = (torneo) =>
+    torneo.tier === 'Age_of_Empires_II/S-Tier_Tournaments' ||
+    torneo.tier === 'Age_of_Empires_II/A-Tier_Tournaments';
 
   try {
-    let torneo = await buscarTorneoEnTier('S-Tier');
-    if (!torneo) {
-      torneo = await buscarTorneoEnTier('A-Tier');
-    }
+    const torneos = await liquipedia.aoe.getUpcomingTournaments("Age of Empires II");
 
-    if (torneo) {
-      res.json(torneo);
+    const torneoActual = torneos.find(
+      (t) => estaActivo(t) && esTierValido(t)
+    );
+
+    if (torneoActual) {
+      res.json(torneoActual);
     } else {
-      res.status(404).json({ mensaje: 'No hay torneos en curso' });
+      res.status(404).json({ mensaje: 'No hay torneos en curso (S/A Tier)' });
     }
   } catch (error) {
     console.error('Error al obtener torneo actual:', error);
     res.status(500).json({ error: error.message });
   }
 });
+
 
 app.listen(PORT, () => {
   console.log(`Servidor web escuchando en http://localhost:${PORT}`);
