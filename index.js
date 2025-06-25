@@ -20,7 +20,7 @@ const { sincronizarCoordinados } = require('./sincronizarCoordinados');
 const fixtureJornada = require('./utiles/fixtureJornada.js');
 const { calcularTablaPosiciones, generarTextoTabla } = require('./utiles/tablaPosiciones');
 const { guardarTorneos } = require('./utiles/guardarTorneos.js');
-const { subirTorneos } = require('./git/subirTorneosGit');
+const { subirTorneos } = require('./git/subirTorneosGit.js');
 
 
 // Configura el prefijo del comando y el ID del canal de bienvenida
