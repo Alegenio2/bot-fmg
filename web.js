@@ -1,8 +1,14 @@
 const express = require('express');
+const cors = require('cors');
 const { Liquipedia } = require('liquipedia');
 
 const app = express();
 const PORT = process.env.PORT || 8080;
+
+// Habilitar CORS solo para AUA
+app.use(cors({
+  origin: 'https://aua.netlify.app'
+}));
 
 const liquipedia = new Liquipedia({
   USER_AGENT: 'aldeano-oscar/1.0 (jabstv2@gmail.com)'
@@ -12,7 +18,6 @@ app.get('/', (req, res) => {
   res.send("Estoy vivo 🤖 - Aldeano Oscar");
 });
 
-// Nuevo endpoint con tier específico futuros
 app.get('/api/tournaments', async (req, res) => {
   try {
     const tournaments = await liquipedia.aoe.getUpcomingTournaments("Age of Empires II");
@@ -22,28 +27,28 @@ app.get('/api/tournaments', async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
-// Nuevo endpoint con tier específico actual
+
 app.get('/api/torneo-actual', async (req, res) => {
   const ahora = new Date();
-
   const estaActivo = (torneo) =>
     new Date(torneo.start) <= ahora && new Date(torneo.end) >= ahora;
 
-  const esTierValido = (torneo) =>
-    torneo.tier === 'Age_of_Empires_II/S-Tier_Tournaments' ||
-    torneo.tier === 'Age_of_Empires_II/A-Tier_Tournaments';
+  const buscarTorneoEnTier = async (tier) => {
+    const torneos = await liquipedia.aoe.getTournaments(tier);
+    const planos = torneos.flatMap(grupo => grupo.data);
+    return planos.find(estaActivo);
+  };
 
   try {
-    const torneos = await liquipedia.aoe.getUpcomingTournaments("Age of Empires II");
+    let torneo = await buscarTorneoEnTier('S-Tier');
+    if (!torneo) {
+      torneo = await buscarTorneoEnTier('A-Tier');
+    }
 
-    const torneoActual = torneos.find(
-      (t) => estaActivo(t) && esTierValido(t)
-    );
-
-    if (torneoActual) {
-      res.json(torneoActual);
+    if (torneo) {
+      res.json(torneo);
     } else {
-      res.status(404).json({ mensaje: 'No hay torneos en curso (S/A Tier)' });
+      res.status(404).json({ mensaje: 'No hay torneos en curso' });
     }
   } catch (error) {
     console.error('Error al obtener torneo actual:', error);
@@ -54,3 +59,4 @@ app.get('/api/torneo-actual', async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Servidor web escuchando en http://localhost:${PORT}`);
 });
+
