@@ -61,15 +61,19 @@ client.on("ready", (c) => {
     }
   });
 
-  // Torneos (una vez por día a las 08:00)
-  cron.schedule('38 01 * * *', async () => {
-    console.log('🎯 Ejecutando guardado de torneos');
-    await guardarTorneos();
-  });  
+  // Torneos (una vez por día a las 01:50)
+  cron.schedule('50 1 * * *', async () => {
+  console.log('🎯 Ejecutando guardado de torneos');
+  await guardarTorneos();
+},{
+  timezone: 'America/Montevideo'
+});
 
-  cron.schedule('40 01 * * *', async () => {
+  cron.schedule('53 01 * * *', async () => {
   console.log('📤 Subiendo torneos a GitHub...');
   await subirTorneos();
+},{
+  timezone: 'America/Montevideo'
 });
     
   // 🎮 Establecer actividad del bot
