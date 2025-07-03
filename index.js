@@ -44,8 +44,15 @@ const client = new Client({
    ],
 });
 
-client.on("ready", (c) => {
+client.on("ready", async (c) => {
   console.log(`${c.user.username} is online`);
+
+  // ✅ MENSAJE DE TEST EN UN CANAL
+  const canalTestId = "TU_CANAL_ID"; // Reemplazalo con el canal que esté en tu servidor
+  const canal = await client.channels.fetch(canalTestId).catch(err => console.error("❌ Error al buscar el canal:", err));
+  if (canal) {
+    canal.send("✅ El bot AldeanoOscar está conectado y activo.");
+  }
 
   // 📅 Tarea programada para ranking del clan - todos los días a las 00:00
   cron.schedule('0 09 * * *', () => {
