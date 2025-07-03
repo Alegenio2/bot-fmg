@@ -22,8 +22,6 @@ const { calcularTablaPosiciones, generarTextoTabla } = require('./utiles/tablaPo
 const { guardarTorneos } = require('./utiles/guardarTorneos.js');
 const { subirTorneos } = require('./git/subirTorneosGit.js');
 
-process.on("unhandledRejection", console.error);
-client.on("error", console.error);
 // Configura el prefijo del comando y el ID del canal de bienvenida
 const prefix = "!"; // Puedes cambiar el prefijo si lo deseas
 const welcomeChannelId = '1302823386552205355'; // Cambia esto por el ID de tu canal de bienvenida
@@ -752,6 +750,10 @@ async function guardarLiga(liga, filePath, letraDivision, interaction) {
 client.on("messageCreate", (mensaje) => {
   console.log(mensaje.content);
 });
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('❗ Unhandled Rejection:', reason);
+});
+
 client.on('ready', () => {
   console.log(`${client.user.tag} está online 🟢`);
 });
