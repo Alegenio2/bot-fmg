@@ -744,18 +744,15 @@ async function guardarLiga(liga, filePath, letraDivision, interaction) {
 client.on("messageCreate", (mensaje) => {
   console.log(mensaje.content);
 });
-// Manejo de errores del cliente Discord
+client.on('ready', () => {
+  console.log(`${client.user.tag} está online 🟢`);
+});
+
 client.on('error', (err) => {
   console.error('❌ Error del cliente de Discord:', err);
 });
 
-// Manejo de errores no capturados (como promesas rechazadas)
 process.on('unhandledRejection', (reason, promise) => {
   console.error('❗ Unhandled Rejection:', reason);
 });
-
-console.log("🔐 TOKEN encontrado. Intentando conectar el bot...");
 client.login(process.env.TOKEN);
-client.on('ready', () => {
-  console.log(`✅ ${client.user.tag} is online`);
-});
