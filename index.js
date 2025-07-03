@@ -744,5 +744,11 @@ async function guardarLiga(liga, filePath, letraDivision, interaction) {
 client.on("messageCreate", (mensaje) => {
   console.log(mensaje.content);
 });
+if (!process.env.TOKEN) {
+  console.error("❌ TOKEN no definido. Verificá tu archivo .env o las variables en Render.");
+  process.exit(1); // Detiene la ejecución si no hay token
+} else {
+  console.log("🔐 TOKEN encontrado. Intentando conectar el bot...");
+}
 
 client.login(process.env.TOKEN);
