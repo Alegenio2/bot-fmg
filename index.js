@@ -6,6 +6,7 @@ const fs = require("fs");
 const { type } = require("os");
 const { createCanvas, loadImage } = require("canvas");
 const fetch = require("node-fetch");
+require('./registro-comandos.js'); // registra los comandos al iniciar
 //const keep_alive = require("./keep_alive.js");
 const web = require("./web.js");
 const { obtenerEloActual } = require('./elo.js');
@@ -14,7 +15,6 @@ const cron = require('node-cron');
 const { actualizarYPublicarRankingClan } = require('./rankingClan');
 const { actualizarYPublicarRankingURU } = require('./rankingUru');
 const botConfig = require('./botConfig.json'); // o como se llame
-require('./registro-comandos.js'); // registra los comandos al iniciar
 const { asignarRolesPorPromedio } = require("./utiles/asignarRoles.js");
 const { sincronizarCoordinados } = require('./sincronizarCoordinados');
 const fixtureJornada = require('./utiles/fixtureJornada.js');
