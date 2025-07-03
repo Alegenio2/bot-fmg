@@ -752,3 +752,6 @@ if (!process.env.TOKEN) {
 }
 
 client.login(process.env.TOKEN);
+client.login(process.env.TOKEN).catch((err) => {
+  console.error("❌ Fallo al iniciar sesión con el bot:", err.message);
+});
