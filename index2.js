@@ -751,4 +751,6 @@ client.on("messageCreate", (mensaje) => {
   console.log(mensaje.content);
 });
 
-client.login(process.env.TOKEN);
+client.login(process.env.TOKEN).catch(err => {
+  console.error("❌ Error al iniciar sesión con el bot:", err);
+});
