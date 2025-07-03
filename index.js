@@ -22,7 +22,8 @@ const { calcularTablaPosiciones, generarTextoTabla } = require('./utiles/tablaPo
 const { guardarTorneos } = require('./utiles/guardarTorneos.js');
 const { subirTorneos } = require('./git/subirTorneosGit.js');
 
-
+process.on("unhandledRejection", console.error);
+client.on("error", console.error);
 // Configura el prefijo del comando y el ID del canal de bienvenida
 const prefix = "!"; // Puedes cambiar el prefijo si lo deseas
 const welcomeChannelId = '1302823386552205355'; // Cambia esto por el ID de tu canal de bienvenida
