@@ -7,8 +7,8 @@ const { type } = require("os");
 const { createCanvas, loadImage } = require("canvas");
 const fetch = require("node-fetch");
 require('./registro-comandos.js'); // registra los comandos al iniciar
-const keep_alive = require("./keep_alive.js");
-//const web = require("./web.js");
+//const keep_alive = require("./keep_alive.js");
+const web = require("./web.js");
 const { obtenerEloActual } = require('./elo.js');
 const { asociarUsuario, obtenerAoeId } = require('./asociar.js');
 const cron = require('node-cron');
