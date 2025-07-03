@@ -1,5 +1,6 @@
 require('dotenv').config();
-const keep_alive = require("./keep_alive.js")
+const keep_alive = require("./keep_alive.js");
+require('./registro-comandos.js');
 const { Client, GatewayIntentBits } = require('discord.js');
 
 const client = new Client({
