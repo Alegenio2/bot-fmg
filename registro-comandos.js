@@ -2,6 +2,10 @@ require('dotenv').config();
 const { REST, Routes, ApplicationCommandOptionType } = require("discord.js")
 const config = require('./botConfig.json');
 
+console.log("🚀 Ejecutando registro de comandos...");
+console.log("📦 Token:", process.env.TOKEN?.slice(0, 5) + '...');
+console.log("🆔 Client ID:", process.env.CLIENT_ID);
+
 const comandos = [
     {
     name: 'publicar_tabla',
