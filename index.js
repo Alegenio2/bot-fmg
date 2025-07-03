@@ -46,7 +46,7 @@ client.on("ready", async (c) => {
   console.log(`${c.user.username} is online`);
 
   // ✅ MENSAJE DE TEST EN UN CANAL
-  const canalTestId = "TU_CANAL_ID"; // Reemplazalo con el canal que esté en tu servidor
+  const canalTestId = "1381716348996030575"; // Reemplazalo con el canal que esté en tu servidor
   const canal = await client.channels.fetch(canalTestId).catch(err => console.error("❌ Error al buscar el canal:", err));
   if (canal) {
     canal.send("✅ El bot AldeanoOscar está conectado y activo.");
@@ -750,19 +750,5 @@ async function guardarLiga(liga, filePath, letraDivision, interaction) {
 client.on("messageCreate", (mensaje) => {
   console.log(mensaje.content);
 });
-process.on('unhandledRejection', (reason, promise) => {
-  console.error('❗ Unhandled Rejection:', reason);
-});
 
-client.on('ready', () => {
-  console.log(`${client.user.tag} está online 🟢`);
-});
-
-client.on('error', (err) => {
-  console.error('❌ Error del cliente de Discord:', err);
-});
-
-process.on('unhandledRejection', (reason, promise) => {
-  console.error('❗ Unhandled Rejection:', reason);
-});
 client.login(process.env.TOKEN);
