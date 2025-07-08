@@ -564,7 +564,58 @@ if (commandName === 're-coordinar') {
     }
     return;
   }
+// Comando: inscripcion_admin
+if (commandName === 'inscripcion_admin') {
+  // Solo permitir al admin (podés ajustar según tu config)
+  if (!member.permissions.has(PermissionsBitField.Flags.Administrator)) {
+    return interaction.reply({
+      content: '⛔ No tenés permisos para usar este comando.',
+      ephemeral: true
+    });
+  }
 
+  const usuario = options.getUser('usuario'); // @usuario de Discord
+  const nombre = options.getString('nombre');
+  const eloactual = options.getNumber('eloactual');
+  const elomaximo = options.getNumber('elomaximo');
+  const link = options.getString('link');
+  const archivoAdjunto = options.get('archivo');
+
+  const match = link.match(/^https:\/\/(www\.)?aoe2companion\.com\/profile\/(\d+)$/);
+  if (!match) {
+    return interaction.reply({
+      content: "❌ La URL no es válida. Debe ser algo como:\n`https://www.aoe2companion.com/profile/2587873713`",
+      ephemeral: true
+    });
+  }
+
+  const aoeId = match[2];
+  asociarUsuario(usuario.id, aoeId); // <<< Vincula al usuario elegido
+
+  const promedio = Math.round((eloactual + elomaximo) / 2);
+
+  let mensaje = `✅ ${usuario} fue inscripto a la Copa Uruguaya 2025 por un administrador.
+🎮 **Nick Steam**: ${nombre}
+📈 **ELO Actual**: ${eloactual}
+📉 **ELO Máximo**: ${elomaximo}
+📊 **Promedio**: ${promedio}
+🔗 **Perfil**: ${link}
+🔗 ✅ **Vinculado con AOE2 ID: ${aoeId}**`;
+
+  if (archivoAdjunto) {
+    mensaje += `\n🖼️ **Logo**: ${archivoAdjunto.attachment.url}`;
+  }
+
+  await interaction.reply(mensaje);
+
+  // Si querés asignar roles también:
+  const configServidor = botConfig.servidores[guildId];
+  const miembroObjetivo = await guild.members.fetch(usuario.id).catch(() => null);
+  if (miembroObjetivo) {
+    await asignarRolesPorPromedio(miembroObjetivo, promedio, configServidor);
+    await actualizarCategoriasDesdeRoles(guild);
+  }
+}
 // Comando: torneoliga
 if (commandName === 'torneoliga') {
   const categoria = options.getString('categoria');
