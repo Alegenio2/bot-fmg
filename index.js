@@ -129,6 +129,72 @@ client.on('interactionCreate', async (interaction) => {
 
   const { commandName, options, user, guildId, member, channelId } = interaction;
 
+// Comando: listado_inscriptos    
+if (interaction.commandName === 'listado_inscriptos') {
+  const rolPermitido = '1377760555065933924';
+
+  // ✅ Verificación de permisos por rol
+  if (!interaction.member.roles.cache.has(rolPermitido)) {
+    return interaction.reply({
+      content: '❌ No tenés permisos para usar este comando.',
+      ephemeral: true
+    });
+  }
+
+  const categorias = ['a', 'b', 'c', 'd', 'e'];
+  const inscriptos = [];
+
+  for (const letra of categorias) {
+    const filePath = path.join(__dirname, 'categorias', `categoria_${letra}.json`);
+    if (!fs.existsSync(filePath)) continue;
+
+    const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    for (const jugador of data.jugadores) {
+      inscriptos.push({
+        nombre: jugador.usuario,
+        promedio: jugador.promedio,
+        categoria: letra.toUpperCase(),
+      });
+    }
+  }
+
+  if (inscriptos.length === 0) {
+    return interaction.reply('⚠️ No hay inscriptos encontrados.');
+  }
+
+  // Ordenar por promedio
+  inscriptos.sort((a, b) => b.promedio - a.promedio);
+
+  // Texto para Discord
+  let texto = `📋 **Listado de Inscriptos** (ordenado por ELO promedio):\n\n`;
+  for (const [i, jugador] of inscriptos.entries()) {
+    texto += `#${i + 1} - **${jugador.nombre}** | 🧮 ${jugador.promedio} | 🏷️ Categoría ${jugador.categoria}\n`;
+  }
+
+  // CSV para descargar
+  const csvLines = [
+    'Nombre,Promedio,Categoría',
+    ...inscriptos.map(j => `"${j.nombre}",${j.promedio},${j.categoria}`)
+  ];
+  const csvContent = csvLines.join('\n');
+
+  const fileName = `inscriptos_${Date.now()}.csv`;
+  const filePath = path.join(__dirname, 'temp', fileName);
+  fs.mkdirSync(path.dirname(filePath), { recursive: true });
+  fs.writeFileSync(filePath, csvContent, 'utf8');
+
+  await interaction.reply({
+    content: texto.slice(0, 1900),
+    files: [filePath],
+    ephemeral: true
+  });
+
+  // 🔁 Eliminar el archivo CSV después de 30 segundos
+  setTimeout(() => {
+    if (fs.existsSync(filePath)) fs.unlinkSync(filePath);
+  }, 30000);
+}
+    
 // Comando: resultado
 if (interaction.commandName === "resultado") {
   const options = interaction.options;
