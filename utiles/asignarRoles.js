@@ -7,7 +7,7 @@ async function asignarRolesPorPromedio(member, promedio, configServidor) {
   const rolInscripto = configServidor?.rolInscripto;
 
   let categoria = null;
-  if (promedio >= 1701 && promedio <= 1900) {
+  if (promedio >= 1701 && promedio <= 3000) {
     categoria = "a";
   } else if (promedio >= 1501 && promedio <= 1700) {
     categoria = "b";
