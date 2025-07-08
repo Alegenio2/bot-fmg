@@ -145,10 +145,15 @@ if (interaction.commandName === "listar_inscriptos") {
 
   for (const letra of letras) {
     const filePath = path.join(__dirname, 'ligas', `liga_${letra}.json`);
-
+    console.log("🔍 Leyendo archivo:", filePath);
     if (fs.existsSync(filePath)) {
       try {
         const data = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+        // 🔧 Validación explícita
+if (!Array.isArray(data.participantes)) {
+  console.warn(`⚠️ El archivo liga_${letra}.json no tiene un array 'participantes' válido.`);
+  continue; // saltea esta categoría
+}  
         for (const jugador of data.participantes || []) {
           const promedio = Math.round((jugador.elo + jugador.elomax) / 2);
           inscriptos.push({
