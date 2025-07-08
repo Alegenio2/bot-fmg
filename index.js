@@ -610,10 +610,10 @@ if (commandName === 'inscripcion_admin') {
 
   // Si querés asignar roles también:
   const configServidor = botConfig.servidores[guildId];
-  const miembroObjetivo = await guild.members.fetch(usuario.id).catch(() => null);
+  const miembroObjetivo = await interaction.guild.members.fetch(usuario.id).catch(() => null);
   if (miembroObjetivo) {
     await asignarRolesPorPromedio(miembroObjetivo, promedio, configServidor);
-    await actualizarCategoriasDesdeRoles(guild);
+    await actualizarCategoriasDesdeRoles(interaction.guild);
   }
 }
 // Comando: torneoliga
