@@ -1,1 +1,144 @@
-[]
+{
+  "categoria": "a",
+  "participantes": [
+    {
+      "id": "697996987210924072",
+      "nombre": "|FMG| TINCHO",
+      "profileId": "2304739",
+      "elo": 1839,
+      "rank": 815,
+      "wins": 128,
+      "losses": 74,
+      "pais": "🇺🇾",
+      "country": "uy",
+      "clan": "FUMAG",
+      "elomax": 1880,
+      "ultimapartida": "2024-07-20T19:31:04.000Z"
+    },
+    {
+      "id": "369911696023879681",
+      "nombre": "DS_Alec",
+      "profileId": "18148390",
+      "elo": 2006,
+      "rank": 451,
+      "wins": 489,
+      "losses": 416,
+      "pais": "🇺🇾",
+      "country": "uy",
+      "clan": "xDSx",
+      "elomax": 2099,
+      "ultimapartida": "2025-06-24T05:13:40.000Z"
+    },
+    {
+      "id": "1007049335315374242",
+      "nombre": "Sawasha Takohida",
+      "profileId": "19186614",
+      "elo": 1980,
+      "rank": 486,
+      "wins": 120,
+      "losses": 65,
+      "pais": "🇺🇾",
+      "country": "uy",
+      "clan": null,
+      "elomax": 2005,
+      "ultimapartida": "2025-02-23T19:39:41.000Z"
+    },
+    {
+      "id": "425899279962341377",
+      "nombre": "urualbo",
+      "profileId": null
+    },
+    {
+      "id": "347539956605911041",
+      "nombre": "[R1] Duke PEÑAROL Thompson",
+      "profileId": "233173",
+      "elo": 1989,
+      "rank": 501,
+      "wins": 1040,
+      "losses": 953,
+      "pais": "🇺🇾",
+      "country": "uy",
+      "clan": "RANK1",
+      "elomax": 2105,
+      "ultimapartida": "2025-06-24T13:37:39.000Z"
+    }
+  ],
+  "jornadas": [
+    {
+      "ronda": 1,
+      "partidos": [
+        {
+          "jugador1Id": "369911696023879681",
+          "jugador2Id": "347539956605911041",
+          "resultado": null
+        },
+        {
+          "jugador1Id": "1007049335315374242",
+          "jugador2Id": "425899279962341377",
+          "resultado": null
+        }
+      ]
+    },
+    {
+      "ronda": 2,
+      "partidos": [
+        {
+          "jugador1Id": "697996987210924072",
+          "jugador2Id": "347539956605911041",
+          "resultado": null
+        },
+        {
+          "jugador1Id": "369911696023879681",
+          "jugador2Id": "1007049335315374242",
+          "resultado": null
+        }
+      ]
+    },
+    {
+      "ronda": 3,
+      "partidos": [
+        {
+          "jugador1Id": "697996987210924072",
+          "jugador2Id": "425899279962341377",
+          "resultado": null
+        },
+        {
+          "jugador1Id": "347539956605911041",
+          "jugador2Id": "1007049335315374242",
+          "resultado": null
+        }
+      ]
+    },
+    {
+      "ronda": 4,
+      "partidos": [
+        {
+          "jugador1Id": "697996987210924072",
+          "jugador2Id": "1007049335315374242",
+          "resultado": null
+        },
+        {
+          "jugador1Id": "425899279962341377",
+          "jugador2Id": "369911696023879681",
+          "resultado": null
+        }
+      ]
+    },
+    {
+      "ronda": 5,
+      "partidos": [
+        {
+          "jugador1Id": "697996987210924072",
+          "jugador2Id": "369911696023879681",
+          "resultado": null
+        },
+        {
+          "jugador1Id": "425899279962341377",
+          "jugador2Id": "347539956605911041",
+          "resultado": null
+        }
+      ]
+    }
+  ],
+  "creado": "2025-07-08T17:48:08.163Z"
+}
