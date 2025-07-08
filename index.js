@@ -122,6 +122,8 @@ client.on('guildMemberAdd', async member => {
   if (channel) {
     await channel.send({ files: [attachment] });
   }
+  // 👇 Asignar rol automáticamente al unirse
+  await member.roles.add('1392243967663542364').catch(console.error);  
 });
 
 client.on('interactionCreate', async (interaction) => {
