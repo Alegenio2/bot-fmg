@@ -362,6 +362,48 @@ const comandos = [
       },
      ],
   },
+    {
+  name: 'inscripcion_admin',
+  description: 'Inscribir a un jugador manualmente como administrador.',
+  options: [
+    {
+      name: 'usuario',
+      description: 'Usuario de Discord a inscribir.',
+      type: ApplicationCommandOptionType.User,
+      required: true,
+    },
+    {
+      name: 'nombre',
+      description: 'Nick en Steam.',
+      type: ApplicationCommandOptionType.String,
+      required: true,
+    },
+    {
+      name: 'eloactual',
+      description: 'ELO actual.',
+      type: ApplicationCommandOptionType.Number,
+      required: true,
+    },
+    {
+      name: 'elomaximo',
+      description: 'ELO máximo alcanzado.',
+      type: ApplicationCommandOptionType.Number,
+      required: true,
+    },
+    {
+      name: 'link',
+      description: 'Link del perfil en AoE2 Companion.',
+      type: ApplicationCommandOptionType.String,
+      required: true,
+    },
+    {
+      name: 'archivo',
+      description: 'Logo o imagen opcional.',
+      type: ApplicationCommandOptionType.Attachment,
+      required: false,
+    },
+  ],
+},
   {
     name: "inscripciones_vinculado",
     description: "Inscripción al torneo para usuarios vinculados.",
