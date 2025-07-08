@@ -8,6 +8,10 @@ console.log("🆔 Client ID:", process.env.CLIENT_ID);
 
 const comandos = [
     {
+  name: 'listado_inscriptos',
+  description: 'Muestra un listado de todos los inscriptos ordenados por ELO promedio y exporta CSV.',
+},
+    {
     name: 'publicar_tabla',
     description: 'Publica la tabla de posiciones en el canal correspondiente.',
     options: [
