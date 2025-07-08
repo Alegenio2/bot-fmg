@@ -130,71 +130,65 @@ client.on('interactionCreate', async (interaction) => {
   const { commandName, options, user, guildId, member, channelId } = interaction;
 
 // Comando: listado_inscriptos    
-if (interaction.commandName === 'listado_inscriptos') {
-  const rolPermitido = '1377760555065933924';
-
-  // ✅ Verificación de permisos por rol
-  if (!interaction.member.roles.cache.has(rolPermitido)) {
+const ROL_AUTORIZADO = "1377760555065933924";
+if (interaction.commandName === "listar_inscriptos") {
+  const tienePermiso = member.roles.cache.has(ROL_AUTORIZADO);
+  if (!tienePermiso) {
     return interaction.reply({
-      content: '❌ No tenés permisos para usar este comando.',
+      content: "🚫 No tenés permisos para usar este comando.",
       ephemeral: true
     });
   }
 
-  const categorias = ['a', 'b', 'c', 'd', 'e'];
+  const letras = ['a', 'b', 'c', 'd', 'e'];
   const inscriptos = [];
 
-  for (const letra of categorias) {
-    const filePath = path.join(__dirname, 'categorias', `categoria_${letra}.json`);
-    if (!fs.existsSync(filePath)) continue;
+  for (const letra of letras) {
+    const filePath = path.join(__dirname, 'ligas', `liga_${letra}.json`);
 
-    const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-    for (const jugador of data.jugadores) {
-      inscriptos.push({
-        nombre: jugador.usuario,
-        promedio: jugador.promedio,
-        categoria: letra.toUpperCase(),
-      });
+    if (fs.existsSync(filePath)) {
+      try {
+        const data = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+        for (const jugador of data.participantes || []) {
+          const promedio = Math.round((jugador.elo + jugador.elomax) / 2);
+          inscriptos.push({
+            nombre: jugador.nombre,
+            promedio: promedio,
+            categoria: letra.toUpperCase(),
+            pais: jugador.pais || ''
+          });
+        }
+      } catch (error) {
+        console.warn(`❌ Error leyendo liga_${letra}.json:`, error.message);
+      }
     }
   }
 
   if (inscriptos.length === 0) {
-    return interaction.reply('⚠️ No hay inscriptos encontrados.');
+    return interaction.reply("⚠️ No se encontraron inscriptos.");
   }
 
-  // Ordenar por promedio
+  // Ordenar por promedio descendente
   inscriptos.sort((a, b) => b.promedio - a.promedio);
 
-  // Texto para Discord
-  let texto = `📋 **Listado de Inscriptos** (ordenado por ELO promedio):\n\n`;
-  for (const [i, jugador] of inscriptos.entries()) {
-    texto += `#${i + 1} - **${jugador.nombre}** | 🧮 ${jugador.promedio} | 🏷️ Categoría ${jugador.categoria}\n`;
-  }
+  // Crear CSV
+  const csvHeader = "Nombre,Promedio,Categoría,País\n";
+  const csvBody = inscriptos.map(j => `${j.nombre},${j.promedio},${j.categoria},${j.pais}`).join("\n");
+  const csvContent = csvHeader + csvBody;
 
-  // CSV para descargar
-  const csvLines = [
-    'Nombre,Promedio,Categoría',
-    ...inscriptos.map(j => `"${j.nombre}",${j.promedio},${j.categoria}`)
-  ];
-  const csvContent = csvLines.join('\n');
-
-  const fileName = `inscriptos_${Date.now()}.csv`;
-  const filePath = path.join(__dirname, 'temp', fileName);
-  fs.mkdirSync(path.dirname(filePath), { recursive: true });
+  const filePath = path.join(__dirname, 'inscriptos.csv');
   fs.writeFileSync(filePath, csvContent, 'utf8');
 
+  const archivo = new AttachmentBuilder(filePath, { name: 'inscriptos.csv' });
+
   await interaction.reply({
-    content: texto.slice(0, 1900),
-    files: [filePath],
-    ephemeral: true
+    content: `📋 Inscriptos exportados correctamente (${inscriptos.length} jugadores):`,
+    files: [archivo]
   });
 
-  // 🔁 Eliminar el archivo CSV después de 30 segundos
-  setTimeout(() => {
-    if (fs.existsSync(filePath)) fs.unlinkSync(filePath);
-  }, 30000);
-}
-    
+  // Limpieza opcional del archivo temporal
+  setTimeout(() => fs.unlinkSync(filePath), 30000); // se borra después de 30 segundos
+}    
 // Comando: resultado
 if (interaction.commandName === "resultado") {
   const options = interaction.options;
