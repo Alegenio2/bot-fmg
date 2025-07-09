@@ -5,7 +5,9 @@ const { obtenerEloActual } = require('../elo');
 const usuariosMap = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'usuarios.json'), 'utf8'));
 
 async function ejecutarTorneoLiga(interaction, categoria, modo = 1) {
+  if (interaction.isRepliable() && !interaction.deferred && !interaction.replied) {
   await interaction.deferReply();
+}
 
   const categoriasPath = path.join(__dirname, '..', 'categorias', `categoria_${categoria}.json`);
   if (!fs.existsSync(categoriasPath)) {
