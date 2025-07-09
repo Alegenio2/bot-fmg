@@ -683,13 +683,17 @@ if (commandName === 'inscripcion_admin') {
     await actualizarCategoriasDesdeRoles(interaction.guild);
   }
 }
-// Comando: torneoliga
 if (commandName === 'torneoliga') {
   const categoria = options.getString('categoria');
   const modo = options.getInteger('modo') || 1;
 
   if (user.id !== botConfig.ownerId) {
     return interaction.reply({ content: '❌ Solo el organizador puede usar este comando.', ephemeral: true });
+  }
+
+  // Defer por si tarda
+  if (interaction.isRepliable() && !interaction.deferred && !interaction.replied) {
+    await interaction.deferReply();
   }
 
   const { ejecutarTorneoLiga } = require('./utiles/torneoLiga.js');
