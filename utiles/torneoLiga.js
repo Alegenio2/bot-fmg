@@ -28,7 +28,7 @@ async function ejecutarTorneoLiga(interaction, categoria, modo = 1) {
   let torneoData;
 
   if (modo === 1) {
-    // 🔁 Todos contra todos (Round Robin)
+    // Todos contra todos (Round Robin)
     const jornadas = generarFixtureRoundRobin(participantesConDatos);
     torneoData = {
       categoria,
@@ -38,12 +38,17 @@ async function ejecutarTorneoLiga(interaction, categoria, modo = 1) {
       creado: new Date().toISOString()
     };
   } else {
-    // 🏆 Grupos y Finales
+    // Grupos balanceados según ELO
+    // Ordenar por ELO descendente (si no tiene, poner 0)
+    const participantesOrdenados = participantesConDatos.slice().sort((a, b) => (b.elo || 0) - (a.elo || 0));
+
     const grupoA = [];
     const grupoB = [];
 
-    participantesConDatos.forEach((p, i) => {
-      (i % 2 === 0 ? grupoA : grupoB).push(p);
+    // Repartir alternando (pares a A, impares a B)
+    participantesOrdenados.forEach((p, i) => {
+      if (i % 2 === 0) grupoA.push(p);
+      else grupoB.push(p);
     });
 
     const jornadasA = generarFixtureRoundRobin(grupoA);
