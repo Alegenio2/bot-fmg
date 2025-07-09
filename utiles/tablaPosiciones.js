@@ -164,7 +164,7 @@ async function actualizarTablaEnCanal(categoria, client, guildId) {
   const serverConfig = config.servidores[guildId];
   if (!serverConfig) return;
 
-  const canalId = serverConfig[`categoria${categoria.toUpperCase()}`];
+  const canalId = serverConfig[`tablaCategoria${categoria.toUpperCase()}`];
   const mensajeId = serverConfig.mensajeTabla?.[categoria];
   if (!canalId || !mensajeId) return;
 
