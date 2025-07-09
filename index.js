@@ -686,18 +686,15 @@ if (commandName === 'inscripcion_admin') {
 // Comando: torneoliga
 if (commandName === 'torneoliga') {
   const categoria = options.getString('categoria');
+  const modo = options.getInteger('modo') || 1;
 
   if (user.id !== botConfig.ownerId) {
     return interaction.reply({ content: '❌ Solo el organizador puede usar este comando.', ephemeral: true });
   }
 
   const { ejecutarTorneoLiga } = require('./utiles/torneoLiga.js');
-  await ejecutarTorneoLiga(interaction, categoria);
-
-  // No hace falta reply aquí porque ya está dentro de ejecutarTorneoLiga
-  return;
+  await ejecutarTorneoLiga(interaction, categoria, modo);
 }
-// Comando: listar_encuentros
 if (commandName === 'listar_encuentros') {
   const categoria = options.getString('categoria');
   const filePath = path.join(__dirname, 'ligas', `liga_${categoria}.json`);
@@ -711,16 +708,27 @@ if (commandName === 'listar_encuentros') {
 
   const liga = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 
-  // Crear un mapa para buscar participante por id rápido
+  // Crear un mapa de participantes
   const mapaParticipantes = {};
-  liga.participantes.forEach(p => {
-    mapaParticipantes[p.id] = p.nombre;
-  });
+  const todosLosParticipantes = liga.participantes || [];
 
-  const encuentrosPorJornada = liga.jornadas.map(jornada => {
+  // Si hay grupos, agregamos todos los jugadores de cada grupo
+  if (liga.grupos) {
+    for (const grupo of Object.values(liga.grupos)) {
+      grupo.forEach(p => {
+        mapaParticipantes[p.id] = p.nombre;
+      });
+    }
+  } else {
+    todosLosParticipantes.forEach(p => {
+      mapaParticipantes[p.id] = p.nombre;
+    });
+  }
+
+  const encuentrosPorJornada = liga.jornadas.map((jornada, index) => {
     const encuentros = jornada.partidos.map((partido, i) => {
-      const nombre1 = mapaParticipantes[partido.jugador1Id] || 'Jugador 1';
-      const nombre2 = mapaParticipantes[partido.jugador2Id] || 'Jugador 2';
+      const nombre1 = mapaParticipantes[partido.jugador1Id] || `Jugador ${i * 2 + 1}`;
+      const nombre2 = mapaParticipantes[partido.jugador2Id] || `Jugador ${i * 2 + 2}`;
 
       let resultado;
       if (partido.resultado) {
@@ -737,7 +745,13 @@ if (commandName === 'listar_encuentros') {
       return `  ${i + 1}. ${nombre1} vs ${nombre2} → ${resultado}`;
     });
 
-    return `🔹 **Jornada ${jornada.ronda}**\n${encuentros.join('\n')}`;
+    const titulo = jornada.grupo
+      ? `🔸 **Grupo ${jornada.grupo.toUpperCase()} - Jornada ${jornada.ronda || index + 1}**`
+      : jornada.fase
+      ? `🏆 **${jornada.fase}**`
+      : `🔹 **Jornada ${jornada.ronda || index + 1}**`;
+
+    return `${titulo}\n${encuentros.join('\n')}`;
   });
 
   const respuesta = `📋 **Encuentros de la Liga ${categoria.toUpperCase()}**\n\n${encuentrosPorJornada.join('\n\n')}`;
@@ -746,79 +760,128 @@ if (commandName === 'listar_encuentros') {
 }
 // Comando: publicar_tabla
 if (commandName === 'publicar_tabla') {
-  const categoria = options.getString('categoria'); // ej: "a", "b", "c"
-  // ✅ Verificación del owner
+  const categoria = options.getString('categoria');
+
   if (interaction.user.id !== botConfig.ownerId) {
     return await interaction.reply({
       content: "❌ Solo el organizador puede ejecutar este comando.",
       ephemeral: true
     });
   }
+
   const servidorId = interaction.guildId;
   const serverConfig = botConfig.servidores[servidorId];
 
   if (!serverConfig) {
-    return await interaction.reply({ content: "⚠️ Este servidor no está configurado en config.json", ephemeral: true });
+    return await interaction.reply({
+      content: "⚠️ Este servidor no está configurado en config.json",
+      ephemeral: true
+    });
   }
 
   const canalId = serverConfig[`tablaCategoria${categoria.toUpperCase()}`];
   if (!canalId) {
-    return await interaction.reply({ content: `⚠️ No se encontró un canal configurado para la categoría ${categoria.toUpperCase()}`, ephemeral: true });
+    return await interaction.reply({
+      content: `⚠️ No se encontró un canal configurado para la categoría ${categoria.toUpperCase()}`,
+      ephemeral: true
+    });
   }
 
-  const posiciones = calcularTablaPosiciones(categoria);
-  if (!posiciones) {
-    return await interaction.reply({ content: `⚠️ No se pudo calcular la tabla para la categoría ${categoria}`, ephemeral: true });
+  const filePath = path.join(__dirname, 'ligas', `liga_${categoria}.json`);
+  if (!fs.existsSync(filePath)) {
+    return await interaction.reply({
+      content: `⚠️ No se encontró la liga para la categoría ${categoria}`,
+      ephemeral: true
+    });
   }
 
-  const texto = generarTextoTabla(posiciones, categoria);
-
-try {
+  const liga = JSON.parse(fs.readFileSync(filePath, 'utf8'));
   const canal = await interaction.client.channels.fetch(canalId);
-  const mensajeTablaId = serverConfig.mensajeTabla?.[categoria];
 
-  console.log(`🟢 Canal obtenido: ${canal.id}`);
-  console.log(`📩 Mensaje a editar: ${mensajeTablaId}`);
+  let mensajesEnviados = [];
 
-  if (mensajeTablaId) {
-    try {
-      const mensaje = await canal.messages.fetch(mensajeTablaId);
-      console.log(`📝 Editando mensaje existente...`);
-      await mensaje.edit(texto);
+  // Ligas con grupos
+  if (liga.grupos) {
+    for (const [grupoNombre, participantes] of Object.entries(liga.grupos)) {
+      const posiciones = calcularTablaPosiciones(categoria, grupoNombre);
+      if (!posiciones || posiciones.length === 0) continue;
 
+      const texto = generarTextoTabla(posiciones, categoria, grupoNombre);
+      const mensaje = await canal.send(texto);
+      mensajesEnviados.push({ grupo: grupoNombre, id: mensaje.id });
+    }
+  } else {
+    // Liga tradicional
+    const posiciones = calcularTablaPosiciones(categoria);
+    if (!posiciones || posiciones.length === 0) {
       return await interaction.reply({
-        content: `🔁 Tabla actualizada en el mensaje existente para categoría ${categoria.toUpperCase()}.`,
+        content: `⚠️ No se pudo calcular la tabla para la categoría ${categoria}`,
         ephemeral: true
       });
+    }
 
-    } catch (err) {
-      console.warn(`⚠️ No se pudo editar el mensaje anterior, publicando uno nuevo...`);
-      console.error(err); // <-- AGREGAR ESTO
+    const texto = generarTextoTabla(posiciones, categoria);
+
+    const mensajeTablaId = serverConfig.mensajeTabla?.[categoria];
+    if (mensajeTablaId) {
+      try {
+        const mensaje = await canal.messages.fetch(mensajeTablaId);
+        await mensaje.edit(texto);
+      } catch (err) {
+        const nuevoMensaje = await canal.send(texto);
+        if (!serverConfig.mensajeTabla) serverConfig.mensajeTabla = {};
+        serverConfig.mensajeTabla[categoria] = nuevoMensaje.id;
+        fs.writeFileSync(path.join(__dirname, 'botConfig.json'), JSON.stringify(botConfig, null, 2));
+      }
+    } else {
+      const nuevoMensaje = await canal.send(texto);
+      if (!serverConfig.mensajeTabla) serverConfig.mensajeTabla = {};
+      serverConfig.mensajeTabla[categoria] = nuevoMensaje.id;
+      fs.writeFileSync(path.join(__dirname, 'botConfig.json'), JSON.stringify(botConfig, null, 2));
     }
   }
 
-  const nuevoMensaje = await canal.send(texto);
-  console.log(`📤 Publicado nuevo mensaje con ID: ${nuevoMensaje.id}`);
+  // 🔽 MOSTRAR FASE FINAL (semis, final, etc)
+  const mapaParticipantes = {};
+  const todos = liga.participantes || [];
+  if (liga.grupos) {
+    for (const grupo of Object.values(liga.grupos)) {
+      grupo.forEach(p => (mapaParticipantes[p.id] = p.nombre));
+    }
+  } else {
+    todos.forEach(p => (mapaParticipantes[p.id] = p.nombre));
+  }
 
-  // Guardar el nuevo mensaje
-  if (!serverConfig.mensajeTabla) serverConfig.mensajeTabla = {};
-  serverConfig.mensajeTabla[categoria] = nuevoMensaje.id;
+  const fasesFinales = liga.jornadas?.filter(j => j.fase) || [];
 
-  fs.writeFileSync(path.join(__dirname, 'botConfig.json'), JSON.stringify(botConfig, null, 2));
+  for (const fase of fasesFinales) {
+    let texto = `🏆 **${fase.fase}**\n`;
+
+    for (const partido of fase.partidos) {
+      const nombre1 = mapaParticipantes[partido.jugador1Id] || 'Jugador 1';
+      const nombre2 = mapaParticipantes[partido.jugador2Id] || 'Jugador 2';
+
+      let resultado;
+      if (partido.resultado) {
+        const r = partido.resultado;
+        const j1 = r[partido.jugador1Id] ?? '?';
+        const j2 = r[partido.jugador2Id] ?? '?';
+        resultado = `✅ ${j1} - ${j2}`;
+      } else {
+        resultado = '🕓 Pendiente';
+      }
+
+      texto += `• ${nombre1} vs ${nombre2} → ${resultado}\n`;
+    }
+
+    await canal.send(texto);
+  }
 
   return await interaction.reply({
-    content: `✅ Tabla publicada para categoría ${categoria.toUpperCase()} y mensaje guardado.`,
-    ephemeral: true
-  });
-
-} catch (error) {
-  console.error("❌ Error al publicar/editar la tabla:", error); // <-- MUY IMPORTANTE
-  return await interaction.reply({
-    content: "⚠️ No se pudo publicar o actualizar la tabla. Revisá permisos del bot.",
+    content: `✅ Tablas publicadas para la categoría ${categoria.toUpperCase()}${liga.grupos ? ' (por grupo)' : ''}${fasesFinales.length ? ' con fases finales' : ''}.`,
     ephemeral: true
   });
 }
-}  
 
 });
 
