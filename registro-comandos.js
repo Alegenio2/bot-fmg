@@ -436,18 +436,28 @@ const comandos = [
     },
   ],
 },
- {
-    name: 'torneoliga',
-    description: 'Organiza un torneo tipo liga con los participantes de una categoría.',
-    options: [
-      {
-        name: 'categoria',
-        description: 'Categoría para crear la liga',
-        type: ApplicationCommandOptionType.String,
-        required: true,
-      }
-    ],
-  },
+{
+  name: 'torneoliga',
+  description: 'Organiza un torneo tipo liga con los participantes de una categoría.',
+  options: [
+    {
+      name: 'categoria',
+      description: 'Categoría para crear la liga',
+      type: ApplicationCommandOptionType.String,
+      required: true,
+    },
+    {
+      name: 'modo',
+      description: 'Modo del torneo: 1 = todos contra todos, 2 = grupos + final',
+      type: ApplicationCommandOptionType.Integer,
+      required: false,
+      choices: [
+        { name: 'Todos contra todos', value: 1 },
+        { name: 'Grupos + Final', value: 2 },
+      ],
+    },
+  ],
+},
 ];
 
 
