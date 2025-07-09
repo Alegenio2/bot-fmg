@@ -15,15 +15,15 @@
       "id": "207643066855718923",
       "nombre": "Teutoburguista",
       "profileId": "17358692",
-      "elo": 885,
-      "rank": 27298,
+      "elo": 854,
+      "rank": 28706,
       "wins": 4,
-      "losses": 6,
+      "losses": 7,
       "pais": "🇺🇾",
       "country": "uy",
       "clan": "SinD2",
       "elomax": 885,
-      "ultimapartida": "2025-07-07T16:00:17.000Z"
+      "ultimapartida": "2025-07-08T18:43:07.000Z"
     },
     {
       "id": "852387609916211270",
@@ -34,12 +34,22 @@
       "id": "766471601708859392",
       "nombre": "jp173_",
       "profileId": null
+    },
+    {
+      "id": "1008090545513570495",
+      "nombre": "elosobarbudo.",
+      "profileId": null
     }
   ],
   "jornadas": [
     {
       "ronda": 1,
       "partidos": [
+        {
+          "jugador1Id": "1293646842625785968",
+          "jugador2Id": "1008090545513570495",
+          "resultado": null
+        },
         {
           "jugador1Id": "709879345346248785",
           "jugador2Id": "766471601708859392",
@@ -61,6 +71,11 @@
           "resultado": null
         },
         {
+          "jugador1Id": "1008090545513570495",
+          "jugador2Id": "852387609916211270",
+          "resultado": null
+        },
+        {
           "jugador1Id": "709879345346248785",
           "jugador2Id": "207643066855718923",
           "resultado": null
@@ -79,6 +94,11 @@
           "jugador1Id": "766471601708859392",
           "jugador2Id": "207643066855718923",
           "resultado": null
+        },
+        {
+          "jugador1Id": "1008090545513570495",
+          "jugador2Id": "709879345346248785",
+          "resultado": null
         }
       ]
     },
@@ -94,6 +114,11 @@
           "jugador1Id": "852387609916211270",
           "jugador2Id": "709879345346248785",
           "resultado": null
+        },
+        {
+          "jugador1Id": "766471601708859392",
+          "jugador2Id": "1008090545513570495",
+          "resultado": null
         }
       ]
     },
@@ -106,6 +131,11 @@
           "resultado": null
         },
         {
+          "jugador1Id": "207643066855718923",
+          "jugador2Id": "1008090545513570495",
+          "resultado": null
+        },
+        {
           "jugador1Id": "852387609916211270",
           "jugador2Id": "766471601708859392",
           "resultado": null
@@ -113,5 +143,5 @@
       ]
     }
   ],
-  "creado": "2025-07-08T17:51:06.186Z"
+  "creado": "2025-07-09T00:00:09.445Z"
 }
