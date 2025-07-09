@@ -798,17 +798,39 @@ if (commandName === 'publicar_tabla') {
   const liga = JSON.parse(fs.readFileSync(filePath, 'utf8'));
   const canal = await interaction.client.channels.fetch(canalId);
 
-  let mensajesEnviados = [];
+  if (!serverConfig.mensajeTabla) serverConfig.mensajeTabla = {};
+
+  // Función auxiliar para editar o enviar mensaje y guardar ID
+  async function enviarOEditarMensaje(texto, idGuardadoKey) {
+    const mensajeId = serverConfig.mensajeTabla[idGuardadoKey];
+    if (mensajeId) {
+      try {
+        const mensaje = await canal.messages.fetch(mensajeId);
+        await mensaje.edit(texto);
+        return mensaje.id;
+      } catch {
+        const nuevoMensaje = await canal.send(texto);
+        return nuevoMensaje.id;
+      }
+    } else {
+      const nuevoMensaje = await canal.send(texto);
+      return nuevoMensaje.id;
+    }
+  }
 
   // Ligas con grupos
   if (liga.grupos) {
+    if (!serverConfig.mensajeTabla[`${categoria}_grupos`]) serverConfig.mensajeTabla[`${categoria}_grupos`] = {};
+
     for (const [grupoNombre, participantes] of Object.entries(liga.grupos)) {
       const posiciones = calcularTablaPosiciones(categoria, grupoNombre);
       if (!posiciones || posiciones.length === 0) continue;
 
       const texto = generarTextoTabla(posiciones, categoria, grupoNombre);
-      const mensaje = await canal.send(texto);
-      mensajesEnviados.push({ grupo: grupoNombre, id: mensaje.id });
+      const mensajeIdGrupo = await enviarOEditarMensaje(texto, `${categoria}_grupo_${grupoNombre}`);
+
+      // Guardar ID
+      serverConfig.mensajeTabla[`${categoria}_grupos`][grupoNombre] = mensajeIdGrupo;
     }
   } else {
     // Liga tradicional
@@ -822,26 +844,12 @@ if (commandName === 'publicar_tabla') {
 
     const texto = generarTextoTabla(posiciones, categoria);
 
-    const mensajeTablaId = serverConfig.mensajeTabla?.[categoria];
-    if (mensajeTablaId) {
-      try {
-        const mensaje = await canal.messages.fetch(mensajeTablaId);
-        await mensaje.edit(texto);
-      } catch (err) {
-        const nuevoMensaje = await canal.send(texto);
-        if (!serverConfig.mensajeTabla) serverConfig.mensajeTabla = {};
-        serverConfig.mensajeTabla[categoria] = nuevoMensaje.id;
-        fs.writeFileSync(path.join(__dirname, 'botConfig.json'), JSON.stringify(botConfig, null, 2));
-      }
-    } else {
-      const nuevoMensaje = await canal.send(texto);
-      if (!serverConfig.mensajeTabla) serverConfig.mensajeTabla = {};
-      serverConfig.mensajeTabla[categoria] = nuevoMensaje.id;
-      fs.writeFileSync(path.join(__dirname, 'botConfig.json'), JSON.stringify(botConfig, null, 2));
-    }
+    // Guardar o editar mensaje
+    const mensajeTablaId = await enviarOEditarMensaje(texto, categoria);
+    serverConfig.mensajeTabla[categoria] = mensajeTablaId;
   }
 
-  // 🔽 MOSTRAR FASE FINAL (semis, final, etc)
+  // Mostrar fases finales (semis, final, etc)
   const mapaParticipantes = {};
   const todos = liga.participantes || [];
   if (liga.grupos) {
@@ -853,6 +861,8 @@ if (commandName === 'publicar_tabla') {
   }
 
   const fasesFinales = liga.jornadas?.filter(j => j.fase) || [];
+
+  if (!serverConfig.mensajeTabla[`${categoria}_fases`]) serverConfig.mensajeTabla[`${categoria}_fases`] = {};
 
   for (const fase of fasesFinales) {
     let texto = `🏆 **${fase.fase}**\n`;
@@ -874,8 +884,12 @@ if (commandName === 'publicar_tabla') {
       texto += `• ${nombre1} vs ${nombre2} → ${resultado}\n`;
     }
 
-    await canal.send(texto);
+    const mensajeIdFase = await enviarOEditarMensaje(texto, `${categoria}_fase_${fase.fase}`);
+    serverConfig.mensajeTabla[`${categoria}_fases`][fase.fase] = mensajeIdFase;
   }
+
+  // Guardar config actualizada
+  fs.writeFileSync(path.join(__dirname, 'botConfig.json'), JSON.stringify(botConfig, null, 2));
 
   return await interaction.reply({
     content: `✅ Tablas publicadas para la categoría ${categoria.toUpperCase()}${liga.grupos ? ' (por grupo)' : ''}${fasesFinales.length ? ' con fases finales' : ''}.`,
