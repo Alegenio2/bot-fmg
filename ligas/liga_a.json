@@ -1,5 +1,6 @@
 {
   "categoria": "a",
+  "modo": "todos_contra_todos",
   "participantes": [
     {
       "id": "697996987210924072",
@@ -20,7 +21,7 @@
       "nombre": "DS_Alec",
       "profileId": "18148390",
       "elo": 2006,
-      "rank": 451,
+      "rank": 449,
       "wins": 489,
       "losses": 416,
       "pais": "🇺🇾",
@@ -53,7 +54,7 @@
       "nombre": "[R1] Duke PEÑAROL Thompson",
       "profileId": "233173",
       "elo": 1989,
-      "rank": 501,
+      "rank": 486,
       "wins": 1040,
       "losses": 953,
       "pais": "🇺🇾",
@@ -140,5 +141,5 @@
       ]
     }
   ],
-  "creado": "2025-07-08T17:48:08.163Z"
+  "creado": "2025-07-11T11:38:19.432Z"
 }
