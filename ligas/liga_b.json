@@ -7,7 +7,7 @@
       "nombre": "|FMG| twitch/JabsUY",
       "profileId": "2583713",
       "elo": 1540,
-      "rank": 3282,
+      "rank": 3281,
       "wins": 193,
       "losses": 163,
       "pais": "🇺🇾",
@@ -21,7 +21,7 @@
       "nombre": "Metalmania",
       "profileId": "9097311",
       "elo": 1633,
-      "rank": 2239,
+      "rank": 2231,
       "wins": 322,
       "losses": 299,
       "pais": "🇦🇷",
@@ -35,7 +35,7 @@
       "nombre": "Jaka Jaan",
       "profileId": "2639502",
       "elo": 1657,
-      "rank": 2032,
+      "rank": 2039,
       "wins": 138,
       "losses": 84,
       "pais": "🇺🇾",
@@ -45,25 +45,11 @@
       "ultimapartida": "2025-07-06T00:18:10.000Z"
     },
     {
-      "id": "689907393001291884",
-      "nombre": "Culero Connor",
-      "profileId": "5736044",
-      "elo": 1431,
-      "rank": 4967,
-      "wins": 303,
-      "losses": 289,
-      "pais": "🇺🇾",
-      "country": "uy",
-      "clan": null,
-      "elomax": 1545,
-      "ultimapartida": "2025-06-20T01:11:46.000Z"
-    },
-    {
       "id": "341001672786575360",
       "nombre": "|FMG| Nadie",
       "profileId": "673060",
       "elo": 1513,
-      "rank": 3675,
+      "rank": 3686,
       "wins": 775,
       "losses": 739,
       "pais": "🇺🇾",
@@ -105,7 +91,7 @@
       "nombre": "Rxon",
       "profileId": "1780624",
       "elo": 1645,
-      "rank": 2144,
+      "rank": 2145,
       "wins": 182,
       "losses": 140,
       "pais": "🇺🇾",
@@ -119,7 +105,7 @@
       "nombre": "CBA | La_Sophie",
       "profileId": "19764836",
       "elo": 1434,
-      "rank": 4920,
+      "rank": 4914,
       "wins": 134,
       "losses": 124,
       "pais": "🇺🇾",
@@ -133,7 +119,7 @@
       "nombre": "DGHIR | Garezo",
       "profileId": "15605540",
       "elo": 1599,
-      "rank": 2615,
+      "rank": 2623,
       "wins": 250,
       "losses": 222,
       "pais": "🇺🇾",
@@ -148,22 +134,42 @@
       "ronda": 1,
       "partidos": [
         {
+          "jugador1Id": "590693837509361902",
+          "jugador2Id": "244547091362217984",
+          "resultado": null
+        },
+        {
+          "jugador1Id": "833806737902534738",
+          "jugador2Id": "1244725529093869687",
+          "resultado": null
+        },
+        {
+          "jugador1Id": "341001672786575360",
+          "jugador2Id": "238414625417330688",
+          "resultado": null
+        },
+        {
+          "jugador1Id": "427965323799691284",
+          "jugador2Id": "249400646782943235",
+          "resultado": null
+        }
+      ]
+    },
+    {
+      "ronda": 2,
+      "partidos": [
+        {
           "jugador1Id": "286607198854053890",
           "jugador2Id": "244547091362217984",
           "resultado": null
         },
         {
           "jugador1Id": "590693837509361902",
-          "jugador2Id": "1244725529093869687",
-          "resultado": null
-        },
-        {
-          "jugador1Id": "833806737902534738",
           "jugador2Id": "238414625417330688",
           "resultado": null
         },
         {
-          "jugador1Id": "689907393001291884",
+          "jugador1Id": "833806737902534738",
           "jugador2Id": "249400646782943235",
           "resultado": null
         },
@@ -175,7 +181,7 @@
       ]
     },
     {
-      "ronda": 2,
+      "ronda": 3,
       "partidos": [
         {
           "jugador1Id": "286607198854053890",
@@ -189,23 +195,18 @@
         },
         {
           "jugador1Id": "590693837509361902",
-          "jugador2Id": "249400646782943235",
-          "resultado": null
-        },
-        {
-          "jugador1Id": "833806737902534738",
           "jugador2Id": "427965323799691284",
           "resultado": null
         },
         {
-          "jugador1Id": "689907393001291884",
+          "jugador1Id": "833806737902534738",
           "jugador2Id": "341001672786575360",
           "resultado": null
         }
       ]
     },
     {
-      "ronda": 3,
+      "ronda": 4,
       "partidos": [
         {
           "jugador1Id": "286607198854053890",
@@ -220,41 +221,6 @@
         {
           "jugador1Id": "244547091362217984",
           "jugador2Id": "427965323799691284",
-          "resultado": null
-        },
-        {
-          "jugador1Id": "590693837509361902",
-          "jugador2Id": "341001672786575360",
-          "resultado": null
-        },
-        {
-          "jugador1Id": "833806737902534738",
-          "jugador2Id": "689907393001291884",
-          "resultado": null
-        }
-      ]
-    },
-    {
-      "ronda": 4,
-      "partidos": [
-        {
-          "jugador1Id": "286607198854053890",
-          "jugador2Id": "249400646782943235",
-          "resultado": null
-        },
-        {
-          "jugador1Id": "238414625417330688",
-          "jugador2Id": "427965323799691284",
-          "resultado": null
-        },
-        {
-          "jugador1Id": "1244725529093869687",
-          "jugador2Id": "341001672786575360",
-          "resultado": null
-        },
-        {
-          "jugador1Id": "244547091362217984",
-          "jugador2Id": "689907393001291884",
           "resultado": null
         },
         {
@@ -269,6 +235,31 @@
       "partidos": [
         {
           "jugador1Id": "286607198854053890",
+          "jugador2Id": "249400646782943235",
+          "resultado": null
+        },
+        {
+          "jugador1Id": "238414625417330688",
+          "jugador2Id": "427965323799691284",
+          "resultado": null
+        },
+        {
+          "jugador1Id": "1244725529093869687",
+          "jugador2Id": "341001672786575360",
+          "resultado": null
+        },
+        {
+          "jugador1Id": "244547091362217984",
+          "jugador2Id": "833806737902534738",
+          "resultado": null
+        }
+      ]
+    },
+    {
+      "ronda": 6,
+      "partidos": [
+        {
+          "jugador1Id": "286607198854053890",
           "jugador2Id": "427965323799691284",
           "resultado": null
         },
@@ -279,47 +270,12 @@
         },
         {
           "jugador1Id": "238414625417330688",
-          "jugador2Id": "689907393001291884",
-          "resultado": null
-        },
-        {
-          "jugador1Id": "1244725529093869687",
           "jugador2Id": "833806737902534738",
           "resultado": null
         },
         {
-          "jugador1Id": "244547091362217984",
-          "jugador2Id": "590693837509361902",
-          "resultado": null
-        }
-      ]
-    },
-    {
-      "ronda": 6,
-      "partidos": [
-        {
-          "jugador1Id": "286607198854053890",
-          "jugador2Id": "341001672786575360",
-          "resultado": null
-        },
-        {
-          "jugador1Id": "427965323799691284",
-          "jugador2Id": "689907393001291884",
-          "resultado": null
-        },
-        {
-          "jugador1Id": "249400646782943235",
-          "jugador2Id": "833806737902534738",
-          "resultado": null
-        },
-        {
-          "jugador1Id": "238414625417330688",
-          "jugador2Id": "590693837509361902",
-          "resultado": null
-        },
-        {
           "jugador1Id": "1244725529093869687",
-          "jugador2Id": "244547091362217984",
+          "jugador2Id": "590693837509361902",
           "resultado": null
         }
       ]
@@ -329,27 +285,22 @@
       "partidos": [
         {
           "jugador1Id": "286607198854053890",
-          "jugador2Id": "689907393001291884",
-          "resultado": null
-        },
-        {
-          "jugador1Id": "341001672786575360",
-          "jugador2Id": "833806737902534738",
+          "jugador2Id": "341001672786575360",
           "resultado": null
         },
         {
           "jugador1Id": "427965323799691284",
-          "jugador2Id": "590693837509361902",
+          "jugador2Id": "833806737902534738",
           "resultado": null
         },
         {
           "jugador1Id": "249400646782943235",
-          "jugador2Id": "244547091362217984",
+          "jugador2Id": "590693837509361902",
           "resultado": null
         },
         {
-          "jugador1Id": "238414625417330688",
-          "jugador2Id": "1244725529093869687",
+          "jugador1Id": "1244725529093869687",
+          "jugador2Id": "244547091362217984",
           "resultado": null
         }
       ]
@@ -363,7 +314,27 @@
           "resultado": null
         },
         {
-          "jugador1Id": "689907393001291884",
+          "jugador1Id": "341001672786575360",
+          "jugador2Id": "590693837509361902",
+          "resultado": null
+        },
+        {
+          "jugador1Id": "249400646782943235",
+          "jugador2Id": "244547091362217984",
+          "resultado": null
+        },
+        {
+          "jugador1Id": "238414625417330688",
+          "jugador2Id": "1244725529093869687",
+          "resultado": null
+        }
+      ]
+    },
+    {
+      "ronda": 9,
+      "partidos": [
+        {
+          "jugador1Id": "286607198854053890",
           "jugador2Id": "590693837509361902",
           "resultado": null
         },
@@ -383,37 +354,7 @@
           "resultado": null
         }
       ]
-    },
-    {
-      "ronda": 9,
-      "partidos": [
-        {
-          "jugador1Id": "286607198854053890",
-          "jugador2Id": "590693837509361902",
-          "resultado": null
-        },
-        {
-          "jugador1Id": "833806737902534738",
-          "jugador2Id": "244547091362217984",
-          "resultado": null
-        },
-        {
-          "jugador1Id": "689907393001291884",
-          "jugador2Id": "1244725529093869687",
-          "resultado": null
-        },
-        {
-          "jugador1Id": "341001672786575360",
-          "jugador2Id": "238414625417330688",
-          "resultado": null
-        },
-        {
-          "jugador1Id": "427965323799691284",
-          "jugador2Id": "249400646782943235",
-          "resultado": null
-        }
-      ]
     }
   ],
-  "creado": "2025-07-12T14:12:33.214Z"
+  "creado": "2025-07-12T14:44:26.371Z"
 }
