@@ -7,7 +7,7 @@
       "nombre": "[LOPDA] Shebby",
       "profileId": "2213923",
       "elo": 964,
-      "rank": 23115,
+      "rank": 23054,
       "wins": 286,
       "losses": 282,
       "pais": "🇦🇷",
@@ -35,15 +35,15 @@
       "id": "207643066855718923",
       "nombre": "Teutoburguista",
       "profileId": "17358692",
-      "elo": 854,
-      "rank": 28514,
-      "wins": 4,
+      "elo": 887,
+      "rank": 26980,
+      "wins": 5,
       "losses": 7,
       "pais": "🇺🇾",
       "country": "uy",
       "clan": "SinD2",
-      "elomax": 885,
-      "ultimapartida": "2025-07-08T18:43:07.000Z"
+      "elomax": 887,
+      "ultimapartida": "2025-07-11T17:30:50.000Z"
     },
     {
       "id": "852387609916211270",
@@ -54,15 +54,15 @@
       "id": "1008090545513570495",
       "nombre": "ElOsoConBarba",
       "profileId": "10473376",
-      "elo": 1057,
-      "rank": 17632,
-      "wins": 684,
-      "losses": 670,
+      "elo": 1040,
+      "rank": 18683,
+      "wins": 685,
+      "losses": 672,
       "pais": "🇺🇾",
       "country": "uy",
       "clan": null,
       "elomax": 1083,
-      "ultimapartida": "2025-07-11T05:21:53.000Z"
+      "ultimapartida": "2025-07-11T22:49:13.000Z"
     },
     {
       "id": "766471601708859392",
@@ -247,5 +247,5 @@
       ]
     }
   ],
-  "creado": "2025-07-11T11:39:37.515Z"
+  "creado": "2025-07-12T13:16:13.940Z"
 }
