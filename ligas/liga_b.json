@@ -4,38 +4,24 @@
   "participantes": [
     {
       "id": "286607198854053890",
-      "nombre": "Zakk El Rabdomante",
-      "profileId": "1825664",
-      "elo": 1045,
-      "rank": 18367,
-      "wins": 42,
-      "losses": 34,
+      "nombre": "|FMG| twitch/JabsUY",
+      "profileId": "2583713",
+      "elo": 1540,
+      "rank": 3282,
+      "wins": 193,
+      "losses": 163,
       "pais": "🇺🇾",
       "country": "uy",
-      "clan": "AZiZi",
-      "elomax": 1115,
-      "ultimapartida": "2025-06-14T13:23:43.000Z"
-    },
-    {
-      "id": "833806737902534738",
-      "nombre": "Jaka Jaan",
-      "profileId": "2639502",
-      "elo": 1657,
-      "rank": 2038,
-      "wins": 138,
-      "losses": 84,
-      "pais": "🇺🇾",
-      "country": "uy",
-      "clan": "SURU",
-      "elomax": 1657,
-      "ultimapartida": "2025-07-06T00:18:10.000Z"
+      "clan": "FUMAG",
+      "elomax": 1590,
+      "ultimapartida": "2025-06-21T16:04:33.000Z"
     },
     {
       "id": "590693837509361902",
       "nombre": "Metalmania",
       "profileId": "9097311",
       "elo": 1633,
-      "rank": 2234,
+      "rank": 2239,
       "wins": 322,
       "losses": 299,
       "pais": "🇦🇷",
@@ -45,11 +31,25 @@
       "ultimapartida": "2025-07-09T21:09:04.000Z"
     },
     {
+      "id": "833806737902534738",
+      "nombre": "Jaka Jaan",
+      "profileId": "2639502",
+      "elo": 1657,
+      "rank": 2032,
+      "wins": 138,
+      "losses": 84,
+      "pais": "🇺🇾",
+      "country": "uy",
+      "clan": "SURU",
+      "elomax": 1657,
+      "ultimapartida": "2025-07-06T00:18:10.000Z"
+    },
+    {
       "id": "689907393001291884",
       "nombre": "Culero Connor",
       "profileId": "5736044",
       "elo": 1431,
-      "rank": 4958,
+      "rank": 4967,
       "wins": 303,
       "losses": 289,
       "pais": "🇺🇾",
@@ -63,7 +63,7 @@
       "nombre": "|FMG| Nadie",
       "profileId": "673060",
       "elo": 1513,
-      "rank": 3677,
+      "rank": 3675,
       "wins": 775,
       "losses": 739,
       "pais": "🇺🇾",
@@ -105,7 +105,7 @@
       "nombre": "Rxon",
       "profileId": "1780624",
       "elo": 1645,
-      "rank": 2145,
+      "rank": 2144,
       "wins": 182,
       "losses": 140,
       "pais": "🇺🇾",
@@ -119,7 +119,7 @@
       "nombre": "CBA | La_Sophie",
       "profileId": "19764836",
       "elo": 1434,
-      "rank": 4913,
+      "rank": 4920,
       "wins": 134,
       "losses": 124,
       "pais": "🇺🇾",
@@ -133,7 +133,7 @@
       "nombre": "DGHIR | Garezo",
       "profileId": "15605540",
       "elo": 1599,
-      "rank": 2618,
+      "rank": 2615,
       "wins": 250,
       "losses": 222,
       "pais": "🇺🇾",
@@ -153,12 +153,12 @@
           "resultado": null
         },
         {
-          "jugador1Id": "833806737902534738",
+          "jugador1Id": "590693837509361902",
           "jugador2Id": "1244725529093869687",
           "resultado": null
         },
         {
-          "jugador1Id": "590693837509361902",
+          "jugador1Id": "833806737902534738",
           "jugador2Id": "238414625417330688",
           "resultado": null
         },
@@ -188,12 +188,12 @@
           "resultado": null
         },
         {
-          "jugador1Id": "833806737902534738",
+          "jugador1Id": "590693837509361902",
           "jugador2Id": "249400646782943235",
           "resultado": null
         },
         {
-          "jugador1Id": "590693837509361902",
+          "jugador1Id": "833806737902534738",
           "jugador2Id": "427965323799691284",
           "resultado": null
         },
@@ -223,12 +223,12 @@
           "resultado": null
         },
         {
-          "jugador1Id": "833806737902534738",
+          "jugador1Id": "590693837509361902",
           "jugador2Id": "341001672786575360",
           "resultado": null
         },
         {
-          "jugador1Id": "590693837509361902",
+          "jugador1Id": "833806737902534738",
           "jugador2Id": "689907393001291884",
           "resultado": null
         }
@@ -258,8 +258,8 @@
           "resultado": null
         },
         {
-          "jugador1Id": "833806737902534738",
-          "jugador2Id": "590693837509361902",
+          "jugador1Id": "590693837509361902",
+          "jugador2Id": "833806737902534738",
           "resultado": null
         }
       ]
@@ -284,12 +284,12 @@
         },
         {
           "jugador1Id": "1244725529093869687",
-          "jugador2Id": "590693837509361902",
+          "jugador2Id": "833806737902534738",
           "resultado": null
         },
         {
           "jugador1Id": "244547091362217984",
-          "jugador2Id": "833806737902534738",
+          "jugador2Id": "590693837509361902",
           "resultado": null
         }
       ]
@@ -309,12 +309,12 @@
         },
         {
           "jugador1Id": "249400646782943235",
-          "jugador2Id": "590693837509361902",
+          "jugador2Id": "833806737902534738",
           "resultado": null
         },
         {
           "jugador1Id": "238414625417330688",
-          "jugador2Id": "833806737902534738",
+          "jugador2Id": "590693837509361902",
           "resultado": null
         },
         {
@@ -334,12 +334,12 @@
         },
         {
           "jugador1Id": "341001672786575360",
-          "jugador2Id": "590693837509361902",
+          "jugador2Id": "833806737902534738",
           "resultado": null
         },
         {
           "jugador1Id": "427965323799691284",
-          "jugador2Id": "833806737902534738",
+          "jugador2Id": "590693837509361902",
           "resultado": null
         },
         {
@@ -359,12 +359,12 @@
       "partidos": [
         {
           "jugador1Id": "286607198854053890",
-          "jugador2Id": "590693837509361902",
+          "jugador2Id": "833806737902534738",
           "resultado": null
         },
         {
           "jugador1Id": "689907393001291884",
-          "jugador2Id": "833806737902534738",
+          "jugador2Id": "590693837509361902",
           "resultado": null
         },
         {
@@ -389,11 +389,11 @@
       "partidos": [
         {
           "jugador1Id": "286607198854053890",
-          "jugador2Id": "833806737902534738",
+          "jugador2Id": "590693837509361902",
           "resultado": null
         },
         {
-          "jugador1Id": "590693837509361902",
+          "jugador1Id": "833806737902534738",
           "jugador2Id": "244547091362217984",
           "resultado": null
         },
@@ -415,5 +415,5 @@
       ]
     }
   ],
-  "creado": "2025-07-12T13:05:29.499Z"
+  "creado": "2025-07-12T14:12:33.214Z"
 }
