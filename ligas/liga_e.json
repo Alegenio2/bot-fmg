@@ -7,7 +7,7 @@
       "nombre": "ROSERR.B",
       "profileId": "17272260",
       "elo": 639,
-      "rank": 36086,
+      "rank": 36063,
       "wins": 2,
       "losses": 11,
       "pais": "🇺🇾",
@@ -26,7 +26,7 @@
       "nombre": "|FMG| Tascon",
       "profileId": "2582641",
       "elo": 1087,
-      "rank": 16007,
+      "rank": 16036,
       "wins": 25,
       "losses": 29,
       "pais": "🇺🇾",
@@ -40,7 +40,7 @@
       "nombre": "[LOPDA] Shebby",
       "profileId": "2213923",
       "elo": 964,
-      "rank": 23054,
+      "rank": 23109,
       "wins": 286,
       "losses": 282,
       "pais": "🇦🇷",
@@ -54,7 +54,7 @@
       "nombre": "Teutoburguista",
       "profileId": "17358692",
       "elo": 887,
-      "rank": 26980,
+      "rank": 26973,
       "wins": 5,
       "losses": 7,
       "pais": "🇺🇾",
@@ -68,7 +68,7 @@
       "nombre": "Zakk El Rabdomante",
       "profileId": "1825664",
       "elo": 1045,
-      "rank": 18394,
+      "rank": 18379,
       "wins": 42,
       "losses": 34,
       "pais": "🇺🇾",
@@ -82,7 +82,7 @@
       "nombre": "ElOsoConBarba",
       "profileId": "10473376",
       "elo": 1040,
-      "rank": 18683,
+      "rank": 18664,
       "wins": 685,
       "losses": 672,
       "pais": "🇺🇾",
@@ -274,5 +274,5 @@
       ]
     }
   ],
-  "creado": "2025-07-12T13:20:57.300Z"
+  "creado": "2025-07-12T14:13:29.997Z"
 }
