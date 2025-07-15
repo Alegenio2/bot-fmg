@@ -21,7 +21,7 @@
       "nombre": "DS_Alec",
       "profileId": "18148390",
       "elo": 2006,
-      "rank": 449,
+      "rank": 442,
       "wins": 489,
       "losses": 416,
       "pais": "🇺🇾",
@@ -48,22 +48,22 @@
       "id": "425899279962341377",
       "nombre": "ALBO",
       "profileId": "583716",
-      "elo": 2145,
-      "rank": 240,
-      "wins": 2167,
-      "losses": 2076,
+      "elo": 2146,
+      "rank": 237,
+      "wins": 2169,
+      "losses": 2078,
       "pais": "🇩🇴",
       "country": "do",
       "clan": "SURU",
       "elomax": 2248,
-      "ultimapartida": "2025-07-10T23:13:25.000Z"
+      "ultimapartida": "2025-07-14T23:53:02.000Z"
     },
     {
       "id": "347539956605911041",
       "nombre": "[R1] Duke PEÑAROL Thompson",
       "profileId": "233173",
       "elo": 1989,
-      "rank": 490,
+      "rank": 471,
       "wins": 1040,
       "losses": 953,
       "pais": "🇺🇾",
@@ -150,5 +150,5 @@
       ]
     }
   ],
-  "creado": "2025-07-12T14:12:05.319Z"
+  "creado": "2025-07-15T01:24:20.161Z"
 }
