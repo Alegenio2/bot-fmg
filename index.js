@@ -430,7 +430,12 @@ if (commandName === 'coordinado') {
   const filePath = path.join(__dirname, 'ligas', `liga_${letraDivision}.json`);
 
   const fechaFormatoCorrecto = convertirFormatoFecha(fecha);
-  const diaSemana = obtenerDiaSemana(fechaFormatoCorrecto);
+if (!fechaFormatoCorrecto) {
+  return await interaction.editReply("❌ La fecha debe estar en formato **DD-MM-YYYY** y debe ser válida.");
+}
+
+const diaSemana = obtenerDiaSemana(fechaFormatoCorrecto);
+
 
   if (!fs.existsSync(filePath)) {
     return await interaction.editReply(`⚠️ No se encontró el archivo de liga para la división **${division}**.`);
@@ -502,10 +507,16 @@ if (commandName === 're-coordinar') {
   const nuevoHorario = options.getString('horario');
   const nuevoGMT = options.getString('gmt') || "GMT-3";
 
+    
   if (!categoria || !id || !nuevaFecha || !nuevoHorario) {
     return await interaction.editReply("❌ Faltan datos obligatorios.");
   }
 
+  const fechaFormatoCorrecto = convertirFormatoFecha(nuevaFecha);
+if (!fechaFormatoCorrecto) {
+  return await interaction.editReply("❌ La fecha debe estar en formato **DD-MM-YYYY** (o DD/MM/YYYY) y ser válida.");
+}
+  
   const filePath = path.join(__dirname, 'ligas', `liga_${categoria}.json`);
   if (!fs.existsSync(filePath)) {
     return await interaction.editReply(`⚠️ No se encontró la liga para la categoría **${categoria.toUpperCase()}**.`);
@@ -519,10 +530,10 @@ if (commandName === 're-coordinar') {
     for (const jornada of liga.jornadas) {
       for (const partido of jornada.partidos) {
         if (partido.id === id) {
-          partido.fecha = nuevaFecha;
+          partido.fecha = fechaFormatoCorrecto;
           partido.horario = nuevoHorario;
           partido.gmt = nuevoGMT;
-          partido.diaSemana = obtenerDiaSemana(convertirFormatoFecha(nuevaFecha));
+          partido.diaSemana = obtenerDiaSemana(fechaFormatoCorrecto);
           partido.timestamp = new Date().toISOString();
           partidoModificado = partido;
           break;
@@ -905,13 +916,27 @@ if (commandName === 'publicar_tabla') {
 
 
 function convertirFormatoFecha(fecha) {
-  let separador = "-";
-  if (fecha.includes("/")) {
-    separador = "/";
-  }
-  const [dia, mes, anio] = fecha.split(separador);
-  return `${anio}-${mes}-${dia}`;
+  let separador = fecha.includes("/") ? "/" : "-";
+  const partes = fecha.split(separador);
+  if (partes.length !== 3) return null;
+
+  const [diaStr, mesStr, anioStr] = partes;
+  const dia = parseInt(diaStr, 10);
+  const mes = parseInt(mesStr, 10);
+  const anio = parseInt(anioStr, 10);
+
+  // Validar que sea fecha real
+  if (isNaN(dia) || isNaN(mes) || isNaN(anio)) return null;
+  if (dia < 1 || dia > 31 || mes < 1 || mes > 12 || anio < 2020 || anio > 2100) return null;
+
+  // Validar que sea una fecha real con Date
+  const fechaISO = `${anio}-${String(mes).padStart(2, '0')}-${String(dia).padStart(2, '0')}`;
+  const fechaObj = new Date(fechaISO);
+  if (isNaN(fechaObj.getTime())) return null;
+
+  return fechaISO; // en formato YYYY-MM-DD
 }
+
 
 // Función para obtener el día de la semana a partir de una fecha en formato YYYY-MM-DD
 function obtenerDiaSemana(fechaString) {
