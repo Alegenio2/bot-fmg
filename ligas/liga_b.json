@@ -174,8 +174,9 @@
           "jugador2Id": "341001672786575360",
           "resultado": null,
           "id": 1752546099091,
-          "fecha": "sábado 19/7",
-          "horario": "20hs uy",
+          "fecha": "19-07-2025",
+          "diaSemana": "Sabado",
+          "horario": "20",
           "gmt": "GMT-3",
           "timestamp": "2025-07-15T02:21:39.091Z",
           "coordinadoPor": {
