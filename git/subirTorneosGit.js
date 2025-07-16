@@ -66,9 +66,10 @@ async function subirArchivoGit(nombreArchivoLocal, rutaRemotaGitHub, mensaje) {
     );
 
     console.log(`✅ Archivo ${rutaRemotaGitHub} subido a GitHub correctamente`);
-  } catch (error) {
-    console.error(`❌ Error al subir ${rutaRemotaGitHub}:`, error.response?.data?.message || error.message);
-  }
+  }catch (error) {
+  console.error(`❌ Error al subir ${rutaRemotaGitHub}:`, error.response?.data?.message || error.message);
+}
+
 }
 
 
