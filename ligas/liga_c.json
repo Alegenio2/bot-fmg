@@ -323,7 +323,7 @@
           "id": 1752683944882,
           "fecha": "17/07/2025",
           "diaSemana": "Jueves",
-          "horario": "19:30",
+          "horario": "19.30hs",
           "gmt": "-3",
           "timestamp": "2025-07-16T16:39:04.882Z",
           "coordinadoPor": {
@@ -489,7 +489,17 @@
         {
           "jugador1Id": "724668688145580062",
           "jugador2Id": "277256502023290881",
-          "resultado": null
+          "resultado": null,
+          "id": 1752693838221,
+          "fecha": "21/07/2025",
+          "diaSemana": "Lunes",
+          "horario": "17:00",
+          "gmt": "GMT-3",
+          "timestamp": "2025-07-16T19:23:58.221Z",
+          "coordinadoPor": {
+            "id": "724668688145580062",
+            "nombre": "gral_artigas"
+          }
         },
         {
           "jugador1Id": "1244725529093869687",
