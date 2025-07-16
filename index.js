@@ -430,14 +430,19 @@ if (commandName === 'coordinado') {
   const letraDivision = division?.split('_')[1]; // Ej: "c"
   const filePath = path.join(__dirname, 'ligas', `liga_${letraDivision}.json`);
 
+     // Validar y formatear fecha
   const fechaFormatoCorrecto = convertirFormatoFecha(fecha);
 if (!fechaFormatoCorrecto) {
   return await interaction.editReply("❌ La fecha debe estar en formato **DD-MM-YYYY** y debe ser válida.");
-}
-
+}   
 const diaSemana = obtenerDiaSemana(fechaFormatoCorrecto);
 
-
+  // Validar y formatear horario
+  const horarioFormateado = validarYFormatearHorario(horario);
+  if (!horarioFormateado) {
+    return await interaction.editReply("❌ Formato de horario inválido. Usá `HH:MM` o `HH.MM`, por ejemplo `19:30`.");
+  }
+    
   if (!fs.existsSync(filePath)) {
     return await interaction.editReply(`⚠️ No se encontró el archivo de liga para la división **${division}**.`);
   }
@@ -462,7 +467,7 @@ const diaSemana = obtenerDiaSemana(fechaFormatoCorrecto);
           partido.id = partido.id || Date.now(); // generar ID si no existe
           partido.fecha = fecha;
           partido.diaSemana = diaSemana;
-          partido.horario = horario;
+          partido.horario = horarioFormateado;
           partido.gmt = gmt;
           partido.timestamp = new Date().toISOString();
           partido.coordinadoPor = {
@@ -517,6 +522,11 @@ if (commandName === 're-coordinar') {
 if (!fechaFormatoCorrecto) {
   return await interaction.editReply("❌ La fecha debe estar en formato **DD-MM-YYYY** (o DD/MM/YYYY) y ser válida.");
 }
+  // Validar y formatear horario
+  const horarioFormateado = validarYFormatearHorario(nuevoHorario);
+  if (!horarioFormateado) {
+    return await interaction.editReply("❌ Formato de horario inválido. Usá `HH:MM` o `HH.MM`, por ejemplo `19:30`.");
+  }    
   
   const filePath = path.join(__dirname, 'ligas', `liga_${categoria}.json`);
   if (!fs.existsSync(filePath)) {
@@ -532,7 +542,7 @@ if (!fechaFormatoCorrecto) {
       for (const partido of jornada.partidos) {
         if (partido.id === id) {
           partido.fecha = fechaFormatoCorrecto;
-          partido.horario = nuevoHorario;
+          partido.horario = horarioFormateado;
           partido.gmt = nuevoGMT;
           partido.diaSemana = obtenerDiaSemana(fechaFormatoCorrecto);
           partido.timestamp = new Date().toISOString();
@@ -958,6 +968,23 @@ function obtenerDiaSemana(fechaString) {
   const dia = fecha.getDay();
   return diasSemana[dia];
 }
+
+//Funcion para validar el formato del horario
+function validarYFormatearHorario(horario) {
+  const regex = /^(\d{1,2})[:.](\d{2})$/;
+  const match = horario.match(regex);
+
+  if (!match) return null;
+
+  let [_, horas, minutos] = match;
+  horas = parseInt(horas, 10);
+  minutos = parseInt(minutos, 10);
+
+  if (horas < 0 || horas > 23 || minutos < 0 || minutos > 59) return null;
+
+  return `${horas.toString().padStart(2, '0')}:${minutos.toString().padStart(2, '0')}`;
+}
+
 
 // Función auxiliar para guardar y subir
 async function guardarLiga(liga, filePath, letraDivision, interaction) {
