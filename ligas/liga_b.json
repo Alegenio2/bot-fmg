@@ -157,7 +157,17 @@
         {
           "jugador1Id": "286607198854053890",
           "jugador2Id": "238414625417330688",
-          "resultado": null
+          "resultado": null,
+          "id": 1752670697138,
+          "fecha": "22-07-2025",
+          "diaSemana": "Martes",
+          "horario": "21",
+          "gmt": "GMT-3",
+          "timestamp": "2025-07-16T12:58:17.138Z",
+          "coordinadoPor": {
+            "id": "238414625417330688",
+            "nombre": "rxon"
+          }
         },
         {
           "jugador1Id": "244547091362217984",
