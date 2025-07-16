@@ -54,20 +54,21 @@ client.on("ready", async (c) => {
     canal.send("✅ El bot AldeanoOscar está conectado y activo.");
   }
 
-  // 📅 Tarea programada para ranking del clan - todos los días a las 00:00
-  cron.schedule('0 09 * * *', () => {
-    console.log('📊 Ejecutando actualización diaria de Ranking Clan...');
-    actualizarYPublicarRankingClan(client, '693245375615860838');
-  });
+// 📅 Tarea programada para ranking del clan - lunes a las 09:00
+cron.schedule('0 9 * * 1', () => {
+  console.log('📊 Ejecutando actualización semanal de Ranking Clan...');
+  actualizarYPublicarRankingClan(client, '693245375615860838');
+});
 
-  // 📅 Tarea programada para ranking URU - todos los días a la 22:00
-  cron.schedule('0 22 * * *', () => {
-    console.log('📊 Ejecutando actualización diaria de Ranking URU...');
-    const rankingURU = require('./rankingConfig.json').rankingURU;
-    for (const guildId of Object.keys(rankingURU)) {
-      actualizarYPublicarRankingURU(client, guildId);
-    }
-  });
+// 📅 Tarea programada para ranking URU - lunes a las 22:00
+cron.schedule('0 22 * * 1', () => {
+  console.log('📊 Ejecutando actualización semanal de Ranking URU...');
+  const rankingURU = require('./rankingConfig.json').rankingURU;
+  for (const guildId of Object.keys(rankingURU)) {
+    actualizarYPublicarRankingURU(client, guildId);
+  }
+});
+
 
   // Torneos (una vez por día a las 01:50)
   cron.schedule('50 1 * * *', async () => {
