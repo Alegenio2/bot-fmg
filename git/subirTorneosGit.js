@@ -6,7 +6,7 @@ const GH_TOKEN = process.env.GH_TOKEN;
 const GITHUB_REPO = 'Alegenio2/bot-fmg';
 const BRANCH = 'main';
 
-async function subirArchivoGit(nombreArchivoLocal, rutaRemotaGitHub, mensaje) {
+async function subirArchivoGit(nombreArchivoLocal, rutaRemotaGitHub, message) {
   const LOCAL_FILE_PATH = path.join(__dirname, '..', 'data', nombreArchivoLocal);
 
   if (!fs.existsSync(LOCAL_FILE_PATH)) {
