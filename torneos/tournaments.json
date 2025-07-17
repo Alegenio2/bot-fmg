@@ -2,33 +2,6 @@
   {
     "game": "Age of Empires II",
     "type": "Unknown",
-    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
-    "name": "Brazilian Dynasty",
-    "start": "2026-07-01T03:00:00.000Z",
-    "end": "2026-07-05T03:00:00.000Z",
-    "prizePool": {
-      "amount": 50000,
-      "code": "USD"
-    },
-    "participants": [],
-    "participantsCount": 12,
-    "location": {
-      "name": "São Paulo",
-      "country": {
-        "name": "Brazil",
-        "code": "BR"
-      },
-      "type": "LAN"
-    },
-    "league": {
-      "name": "",
-      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
-    },
-    "path": "Brazilian_Dynasty"
-  },
-  {
-    "game": "Age of Empires II",
-    "type": "Unknown",
     "tier": "Age_of_Empires_II/A-Tier_Tournaments",
     "name": "T90 Titans League 5: Silver League",
     "start": "2026-01-26T03:00:00.000Z",
@@ -110,33 +83,6 @@
   {
     "game": "Age of Empires II",
     "type": "Unknown",
-    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
-    "name": "LingYuan Cup",
-    "start": "2025-10-22T03:00:00.000Z",
-    "end": "2025-10-26T03:00:00.000Z",
-    "prizePool": {
-      "amount": 45000,
-      "code": "USD"
-    },
-    "participants": [],
-    "participantsCount": 10,
-    "location": {
-      "name": "Beijing",
-      "country": {
-        "name": "China",
-        "code": "CN"
-      },
-      "type": "LAN"
-    },
-    "league": {
-      "name": "",
-      "image": "https://liquipedia.net/commons/images/thumb/a/a4/LingYuan_lightmode.png/100px-LingYuan_lightmode.png"
-    },
-    "path": "LingYuan_Cup"
-  },
-  {
-    "game": "Age of Empires II",
-    "type": "Unknown",
     "tier": "Age_of_Empires_II/A-Tier_Tournaments",
     "name": "Sudden Dessasster 2",
     "start": "2025-08-11T03:00:00.000Z",
@@ -163,7 +109,7 @@
   },
   {
     "game": "Age of Empires II",
-    "type": "Individual",
+    "type": "Unknown",
     "tier": "Age_of_Empires_II/A-Tier_Tournaments",
     "name": "Medieval Masters",
     "start": "2025-06-23T03:00:00.000Z",
@@ -172,16 +118,7 @@
       "amount": 10000,
       "code": "USD"
     },
-    "participants": [
-      {
-        "name": "Yo",
-        "image": "https://liquipedia.net/commons/images/thumb/0/01/Cn_hd.png/72px-Cn_hd.png"
-      },
-      {
-        "name": "Hera",
-        "image": "https://liquipedia.net/commons/images/thumb/7/72/Ca_hd.png/72px-Ca_hd.png"
-      }
-    ],
+    "participants": [],
     "participantsCount": 16,
     "location": {
       "name": "World",
@@ -193,8 +130,44 @@
     },
     "league": {
       "name": "",
-      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+      "image": "https://liquipedia.net/commons/images/thumb/b/b3/Medieval_Masters_Icon_Allmode.png/93px-Medieval_Masters_Icon_Allmode.png"
     },
     "path": "Medieval_Masters"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "The Cartographers 2",
+    "start": "2025-06-02T03:00:00.000Z",
+    "end": "2025-06-22T03:00:00.000Z",
+    "prizePool": {
+      "amount": 14221,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "GamerLegion A",
+        "image": "https://liquipedia.net/commons/images/thumb/c/c0/GamerLegion_AoE_2023_allmode.png/183px-GamerLegion_AoE_2023_allmode.png"
+      },
+      {
+        "name": "LingYuan A",
+        "image": "https://liquipedia.net/commons/images/thumb/a/a4/LingYuan_lightmode.png/114px-LingYuan_lightmode.png"
+      }
+    ],
+    "participantsCount": 24,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/9/9c/The_Cartographers_2_allmode.png/100px-The_Cartographers_2_allmode.png"
+    },
+    "path": "The_Cartographers/2"
   }
 ]
