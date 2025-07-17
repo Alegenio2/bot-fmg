@@ -329,7 +329,14 @@
         {
           "jugador1Id": "135113382217908224",
           "jugador2Id": "709904591453683766",
-          "resultado": null,
+          "resultado": {
+            "709904591453683766": 2,
+            "135113382217908224": 0,
+            "draftmapas": "https://aoe2cm.net/draft/djejt",
+            "draftcivis": "https://aoe2cm.net/draft/opvje",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1395552629727432735/buyan_v_juasteinet.rar?ex=687add2b&is=68798bab&hm=c859ffad627c3d0be93612c516d71caa309d0077207c593bc8fca2379a53cae0&",
+            "fecha": "2025-07-17T23:47:55.867Z"
+          },
           "id": 1752683944882,
           "fecha": "17/07/2025",
           "diaSemana": "Jueves",
