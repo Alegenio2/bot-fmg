@@ -33,10 +33,8 @@ async function subirArchivoGit(nombreArchivoLocal, rutaRemotaGitHub, mensaje) {
     shaActual = fileData.sha;
   } catch (error) {
     if (error.response && error.response.status === 404) {
-      // El archivo no existe aún: está bien, lo vamos a crear
       console.log(`📁 El archivo ${rutaRemotaGitHub} no existe aún. Se creará.`);
     } else {
-      // Otro error: detener
       console.error(`❌ Error al verificar el archivo en GitHub:`, error.response?.data || error.message);
       return;
     }
@@ -66,17 +64,17 @@ async function subirArchivoGit(nombreArchivoLocal, rutaRemotaGitHub, mensaje) {
     );
 
     console.log(`✅ Archivo ${rutaRemotaGitHub} subido a GitHub correctamente`);
-  }catch (error) {
- console.error(`❌ Error al subir ${rutaRemotaGitHub}:`);
-if (error.response) {
-  console.error("🔴 Respuesta de GitHub:", JSON.stringify(error.response.data, null, 2));
-} else {
-  console.error("🔴 Error general:", error.message);
+  } catch (error) {
+    // 🔧 ESTE ES EL NUEVO BLOQUE CATCH CORREGIDO
+    const mensaje =
+      error?.response?.data?.message ||
+      error?.message ||
+      "Error desconocido";
+
+    console.error(`❌ Error al subir ${rutaRemotaGitHub}:\n🔴 ${mensaje}`);
+  }
 }
 
-}
-
-}
 
 
 async function subirTorneos() {
