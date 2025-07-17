@@ -78,7 +78,7 @@ cron.schedule('00 22 * * 1', () => {
   timezone: 'America/Montevideo'
 });
 
-  cron.schedule('05 1 * * *', async () => {
+  cron.schedule('23 1 * * *', async () => {
   console.log('📤 Subiendo torneos a GitHub...');
   await subirTorneos();
 },{
