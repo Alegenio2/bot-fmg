@@ -1,0 +1,26 @@
+{
+  "ownerId": "ID del dueño/organizador del bot",
+  "servidores": {
+    "guildId": {
+      "canalVincular": "ID del canal para vinculación",
+      "rolInscripto": "ID del rol que indica que está inscripto",
+      "categoriaA": "ID del rol categoría A",
+      "categoriaB": "ID del rol categoría B",
+      "categoriaC": "ID del rol categoría C",
+      "categoriaD": "ID del rol categoría D",
+      "categoriaE": "ID del rol categoría E",
+      "tablaCategoriaA": "ID del canal donde se publica tabla categoría A",
+      "tablaCategoriaB": "ID del canal donde se publica tabla categoría B",
+      "tablaCategoriaC": "ID del canal donde se publica tabla categoría C",
+      "tablaCategoriaD": "ID del canal donde se publica tabla categoría D",
+      "tablaCategoriaE": "ID del canal donde se publica tabla categoría E",
+      "mensajeTabla": {
+        "a": "ID del mensaje con tabla publicada para categoría A",
+        "b": "ID del mensaje con tabla publicada para categoría B",
+        "c": "ID del mensaje con tabla publicada para categoría C",
+        "d": "ID del mensaje con tabla publicada para categoría D",
+        "e": "ID del mensaje con tabla publicada para categoría E"
+      }
+    }
+  }
+}
