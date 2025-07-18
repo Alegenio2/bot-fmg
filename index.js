@@ -826,7 +826,7 @@ if (commandName === 'publicar_tabla') {
 
   if (!serverConfig.mensajeTabla) serverConfig.mensajeTabla = {};
 
-  // Función auxiliar para editar o enviar mensaje y guardar ID
+  // Función auxiliar para enviar o editar mensaje
   async function enviarOEditarMensaje(texto, idGuardadoKey) {
     const mensajeId = serverConfig.mensajeTabla[idGuardadoKey];
     if (mensajeId) {
@@ -844,81 +844,27 @@ if (commandName === 'publicar_tabla') {
     }
   }
 
-  // Ligas con grupos
-  if (liga.grupos) {
-    if (!serverConfig.mensajeTabla[`${categoria}_grupos`]) serverConfig.mensajeTabla[`${categoria}_grupos`] = {};
-
-    for (const [grupoNombre, participantes] of Object.entries(liga.grupos)) {
-      const posiciones = calcularTablaPosiciones(categoria, grupoNombre);
-      if (!posiciones || posiciones.length === 0) continue;
-
-      const texto = generarTextoTabla(posiciones, categoria, grupoNombre);
-      const mensajeIdGrupo = await enviarOEditarMensaje(texto, `${categoria}_grupo_${grupoNombre}`);
-
-      // Guardar ID
-      serverConfig.mensajeTabla[`${categoria}_grupos`][grupoNombre] = mensajeIdGrupo;
-    }
-  } else {
-    // Liga tradicional
-    const posiciones = calcularTablaPosiciones(categoria);
-    if (!posiciones || posiciones.length === 0) {
-      return await interaction.reply({
-        content: `⚠️ No se pudo calcular la tabla para la categoría ${categoria}`,
-        ephemeral: true
-      });
-    }
-
-    const texto = generarTextoTabla(posiciones, categoria);
-
-    // Guardar o editar mensaje
-    const mensajeTablaId = await enviarOEditarMensaje(texto, categoria);
-    serverConfig.mensajeTabla[categoria] = mensajeTablaId;
+  // Calcular posiciones para toda la categoría (devuelve objeto con grupos o array si sin grupos)
+  const posiciones = calcularTablaPosiciones(categoria);
+  if (!posiciones || (Array.isArray(posiciones) && posiciones.length === 0)) {
+    return await interaction.reply({
+      content: `⚠️ No se pudo calcular la tabla para la categoría ${categoria}`,
+      ephemeral: true
+    });
   }
 
-  // Mostrar fases finales (semis, final, etc)
-  const mapaParticipantes = {};
-  const todos = liga.participantes || [];
-  if (liga.grupos) {
-    for (const grupo of Object.values(liga.grupos)) {
-      grupo.forEach(p => (mapaParticipantes[p.id] = p.nombre));
-    }
-  } else {
-    todos.forEach(p => (mapaParticipantes[p.id] = p.nombre));
-  }
+  // Generar texto con todas las tablas (incluyendo grupos en un solo texto)
+  const texto = generarTextoTabla(posiciones, categoria);
 
-  const fasesFinales = liga.jornadas?.filter(j => j.fase) || [];
+  // Enviar o editar mensaje único para toda la categoría
+  const mensajeTablaId = await enviarOEditarMensaje(texto, categoria);
+  serverConfig.mensajeTabla[categoria] = mensajeTablaId;
 
-  if (!serverConfig.mensajeTabla[`${categoria}_fases`]) serverConfig.mensajeTabla[`${categoria}_fases`] = {};
-
-  for (const fase of fasesFinales) {
-    let texto = `🏆 **${fase.fase}**\n`;
-
-    for (const partido of fase.partidos) {
-      const nombre1 = mapaParticipantes[partido.jugador1Id] || 'Jugador 1';
-      const nombre2 = mapaParticipantes[partido.jugador2Id] || 'Jugador 2';
-
-      let resultado;
-      if (partido.resultado) {
-        const r = partido.resultado;
-        const j1 = r[partido.jugador1Id] ?? '?';
-        const j2 = r[partido.jugador2Id] ?? '?';
-        resultado = `✅ ${j1} - ${j2}`;
-      } else {
-        resultado = '🕓 Pendiente';
-      }
-
-      texto += `• ${nombre1} vs ${nombre2} → ${resultado}\n`;
-    }
-
-    const mensajeIdFase = await enviarOEditarMensaje(texto, `${categoria}_fase_${fase.fase}`);
-    serverConfig.mensajeTabla[`${categoria}_fases`][fase.fase] = mensajeIdFase;
-  }
-
-  // Guardar config actualizada
+  // Guardar config actualizada en archivo
   fs.writeFileSync(path.join(__dirname, 'botConfig.json'), JSON.stringify(botConfig, null, 2));
 
   return await interaction.reply({
-    content: `✅ Tablas publicadas para la categoría ${categoria.toUpperCase()}${liga.grupos ? ' (por grupo)' : ''}${fasesFinales.length ? ' con fases finales' : ''}.`,
+    content: `✅ Tabla publicada para la categoría ${categoria.toUpperCase()}.`,
     ephemeral: true
   });
 }
