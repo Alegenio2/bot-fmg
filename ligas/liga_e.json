@@ -132,7 +132,17 @@
         {
           "jugador1Id": "952599207410303016",
           "jugador2Id": "852387609916211270",
-          "resultado": null
+          "resultado": null,
+          "id": 1752855382532,
+          "fecha": "19/07/2025",
+          "diaSemana": "Sábado",
+          "horario": "11:00",
+          "gmt": "GMT-3",
+          "timestamp": "2025-07-18T16:16:22.532Z",
+          "coordinadoPor": {
+            "id": "952599207410303016",
+            "nombre": "jairo6572"
+          }
         },
         {
           "jugador1Id": "709879345346248785",
