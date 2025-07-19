@@ -521,7 +521,14 @@
         {
           "jugador1Id": "1244725529093869687",
           "jugador2Id": "755853346149105786",
-          "resultado": null
+          "resultado": {
+            "755853346149105786": 2,
+            "1244725529093869687": 1,
+            "draftmapas": "https://aoe2cm.net/draft/xfyGb",
+            "draftcivis": "https://aoe2cm.net/draft/lObOZ",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1396197512704032808/RECS_GINO_-_LA_SOPHIE.zip?ex=687d35c3&is=687be443&hm=72451ad6978b199ec9f57555b9af14a2ad80a64a2a7593b334eb062c9cc68198&",
+            "fecha": "2025-07-19T18:30:27.988Z"
+          }
         },
         {
           "jugador1Id": "689907393001291884",
