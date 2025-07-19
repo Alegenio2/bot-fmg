@@ -138,7 +138,7 @@
     "game": "Age of Empires II",
     "type": "Unknown",
     "tier": "Age_of_Empires_II/A-Tier_Tournaments",
-    "name": "Sudden Dessasster 2",
+    "name": "Sudden Dessaster 2",
     "start": "2025-08-11T00:00:00.000Z",
     "end": "2025-09-14T00:00:00.000Z",
     "prizePool": {
@@ -156,8 +156,8 @@
       "type": "Online"
     },
     "league": {
-      "name": "",
-      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+      "name": "Sudden Dessaster",
+      "image": "https://liquipedia.net/commons/images/thumb/a/a8/Sudden_Dessaster_2_allmode.png/100px-Sudden_Dessaster_2_allmode.png"
     },
     "path": "Sudden_Dessaster/2"
   },
