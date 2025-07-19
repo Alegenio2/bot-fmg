@@ -137,7 +137,14 @@
         {
           "jugador1Id": "425297928610119692",
           "jugador2Id": "465307831583637514",
-          "resultado": null,
+          "resultado": {
+            "425297928610119692": 2,
+            "465307831583637514": 1,
+            "draftmapas": "https://aoe2cm.net/draft/OeDbi",
+            "draftcivis": "https://aoe2cm.net/draft/nkUJl",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1395961669766877275/NicoGP11_vs_Rogelio_Tercero.zip?ex=687c5a1d&is=687b089d&hm=8ed9b206ad1cda796a00dde6b38724081056d6c09b874ebd100e991b6c8ff8f8&",
+            "fecha": "2025-07-19T02:53:18.699Z"
+          },
           "id": 1752870334916,
           "fecha": "18-07-2025",
           "diaSemana": "Viernes",
