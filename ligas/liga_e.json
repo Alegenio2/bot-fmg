@@ -132,7 +132,14 @@
         {
           "jugador1Id": "952599207410303016",
           "jugador2Id": "852387609916211270",
-          "resultado": null,
+          "resultado": {
+            "952599207410303016": 0,
+            "852387609916211270": 3,
+            "draftmapas": "https://aoe2cm.net/draft/zWQgB",
+            "draftcivis": "https://aoe2cm.net/draft/ztdiQ",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1396199841348059287/TeutoburguistaVsZakk.rar?ex=687d37ee&is=687be66e&hm=25d00377188938e28b0dd38eb21d68bd0d88b14edcf3694123d32c8b4e84448c&",
+            "fecha": "2025-07-19T18:39:43.134Z"
+          },
           "id": 1752855382532,
           "fecha": "19/07/2025",
           "diaSemana": "Sábado",
