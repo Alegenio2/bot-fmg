@@ -142,7 +142,14 @@
         {
           "jugador1Id": "524738089252552716",
           "jugador2Id": "757033857362165792",
-          "resultado": null
+          "resultado": {
+            "524738089252552716": 2,
+            "757033857362165792": 1,
+            "draftmapas": "https://aoe2cm.net/draft/QmxMk",
+            "draftcivis": "https://aoe2cm.net/draft/YdIIj",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1396606050886750398/tecnonestor.rar?ex=687eb23e&is=687d60be&hm=db9610c023a232f1c850981781032a5c0c170280975d4852285a000e803b1685&",
+            "fecha": "2025-07-20"
+          }
         },
         {
           "jugador1Id": "425297928610119692",
