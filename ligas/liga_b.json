@@ -199,7 +199,14 @@
         {
           "jugador1Id": "833806737902534738",
           "jugador2Id": "341001672786575360",
-          "resultado": null,
+          "resultado": {
+            "833806737902534738": 2,
+            "341001672786575360": 0,
+            "draftmapas": "https://aoe2cm.net/draft/VSUwO",
+            "draftcivis": "https://aoe2cm.net/draft/ZCUdR",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1396490266139168889/Nadie_vs_JakaJaan.zip?ex=687e4668&is=687cf4e8&hm=e58471a72218ffd7b2d36c17bdb2c90d690ce2ceba7a2d90ddf008a8571a8565&",
+            "fecha": "2025-07-19"
+          },
           "id": 1752546099091,
           "fecha": "19-07-2025",
           "diaSemana": "Sabado",
