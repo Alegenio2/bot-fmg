@@ -341,7 +341,14 @@
         {
           "jugador1Id": "709879345346248785",
           "jugador2Id": "121771867198455808",
-          "resultado": null
+          "resultado": {
+            "709879345346248785": 1080,
+            "121771867198455808": 800,
+            "draftmapas": "https://aoe2cm.net/draft/kAaPc",
+            "draftcivis": "eHYej",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1396639053293817856/MP_Replay_v101.103.16877.0_2025.07.20_200455_1.aoe2record?ex=687ed0fa&is=687d7f7a&hm=5e0f66aaa9336d6482c068c3851f5600d690a943f36dc333ef6ee379636b10f7&",
+            "fecha": "2025-07-20"
+          }
         },
         {
           "jugador1Id": "207643066855718923",
