@@ -198,6 +198,7 @@ if (!Array.isArray(data.participantes)) {
   setTimeout(() => fs.unlinkSync(filePath), 30000); // se borra después de 30 segundos
 }    
 // Comando: resultado
+// Comando: resultado
 if (interaction.commandName === "resultado") {
   const options = interaction.options;
   const division = options.getString("division");
@@ -211,33 +212,33 @@ if (interaction.commandName === "resultado") {
   const draftcivis = options.getString("draftcivis");
   const archivoAdjunto = options.get("archivo");
 
-
-   
-  // Validación mínima
-  if (!jugador || !otrojugador || puntosjugador == null || puntosotrojugador == null) {
-    return await interaction.reply({ content: "❌ Faltan datos obligatorios para registrar el resultado.", ephemeral: true });
-  }
-    
-//Fecha correcta
-const fechaISO = convertirFormatoFecha(fecha);
-if (!fechaISO) {
-  return interaction.reply("⚠️ Fecha inválida. Asegurate de usar el formato DD/MM/AAAA o DD-MM-AAAA.");
-}
-
-    
-  const letraDivision = division?.split('_')[1]; // Ej: categoria_a → a
-  if (!letraDivision || letraDivision.length !== 1) {
-    return await interaction.reply({ content: "⚠️ División no válida.", ephemeral: true });
-  }
-
-  const filePath = path.join(__dirname, 'ligas', `liga_${letraDivision}.json`);
-
-  if (!fs.existsSync(filePath)) {
-    console.warn(`⚠️ Archivo no encontrado: ${filePath}`);
-    return await interaction.reply({ content: "⚠️ No se encontró el archivo de liga para esa división.", ephemeral: true });
-  }
-
   try {
+    // ✅ Deferimos la respuesta apenas empieza
+    await interaction.deferReply({ ephemeral: true });
+
+    // Validación mínima
+    if (!jugador || !otrojugador || puntosjugador == null || puntosotrojugador == null) {
+      return await interaction.editReply("❌ Faltan datos obligatorios para registrar el resultado.");
+    }
+
+    // Fecha correcta
+    const fechaISO = convertirFormatoFecha(fecha);
+    if (!fechaISO) {
+      return await interaction.editReply("⚠️ Fecha inválida. Asegurate de usar el formato DD/MM/AAAA o DD-MM-AAAA.");
+    }
+
+    const letraDivision = division?.split('_')[1]; // Ej: categoria_a → a
+    if (!letraDivision || letraDivision.length !== 1) {
+      return await interaction.editReply("⚠️ División no válida.");
+    }
+
+    const filePath = path.join(__dirname, 'ligas', `liga_${letraDivision}.json`);
+
+    if (!fs.existsSync(filePath)) {
+      console.warn(`⚠️ Archivo no encontrado: ${filePath}`);
+      return await interaction.editReply("⚠️ No se encontró el archivo de liga para esa división.");
+    }
+
     const liga = JSON.parse(fs.readFileSync(filePath, 'utf8'));
     let partidoActualizado = false;
 
@@ -252,7 +253,7 @@ if (!fechaISO) {
 
         if (esEstePartido) {
           if (partido.resultado) {
-            return await interaction.reply({ content: "⚠️ Ese partido ya tiene un resultado registrado.", ephemeral: true });
+            return await interaction.editReply("⚠️ Ese partido ya tiene un resultado registrado.");
           }
 
           const urlValida = archivoAdjunto?.attachment?.url?.startsWith("http");
@@ -275,33 +276,33 @@ if (!fechaISO) {
 
     if (!partidoActualizado) {
       console.warn(`⚠️ No se encontró el partido entre ${jugador.id} y ${otrojugador.id}`);
-      return await interaction.reply({
-        content: `⚠️ No se encontró el partido entre ${jugador.username} y ${otrojugador.username} en la liga.`,
-        ephemeral: true,
-      });
+      return await interaction.editReply(`⚠️ No se encontró el partido entre ${jugador.username} y ${otrojugador.username} en la liga.`);
     }
 
     // Si el partido se encontró y actualizó, guardar y mostrar mensaje
     await guardarLiga(liga, filePath, letraDivision, interaction);
 
-    // Mostrar mensaje de resultado públicamente
-    let mensaje = `Campeonato Uruguayo\n División ${division} - Etapa: ${ronda} - Fecha ${fecha}\n ${jugador}  ||${puntosjugador} - ${puntosotrojugador}|| ${otrojugador} \n Mapas: ${draftmapas} \n Civs: ${draftcivis}`;
+    // Mostrar mensaje de resultado públicamente con followUp
+    let mensaje = `🏆 Campeonato Uruguayo\n📂 División ${division} - 🕓 Etapa: ${ronda} - Fecha ${fecha}\n\n${jugador}  ||${puntosjugador} - ${puntosotrojugador}||  ${otrojugador}\n🗺️ Mapas: ${draftmapas}\n⚔️ Civilizaciones: ${draftcivis}`;
     mensaje += archivoAdjunto?.attachment?.url
-      ? `\nRec: ${archivoAdjunto.attachment.url}`
-      : `\nNo se adjuntó ningún archivo`;
+      ? `\n📎 Rec: ${archivoAdjunto.attachment.url}`
+      : `\n📎 No se adjuntó ningún archivo`;
 
-    await interaction.reply({ content: mensaje });
+    await interaction.followUp({ content: mensaje });
 
     // Actualizar tabla de posiciones
     const { actualizarTablaEnCanal } = require('./utiles/tablaPosiciones.js');
     await actualizarTablaEnCanal(letraDivision, interaction.client, interaction.guildId);
 
+    // Finalizamos la respuesta efímera
+    await interaction.editReply("✅ Resultado registrado correctamente.");
   } catch (error) {
     console.error('❌ Error leyendo o procesando el archivo de liga:', error);
-    await interaction.reply({
-      content: "⚠️ Ocurrió un error al procesar la liga. Revisa los logs.",
-      ephemeral: true,
-    });
+    if (!interaction.replied && !interaction.deferred) {
+      await interaction.reply({ content: "⚠️ Ocurrió un error al procesar la liga. Revisa los logs.", ephemeral: true });
+    } else {
+      await interaction.editReply("⚠️ Ocurrió un error al procesar la liga. Revisa los logs.");
+    }
   }
 }
   // Comando: fixture_jornada  
