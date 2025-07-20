@@ -157,7 +157,14 @@
         {
           "jugador1Id": "286607198854053890",
           "jugador2Id": "238414625417330688",
-          "resultado": null,
+          "resultado": {
+            "238414625417330688": 2,
+            "286607198854053890": 1,
+            "draftmapas": "dfd",
+            "draftcivis": "fdf",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1396321945192108062/GarezovsJabs.zip?ex=687da9a6&is=687c5826&hm=4ab9ebdabc4c68361a004ed0d67d8a083be9d9a6936b268d42dc93e391b92dfb&",
+            "fecha": "2025-07-19"
+          },
           "id": 1752670697138,
           "fecha": "22-07-2025",
           "diaSemana": "Martes",
@@ -192,14 +199,7 @@
         {
           "jugador1Id": "833806737902534738",
           "jugador2Id": "341001672786575360",
-          "resultado": {
-            "341001672786575360": 0,
-            "833806737902534738": 2,
-            "draftmapas": "https://aoe2cm.net/draft/VSUwO",
-            "draftcivis": "https://aoe2cm.net/draft/ZCUdR",
-            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1396292180901101628/Nadie_vs_JakaJaan.zip?ex=687d8ded&is=687c3c6d&hm=86814fdb432839923448dca886ba48600cf0d976155fdd203fa17a6e8f08045d&",
-            "fecha": "2025-07-17"
-          },
+          "resultado": null,
           "id": 1752546099091,
           "fecha": "19-07-2025",
           "diaSemana": "Sabado",
