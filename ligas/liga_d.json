@@ -127,7 +127,17 @@
         {
           "jugador1Id": "582941701518262412",
           "jugador2Id": "846515810381987860",
-          "resultado": null
+          "resultado": null,
+          "id": 1753013812161,
+          "fecha": "21-07-2025",
+          "diaSemana": "Lunes",
+          "horario": "20:00",
+          "gmt": "-3",
+          "timestamp": "2025-07-20T12:16:52.161Z",
+          "coordinadoPor": {
+            "id": "846515810381987860",
+            "nombre": "77carne77"
+          }
         },
         {
           "jugador1Id": "524738089252552716",
