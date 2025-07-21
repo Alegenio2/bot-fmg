@@ -516,7 +516,14 @@
         {
           "jugador1Id": "724668688145580062",
           "jugador2Id": "277256502023290881",
-          "resultado": null,
+          "resultado": {
+            "724668688145580062": 2,
+            "277256502023290881": 1,
+            "draftmapas": "https://aoe2cm.net/draft/xicDt",
+            "draftcivis": "https://aoe2cm.net/draft/VxJfY",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1396977065051554053/Rec.rar?ex=68800bc6&is=687eba46&hm=8179b2a248dfca2a65a1197a05bf51ccdd039ad4c74fac33ce3fcf3cae2a1c17&",
+            "fecha": "2025-07-21"
+          },
           "id": 1752693838221,
           "fecha": "21/07/2025",
           "diaSemana": "Lunes",
