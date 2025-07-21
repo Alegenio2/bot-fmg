@@ -324,7 +324,17 @@
         {
           "jugador1Id": "326046458673365002",
           "jugador2Id": "750789709252395108",
-          "resultado": null
+          "resultado": null,
+          "id": 1753102802017,
+          "fecha": "25/07/2025",
+          "diaSemana": "Viernes",
+          "horario": "19:00",
+          "gmt": "GMT-3",
+          "timestamp": "2025-07-21T13:00:02.017Z",
+          "coordinadoPor": {
+            "id": "326046458673365002",
+            "nombre": "kevinq46"
+          }
         },
         {
           "jugador1Id": "135113382217908224",
