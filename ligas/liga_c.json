@@ -306,11 +306,11 @@
           "jugador2Id": "959267535524606022",
           "resultado": null,
           "id": 1752780925426,
-          "fecha": "20-07-2025",
-          "diaSemana": "Domingo",
-          "horario": "22:00",
-          "gmt": "3",
-          "timestamp": "2025-07-17T19:35:25.426Z",
+          "fecha": "2025-07-25",
+          "diaSemana": "Viernes",
+          "horario": "21:30",
+          "gmt": "GMT-3",
+          "timestamp": "2025-07-21T18:45:23.947Z",
           "coordinadoPor": {
             "id": "485610092092456975",
             "nombre": "kroyen"
