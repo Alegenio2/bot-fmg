@@ -137,7 +137,14 @@
         {
           "jugador1Id": "590693837509361902",
           "jugador2Id": "238414625417330688",
-          "resultado": null,
+          "resultado": {
+            "238414625417330688": 2,
+            "590693837509361902": 0,
+            "draftmapas": "https://aoe2cm.net/draft/AgYOp",
+            "draftcivis": "https://aoe2cm.net/draft/SpJVW",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1396990054110331020/Metalmania_vs_Rxon.rar?ex=688017df&is=687ec65f&hm=73f6597b6ca35e6995003b8d5cec3178a522fcafa54761f2713bd57e790f79ba&",
+            "fecha": "2025-07-21"
+          },
           "id": 1753051524430,
           "fecha": "21/07/2025",
           "diaSemana": "Lunes",
