@@ -166,7 +166,14 @@
         {
           "jugador1Id": "694749732467245088",
           "jugador2Id": "207643066855718923",
-          "resultado": null,
+          "resultado": {
+            "694749732467245088": 2,
+            "207643066855718923": 0,
+            "draftmapas": "https://aoe2cm.net/draft/dhgKK",
+            "draftcivis": "https://aoe2cm.net/draft/SEdEW",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1396683853162086470/Categoria_E_-_Ronda_1_-_Shebby_vs_Dr_Love.zip?ex=687efab3&is=687da933&hm=837c9212afe37a24a4e4f169685a227444951a778b038f7dc477cf165c96a357&",
+            "fecha": "2025-07-20"
+          },
           "id": 1753032771499,
           "fecha": "20-07-2025",
           "diaSemana": "Domingo",
