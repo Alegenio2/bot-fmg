@@ -103,23 +103,23 @@ const comandos = [
         type: ApplicationCommandOptionType.String,
         choices: [
           {
-            name: 'campeon',
+            name: 'a_campeon',
             value: 'categoria_a',
           },
           {
-            name: 'mandoble',
+            name: 'b_mandoble',
             value: 'categoria_b',
           },
           {
-            name: 'espada_larga',
+            name: 'c_espada_larga',
             value: 'categoria_c',
           },
           {
-            name: 'hombre_de_armas',
+            name: 'd_hombre_de_armas',
             value: 'categoria_d',
           },
           {
-            name: 'milicia',
+            name: 'e_milicia',
             value: 'categoria_e',
           },
         ],
@@ -174,11 +174,17 @@ const comandos = [
         required: true,
       },
       {
-        name: 'puntosjugador',
-        description: 'Los puntos del jugador.',
-        type: ApplicationCommandOptionType.Number,
-        required: true,
-      },
+  name: 'puntosjugador',
+  description: 'Los puntos del jugador.',
+  type: ApplicationCommandOptionType.Integer, 
+  choices: [
+    { name: '0', value: 0 },
+    { name: '1', value: 1 },
+    { name: '2', value: 2 },
+    { name: '3', value: 3 },  
+  ],
+  required: true,
+},
       {
         name: 'otrojugador',
         description: 'El nombre del otro jugador.',
@@ -186,11 +192,17 @@ const comandos = [
         required: true,
       },
       {
-        name: 'puntosotrojugador',
-        description: 'Los puntos del otro jugador.',
-        type: ApplicationCommandOptionType.Number,
-        required: true,
-      },
+  name: 'puntosotrojugador',
+  description: 'Los puntos del otro jugador.',
+  type: ApplicationCommandOptionType.Integer, 
+  choices: [
+    { name: '0', value: 0 },
+    { name: '1', value: 1 },
+    { name: '2', value: 2 },
+    { name: '3', value: 3 },  
+  ],
+  required: true,
+},
       {
         name: 'draftmapas',
         description: 'El draft de mapas utilizado.',
@@ -203,13 +215,7 @@ const comandos = [
         type: ApplicationCommandOptionType.String,
         required: true,
       },
-      {
-        name: 'partidas',
-        description: 'El número de partidas jugadas.',
-        type: ApplicationCommandOptionType.Number,
-        required: true,
-      },
-      {
+       {
         name: 'archivo',
         description: 'Adjunta un archivo con detalles adicionales.',
         type: ApplicationCommandOptionType.Attachment,
@@ -227,23 +233,23 @@ const comandos = [
         type: ApplicationCommandOptionType.String,
         choices: [
           {
-            name: 'campeon',
+            name: 'a_campeon',
             value: 'categoria_a',
           },
           {
-            name: 'mandoble',
+            name: 'b_mandoble',
             value: 'categoria_b',
           },
           {
-            name: 'espada_larga',
+            name: 'c_espada_larga',
             value: 'categoria_c',
           },
           {
-            name: 'hombre_de_armas',
+            name: 'd_hombre_de_armas',
             value: 'categoria_d',
           },
           {
-            name: 'milicia',
+            name: 'e_milicia',
             value: 'categoria_e',
           },
         ],
