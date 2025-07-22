@@ -122,7 +122,14 @@
         {
           "jugador1Id": "286607198854053890",
           "jugador2Id": "244547091362217984",
-          "resultado": null,
+          "resultado": {
+            "244547091362217984": 0,
+            "286607198854053890": 2,
+            "draftmapas": "https://aoe2cm.net/draft/pqhYP",
+            "draftcivis": "https://aoe2cm.net/draft/vYRaZ",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1397071383296737342/Campeonato_Uruguayo_Garezo_vs_Jabs.zip?ex=6880639e&is=687f121e&hm=d03f1758a63336fc2c244e2b640b8b1c2195eb874a100bb9da9af7c1221c04e4&",
+            "fecha": "2025-07-21"
+          },
           "id": 1752558411571,
           "fecha": "21-07-2025",
           "diaSemana": "Lunes",
