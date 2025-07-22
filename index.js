@@ -199,6 +199,8 @@ if (!Array.isArray(data.participantes)) {
 }    
 // Comando: resultado
 if (interaction.commandName === "resultado") {
+  await interaction.deferReply(); // ✅ evita error de interacción
+    
   const options = interaction.options;
   const division = options.getString("division");
   const ronda = options.getString("ronda");
@@ -213,37 +215,48 @@ if (interaction.commandName === "resultado") {
 
   // Validación mínima
   if (!jugador || !otrojugador || puntosjugador == null || puntosotrojugador == null) {
-    return await interaction.reply("❌ Faltan datos obligatorios para registrar el resultado.");
+    return await interaction.editReply({
+      content: "❌ Faltan datos obligatorios para registrar el resultado. Por favor, vuelve a usar el comando.",
+      ephemeral: true,
+    });
   }
 
   const fechaISO = convertirFormatoFecha(fecha);
   if (!fechaISO) {
-    return await interaction.reply("⚠️ Fecha inválida. Usa DD/MM/AAAA o DD-MM-AAAA.");
+    return await interaction.editReply({
+      content: "⚠️ Fecha inválida. Usa DD/MM/AAAA o DD-MM-AAAA. Vuelve a ejecutar el comando con la fecha correcta.",
+      ephemeral: true,
+    });
   }
 
-  // Mostrar mensaje inmediato
-  let mensaje = `🏆 Campeonato Uruguayo\n📂 División ${division} - 🕓 Etapa: ${ronda} - Fecha ${fecha}\n\n${jugador}  ||${puntosjugador} - ${puntosotrojugador}||  ${otrojugador}\n🗺️ Mapas: ${draftmapas}\n⚔️ Civs: ${draftcivis}`;
+  // Mensaje público del resultado
+  let mensaje = `🏆 Campeonato Uruguayo\n📂 División ${division} - 🕓 Etapa: ${ronda} - Fecha ${fecha}\n\n${jugador}  ${puntosjugador} - ${puntosotrojugador}  ${otrojugador}\n🗺️ Mapas: ${draftmapas}\n⚔️ Civs: ${draftcivis}`;
   mensaje += archivoAdjunto?.attachment?.url
     ? `\n📎 Rec: ${archivoAdjunto.attachment.url}`
     : `\n📎 No se adjuntó ningún archivo`;
 
-  await interaction.reply(mensaje);
-
-  // Procesar el resultado
+  // Procesar resultado
   const letraDivision = division?.split('_')[1];
   if (!letraDivision || letraDivision.length !== 1) {
-    return await interaction.followUp("⚠️ División no válida.");
+    return await interaction.editReply({
+      content: "⚠️ División no válida.",
+      ephemeral: true,
+    });
   }
 
-  const filePath = path.join(__dirname, 'ligas', `liga_${letraDivision}.json`);
+  const filePath = path.join(__dirname, "ligas", `liga_${letraDivision}.json`);
   if (!fs.existsSync(filePath)) {
     console.warn(`⚠️ Archivo no encontrado: ${filePath}`);
-    return await interaction.followUp("⚠️ No se encontró el archivo de liga para esa división.");
+    return await interaction.editReply({
+      content: "⚠️ No se encontró el archivo de liga para esa división.",
+      ephemeral: true,
+    });
   }
 
   try {
-    const liga = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    const liga = JSON.parse(fs.readFileSync(filePath, "utf8"));
     let partidoActualizado = false;
+    let yaTeniaResultado = false;
 
     for (const jornada of liga.jornadas) {
       for (const partido of jornada.partidos) {
@@ -255,11 +268,11 @@ if (interaction.commandName === "resultado") {
           (j1 === otrojugador.id && j2 === jugador.id);
 
         if (esEstePartido) {
-          if (partido.resultado) {
-            return await interaction.followUp("⚠️ Ese partido ya tiene un resultado registrado.");
-          }
-
           const urlValida = archivoAdjunto?.attachment?.url?.startsWith("http");
+
+          if (partido.resultado) {
+            yaTeniaResultado = true;
+          }
 
           partido.resultado = {
             [jugador.id]: puntosjugador,
@@ -278,22 +291,45 @@ if (interaction.commandName === "resultado") {
     }
 
     if (!partidoActualizado) {
-      return await interaction.followUp(`⚠️ No se encontró el partido entre ${jugador.username} y ${otrojugador.username}.`);
+      return await interaction.editReply({
+        content: `⚠️ No se encontró el partido entre ${jugador.username} y ${otrojugador.username}. Verifica los datos.`,
+        ephemeral: true,
+      });
     }
 
+    // Mensaje público (edit del deferReply)
+    await interaction.editReply(mensaje);
+
+    // Mensaje privado al usuario informando si se registró o se modificó
+    if (yaTeniaResultado) {
+      await interaction.followUp({
+        content: `⚠️ El resultado ya existía y fue **modificado** correctamente.`,
+        ephemeral: true,
+      });
+    } else {
+      await interaction.followUp({
+        content: `✅ Resultado registrado correctamente.`,
+        ephemeral: true,
+      });
+    }
+
+    // Guardar liga
     await guardarLiga(liga, filePath, letraDivision, interaction);
 
-    // Actualizar tabla (aunque falle, no debe romper todo)
+    // Actualizar tabla
     try {
-      const { actualizarTablaEnCanal } = require('./utiles/tablaPosiciones.js');
+      const { actualizarTablaEnCanal } = require("./utiles/tablaPosiciones.js");
       await actualizarTablaEnCanal(letraDivision, interaction.client, interaction.guildId);
     } catch (tablaError) {
       console.warn("⚠️ Error actualizando tabla:", tablaError.message);
     }
 
   } catch (error) {
-    console.error('❌ Error leyendo o procesando el archivo de liga:', error);
-    await interaction.followUp("⚠️ Ocurrió un error procesando la liga.");
+    console.error("❌ Error procesando liga:", error);
+    await interaction.followUp({
+      content: "⚠️ Ocurrió un error al procesar la liga.",
+      ephemeral: true,
+    });
   }
 }
   // Comando: fixture_jornada  
@@ -427,7 +463,7 @@ const { guardarYSubirCatE } = require('./git/guardarGit_Cat_E.js');
 // Comando: coordinado
 if (commandName === 'coordinado') {
   await interaction.deferReply(); // ✅ evita error de interacción
-
+  
   const division = options.getString('division'); // Ej: categoria_c
   const ronda = options.getInteger('ronda');
   const fecha = options.getString('fecha');
@@ -439,40 +475,40 @@ if (commandName === 'coordinado') {
   const letraDivision = division?.split('_')[1]; // Ej: "c"
   const filePath = path.join(__dirname, 'ligas', `liga_${letraDivision}.json`);
 
-     // Validar y formatear fecha
+  // Validar y formatear fecha
   const fechaFormatoCorrecto = convertirFormatoFecha(fecha);
-if (!fechaFormatoCorrecto) {
-  return await interaction.editReply({
-    content: "❌ La fecha debe estar en formato **DD-MM-YYYY** y debe ser válida.",
-    ephemeral: true
-  });
-}
-    
-const diaSemana = obtenerDiaSemana(fechaFormatoCorrecto);
+  if (!fechaFormatoCorrecto) {
+    return await interaction.editReply({
+      content: "❌ La fecha debe estar en formato **DD-MM-YYYY** y debe ser válida.",
+      ephemeral: true
+    });
+  }
+
+  const diaSemana = obtenerDiaSemana(fechaFormatoCorrecto);
 
   // Validar y formatear horario
   const horarioFormateado = validarYFormatearHorario(horario);
-if (!horarioFormateado) {
-  return await interaction.editReply({
-    content: "❌ Formato de horario inválido. Usá `HH:MM` o `HH.MM`, por ejemplo `19:30`.",
-    ephemeral: true
-  });
-}
-    
-if (!fs.existsSync(filePath)) {
-  return await interaction.editReply({
-    content: `⚠️ No se encontró el archivo de liga para la división **${division}**.`,
-    ephemeral: true
-  });
-}
+  if (!horarioFormateado) {
+    return await interaction.editReply({
+      content: "❌ Formato de horario inválido. Usá `HH:MM` o `HH.MM`, por ejemplo `19:30`.",
+      ephemeral: true
+    });
+  }
+
+  if (!fs.existsSync(filePath)) {
+    return await interaction.editReply({
+      content: `⚠️ No se encontró el archivo de liga para la división **${division}**.`,
+      ephemeral: true
+    });
+  }
 
   try {
     const liga = JSON.parse(fs.readFileSync(filePath, 'utf8'));
     let partidoCoordinado = false;
-    let partidoId = null;
+    let fueRecoord = false;
 
     for (const jornada of liga.jornadas) {
-     if (Number(jornada.ronda) !== ronda) continue;
+      if (Number(jornada.ronda) !== ronda) continue;
 
       for (const partido of jornada.partidos) {
         const j1 = partido.jugador1Id;
@@ -484,6 +520,10 @@ if (!fs.existsSync(filePath)) {
 
         if (esEstePartido) {
           partido.id = partido.id || Date.now(); // generar ID si no existe
+          if (partido.fecha || partido.horario) {
+            fueRecoord = true;
+          }
+
           partido.fecha = fecha;
           partido.diaSemana = diaSemana;
           partido.horario = horarioFormateado;
@@ -494,7 +534,6 @@ if (!fs.existsSync(filePath)) {
             nombre: interaction.user.username
           };
           partidoCoordinado = true;
-          partidoId = partido.id;
           break;
         }
       }
@@ -502,30 +541,27 @@ if (!fs.existsSync(filePath)) {
     }
 
     if (partidoCoordinado) {
-      // ✅ Subir a GitHub igual que en "resultado"
-      await guardarLiga(liga, filePath, letraDivision, interaction);  
+         // ✅ Subir a GitHub igual que en "resultado"
+      await guardarLiga(liga, filePath, letraDivision, interaction);
+
+      const advertencia = fueRecoord ? "\n⚠️ *Este partido ya estaba coordinado anteriormente. Los datos han sido actualizados.*" : "";
+
       await interaction.editReply({
-        content: `📅 Partido coordinado en División **${division}**, Ronda **${ronda}**\n🕒 ${fecha} (${diaSemana}) a las ${horario}-hs ${gmt}\n👥 ${jugador} vs ${rival}`,
+        content: `📅 Partido coordinado en División **${division}**, Ronda **${ronda}**\n🕒 ${fecha} (${diaSemana}) a las ${horario}-hs ${gmt}\n👥 ${jugador} vs ${rival}${advertencia}`,
       });
-
-      await interaction.followUp({
-        content: `🆔 ID del partido (para re-coordinar): \`${partidoId}\``,
-        ephemeral: true
-      });
-
     } else {
       await interaction.editReply({
-  content: `⚠️ No se encontró el partido entre **${jugador.username}** y **${rival.username}** en la ronda **${ronda}** de la liga **${division}**.`,
-  ephemeral: true
-});
+        content: `⚠️ No se encontró el partido entre **${jugador.username}** y **${rival.username}** en la ronda **${ronda}** de la liga **${division}**.`,
+        ephemeral: true
+      });
     }
 
   } catch (error) {
     console.error("❌ Error al coordinar el encuentro:", error);
-   await interaction.editReply({
-  content: "⚠️ Ocurrió un error al intentar coordinar el partido.",
-  ephemeral: true
-});
+    await interaction.editReply({
+      content: "⚠️ Ocurrió un error al intentar coordinar el partido.",
+      ephemeral: true
+    });
   }
 }
 // Comando: re-coordinar
