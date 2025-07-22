@@ -127,7 +127,14 @@
         {
           "jugador1Id": "582941701518262412",
           "jugador2Id": "846515810381987860",
-          "resultado": null,
+          "resultado": {
+            "846515810381987860": 0,
+            "582941701518262412": 2,
+            "draftmapas": "https://aoe2cm.net/draft/Phqvi",
+            "draftcivis": "https://aoe2cm.net/draft/QxbUL",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1397015460138192916/recs_El_cuco_vs_matixxx.rar?ex=68802f88&is=687ede08&hm=f0ce7625f9c685139e38e1d63cd49e5612c2b339d9236ce4a7b3a121ce66c4b9&",
+            "fecha": "2025-07-21"
+          },
           "id": 1753013812161,
           "fecha": "21-07-2025",
           "diaSemana": "Lunes",
