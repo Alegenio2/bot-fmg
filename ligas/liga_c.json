@@ -580,7 +580,14 @@
         {
           "jugador1Id": "689907393001291884",
           "jugador2Id": "442189398667296788",
-          "resultado": null,
+          "resultado": {
+            "689907393001291884": 2,
+            "442189398667296788": 1,
+            "draftmapas": "https://aoe2cm.net/draft/Tsjqu",
+            "draftcivis": "https://aoe2cm.net/draft/NxdOk",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1397031245556219947/CuleroConnorvsDavidTG.rar?ex=68803e3c&is=687eecbc&hm=47eeb43f8fcb7a4ba2dcbd521928395fcdf20130b01d4cab66b912ac169975e2&",
+            "fecha": "2025-07-21"
+          },
           "id": 1753052005565,
           "fecha": "21/07/2025",
           "diaSemana": "Lunes",
