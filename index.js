@@ -206,9 +206,9 @@ if (interaction.commandName === "resultado") {
   const ronda = options.getString("ronda");
   const fecha = options.getString("fecha");
   const jugador = options.getUser("jugador");
-  const puntosjugador = options.getNumber("puntosjugador");
+  const puntosjugador = options.getInteger("puntosjugador");
   const otrojugador = options.getUser("otrojugador");
-  const puntosotrojugador = options.getNumber("puntosotrojugador");
+  const puntosotrojugador = options.getInteger("puntosotrojugador");
   const draftmapas = options.getString("draftmapas");
   const draftcivis = options.getString("draftcivis");
   const archivoAdjunto = interaction.options.get("archivo");
