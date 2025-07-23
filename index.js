@@ -230,7 +230,7 @@ if (interaction.commandName === "resultado") {
   }
 
   // Mensaje público del resultado
-  let mensaje = `🏆 Campeonato Uruguayo\n📂 División ${division} - 🕓 Etapa: ${ronda} - Fecha ${fecha}\n\n${jugador}  ${puntosjugador} - ${puntosotrojugador}  ${otrojugador}\n🗺️ Mapas: ${draftmapas}\n⚔️ Civs: ${draftcivis}`;
+  let mensaje = `🏆 Campeonato Uruguayo\n📂 División ${division} - 🕓 Etapa: ${ronda} - Fecha ${fecha}\n\n${jugador}  ||${puntosjugador} - ${puntosotrojugador}||  ${otrojugador}\n🗺️ Mapas: ${draftmapas}\n⚔️ Civs: ${draftcivis}`;
   mensaje += archivoAdjunto?.attachment?.url
     ? `\n📎 Rec: ${archivoAdjunto.attachment.url}`
     : `\n📎 No se adjuntó ningún archivo`;
