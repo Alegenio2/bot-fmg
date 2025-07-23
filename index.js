@@ -462,7 +462,7 @@ const { guardarYSubirCatE } = require('./git/guardarGit_Cat_E.js');
   }
 // Comando: coordinado
 if (commandName === 'coordinado') {
-  await interaction.deferReply(); // ✅ evita error de interacción
+ await interaction.deferReply({ ephemeral: true });
   
   const division = options.getString('division'); // Ej: categoria_c
   const ronda = options.getInteger('ronda');
@@ -540,22 +540,31 @@ if (commandName === 'coordinado') {
       if (partidoCoordinado) break;
     }
 
-    if (partidoCoordinado) {
-         // ✅ Subir a GitHub igual que en "resultado"
-      await guardarLiga(liga, filePath, letraDivision, interaction);
+if (partidoCoordinado) {
+  // ✅ Subir a GitHub igual que en "resultado"
+  await guardarLiga(liga, filePath, letraDivision, interaction);
 
-      const advertencia = fueRecoord ? "\n⚠️ *Este partido ya estaba coordinado anteriormente. Los datos han sido actualizados.*" : "";
+  const advertencia = fueRecoord
+    ? "\n⚠️ *Este partido ya estaba coordinado anteriormente. Los datos han sido actualizados.*"
+    : "";
 
-      await interaction.editReply({
-        content: `📅 Partido coordinado en División **${division}**, Ronda **${ronda}**\n🕒 ${fecha} (${diaSemana}) a las ${horario}-hs ${gmt}\n👥 ${jugador} vs ${rival}${advertencia}`,
-      });
-    } else {
-      await interaction.editReply({
-        content: `⚠️ No se encontró el partido entre **${jugador.username}** y **${rival.username}** en la ronda **${ronda}** de la liga **${division}**.`,
-        ephemeral: true
-      });
-    }
+  // 🔒 Mensaje privado al usuario que usó el comando
+  await interaction.editReply({
+    content: "✅ Partido coordinado correctamente.",
+    ephemeral: true
+  });
 
+  // 🔓 Mensaje público para el canal
+  await interaction.followUp({
+    content: `📅 Partido coordinado en División **${division}**, Ronda **${ronda}**\n🕒 ${fecha} (${diaSemana}) a las ${horario}-hs ${gmt}\n👥 ${jugador} vs ${rival}${advertencia}`,
+    ephemeral: false
+  });
+} else {
+  await interaction.editReply({
+    content: `⚠️ No se encontró el partido entre **${jugador.username}** y **${rival.username}** en la ronda **${ronda}** de la liga **${division}**.`,
+    ephemeral: true
+  });
+}
   } catch (error) {
     console.error("❌ Error al coordinar el encuentro:", error);
     await interaction.editReply({
