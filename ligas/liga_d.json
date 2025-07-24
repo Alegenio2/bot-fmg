@@ -198,7 +198,17 @@
         {
           "jugador1Id": "582941701518262412",
           "jugador2Id": "465307831583637514",
-          "resultado": null
+          "resultado": null,
+          "id": 1753315291171,
+          "fecha": "27-07-2025",
+          "diaSemana": "Domingo",
+          "horario": "20:00",
+          "gmt": "3",
+          "timestamp": "2025-07-24T00:01:31.171Z",
+          "coordinadoPor": {
+            "id": "465307831583637514",
+            "nombre": "ignatiusj.reilly"
+          }
         },
         {
           "jugador1Id": "524738089252552716",
