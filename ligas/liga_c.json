@@ -570,7 +570,14 @@
         {
           "jugador1Id": "689907393001291884",
           "jugador2Id": "697973693157998712",
-          "resultado": null,
+          "resultado": {
+            "697973693157998712": 2,
+            "689907393001291884": 1,
+            "draftmapas": "https://aoe2cm.net/draft/ZJBCu",
+            "draftcivis": "https://aoe2cm.net/draft/fCCEn",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1398083621323280444/Samurai_vs_Culero.zip?ex=68841256&is=6882c0d6&hm=beff0ec406ade90037a3596e9ea1b9af1f5019afa4153bc6e76e927f6bacff2a&",
+            "fecha": "2025-07-24"
+          },
           "id": 1753149762820,
           "fecha": "24/07/2025",
           "diaSemana": "Jueves",
