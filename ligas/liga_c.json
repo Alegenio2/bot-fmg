@@ -609,7 +609,17 @@
         {
           "jugador1Id": "724668688145580062",
           "jugador2Id": "755853346149105786",
-          "resultado": null
+          "resultado": null,
+          "id": 1753494980330,
+          "fecha": "25/07/2025",
+          "diaSemana": "Viernes",
+          "horario": "23:00",
+          "gmt": "GMT-3",
+          "timestamp": "2025-07-26T01:56:20.330Z",
+          "coordinadoPor": {
+            "id": "755853346149105786",
+            "nombre": "gino_aoe"
+          }
         },
         {
           "jugador1Id": "277256502023290881",
