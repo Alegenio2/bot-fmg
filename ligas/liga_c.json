@@ -609,7 +609,14 @@
         {
           "jugador1Id": "724668688145580062",
           "jugador2Id": "755853346149105786",
-          "resultado": null,
+          "resultado": {
+            "724668688145580062": 2,
+            "755853346149105786": 0,
+            "draftmapas": "https://aoe2cm.net/draft/pdWfU",
+            "draftcivis": "https://aoe2cm.net/draft/FtrUT",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1398718338573533184/Gral_Artigas_vs_Gino.rar?ex=68866176&is=68850ff6&hm=7c9f9818e1c7f04bb5c959d96ff055b989fafef6beccb2bdf5f771fa97d56791&",
+            "fecha": "2025-07-25"
+          },
           "id": 1753494980330,
           "fecha": "25/07/2025",
           "diaSemana": "Viernes",
