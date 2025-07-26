@@ -95,7 +95,14 @@
         {
           "jugador1Id": "697996987210924072",
           "jugador2Id": "347539956605911041",
-          "resultado": null
+          "resultado": {
+            "697996987210924072": 0,
+            "347539956605911041": 2,
+            "draftmapas": "https://aoe2cm.net/draft/uKKGa",
+            "draftcivis": "https://aoe2cm.net/draft/DQFin",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1398757270174826647/DUKE_VS_TINCHO.zip?ex=688685b8&is=68853438&hm=b10eb92a773e3de34b32ca3ce85accfb1fcd251547da268872d7ed5fd83fd612&",
+            "fecha": "2025-07-26"
+          }
         },
         {
           "jugador1Id": "369911696023879681",
