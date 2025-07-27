@@ -668,7 +668,17 @@
         {
           "jugador1Id": "724668688145580062",
           "jugador2Id": "697973693157998712",
-          "resultado": null
+          "resultado": null,
+          "id": 1753574802068,
+          "fecha": "1/8/2025",
+          "diaSemana": "Viernes",
+          "horario": "21:00",
+          "gmt": "GMT-3",
+          "timestamp": "2025-07-27T00:06:42.068Z",
+          "coordinadoPor": {
+            "id": "724668688145580062",
+            "nombre": "gral_artigas"
+          }
         },
         {
           "jugador1Id": "755853346149105786",
