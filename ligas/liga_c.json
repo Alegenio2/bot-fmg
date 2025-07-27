@@ -388,7 +388,14 @@
         {
           "jugador1Id": "326046458673365002",
           "jugador2Id": "135113382217908224",
-          "resultado": null,
+          "resultado": {
+            "135113382217908224": 2,
+            "326046458673365002": 0,
+            "draftmapas": "https://aoe2cm.net/draft/mpYcU",
+            "draftcivis": "https://aoe2cm.net/draft/KtOUc",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1398857210808766474/Paginas_Amarillas_vs_Juasteint.rar?ex=6886e2cc&is=6885914c&hm=f06c66bc94ffca510afb7addc7342c9546fe257c5a0ca76312426885c482bf37&",
+            "fecha": "2025-07-26"
+          },
           "id": 1753301728073,
           "fecha": "26/07/2025",
           "diaSemana": "Sábado",
