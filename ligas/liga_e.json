@@ -222,7 +222,14 @@
         {
           "jugador1Id": "121771867198455808",
           "jugador2Id": "896216989922635777",
-          "resultado": null,
+          "resultado": {
+            "121771867198455808": 0,
+            "896216989922635777": 2,
+            "draftmapas": "https://aoe2cm.net/draft/aIgjB",
+            "draftcivis": "https://aoe2cm.net/draft/ZyBUR",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1399178504058437753/Bazza_vs_Tatosky.zip?ex=68880e06&is=6886bc86&hm=30976dd6ef5f47f607f815aeae74f592a8d4c24a648c6c6e1c3e60f86f253ce1&",
+            "fecha": "2025-07-27"
+          },
           "id": 1753655998317,
           "fecha": "27-07-2025",
           "diaSemana": "Domingo",
