@@ -373,7 +373,17 @@
         {
           "jugador1Id": "485610092092456975",
           "jugador2Id": "342830926142767115",
-          "resultado": null
+          "resultado": null,
+          "id": 1753662060837,
+          "fecha": "27-07-2025",
+          "diaSemana": "Domingo",
+          "horario": "22:00",
+          "gmt": "GMT-3",
+          "timestamp": "2025-07-28T00:21:00.837Z",
+          "coordinadoPor": {
+            "id": "485610092092456975",
+            "nombre": "kroyen"
+          }
         },
         {
           "jugador1Id": "959267535524606022",
