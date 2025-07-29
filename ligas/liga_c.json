@@ -722,7 +722,14 @@
         {
           "jugador1Id": "277256502023290881",
           "jugador2Id": "442189398667296788",
-          "resultado": null,
+          "resultado": {
+            "277256502023290881": 2,
+            "442189398667296788": 1,
+            "draftmapas": "https://aoe2cm.net/draft/MRCCT",
+            "draftcivis": "https://aoe2cm.net/draft/GGLLp",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1399814086631362682/Lionerrt_vs_DavidTG.zip?ex=688a5df5&is=68890c75&hm=e4c529063735312081d18ae07db18ec3bb7cb4d50f42722abaada0246c20a6d5&",
+            "fecha": "2025-07-28"
+          },
           "id": 1753668086202,
           "fecha": "28-07-2025",
           "diaSemana": "Lunes",
