@@ -272,7 +272,14 @@
         {
           "jugador1Id": "590693837509361902",
           "jugador2Id": "833806737902534738",
-          "resultado": null,
+          "resultado": {
+            "833806737902534738": 2,
+            "590693837509361902": 1,
+            "draftmapas": "https://aoe2cm.net/draft/ucCZy",
+            "draftcivis": "https://aoe2cm.net/draft/xXHEm",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1399846602394570802/Metal_vs_Jaka.zip?ex=688a7c3d&is=68892abd&hm=073529b317c37e8c82875401a47efa353d15c7e90844c861f7a27cba149a36d2&",
+            "fecha": "2025-07-29"
+          },
           "id": 1753321870789,
           "fecha": "29/07/2025",
           "diaSemana": "Martes",
