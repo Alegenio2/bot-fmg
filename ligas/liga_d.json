@@ -198,24 +198,7 @@
         {
           "jugador1Id": "582941701518262412",
           "jugador2Id": "465307831583637514",
-          "resultado": {
-            "582941701518262412": 2,
-            "465307831583637514": 0,
-            "draftmapas": "https://aoe2cm.net/draft/rzrAl",
-            "draftcivis": "https://aoe2cm.net/draft/Fshcz",
-            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1399561304192061600/Div_D_-_Fecha_2_-_Matixxx_VS_Rogelio_III.zip?ex=68897289&is=68882109&hm=30a9f3939342c8581fbd8d00f6e0efa84bf62dfb74f05d72e3be97ebb27b277a&",
-            "fecha": "2025-07-27"
-          },
-          "id": 1753315291171,
-          "fecha": "27-07-2025",
-          "diaSemana": "Domingo",
-          "horario": "20:00",
-          "gmt": "3",
-          "timestamp": "2025-07-24T00:01:31.171Z",
-          "coordinadoPor": {
-            "id": "465307831583637514",
-            "nombre": "ignatiusj.reilly"
-          }
+          "resultado": null
         },
         {
           "jugador1Id": "524738089252552716",
