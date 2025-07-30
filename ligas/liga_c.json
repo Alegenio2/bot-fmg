@@ -418,7 +418,14 @@
         {
           "jugador1Id": "959267535524606022",
           "jugador2Id": "135113382217908224",
-          "resultado": null
+          "resultado": {
+            "135113382217908224": 2,
+            "959267535524606022": 0,
+            "draftmapas": "https://aoe2cm.net/draft/hiMSw",
+            "draftcivis": "https://aoe2cm.net/draft/oJSuQ",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1400258420971409459/Juasteint_vs_RorroKnight.rar?ex=688bfbc7&is=688aaa47&hm=1aaba0fc58be5c33b3df5d12ffd3e556197ca322f054f219b5a882f6a9cff117&",
+            "fecha": "2025-07-30"
+          }
         },
         {
           "jugador1Id": "701537224248000563",
