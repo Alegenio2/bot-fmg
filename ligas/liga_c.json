@@ -413,7 +413,14 @@
         {
           "jugador1Id": "342830926142767115",
           "jugador2Id": "709904591453683766",
-          "resultado": null
+          "resultado": {
+            "709904591453683766": 2,
+            "342830926142767115": 0,
+            "draftmapas": "https://aoe2cm.net/draft/NsFSc",
+            "draftcivis": "https://aoe2cm.net/draft/xeyme",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1400265895405813790/buyan_v_pablomac.rar?ex=688c02bd&is=688ab13d&hm=eb023ac0c77820d34cdbc76f86f718c1b0d69aabd55b0f0e27d35d8c4971371e&",
+            "fecha": "2025-07-30"
+          }
         },
         {
           "jugador1Id": "959267535524606022",
