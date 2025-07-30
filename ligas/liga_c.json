@@ -774,7 +774,17 @@
         {
           "jugador1Id": "1244725529093869687",
           "jugador2Id": "689907393001291884",
-          "resultado": null
+          "resultado": null,
+          "id": 1753839203456,
+          "fecha": "31-07-2025",
+          "diaSemana": "Jueves",
+          "horario": "21:00",
+          "gmt": "GMT-3",
+          "timestamp": "2025-07-30T01:33:23.456Z",
+          "coordinadoPor": {
+            "id": "689907393001291884",
+            "nombre": "culero_connor"
+          }
         }
       ]
     },
