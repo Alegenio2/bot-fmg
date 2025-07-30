@@ -203,14 +203,7 @@
         {
           "jugador1Id": "244547091362217984",
           "jugador2Id": "249400646782943235",
-          "resultado": {
-            "249400646782943235": 1,
-            "244547091362217984": 2,
-            "draftmapas": "https://aoe2cm.net/draft/yauyK",
-            "draftcivis": "https://aoe2cm.net/draft/TPFXc",
-            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1398840595291705374/Liga_Uruguaya_-_Retrixzzj_vs_Garezo.rar?ex=6886d353&is=688581d3&hm=e2edf0d6acdf09c49de7a9df24be4484ca1b7b223c15b790f31bfe740da355c7&",
-            "fecha": "2025-07-26"
-          }
+          "resultado": null
         },
         {
           "jugador1Id": "590693837509361902",
@@ -272,24 +265,7 @@
         {
           "jugador1Id": "590693837509361902",
           "jugador2Id": "833806737902534738",
-          "resultado": {
-            "833806737902534738": 2,
-            "590693837509361902": 1,
-            "draftmapas": "https://aoe2cm.net/draft/ucCZy",
-            "draftcivis": "https://aoe2cm.net/draft/xXHEm",
-            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1399846602394570802/Metal_vs_Jaka.zip?ex=688a7c3d&is=68892abd&hm=073529b317c37e8c82875401a47efa353d15c7e90844c861f7a27cba149a36d2&",
-            "fecha": "2025-07-29"
-          },
-          "id": 1753321870789,
-          "fecha": "29/07/2025",
-          "diaSemana": "Martes",
-          "horario": "15:30",
-          "gmt": "GMT-3",
-          "timestamp": "2025-07-24T01:51:10.789Z",
-          "coordinadoPor": {
-            "id": "590693837509361902",
-            "nombre": "metalmania4118"
-          }
+          "resultado": null
         }
       ]
     },
@@ -324,17 +300,7 @@
         {
           "jugador1Id": "286607198854053890",
           "jugador2Id": "341001672786575360",
-          "resultado": null,
-          "id": 1753851383787,
-          "fecha": "31-07-2025",
-          "diaSemana": "Jueves",
-          "horario": "22:00",
-          "gmt": "GMT-3",
-          "timestamp": "2025-07-30T04:56:23.787Z",
-          "coordinadoPor": {
-            "id": "341001672786575360",
-            "nombre": "nadie6689"
-          }
+          "resultado": null
         },
         {
           "jugador1Id": "427965323799691284",
