@@ -300,7 +300,14 @@
         {
           "jugador1Id": "286607198854053890",
           "jugador2Id": "341001672786575360",
-          "resultado": null
+          "resultado": {
+            "341001672786575360": 2,
+            "286607198854053890": 0,
+            "draftmapas": "draf",
+            "draftcivis": "cirv",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1400300428771721266/DUKE_VS_TINCHO.zip?ex=688c22e6&is=688ad166&hm=2b1209a6337be69ff004a8f876068103b36450307f94f0f1cb67f6138b63fcc0&",
+            "fecha": "2025-07-31"
+          }
         },
         {
           "jugador1Id": "427965323799691284",
