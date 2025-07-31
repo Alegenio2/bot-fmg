@@ -366,7 +366,14 @@
         {
           "jugador1Id": "485610092092456975",
           "jugador2Id": "342830926142767115",
-          "resultado": null
+           "resultado": {
+            "342830926142767115": 0,
+            "485610092092456975": 2,
+            "draftmapas": "https://aoe2cm.net/draft/rcosK",
+            "draftcivis": "https://aoe2cm.net/draft/Ldugq",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1399211695410384906/Liga_Uruguaya_Pablomac_Vs_Kroyen.rar?ex=688b78b0&is=688a2730&hm=c72c62447b747cf399078c1da82e724e48372aad13736dff10c023975db51552&",
+            "fecha": "2025-07-27"
+          }
         },
         {
           "jugador1Id": "959267535524606022",
