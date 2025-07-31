@@ -304,7 +304,14 @@
         {
           "jugador1Id": "485610092092456975",
           "jugador2Id": "959267535524606022",
-          "resultado": null,
+          "resultado": {
+            "485610092092456975": 2,
+            "959267535524606022": 0,
+            "draftmapas": "https://aoe2cm.net/draft/zyKHQ",
+            "draftcivis": "https://aoe2cm.net/draft/ybnGH",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1398479725667549385/Copa_Uruguaya_Rorro_Vs_Kroyen.rar?ex=688c1abd&is=688ac93d&hm=c92c993178db67e220c5be3b3509cdb9f00c87e32ef1c9fd5d3f42d6bb891264&",
+            "fecha": "2025-07-25"
+          },
           "id": 1752780925426,
           "fecha": "2025-07-25",
           "diaSemana": "Viernes",
