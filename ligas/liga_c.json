@@ -737,7 +737,14 @@
         {
           "jugador1Id": "277256502023290881",
           "jugador2Id": "1244725529093869687",
-          "resultado": null,
+          "resultado": {
+            "1244725529093869687": 2,
+            "277256502023290881": 0,
+            "draftmapas": "https://aoe2cm.net/draft/EQZiq",
+            "draftcivis": "https://aoe2cm.net/draft/KexDb",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1400974128953032785/Lionert_Sophie.zip?ex=688e9655&is=688d44d5&hm=a2bb9fc38d0f47b18967f8a77c114f8c14ade6af8445f1e9d515768ecb680d78&",
+            "fecha": "2025-08-01"
+          },
           "id": 1754009489853,
           "fecha": "01-08-2025",
           "diaSemana": "Viernes",
