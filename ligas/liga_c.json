@@ -737,7 +737,17 @@
         {
           "jugador1Id": "277256502023290881",
           "jugador2Id": "1244725529093869687",
-          "resultado": null
+          "resultado": null,
+          "id": 1754009489853,
+          "fecha": "01-08-2025",
+          "diaSemana": "Viernes",
+          "horario": "19:00",
+          "gmt": "-3",
+          "timestamp": "2025-08-01T00:51:29.853Z",
+          "coordinadoPor": {
+            "id": "277256502023290881",
+            "nombre": "lionerrt"
+          }
         }
       ]
     },
