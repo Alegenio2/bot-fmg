@@ -267,7 +267,17 @@
         {
           "jugador1Id": "244547091362217984",
           "jugador2Id": "341001672786575360",
-          "resultado": null
+          "resultado": null,
+          "id": 1754091470161,
+          "fecha": "03-08-2025",
+          "diaSemana": "Domingo",
+          "horario": "21:00",
+          "gmt": "GMT-3",
+          "timestamp": "2025-08-01T23:37:50.161Z",
+          "coordinadoPor": {
+            "id": "341001672786575360",
+            "nombre": "nadie6689"
+          }
         },
         {
           "jugador1Id": "590693837509361902",
