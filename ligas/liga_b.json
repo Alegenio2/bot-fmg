@@ -272,7 +272,7 @@
         {
           "jugador1Id": "590693837509361902",
           "jugador2Id": "833806737902534738",
-         "resultado": {
+          "resultado": {
             "590693837509361902": 1,
             "833806737902534738": 2,
             "draftmapas": "https://aoe2cm.net/draft/ucCZy",
@@ -304,7 +304,17 @@
         {
           "jugador1Id": "244547091362217984",
           "jugador2Id": "590693837509361902",
-          "resultado": null
+          "resultado": null,
+          "id": 1754030520801,
+          "fecha": "01/08/2025",
+          "diaSemana": "Viernes",
+          "horario": "19:00",
+          "gmt": "-3",
+          "timestamp": "2025-08-01T06:42:00.801Z",
+          "coordinadoPor": {
+            "id": "244547091362217984",
+            "nombre": "garezo"
+          }
         }
       ]
     },
