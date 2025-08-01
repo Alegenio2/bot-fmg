@@ -203,7 +203,14 @@
         {
           "jugador1Id": "244547091362217984",
           "jugador2Id": "249400646782943235",
-          "resultado": null
+          "resultado": {
+            "244547091362217984": 2,
+            "249400646782943235": 1,
+            "draftmapas": "https://aoe2cm.net/draft/yauyK",
+            "draftcivis": "https://aoe2cm.net/draft/TPFXc",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1398840595291705374/Liga_Uruguaya_-_Retrixzzj_vs_Garezo.rar?ex=688d6ad3&is=688c1953&hm=39f9c02b7544ecf2f94e8b97897a87592aea52a8e59c04f7c573eb35aea57f8a&",
+            "fecha": "2025-07-26"
+          }
         },
         {
           "jugador1Id": "590693837509361902",
