@@ -304,7 +304,14 @@
         {
           "jugador1Id": "244547091362217984",
           "jugador2Id": "590693837509361902",
-          "resultado": null,
+          "resultado": {
+            "244547091362217984": 1,
+            "590693837509361902": 2,
+            "draftmapas": "https://aoe2cm.net/draft/vUOJS",
+            "draftcivis": "https://aoe2cm.net/draft/JLqFx",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1400965089003044905/Liga_Uruguaya_-_Garezo_vs_Metalmania.rar?ex=688e8de9&is=688d3c69&hm=2c1b0ae827e955fc62058c3f777f5f8269e76fbd467cbec51f0fe6d61e126e36&",
+            "fecha": "2025-08-01"
+          },
           "id": 1754030520801,
           "fecha": "01/08/2025",
           "diaSemana": "Viernes",
