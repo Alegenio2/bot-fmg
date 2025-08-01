@@ -210,7 +210,7 @@
         {
           "jugador1Id": "1293646842625785968",
           "jugador2Id": "1008090545513570495",
-           "resultado": {
+          "resultado": {
             "1293646842625785968": 0,
             "1008090545513570495": 2,
             "draftmapas": "https://aoe2cm.net/draft/LRanr",
@@ -249,7 +249,14 @@
         {
           "jugador1Id": "1293646842625785968",
           "jugador2Id": "852387609916211270",
-          "resultado": null,
+          "resultado": {
+            "1293646842625785968": 0,
+            "852387609916211270": 2,
+            "draftmapas": "https://aoe2cm.net/draft/xJnkW",
+            "draftcivis": "https://aoe2cm.net/draft/xavjh",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1400884935882969138/MP_Replay_v101.103.16877.0_2025.07.31_142057_2.aoe2record?ex=688e4343&is=688cf1c3&hm=34fdcac61304ca9755506cb7d20a040824976832bc211e9cb59071640faee077&",
+            "fecha": "2025-07-31"
+          },
           "id": 1753965053831,
           "fecha": "31/07/2025",
           "diaSemana": "Jueves",
