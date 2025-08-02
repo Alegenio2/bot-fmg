@@ -746,7 +746,17 @@
         {
           "jugador1Id": "697973693157998712",
           "jugador2Id": "442189398667296788",
-          "resultado": null
+          "resultado": null,
+          "id": 1754157303771,
+          "fecha": "08/08/2025",
+          "diaSemana": "Jueves",
+          "horario": "21:00",
+          "gmt": "GMT-3",
+          "timestamp": "2025-08-02T17:55:03.771Z",
+          "coordinadoPor": {
+            "id": "442189398667296788",
+            "nombre": ".davidtg"
+          }
         },
         {
           "jugador1Id": "755853346149105786",
