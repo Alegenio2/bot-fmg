@@ -188,7 +188,14 @@
         {
           "jugador1Id": "662427737138528308",
           "jugador2Id": "846515810381987860",
-          "resultado": null
+          "resultado": {
+            "846515810381987860": 1,
+            "662427737138528308": 2,
+            "draftmapas": "https://aoe2cm.net/draft/XVMHu",
+            "draftcivis": "https://aoe2cm.net/draft/ZfbeM",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1401034209191268392/el_cuco_vs_kakaidolo.rar?ex=688ece49&is=688d7cc9&hm=c4c0bc7bf3b887a8b50eaf2adf7a56ec7a42ea4b79825928f9a17527aa2e921a&",
+            "fecha": "2025-08-01"
+          }
         },
         {
           "jugador1Id": "580229190645972994",
