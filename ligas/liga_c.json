@@ -683,7 +683,14 @@
         {
           "jugador1Id": "724668688145580062",
           "jugador2Id": "697973693157998712",
-          "resultado": null
+          "resultado": {
+            "724668688145580062": 2,
+            "697973693157998712": 0,
+            "draftmapas": "https://aoe2cm.net/draft/Qqytu",
+            "draftcivis": "https://aoe2cm.net/draft/lzDOF",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1401040095250874368/Gral_Artigas_vs_SamuraiNinja08.rar?ex=688ed3c4&is=688d8244&hm=8a5c4a671cd03e89c6a65c1958d9f4f5c18d39713d7fbd1166c2333071435d5d&",
+            "fecha": "2025-08-01"
+          }
         },
         {
           "jugador1Id": "755853346149105786",
