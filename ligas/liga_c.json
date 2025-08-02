@@ -781,7 +781,17 @@
         {
           "jugador1Id": "697973693157998712",
           "jugador2Id": "1244725529093869687",
-          "resultado": null
+          "resultado": null,
+          "id": 1754111103909,
+          "fecha": "2-8-2025",
+          "diaSemana": "Viernes",
+          "horario": "15:00",
+          "gmt": "GMT-3",
+          "timestamp": "2025-08-02T05:05:03.909Z",
+          "coordinadoPor": {
+            "id": "1244725529093869687",
+            "nombre": "la_sophie_uy"
+          }
         },
         {
           "jugador1Id": "755853346149105786",
