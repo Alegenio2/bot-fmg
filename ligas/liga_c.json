@@ -498,7 +498,14 @@
         {
           "jugador1Id": "709904591453683766",
           "jugador2Id": "326046458673365002",
-          "resultado": null,
+          "resultado": {
+            "709904591453683766": 2,
+            "326046458673365002": 0,
+            "draftmapas": "https://aoe2cm.net/draft/soZLW",
+            "draftcivis": "https://aoe2cm.net/draft/sJBxH",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1401658535745687573/buyan_v_paginas.rar?ex=689113bc&is=688fc23c&hm=19f2f203f359c8bf0ea0b24e3e9a546172f43ca3a3f8c48dbf3af3489d71f468&",
+            "fecha": "2025-08-03"
+          },
           "id": 1754186012763,
           "fecha": "02-08-2028",
           "diaSemana": "Miércoles",
