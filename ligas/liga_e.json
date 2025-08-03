@@ -264,7 +264,17 @@
         {
           "jugador1Id": "1008090545513570495",
           "jugador2Id": "896216989922635777",
-          "resultado": null
+          "resultado": null,
+          "id": 1754256705581,
+          "fecha": "03-08-2025",
+          "diaSemana": "Domingo",
+          "horario": "19:00",
+          "gmt": "GMT-3",
+          "timestamp": "2025-08-03T21:31:45.581Z",
+          "coordinadoPor": {
+            "id": "896216989922635777",
+            "nombre": "tatosky"
+          }
         },
         {
           "jugador1Id": "121771867198455808",
