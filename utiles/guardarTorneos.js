@@ -1,6 +1,6 @@
 // utiles/guardarTorneos.js
 const fs = require("fs");
-const { Liquipedia } = require("liquipedia");
+const { Liquipedia, GameVersion, Age2TournamentCategory } = require("liquipedia");
 
 const liquipedia = new Liquipedia({
   USER_AGENT: "aldeano-oscar/1.0 (jabstv2@gmail.com)",
@@ -11,19 +11,20 @@ async function guardarTorneos() {
     const ahora = new Date();
 
     const estaActivo = (torneo) =>
+      torneo.start && torneo.end &&
       new Date(torneo.start) <= ahora && new Date(torneo.end) >= ahora;
 
     const esTierValido = (torneo) =>
-      torneo.tier === "Age_of_Empires_II/S-Tier_Tournaments" ||
-      torneo.tier === "Age_of_Empires_II/A-Tier_Tournaments";
+      torneo.tier === Age2TournamentCategory.TierS ||
+      torneo.tier === Age2TournamentCategory.TierA;
 
-    const tournaments = await liquipedia.aoe.getUpcomingTournaments("Age of Empires II");
+    const tournaments = await liquipedia.aoe.getAllTournaments();
 
-    // Mostrar todos los datos crudos antes de filtrar
-    console.log("🔎 Datos recibidos desde Liquipedia:");
-    console.dir(tournaments, { depth: null });
+    const torneosAoE2 = tournaments.filter(
+      (t) => t.game === GameVersion.Age2
+    );
 
-    const torneosFiltrados = tournaments.filter(esTierValido);
+    const torneosFiltrados = torneosAoE2.filter(esTierValido);
     fs.writeFileSync(
       "./data/tournaments.json",
       JSON.stringify(torneosFiltrados, null, 2)
