@@ -7,6 +7,118 @@ console.log("📦 Token:", process.env.TOKEN?.slice(0, 5) + '...');
 console.log("🆔 Client ID:", process.env.CLIENT_ID);
 
 const comandos = [
+  {
+    name: 'admin_win',
+    description: 'Registra el resultado de una partida el admin.',
+    options: [
+      {
+        name: 'division',
+        description: 'La división en la que se jugó la partida.',
+        type: ApplicationCommandOptionType.String,
+        choices: [
+          {
+            name: 'a_campeon',
+            value: 'categoria_a',
+          },
+          {
+            name: 'b_mandoble',
+            value: 'categoria_b',
+          },
+          {
+            name: 'c_espada_larga',
+            value: 'categoria_c',
+          },
+          {
+            name: 'd_hombre_de_armas',
+            value: 'categoria_d',
+          },
+          {
+            name: 'e_milicia',
+            value: 'categoria_e',
+          },
+        ],
+        required: true,
+      },
+      {
+        name: 'ronda',
+        description: 'La ronda en el que se jugó la partida.',
+        type: ApplicationCommandOptionType.String,
+        choices: [
+          {
+            name: 'primera',
+            value: 'primera',
+          },
+          {
+            name: 'segunda',
+            value: 'segunda',
+          },
+          {
+            name: 'tercera',
+            value: 'tercera',
+          },
+          {
+            name: 'cuarta',
+            value: 'cuarta',
+          },
+          {
+            name: 'quinta',
+            value: 'quinta',
+          },
+          {
+            name: 'sexta',
+            value: 'sexta',
+          },
+          {
+            name: 'septima',
+            value: 'septima',
+          },
+        ],
+        required: true,
+      },
+      {
+        name: 'fecha',
+        description: 'La fecha en la que se jugó la partida.',
+        type: ApplicationCommandOptionType.String,
+        required: true,
+      },
+      {
+        name: 'jugador',
+        description: 'El nombre del jugador.',
+        type: ApplicationCommandOptionType.User,
+        required: true,
+      },
+      {
+  name: 'puntosjugador',
+  description: 'Los puntos del jugador.',
+  type: ApplicationCommandOptionType.Integer, 
+  choices: [
+    { name: '0', value: 0 },
+    { name: '1', value: 1 },
+    { name: '2', value: 2 },
+    { name: '3', value: 3 },  
+  ],
+  required: true,
+},
+      {
+        name: 'otrojugador',
+        description: 'El nombre del otro jugador.',
+        type: ApplicationCommandOptionType.User,
+        required: true,
+      },
+      {
+  name: 'puntosotrojugador',
+  description: 'Los puntos del otro jugador.',
+  type: ApplicationCommandOptionType.Integer, 
+  choices: [
+    { name: '0', value: 0 },
+    { name: '1', value: 1 },
+    { name: '2', value: 2 },
+    { name: '3', value: 3 },  
+  ],
+  required: true,
+},
+    ],
+  },
     {
   name: 'listar_inscriptos',
   description: 'Muestra un listado de todos los inscriptos ordenados por ELO promedio y exporta CSV.',

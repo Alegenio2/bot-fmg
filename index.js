@@ -332,6 +332,153 @@ if (interaction.commandName === "resultado") {
     });
   }
 }
+// Comando: admin_win
+if (interaction.commandName === "admin_win") {
+  await interaction.deferReply();
+
+  const user = interaction.user;
+  const options = interaction.options;
+
+  if (user.id !== botConfig.ownerId) {
+    return interaction.reply({
+      content: '❌ Solo el organizador puede usar este comando.',
+      ephemeral: true
+    });
+  }
+
+  const division = options.getString("division");
+  const ronda = options.getString("ronda");
+  const fecha = options.getString("fecha");
+  const jugador = options.getUser("jugador");
+  const puntosjugador = options.getInteger("puntosjugador");
+  const otrojugador = options.getUser("otrojugador");
+  const puntosotrojugador = options.getInteger("puntosotrojugador");
+
+  // Validación mínima
+  if (!jugador || !otrojugador || puntosjugador == null || puntosotrojugador == null) {
+    return await interaction.editReply({
+      content: "❌ Faltan datos obligatorios para registrar el resultado.",
+      ephemeral: true,
+    });
+  }
+
+  const fechaISO = convertirFormatoFecha(fecha);
+  if (!fechaISO) {
+    return await interaction.editReply({
+      content: "⚠️ Fecha inválida. Usa DD/MM/AAAA o DD-MM-AAAA.",
+      ephemeral: true,
+    });
+  }
+
+  const letraDivision = division?.split('_')[1];
+  if (!letraDivision || letraDivision.length !== 1) {
+    return await interaction.editReply({
+      content: "⚠️ División no válida.",
+      ephemeral: true,
+    });
+  }
+
+const rondaMap = {
+  primera: 1,
+  segunda: 2,
+  tercera: 3,
+  cuarta: 4,
+  quinta: 5,
+  sexta: 6,
+  septima: 7,
+};
+
+const numeroRonda = rondaMap[ronda];
+
+if (!numeroRonda) {
+  return await interaction.editReply({
+    content: "⚠️ La ronda ingresada no es válida.",
+    ephemeral: true,
+  });
+}
+
+  const filePath = path.join(__dirname, "ligas", `liga_${letraDivision}.json`);
+  if (!fs.existsSync(filePath)) {
+    return await interaction.editReply({
+      content: "⚠️ No se encontró el archivo de liga para esa división.",
+      ephemeral: true,
+    });
+  }
+
+  try {
+    const liga = JSON.parse(fs.readFileSync(filePath, "utf8"));
+    let partidoActualizado = false;
+    let yaTeniaResultado = false;
+
+    for (const jornada of liga.jornadas) {
+    if (Number(jornada.ronda) !== numeroRonda) continue;  
+        for (const partido of jornada.partidos) {
+        const j1 = partido.jugador1Id;
+        const j2 = partido.jugador2Id;
+        console.log("Buscando partido entre", jugador.id, "y", otrojugador.id);
+        const esEstePartido =
+          (j1 === jugador.id && j2 === otrojugador.id) ||
+          (j1 === otrojugador.id && j2 === jugador.id);
+
+        if (esEstePartido) {
+          if (partido.resultado) yaTeniaResultado = true;
+
+          partido.resultado = {
+            [jugador.id]: puntosjugador,
+            [otrojugador.id]: puntosotrojugador,
+            fecha: fechaISO,
+          };
+
+          partidoActualizado = true;
+          break;
+        }
+      }
+
+      if (partidoActualizado) break;
+    }
+
+    if (!partidoActualizado) {
+      return await interaction.editReply({
+        content: `⚠️ No se encontró el partido entre ${jugador.username} y ${otrojugador.username}.`,
+        ephemeral: true,
+      });
+    }
+
+    // Guardar la liga
+    await guardarLiga(liga, filePath, letraDivision, interaction);
+
+    // Eliminar mensaje del comando del admin
+    await interaction.editReply({ content: "✅ Resultado procesado correctamente.", ephemeral: true });
+    await interaction.deleteReply();
+
+    // Mensaje público del resultado
+    const mensaje = `🏆 Campeonato Uruguayo\n📂 División ${division} - 🕓 Etapa: ${ronda} - Fecha ${fecha}\n\n${jugador}  ||${puntosjugador} - ${puntosotrojugador}||  ${otrojugador}`;
+    await interaction.followUp({ content: mensaje });
+
+    // Mensaje privado al admin
+    await interaction.followUp({
+      content: yaTeniaResultado
+        ? "⚠️ El resultado ya existía y fue **modificado** correctamente."
+        : "✅ Resultado registrado correctamente.",
+      ephemeral: true,
+    });
+
+    // Actualizar tabla
+    try {
+      const { actualizarTablaEnCanal } = require("./utiles/tablaPosiciones.js");
+      await actualizarTablaEnCanal(letraDivision, interaction.client, interaction.guildId);
+    } catch (tablaError) {
+      console.warn("⚠️ Error actualizando tabla:", tablaError.message);
+    }
+
+  } catch (error) {
+    console.error("❌ Error procesando liga:", error);
+    await interaction.followUp({
+      content: "⚠️ Ocurrió un error al procesar la liga.",
+      ephemeral: true,
+    });
+  }
+}
   // Comando: fixture_jornada  
  if (commandName === 'fixture_jornada') {
     return fixtureJornada.execute(interaction);
@@ -949,41 +1096,27 @@ function convertirFormatoFecha(fecha) {
 
   const [diaStr, mesStr, anioStr] = partes;
   const dia = parseInt(diaStr, 10);
-  const mes = parseInt(mesStr, 10);
+  const mes = parseInt(mesStr, 10) - 1; // Los meses van de 0 a 11 en JS
   const anio = parseInt(anioStr, 10);
 
-  // Validar que sea fecha real
   if (isNaN(dia) || isNaN(mes) || isNaN(anio)) return null;
-  if (dia < 1 || dia > 31 || mes < 1 || mes > 12 || anio < 2020 || anio > 2100) return null;
+  if (dia < 1 || dia > 31 || mes < 0 || mes > 11 || anio < 2020 || anio > 2100) return null;
 
-  // Validar que sea una fecha real con Date
-  const fechaISO = `${anio}-${String(mes).padStart(2, '0')}-${String(dia).padStart(2, '0')}`;
-  const fechaObj = new Date(fechaISO);
+  const fechaObj = new Date(anio, mes, dia); // ✅ Local timezone
   if (isNaN(fechaObj.getTime())) return null;
 
-  return fechaISO; // en formato YYYY-MM-DD
+  // Retorna formato YYYY-MM-DD
+  return fechaObj.toISOString().slice(0, 10);
 }
 
-
-// Función para obtener el día de la semana a partir de una fecha en formato YYYY-MM-DD
 function obtenerDiaSemana(fechaString) {
-  const diasSemana = [
-    "Domingo",
-    "Lunes",
-    "Martes",
-    "Miércoles",
-    "Jueves",
-    "Viernes",
-    "Sábado",
-  ];
-
-  // Imprime la fecha que se está utilizando
-  console.log("Fecha:", fechaString);
-
-  const fecha = new Date(fechaString);
-  const dia = fecha.getDay();
-  return diasSemana[dia];
+  const diasSemana = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
+  const [anio, mes, dia] = fechaString.split("-").map(Number);
+  const fecha = new Date(anio, mes - 1, dia); // mes base 0
+  const diaSemana = fecha.getDay();
+  return diasSemana[diaSemana];
 }
+
 
 //Funcion para validar el formato del horario
 function validarYFormatearHorario(horario) {
