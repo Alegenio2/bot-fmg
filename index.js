@@ -197,7 +197,7 @@ if (!Array.isArray(data.participantes)) {
   // Limpieza opcional del archivo temporal
   setTimeout(() => fs.unlinkSync(filePath), 30000); // se borra después de 30 segundos
 }
-// Comando: progreso_liga
+    // Comando: progreso_liga
 if (interaction.commandName === "progreso_liga") {
   await interaction.deferReply();
 
@@ -208,51 +208,55 @@ if (interaction.commandName === "progreso_liga") {
     });
   }
 
-  const division = interaction.options.getString("division");
-  const letraDivision = division?.split("_")[1];
-  const filePath = path.join(__dirname, "ligas", `liga_${letraDivision}.json`);
+  const divisionElegida = interaction.options.getString("division");
 
-  if (!fs.existsSync(filePath)) {
-    return await interaction.editReply({
-      content: `❌ No se encontró la liga para la división **${division}**.`,
-      ephemeral: true,
-    });
-  }
+  const divisiones = [
+    { codigo: "categoria_a", letra: "a" },
+    { codigo: "categoria_b", letra: "b" },
+    { codigo: "categoria_c", letra: "c" },
+    { codigo: "categoria_d", letra: "d" },
+    { codigo: "categoria_e", letra: "e" },
+  ];
 
-  try {
-    const liga = JSON.parse(fs.readFileSync(filePath, "utf8"));
+  let divisionesAProcesar = divisionElegida
+    ? divisiones.filter(d => d.codigo === divisionElegida)
+    : divisiones;
 
-    let totalPartidos = 0;
-    let partidosJugados = 0;
-    const progresoPorRonda = [];
+  let resumenFinal = divisionElegida
+    ? `📊 **Progreso de la división ${divisionElegida}**\n\n`
+    : `📊 **Progreso General de todas las divisiones**\n\n`;
 
-    for (const jornada of liga.jornadas) {
-      const totalEnRonda = jornada.partidos.length;
-      const jugadosEnRonda = jornada.partidos.filter(p => p.resultado !== null && p.resultado !== undefined).length;
-
-      totalPartidos += totalEnRonda;
-      partidosJugados += jugadosEnRonda;
-
-      const porcentaje = Math.round((jugadosEnRonda / totalEnRonda) * 100);
-      const colorEmoji = porcentaje === 100 ? "✅" : porcentaje >= 50 ? "🟢" : porcentaje > 0 ? "🟡" : "🔴";
-
-      progresoPorRonda.push(`${colorEmoji} Ronda ${jornada.ronda}: ${jugadosEnRonda} / ${totalEnRonda} (${porcentaje}%)`);
+  for (const division of divisionesAProcesar) {
+    const filePath = path.join(__dirname, "ligas", `liga_${division.letra}.json`);
+    if (!fs.existsSync(filePath)) {
+      resumenFinal += `❌ División **${division.codigo}**: No encontrada\n\n`;
+      continue;
     }
 
-    const porcentajeTotal = Math.round((partidosJugados / totalPartidos) * 100);
+    try {
+      const liga = JSON.parse(fs.readFileSync(filePath, "utf8"));
+      let totalPartidos = 0;
+      let partidosJugados = 0;
 
-    const resumen = `📊 Progreso de la División **${division}**\n\n✅ Total jugados: ${partidosJugados} / ${totalPartidos} (${porcentajeTotal}%)\n\n` + progresoPorRonda.join("\n");
+      for (const jornada of liga.jornadas) {
+        totalPartidos += jornada.partidos.length;
+        partidosJugados += jornada.partidos.filter(p => p.resultado).length;
+      }
 
-    await interaction.editReply({ content: resumen });
+      const porcentaje = Math.round((partidosJugados / totalPartidos) * 100);
+      const emoji = porcentaje === 100 ? "✅" : porcentaje >= 50 ? "🟢" : porcentaje > 0 ? "🟡" : "🔴";
 
-  } catch (err) {
-    console.error("❌ Error leyendo liga:", err);
-    await interaction.editReply({
-      content: "❌ Error al procesar el archivo de liga.",
-      ephemeral: true,
-    });
+      resumenFinal += `${emoji} **${division.codigo}**: ${partidosJugados} / ${totalPartidos} (${porcentaje}%)\n`;
+
+    } catch (error) {
+      console.warn(`⚠️ Error en ${division.codigo}:`, error.message);
+      resumenFinal += `⚠️ Error al leer **${division.codigo}**\n`;
+    }
   }
-}    
+
+  await interaction.editReply({ content: resumenFinal });
+}
+
 // Comando: resultado
 if (interaction.commandName === "resultado") {
   await interaction.deferReply(); // ✅ evita error de interacción
