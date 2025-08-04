@@ -225,7 +225,14 @@
         {
           "jugador1Id": "846515810381987860",
           "jugador2Id": "465307831583637514",
-          "resultado": null
+          "resultado": {
+            "846515810381987860": 2,
+            "465307831583637514": 0,
+            "draftmapas": "https://aoe2cm.net/draft/QsRWH",
+            "draftcivis": "https://aoe2cm.net/draft/nNnVC",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1401719093404635337/rec_del_eishh.rar?ex=68914c22&is=688ffaa2&hm=d0ef54f57e8e053df70c9141bf0b3b03a0aa0e46dd34eef2d69471eb174377d0&",
+            "fecha": "2025-08-03"
+          }
         },
         {
           "jugador1Id": "580229190645972994",
