@@ -473,7 +473,14 @@
         {
           "jugador1Id": "750789709252395108",
           "jugador2Id": "135113382217908224",
-          "resultado": null,
+          "resultado": {
+            "135113382217908224": 2,
+            "750789709252395108": 1,
+            "draftmapas": "https://aoe2cm.net/draft/XNCXj",
+            "draftcivis": "https://aoe2cm.net/draft/sNQvnç",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1401796035982131231/Juasteint_vs_Ignacio_UY.rar?ex=689193cb&is=6890424b&hm=079bd1fd38ec14e8fe5d7059d39a1aa1341292c9b2bc73a3521622b71ab046f0&",
+            "fecha": "2025-08-03"
+          },
           "id": 1754269700197,
           "fecha": "03/08/2025",
           "diaSemana": "Domingo",
