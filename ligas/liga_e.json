@@ -264,7 +264,14 @@
         {
           "jugador1Id": "1008090545513570495",
           "jugador2Id": "896216989922635777",
-          "resultado": null,
+          "resultado": {
+            "1008090545513570495": 0,
+            "896216989922635777": 2,
+            "draftmapas": "https://aoe2cm.net/draft/FmEBq",
+            "draftcivis": "https://aoe2cm.net/draft/FmEBq",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1401716294411096214/ElOsoConBarba_vs_Tatosky_Campeonato_Uruguayo_2025_Fecha_3.zip?ex=68914987&is=688ff807&hm=889651ffe24631ef01a236107b71a7f7c0d3dddf8052e182be74eabea133714d&",
+            "fecha": "2025-08-03"
+          },
           "id": 1754256705581,
           "fecha": "03-08-2025",
           "diaSemana": "Domingo",
