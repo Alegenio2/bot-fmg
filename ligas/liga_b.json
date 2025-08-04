@@ -279,7 +279,14 @@
         {
           "jugador1Id": "244547091362217984",
           "jugador2Id": "341001672786575360",
-          "resultado": null,
+          "resultado": {
+            "244547091362217984": 1,
+            "341001672786575360": 2,
+            "draftmapas": "https://aoe2cm.net/draft/KdBLr",
+            "draftcivis": "https://aoe2cm.net/draft/ZJGrj",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1401739900658913330/Liga_-_Garezo_vs_Nadie.rar?ex=68915f83&is=68900e03&hm=9e5840a0c6824bc5a626afd5940514adee821c60be063c5b240712fb90fcb2cd&",
+            "fecha": "2025-08-03"
+          },
           "id": 1754091470161,
           "fecha": "03-08-2025",
           "diaSemana": "Domingo",
