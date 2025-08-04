@@ -220,7 +220,14 @@
         {
           "jugador1Id": "662427737138528308",
           "jugador2Id": "757033857362165792",
-          "resultado": null
+          "resultado": {
+            "662427737138528308": 2,
+            "757033857362165792": 1,
+            "draftmapas": "https://aoe2cm.net/draft/Qbqfl",
+            "draftcivis": "https://aoe2cm.net/draft/UKXEQ",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1401743430291423353/kakaidolo_vs_Techno_Viking.zip?ex=689162cc&is=6890114c&hm=6c20a0105764f4dec1e689f6a0a4e86ba03afd70ac3a4c50eed05e0f4203ec10&",
+            "fecha": "2025-08-03"
+          }
         },
         {
           "jugador1Id": "846515810381987860",
