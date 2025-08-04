@@ -205,7 +205,14 @@
         {
           "jugador1Id": "582941701518262412",
           "jugador2Id": "465307831583637514",
-          "resultado": null
+          "resultado": {
+            "465307831583637514": 0,
+            "582941701518262412": 2,
+            "draftmapas": "https://aoe2cm.net/draft/rzrAl",
+            "draftcivis": "https://aoe2cm.net/draft/Fshcz",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1399561304192061600/Div_D_-_Fecha_2_-_Matixxx_VS_Rogelio_III.zip?ex=68915b89&is=68900a09&hm=e7bdd19142f83453acd69560399d022ce32cb79b71ab74dd0dfb0257ee169fb9&",
+            "fecha": "2025-07-28"
+          }
         },
         {
           "jugador1Id": "524738089252552716",
