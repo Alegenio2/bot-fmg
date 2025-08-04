@@ -9,19 +9,19 @@ console.log("🆔 Client ID:", process.env.CLIENT_ID);
 const comandos = [
   {
   name: 'progreso_liga',
-  description: 'Muestra el porcentaje de partidos jugados en la división',
+  description: 'Muestra el progreso de partidos jugados en una división o en todo el torneo.',
   options: [
     {
       name: 'division',
-      description: 'División a revisar',
+      description: 'Selecciona una división (opcional)',
       type: ApplicationCommandOptionType.String,
-      required: true,
+      required: false,
       choices: [
         { name: 'a_campeon', value: 'categoria_a' },
         { name: 'b_mandoble', value: 'categoria_b' },
         { name: 'c_espada_larga', value: 'categoria_c' },
         { name: 'd_hombre_de_armas', value: 'categoria_d' },
-        { name: 'e_milicia', value: 'categoria_e' },
+        { name: 'e_milicia', value: 'categoria_e' }
       ]
     }
   ]
@@ -631,4 +631,5 @@ const rest = new REST({ version: "10" }).setToken(process.env.TOKEN);
     console.error("❌ Error al registrar comandos:", error);
   }
 })();
+
 
