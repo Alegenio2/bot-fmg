@@ -196,6 +196,62 @@ if (!Array.isArray(data.participantes)) {
 
   // Limpieza opcional del archivo temporal
   setTimeout(() => fs.unlinkSync(filePath), 30000); // se borra después de 30 segundos
+}
+// Comando: progreso_liga
+if (interaction.commandName === "progreso_liga") {
+  await interaction.deferReply();
+
+  if (interaction.user.id !== botConfig.ownerId) {
+    return interaction.reply({
+      content: '❌ Solo el organizador puede usar este comando.',
+      ephemeral: true
+    });
+  }
+
+  const division = interaction.options.getString("division");
+  const letraDivision = division?.split("_")[1];
+  const filePath = path.join(__dirname, "ligas", `liga_${letraDivision}.json`);
+
+  if (!fs.existsSync(filePath)) {
+    return await interaction.editReply({
+      content: `❌ No se encontró la liga para la división **${division}**.`,
+      ephemeral: true,
+    });
+  }
+
+  try {
+    const liga = JSON.parse(fs.readFileSync(filePath, "utf8"));
+
+    let totalPartidos = 0;
+    let partidosJugados = 0;
+    const progresoPorRonda = [];
+
+    for (const jornada of liga.jornadas) {
+      const totalEnRonda = jornada.partidos.length;
+      const jugadosEnRonda = jornada.partidos.filter(p => p.resultado !== null && p.resultado !== undefined).length;
+
+      totalPartidos += totalEnRonda;
+      partidosJugados += jugadosEnRonda;
+
+      const porcentaje = Math.round((jugadosEnRonda / totalEnRonda) * 100);
+      const colorEmoji = porcentaje === 100 ? "✅" : porcentaje >= 50 ? "🟢" : porcentaje > 0 ? "🟡" : "🔴";
+
+      progresoPorRonda.push(`${colorEmoji} Ronda ${jornada.ronda}: ${jugadosEnRonda} / ${totalEnRonda} (${porcentaje}%)`);
+    }
+
+    const porcentajeTotal = Math.round((partidosJugados / totalPartidos) * 100);
+
+    const resumen = `📊 Progreso de la División **${division}**\n\n✅ Total jugados: ${partidosJugados} / ${totalPartidos} (${porcentajeTotal}%)\n\n` + progresoPorRonda.join("\n");
+
+    await interaction.editReply({ content: resumen });
+
+  } catch (err) {
+    console.error("❌ Error leyendo liga:", err);
+    await interaction.editReply({
+      content: "❌ Error al procesar el archivo de liga.",
+      ephemeral: true,
+    });
+  }
 }    
 // Comando: resultado
 if (interaction.commandName === "resultado") {
