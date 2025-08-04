@@ -468,7 +468,14 @@
         {
           "jugador1Id": "485610092092456975",
           "jugador2Id": "709904591453683766",
-          "resultado": null
+          "resultado": {
+            "709904591453683766": 2,
+            "485610092092456975": 1,
+            "draftmapas": "https://aoe2cm.net/draft/JJoYz",
+            "draftcivis": "https://aoe2cm.net/draft/ehJWc",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1402075486628347995/buyan_v_kroyen.rar?ex=6892980d&is=6891468d&hm=9080d58b834236fa2951af3612e1c4bd446c59273e9680c93b0a536ca991383d&",
+            "fecha": "2025-08-04"
+          }
         },
         {
           "jugador1Id": "750789709252395108",
@@ -795,17 +802,7 @@
         {
           "jugador1Id": "755853346149105786",
           "jugador2Id": "689907393001291884",
-          "resultado": null,
-          "id": 1754332415666,
-          "fecha": "08-08-2025",
-          "diaSemana": "Viernes",
-          "horario": "21:00",
-          "gmt": "GMT-3",
-          "timestamp": "2025-08-04T18:33:35.666Z",
-          "coordinadoPor": {
-            "id": "689907393001291884",
-            "nombre": "culero_connor"
-          }
+          "resultado": null
         },
         {
           "jugador1Id": "277256502023290881",
