@@ -308,7 +308,14 @@
         {
           "jugador1Id": "1293646842625785968",
           "jugador2Id": "896216989922635777",
-          "resultado": null
+          "resultado": {
+            "1293646842625785968": 0,
+            "896216989922635777": 2,
+            "draftmapas": "https://aoe2cm.net/draft/adtJW",
+            "draftcivis": "https://aoe2cm.net/draft/iWgQH",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1402096676986028154/Campeonato_Uruguayo_2025_Rosser.b_vs_Tatosky.zip?ex=6892abc9&is=68915a49&hm=b121d9e9e9f9522359b83bb2699b8ac50f8ad90178ecdacf2207d7cf2ec5a555&",
+            "fecha": "2025-08-04"
+          }
         },
         {
           "jugador1Id": "852387609916211270",
