@@ -854,7 +854,14 @@
         {
           "jugador1Id": "697973693157998712",
           "jugador2Id": "1244725529093869687",
-          "resultado": null,
+          "resultado": {
+            "1244725529093869687": 2,
+            "697973693157998712": 1,
+            "draftmapas": "https://aoe2cm.net/draft/UGAQL",
+            "draftcivis": "https://aoe2cm.net/draft/HvXhk",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1402485866034626602/ninja_vs_sophie.zip?ex=6894163f&is=6892c4bf&hm=17f3edf2f7a518a37564865f5f84e9fad135882a1c34adf3fb0ea534c7372575&",
+            "fecha": "2025-08-05"
+          },
           "id": 1754111103909,
           "fecha": "3-8-2025",
           "diaSemana": "Sábado",
