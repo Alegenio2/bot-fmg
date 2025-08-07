@@ -834,7 +834,14 @@
         {
           "jugador1Id": "724668688145580062",
           "jugador2Id": "442189398667296788",
-          "resultado": null,
+          "resultado": {
+            "724668688145580062": 2,
+            "442189398667296788": 0,
+            "draftmapas": "https://aoe2cm.net/draft/vGAvh",
+            "draftcivis": "https://aoe2cm.net/draft/imrJO",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1402824570729136218/Gral_Artigas_vs_DavidTG.rar?ex=689551b0&is=68940030&hm=d1d9bc8d53304d09f5bb6e51a205756cbd224bb2fa2f2d6d1291337282e43440&",
+            "fecha": "2025-08-06"
+          },
           "id": 1754416568454,
           "fecha": "06-08-2025",
           "diaSemana": "Miércoles",
