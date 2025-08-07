@@ -266,7 +266,14 @@
         {
           "jugador1Id": "662427737138528308",
           "jugador2Id": "465307831583637514",
-          "resultado": null
+          "resultado": {
+            "465307831583637514": 2,
+            "662427737138528308": 1,
+            "draftmapas": "https://aoe2cm.net/draft/qzYkT",
+            "draftcivis": "https://aoe2cm.net/draft/uaYhN",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1402833336623431710/ROGELIOIIIvsKAKAIDOLO.zip?ex=689559da&is=6894085a&hm=86677d70db81181bd314a3c1c79f77ffa0b26e3f2fbf5b21d1230deb391f1276&",
+            "fecha": "2025-08-06"
+          }
         },
         {
           "jugador1Id": "757033857362165792",
