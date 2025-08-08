@@ -410,7 +410,14 @@
         {
           "jugador1Id": "286607198854053890",
           "jugador2Id": "833806737902534738",
-          "resultado": null
+          "resultado": {
+            "833806737902534738": 2,
+            "286607198854053890": 1,
+            "draftmapas": "https://aoe2cm.net/draft/stykJ",
+            "draftcivis": "https://aoe2cm.net/draft/PkhOy",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1403526658471891077/Jabs_vs_JakaJaan.zip?ex=6897df8f&is=68968e0f&hm=a914a395d532541284bcf022638fc56e01677e3bfe50576cf6dc06639855b7e1&",
+            "fecha": "2025-08-05"
+          }
         },
         {
           "jugador1Id": "341001672786575360",
