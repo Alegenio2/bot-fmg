@@ -802,7 +802,14 @@
         {
           "jugador1Id": "755853346149105786",
           "jugador2Id": "689907393001291884",
-          "resultado": null
+          "resultado": {
+            "689907393001291884": 2,
+            "755853346149105786": 0,
+            "draftmapas": "https://aoe2cm.net/draft/JCQiJ",
+            "draftcivis": "https://aoe2cm.net/draft/xbyev",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1403542568515538954/Culero_vs_Gino.rar?ex=6897ee60&is=68969ce0&hm=c4a062eb29e01d0edab507b4c591d0af723cc68e52b855d53787f6ea24291020&",
+            "fecha": "2025-08-08"
+          }
         },
         {
           "jugador1Id": "277256502023290881",
