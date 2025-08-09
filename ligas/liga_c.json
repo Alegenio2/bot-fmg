@@ -787,7 +787,14 @@
         {
           "jugador1Id": "697973693157998712",
           "jugador2Id": "442189398667296788",
-          "resultado": null,
+          "resultado": {
+            "697973693157998712": 2,
+            "442189398667296788": 0,
+            "draftmapas": "https://aoe2cm.net/draft/YRRVy",
+            "draftcivis": "https://aoe2cm.net/draft/IMiGS",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1403598588143075369/Samurai_vs_DavidTG.zip?ex=6898228d&is=6896d10d&hm=7f0b81cf6c532288367a7c00f59ee8972768b524758270042a0bf25eeef968cd&",
+            "fecha": "2025-08-08"
+          },
           "id": 1754157303771,
           "fecha": "08/08/2025",
           "diaSemana": "Jueves",
