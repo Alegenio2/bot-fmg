@@ -217,7 +217,14 @@
         {
           "jugador1Id": "524738089252552716",
           "jugador2Id": "425297928610119692",
-          "resultado": null
+          "resultado": {
+            "524738089252552716": 2,
+            "425297928610119692": 0,
+            "draftmapas": "https://aoe2cm.net/draft/vqBAZ",
+            "draftcivis": "https://aoe2cm.net/draft/WrcaI",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1404213559776247818/nicogpnestor.zip?ex=689a5f49&is=68990dc9&hm=bdb4675a6e82ed5481877495a4046d990c3b6bfe7ad50ad7a81294af4e9a4d77&",
+            "fecha": "2025-08-10"
+          }
         }
       ]
     },
