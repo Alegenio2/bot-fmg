@@ -463,7 +463,17 @@
         {
           "jugador1Id": "286607198854053890",
           "jugador2Id": "590693837509361902",
-          "resultado": null
+          "resultado": null,
+          "id": 1754849239753,
+          "fecha": "13-08-2025",
+          "diaSemana": "Miércoles",
+          "horario": "21:30",
+          "gmt": "GMT-3",
+          "timestamp": "2025-08-10T18:07:19.753Z",
+          "coordinadoPor": {
+            "id": "590693837509361902",
+            "nombre": "metalmania4118"
+          }
         },
         {
           "jugador1Id": "833806737902534738",
