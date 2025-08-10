@@ -249,7 +249,7 @@
         {
           "jugador1Id": "1293646842625785968",
           "jugador2Id": "852387609916211270",
-         "resultado": {
+          "resultado": {
             "1293646842625785968": 0,
             "852387609916211270": 2,
             "draftmapas": "https://aoe2cm.net/draft/xJnkW",
@@ -369,7 +369,17 @@
         {
           "jugador1Id": "896216989922635777",
           "jugador2Id": "694749732467245088",
-          "resultado": null
+          "resultado": null,
+          "id": 1754857792899,
+          "fecha": "10-08-2025",
+          "diaSemana": "Domingo",
+          "horario": "20:00",
+          "gmt": "GMT-3",
+          "timestamp": "2025-08-10T20:29:52.899Z",
+          "coordinadoPor": {
+            "id": "896216989922635777",
+            "nombre": "tatosky"
+          }
         },
         {
           "jugador1Id": "852387609916211270",
