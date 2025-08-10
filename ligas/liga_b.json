@@ -332,7 +332,14 @@
         {
           "jugador1Id": "238414625417330688",
           "jugador2Id": "833806737902534738",
-          "resultado": null,
+          "resultado": {
+            "238414625417330688": 2,
+            "833806737902534738": 0,
+            "draftmapas": "https://aoe2cm.net/draft/qOgeA",
+            "draftcivis": "https://aoe2cm.net/draft/ASGjp",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1403942945065009172/Rxon_vs_Vissti.rar?ex=68996342&is=689811c2&hm=65821be3cc6c597607fba5e983868f90fde74e44546024d7d49b476d291eb9d9&",
+            "fecha": "2025-08-10"
+          },
           "id": 1754759807769,
           "fecha": "09-08-2025",
           "diaSemana": "Sábado",
