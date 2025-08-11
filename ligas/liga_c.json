@@ -599,7 +599,17 @@
         {
           "jugador1Id": "709904591453683766",
           "jugador2Id": "750789709252395108",
-          "resultado": null
+          "resultado": null,
+          "id": 1754923545094,
+          "fecha": "17-08-2025",
+          "diaSemana": "Domingo",
+          "horario": "20:00",
+          "gmt": "-3",
+          "timestamp": "2025-08-11T14:45:45.094Z",
+          "coordinadoPor": {
+            "id": "709904591453683766",
+            "nombre": "buyanjavyn"
+          }
         }
       ]
     },
