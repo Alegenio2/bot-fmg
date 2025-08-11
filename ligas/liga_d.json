@@ -305,7 +305,14 @@
         {
           "jugador1Id": "662427737138528308",
           "jugador2Id": "425297928610119692",
-          "resultado": null
+          "resultado": {
+            "425297928610119692": 2,
+            "662427737138528308": 1,
+            "draftmapas": "https://aoe2cm.net/draft/IQsYT",
+            "draftcivis": "https://aoe2cm.net/draft/YpkXK",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1404340470108389446/NicoGP11_Vs_Kakaidolo.zip?ex=689ad57b&is=689983fb&hm=d106e3b58867539b1d5c26da68723e81944bab1872dc7fabc710c92817462e67&",
+            "fecha": "2025-08-10"
+          }
         },
         {
           "jugador1Id": "465307831583637514",
