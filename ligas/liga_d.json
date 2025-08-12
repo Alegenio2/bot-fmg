@@ -263,7 +263,14 @@
         {
           "jugador1Id": "582941701518262412",
           "jugador2Id": "524738089252552716",
-          "resultado": null
+          "resultado": {
+            "582941701518262412": 2,
+            "524738089252552716": 1,
+            "draftmapas": "https://aoe2cm.net/draft/hqNKp",
+            "draftcivis": "https://aoe2cm.net/draft/DwiBS",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1404808270635597946/Matixxx_vs_Diente.zip?ex=689c8927&is=689b37a7&hm=0cb9d26ea008bc56963ab12dbaa62246a131d87af3c100b31dca120f913696d4&",
+            "fecha": "2025-08-11"
+          }
         }
       ]
     },
