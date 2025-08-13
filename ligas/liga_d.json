@@ -407,7 +407,14 @@
         {
           "jugador1Id": "425297928610119692",
           "jugador2Id": "846515810381987860",
-          "resultado": null
+          "resultado": {
+            "846515810381987860": 2,
+            "425297928610119692": 1,
+            "draftmapas": "https://aoe2cm.net/draft/PfKZG",
+            "draftcivis": "https://aoe2cm.net/draft/abwcE",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1404992423825899601/nicogp_el_cuco.rar?ex=689d34a9&is=689be329&hm=f54f6ec586275d0850a7886bde6a475a3ebc6f304ceed004af2f38ef9f5fabc6&",
+            "fecha": "2025-08-12"
+          }
         },
         {
           "jugador1Id": "465307831583637514",
