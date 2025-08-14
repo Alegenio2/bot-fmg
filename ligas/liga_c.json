@@ -701,7 +701,14 @@
         {
           "jugador1Id": "277256502023290881",
           "jugador2Id": "697973693157998712",
-          "resultado": null
+          "resultado": {
+            "277256502023290881": 1,
+            "697973693157998712": 2,
+            "draftmapas": "https://aoe2cm.net/draft/JVyqj",
+            "draftcivis": "https://aoe2cm.net/draft/aQRUM",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1405364715479105638/Lionertt_vs_Samurai.zip?ex=689e8f62&is=689d3de2&hm=034a00461d634d4ebb84e3a34107f7f548c940392b458d0079d640980d6df6be&",
+            "fecha": "2025-08-13"
+          }
         },
         {
           "jugador1Id": "1244725529093869687",
