@@ -463,7 +463,14 @@
         {
           "jugador1Id": "286607198854053890",
           "jugador2Id": "590693837509361902",
-          "resultado": null,
+          "resultado": {
+            "590693837509361902": 2,
+            "286607198854053890": 0,
+            "draftmapas": "https://aoe2cm.net/draft/GUXzQ",
+            "draftcivis": "https://aoe2cm.net/draft/gDwTp",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1405376454673305732/Metalmania_vs_JabsUY.zip?ex=689e9a51&is=689d48d1&hm=0168a13672f828463d9fc62ecb479a73392a7b4d55ad24deb7533bb51525360a&",
+            "fecha": "2025-08-13"
+          },
           "id": 1754849239753,
           "fecha": "13-08-2025",
           "diaSemana": "Miércoles",
