@@ -409,7 +409,17 @@
         {
           "jugador1Id": "1293646842625785968",
           "jugador2Id": "694749732467245088",
-          "resultado": null
+          "resultado": null,
+          "id": 1755224381277,
+          "fecha": "19-08-2025",
+          "diaSemana": "Martes",
+          "horario": "21:30",
+          "gmt": "GMT-3",
+          "timestamp": "2025-08-15T02:19:41.277Z",
+          "coordinadoPor": {
+            "id": "694749732467245088",
+            "nombre": "sheb_by"
+          }
         },
         {
           "jugador1Id": "207643066855718923",
