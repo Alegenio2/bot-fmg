@@ -924,7 +924,14 @@
         {
           "jugador1Id": "724668688145580062",
           "jugador2Id": "689907393001291884",
-          "resultado": null,
+          "resultado": {
+            "689907393001291884": 2,
+            "724668688145580062": 0,
+            "draftmapas": "https://aoe2cm.net/draft/CnSeT",
+            "draftcivis": "https://aoe2cm.net/draft/TRKAz",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1405705221031723038/CuleroConnor_vs_Artigas.rar?ex=689fcc81&is=689e7b01&hm=df4a183fb5260fcdb41bcc41412a7f30cc008a0c3825a090328b0085a003086e&",
+            "fecha": "2025-08-14"
+          },
           "id": 1754955907566,
           "fecha": "14/08/2025",
           "diaSemana": "Jueves",
