@@ -429,7 +429,14 @@
         {
           "jugador1Id": "896216989922635777",
           "jugador2Id": "952599207410303016",
-          "resultado": null,
+          "resultado": {
+            "952599207410303016": 0,
+            "896216989922635777": 2,
+            "draftmapas": "https://aoe2cm.net/draft/Axzzc",
+            "draftcivis": "https://aoe2cm.net/draft/lxbmK",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1405965833804714004/Campeonato_Uruguayo_2025_Teutoburguista_vs_Tatosky.zip?ex=68a0bf38&is=689f6db8&hm=dd0fb46ff98677a534c677ff7145595e73a925488b3ac662784e7869ce0d5575&",
+            "fecha": "2025-08-15"
+          },
           "id": 1755274921441,
           "fecha": "15/08/2025",
           "diaSemana": "Viernes",
