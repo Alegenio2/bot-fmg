@@ -340,7 +340,14 @@
         {
           "jugador1Id": "465307831583637514",
           "jugador2Id": "524738089252552716",
-          "resultado": null,
+          "resultado": {
+            "524738089252552716": 2,
+            "465307831583637514": 0,
+            "draftmapas": "https://aoe2cm.net/draft/OAccx",
+            "draftcivis": "https://aoe2cm.net/draft/xiVhF",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1405732035208679465/nestor_rogelio_selva.zip?ex=689fe57a&is=689e93fa&hm=e241c25d3f7049f06a008278354076c845890e9495fbc0bdb698d673fefd9f2c&",
+            "fecha": "2025-08-18"
+          },
           "id": 1755202672825,
           "fecha": "14-08-2025",
           "diaSemana": "Jueves",
