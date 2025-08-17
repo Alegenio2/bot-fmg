@@ -1063,39 +1063,29 @@ if (commandName === 'listar_encuentros') {
 }
 // Comando: publicar_tabla
 if (commandName === 'publicar_tabla') {
+  await interaction.deferReply({ ephemeral: true }); // 👈 difiere la respuesta
+
   const categoria = options.getString('categoria');
 
   if (interaction.user.id !== botConfig.ownerId) {
-    return await interaction.reply({
-      content: "❌ Solo el organizador puede ejecutar este comando.",
-      ephemeral: true
-    });
+    return await interaction.editReply("❌ Solo el organizador puede ejecutar este comando.");
   }
 
   const servidorId = interaction.guildId;
   const serverConfig = botConfig.servidores[servidorId];
 
   if (!serverConfig) {
-    return await interaction.reply({
-      content: "⚠️ Este servidor no está configurado en config.json",
-      ephemeral: true
-    });
+    return await interaction.editReply("⚠️ Este servidor no está configurado en config.json");
   }
 
   const canalId = serverConfig[`tablaCategoria${categoria.toUpperCase()}`];
   if (!canalId) {
-    return await interaction.reply({
-      content: `⚠️ No se encontró un canal configurado para la categoría ${categoria.toUpperCase()}`,
-      ephemeral: true
-    });
+    return await interaction.editReply(`⚠️ No se encontró un canal configurado para la categoría ${categoria.toUpperCase()}`);
   }
 
   const filePath = path.join(__dirname, 'ligas', `liga_${categoria}.json`);
   if (!fs.existsSync(filePath)) {
-    return await interaction.reply({
-      content: `⚠️ No se encontró la liga para la categoría ${categoria}`,
-      ephemeral: true
-    });
+    return await interaction.editReply(`⚠️ No se encontró la liga para la categoría ${categoria}`);
   }
 
   const liga = JSON.parse(fs.readFileSync(filePath, 'utf8'));
@@ -1103,7 +1093,6 @@ if (commandName === 'publicar_tabla') {
 
   if (!serverConfig.mensajeTabla) serverConfig.mensajeTabla = {};
 
-  // Función auxiliar para enviar o editar mensaje
   async function enviarOEditarMensaje(texto, idGuardadoKey) {
     const mensajeId = serverConfig.mensajeTabla[idGuardadoKey];
     if (mensajeId) {
@@ -1121,30 +1110,20 @@ if (commandName === 'publicar_tabla') {
     }
   }
 
-  // Calcular posiciones para toda la categoría (devuelve objeto con grupos o array si sin grupos)
   const posiciones = calcularTablaPosiciones(categoria);
   if (!posiciones || (Array.isArray(posiciones) && posiciones.length === 0)) {
-    return await interaction.reply({
-      content: `⚠️ No se pudo calcular la tabla para la categoría ${categoria}`,
-      ephemeral: true
-    });
+    return await interaction.editReply(`⚠️ No se pudo calcular la tabla para la categoría ${categoria}`);
   }
 
-  // Generar texto con todas las tablas (incluyendo grupos en un solo texto)
   const texto = generarTextoTabla(posiciones, categoria);
-
-  // Enviar o editar mensaje único para toda la categoría
   const mensajeTablaId = await enviarOEditarMensaje(texto, categoria);
   serverConfig.mensajeTabla[categoria] = mensajeTablaId;
 
-  // Guardar config actualizada en archivo
   fs.writeFileSync(path.join(__dirname, 'botConfig.json'), JSON.stringify(botConfig, null, 2));
 
-  return await interaction.reply({
-    content: `✅ Tabla publicada para la categoría ${categoria.toUpperCase()}.`,
-    ephemeral: true
-  });
+  return await interaction.editReply(`✅ Tabla publicada para la categoría ${categoria.toUpperCase()}.`);
 }
+
 
 });
 
