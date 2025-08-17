@@ -498,7 +498,14 @@
         {
           "jugador1Id": "896216989922635777",
           "jugador2Id": "852387609916211270",
-          "resultado": null,
+          "resultado": {
+            "896216989922635777": 2,
+            "852387609916211270": 0,
+            "draftmapas": "https://aoe2cm.net/draft/fcERx",
+            "draftcivis": "https://aoe2cm.net/draft/LalfQ",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1406684378947387555/Campeonato_Uruguayo_2025_Zakk_Elrabdomante_vs_Tatosky.zip?ex=68a35c6a&is=68a20aea&hm=00d9b85029b96e8636f69b9fcc1e8a0043ba9860c26ef616fc6a198baa2e453c&",
+            "fecha": "2025-08-18"
+          },
           "id": 1755436473668,
           "fecha": "17/08/2025",
           "diaSemana": "Domingo",
