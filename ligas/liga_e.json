@@ -498,7 +498,17 @@
         {
           "jugador1Id": "896216989922635777",
           "jugador2Id": "852387609916211270",
-          "resultado": null
+          "resultado": null,
+          "id": 1755436473668,
+          "fecha": "17/08/2025",
+          "diaSemana": "Domingo",
+          "horario": "10:45",
+          "gmt": "GMT-3",
+          "timestamp": "2025-08-17T13:14:33.668Z",
+          "coordinadoPor": {
+            "id": "852387609916211270",
+            "nombre": "zakk156"
+          }
         }
       ]
     },
