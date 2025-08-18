@@ -599,7 +599,14 @@
         {
           "jugador1Id": "709904591453683766",
           "jugador2Id": "750789709252395108",
-          "resultado": null,
+          "resultado": {
+            "709904591453683766": 2,
+            "750789709252395108": 1,
+            "draftmapas": "https://aoe2cm.net/draft/zaqDz",
+            "draftcivis": "https://aoe2cm.net/draft/vJPyR",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1406800389793386497/buyan_v_ignacio.rar?ex=68a3c876&is=68a276f6&hm=7761dfbdba5740206baa0298cd8382b46076d7efe9c3c77429e4ab2629848b9b&",
+            "fecha": "2025-08-17"
+          },
           "id": 1754923545094,
           "fecha": "17-08-2025",
           "diaSemana": "Domingo",
