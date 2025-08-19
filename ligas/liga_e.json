@@ -239,7 +239,14 @@
         {
           "jugador1Id": "709879345346248785",
           "jugador2Id": "694749732467245088",
-          "resultado": null,
+          "resultado": {
+            "709879345346248785": 1,
+            "694749732467245088": 2,
+            "draftmapas": "https://aoe2cm.net/draft/EvLQd",
+            "draftcivis": "https://aoe2cm.net/draft/cVghx",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1407195879013617674/Campeonato_Uruguayo_2025_Tascon_vs_Shebby.zip?ex=68a538c9&is=68a3e749&hm=4a4c7b049480d4cb92afec9ac919f83c7730236051e0f47558d044a6582c7f2a&",
+            "fecha": "2025-08-18"
+          },
           "id": 1755223952353,
           "fecha": "18-09-2025",
           "diaSemana": "Jueves",
@@ -379,11 +386,7 @@
         {
           "jugador1Id": "896216989922635777",
           "jugador2Id": "694749732467245088",
-          "resultado": {
-            "896216989922635777": 0,
-            "694749732467245088": 2,
-            "fecha": "2025-08-10"
-          },
+          "resultado": null,
           "id": 1754857792899,
           "fecha": "10-08-2025",
           "diaSemana": "Domingo",
@@ -433,14 +436,7 @@
         {
           "jugador1Id": "896216989922635777",
           "jugador2Id": "952599207410303016",
-          "resultado": {
-            "896216989922635777": 2,
-            "952599207410303016": 0,
-            "draftmapas": "https://aoe2cm.net/draft/Axzzc",
-            "draftcivis": "https://aoe2cm.net/draft/lxbmK",
-            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1406859761764274267/Campeonato_Uruguayo_2025_Teutoburguista_vs_Tatosky.zip?ex=68a3ffc1&is=68a2ae41&hm=12132e91e9f9f2d6fb220b6e65e368a30b17afa942156e73431ed8e896ae1b3e&",
-            "fecha": "2025-08-15"
-          }
+          "resultado": null
         },
         {
           "jugador1Id": "852387609916211270",
