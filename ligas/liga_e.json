@@ -240,11 +240,8 @@
           "jugador1Id": "709879345346248785",
           "jugador2Id": "694749732467245088",
           "resultado": {
-            "709879345346248785": 1,
             "694749732467245088": 2,
-            "draftmapas": "https://aoe2cm.net/draft/EvLQd",
-            "draftcivis": "https://aoe2cm.net/draft/cVghx",
-            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1407195879013617674/Campeonato_Uruguayo_2025_Tascon_vs_Shebby.zip?ex=68a538c9&is=68a3e749&hm=4a4c7b049480d4cb92afec9ac919f83c7730236051e0f47558d044a6582c7f2a&",
+            "709879345346248785": 1,
             "fecha": "2025-08-18"
           },
           "id": 1755223952353,
