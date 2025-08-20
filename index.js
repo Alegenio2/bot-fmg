@@ -71,14 +71,14 @@ cron.schedule('00 22 * * 1', () => {
 
 
   // Torneos (una vez por día a las 01:50)
-  cron.schedule('00 1 * * *', async () => {
+  cron.schedule('00 1 * * 1', async () => {
   console.log('🎯 Ejecutando guardado de torneos');
   await guardarTorneos();
 },{
   timezone: 'America/Montevideo'
 });
 
-  cron.schedule('23 1 * * *', async () => {
+  cron.schedule('23 1 * * 1', async () => {
   console.log('📤 Subiendo torneos a GitHub...');
   await subirTorneos();
 },{
