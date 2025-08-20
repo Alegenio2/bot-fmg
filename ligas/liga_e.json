@@ -385,7 +385,14 @@
         {
           "jugador1Id": "896216989922635777",
           "jugador2Id": "694749732467245088",
-          "resultado": null,
+          "resultado": {
+            "694749732467245088": 2,
+            "896216989922635777": 0,
+            "draftmapas": "https://aoe2cm.net/draft/nbFjh",
+            "draftcivis": "https://aoe2cm.net/draft/lzGaO",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1404500114994892830/Campeonato_Uruguayo_2025_Shebby_vs_Tatosky.zip?ex=68a747a9&is=68a5f629&hm=ac5e4078b297fac423972d2421547720bd191f4a1868c7e20e4657bd05c208a6&",
+            "fecha": "2025-08-10"
+          },
           "id": 1754857792899,
           "fecha": "10-08-2025",
           "diaSemana": "Domingo",
