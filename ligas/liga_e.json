@@ -422,7 +422,14 @@
         {
           "jugador1Id": "1293646842625785968",
           "jugador2Id": "694749732467245088",
-          "resultado": null,
+          "resultado": {
+            "1293646842625785968": 0,
+            "694749732467245088": 2,
+            "draftmapas": "https://aoe2cm.net/draft/zUjMJ",
+            "draftcivis": "https://aoe2cm.net/draft/fgaxM",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1407907823719022632/Campeonato_Uruguayo_-_RosserB_vs_Shebby.zip?ex=68a7cfd6&is=68a67e56&hm=94d0515c1784f9d1c618164b2dca5369c7273e06ceb0bc6b544980541bb061bb&",
+            "fecha": "2025-08-20"
+          },
           "id": 1755224381277,
           "fecha": "19-08-2025",
           "diaSemana": "Martes",
@@ -442,7 +449,7 @@
         {
           "jugador1Id": "896216989922635777",
           "jugador2Id": "952599207410303016",
-            "resultado": {
+          "resultado": {
             "896216989922635777": 2,
             "952599207410303016": 0,
             "draftmapas": "https://aoe2cm.net/draft/Axzzc",
