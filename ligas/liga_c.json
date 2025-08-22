@@ -954,7 +954,14 @@
         {
           "jugador1Id": "442189398667296788",
           "jugador2Id": "1244725529093869687",
-          "resultado": null
+          "resultado": {
+            "442189398667296788": 2,
+            "1244725529093869687": 0,
+            "draftmapas": "https://aoe2cm.net/draft/KQgoo",
+            "draftcivis": "https://aoe2cm.net/draft/rBxhO",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1408261864151973958/DavidTG_vs_La_sophie.rar?ex=68a91990&is=68a7c810&hm=cfb55d7fde923c2dba1dd77c7c2fe39794b5adadd149f55614e59e5d9f57b340&",
+            "fecha": "2025-08-21"
+          }
         },
         {
           "jugador1Id": "335286995486244867",
