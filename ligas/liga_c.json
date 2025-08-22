@@ -983,7 +983,14 @@
         {
           "jugador1Id": "689907393001291884",
           "jugador2Id": "277256502023290881",
-          "resultado": null
+          "resultado": {
+            "689907393001291884": 2,
+            "277256502023290881": 0,
+            "draftmapas": "https://aoe2cm.net/draft/KyyON",
+            "draftcivis": "https://aoe2cm.net/draft/LpWlx",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1408260643206729949/Culero_vs_Lionerrt.rar?ex=68a9186d&is=68a7c6ed&hm=7182f423659d2f18186d2a774d50e0628a97eced35b0bbe98bfaf9faeac3a14d&",
+            "fecha": "2025-08-21"
+          }
         },
         {
           "jugador1Id": "442189398667296788",
