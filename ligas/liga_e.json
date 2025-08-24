@@ -500,7 +500,14 @@
         {
           "jugador1Id": "852387609916211270",
           "jugador2Id": "1008090545513570495",
-          "resultado": null
+          "resultado": {
+            "1008090545513570495": 1,
+            "852387609916211270": 2,
+            "draftmapas": "https://aoe2cm.net/draft/aTPhq",
+            "draftcivis": "https://aoe2cm.net/draft/pNDbz",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1409044934119653497/OsoConBarbaVsZakkElRabdomante.rar?ex=68abf2db&is=68aaa15b&hm=6371eed71a06ff4bffa5cec999e122ba3e9361774b2bd2ffafb5c5cf7ca7b350&",
+            "fecha": "2025-08-23"
+          }
         }
       ]
     },
