@@ -265,7 +265,14 @@
         {
           "jugador1Id": "286607198854053890",
           "jugador2Id": "249400646782943235",
-          "resultado": null
+          "resultado": {
+            "286607198854053890": 2,
+            "249400646782943235": 0,
+            "draftmapas": "asd.con",
+            "draftcivis": "asd.com",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1408964828168720445/Gral_Artigas_vs_Gino.rar?ex=68aba840&is=68aa56c0&hm=500cebd1d7bca664acd1d6d4731cf153182bfe3e3ad1ec3d37b1752bc775e8f3&",
+            "fecha": "2025-08-23"
+          }
         },
         {
           "jugador1Id": "238414625417330688",
@@ -417,14 +424,7 @@
         {
           "jugador1Id": "238414625417330688",
           "jugador2Id": "244547091362217984",
-          "resultado": {
-            "238414625417330688": 2,
-            "244547091362217984": 0,
-            "draftmapas": "https://aoe2cm.net/draft/IZnGx",
-            "draftcivis": "https://aoe2cm.net/draft/OAITS",
-            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1408964105280422018/Rxon_vs_Garezo.rar?ex=68aba793&is=68aa5613&hm=ea19297797cb3c86b00d9bc8f1a5bf17d9e2dcd3baed3ab45ecb626ba21d0fbf&",
-            "fecha": "2025-08-23"
-          }
+          "resultado": null
         }
       ]
     },
