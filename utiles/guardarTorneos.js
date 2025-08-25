@@ -1,5 +1,5 @@
 // utiles/guardarTorneos.js
-const fs = require("fs");
+const fs = require("fs").promises; // Importamos la versión de promesas
 const { Liquipedia, GameVersion, Age2TournamentCategory } = require("liquipedia");
 
 const liquipedia = new Liquipedia({
@@ -25,19 +25,23 @@ async function guardarTorneos() {
     );
 
     const torneosFiltrados = torneosAoE2.filter(esTierValido);
-    fs.writeFileSync(
+
+    // Guardado de torneos filtrados (ahora asíncrono)
+    await fs.writeFile(
       "./data/tournaments.json",
       JSON.stringify(torneosFiltrados, null, 2)
     );
 
     const torneoActual = torneosFiltrados.find(estaActivo);
+    
+    // Guardado del torneo actual (también asíncrono)
     if (torneoActual) {
-      fs.writeFileSync(
+      await fs.writeFile(
         "./data/torneo_actual.json",
         JSON.stringify(torneoActual, null, 2)
       );
     } else {
-      fs.writeFileSync(
+      await fs.writeFile(
         "./data/torneo_actual.json",
         JSON.stringify({ mensaje: "No hay torneos activos" }, null, 2)
       );
@@ -50,4 +54,3 @@ async function guardarTorneos() {
 }
 
 module.exports = { guardarTorneos };
-
