@@ -559,7 +559,14 @@
         {
           "jugador1Id": "485610092092456975",
           "jugador2Id": "326046458673365002",
-          "resultado": null
+          "resultado": {
+            "326046458673365002": 2,
+            "485610092092456975": 0,
+            "draftmapas": "https://aoe2cm.net/draft/STSOI",
+            "draftcivis": "https://aoe2cm.net/draft/fmgGd",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1409685825221951589/Paginas_vs_Kroyen.rar?ex=68ae47bb&is=68acf63b&hm=56602a21fd9bdcec57b7adaebb434070bd1c298fc0b30d0bcfd72be301b8543f&",
+            "fecha": "2025-08-25"
+          }
         },
         {
           "jugador1Id": "135113382217908224",
