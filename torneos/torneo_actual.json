@@ -1,3 +1,36 @@
 {
-  "mensaje": "No hay torneos activos para este año"
+  "game": "Age of Empires II",
+  "type": "Team",
+  "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+  "name": "Rise to Glory",
+  "start": "2019-10-07T03:00:00.000Z",
+  "end": "2019-10-27T03:00:00.000Z",
+  "prizePool": {
+    "amount": 900,
+    "code": "USD"
+  },
+  "participants": [
+    {
+      "name": "Team Secret",
+      "image": "https://liquipedia.net/commons/images/thumb/0/07/Team_Secret_lightmode.png/200px-Team_Secret_lightmode.png"
+    },
+    {
+      "name": "Outsiders",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/136px-Age_of_Empires_default_allmode.png"
+    }
+  ],
+  "participantsCount": 16,
+  "location": {
+    "name": "World",
+    "country": {
+      "name": "World",
+      "code": "EARTH"
+    },
+    "type": "Online"
+  },
+  "league": {
+    "name": "",
+    "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+  },
+  "path": "Rise_to_Glory"
 }
