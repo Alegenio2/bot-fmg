@@ -1,124 +1,25 @@
 [
   {
     "game": "Age of Empires II",
-    "type": "Unknown",
+    "type": "Team",
     "tier": "Age_of_Empires_II/A-Tier_Tournaments",
-    "name": "T90 Titans League 5: Silver League",
-    "start": "2026-01-26T03:00:00.000Z",
-    "end": "2026-03-22T03:00:00.000Z",
+    "name": "Rise to Glory",
+    "start": "2019-10-07T03:00:00.000Z",
+    "end": "2019-10-27T03:00:00.000Z",
     "prizePool": {
-      "amount": 0,
+      "amount": 900,
       "code": "USD"
     },
-    "participants": [],
-    "participantsCount": 24,
-    "location": {
-      "name": "World",
-      "country": {
-        "name": "World",
-        "code": "EARTH"
+    "participants": [
+      {
+        "name": "Team Secret",
+        "image": "https://liquipedia.net/commons/images/thumb/0/07/Team_Secret_lightmode.png/200px-Team_Secret_lightmode.png"
       },
-      "type": "Online"
-    },
-    "league": {
-      "name": "",
-      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
-    },
-    "path": "T90_Titans_League/5/Silver_League"
-  },
-  {
-    "game": "Age of Empires II",
-    "type": "Unknown",
-    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
-    "name": "T90 Titans League 5: Gold League",
-    "start": "2026-01-26T03:00:00.000Z",
-    "end": "2026-03-22T03:00:00.000Z",
-    "prizePool": {
-      "amount": 0,
-      "code": "USD"
-    },
-    "participants": [],
-    "participantsCount": 24,
-    "location": {
-      "name": "World",
-      "country": {
-        "name": "World",
-        "code": "EARTH"
-      },
-      "type": "Online"
-    },
-    "league": {
-      "name": "",
-      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
-    },
-    "path": "T90_Titans_League/5/Gold_League"
-  },
-  {
-    "game": "Age of Empires II",
-    "type": "Unknown",
-    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
-    "name": "T90 Titans League 5: Platinum League",
-    "start": "2026-01-26T03:00:00.000Z",
-    "end": "2026-03-22T03:00:00.000Z",
-    "prizePool": {
-      "amount": 100000,
-      "code": "USD"
-    },
-    "participants": [],
-    "participantsCount": 24,
-    "location": {
-      "name": "World",
-      "country": {
-        "name": "World",
-        "code": "EARTH"
-      },
-      "type": "Online"
-    },
-    "league": {
-      "name": "",
-      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
-    },
-    "path": "T90_Titans_League/5/Platinum_League"
-  },
-  {
-    "game": "Age of Empires II",
-    "type": "Unknown",
-    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
-    "name": "Sudden Dessasster 2",
-    "start": "2025-08-11T03:00:00.000Z",
-    "end": "2025-09-14T03:00:00.000Z",
-    "prizePool": {
-      "amount": 10000,
-      "code": "USD"
-    },
-    "participants": [],
-    "participantsCount": 128,
-    "location": {
-      "name": "World",
-      "country": {
-        "name": "World",
-        "code": "EARTH"
-      },
-      "type": "Online"
-    },
-    "league": {
-      "name": "",
-      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
-    },
-    "path": "Sudden_Dessaster/2"
-  },
-  {
-    "game": "Age of Empires II",
-    "type": "Unknown",
-    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
-    "name": "Medieval Masters",
-    "start": "2025-06-23T03:00:00.000Z",
-    "end": "2025-07-06T03:00:00.000Z",
-    "prizePool": {
-      "amount": 10000,
-      "code": "USD"
-    },
-    "participants": [],
+      {
+        "name": "Outsiders",
+        "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/136px-Age_of_Empires_default_allmode.png"
+      }
+    ],
     "participantsCount": 16,
     "location": {
       "name": "World",
@@ -130,29 +31,2223 @@
     },
     "league": {
       "name": "",
-      "image": "https://liquipedia.net/commons/images/thumb/b/b3/Medieval_Masters_Icon_Allmode.png/93px-Medieval_Masters_Icon_Allmode.png"
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
     },
-    "path": "Medieval_Masters"
+    "path": "Rise_to_Glory"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Death Match World Cup 2: Gold League",
+    "start": "2019-09-17T03:00:00.000Z",
+    "end": "2019-10-06T03:00:00.000Z",
+    "prizePool": {
+      "amount": 1900,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "TheViper",
+        "image": "https://liquipedia.net/commons/images/thumb/f/ff/No_hd.png/72px-No_hd.png"
+      },
+      {
+        "name": "TheCode",
+        "image": "https://liquipedia.net/commons/images/thumb/4/4b/Tr_hd.png/72px-Tr_hd.png"
+      }
+    ],
+    "participantsCount": 16,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "Death_Match_World_Cup/2"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "Escape Champions League LAN Finals",
+    "start": "2019-08-30T03:00:00.000Z",
+    "end": "2019-09-01T03:00:00.000Z",
+    "prizePool": {
+      "amount": 8760,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Team Secret",
+        "image": "https://liquipedia.net/commons/images/thumb/0/07/Team_Secret_lightmode.png/200px-Team_Secret_lightmode.png"
+      },
+      {
+        "name": "Aftermath",
+        "image": "https://liquipedia.net/commons/images/thumb/8/81/Aftermath_lightmode.png/96px-Aftermath_lightmode.png"
+      }
+    ],
+    "participantsCount": 3,
+    "location": {
+      "name": "Manchester",
+      "country": {
+        "name": "United Kingdom",
+        "code": "GB"
+      },
+      "type": "LAN"
+    },
+    "league": {
+      "name": "Escape Champions League",
+      "image": "https://liquipedia.net/commons/images/3/3c/Escape_Champions_League_small_icon.png"
+    },
+    "path": "Escape_Champions_League/Final_Showdown"
   },
   {
     "game": "Age of Empires II",
     "type": "Team",
     "tier": "Age_of_Empires_II/A-Tier_Tournaments",
-    "name": "The Cartographers 2",
-    "start": "2025-06-02T03:00:00.000Z",
-    "end": "2025-06-22T03:00:00.000Z",
+    "name": "Two Pools",
+    "start": "2019-06-24T03:00:00.000Z",
+    "end": "2019-08-25T03:00:00.000Z",
     "prizePool": {
-      "amount": 14221,
+      "amount": 1000,
       "code": "USD"
     },
     "participants": [
       {
-        "name": "GamerLegion A",
-        "image": "https://liquipedia.net/commons/images/thumb/c/c0/GamerLegion_AoE_2023_allmode.png/183px-GamerLegion_AoE_2023_allmode.png"
+        "name": "Aftermath D",
+        "image": "https://liquipedia.net/commons/images/thumb/8/81/Aftermath_lightmode.png/96px-Aftermath_lightmode.png"
       },
       {
-        "name": "LingYuan A",
-        "image": "https://liquipedia.net/commons/images/thumb/a/a4/LingYuan_lightmode.png/114px-LingYuan_lightmode.png"
+        "name": "Team Secret",
+        "image": "https://liquipedia.net/commons/images/thumb/0/07/Team_Secret_lightmode.png/200px-Team_Secret_lightmode.png"
+      }
+    ],
+    "participantsCount": 8,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "Two_Pools_Tournament/1"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Mono Civ Cup",
+    "start": "2019-08-17T03:00:00.000Z",
+    "end": "2019-08-18T03:00:00.000Z",
+    "prizePool": {
+      "amount": 650,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "TheViper",
+        "image": "https://liquipedia.net/commons/images/thumb/f/ff/No_hd.png/72px-No_hd.png"
+      },
+      {
+        "name": "MbL",
+        "image": "https://liquipedia.net/commons/images/thumb/f/ff/No_hd.png/72px-No_hd.png"
+      }
+    ],
+    "participantsCount": 16,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/2/29/Escape_Gaming_AoE2_icon_small.png"
+    },
+    "path": "Mono_Civ_Cup"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "Mangrove Shallows Cup",
+    "start": "2019-06-10T03:00:00.000Z",
+    "end": "2019-08-04T03:00:00.000Z",
+    "prizePool": {
+      "amount": 10800,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "TheYo",
+        "image": "https://liquipedia.net/commons/images/thumb/0/01/Cn_hd.png/72px-Cn_hd.png"
+      },
+      {
+        "name": "TaToH",
+        "image": "https://liquipedia.net/commons/images/thumb/c/c9/Es_hd.png/72px-Es_hd.png"
+      }
+    ],
+    "participantsCount": 16,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/c/c7/Mangrove_Shallows_Cup_icon.png"
+    },
+    "path": "Mangrove_Shallows_Cup"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Nomad Summer Showdown: 1v1",
+    "start": "2019-06-22T03:00:00.000Z",
+    "end": "2019-06-30T03:00:00.000Z",
+    "prizePool": {
+      "amount": 500,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "TaToH",
+        "image": "https://liquipedia.net/commons/images/thumb/c/c9/Es_hd.png/72px-Es_hd.png"
+      },
+      {
+        "name": "Yo",
+        "image": "https://liquipedia.net/commons/images/thumb/0/01/Cn_hd.png/72px-Cn_hd.png"
+      }
+    ],
+    "participantsCount": 12,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "Nomad_Summer_Showdown/1v1"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Escape Champions League West Europe 3v3",
+    "start": "2019-06-03T03:00:00.000Z",
+    "end": "2019-06-23T03:00:00.000Z",
+    "prizePool": {
+      "amount": 4200,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Team Secret",
+        "image": "https://liquipedia.net/commons/images/thumb/0/07/Team_Secret_lightmode.png/200px-Team_Secret_lightmode.png"
+      },
+      {
+        "name": "Suomi",
+        "image": "https://liquipedia.net/commons/images/thumb/a/a9/Flag_of_Finland_4_by_3.png/134px-Flag_of_Finland_4_by_3.png"
+      }
+    ],
+    "participantsCount": 8,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "Escape Champions League",
+      "image": "https://liquipedia.net/commons/images/3/3c/Escape_Champions_League_small_icon.png"
+    },
+    "path": "Escape_Champions_League/Europe_West/3v3"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Escape Champions League West Europe 1v1",
+    "start": "2019-05-22T03:00:00.000Z",
+    "end": "2019-06-14T03:00:00.000Z",
+    "prizePool": {
+      "amount": 2800,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Nicov",
+        "image": "https://liquipedia.net/commons/images/thumb/f/f1/Ar_hd.png/72px-Ar_hd.png"
+      },
+      {
+        "name": "TheMax",
+        "image": "https://liquipedia.net/commons/images/thumb/0/07/Fi_hd.png/72px-Fi_hd.png"
+      }
+    ],
+    "participantsCount": 16,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "Escape Champions League",
+      "image": "https://liquipedia.net/commons/images/3/3c/Escape_Champions_League_small_icon.png"
+    },
+    "path": "Escape_Champions_League/Europe_West/1v1"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Doubles Age",
+    "start": "2019-04-15T03:00:00.000Z",
+    "end": "2019-05-19T03:00:00.000Z",
+    "prizePool": {
+      "amount": 3001,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Secret T.",
+        "image": "https://liquipedia.net/commons/images/thumb/0/07/Team_Secret_lightmode.png/200px-Team_Secret_lightmode.png"
+      },
+      {
+        "name": "Aftermath",
+        "image": "https://liquipedia.net/commons/images/thumb/8/81/Aftermath_lightmode.png/96px-Aftermath_lightmode.png"
+      }
+    ],
+    "participantsCount": 8,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/f/f2/Doubles_Age_logo.png"
+    },
+    "path": "Doubles_Age"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Clash of the Hippo 5",
+    "start": "2019-05-11T03:00:00.000Z",
+    "end": "2019-05-12T03:00:00.000Z",
+    "prizePool": {
+      "amount": 1300,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Team Secret",
+        "image": "https://liquipedia.net/commons/images/thumb/0/07/Team_Secret_lightmode.png/200px-Team_Secret_lightmode.png"
+      },
+      {
+        "name": "Aftermath",
+        "image": "https://liquipedia.net/commons/images/thumb/8/81/Aftermath_lightmode.png/96px-Aftermath_lightmode.png"
+      }
+    ],
+    "participantsCount": 8,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "Clash of the Hippo",
+      "image": "https://liquipedia.net/commons/images/7/75/Nili_aoe_icon.png"
+    },
+    "path": "Clash_of_the_Hippo/5"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Escape Champions League Americas 4v4",
+    "start": "2019-05-04T03:00:00.000Z",
+    "end": "2019-05-11T03:00:00.000Z",
+    "prizePool": {
+      "amount": 5700,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Aftermath",
+        "image": "https://liquipedia.net/commons/images/thumb/8/81/Aftermath_lightmode.png/96px-Aftermath_lightmode.png"
+      },
+      {
+        "name": "Suomi",
+        "image": "https://liquipedia.net/commons/images/thumb/a/a9/Flag_of_Finland_4_by_3.png/134px-Flag_of_Finland_4_by_3.png"
+      }
+    ],
+    "participantsCount": 8,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "Escape Champions League",
+      "image": "https://liquipedia.net/commons/images/3/3c/Escape_Champions_League_small_icon.png"
+    },
+    "path": "Escape_Champions_League/Americas/4v4"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Escape Champions League Americas 2v2",
+    "start": "2019-04-09T03:00:00.000Z",
+    "end": "2019-05-01T03:00:00.000Z",
+    "prizePool": {
+      "amount": 3500,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Aftermath",
+        "image": "https://liquipedia.net/commons/images/thumb/8/81/Aftermath_lightmode.png/96px-Aftermath_lightmode.png"
+      },
+      {
+        "name": "Team Secret",
+        "image": "https://liquipedia.net/commons/images/thumb/0/07/Team_Secret_lightmode.png/200px-Team_Secret_lightmode.png"
+      }
+    ],
+    "participantsCount": 8,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "Escape Champions League",
+      "image": "https://liquipedia.net/commons/images/3/3c/Escape_Champions_League_small_icon.png"
+    },
+    "path": "Escape_Champions_League/Americas/2v2"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "Hidden Cup 2",
+    "start": "2019-04-11T03:00:00.000Z",
+    "end": "2019-04-14T03:00:00.000Z",
+    "prizePool": {
+      "amount": 10200,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "TheViper",
+        "image": "https://liquipedia.net/commons/images/thumb/f/ff/No_hd.png/72px-No_hd.png"
+      },
+      {
+        "name": "TheMax",
+        "image": "https://liquipedia.net/commons/images/thumb/0/07/Fi_hd.png/72px-Fi_hd.png"
+      }
+    ],
+    "participantsCount": 16,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "Hidden Cup",
+      "image": "https://liquipedia.net/commons/images/a/ae/Hidden_Cup_small_Icon.png"
+    },
+    "path": "Hidden_Cup/2"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Escape Champions League Southeast Asia 3v3",
+    "start": "2019-02-25T03:00:00.000Z",
+    "end": "2019-03-17T03:00:00.000Z",
+    "prizePool": {
+      "amount": 4200,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Aftermath",
+        "image": "https://liquipedia.net/commons/images/thumb/8/81/Aftermath_lightmode.png/96px-Aftermath_lightmode.png"
+      },
+      {
+        "name": "Team Secret",
+        "image": "https://liquipedia.net/commons/images/thumb/0/07/Team_Secret_lightmode.png/200px-Team_Secret_lightmode.png"
+      }
+    ],
+    "participantsCount": 8,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "Escape Champions League",
+      "image": "https://liquipedia.net/commons/images/3/3c/Escape_Champions_League_small_icon.png"
+    },
+    "path": "Escape_Champions_League/SouthEast_Asia/3v3"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Escape Champions League Southeast Asia 1v1",
+    "start": "2019-02-04T03:00:00.000Z",
+    "end": "2019-03-04T03:00:00.000Z",
+    "prizePool": {
+      "amount": 2800,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "TaToH",
+        "image": "https://liquipedia.net/commons/images/thumb/c/c9/Es_hd.png/72px-Es_hd.png"
+      },
+      {
+        "name": "MbL",
+        "image": "https://liquipedia.net/commons/images/thumb/f/ff/No_hd.png/72px-No_hd.png"
+      }
+    ],
+    "participantsCount": 16,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "Escape Champions League",
+      "image": "https://liquipedia.net/commons/images/3/3c/Escape_Champions_League_small_icon.png"
+    },
+    "path": "Escape_Champions_League/Southeast_Asia/1v1"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "Nili's Apartment Cup 2",
+    "start": "2019-02-09T03:00:00.000Z",
+    "end": "2019-02-17T03:00:00.000Z",
+    "prizePool": {
+      "amount": 14000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "TheViper",
+        "image": "https://liquipedia.net/commons/images/thumb/f/ff/No_hd.png/72px-No_hd.png"
+      },
+      {
+        "name": "TaToH",
+        "image": "https://liquipedia.net/commons/images/thumb/c/c9/Es_hd.png/72px-Es_hd.png"
+      }
+    ],
+    "participantsCount": 8,
+    "location": {
+      "name": "Hamburg",
+      "country": {
+        "name": "Germany",
+        "code": "DE"
+      },
+      "type": "LAN"
+    },
+    "league": {
+      "name": "Nili's Apartment Cup",
+      "image": "https://liquipedia.net/commons/images/7/75/Nili_aoe_icon.png"
+    },
+    "path": "Nili%27s_Apartment_Cup/2"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "King of the Desert 2",
+    "start": "2018-12-31T03:00:00.000Z",
+    "end": "2019-02-03T03:00:00.000Z",
+    "prizePool": {
+      "amount": 15800,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "TheViper",
+        "image": "https://liquipedia.net/commons/images/thumb/f/ff/No_hd.png/72px-No_hd.png"
+      },
+      {
+        "name": "Liereyy",
+        "image": "https://liquipedia.net/commons/images/thumb/1/1c/At_hd.png/72px-At_hd.png"
+      }
+    ],
+    "participantsCount": 32,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "King of the Desert",
+      "image": "https://liquipedia.net/commons/images/thumb/6/6a/King_of_the_Desert_2.png/97px-King_of_the_Desert_2.png"
+    },
+    "path": "King_of_the_Desert/2"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Escape Champions League East Asia 4v4",
+    "start": "2019-01-07T03:00:00.000Z",
+    "end": "2019-01-27T03:00:00.000Z",
+    "prizePool": {
+      "amount": 5700,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Suomi",
+        "image": "https://liquipedia.net/commons/images/thumb/a/a9/Flag_of_Finland_4_by_3.png/134px-Flag_of_Finland_4_by_3.png"
+      },
+      {
+        "name": "Team Secret",
+        "image": "https://liquipedia.net/commons/images/thumb/0/07/Team_Secret_lightmode.png/200px-Team_Secret_lightmode.png"
+      }
+    ],
+    "participantsCount": 8,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "Escape Champions League",
+      "image": "https://liquipedia.net/commons/images/3/3c/Escape_Champions_League_small_icon.png"
+    },
+    "path": "Escape_Champions_League/East_Asia/4v4"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "World Cup 2v2",
+    "start": "2018-11-10T03:00:00.000Z",
+    "end": "2018-12-24T03:00:00.000Z",
+    "prizePool": {
+      "amount": 1219.6,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Finland",
+        "image": "https://liquipedia.net/commons/images/thumb/a/a9/Flag_of_Finland_4_by_3.png/134px-Flag_of_Finland_4_by_3.png"
+      },
+      {
+        "name": "China B",
+        "image": "https://liquipedia.net/commons/images/thumb/9/99/Flag_of_China_4_by_3.png/134px-Flag_of_China_4_by_3.png"
+      }
+    ],
+    "participantsCount": 32,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "2v2 World Cup",
+      "image": "https://liquipedia.net/commons/images/5/5e/2v2_World_Cup_Brothers_in_Arms_icon.png"
+    },
+    "path": "World_Cup_2v2"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Escape Champions League East Asia 2v2",
+    "start": "2018-11-26T03:00:00.000Z",
+    "end": "2018-12-16T03:00:00.000Z",
+    "prizePool": {
+      "amount": 3500,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Suomi",
+        "image": "https://liquipedia.net/commons/images/thumb/a/a9/Flag_of_Finland_4_by_3.png/134px-Flag_of_Finland_4_by_3.png"
+      },
+      {
+        "name": "Team Secret",
+        "image": "https://liquipedia.net/commons/images/thumb/0/07/Team_Secret_lightmode.png/200px-Team_Secret_lightmode.png"
+      }
+    ],
+    "participantsCount": 8,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "Escape Champions League",
+      "image": "https://liquipedia.net/commons/images/3/3c/Escape_Champions_League_small_icon.png"
+    },
+    "path": "Escape_Champions_League/East_Asia/2v2"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Escape Champions League Middle East 3v3",
+    "start": "2018-11-18T03:00:00.000Z",
+    "end": "2018-11-29T03:00:00.000Z",
+    "prizePool": {
+      "amount": 4200,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Aftermath",
+        "image": "https://liquipedia.net/commons/images/thumb/8/81/Aftermath_lightmode.png/96px-Aftermath_lightmode.png"
+      },
+      {
+        "name": "SY",
+        "image": "https://liquipedia.net/commons/images/thumb/0/05/SY_allmode.png/175px-SY_allmode.png"
+      }
+    ],
+    "participantsCount": 8,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "Escape Champions League",
+      "image": "https://liquipedia.net/commons/images/3/3c/Escape_Champions_League_small_icon.png"
+    },
+    "path": "Escape_Champions_League/Middle_East/3v3"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Escape Champions League Middle East 1v1",
+    "start": "2018-10-11T03:00:00.000Z",
+    "end": "2018-11-02T03:00:00.000Z",
+    "prizePool": {
+      "amount": 2800,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "BacT",
+        "image": "https://liquipedia.net/commons/images/thumb/a/a3/Vn_hd.png/72px-Vn_hd.png"
+      },
+      {
+        "name": "TaToH",
+        "image": "https://liquipedia.net/commons/images/thumb/c/c9/Es_hd.png/72px-Es_hd.png"
+      }
+    ],
+    "participantsCount": 16,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "Escape Champions League",
+      "image": "https://liquipedia.net/commons/images/3/3c/Escape_Champions_League_small_icon.png"
+    },
+    "path": "Escape_Champions_League/Middle_East/1v1"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "USA Cup: Gold League",
+    "start": "2018-09-03T03:00:00.000Z",
+    "end": "2018-10-29T03:00:00.000Z",
+    "prizePool": {
+      "amount": 1020,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Spring",
+        "image": "https://liquipedia.net/commons/images/thumb/3/3b/Us_hd.png/72px-Us_hd.png"
+      },
+      {
+        "name": "Daniel",
+        "image": "https://liquipedia.net/commons/images/thumb/3/3b/Us_hd.png/72px-Us_hd.png"
+      }
+    ],
+    "participantsCount": 16,
+    "location": {
+      "name": "United States",
+      "country": {
+        "name": "United States",
+        "code": "US"
+      },
+      "type": "LAN"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "USA_Cup/2018/Gold_League"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Hidden Cup",
+    "start": "2018-09-28T03:00:00.000Z",
+    "end": "2018-09-30T03:00:00.000Z",
+    "prizePool": {
+      "amount": 1443.37,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "TheViper",
+        "image": "https://liquipedia.net/commons/images/thumb/f/ff/No_hd.png/72px-No_hd.png"
+      },
+      {
+        "name": "MbL",
+        "image": "https://liquipedia.net/commons/images/thumb/f/ff/No_hd.png/72px-No_hd.png"
+      }
+    ],
+    "participantsCount": 12,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "Hidden Cup",
+      "image": "https://liquipedia.net/commons/images/a/ae/Hidden_Cup_small_Icon.png"
+    },
+    "path": "Hidden_Cup/1"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Escape Champions League Africa 3v3",
+    "start": "2018-09-10T03:00:00.000Z",
+    "end": "2018-09-30T03:00:00.000Z",
+    "prizePool": {
+      "amount": 4200,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Team Secret",
+        "image": "https://liquipedia.net/commons/images/thumb/0/07/Team_Secret_lightmode.png/200px-Team_Secret_lightmode.png"
+      },
+      {
+        "name": "Frantic",
+        "image": "https://liquipedia.net/commons/images/thumb/2/2e/Flag_of_China.png/160px-Flag_of_China.png"
+      }
+    ],
+    "participantsCount": 8,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "Escape Champions League",
+      "image": "https://liquipedia.net/commons/images/3/3c/Escape_Champions_League_small_icon.png"
+    },
+    "path": "Escape_Champions_League/Africa/3v3"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Escape Champions League Africa 2v2",
+    "start": "2018-08-10T03:00:00.000Z",
+    "end": "2018-09-09T03:00:00.000Z",
+    "prizePool": {
+      "amount": 3500,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "SY",
+        "image": "https://liquipedia.net/commons/images/thumb/0/05/SY_allmode.png/175px-SY_allmode.png"
+      },
+      {
+        "name": "Frantic",
+        "image": "https://liquipedia.net/commons/images/thumb/2/2e/Flag_of_China.png/160px-Flag_of_China.png"
+      }
+    ],
+    "participantsCount": 8,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "Escape Champions League",
+      "image": "https://liquipedia.net/commons/images/3/3c/Escape_Champions_League_small_icon.png"
+    },
+    "path": "Escape_Champions_League/Africa/2v2"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Escape Champions League East Europe 4v4",
+    "start": "2018-07-23T03:00:00.000Z",
+    "end": "2018-08-19T03:00:00.000Z",
+    "prizePool": {
+      "amount": 5700,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Team Secret",
+        "image": "https://liquipedia.net/commons/images/thumb/0/07/Team_Secret_lightmode.png/200px-Team_Secret_lightmode.png"
+      },
+      {
+        "name": "SY",
+        "image": "https://liquipedia.net/commons/images/thumb/0/05/SY_allmode.png/175px-SY_allmode.png"
+      }
+    ],
+    "participantsCount": 8,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "Escape Champions League",
+      "image": "https://liquipedia.net/commons/images/3/3c/Escape_Champions_League_small_icon.png"
+    },
+    "path": "Escape_Champions_League/Europe_East/4v4"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Nomad Battlegrounds: Gold League",
+    "start": "2018-06-10T03:00:00.000Z",
+    "end": "2018-08-02T03:00:00.000Z",
+    "prizePool": {
+      "amount": 1500,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Suomi",
+        "image": "https://liquipedia.net/commons/images/thumb/a/a9/Flag_of_Finland_4_by_3.png/134px-Flag_of_Finland_4_by_3.png"
+      },
+      {
+        "name": "Team Secret",
+        "image": "https://liquipedia.net/commons/images/thumb/0/07/Team_Secret_lightmode.png/200px-Team_Secret_lightmode.png"
+      }
+    ],
+    "participantsCount": 32,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "Nomad_Battlegrounds"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Escape Champions League East Europe 1v1",
+    "start": "2018-07-04T03:00:00.000Z",
+    "end": "2018-07-28T03:00:00.000Z",
+    "prizePool": {
+      "amount": 2800,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "TheViper",
+        "image": "https://liquipedia.net/commons/images/thumb/f/ff/No_hd.png/72px-No_hd.png"
+      },
+      {
+        "name": "Vivi",
+        "image": "https://liquipedia.net/commons/images/thumb/0/01/Cn_hd.png/72px-Cn_hd.png"
+      }
+    ],
+    "participantsCount": 16,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "Escape Champions League",
+      "image": "https://liquipedia.net/commons/images/3/3c/Escape_Champions_League_small_icon.png"
+    },
+    "path": "Escape_Champions_League/Europe_East/1v1"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "Nili's Apartment Cup",
+    "start": "2018-07-08T03:00:00.000Z",
+    "end": "2018-07-15T03:00:00.000Z",
+    "prizePool": {
+      "amount": 2500,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "TheViper",
+        "image": "https://liquipedia.net/commons/images/thumb/f/ff/No_hd.png/72px-No_hd.png"
+      },
+      {
+        "name": "Liereyy",
+        "image": "https://liquipedia.net/commons/images/thumb/1/1c/At_hd.png/72px-At_hd.png"
+      }
+    ],
+    "participantsCount": 6,
+    "location": {
+      "name": "Hamburg",
+      "country": {
+        "name": "Germany",
+        "code": "DE"
+      },
+      "type": "LAN"
+    },
+    "league": {
+      "name": "Nili's Apartment Cup",
+      "image": "https://liquipedia.net/commons/images/7/75/Nili_aoe_icon.png"
+    },
+    "path": "Nili%27s_Apartment_Cup/1"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "KillerB's Arabia Cup",
+    "start": "2018-06-23T03:00:00.000Z",
+    "end": "2018-06-24T03:00:00.000Z",
+    "prizePool": {
+      "amount": 600,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "TheViper",
+        "image": "https://liquipedia.net/commons/images/thumb/f/ff/No_hd.png/72px-No_hd.png"
+      },
+      {
+        "name": "_DauT_",
+        "image": "https://liquipedia.net/commons/images/thumb/7/7b/Rs_hd.png/72px-Rs_hd.png"
+      }
+    ],
+    "participantsCount": 8,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "KillerB%27s_Arabia_Cup"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Titans of Arina: Gold Bracket",
+    "start": "2018-05-23T03:00:00.000Z",
+    "end": "2018-06-10T03:00:00.000Z",
+    "prizePool": {
+      "amount": 512.8,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Edie + DauT + miguel",
+        "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/136px-Age_of_Empires_default_allmode.png"
+      },
+      {
+        "name": "Metal + stefan",
+        "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/136px-Age_of_Empires_default_allmode.png"
+      }
+    ],
+    "participantsCount": 8,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "Titans_of_Arina/Gold_Bracket"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Paladin's 1v1 Cup",
+    "start": "2018-05-30T03:00:00.000Z",
+    "end": "2018-06-06T03:00:00.000Z",
+    "prizePool": {
+      "amount": 1000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Yo",
+        "image": "https://liquipedia.net/commons/images/thumb/0/01/Cn_hd.png/72px-Cn_hd.png"
+      },
+      {
+        "name": "lyx",
+        "image": "https://liquipedia.net/commons/images/thumb/0/01/Cn_hd.png/72px-Cn_hd.png"
+      }
+    ],
+    "participantsCount": 8,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "Paladin%27s_1v1_Cup"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "Battle of Africa",
+    "start": "2018-03-19T03:00:00.000Z",
+    "end": "2018-04-29T03:00:00.000Z",
+    "prizePool": {
+      "amount": 6503,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "TyRanT",
+        "image": "https://liquipedia.net/commons/images/thumb/1/11/Team_TyRanT_allmode.png/111px-Team_TyRanT_allmode.png"
+      },
+      {
+        "name": "Aftermath",
+        "image": "https://liquipedia.net/commons/images/thumb/8/81/Aftermath_lightmode.png/96px-Aftermath_lightmode.png"
+      }
+    ],
+    "participantsCount": 8,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "Battle of Africa",
+      "image": "https://liquipedia.net/commons/images/4/4b/MembTV_icon_old.png"
+    },
+    "path": "Battle_of_Africa/1"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "The Legacy Cup II",
+    "start": "2018-01-29T03:00:00.000Z",
+    "end": "2018-04-07T03:00:00.000Z",
+    "prizePool": {
+      "amount": 625,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "TyRanT Plebs",
+        "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/136px-Age_of_Empires_default_allmode.png"
+      },
+      {
+        "name": "Tsubenstock",
+        "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/136px-Age_of_Empires_default_allmode.png"
+      }
+    ],
+    "participantsCount": 22,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "The_Legacy_Cup/2"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Masters of Arena 5",
+    "start": "2018-01-01T03:00:00.000Z",
+    "end": "2018-03-16T03:00:00.000Z",
+    "prizePool": {
+      "amount": 1005,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "TheViper",
+        "image": "https://liquipedia.net/commons/images/thumb/f/ff/No_hd.png/72px-No_hd.png"
+      },
+      {
+        "name": "TaToH",
+        "image": "https://liquipedia.net/commons/images/thumb/c/c9/Es_hd.png/72px-Es_hd.png"
+      }
+    ],
+    "participantsCount": 64,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "Masters_of_Arena/5"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Let your teammate die!",
+    "start": "2018-01-06T03:00:00.000Z",
+    "end": "2018-01-07T03:00:00.000Z",
+    "prizePool": {
+      "amount": 775,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Aftermath",
+        "image": "https://liquipedia.net/commons/images/thumb/8/81/Aftermath_lightmode.png/96px-Aftermath_lightmode.png"
+      },
+      {
+        "name": "SY",
+        "image": "https://liquipedia.net/commons/images/thumb/0/05/SY_allmode.png/175px-SY_allmode.png"
+      }
+    ],
+    "participantsCount": 8,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "Let_your_teammate_die!"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "King of the Desert",
+    "start": "2017-11-15T03:00:00.000Z",
+    "end": "2017-12-16T03:00:00.000Z",
+    "prizePool": {
+      "amount": 4055,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "TheViper",
+        "image": "https://liquipedia.net/commons/images/thumb/f/ff/No_hd.png/72px-No_hd.png"
+      },
+      {
+        "name": "Liereyy",
+        "image": "https://liquipedia.net/commons/images/thumb/1/1c/At_hd.png/72px-At_hd.png"
+      }
+    ],
+    "participantsCount": 32,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "King of the Desert",
+      "image": "https://liquipedia.net/commons/images/4/4b/MembTV_icon_old.png"
+    },
+    "path": "King_of_the_Desert/1"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Escape Gaming Masters #3 - Regicide Edition",
+    "start": "2017-11-11T03:00:00.000Z",
+    "end": "2017-11-12T03:00:00.000Z",
+    "prizePool": {
+      "amount": 1500,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "TheViper",
+        "image": "https://liquipedia.net/commons/images/thumb/f/ff/No_hd.png/72px-No_hd.png"
+      },
+      {
+        "name": "MbL",
+        "image": "https://liquipedia.net/commons/images/thumb/f/ff/No_hd.png/72px-No_hd.png"
+      }
+    ],
+    "participantsCount": 8,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "Escape Gaming Masters",
+      "image": "https://liquipedia.net/commons/images/a/a8/Escape_Gaming_Masters_Regicide_Edition_icon.png"
+    },
+    "path": "Escape_Gaming/Masters_3"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "SY Nations Cup 3",
+    "start": "2017-07-10T03:00:00.000Z",
+    "end": "2017-11-04T03:00:00.000Z",
+    "prizePool": {
+      "amount": 30309.41,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Brazil B",
+        "image": "https://liquipedia.net/commons/images/thumb/8/83/Flag_of_Brazil_4_by_3.png/134px-Flag_of_Brazil_4_by_3.png"
+      },
+      {
+        "name": "Finland A",
+        "image": "https://liquipedia.net/commons/images/thumb/a/a9/Flag_of_Finland_4_by_3.png/134px-Flag_of_Finland_4_by_3.png"
+      }
+    ],
+    "participantsCount": 16,
+    "location": {
+      "name": "World Fuzhou",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "SY Nations Cup",
+      "image": "https://liquipedia.net/commons/images/e/eb/SY_icon.png"
+    },
+    "path": "SY/Nations_Cup/3"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Clash of the Hippo 4",
+    "start": "2017-10-21T03:00:00.000Z",
+    "prizePool": {
+      "amount": 1050,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "TheViper",
+        "image": "https://liquipedia.net/commons/images/thumb/f/ff/No_hd.png/72px-No_hd.png"
+      },
+      {
+        "name": "TaToH",
+        "image": "https://liquipedia.net/commons/images/thumb/c/c9/Es_hd.png/72px-Es_hd.png"
+      }
+    ],
+    "participantsCount": 8,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "Clash of the Hippo",
+      "image": "https://liquipedia.net/commons/images/7/75/Nili_aoe_icon.png"
+    },
+    "path": "Clash_of_the_Hippo/4"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "SY Nations Cup 3: Silver League",
+    "start": "2017-06-19T03:00:00.000Z",
+    "end": "2017-10-08T03:00:00.000Z",
+    "prizePool": {
+      "amount": 3000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Czech Republic A",
+        "image": "https://liquipedia.net/commons/images/thumb/9/90/Flag_of_Czechia_4_by_3.png/134px-Flag_of_Czechia_4_by_3.png"
+      },
+      {
+        "name": "China EMA",
+        "image": "https://liquipedia.net/commons/images/thumb/9/99/Flag_of_China_4_by_3.png/134px-Flag_of_China_4_by_3.png"
+      }
+    ],
+    "participantsCount": 73,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "SY Nations Cup",
+      "image": "https://liquipedia.net/commons/images/e/eb/SY_icon.png"
+    },
+    "path": "SY/Nations_Cup/3/Silver_League"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "Escape Gaming - Euro Cup",
+    "start": "2017-08-26T03:00:00.000Z",
+    "prizePool": {
+      "amount": 5800,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "TheViper",
+        "image": "https://liquipedia.net/commons/images/thumb/f/ff/No_hd.png/72px-No_hd.png"
+      },
+      {
+        "name": "Liereyy",
+        "image": "https://liquipedia.net/commons/images/thumb/1/1c/At_hd.png/72px-At_hd.png"
+      }
+    ],
+    "participantsCount": 4,
+    "location": {
+      "name": "Cologne",
+      "country": {
+        "name": "Germany",
+        "code": "DE"
+      },
+      "type": "LAN"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/2/21/Escape_Gaming_Euro_Cup_icon.png"
+    },
+    "path": "Escape_Gaming/Euro_Cup"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Escape Gaming - All-Stars",
+    "start": "2017-05-08T03:00:00.000Z",
+    "end": "2017-07-02T03:00:00.000Z",
+    "prizePool": {
+      "amount": 2996,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "TheViper",
+        "image": "https://liquipedia.net/commons/images/thumb/f/ff/No_hd.png/72px-No_hd.png"
+      },
+      {
+        "name": "TaToH",
+        "image": "https://liquipedia.net/commons/images/thumb/c/c9/Es_hd.png/72px-Es_hd.png"
+      }
+    ],
+    "participantsCount": 8,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/6/6e/Age_of_Empires_2_All-Stars_icon.png"
+    },
+    "path": "Escape_Gaming/All-Stars"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Gladiators of the Arena",
+    "start": "2017-03-27T03:00:00.000Z",
+    "end": "2017-06-05T03:00:00.000Z",
+    "prizePool": {
+      "amount": 1227,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Edie & miguel",
+        "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/136px-Age_of_Empires_default_allmode.png"
+      },
+      {
+        "name": "Hearttt & Liereyy",
+        "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/136px-Age_of_Empires_default_allmode.png"
+      }
+    ],
+    "participantsCount": 46,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "Gladiators_of_the_Arena"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Every Game Counts #1: Strike the Balance",
+    "start": "2017-01-30T03:00:00.000Z",
+    "end": "2017-05-20T03:00:00.000Z",
+    "prizePool": {
+      "amount": 1800,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "TheViper",
+        "image": "https://liquipedia.net/commons/images/thumb/f/ff/No_hd.png/72px-No_hd.png"
+      },
+      {
+        "name": "Liereyy",
+        "image": "https://liquipedia.net/commons/images/thumb/1/1c/At_hd.png/72px-At_hd.png"
+      }
+    ],
+    "participantsCount": 74,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "Every_Game_Counts/1"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Europe 3v3",
+    "start": "2017-02-20T03:00:00.000Z",
+    "end": "2017-04-07T03:00:00.000Z",
+    "prizePool": {
+      "amount": 1000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Nadya's Boys",
+        "image": "https://liquipedia.net/commons/images/thumb/9/90/Nadya%27s_Boys_allmode.png/100px-Nadya%27s_Boys_allmode.png"
+      },
+      {
+        "name": "kokobd",
+        "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/136px-Age_of_Empires_default_allmode.png"
+      }
+    ],
+    "participantsCount": 12,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "Europe_3v3"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Elimination Draft",
+    "start": "2017-03-17T03:00:00.000Z",
+    "end": "2017-03-19T03:00:00.000Z",
+    "prizePool": {
+      "amount": 1000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "TheViper",
+        "image": "https://liquipedia.net/commons/images/thumb/f/ff/No_hd.png/72px-No_hd.png"
+      },
+      {
+        "name": "Tim",
+        "image": "https://liquipedia.net/commons/images/thumb/0/01/Cn_hd.png/72px-Cn_hd.png"
+      }
+    ],
+    "participantsCount": 8,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/0/09/Elimination_Draft_icon.png"
+    },
+    "path": "Elimination_Draft"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Masters of Arabia 2v2 (2016)",
+    "start": "2016-11-12T03:00:00.000Z",
+    "end": "2017-03-11T03:00:00.000Z",
+    "prizePool": {
+      "amount": 800,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "90/10 Prize Distribution",
+        "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/136px-Age_of_Empires_default_allmode.png"
+      },
+      {
+        "name": "Ousadia & Alegria",
+        "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/136px-Age_of_Empires_default_allmode.png"
+      }
+    ],
+    "participantsCount": 61,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "Masters_of_Arabia_2v2/2016"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "The Legacy Cup (I)",
+    "start": "2016-12-05T03:00:00.000Z",
+    "end": "2017-03-06T03:00:00.000Z",
+    "prizePool": {
+      "amount": 1000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Tsunami",
+        "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/136px-Age_of_Empires_default_allmode.png"
+      },
+      {
+        "name": "QuEnDi A",
+        "image": "https://liquipedia.net/commons/images/thumb/6/6e/QuEnDi_allmode.png/80px-QuEnDi_allmode.png"
+      }
+    ],
+    "participantsCount": 16,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "The_Legacy_Cup/1"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Escape Gaming - Return of the Kings",
+    "start": "2017-02-18T03:00:00.000Z",
+    "end": "2017-02-19T03:00:00.000Z",
+    "prizePool": {
+      "amount": 5050,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "TheViper & DauT",
+        "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/136px-Age_of_Empires_default_allmode.png"
+      },
+      {
+        "name": "Nicov & TaToH",
+        "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/136px-Age_of_Empires_default_allmode.png"
+      }
+    ],
+    "participantsCount": 8,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/2/29/Escape_Gaming_AoE2_icon_small.png"
+    },
+    "path": "Escape_Gaming/Return_of_the_Kings"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Escape Gaming Masters #2 - Survival Guide",
+    "start": "2017-02-11T03:00:00.000Z",
+    "end": "2017-02-12T03:00:00.000Z",
+    "prizePool": {
+      "amount": 3000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Nicov",
+        "image": "https://liquipedia.net/commons/images/thumb/f/f1/Ar_hd.png/72px-Ar_hd.png"
+      },
+      {
+        "name": "DauT",
+        "image": "https://liquipedia.net/commons/images/thumb/7/7b/Rs_hd.png/72px-Rs_hd.png"
+      }
+    ],
+    "participantsCount": 8,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "Escape Gaming Masters",
+      "image": "https://liquipedia.net/commons/images/4/45/Escape_Gaming_Masters_Survival_Guide_icon.png"
+    },
+    "path": "Escape_Gaming/Masters_2"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Escape Gaming Masters #1",
+    "start": "2017-01-22T03:00:00.000Z",
+    "end": "2017-01-23T03:00:00.000Z",
+    "prizePool": {
+      "amount": 3000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "TheViper",
+        "image": "https://liquipedia.net/commons/images/thumb/f/ff/No_hd.png/72px-No_hd.png"
+      },
+      {
+        "name": "DauT",
+        "image": "https://liquipedia.net/commons/images/thumb/7/7b/Rs_hd.png/72px-Rs_hd.png"
+      }
+    ],
+    "participantsCount": 8,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "Escape Gaming Masters",
+      "image": "https://liquipedia.net/commons/images/e/ed/Escape_Gaming_Masters_icon.png"
+    },
+    "path": "Escape_Gaming/Masters_1"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Who Will Take Over The World? - Season 1",
+    "start": "2016-10-26T03:00:00.000Z",
+    "end": "2017-01-07T03:00:00.000Z",
+    "prizePool": {
+      "amount": 21400,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "The Wizard",
+        "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/136px-Age_of_Empires_default_allmode.png"
+      },
+      {
+        "name": "The Terran",
+        "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/136px-Age_of_Empires_default_allmode.png"
+      }
+    ],
+    "participantsCount": 8,
+    "location": {
+      "name": "China",
+      "country": {
+        "name": "China",
+        "code": "CN"
+      },
+      "type": "LAN"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "Who_Will_Take_Over_The_World/1"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "AoC Champions League 2016",
+    "start": "2016-12-01T03:00:00.000Z",
+    "end": "2016-12-30T03:00:00.000Z",
+    "prizePool": {
+      "amount": 529,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "TheViper",
+        "image": "https://liquipedia.net/commons/images/thumb/f/ff/No_hd.png/72px-No_hd.png"
+      },
+      {
+        "name": "F1Re",
+        "image": "https://liquipedia.net/commons/images/thumb/a/a9/Br_hd.png/72px-Br_hd.png"
+      }
+    ],
+    "participantsCount": 4,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "AoC_Champions_League/2016"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Battle for Angkor",
+    "start": "2016-12-17T03:00:00.000Z",
+    "end": "2016-12-18T03:00:00.000Z",
+    "prizePool": {
+      "amount": 3000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "TheViper",
+        "image": "https://liquipedia.net/commons/images/thumb/f/ff/No_hd.png/72px-No_hd.png"
+      },
+      {
+        "name": "DauT",
+        "image": "https://liquipedia.net/commons/images/thumb/7/7b/Rs_hd.png/72px-Rs_hd.png"
+      }
+    ],
+    "participantsCount": 8,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/b/b7/Battle_for_Angkor.png/83px-Battle_for_Angkor.png"
+    },
+    "path": "Battle_for_Angkor"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Clan Masters: 1v1 Mini Cup",
+    "start": "2016-10-23T03:00:00.000Z",
+    "end": "2016-11-14T03:00:00.000Z",
+    "prizePool": {
+      "amount": 1464.8,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "TheViper",
+        "image": "https://liquipedia.net/commons/images/thumb/f/ff/No_hd.png/72px-No_hd.png"
+      },
+      {
+        "name": "RiuT",
+        "image": "https://liquipedia.net/commons/images/thumb/a/a9/Br_hd.png/72px-Br_hd.png"
+      }
+    ],
+    "participantsCount": 12,
+    "location": {
+      "name": "Fuzhou",
+      "country": {
+        "name": "China",
+        "code": "CN"
+      },
+      "type": "LAN"
+    },
+    "league": {
+      "name": "Clan Masters",
+      "image": "https://liquipedia.net/commons/images/4/4b/Voobly_icon.png"
+    },
+    "path": "Clan_Masters/1v1_Mini_Cup"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Clash of the Hippo",
+    "start": "2016-09-26T03:00:00.000Z",
+    "end": "2016-10-16T03:00:00.000Z",
+    "prizePool": {
+      "amount": 431,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "_DauT_",
+        "image": "https://liquipedia.net/commons/images/thumb/7/7b/Rs_hd.png/72px-Rs_hd.png"
+      },
+      {
+        "name": "TheViper",
+        "image": "https://liquipedia.net/commons/images/thumb/f/ff/No_hd.png/72px-No_hd.png"
+      }
+    ],
+    "participantsCount": 16,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "Clash of the Hippo",
+      "image": "https://liquipedia.net/commons/images/7/75/Nili_aoe_icon.png"
+    },
+    "path": "Clash_of_the_Hippo/1"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "Clan Masters: The Final Showdown",
+    "start": "2016-06-20T03:00:00.000Z",
+    "end": "2016-10-09T03:00:00.000Z",
+    "prizePool": {
+      "amount": 29550,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "SY",
+        "image": "https://liquipedia.net/commons/images/thumb/0/05/SY_allmode.png/175px-SY_allmode.png"
+      },
+      {
+        "name": "TyRanT",
+        "image": "https://liquipedia.net/commons/images/thumb/1/11/Team_TyRanT_allmode.png/111px-Team_TyRanT_allmode.png"
+      }
+    ],
+    "participantsCount": 36,
+    "location": {
+      "name": "World Fuzhou",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "Clan Masters",
+      "image": "https://liquipedia.net/commons/images/4/4b/Voobly_icon.png"
+    },
+    "path": "Clan_Masters/The_Final_Showdown"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Death Match World Cup: Gold Cup",
+    "start": "2016-06-04T03:00:00.000Z",
+    "end": "2016-07-13T03:00:00.000Z",
+    "prizePool": {
+      "amount": 3200,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "True",
+        "image": "https://liquipedia.net/commons/images/thumb/3/3b/Us_hd.png/72px-Us_hd.png"
+      },
+      {
+        "name": "Jidba",
+        "image": "https://liquipedia.net/commons/images/thumb/1/1a/Gr_hd.png/72px-Gr_hd.png"
+      }
+    ],
+    "participantsCount": 8,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "Death_Match_World_Cup/1"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Masters of MegaRandom",
+    "start": "2016-04-01T03:00:00.000Z",
+    "end": "2016-06-05T03:00:00.000Z",
+    "prizePool": {
+      "amount": 1000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "TaToH",
+        "image": "https://liquipedia.net/commons/images/thumb/c/c9/Es_hd.png/72px-Es_hd.png"
+      },
+      {
+        "name": "Tim",
+        "image": "https://liquipedia.net/commons/images/thumb/0/01/Cn_hd.png/72px-Cn_hd.png"
+      }
+    ],
+    "participantsCount": 32,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "Masters_of_MegaRandom"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Arabia 1v1 Invitational",
+    "start": "2016-02-01T03:00:00.000Z",
+    "end": "2016-04-10T03:00:00.000Z",
+    "prizePool": {
+      "amount": 3000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Yo",
+        "image": "https://liquipedia.net/commons/images/thumb/0/01/Cn_hd.png/72px-Cn_hd.png"
+      },
+      {
+        "name": "Vinchester",
+        "image": "https://liquipedia.net/commons/images/thumb/7/76/Ru_hd.png/72px-Ru_hd.png"
       }
     ],
     "participantsCount": 24,
@@ -166,8 +2261,3929 @@
     },
     "league": {
       "name": "",
-      "image": "https://liquipedia.net/commons/images/thumb/9/9c/The_Cartographers_2_allmode.png/100px-The_Cartographers_2_allmode.png"
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
     },
-    "path": "The_Cartographers/2"
+    "path": "Arabia_1v1_Invitational"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "The Money Cup",
+    "start": "2016-02-13T03:00:00.000Z",
+    "end": "2016-04-03T03:00:00.000Z",
+    "prizePool": {
+      "amount": 2755.88,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "ぎりぎりスターズ",
+        "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/136px-Age_of_Empires_default_allmode.png"
+      },
+      {
+        "name": "荷車.jp",
+        "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/136px-Age_of_Empires_default_allmode.png"
+      }
+    ],
+    "participantsCount": 14,
+    "location": {
+      "name": "Japan",
+      "country": {
+        "name": "Japan",
+        "code": "JP"
+      },
+      "type": "LAN"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "The_Money_Cup"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "RM/DM Medley 2016",
+    "start": "2016-02-01T03:00:00.000Z",
+    "end": "2016-03-20T03:00:00.000Z",
+    "prizePool": {
+      "amount": 500,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "TaToH",
+        "image": "https://liquipedia.net/commons/images/thumb/c/c9/Es_hd.png/72px-Es_hd.png"
+      },
+      {
+        "name": "Vodka_L_",
+        "image": "https://liquipedia.net/commons/images/thumb/7/79/It_hd.png/72px-It_hd.png"
+      }
+    ],
+    "participantsCount": 51,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/0/01/RM_DM_Medley_2016_logo.png"
+    },
+    "path": "RM/DM_Medley_2016"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "The Uprising",
+    "start": "2015-10-26T03:00:00.000Z",
+    "end": "2016-01-28T03:00:00.000Z",
+    "prizePool": {
+      "amount": 2050,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "QuEnDi A",
+        "image": "https://liquipedia.net/commons/images/thumb/6/6e/QuEnDi_allmode.png/80px-QuEnDi_allmode.png"
+      },
+      {
+        "name": "Ousadia & Alegria",
+        "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/136px-Age_of_Empires_default_allmode.png"
+      }
+    ],
+    "participantsCount": 16,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "The_Uprising"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "Clan Masters: Invitational",
+    "start": "2015-11-16T03:00:00.000Z",
+    "end": "2015-12-20T03:00:00.000Z",
+    "prizePool": {
+      "amount": 5000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "TyRanT",
+        "image": "https://liquipedia.net/commons/images/thumb/1/11/Team_TyRanT_allmode.png/111px-Team_TyRanT_allmode.png"
+      },
+      {
+        "name": "Old Boys",
+        "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/136px-Age_of_Empires_default_allmode.png"
+      }
+    ],
+    "participantsCount": 8,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "Clan Masters",
+      "image": "https://liquipedia.net/commons/images/4/4b/Voobly_icon.png"
+    },
+    "path": "Clan_Masters/Invitational"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "The Empire Collective Cup: Platinum League",
+    "start": "2015-07-06T03:00:00.000Z",
+    "end": "2015-11-18T03:00:00.000Z",
+    "prizePool": {
+      "amount": 1875,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "TheViper",
+        "image": "https://liquipedia.net/commons/images/thumb/f/ff/No_hd.png/72px-No_hd.png"
+      },
+      {
+        "name": "RiuT",
+        "image": "https://liquipedia.net/commons/images/thumb/a/a9/Br_hd.png/72px-Br_hd.png"
+      }
+    ],
+    "participantsCount": 12,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/c/ce/Empire_Collective_logo.png"
+    },
+    "path": "The_Empire_Collective_Cup/Platinum_League"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "WSVG World Championship Maldives 2015",
+    "start": "2015-10-05T03:00:00.000Z",
+    "end": "2015-10-11T03:00:00.000Z",
+    "prizePool": {
+      "amount": 10000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "TheViper",
+        "image": "https://liquipedia.net/commons/images/thumb/f/ff/No_hd.png/72px-No_hd.png"
+      },
+      {
+        "name": "Mr_Yo",
+        "image": "https://liquipedia.net/commons/images/thumb/0/01/Cn_hd.png/72px-Cn_hd.png"
+      }
+    ],
+    "participantsCount": 8,
+    "location": {
+      "name": "Bandos",
+      "country": {
+        "name": "Maldives",
+        "code": "MV"
+      },
+      "type": "LAN"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/0/08/WSVG_Icon.png"
+    },
+    "path": "World_Series_of_Video_Games/World_Championship_Maldives_2015"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "SY Nations Cup 2",
+    "start": "2015-07-13T03:00:00.000Z",
+    "end": "2015-10-04T03:00:00.000Z",
+    "prizePool": {
+      "amount": 47400,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "China A",
+        "image": "https://liquipedia.net/commons/images/thumb/9/99/Flag_of_China_4_by_3.png/134px-Flag_of_China_4_by_3.png"
+      },
+      {
+        "name": "Canada",
+        "image": "https://liquipedia.net/commons/images/thumb/2/2a/Flag_of_Canada_4_by_3.png/134px-Flag_of_Canada_4_by_3.png"
+      }
+    ],
+    "participantsCount": 24,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "SY Nations Cup",
+      "image": "https://liquipedia.net/commons/images/e/eb/SY_icon.png"
+    },
+    "path": "SY/Nations_Cup/2"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Balance of Power",
+    "start": "2015-04-18T03:00:00.000Z",
+    "end": "2015-06-14T03:00:00.000Z",
+    "prizePool": {
+      "amount": 1000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "TheViper",
+        "image": "https://liquipedia.net/commons/images/thumb/f/ff/No_hd.png/72px-No_hd.png"
+      },
+      {
+        "name": "slam",
+        "image": "https://liquipedia.net/commons/images/thumb/7/72/Ca_hd.png/72px-Ca_hd.png"
+      }
+    ],
+    "participantsCount": 136,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "Balance_of_Power"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "War is Coming",
+    "start": "2014-11-17T02:00:00.000Z",
+    "end": "2015-03-29T03:00:00.000Z",
+    "prizePool": {
+      "amount": 110000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "TyRanT Legends",
+        "image": "https://liquipedia.net/commons/images/thumb/1/11/Team_TyRanT_allmode.png/111px-Team_TyRanT_allmode.png"
+      },
+      {
+        "name": "TyRanT Warlords",
+        "image": "https://liquipedia.net/commons/images/thumb/1/11/Team_TyRanT_allmode.png/111px-Team_TyRanT_allmode.png"
+      }
+    ],
+    "participantsCount": 40,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/4/4b/Voobly_icon.png"
+    },
+    "path": "War_is_Coming"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "The Awakening",
+    "start": "2015-01-31T02:00:00.000Z",
+    "end": "2015-02-03T02:00:00.000Z",
+    "prizePool": {
+      "amount": 3000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Jidba",
+        "image": "https://liquipedia.net/commons/images/thumb/1/1a/Gr_hd.png/72px-Gr_hd.png"
+      },
+      {
+        "name": "TheViper",
+        "image": "https://liquipedia.net/commons/images/thumb/f/ff/No_hd.png/72px-No_hd.png"
+      }
+    ],
+    "participantsCount": 32,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "War_is_Coming/The_Awakening"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Top Experts League #5 Finale",
+    "start": "2014-10-27T02:00:00.000Z",
+    "end": "2014-11-02T02:00:00.000Z",
+    "prizePool": {
+      "amount": 1000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "TheViper",
+        "image": "https://liquipedia.net/commons/images/thumb/f/ff/No_hd.png/72px-No_hd.png"
+      },
+      {
+        "name": "RiuT",
+        "image": "https://liquipedia.net/commons/images/thumb/a/a9/Br_hd.png/72px-Br_hd.png"
+      }
+    ],
+    "participantsCount": 4,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "Top_Experts_League/5"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "The Arabian Conquest",
+    "start": "2014-08-18T03:00:00.000Z",
+    "end": "2014-10-17T02:00:00.000Z",
+    "prizePool": {
+      "amount": 500,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Lojza",
+        "image": "https://liquipedia.net/commons/images/thumb/d/d4/Cz_hd.png/72px-Cz_hd.png"
+      },
+      {
+        "name": "BacT",
+        "image": "https://liquipedia.net/commons/images/thumb/a/a3/Vn_hd.png/72px-Vn_hd.png"
+      }
+    ],
+    "participantsCount": 108,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "The_Arabian_Conquest"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Top Experts League #4",
+    "start": "2014-09-06T03:00:00.000Z",
+    "end": "2014-10-04T03:00:00.000Z",
+    "prizePool": {
+      "amount": 500,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "BacT",
+        "image": "https://liquipedia.net/commons/images/thumb/a/a3/Vn_hd.png/72px-Vn_hd.png"
+      },
+      {
+        "name": "Yo",
+        "image": "https://liquipedia.net/commons/images/thumb/0/01/Cn_hd.png/72px-Cn_hd.png"
+      }
+    ],
+    "participantsCount": 4,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "Top_Experts_League/4"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "SaiyanHood: Legends United",
+    "start": "2014-06-30T03:00:00.000Z",
+    "end": "2014-09-19T03:00:00.000Z",
+    "prizePool": {
+      "amount": 700,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "TyRanT Bromance",
+        "image": "https://liquipedia.net/commons/images/thumb/1/11/Team_TyRanT_allmode.png/111px-Team_TyRanT_allmode.png"
+      },
+      {
+        "name": "TyRanT Warlords",
+        "image": "https://liquipedia.net/commons/images/thumb/1/11/Team_TyRanT_allmode.png/111px-Team_TyRanT_allmode.png"
+      }
+    ],
+    "participantsCount": 24,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "SaiyanHood:_Legends_United"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "SY Nations Cup 1",
+    "start": "2014-05-26T03:00:00.000Z",
+    "end": "2014-08-17T03:00:00.000Z",
+    "prizePool": {
+      "amount": 29000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "China A",
+        "image": "https://liquipedia.net/commons/images/thumb/9/99/Flag_of_China_4_by_3.png/134px-Flag_of_China_4_by_3.png"
+      },
+      {
+        "name": "Brazil A",
+        "image": "https://liquipedia.net/commons/images/thumb/8/83/Flag_of_Brazil_4_by_3.png/134px-Flag_of_Brazil_4_by_3.png"
+      }
+    ],
+    "participantsCount": 20,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "SY Nations Cup",
+      "image": "https://liquipedia.net/commons/images/e/eb/SY_icon.png"
+    },
+    "path": "SY/Nations_Cup/1"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Top Experts League #3",
+    "start": "2014-03-29T03:00:00.000Z",
+    "end": "2014-05-04T03:00:00.000Z",
+    "prizePool": {
+      "amount": 500,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "RiuT",
+        "image": "https://liquipedia.net/commons/images/thumb/a/a9/Br_hd.png/72px-Br_hd.png"
+      },
+      {
+        "name": "BacT",
+        "image": "https://liquipedia.net/commons/images/thumb/a/a3/Vn_hd.png/72px-Vn_hd.png"
+      }
+    ],
+    "participantsCount": 4,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "Top_Experts_League/3"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Veterans of the Clash",
+    "start": "2014-01-13T02:00:00.000Z",
+    "end": "2014-03-02T02:00:00.000Z",
+    "prizePool": {
+      "amount": 3150,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "slam",
+        "image": "https://liquipedia.net/commons/images/thumb/7/72/Ca_hd.png/72px-Ca_hd.png"
+      },
+      {
+        "name": "Tammy",
+        "image": "https://liquipedia.net/commons/images/thumb/4/41/Hk_hd.png/72px-Hk_hd.png"
+      }
+    ],
+    "participantsCount": 7,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "Veterans_of_the_Clash"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Out of Sync Cup",
+    "start": "2014-03-01T02:00:00.000Z",
+    "end": "2014-03-02T02:00:00.000Z",
+    "prizePool": {
+      "amount": 559,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "TheViper",
+        "image": "https://liquipedia.net/commons/images/thumb/f/ff/No_hd.png/72px-No_hd.png"
+      },
+      {
+        "name": "BacT",
+        "image": "https://liquipedia.net/commons/images/thumb/a/a3/Vn_hd.png/72px-Vn_hd.png"
+      }
+    ],
+    "participantsCount": 16,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "Out_of_Sync_Cup"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Top Experts League #2",
+    "start": "2013-12-20T02:00:00.000Z",
+    "end": "2014-01-12T02:00:00.000Z",
+    "prizePool": {
+      "amount": 500,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "JorDan_23",
+        "image": "https://liquipedia.net/commons/images/thumb/0/0c/De_hd.png/72px-De_hd.png"
+      },
+      {
+        "name": "BacT",
+        "image": "https://liquipedia.net/commons/images/thumb/a/a3/Vn_hd.png/72px-Vn_hd.png"
+      }
+    ],
+    "participantsCount": 4,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "Top_Experts_League/2"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "Clash of the Titans",
+    "start": "2013-10-13T02:00:00.000Z",
+    "end": "2013-12-08T02:00:00.000Z",
+    "prizePool": {
+      "amount": 21200,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "TheViper",
+        "image": "https://liquipedia.net/commons/images/thumb/f/ff/No_hd.png/72px-No_hd.png"
+      },
+      {
+        "name": "JorDan_23",
+        "image": "https://liquipedia.net/commons/images/thumb/0/0c/De_hd.png/72px-De_hd.png"
+      }
+    ],
+    "participantsCount": 128,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "Clash_of_the_Titans/2013"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Top Experts League #1",
+    "start": "2013-09-16T03:00:00.000Z",
+    "end": "2013-09-27T03:00:00.000Z",
+    "prizePool": {
+      "amount": 539.44,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "TheViper",
+        "image": "https://liquipedia.net/commons/images/thumb/f/ff/No_hd.png/72px-No_hd.png"
+      },
+      {
+        "name": "JorDan_23",
+        "image": "https://liquipedia.net/commons/images/thumb/0/0c/De_hd.png/72px-De_hd.png"
+      }
+    ],
+    "participantsCount": 4,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "Top_Experts_League/1"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "The Medieval Wars 2013",
+    "start": "2013-07-15T03:00:00.000Z",
+    "end": "2013-09-22T03:00:00.000Z",
+    "prizePool": {
+      "amount": 9300,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "TyRanT",
+        "image": "https://liquipedia.net/commons/images/thumb/1/11/Team_TyRanT_allmode.png/111px-Team_TyRanT_allmode.png"
+      },
+      {
+        "name": "Revenge of Knight",
+        "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/136px-Age_of_Empires_default_allmode.png"
+      }
+    ],
+    "participantsCount": 32,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "The Medieval Wars",
+      "image": "https://liquipedia.net/commons/images/c/c9/AoCZone_icon.png"
+    },
+    "path": "The_Medieval_Wars/2013"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Arabia 16 1v1s Tournament",
+    "start": "2013-07-01T03:00:00.000Z",
+    "end": "2013-09-09T03:00:00.000Z",
+    "prizePool": {
+      "amount": 500,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Spring",
+        "image": "https://liquipedia.net/commons/images/thumb/3/3b/Us_hd.png/72px-Us_hd.png"
+      },
+      {
+        "name": "TheViper",
+        "image": "https://liquipedia.net/commons/images/thumb/f/ff/No_hd.png/72px-No_hd.png"
+      }
+    ],
+    "participantsCount": 16,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "Arabia_16_1v1s_Tournament"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Grand Masters League",
+    "start": "2012-10-08T02:00:00.000Z",
+    "end": "2012-12-04T02:00:00.000Z",
+    "prizePool": {
+      "amount": 1309.2,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "TheViper",
+        "image": "https://liquipedia.net/commons/images/thumb/f/ff/No_hd.png/72px-No_hd.png"
+      },
+      {
+        "name": "JorDan_23",
+        "image": "https://liquipedia.net/commons/images/thumb/0/0c/De_hd.png/72px-De_hd.png"
+      }
+    ],
+    "participantsCount": 8,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "Grand_Masters_League"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "SY-Cup 2012",
+    "start": "2012-10-01T03:00:00.000Z",
+    "end": "2012-10-02T03:00:00.000Z",
+    "prizePool": {
+      "amount": 3000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "TyRanT",
+        "image": "https://liquipedia.net/commons/images/thumb/1/11/Team_TyRanT_allmode.png/111px-Team_TyRanT_allmode.png"
+      },
+      {
+        "name": "PBT",
+        "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/136px-Age_of_Empires_default_allmode.png"
+      }
+    ],
+    "participantsCount": 4,
+    "location": {
+      "name": "World China",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "SY-Cup/2012"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "The Tribal Wars 2012",
+    "start": "2012-04-06T03:00:00.000Z",
+    "end": "2012-07-15T03:00:00.000Z",
+    "prizePool": {
+      "amount": 15000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "TyRanT",
+        "image": "https://liquipedia.net/commons/images/thumb/1/11/Team_TyRanT_allmode.png/111px-Team_TyRanT_allmode.png"
+      },
+      {
+        "name": "Noobs From QQ",
+        "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/136px-Age_of_Empires_default_allmode.png"
+      }
+    ],
+    "participantsCount": 47,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "The Tribal Wars",
+      "image": "https://liquipedia.net/commons/images/c/c9/AoCZone_icon.png"
+    },
+    "path": "The_Tribal_Wars/2012"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Masters of Arabia (2012)",
+    "start": "2012-03-05T02:00:00.000Z",
+    "end": "2012-07-01T03:00:00.000Z",
+    "prizePool": {
+      "amount": 0,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Kiss_BB",
+        "image": "https://liquipedia.net/commons/images/thumb/0/01/Cn_hd.png/72px-Cn_hd.png"
+      },
+      {
+        "name": "TheViper",
+        "image": "https://liquipedia.net/commons/images/thumb/f/ff/No_hd.png/72px-No_hd.png"
+      }
+    ],
+    "participantsCount": 256,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "Masters_of_Arabia/2012"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "World Clan League 7",
+    "start": "2011-05-09T03:00:00.000Z",
+    "end": "2011-11-05T02:00:00.000Z",
+    "prizePool": {
+      "amount": 7035,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "TyRanT",
+        "image": "https://liquipedia.net/commons/images/thumb/1/11/Team_TyRanT_allmode.png/111px-Team_TyRanT_allmode.png"
+      },
+      {
+        "name": "Revenge of Knight A",
+        "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/136px-Age_of_Empires_default_allmode.png"
+      }
+    ],
+    "participantsCount": 32,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "World Clan League",
+      "image": "https://liquipedia.net/commons/images/c/c9/AoCZone_icon.png"
+    },
+    "path": "World_Clan_League/7"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "[CSC] Lunar New Year Cup",
+    "start": "2010-11-01T02:00:00.000Z",
+    "end": "2011-01-23T02:00:00.000Z",
+    "prizePool": {
+      "amount": 1937.69,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Tiger",
+        "image": "https://liquipedia.net/commons/images/thumb/0/01/Cn_hd.png/72px-Cn_hd.png"
+      },
+      {
+        "name": "cuihu",
+        "image": "https://liquipedia.net/commons/images/thumb/0/01/Cn_hd.png/72px-Cn_hd.png"
+      }
+    ],
+    "participantsCount": 64,
+    "location": {
+      "name": "China",
+      "country": {
+        "name": "China",
+        "code": "CN"
+      },
+      "type": "LAN"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "Lunar_New_Year_Cup"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Gemini Cup",
+    "start": "2010-04-22T03:00:00.000Z",
+    "end": "2010-07-10T03:00:00.000Z",
+    "prizePool": {
+      "amount": 1390.98,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "蜡笔小新",
+        "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/136px-Age_of_Empires_default_allmode.png"
+      }
+    ],
+    "participantsCount": 56,
+    "location": {
+      "name": "China",
+      "country": {
+        "name": "China",
+        "code": "CN"
+      },
+      "type": "LAN"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "Gemini_Cup"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "The Brain Champion Cup #3",
+    "start": "2010-03-11T02:00:00.000Z",
+    "end": "2010-05-10T03:00:00.000Z",
+    "prizePool": {
+      "amount": 11400,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "RiuT",
+        "image": "https://liquipedia.net/commons/images/thumb/a/a9/Br_hd.png/72px-Br_hd.png"
+      },
+      {
+        "name": "DauT",
+        "image": "https://liquipedia.net/commons/images/thumb/7/7b/Rs_hd.png/72px-Rs_hd.png"
+      }
+    ],
+    "participantsCount": 16,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "The Brain Champion Cup",
+      "image": "https://liquipedia.net/commons/images/c/c3/Legion_Clan_Icon.png"
+    },
+    "path": "The_Brain_Champion_Cup/3"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "Master of the Huns: Season 1",
+    "start": "2010-01-01T02:00:00.000Z",
+    "end": "2010-03-28T03:00:00.000Z",
+    "prizePool": {
+      "amount": 3650,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "DauT",
+        "image": "https://liquipedia.net/commons/images/thumb/7/7b/Rs_hd.png/72px-Rs_hd.png"
+      },
+      {
+        "name": "RiuT",
+        "image": "https://liquipedia.net/commons/images/thumb/a/a9/Br_hd.png/72px-Br_hd.png"
+      }
+    ],
+    "participantsCount": 10,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "Master_of_the_Huns:_Season_1"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "Nations Cup 2009",
+    "start": "2009-08-04T03:00:00.000Z",
+    "end": "2010-02-05T02:00:00.000Z",
+    "prizePool": {
+      "amount": 1000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Brazil A",
+        "image": "https://liquipedia.net/commons/images/thumb/8/83/Flag_of_Brazil_4_by_3.png/134px-Flag_of_Brazil_4_by_3.png"
+      },
+      {
+        "name": "Canada",
+        "image": "https://liquipedia.net/commons/images/thumb/2/2a/Flag_of_Canada_4_by_3.png/134px-Flag_of_Canada_4_by_3.png"
+      }
+    ],
+    "participantsCount": 48,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "AoCGroup Nations Cup",
+      "image": "https://liquipedia.net/commons/images/e/ec/Aocgroup_allmode.png"
+    },
+    "path": "Nations_Cup/2"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "The Brain Champion Cup #2",
+    "start": "2009-02-16T02:00:00.000Z",
+    "end": "2009-05-01T03:00:00.000Z",
+    "prizePool": {
+      "amount": 10000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "DauT",
+        "image": "https://liquipedia.net/commons/images/thumb/7/7b/Rs_hd.png/72px-Rs_hd.png"
+      },
+      {
+        "name": "Tammy",
+        "image": "https://liquipedia.net/commons/images/thumb/4/41/Hk_hd.png/72px-Hk_hd.png"
+      }
+    ],
+    "participantsCount": 16,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "The Brain Champion Cup",
+      "image": "https://liquipedia.net/commons/images/c/c3/Legion_Clan_Icon.png"
+    },
+    "path": "The_Brain_Champion_Cup/2"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "The Art of War",
+    "start": "2008-08-04T03:00:00.000Z",
+    "end": "2008-11-01T02:00:00.000Z",
+    "prizePool": {
+      "amount": 1000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "RuFF Ryderz",
+        "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/136px-Age_of_Empires_default_allmode.png"
+      },
+      {
+        "name": "Wild",
+        "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/136px-Age_of_Empires_default_allmode.png"
+      }
+    ],
+    "participantsCount": 32,
+    "location": {
+      "name": "Online",
+      "type": "LAN"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "The_Art_of_War/AoE2"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Rising Cup",
+    "start": "2008-06-01T03:00:00.000Z",
+    "end": "2008-08-02T03:00:00.000Z",
+    "prizePool": {
+      "amount": 3360.24,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Tim",
+        "image": "https://liquipedia.net/commons/images/thumb/0/01/Cn_hd.png/72px-Cn_hd.png"
+      },
+      {
+        "name": "Duck",
+        "image": "https://liquipedia.net/commons/images/thumb/0/01/Cn_hd.png/72px-Cn_hd.png"
+      }
+    ],
+    "participantsCount": 32,
+    "location": {
+      "name": "Shantou",
+      "country": {
+        "name": "China",
+        "code": "CN"
+      },
+      "type": "LAN"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "Rising_Cup_(Chinese_tournament)"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "The Brain Champion Cup #1",
+    "start": "2008-01-21T02:00:00.000Z",
+    "end": "2008-04-21T03:00:00.000Z",
+    "prizePool": {
+      "amount": 7250,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Ruso",
+        "image": "https://liquipedia.net/commons/images/thumb/c/c9/Es_hd.png/72px-Es_hd.png"
+      },
+      {
+        "name": "Chris",
+        "image": "https://liquipedia.net/commons/images/thumb/7/72/Ca_hd.png/72px-Ca_hd.png"
+      }
+    ],
+    "participantsCount": 256,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "The Brain Champion Cup",
+      "image": "https://liquipedia.net/commons/images/c/c3/Legion_Clan_Icon.png"
+    },
+    "path": "The_Brain_Champion_Cup/1"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "1st From China Tournament",
+    "start": "2007-10-28T02:00:00.000Z",
+    "end": "2008-01-13T02:00:00.000Z",
+    "prizePool": {
+      "amount": 2000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Chris",
+        "image": "https://liquipedia.net/commons/images/thumb/7/72/Ca_hd.png/72px-Ca_hd.png"
+      },
+      {
+        "name": "DauT",
+        "image": "https://liquipedia.net/commons/images/thumb/7/7b/Rs_hd.png/72px-Rs_hd.png"
+      }
+    ],
+    "participantsCount": 128,
+    "location": {
+      "name": "Online",
+      "type": "LAN"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "1st_From_China_Tournament"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "World Clan League 6",
+    "start": "2007-07-23T03:00:00.000Z",
+    "end": "2007-10-08T02:00:00.000Z",
+    "prizePool": {
+      "amount": 10000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "The Legion Clan",
+        "image": "https://liquipedia.net/commons/images/thumb/c/c4/Legion_Clan_allmode.png/99px-Legion_Clan_allmode.png"
+      },
+      {
+        "name": "Poison of Zone",
+        "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/136px-Age_of_Empires_default_allmode.png"
+      }
+    ],
+    "participantsCount": 32,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "World Clan League",
+      "image": "https://liquipedia.net/commons/images/c/c3/Legion_Clan_Icon.png"
+    },
+    "path": "World_Clan_League/6"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "Arbalet Cup IV: Age of Empires II",
+    "start": "2007-01-01T02:00:00.000Z",
+    "end": "2007-01-31T02:00:00.000Z",
+    "prizePool": {
+      "amount": 10000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Chris",
+        "image": "https://liquipedia.net/commons/images/thumb/7/72/Ca_hd.png/72px-Ca_hd.png"
+      },
+      {
+        "name": "Tammy",
+        "image": "https://liquipedia.net/commons/images/thumb/4/41/Hk_hd.png/72px-Hk_hd.png"
+      }
+    ],
+    "participantsCount": 512,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "Arbalet Cup",
+      "image": "https://liquipedia.net/commons/images/c/c3/Legion_Clan_Icon.png"
+    },
+    "path": "Arbalet_Cup/4"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "World Clan League 5",
+    "start": "2006-09-24T03:00:00.000Z",
+    "end": "2006-12-03T02:00:00.000Z",
+    "prizePool": {
+      "amount": 5000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Crime Scene Investigators",
+        "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/136px-Age_of_Empires_default_allmode.png"
+      },
+      {
+        "name": "ThugLife Clan",
+        "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/136px-Age_of_Empires_default_allmode.png"
+      }
+    ],
+    "participantsCount": 128,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "World Clan League",
+      "image": "https://liquipedia.net/commons/images/c/c3/Legion_Clan_Icon.png"
+    },
+    "path": "World_Clan_League/5"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Nations Cup 2005",
+    "start": "2005-11-14T02:00:00.000Z",
+    "end": "2006-05-10T03:00:00.000Z",
+    "prizePool": {
+      "amount": 880,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "China A",
+        "image": "https://liquipedia.net/commons/images/thumb/9/99/Flag_of_China_4_by_3.png/134px-Flag_of_China_4_by_3.png"
+      },
+      {
+        "name": "Canada",
+        "image": "https://liquipedia.net/commons/images/thumb/2/2a/Flag_of_Canada_4_by_3.png/134px-Flag_of_Canada_4_by_3.png"
+      }
+    ],
+    "participantsCount": 32,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "AoCGroup Nations Cup",
+      "image": "https://liquipedia.net/commons/images/e/ec/Aocgroup_allmode.png"
+    },
+    "path": "Nations_Cup/1"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "World Clan League 4",
+    "start": "2005-09-17T03:00:00.000Z",
+    "end": "2006-02-19T02:00:00.000Z",
+    "prizePool": {
+      "amount": 20000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Berserkers",
+        "image": "https://liquipedia.net/commons/images/thumb/b/ba/Berserkers_logo.png/117px-Berserkers_logo.png"
+      },
+      {
+        "name": "The Legion Clan",
+        "image": "https://liquipedia.net/commons/images/thumb/c/c4/Legion_Clan_allmode.png/99px-Legion_Clan_allmode.png"
+      }
+    ],
+    "participantsCount": 28,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "World Clan League",
+      "image": "https://liquipedia.net/commons/images/c/c3/Legion_Clan_Icon.png"
+    },
+    "path": "World_Clan_League/4"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "MVP 3",
+    "start": "2005-12-23T02:00:00.000Z",
+    "end": "2006-02-08T02:00:00.000Z",
+    "prizePool": {
+      "amount": 429,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Vegeta_",
+        "image": "https://liquipedia.net/commons/images/thumb/7/7b/Rs_hd.png/72px-Rs_hd.png"
+      },
+      {
+        "name": "Chris",
+        "image": "https://liquipedia.net/commons/images/thumb/7/72/Ca_hd.png/72px-Ca_hd.png"
+      }
+    ],
+    "participantsCount": 64,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "MVP/3"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "ArgoNaut For All",
+    "start": "2005-07-18T03:00:00.000Z",
+    "end": "2005-10-13T02:00:00.000Z",
+    "prizePool": {
+      "amount": 2500,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Ruso & RuKie",
+        "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/136px-Age_of_Empires_default_allmode.png"
+      },
+      {
+        "name": "Chris & Tea",
+        "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/136px-Age_of_Empires_default_allmode.png"
+      }
+    ],
+    "participantsCount": 64,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "ArgoNaut_For_All"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "Back to Almaty",
+    "start": "2005-08-01T03:00:00.000Z",
+    "end": "2005-09-02T03:00:00.000Z",
+    "prizePool": {
+      "amount": 4900,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Chris",
+        "image": "https://liquipedia.net/commons/images/thumb/7/72/Ca_hd.png/72px-Ca_hd.png"
+      },
+      {
+        "name": "RuKie",
+        "image": "https://liquipedia.net/commons/images/thumb/c/c9/Es_hd.png/72px-Es_hd.png"
+      }
+    ],
+    "participantsCount": 32,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/c/c3/Legion_Clan_Icon.png"
+    },
+    "path": "Back_to_Almaty"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "AmeriCup: Age of Empires II",
+    "start": "2005-04-11T03:00:00.000Z",
+    "end": "2005-08-30T03:00:00.000Z",
+    "prizePool": {
+      "amount": 4000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Vegeta",
+        "image": "https://liquipedia.net/commons/images/thumb/7/7b/Rs_hd.png/72px-Rs_hd.png"
+      },
+      {
+        "name": "PeEL",
+        "image": "https://liquipedia.net/commons/images/thumb/6/61/Pl_hd.png/72px-Pl_hd.png"
+      }
+    ],
+    "participantsCount": 16,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "AmeriCup/AoE2"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "MVP 2",
+    "start": "2005-06-13T03:00:00.000Z",
+    "end": "2005-08-26T03:00:00.000Z",
+    "prizePool": {
+      "amount": 1000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Chris",
+        "image": "https://liquipedia.net/commons/images/thumb/7/72/Ca_hd.png/72px-Ca_hd.png"
+      },
+      {
+        "name": "Tui_Dominus_",
+        "image": "https://liquipedia.net/commons/images/thumb/5/5e/Gb_hd.png/72px-Gb_hd.png"
+      }
+    ],
+    "participantsCount": 64,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "MVP/2"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "JuNo Cup III",
+    "start": "2005-05-16T03:00:00.000Z",
+    "end": "2005-06-30T03:00:00.000Z",
+    "prizePool": {
+      "amount": 725.46,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Bender",
+        "image": "https://liquipedia.net/commons/images/thumb/0/0c/De_hd.png/72px-De_hd.png"
+      },
+      {
+        "name": "Jidba",
+        "image": "https://liquipedia.net/commons/images/thumb/1/1a/Gr_hd.png/72px-Gr_hd.png"
+      }
+    ],
+    "participantsCount": 128,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "JuNo_Cup/3"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "World Clan League 3",
+    "start": "2005-01-31T02:00:00.000Z",
+    "end": "2005-06-15T03:00:00.000Z",
+    "prizePool": {
+      "amount": 15000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "The Legion Clan",
+        "image": "https://liquipedia.net/commons/images/thumb/c/c4/Legion_Clan_allmode.png/99px-Legion_Clan_allmode.png"
+      },
+      {
+        "name": "MyST",
+        "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/136px-Age_of_Empires_default_allmode.png"
+      }
+    ],
+    "participantsCount": 36,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "World Clan League",
+      "image": "https://liquipedia.net/commons/images/c/c3/Legion_Clan_Icon.png"
+    },
+    "path": "World_Clan_League/3"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "The Regicide Imperator - 2nd Edition",
+    "start": "2005-04-30T03:00:00.000Z",
+    "end": "2005-05-07T03:00:00.000Z",
+    "prizePool": {
+      "amount": 2000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Chris",
+        "image": "https://liquipedia.net/commons/images/thumb/7/72/Ca_hd.png/72px-Ca_hd.png"
+      },
+      {
+        "name": "PeEl",
+        "image": "https://liquipedia.net/commons/images/thumb/6/61/Pl_hd.png/72px-Pl_hd.png"
+      }
+    ],
+    "participantsCount": 176,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/c/c3/Legion_Clan_Icon.png"
+    },
+    "path": "The_Regicide_Imperator/2"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Handicap Tournament",
+    "start": "2005-01-05T02:00:00.000Z",
+    "end": "2005-04-30T03:00:00.000Z",
+    "prizePool": {
+      "amount": 2000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Vegeta",
+        "image": "https://liquipedia.net/commons/images/thumb/7/7b/Rs_hd.png/72px-Rs_hd.png"
+      },
+      {
+        "name": "DreaIVIS",
+        "image": "https://liquipedia.net/commons/images/thumb/0/07/Fi_hd.png/72px-Fi_hd.png"
+      }
+    ],
+    "participantsCount": 16,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "Handicap_Tournament"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "Global Gaming League 2004: Finals (AoE2)",
+    "start": "2004-06-15T03:00:00.000Z",
+    "end": "2005-03-28T03:00:00.000Z",
+    "prizePool": {
+      "amount": 8000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Chris",
+        "image": "https://liquipedia.net/commons/images/thumb/7/72/Ca_hd.png/72px-Ca_hd.png"
+      },
+      {
+        "name": "DauT",
+        "image": "https://liquipedia.net/commons/images/thumb/7/7b/Rs_hd.png/72px-Rs_hd.png"
+      }
+    ],
+    "participantsCount": 14,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "Global Gaming League",
+      "image": "https://liquipedia.net/commons/images/7/7b/GGL_Icon.png"
+    },
+    "path": "Global_Gaming_League/2004/AoE2"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "World Clan League 2",
+    "start": "2004-07-01T03:00:00.000Z",
+    "end": "2004-12-13T02:00:00.000Z",
+    "prizePool": {
+      "amount": 11320,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Berserkers",
+        "image": "https://liquipedia.net/commons/images/thumb/b/ba/Berserkers_logo.png/117px-Berserkers_logo.png"
+      },
+      {
+        "name": "The Legion Clan",
+        "image": "https://liquipedia.net/commons/images/thumb/c/c4/Legion_Clan_allmode.png/99px-Legion_Clan_allmode.png"
+      }
+    ],
+    "participantsCount": 40,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "World Clan League",
+      "image": "https://liquipedia.net/commons/images/c/c3/Legion_Clan_Icon.png"
+    },
+    "path": "World_Clan_League/2"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Rakeshty 2004",
+    "start": "2004-09-27T02:00:00.000Z",
+    "end": "2004-11-24T02:00:00.000Z",
+    "prizePool": {
+      "amount": 658.9,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "DauT",
+        "image": "https://liquipedia.net/commons/images/thumb/7/7b/Rs_hd.png/72px-Rs_hd.png"
+      },
+      {
+        "name": "Chris",
+        "image": "https://liquipedia.net/commons/images/thumb/7/72/Ca_hd.png/72px-Ca_hd.png"
+      }
+    ],
+    "participantsCount": 128,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "Rakeshty_2004"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "JuNo Cup II",
+    "start": "2004-07-01T03:00:00.000Z",
+    "end": "2004-09-08T03:00:00.000Z",
+    "prizePool": {
+      "amount": 425.42,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Bender",
+        "image": "https://liquipedia.net/commons/images/thumb/0/0c/De_hd.png/72px-De_hd.png"
+      },
+      {
+        "name": "Valhalla",
+        "image": "https://liquipedia.net/commons/images/thumb/5/5e/Gb_hd.png/72px-Gb_hd.png"
+      }
+    ],
+    "participantsCount": 116,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "JuNo_Cup/2"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "Simply the Best",
+    "start": "2004-06-21T03:00:00.000Z",
+    "end": "2004-07-19T03:00:00.000Z",
+    "prizePool": {
+      "amount": 700,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "BT4",
+        "image": "https://liquipedia.net/commons/images/thumb/0/01/Cn_hd.png/72px-Cn_hd.png"
+      },
+      {
+        "name": "IORI",
+        "image": "https://liquipedia.net/commons/images/thumb/0/01/Cn_hd.png/72px-Cn_hd.png"
+      }
+    ],
+    "participantsCount": 32,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "Simply_the_Best"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "World Clan League",
+    "start": "2004-02-01T03:00:00.000Z",
+    "end": "2004-06-13T03:00:00.000Z",
+    "prizePool": {
+      "amount": 25000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Berserkers",
+        "image": "https://liquipedia.net/commons/images/thumb/b/ba/Berserkers_logo.png/117px-Berserkers_logo.png"
+      },
+      {
+        "name": "The Legion Clan",
+        "image": "https://liquipedia.net/commons/images/thumb/c/c4/Legion_Clan_allmode.png/99px-Legion_Clan_allmode.png"
+      }
+    ],
+    "participantsCount": 67,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "World Clan League",
+      "image": "https://liquipedia.net/commons/images/c/c3/Legion_Clan_Icon.png"
+    },
+    "path": "World_Clan_League/1"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "CERPIO Gladiators Cup II",
+    "start": "2004-03-21T03:00:00.000Z",
+    "end": "2004-05-23T03:00:00.000Z",
+    "prizePool": {
+      "amount": 300,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "PeEL",
+        "image": "https://liquipedia.net/commons/images/thumb/6/61/Pl_hd.png/72px-Pl_hd.png"
+      },
+      {
+        "name": "Shmeker",
+        "image": "https://liquipedia.net/commons/images/thumb/7/7b/Rs_hd.png/72px-Rs_hd.png"
+      }
+    ],
+    "participantsCount": 512,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "CERPIO_Gladiators_Cup/2"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "MVP (1)",
+    "start": "2004-01-19T03:00:00.000Z",
+    "end": "2004-03-15T03:00:00.000Z",
+    "prizePool": {
+      "amount": 1000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Shmeker",
+        "image": "https://liquipedia.net/commons/images/thumb/7/7b/Rs_hd.png/72px-Rs_hd.png"
+      },
+      {
+        "name": "Grunt",
+        "image": "https://liquipedia.net/commons/images/thumb/8/8c/Kr_hd.png/72px-Kr_hd.png"
+      }
+    ],
+    "participantsCount": 256,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "MVP/1"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Arbalet Cup Brazil: Age of Empires II",
+    "start": "2004-01-24T03:00:00.000Z",
+    "prizePool": {
+      "amount": 4000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "_Logan",
+        "image": "https://liquipedia.net/commons/images/thumb/a/a9/Br_hd.png/72px-Br_hd.png"
+      },
+      {
+        "name": "Girino",
+        "image": "https://liquipedia.net/commons/images/thumb/a/a9/Br_hd.png/72px-Br_hd.png"
+      }
+    ],
+    "participantsCount": 256,
+    "location": {
+      "name": "São Paulo",
+      "country": {
+        "name": "Brazil",
+        "code": "BR"
+      },
+      "type": "LAN"
+    },
+    "league": {
+      "name": "Arbalet Cup",
+      "image": "https://liquipedia.net/commons/images/c/c3/Legion_Clan_Icon.png"
+    },
+    "path": "Arbalet_Cup_Brazil/Age_of_Empires_II"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "JuNo Cup",
+    "start": "2003-11-17T03:00:00.000Z",
+    "end": "2004-01-10T03:00:00.000Z",
+    "prizePool": {
+      "amount": 300,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Bender",
+        "image": "https://liquipedia.net/commons/images/thumb/0/0c/De_hd.png/72px-De_hd.png"
+      },
+      {
+        "name": "WraTh",
+        "image": "https://liquipedia.net/commons/images/thumb/2/2c/Ie_hd.png/72px-Ie_hd.png"
+      }
+    ],
+    "participantsCount": 128,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "JuNo_Cup/1"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "The Conquering Hero",
+    "start": "2003-12-01T03:00:00.000Z",
+    "end": "2003-12-22T03:00:00.000Z",
+    "prizePool": {
+      "amount": 2000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Capoch",
+        "image": "https://liquipedia.net/commons/images/thumb/f/f1/Ar_hd.png/72px-Ar_hd.png"
+      },
+      {
+        "name": "Extacy",
+        "image": "https://liquipedia.net/commons/images/thumb/3/3b/Us_hd.png/72px-Us_hd.png"
+      }
+    ],
+    "participantsCount": 30,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/8/8e/MrFixitOnline_logo_allmode.png/100px-MrFixitOnline_logo_allmode.png"
+    },
+    "path": "The_Conquering_Hero"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "CERPIO Gladiators Cup I",
+    "start": "2003-11-01T03:00:00.000Z",
+    "end": "2003-12-05T03:00:00.000Z",
+    "prizePool": {
+      "amount": 150,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Shmeker",
+        "image": "https://liquipedia.net/commons/images/thumb/7/7b/Rs_hd.png/72px-Rs_hd.png"
+      },
+      {
+        "name": "Ninja_Soul_",
+        "image": "https://liquipedia.net/commons/images/thumb/8/86/Il_hd.png/72px-Il_hd.png"
+      }
+    ],
+    "participantsCount": 128,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "CERPIO_Gladiators_Cup/1"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "Masters of AoC: 1v1",
+    "start": "2003-11-15T03:00:00.000Z",
+    "end": "2003-11-16T03:00:00.000Z",
+    "prizePool": {
+      "amount": 2236.64,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Yanzi",
+        "image": "https://liquipedia.net/commons/images/thumb/4/41/Hk_hd.png/72px-Hk_hd.png"
+      },
+      {
+        "name": "PPoc",
+        "image": "https://liquipedia.net/commons/images/thumb/c/c9/Es_hd.png/72px-Es_hd.png"
+      }
+    ],
+    "participantsCount": 64,
+    "location": {
+      "name": "Villablino",
+      "country": {
+        "name": "Spain",
+        "code": "ES"
+      },
+      "type": "LAN"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "Masters_of_AoC/1v1"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Arabia Masters",
+    "start": "2003-08-18T03:00:00.000Z",
+    "end": "2003-09-30T03:00:00.000Z",
+    "prizePool": {
+      "amount": 1000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "windy",
+        "image": "https://liquipedia.net/commons/images/thumb/0/01/Cn_hd.png/72px-Cn_hd.png"
+      },
+      {
+        "name": "Shmeker",
+        "image": "https://liquipedia.net/commons/images/thumb/7/7b/Rs_hd.png/72px-Rs_hd.png"
+      }
+    ],
+    "participantsCount": 256,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "Arabia_Masters"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "Arbalet Cup #3: Age of Empires II",
+    "start": "2003-08-08T03:00:00.000Z",
+    "end": "2003-08-10T03:00:00.000Z",
+    "prizePool": {
+      "amount": 7000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Chris",
+        "image": "https://liquipedia.net/commons/images/thumb/7/72/Ca_hd.png/72px-Ca_hd.png"
+      },
+      {
+        "name": "Bender",
+        "image": "https://liquipedia.net/commons/images/thumb/0/0c/De_hd.png/72px-De_hd.png"
+      }
+    ],
+    "participantsCount": 512,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "Arbalet Cup",
+      "image": "https://liquipedia.net/commons/images/c/c3/Legion_Clan_Icon.png"
+    },
+    "path": "Arbalet_Cup/3/Age_of_Empires_II"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "FOPT - Anniversary Cup (AoE2)",
+    "start": "2003-05-19T03:00:00.000Z",
+    "end": "2003-07-23T03:00:00.000Z",
+    "prizePool": {
+      "amount": 300,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Shmeker",
+        "image": "https://liquipedia.net/commons/images/thumb/7/7b/Rs_hd.png/72px-Rs_hd.png"
+      },
+      {
+        "name": "Halen",
+        "image": "https://liquipedia.net/commons/images/thumb/f/fd/Jp_hd.png/72px-Jp_hd.png"
+      }
+    ],
+    "participantsCount": 512,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "FOPT_-_Anniversary_Cup_(AoE2)"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "Lord of Maps",
+    "start": "2003-04-12T03:00:00.000Z",
+    "end": "2003-04-13T03:00:00.000Z",
+    "prizePool": {
+      "amount": 1600,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Capoch",
+        "image": "https://liquipedia.net/commons/images/thumb/f/f1/Ar_hd.png/72px-Ar_hd.png"
+      },
+      {
+        "name": "Shmeker",
+        "image": "https://liquipedia.net/commons/images/thumb/7/7b/Rs_hd.png/72px-Rs_hd.png"
+      }
+    ],
+    "participantsCount": 100,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/c/c3/Legion_Clan_Icon.png"
+    },
+    "path": "Lord_of_Maps"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "The Best Legionary of Year",
+    "start": "2002-12-20T03:00:00.000Z",
+    "end": "2003-01-18T03:00:00.000Z",
+    "prizePool": {
+      "amount": 10000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Chris",
+        "image": "https://liquipedia.net/commons/images/thumb/7/72/Ca_hd.png/72px-Ca_hd.png"
+      },
+      {
+        "name": "Capoch",
+        "image": "https://liquipedia.net/commons/images/thumb/f/f1/Ar_hd.png/72px-Ar_hd.png"
+      }
+    ],
+    "participantsCount": 14,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/c/c3/Legion_Clan_Icon.png"
+    },
+    "path": "The_Best_Legionary_of_Year"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "MFO AOC Tourney",
+    "start": "2002-11-09T03:00:00.000Z",
+    "end": "2002-12-09T03:00:00.000Z",
+    "prizePool": {
+      "amount": 3950,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Chris",
+        "image": "https://liquipedia.net/commons/images/thumb/7/72/Ca_hd.png/72px-Ca_hd.png"
+      },
+      {
+        "name": "Capoch",
+        "image": "https://liquipedia.net/commons/images/thumb/f/f1/Ar_hd.png/72px-Ar_hd.png"
+      }
+    ],
+    "participantsCount": 390,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/8/8e/MrFixitOnline_logo_allmode.png/100px-MrFixitOnline_logo_allmode.png"
+    },
+    "path": "MFO_AOC_Tourney"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "World Clan War 2vs2",
+    "start": "2002-12-07T03:00:00.000Z",
+    "end": "2002-12-08T03:00:00.000Z",
+    "prizePool": {
+      "amount": 2000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "March & RaYaN",
+        "image": "https://liquipedia.net/commons/images/thumb/c/c4/Legion_Clan_allmode.png/99px-Legion_Clan_allmode.png"
+      },
+      {
+        "name": "Stick & TheChobo",
+        "image": "https://liquipedia.net/commons/images/thumb/c/c4/Legion_Clan_allmode.png/99px-Legion_Clan_allmode.png"
+      }
+    ],
+    "participantsCount": 48,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/c/c3/Legion_Clan_Icon.png"
+    },
+    "path": "World_Clan_War_2vs2"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "The Best Legionary of October",
+    "start": "2002-11-09T03:00:00.000Z",
+    "prizePool": {
+      "amount": 1000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Capoch",
+        "image": "https://liquipedia.net/commons/images/thumb/f/f1/Ar_hd.png/72px-Ar_hd.png"
+      },
+      {
+        "name": "Chris",
+        "image": "https://liquipedia.net/commons/images/thumb/7/72/Ca_hd.png/72px-Ca_hd.png"
+      }
+    ],
+    "participantsCount": 2,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "The_Best_Legionary_of_October"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "World Cyber Games 2002",
+    "start": "2002-10-29T03:00:00.000Z",
+    "end": "2002-11-03T03:00:00.000Z",
+    "prizePool": {
+      "amount": 43000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "HALEN",
+        "image": "https://liquipedia.net/commons/images/thumb/f/fd/Jp_hd.png/72px-Jp_hd.png"
+      },
+      {
+        "name": "IamKen",
+        "image": "https://liquipedia.net/commons/images/thumb/6/65/Tw_hd.png/72px-Tw_hd.png"
+      }
+    ],
+    "participantsCount": 42,
+    "location": {
+      "name": "Daejeon",
+      "type": "LAN"
+    },
+    "league": {
+      "name": "World Cyber Games",
+      "image": "https://liquipedia.net/commons/images/b/bc/Wcg_logo.png"
+    },
+    "path": "World_Cyber_Games/2002/1v1"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "The Best Legionary of September",
+    "start": "2002-09-01T03:00:00.000Z",
+    "end": "2002-09-30T03:00:00.000Z",
+    "prizePool": {
+      "amount": 1000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Capoch",
+        "image": "https://liquipedia.net/commons/images/thumb/f/f1/Ar_hd.png/72px-Ar_hd.png"
+      }
+    ],
+    "participantsCount": 1,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "The_Best_Legionary_of_September"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Tournament of winners of tote FIFA World Cup 2002",
+    "start": "2002-08-11T03:00:00.000Z",
+    "end": "2002-09-14T03:00:00.000Z",
+    "prizePool": {
+      "amount": 1000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Chris",
+        "image": "https://liquipedia.net/commons/images/thumb/7/72/Ca_hd.png/72px-Ca_hd.png"
+      },
+      {
+        "name": "SkyLine",
+        "image": "https://liquipedia.net/commons/images/d/d5/Flag_Unknown.svg"
+      }
+    ],
+    "participantsCount": 27,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/c/c3/Legion_Clan_Icon.png"
+    },
+    "path": "Tournament_of_the_FIFA_World_Cup_2002_Winner_Quiz"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "AoC Euro Cup 2002: 1v1",
+    "start": "2002-09-07T03:00:00.000Z",
+    "end": "2002-09-08T03:00:00.000Z",
+    "prizePool": {
+      "amount": 3143.08,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "GeeK",
+        "image": "https://liquipedia.net/commons/images/thumb/5/5e/Gb_hd.png/72px-Gb_hd.png"
+      },
+      {
+        "name": "Crouvex",
+        "image": "https://liquipedia.net/commons/images/thumb/0/0c/De_hd.png/72px-De_hd.png"
+      }
+    ],
+    "participantsCount": 30,
+    "location": {
+      "name": "London (Slough)",
+      "country": {
+        "name": "United Kingdom",
+        "code": "GB"
+      },
+      "type": "LAN"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "AoC_Euro_Cup_2002/1v1"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "The Best Legionary of August",
+    "start": "2002-08-01T03:00:00.000Z",
+    "end": "2002-08-31T03:00:00.000Z",
+    "prizePool": {
+      "amount": 1000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Chris",
+        "image": "https://liquipedia.net/commons/images/thumb/7/72/Ca_hd.png/72px-Ca_hd.png"
+      }
+    ],
+    "participantsCount": 1,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "The_Best_Legionary_of_August"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Alliance Cup",
+    "start": "2002-06-14T03:00:00.000Z",
+    "end": "2002-08-28T03:00:00.000Z",
+    "prizePool": {
+      "amount": 3000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "HALEN",
+        "image": "https://liquipedia.net/commons/images/thumb/f/fd/Jp_hd.png/72px-Jp_hd.png"
+      },
+      {
+        "name": "Pepin",
+        "image": "https://liquipedia.net/commons/images/thumb/4/40/Fr_hd.png/72px-Fr_hd.png"
+      }
+    ],
+    "participantsCount": 512,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/c/c3/Legion_Clan_Icon.png"
+    },
+    "path": "Alliance_Cup"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Friendship Cup II",
+    "start": "2002-08-20T03:00:00.000Z",
+    "end": "2002-08-22T03:00:00.000Z",
+    "prizePool": {
+      "amount": 1700,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Grunt",
+        "image": "https://liquipedia.net/commons/images/thumb/8/8c/Kr_hd.png/72px-Kr_hd.png"
+      },
+      {
+        "name": "RD_ChampioN",
+        "image": "https://liquipedia.net/commons/images/thumb/8/8c/Kr_hd.png/72px-Kr_hd.png"
+      }
+    ],
+    "participantsCount": 80,
+    "location": {
+      "name": "Almaty",
+      "country": {
+        "name": "Kazakhstan",
+        "code": "KZ"
+      },
+      "type": "LAN"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "Friendship_Cup/2/1v1_Blind_Random"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Black Forest Tournament (by The Legion Clan)",
+    "start": "2002-08-10T03:00:00.000Z",
+    "prizePool": {
+      "amount": 1000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Chris",
+        "image": "https://liquipedia.net/commons/images/thumb/7/72/Ca_hd.png/72px-Ca_hd.png"
+      },
+      {
+        "name": "Shmeker",
+        "image": "https://liquipedia.net/commons/images/thumb/7/7b/Rs_hd.png/72px-Rs_hd.png"
+      }
+    ],
+    "participantsCount": 46,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/c/c3/Legion_Clan_Icon.png"
+    },
+    "path": "Black_Forest_Tournament_(by_The_Legion_Clan)/High"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "The Best Legionary of July",
+    "start": "2002-08-03T03:00:00.000Z",
+    "prizePool": {
+      "amount": 1000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "GeeK",
+        "image": "https://liquipedia.net/commons/images/thumb/5/5e/Gb_hd.png/72px-Gb_hd.png"
+      }
+    ],
+    "participantsCount": 32,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "The_Best_Legionary_of_July"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "Arbalet Cup #2",
+    "start": "2002-06-01T03:00:00.000Z",
+    "end": "2002-07-31T03:00:00.000Z",
+    "prizePool": {
+      "amount": 10000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Halen",
+        "image": "https://liquipedia.net/commons/images/thumb/f/fd/Jp_hd.png/72px-Jp_hd.png"
+      },
+      {
+        "name": "Grunt",
+        "image": "https://liquipedia.net/commons/images/thumb/8/8c/Kr_hd.png/72px-Kr_hd.png"
+      }
+    ],
+    "participantsCount": 512,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "Arbalet Cup",
+      "image": "https://liquipedia.net/commons/images/c/c3/Legion_Clan_Icon.png"
+    },
+    "path": "Arbalet_Cup/2"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Legion Cup II",
+    "start": "2002-07-27T03:00:00.000Z",
+    "end": "2002-07-28T03:00:00.000Z",
+    "prizePool": {
+      "amount": 5000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Chris",
+        "image": "https://liquipedia.net/commons/images/thumb/7/72/Ca_hd.png/72px-Ca_hd.png"
+      },
+      {
+        "name": "TaMoCk_",
+        "image": "https://liquipedia.net/commons/images/thumb/4/40/Fr_hd.png/72px-Fr_hd.png"
+      }
+    ],
+    "participantsCount": 64,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/c/c3/Legion_Clan_Icon.png"
+    },
+    "path": "Legion_Cup/2"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Arabia Deathmatch Tournament (>1750)",
+    "start": "2002-07-20T03:00:00.000Z",
+    "prizePool": {
+      "amount": 1000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Ugnis",
+        "image": "https://liquipedia.net/commons/images/thumb/2/21/Lt_hd.png/72px-Lt_hd.png"
+      },
+      {
+        "name": "Dumbo",
+        "image": "https://liquipedia.net/commons/images/thumb/7/79/It_hd.png/72px-It_hd.png"
+      }
+    ],
+    "participantsCount": 40,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/c/c3/Legion_Clan_Icon.png"
+    },
+    "path": "Arabia_Deathmatch_Tournament"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "The Best Legionary of June",
+    "start": "2002-06-01T03:00:00.000Z",
+    "end": "2002-06-30T03:00:00.000Z",
+    "prizePool": {
+      "amount": 1000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Dumbo",
+        "image": "https://liquipedia.net/commons/images/thumb/7/79/It_hd.png/72px-It_hd.png"
+      }
+    ],
+    "participantsCount": 1,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "The_Best_Legionary_of_June"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "The Best Legionary of May",
+    "start": "2002-05-01T03:00:00.000Z",
+    "end": "2002-05-31T03:00:00.000Z",
+    "prizePool": {
+      "amount": 1000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "GP",
+        "image": "https://liquipedia.net/commons/images/thumb/a/a9/Br_hd.png/72px-Br_hd.png"
+      }
+    ],
+    "participantsCount": 1,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "The_Best_Legionary_of_May"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Legion Cup (I)",
+    "start": "2002-05-17T03:00:00.000Z",
+    "end": "2002-05-18T03:00:00.000Z",
+    "prizePool": {
+      "amount": 1000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "iamgrunt",
+        "image": "https://liquipedia.net/commons/images/thumb/8/8c/Kr_hd.png/72px-Kr_hd.png"
+      },
+      {
+        "name": "Apple",
+        "image": "https://liquipedia.net/commons/images/thumb/0/01/Cn_hd.png/72px-Cn_hd.png"
+      }
+    ],
+    "participantsCount": 64,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/c/c3/Legion_Clan_Icon.png"
+    },
+    "path": "Legion_Cup/1"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "The Best Legionary of April",
+    "start": "2002-04-01T03:00:00.000Z",
+    "end": "2002-04-30T03:00:00.000Z",
+    "prizePool": {
+      "amount": 1000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Bender",
+        "image": "https://liquipedia.net/commons/images/thumb/0/0c/De_hd.png/72px-De_hd.png"
+      }
+    ],
+    "participantsCount": 1,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "The_Best_Legionary_of_April"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "Arbalet Cup",
+    "start": "2002-03-01T03:00:00.000Z",
+    "end": "2002-04-28T03:00:00.000Z",
+    "prizePool": {
+      "amount": 5000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Koven",
+        "image": "https://liquipedia.net/commons/images/thumb/8/8c/Kr_hd.png/72px-Kr_hd.png"
+      },
+      {
+        "name": "IamChris",
+        "image": "https://liquipedia.net/commons/images/thumb/7/72/Ca_hd.png/72px-Ca_hd.png"
+      }
+    ],
+    "participantsCount": 496,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "Arbalet Cup",
+      "image": "https://liquipedia.net/commons/images/c/c3/Legion_Clan_Icon.png"
+    },
+    "path": "Arbalet_Cup/1"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "The Best Legionary of March",
+    "start": "2002-03-01T03:00:00.000Z",
+    "end": "2002-03-31T03:00:00.000Z",
+    "prizePool": {
+      "amount": 1000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Dumbo",
+        "image": "https://liquipedia.net/commons/images/thumb/7/79/It_hd.png/72px-It_hd.png"
+      }
+    ],
+    "participantsCount": 1,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "The_Best_Legionary_of_March"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "The Best Legionary of February",
+    "start": "2002-02-01T03:00:00.000Z",
+    "end": "2002-02-28T03:00:00.000Z",
+    "prizePool": {
+      "amount": 1000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Kraken",
+        "image": "https://liquipedia.net/commons/images/thumb/9/9d/Nl_hd.png/72px-Nl_hd.png"
+      }
+    ],
+    "participantsCount": 1,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "The_Best_Legionary_of_February"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "ReFF's Rumble Cup",
+    "start": "2002-02-09T03:00:00.000Z",
+    "prizePool": {
+      "amount": 1000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "aluba007",
+        "image": "https://liquipedia.net/commons/images/thumb/6/65/Tw_hd.png/72px-Tw_hd.png"
+      },
+      {
+        "name": "Capoch",
+        "image": "https://liquipedia.net/commons/images/thumb/f/f1/Ar_hd.png/72px-Ar_hd.png"
+      }
+    ],
+    "participantsCount": 110,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "ReFF%27s_Rumble_Cup"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "The Best Legionary of January",
+    "start": "2002-01-01T03:00:00.000Z",
+    "end": "2002-01-31T03:00:00.000Z",
+    "prizePool": {
+      "amount": 1000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Dumbo",
+        "image": "https://liquipedia.net/commons/images/thumb/7/79/It_hd.png/72px-It_hd.png"
+      }
+    ],
+    "participantsCount": 1,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "The_Best_Legionary_of_January"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "The Best Legionary of December",
+    "start": "2001-12-01T03:00:00.000Z",
+    "end": "2001-12-31T03:00:00.000Z",
+    "prizePool": {
+      "amount": 1000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Dumbo",
+        "image": "https://liquipedia.net/commons/images/thumb/7/79/It_hd.png/72px-It_hd.png"
+      }
+    ],
+    "participantsCount": 1,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "The_Best_Legionary_of_December"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Moscow Championship (TG)",
+    "start": "2001-12-22T03:00:00.000Z",
+    "prizePool": {
+      "amount": 7000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Legion 1",
+        "image": "https://liquipedia.net/commons/images/thumb/c/c4/Legion_Clan_allmode.png/99px-Legion_Clan_allmode.png"
+      },
+      {
+        "name": "Legion 2",
+        "image": "https://liquipedia.net/commons/images/thumb/c/c4/Legion_Clan_allmode.png/99px-Legion_Clan_allmode.png"
+      }
+    ],
+    "participantsCount": 12,
+    "location": {
+      "name": "Moscow",
+      "country": {
+        "name": "Russia",
+        "code": "RU"
+      },
+      "type": "LAN"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "Moscow_Championship/Team_Tournament"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "World Cyber Games 2001: Nations Tournament",
+    "start": "2001-12-07T03:00:00.000Z",
+    "end": "2001-12-09T03:00:00.000Z",
+    "prizePool": {
+      "amount": 11000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "South Korea",
+        "image": "https://liquipedia.net/commons/images/thumb/9/91/Flag_of_South_Korea_4_by_3.png/133px-Flag_of_South_Korea_4_by_3.png"
+      },
+      {
+        "name": "Japan",
+        "image": "https://liquipedia.net/commons/images/9/9e/Flag_of_Japan.svg"
+      }
+    ],
+    "participantsCount": 14,
+    "location": {
+      "name": "Seoul",
+      "type": "LAN"
+    },
+    "league": {
+      "name": "World Cyber Games",
+      "image": "https://liquipedia.net/commons/images/b/bc/Wcg_logo.png"
+    },
+    "path": "World_Cyber_Games/2001/2v2"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "World Cyber Games 2001",
+    "start": "2001-12-05T03:00:00.000Z",
+    "end": "2001-12-09T03:00:00.000Z",
+    "prizePool": {
+      "amount": 35000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "IamKmkm",
+        "image": "https://liquipedia.net/commons/images/thumb/6/65/Tw_hd.png/72px-Tw_hd.png"
+      },
+      {
+        "name": "wargrunt",
+        "image": "https://liquipedia.net/commons/images/thumb/8/8c/Kr_hd.png/72px-Kr_hd.png"
+      }
+    ],
+    "participantsCount": 49,
+    "location": {
+      "name": "Seoul",
+      "type": "LAN"
+    },
+    "league": {
+      "name": "World Cyber Games",
+      "image": "https://liquipedia.net/commons/images/b/bc/Wcg_logo.png"
+    },
+    "path": "World_Cyber_Games/2001/1v1"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "The Best Legionary of November",
+    "start": "2001-11-01T03:00:00.000Z",
+    "end": "2001-11-30T03:00:00.000Z",
+    "prizePool": {
+      "amount": 1000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "HawFchik",
+        "image": "https://liquipedia.net/commons/images/thumb/9/91/Kz_hd.png/72px-Kz_hd.png"
+      }
+    ],
+    "participantsCount": 1,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "The_Best_Legionary_of_November"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "International Tournament 2001",
+    "start": "2001-11-07T03:00:00.000Z",
+    "prizePool": {
+      "amount": 95000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "__Mossar",
+        "image": "https://liquipedia.net/commons/images/thumb/8/8c/Kr_hd.png/72px-Kr_hd.png"
+      },
+      {
+        "name": "Kaohen",
+        "image": "https://liquipedia.net/commons/images/thumb/6/65/Tw_hd.png/72px-Tw_hd.png"
+      }
+    ],
+    "participantsCount": 16,
+    "location": {
+      "name": "Redmond",
+      "country": {
+        "name": "United States",
+        "code": "US"
+      },
+      "type": "LAN"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/5/5c/Age-of-empires-ii-international-tournament_icon.png"
+    },
+    "path": "International_Tournament/2001"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Path of the Conqueror",
+    "start": "2001-03-06T03:00:00.000Z",
+    "end": "2001-06-30T03:00:00.000Z",
+    "prizePool": {
+      "amount": 500,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Panther",
+        "image": "https://liquipedia.net/commons/images/thumb/3/3b/Us_hd.png/72px-Us_hd.png"
+      },
+      {
+        "name": "Rising",
+        "image": "https://liquipedia.net/commons/images/thumb/7/72/Ca_hd.png/72px-Ca_hd.png"
+      }
+    ],
+    "participantsCount": 246,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "Path_of_the_Conqueror"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "FOPT - Birthday Event",
+    "start": "2001-05-01T03:00:00.000Z",
+    "end": "2001-05-31T03:00:00.000Z",
+    "prizePool": {
+      "amount": 500,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Mimmox",
+        "image": "https://liquipedia.net/commons/images/thumb/7/79/It_hd.png/72px-It_hd.png"
+      }
+    ],
+    "participantsCount": 1,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "FOPT_-_Birthday_Event"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Age of Strike: 2vs2 RM",
+    "start": "2001-03-03T03:00:00.000Z",
+    "end": "2001-03-04T03:00:00.000Z",
+    "prizePool": {
+      "amount": 713.31,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "HigH & Loko",
+        "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/136px-Age_of_Empires_default_allmode.png"
+      }
+    ],
+    "participantsCount": 1,
+    "location": {
+      "name": "Paris",
+      "country": {
+        "name": "France",
+        "code": "FR"
+      },
+      "type": "LAN"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "Age_of_Strike/2vs2_RM"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "World Cyber Games Challenge 2000",
+    "start": "2000-10-08T03:00:00.000Z",
+    "end": "2000-10-15T03:00:00.000Z",
+    "prizePool": {
+      "amount": 50000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "MoZory",
+        "image": "https://liquipedia.net/commons/images/thumb/8/8c/Kr_hd.png/72px-Kr_hd.png"
+      },
+      {
+        "name": "IamJordan",
+        "image": "https://liquipedia.net/commons/images/thumb/6/65/Tw_hd.png/72px-Tw_hd.png"
+      }
+    ],
+    "participantsCount": 36,
+    "location": {
+      "name": "Yongin",
+      "type": "LAN"
+    },
+    "league": {
+      "name": "World Cyber Games",
+      "image": "https://liquipedia.net/commons/images/b/bc/Wcg_logo.png"
+    },
+    "path": "World_Cyber_Games/2000"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "World Cyber Games Challenge 2000: USA (East) Preliminary",
+    "start": "2000-09-15T03:00:00.000Z",
+    "end": "2000-09-16T03:00:00.000Z",
+    "prizePool": {
+      "amount": 4000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Jinx",
+        "image": "https://liquipedia.net/commons/images/thumb/3/3b/Us_hd.png/72px-Us_hd.png"
+      },
+      {
+        "name": "Crexis",
+        "image": "https://liquipedia.net/commons/images/thumb/7/72/Ca_hd.png/72px-Ca_hd.png"
+      }
+    ],
+    "participantsCount": 29,
+    "location": {
+      "name": "New York City",
+      "country": {
+        "name": "United States",
+        "code": "US"
+      },
+      "type": "LAN"
+    },
+    "league": {
+      "name": "World Cyber Games",
+      "image": "https://liquipedia.net/commons/images/b/bc/Wcg_logo.png"
+    },
+    "path": "World_Cyber_Games/2000/USA_(East)_Preliminary"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "World Cyber Games Challenge 2000: United Kingdom Preliminary",
+    "start": "2000-09-09T03:00:00.000Z",
+    "prizePool": {
+      "amount": 4244.79,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "HigH",
+        "image": "https://liquipedia.net/commons/images/thumb/7/7d/Dk_hd.png/72px-Dk_hd.png"
+      },
+      {
+        "name": "Loko",
+        "image": "https://liquipedia.net/commons/images/thumb/7/7d/Dk_hd.png/72px-Dk_hd.png"
+      }
+    ],
+    "participantsCount": 16,
+    "location": {
+      "name": "London",
+      "country": {
+        "name": "United Kingdom",
+        "code": "GB"
+      },
+      "type": "LAN"
+    },
+    "league": {
+      "name": "World Cyber Games",
+      "image": "https://liquipedia.net/commons/images/b/bc/Wcg_logo.png"
+    },
+    "path": "World_Cyber_Games/2000/UK_Preliminary"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Arizona Challenge 2000",
+    "start": "2000-09-02T03:00:00.000Z",
+    "prizePool": {
+      "amount": 4100,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Crexis",
+        "image": "https://liquipedia.net/commons/images/thumb/7/72/Ca_hd.png/72px-Ca_hd.png"
+      },
+      {
+        "name": "gutter_rat",
+        "image": "https://liquipedia.net/commons/images/thumb/3/3b/Us_hd.png/72px-Us_hd.png"
+      }
+    ],
+    "participantsCount": 16,
+    "location": {
+      "name": "Phoenix, Arizona",
+      "country": {
+        "name": "United States",
+        "code": "US"
+      },
+      "type": "LAN"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "Arizona_Challenge_2000"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "World Cyber Games Challenge 2000: Hong Kong Preliminary",
+    "start": "2000-08-19T03:00:00.000Z",
+    "prizePool": {
+      "amount": 7690.97,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "XS_Fai",
+        "image": "https://liquipedia.net/commons/images/thumb/4/41/Hk_hd.png/72px-Hk_hd.png"
+      },
+      {
+        "name": "HimT",
+        "image": "https://liquipedia.net/commons/images/thumb/4/41/Hk_hd.png/72px-Hk_hd.png"
+      }
+    ],
+    "participantsCount": 3,
+    "location": {
+      "name": "Tsim Sha Tsui",
+      "country": {
+        "name": "Hong Kong",
+        "code": "HK"
+      },
+      "type": "LAN"
+    },
+    "league": {
+      "name": "World Cyber Games",
+      "image": "https://liquipedia.net/commons/images/b/bc/Wcg_logo.png"
+    },
+    "path": "World_Cyber_Games/2000/Hong_Kong_Preliminary"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Battle For Supremacy",
+    "start": "2000-05-07T03:00:00.000Z",
+    "end": "2000-08-09T03:00:00.000Z",
+    "prizePool": {
+      "amount": 1000,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "IllusionS_ & lYlaster",
+        "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/136px-Age_of_Empires_default_allmode.png"
+      }
+    ],
+    "participantsCount": 85,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/8/8e/MrFixitOnline_logo_allmode.png/100px-MrFixitOnline_logo_allmode.png"
+    },
+    "path": "Battle_For_Supremacy"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/S-Tier_Tournaments",
+    "name": "HEAT.NET - Spring Fever",
+    "start": "2000-04-03T03:00:00.000Z",
+    "end": "2000-04-15T03:00:00.000Z",
+    "prizePool": {
+      "amount": 5015,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "SHSDisciple",
+        "image": "https://liquipedia.net/commons/images/thumb/3/3b/Us_hd.png/72px-Us_hd.png"
+      }
+    ],
+    "participantsCount": 64,
+    "location": {
+      "name": "Online",
+      "type": "LAN"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "HEAT.NET_-_Spring_Fever"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Individual",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Eyes Wide Open Tourney",
+    "start": "1999-12-01T03:00:00.000Z",
+    "end": "2000-02-17T03:00:00.000Z",
+    "prizePool": {
+      "amount": 450,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Maimin_Matty",
+        "image": "https://liquipedia.net/commons/images/thumb/7/72/Ca_hd.png/72px-Ca_hd.png"
+      },
+      {
+        "name": "atsq",
+        "image": "https://liquipedia.net/commons/images/thumb/a/a3/Au_hd.png/72px-Au_hd.png"
+      }
+    ],
+    "participantsCount": 116,
+    "location": {
+      "name": "World",
+      "country": {
+        "name": "World",
+        "code": "EARTH"
+      },
+      "type": "Online"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/8/8e/MrFixitOnline_logo_allmode.png/100px-MrFixitOnline_logo_allmode.png"
+    },
+    "path": "Eyes_Wide_Open_Tourney"
+  },
+  {
+    "game": "Age of Empires II",
+    "type": "Team",
+    "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+    "name": "Korean Nationals III",
+    "start": "1999-12-01T03:00:00.000Z",
+    "end": "2000-01-19T03:00:00.000Z",
+    "prizePool": {
+      "amount": 35305.94,
+      "code": "USD"
+    },
+    "participants": [
+      {
+        "name": "Shiri",
+        "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/136px-Age_of_Empires_default_allmode.png"
+      }
+    ],
+    "participantsCount": 1,
+    "location": {
+      "name": "South Korea",
+      "type": "LAN"
+    },
+    "league": {
+      "name": "",
+      "image": "https://liquipedia.net/commons/images/thumb/3/35/Age_of_Empires_default_allmode.png/100px-Age_of_Empires_default_allmode.png"
+    },
+    "path": "Korean_Nationals/3"
   }
 ]
