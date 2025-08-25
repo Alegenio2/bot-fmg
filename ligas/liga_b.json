@@ -433,7 +433,14 @@
         {
           "jugador1Id": "238414625417330688",
           "jugador2Id": "244547091362217984",
-          "resultado": null
+          "resultado": {
+            "238414625417330688": 2,
+            "244547091362217984": 0,
+            "draftmapas": "https://aoe2cm.net/draft/IZnGx",
+            "draftcivis": "https://aoe2cm.net/draft/OAITS",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1409683534573998162/Rxon_vs_Garezo.rar?ex=68ae4599&is=68acf419&hm=d2b602d914894ecb2da80a496afb324b502b9ec329671e3c693f982ee0fa3ba8&",
+            "fecha": "2025-08-23"
+          }
         }
       ]
     },
