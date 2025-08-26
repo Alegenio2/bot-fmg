@@ -522,7 +522,17 @@
         {
           "jugador1Id": "833806737902534738",
           "jugador2Id": "244547091362217984",
-          "resultado": null
+          "resultado": null,
+          "id": 1756248873227,
+          "fecha": "28/08/2025",
+          "diaSemana": "Jueves",
+          "horario": "22:00",
+          "gmt": "GMT-3",
+          "timestamp": "2025-08-26T22:54:33.227Z",
+          "coordinadoPor": {
+            "id": "244547091362217984",
+            "nombre": "garezo"
+          }
         },
         {
           "jugador1Id": "341001672786575360",
