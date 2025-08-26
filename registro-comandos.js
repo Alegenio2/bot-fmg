@@ -91,6 +91,10 @@ const comandos = [
             name: 'septima',
             value: 'septima',
           },
+          {
+            name: 'octava',
+            value: 'octava',
+          },
         ],
         required: true,
       },
@@ -288,6 +292,10 @@ const comandos = [
           {
             name: 'septima',
             value: 'septima',
+          },
+          {
+            name: 'octava',
+            value: 'octava',
           },
         ],
         required: true,
@@ -631,5 +639,6 @@ const rest = new REST({ version: "10" }).setToken(process.env.TOKEN);
     console.error("❌ Error al registrar comandos:", error);
   }
 })();
+
 
 
