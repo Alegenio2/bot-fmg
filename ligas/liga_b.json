@@ -462,7 +462,14 @@
         {
           "jugador1Id": "341001672786575360",
           "jugador2Id": "590693837509361902",
-          "resultado": null,
+          "resultado": {
+            "590693837509361902": 2,
+            "341001672786575360": 0,
+            "draftmapas": "https://aoe2cm.net/draft/lgKxU",
+            "draftcivis": "https://aoe2cm.net/draft/xLKKc",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1410443130368430152/Metalmania_vs_Nadie.zip?ex=68b10907&is=68afb787&hm=92bc9854ed8277e5aa5c61bdb3d00182c33c8e65bd2b1fa8ca4097b79853d570&",
+            "fecha": "2025-08-27"
+          },
           "id": 1756168002898,
           "fecha": "27/08/2025",
           "diaSemana": "Miércoles",
