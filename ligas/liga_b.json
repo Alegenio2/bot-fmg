@@ -529,7 +529,14 @@
         {
           "jugador1Id": "833806737902534738",
           "jugador2Id": "244547091362217984",
-          "resultado": null,
+          "resultado": {
+            "833806737902534738": 2,
+            "244547091362217984": 0,
+            "draftmapas": "https://aoe2cm.net/draft/aNZRv",
+            "draftcivis": "https://aoe2cm.net/draft/YWKzW",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1410813903910469763/Liga_Uruguaya_-_Vissti_vs_Garezo.rar?ex=68b26256&is=68b110d6&hm=82bb5eb4d4ea62794b792a65ceb8ad232b7b44f08d9a21b9fdd4287ab121f5c6&",
+            "fecha": "2025-08-28"
+          },
           "id": 1756248873227,
           "fecha": "28/08/2025",
           "diaSemana": "Jueves",
