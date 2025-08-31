@@ -994,7 +994,14 @@
         {
           "jugador1Id": "697973693157998712",
           "jugador2Id": "755853346149105786",
-          "resultado": null
+          "resultado": {
+            "697973693157998712": 2,
+            "755853346149105786": 0,
+            "draftmapas": "https://aoe2cm.net/draft/tvKZC",
+            "draftcivis": "https://aoe2cm.net/draft/mohjm",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1411606736149811291/Samurai_vs_Gino.zip?ex=68b544b8&is=68b3f338&hm=49258c413a2587f19dd4e9359b14f5144f18efdaf950845e2a9bf249a1a441fd&",
+            "fecha": "2025-08-30"
+          }
         }
       ]
     },
