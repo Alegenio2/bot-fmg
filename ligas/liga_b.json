@@ -551,7 +551,14 @@
         {
           "jugador1Id": "341001672786575360",
           "jugador2Id": "238414625417330688",
-          "resultado": null
+          "resultado": {
+            "238414625417330688": 2,
+            "341001672786575360": 0,
+            "draftmapas": "https://aoe2cm.net/draft/tXHsr",
+            "draftcivis": "https://aoe2cm.net/draft/iIscW",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1411550641180119080/Rxon_v_Nadie.rar?ex=68b5107a&is=68b3befa&hm=fc7134d8a59ce62b7ce1950e48b86998e9ca7c895fdc2cd2fc5f0ea446b27e76&",
+            "fecha": "2025-08-30"
+          }
         },
         {
           "jugador1Id": "427965323799691284",
