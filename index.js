@@ -446,6 +446,8 @@ const rondaMap = {
   quinta: 5,
   sexta: 6,
   septima: 7,
+  octava: 8,
+  novena: 9,  
 };
 
 const numeroRonda = rondaMap[ronda];
