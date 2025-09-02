@@ -61,12 +61,14 @@ cron.schedule('0 9 * * 1', () => {
 });
 
 // 📅 Tarea programada para ranking URU - lunes a las 22:00
-cron.schedule('00 22 * * 1', () => {
+cron.schedule('25 16 * * 0', () => {
   console.log('📊 Ejecutando actualización semanal de Ranking URU...');
   const rankingURU = require('./rankingConfig.json').rankingURU;
   for (const guildId of Object.keys(rankingURU)) {
     actualizarYPublicarRankingURU(client, guildId);
   }
+},{
+  timezone: 'America/Montevideo'
 });
 
 
