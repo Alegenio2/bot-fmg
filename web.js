@@ -20,19 +20,10 @@ app.get('/', (req, res) => {
   res.send("Estoy vivo 🤖 - Aldeano Oscar");
 });
 
-// Endpoint para servir tournaments.json
-app.get('/api/tournaments', (req, res) => {
-  const filePath = path.join(__dirname, 'data', 'tournaments.json');
-  if (!fs.existsSync(filePath)) {
-    return res.status(404).json({ error: 'Archivo de torneos no encontrado' });
-  }
-  const json = fs.readFileSync(filePath, 'utf-8');
-  res.json(JSON.parse(json));
-});
 
 // Endpoint para servir torneo_actual.json
-app.get('/api/torneo-actual', (req, res) => {
-  const filePath = path.join(__dirname, 'data', 'torneo_actual.json');
+app.get('/api/torneos', (req, res) => {
+  const filePath = path.join(__dirname, 'data', 'torneos.json');
   if (!fs.existsSync(filePath)) {
     return res.status(404).json({ error: 'Archivo de torneo actual no encontrado' });
   }
@@ -43,5 +34,6 @@ app.get('/api/torneo-actual', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Servidor web escuchando en http://localhost:${PORT}`);
 });
+
 
 
