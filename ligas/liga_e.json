@@ -643,7 +643,14 @@
         {
           "jugador1Id": "694749732467245088",
           "jugador2Id": "852387609916211270",
-          "resultado": null,
+          "resultado": {
+            "694749732467245088": 1,
+            "852387609916211270": 2,
+            "draftmapas": "https://aoe2cm.net/draft/jgWWi",
+            "draftcivis": "https://aoe2cm.net/draft/kcwxw",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1414083371910299709/ZakkvsShebby.rar?ex=68be4744&is=68bcf5c4&hm=685899c8f1d2e627b6d7865d43527f831ffaefcbac7779b9431015fb8bbf4bd1&",
+            "fecha": "2025-09-06"
+          },
           "id": 1757024631670,
           "fecha": "06/09/2025",
           "diaSemana": "Sábado",
