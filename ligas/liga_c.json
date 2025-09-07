@@ -1002,7 +1002,14 @@
         {
           "jugador1Id": "755853346149105786",
           "jugador2Id": "277256502023290881",
-          "resultado": null
+          "resultado": {
+            "277256502023290881": 2,
+            "755853346149105786": 1,
+            "draftmapas": "https://aoe2cm.net/draft/vKWWg",
+            "draftcivis": "https://aoe2cm.net/draft/Jhxde",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1414293344065945641/Lionerrt_vs_Gino.zip?ex=68bf0ad1&is=68bdb951&hm=c047a367046f5be503c521ea4a605e4b574b731e95e4d4a878cbd23308e69387&",
+            "fecha": "2025-09-06"
+          }
         }
       ]
     },
