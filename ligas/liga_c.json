@@ -541,7 +541,17 @@
         {
           "jugador1Id": "485610092092456975",
           "jugador2Id": "135113382217908224",
-          "resultado": null
+          "resultado": null,
+          "id": 1757439358364,
+          "fecha": "10/09/2025",
+          "diaSemana": "Miércoles",
+          "horario": "22:00",
+          "gmt": "GMT-3",
+          "timestamp": "2025-09-09T17:35:58.364Z",
+          "coordinadoPor": {
+            "id": "135113382217908224",
+            "nombre": "juasteint"
+          }
         },
         {
           "jugador1Id": "709904591453683766",
