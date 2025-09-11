@@ -541,7 +541,14 @@
         {
           "jugador1Id": "485610092092456975",
           "jugador2Id": "135113382217908224",
-          "resultado": null,
+          "resultado": {
+            "135113382217908224": 2,
+            "485610092092456975": 1,
+            "draftmapas": "https://aoe2cm.net/draft/uCmcG",
+            "draftcivis": "https://aoe2cm.net/draft/DudOP",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1415524295102304337/Juasteint_vs_Kroyen.rar?ex=68c3853b&is=68c233bb&hm=4c9bf5e44ebb7eac7da10e3f2ec813b61d51f97874801b6d257cbaf910bcbeca&",
+            "fecha": "2025-09-10"
+          },
           "id": 1757439358364,
           "fecha": "10/09/2025",
           "diaSemana": "Miércoles",
