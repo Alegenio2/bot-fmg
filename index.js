@@ -261,64 +261,45 @@ if (interaction.commandName === "progreso_liga") {
 
 // Comando: resultado
 if (interaction.commandName === "resultado") {
-  await interaction.deferReply(); // ✅ evita error de interacción
-    
   const options = interaction.options;
   const division = options.getString("division");
   const ronda = options.getString("ronda");
   const fecha = options.getString("fecha");
   const jugador = options.getUser("jugador");
-  const puntosjugador = options.getInteger("puntosjugador");
+  const puntosjugador = options.getNumber("puntosjugador");
   const otrojugador = options.getUser("otrojugador");
-  const puntosotrojugador = options.getInteger("puntosotrojugador");
+  const puntosotrojugador = options.getNumber("puntosotrojugador");
   const draftmapas = options.getString("draftmapas");
   const draftcivis = options.getString("draftcivis");
   const archivoAdjunto = interaction.options.get("archivo");
 
-  // Validación mínima
   if (!jugador || !otrojugador || puntosjugador == null || puntosotrojugador == null) {
-    return await interaction.editReply({
-      content: "❌ Faltan datos obligatorios para registrar el resultado. Por favor, vuelve a usar el comando.",
-      ephemeral: true,
-    });
+    return await interaction.reply("❌ Faltan datos obligatorios para registrar el resultado.");
   }
 
-  const fechaISO = convertirFormatoFecha(fecha);
-  if (!fechaISO) {
-    return await interaction.editReply({
-      content: "⚠️ Fecha inválida. Usa DD/MM/AAAA o DD-MM-AAAA. Vuelve a ejecutar el comando con la fecha correcta.",
-      ephemeral: true,
-    });
-  }
-
-  // Mensaje público del resultado
+  // Mensaje público
   let mensaje = `🏆 Campeonato Uruguayo\n📂 División ${division} - 🕓 Etapa: ${ronda} - Fecha ${fecha}\n\n${jugador}  ||${puntosjugador} - ${puntosotrojugador}||  ${otrojugador}\n🗺️ Mapas: ${draftmapas}\n⚔️ Civs: ${draftcivis}`;
   mensaje += archivoAdjunto?.attachment?.url
     ? `\n📎 Rec: ${archivoAdjunto.attachment.url}`
     : `\n📎 No se adjuntó ningún archivo`;
 
-  // Procesar resultado
+  await interaction.reply(mensaje);
+
   const letraDivision = division?.split('_')[1];
   if (!letraDivision || letraDivision.length !== 1) {
-    return await interaction.editReply({
-      content: "⚠️ División no válida.",
-      ephemeral: true,
-    });
+    return await interaction.followUp("⚠️ División no válida.");
   }
 
-  const filePath = path.join(__dirname, "ligas", `liga_${letraDivision}.json`);
+  const filePath = path.join(__dirname, 'ligas', `liga_${letraDivision}.json`);
+
   if (!fs.existsSync(filePath)) {
     console.warn(`⚠️ Archivo no encontrado: ${filePath}`);
-    return await interaction.editReply({
-      content: "⚠️ No se encontró el archivo de liga para esa división.",
-      ephemeral: true,
-    });
+    return await interaction.followUp("⚠️ No se encontró el archivo de liga para esa división.");
   }
 
   try {
-    const liga = JSON.parse(fs.readFileSync(filePath, "utf8"));
+    let liga = JSON.parse(fs.readFileSync(filePath, 'utf8'));
     let partidoActualizado = false;
-    let yaTeniaResultado = false;
 
     for (const jornada of liga.jornadas) {
       for (const partido of jornada.partidos) {
@@ -330,11 +311,11 @@ if (interaction.commandName === "resultado") {
           (j1 === otrojugador.id && j2 === jugador.id);
 
         if (esEstePartido) {
-          const urlValida = archivoAdjunto?.attachment?.url?.startsWith("http");
-
           if (partido.resultado) {
-            yaTeniaResultado = true;
+            return await interaction.followUp("⚠️ Ese partido ya tiene un resultado registrado.");
           }
+
+          const urlValida = archivoAdjunto?.attachment?.url?.startsWith("http");
 
           partido.resultado = {
             [jugador.id]: puntosjugador,
@@ -342,7 +323,7 @@ if (interaction.commandName === "resultado") {
             draftmapas,
             draftcivis,
             rec: urlValida ? archivoAdjunto.attachment.url : null,
-            fecha: fechaISO,
+            fecha: new Date().toISOString(),
           };
 
           partidoActualizado = true;
@@ -352,48 +333,29 @@ if (interaction.commandName === "resultado") {
       if (partidoActualizado) break;
     }
 
-    if (!partidoActualizado) {
-      return await interaction.editReply({
-        content: `⚠️ No se encontró el partido entre ${jugador.username} y ${otrojugador.username}. Verifica los datos.`,
-        ephemeral: true,
-      });
-    }
+    if (partidoActualizado) {
+      // ⬇️ AQUÍ VIENE LA MEJORA
+      const { actualizarSemifinales, actualizarFinal } = require('./utiles/fasesEliminatorias.js');
+      liga = actualizarSemifinales(liga);
+      liga = actualizarFinal(liga);
 
-    // Mensaje público (edit del deferReply)
-    await interaction.editReply(mensaje);
+      await guardarLiga(liga, filePath, letraDivision, interaction);
 
-    // Mensaje privado al usuario informando si se registró o se modificó
-    if (yaTeniaResultado) {
-      await interaction.followUp({
-        content: `⚠️ El resultado ya existía y fue **modificado** correctamente.`,
-        ephemeral: true,
-      });
+      const { actualizarTablaEnCanal } = require('./utiles/tablaPosiciones.js');
+      await actualizarTablaEnCanal(letraDivision, interaction.client, interaction.guildId);  
     } else {
-      await interaction.followUp({
-        content: `✅ Resultado registrado correctamente.`,
-        ephemeral: true,
-      });
-    }
-
-    // Guardar liga
-    await guardarLiga(liga, filePath, letraDivision, interaction);
-
-    // Actualizar tabla
-    try {
-      const { actualizarTablaEnCanal } = require("./utiles/tablaPosiciones.js");
-      await actualizarTablaEnCanal(letraDivision, interaction.client, interaction.guildId);
-    } catch (tablaError) {
-      console.warn("⚠️ Error actualizando tabla:", tablaError.message);
+      console.warn(`⚠️ No se encontró el partido entre ${jugador.id} y ${otrojugador.id}`);
+      await interaction.followUp(`⚠️ No se encontró el partido entre ${jugador.username} y ${otrojugador.username} en la liga.`);
     }
 
   } catch (error) {
-    console.error("❌ Error procesando liga:", error);
-    await interaction.followUp({
-      content: "⚠️ Ocurrió un error al procesar la liga.",
-      ephemeral: true,
-    });
+    console.error('❌ Error leyendo o procesando el archivo de liga:', error);
+    await interaction.followUp("⚠️ Ocurrió un error al procesar la liga. Revisa los logs.");
   }
 }
+
+
+// Comando: admin_win
 // Comando: admin_win
 if (interaction.commandName === "admin_win") {
   await interaction.deferReply();
@@ -440,26 +402,26 @@ if (interaction.commandName === "admin_win") {
     });
   }
 
-const rondaMap = {
-  primera: 1,
-  segunda: 2,
-  tercera: 3,
-  cuarta: 4,
-  quinta: 5,
-  sexta: 6,
-  septima: 7,
-  octava: 8,
-  novena: 9,  
-};
+  const rondaMap = {
+    primera: 1,
+    segunda: 2,
+    tercera: 3,
+    cuarta: 4,
+    quinta: 5,
+    sexta: 6,
+    septima: 7,
+    octava: 8,
+    novena: 9,  
+  };
 
-const numeroRonda = rondaMap[ronda];
+  const numeroRonda = rondaMap[ronda];
 
-if (!numeroRonda) {
-  return await interaction.editReply({
-    content: "⚠️ La ronda ingresada no es válida.",
-    ephemeral: true,
-  });
-}
+  if (!numeroRonda) {
+    return await interaction.editReply({
+      content: "⚠️ La ronda ingresada no es válida.",
+      ephemeral: true,
+    });
+  }
 
   const filePath = path.join(__dirname, "ligas", `liga_${letraDivision}.json`);
   if (!fs.existsSync(filePath)) {
@@ -470,13 +432,13 @@ if (!numeroRonda) {
   }
 
   try {
-    const liga = JSON.parse(fs.readFileSync(filePath, "utf8"));
+    let liga = JSON.parse(fs.readFileSync(filePath, "utf8"));
     let partidoActualizado = false;
     let yaTeniaResultado = false;
 
     for (const jornada of liga.jornadas) {
-    if (Number(jornada.ronda) !== numeroRonda) continue;  
-        for (const partido of jornada.partidos) {
+      if (Number(jornada.ronda) !== numeroRonda) continue;  
+      for (const partido of jornada.partidos) {
         const j1 = partido.jugador1Id;
         const j2 = partido.jugador2Id;
         console.log("Buscando partido entre", jugador.id, "y", otrojugador.id);
@@ -506,6 +468,15 @@ if (!numeroRonda) {
         content: `⚠️ No se encontró el partido entre ${jugador.username} y ${otrojugador.username}.`,
         ephemeral: true,
       });
+    }
+
+    // 🔹 Actualizar semifinales y final automáticamente
+    try {
+      const { actualizarSemifinales, actualizarFinal } = require("./utiles/fasesEliminatorias.js");
+      liga = actualizarSemifinales(liga);
+      liga = actualizarFinal(liga);
+    } catch (err) {
+      console.warn("⚠️ No se pudo actualizar semifinales/final:", err.message);
     }
 
     // Guardar la liga
@@ -543,6 +514,7 @@ if (!numeroRonda) {
     });
   }
 }
+
   // Comando: fixture_jornada  
  if (commandName === 'fixture_jornada') {
     return fixtureJornada.execute(interaction);
