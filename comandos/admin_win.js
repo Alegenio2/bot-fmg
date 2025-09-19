@@ -100,8 +100,7 @@ module.exports = {
 
       // Mostrar resultado públicamente
       await interaction.editReply({ 
-        content: `🏆 División ${division} - Ronda: ${rondaEncontrada} - Fecha: ${fecha}\n${jugador} ||${puntosjugador} - ${puntosotrojugador}|| ${otrojugador}`
-    
+        content: `🏆 División ${division} - Ronda: ${rondaEncontrada} - Fecha: ${fecha}\n${jugador} ||${puntosjugador} - ${puntosotrojugador}|| ${otrojugador}`    
       });
 
     } catch (err) {
@@ -110,4 +109,5 @@ module.exports = {
     }
   }
 };
+
 
