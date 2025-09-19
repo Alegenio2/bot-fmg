@@ -37,9 +37,13 @@ module.exports = {
   async execute(interaction) {
     await interaction.deferReply();
 
-    if (!botConfig.directivos.includes(interaction.user.id)) {
-      return interaction.editReply({ content: '❌ Solo el organizador puede usar este comando.' });
-    }
+   const directivoRoleId = botConfig.directivos; // ID del rol
+const member = interaction.member; // GuildMember que ejecuta el comando
+
+if (!member.roles.cache.has(directivoRoleId)) {
+  return interaction.editReply({ content: '❌ Solo el organizador puede usar este comando.' });
+}
+
 
     const opts = interaction.options;
     const division = opts.getString('division');
@@ -109,5 +113,6 @@ module.exports = {
     }
   }
 };
+
 
 
