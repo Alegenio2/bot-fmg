@@ -326,7 +326,11 @@
         {
           "jugador1Id": "701537224248000563",
           "jugador2Id": "342830926142767115",
-          "resultado": null
+          "resultado": {
+            "701537224248000563": 0,
+            "342830926142767115": 0,
+            "fecha": "2025-09-01"
+          }
         },
         {
           "jugador1Id": "326046458673365002",
@@ -385,18 +389,26 @@
         {
           "jugador1Id": "959267535524606022",
           "jugador2Id": "750789709252395108",
-          "resultado": null
+          "resultado": {
+            "959267535524606022": 0,
+            "750789709252395108": 2,
+            "fecha": "2025-09-01"
+          }
         },
         {
           "jugador1Id": "701537224248000563",
           "jugador2Id": "709904591453683766",
-          "resultado": null
+          "resultado": {
+            "709904591453683766": 2,
+            "701537224248000563": 0,
+            "fecha": "2025-08-26"
+          }
         },
         {
           "jugador1Id": "326046458673365002",
           "jugador2Id": "135113382217908224",
           "resultado": {
-            "709904591453683766": 0,
+            "326046458673365002": 0,
             "135113382217908224": 2,
             "draftmapas": "https://aoe2cm.net/draft/mpYcU",
             "draftcivis": "https://aoe2cm.net/draft/KtOUc",
@@ -458,7 +470,11 @@
         {
           "jugador1Id": "701537224248000563",
           "jugador2Id": "326046458673365002",
-          "resultado": null
+          "resultado": {
+            "701537224248000563": 0,
+            "326046458673365002": 2,
+            "fecha": "2025-06-06"
+          }
         }
       ]
     },
@@ -502,12 +518,20 @@
         {
           "jugador1Id": "342830926142767115",
           "jugador2Id": "326046458673365002",
-          "resultado": null
+          "resultado": {
+            "326046458673365002": 2,
+            "342830926142767115": 0,
+            "fecha": "2025-09-01"
+          }
         },
         {
           "jugador1Id": "959267535524606022",
           "jugador2Id": "701537224248000563",
-          "resultado": null
+          "resultado": {
+            "701537224248000563": 2,
+            "959267535524606022": 0,
+            "fecha": "2025-09-01"
+          }
         }
       ]
     },
@@ -517,7 +541,24 @@
         {
           "jugador1Id": "485610092092456975",
           "jugador2Id": "135113382217908224",
-          "resultado": null
+          "resultado": {
+            "135113382217908224": 2,
+            "485610092092456975": 1,
+            "draftmapas": "https://aoe2cm.net/draft/uCmcG",
+            "draftcivis": "https://aoe2cm.net/draft/DudOP",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1415524295102304337/Juasteint_vs_Kroyen.rar?ex=68c3853b&is=68c233bb&hm=4c9bf5e44ebb7eac7da10e3f2ec813b61d51f97874801b6d257cbaf910bcbeca&",
+            "fecha": "2025-09-10"
+          },
+          "id": 1757439358364,
+          "fecha": "10/09/2025",
+          "diaSemana": "Miércoles",
+          "horario": "22:00",
+          "gmt": "GMT-3",
+          "timestamp": "2025-09-09T17:35:58.364Z",
+          "coordinadoPor": {
+            "id": "135113382217908224",
+            "nombre": "juasteint"
+          }
         },
         {
           "jugador1Id": "709904591453683766",
@@ -544,12 +585,20 @@
         {
           "jugador1Id": "750789709252395108",
           "jugador2Id": "701537224248000563",
-          "resultado": null
+          "resultado": {
+            "701537224248000563": 0,
+            "750789709252395108": 2,
+            "fecha": "2025-09-06"
+          }
         },
         {
           "jugador1Id": "342830926142767115",
           "jugador2Id": "959267535524606022",
-          "resultado": null
+          "resultado": {
+            "342830926142767115": 0,
+            "959267535524606022": 0,
+            "fecha": "2025-09-01"
+          }
         }
       ]
     },
@@ -559,22 +608,41 @@
         {
           "jugador1Id": "485610092092456975",
           "jugador2Id": "326046458673365002",
-          "resultado": null
+          "resultado": {
+            "326046458673365002": 2,
+            "485610092092456975": 0,
+            "draftmapas": "https://aoe2cm.net/draft/STSOI",
+            "draftcivis": "https://aoe2cm.net/draft/fmgGd",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1409685825221951589/Paginas_vs_Kroyen.rar?ex=68ae47bb&is=68acf63b&hm=56602a21fd9bdcec57b7adaebb434070bd1c298fc0b30d0bcfd72be301b8543f&",
+            "fecha": "2025-08-25"
+          }
         },
         {
           "jugador1Id": "135113382217908224",
           "jugador2Id": "701537224248000563",
-          "resultado": null
+          "resultado": {
+            "135113382217908224": 2,
+            "701537224248000563": 0,
+            "fecha": "2025-09-06"
+          }
         },
         {
           "jugador1Id": "709904591453683766",
           "jugador2Id": "959267535524606022",
-          "resultado": null
+          "resultado": {
+            "709904591453683766": 2,
+            "959267535524606022": 0,
+            "fecha": "2025-08-26"
+          }
         },
         {
           "jugador1Id": "750789709252395108",
           "jugador2Id": "342830926142767115",
-          "resultado": null
+          "resultado": {
+            "750789709252395108": 2,
+            "342830926142767115": 0,
+            "fecha": "2025-09-01"
+          }
         }
       ]
     },
@@ -584,22 +652,51 @@
         {
           "jugador1Id": "485610092092456975",
           "jugador2Id": "701537224248000563",
-          "resultado": null
+          "resultado": {
+            "485610092092456975": 2,
+            "701537224248000563": 0,
+            "fecha": "2025-09-06"
+          }
         },
         {
           "jugador1Id": "326046458673365002",
           "jugador2Id": "959267535524606022",
-          "resultado": null
+          "resultado": {
+            "326046458673365002": 2,
+            "959267535524606022": 0,
+            "fecha": "2025-09-01"
+          }
         },
         {
           "jugador1Id": "135113382217908224",
           "jugador2Id": "342830926142767115",
-          "resultado": null
+          "resultado": {
+            "135113382217908224": 2,
+            "342830926142767115": 0,
+            "draftmapas": "https://aoe2cm.net/draft/jEQXj",
+            "draftcivis": "https://aoe2cm.net/draft/cjxzY",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1413336997463855185/PabloMac_vs_Juasteint.rar?ex=68bb9026&is=68ba3ea6&hm=355f3fd9409d7b38a887d569b08cfaf7f0f9c37e092e614898992ce084f86bef&",
+            "fecha": "2025-09-04"
+          },
+          "id": 1756773029192,
+          "fecha": "04/09/2025",
+          "diaSemana": "Jueves",
+          "horario": "16:30",
+          "gmt": "GMT-3",
+          "timestamp": "2025-09-02T00:30:29.192Z",
+          "coordinadoPor": {
+            "id": "135113382217908224",
+            "nombre": "juasteint"
+          }
         },
         {
           "jugador1Id": "709904591453683766",
           "jugador2Id": "750789709252395108",
-          "resultado": null,
+          "resultado": {
+            "709904591453683766": 2,
+            "750789709252395108": 1,
+            "fecha": "2025-08-26"
+          },
           "id": 1754923545094,
           "fecha": "17-08-2025",
           "diaSemana": "Domingo",
@@ -799,7 +896,11 @@
         {
           "jugador1Id": "724668688145580062",
           "jugador2Id": "335286995486244867",
-          "resultado": null
+          "resultado": {
+            "724668688145580062": 2,
+            "335286995486244867": 0,
+            "fecha": "2025-08-15"
+          }
         },
         {
           "jugador1Id": "697973693157998712",
@@ -887,7 +988,11 @@
         {
           "jugador1Id": "335286995486244867",
           "jugador2Id": "689907393001291884",
-          "resultado": null
+          "resultado": {
+            "689907393001291884": 2,
+            "335286995486244867": 0,
+            "fecha": "2025-08-15"
+          }
         },
         {
           "jugador1Id": "697973693157998712",
@@ -914,7 +1019,14 @@
         {
           "jugador1Id": "755853346149105786",
           "jugador2Id": "277256502023290881",
-          "resultado": null
+          "resultado": {
+            "277256502023290881": 2,
+            "755853346149105786": 1,
+            "draftmapas": "https://aoe2cm.net/draft/vKWWg",
+            "draftcivis": "https://aoe2cm.net/draft/Jhxde",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1414293344065945641/Lionerrt_vs_Gino.zip?ex=68bf0ad1&is=68bdb951&hm=c047a367046f5be503c521ea4a605e4b574b731e95e4d4a878cbd23308e69387&",
+            "fecha": "2025-09-06"
+          }
         }
       ]
     },
@@ -946,17 +1058,35 @@
         {
           "jugador1Id": "442189398667296788",
           "jugador2Id": "1244725529093869687",
-          "resultado": null
+          "resultado": {
+            "442189398667296788": 2,
+            "1244725529093869687": 0,
+            "draftmapas": "https://aoe2cm.net/draft/KQgoo",
+            "draftcivis": "https://aoe2cm.net/draft/rBxhO",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1408261864151973958/DavidTG_vs_La_sophie.rar?ex=68a91990&is=68a7c810&hm=cfb55d7fde923c2dba1dd77c7c2fe39794b5adadd149f55614e59e5d9f57b340&",
+            "fecha": "2025-08-21"
+          }
         },
         {
           "jugador1Id": "335286995486244867",
           "jugador2Id": "277256502023290881",
-          "resultado": null
+          "resultado": {
+            "277256502023290881": 2,
+            "335286995486244867": 0,
+            "fecha": "2025-08-15"
+          }
         },
         {
           "jugador1Id": "697973693157998712",
           "jugador2Id": "755853346149105786",
-          "resultado": null
+          "resultado": {
+            "697973693157998712": 2,
+            "755853346149105786": 0,
+            "draftmapas": "https://aoe2cm.net/draft/tvKZC",
+            "draftcivis": "https://aoe2cm.net/draft/mohjm",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1411606736149811291/Samurai_vs_Gino.zip?ex=68b544b8&is=68b3f338&hm=49258c413a2587f19dd4e9359b14f5144f18efdaf950845e2a9bf249a1a441fd&",
+            "fecha": "2025-08-30"
+          }
         }
       ]
     },
@@ -971,7 +1101,14 @@
         {
           "jugador1Id": "689907393001291884",
           "jugador2Id": "277256502023290881",
-          "resultado": null
+          "resultado": {
+            "689907393001291884": 2,
+            "277256502023290881": 0,
+            "draftmapas": "https://aoe2cm.net/draft/KyyON",
+            "draftcivis": "https://aoe2cm.net/draft/LpWlx",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1408260643206729949/Culero_vs_Lionerrt.rar?ex=68a9186d&is=68a7c6ed&hm=7182f423659d2f18186d2a774d50e0628a97eced35b0bbe98bfaf9faeac3a14d&",
+            "fecha": "2025-08-21"
+          }
         },
         {
           "jugador1Id": "442189398667296788",
@@ -981,7 +1118,11 @@
         {
           "jugador1Id": "335286995486244867",
           "jugador2Id": "697973693157998712",
-          "resultado": null
+          "resultado": {
+            "335286995486244867": 0,
+            "697973693157998712": 2,
+            "fecha": "2025-08-28"
+          }
         }
       ]
     },
