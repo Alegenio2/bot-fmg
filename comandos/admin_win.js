@@ -35,7 +35,7 @@ module.exports = {
     .addIntegerOption(opt => opt.setName('puntosotrojugador').setDescription('Puntos del segundo jugador').setRequired(true).addChoices(...puntosChoices)),
 
   async execute(interaction) {
-    await interaction.deferReply({ ephemeral: true });
+    await interaction.deferReply();
 
     if (!botConfig.directivos.includes(interaction.user.id)) {
       return interaction.editReply({ content: '❌ Solo el organizador puede usar este comando.' });
@@ -100,8 +100,8 @@ module.exports = {
 
       // Mostrar resultado públicamente
       await interaction.editReply({ 
-        content: `🏆 División ${division} - Ronda: ${rondaEncontrada} - Fecha: ${fecha}\n${jugador} ||${puntosjugador} - ${puntosotrojugador}|| ${otrojugador}`,
-        ephemeral: false
+        content: `🏆 División ${division} - Ronda: ${rondaEncontrada} - Fecha: ${fecha}\n${jugador} ||${puntosjugador} - ${puntosotrojugador}|| ${otrojugador}`
+    
       });
 
     } catch (err) {
@@ -110,3 +110,4 @@ module.exports = {
     }
   }
 };
+
