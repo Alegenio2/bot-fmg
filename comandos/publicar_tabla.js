@@ -1,3 +1,4 @@
+// comandos/publicar_tabla.js
 const { ApplicationCommandOptionType } = require("discord.js");
 const fs = require('fs');
 const path = require('path');
@@ -6,7 +7,7 @@ const { calcularTablaPosiciones, generarTextoTabla } = require('../utils/tablaPo
 
 module.exports = {
   name: 'publicar_tabla',
-  description: 'Publica la tabla de posiciones en el canal correspondiente.',
+  description: 'Publica la tabla de posiciones en el canal correspondiente o las fases eliminatorias.',
   options: [
     {
       name: 'categoria',
@@ -32,6 +33,7 @@ module.exports = {
       ],
     },
   ],
+
   async execute(interaction) {
     const { options, user, guildId, client } = interaction;
     const categoria = options.getString('categoria');
@@ -78,6 +80,42 @@ module.exports = {
       ? liga.jornadas.filter(j => j.fase?.toLowerCase().includes(faseElegida))
       : liga.jornadas;
 
+    let texto;
+
+    if (faseElegida) {
+      // Mostrar SOLO partidos de la fase elegida
+      const partidos = jornadasFiltradas.flatMap(j => j.partidos);
+
+      if (!partidos.length) {
+        return interaction.reply({
+          content: `⚠️ No hay partidos registrados para la fase ${faseElegida.toUpperCase()} en la categoría ${categoria.toUpperCase()}`,
+          ephemeral: true
+        });
+      }
+
+      texto = `🏆 **${categoria.toUpperCase()} - ${faseElegida.toUpperCase()}**\n\n` +
+              partidos.map(p => {
+                const j1 = `<@${p.jugador1Id}>`;
+                const j2 = `<@${p.jugador2Id}>`;
+                const r = p.resultado
+                  ? `**${p.resultado[p.jugador1Id] ?? 0} - ${p.resultado[p.jugador2Id] ?? 0}**`
+                  : "⏳ pendiente";
+                return `${j1} vs ${j2} → ${r}`;
+              }).join("\n");
+
+    } else {
+      // Tabla normal
+      const posiciones = calcularTablaPosiciones(categoria, jornadasFiltradas);
+      if (!posiciones || (Array.isArray(posiciones) && posiciones.length === 0)) {
+        return interaction.reply({
+          content: `⚠️ No se pudo calcular la tabla para la categoría ${categoria}`,
+          ephemeral: true
+        });
+      }
+
+      texto = generarTextoTabla(posiciones, categoria, faseElegida);
+    }
+
     // Función auxiliar para enviar o editar mensaje
     async function enviarOEditarMensaje(texto, idGuardadoKey) {
       const mensajeId = serverConfig.mensajeTabla[idGuardadoKey];
@@ -96,15 +134,6 @@ module.exports = {
       }
     }
 
-    const posiciones = calcularTablaPosiciones(categoria, jornadasFiltradas); // pasar solo jornadas filtradas
-    if (!posiciones || (Array.isArray(posiciones) && posiciones.length === 0)) {
-      return interaction.reply({
-        content: `⚠️ No se pudo calcular la tabla para la categoría ${categoria}`,
-        ephemeral: true
-      });
-    }
-
-    const texto = generarTextoTabla(posiciones, categoria, faseElegida);
     const mensajeTablaId = await enviarOEditarMensaje(texto, categoria + (faseElegida || ''));
     serverConfig.mensajeTabla[categoria + (faseElegida || '')] = mensajeTablaId;
 
@@ -116,3 +145,4 @@ module.exports = {
     });
   }
 };
+
