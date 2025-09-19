@@ -1,6 +1,7 @@
 require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
+const web = require("./web.js");
 const { Client, GatewayIntentBits, Collection, AttachmentBuilder, ActivityType } = require('discord.js');
 const cron = require('node-cron');
 const botConfig = require('./botConfig.json');
@@ -135,3 +136,4 @@ client.on('guildMemberAdd', async member => {
 });
 
 client.login(process.env.TOKEN).catch(err => console.error("❌ Error al iniciar sesión con el bot:", err));
+
