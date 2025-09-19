@@ -1145,7 +1145,14 @@
         {
           "jugador1Id": "689907393001291884",
           "jugador2Id": "135113382217908224",
-          "resultado": null
+          "resultado": {
+            "135113382217908224": 3,
+            "689907393001291884": 0,
+            "draftmapas": "https://aoe2cm.net/draft/yNUlW",
+            "draftcivis": "https://aoe2cm.net/draft/RPFwr",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1418428656283291829/1418651811274952704/MP_Replay_v101.103.22566.0_2025.09.06_174752_2.zip?ex=68cee5f5&is=68cd9475&hm=88c32c4174ecf0b0f03a0cc1d5a89017a2694650c6f1eff78540c0aaf93009ec&",
+            "fecha": "2025-09-19"
+          }
         }
       ]
     },
@@ -1154,7 +1161,7 @@
       "partidos": [
         {
           "jugador1Id": "GanadorSemi1",
-          "jugador2Id": "GanadorSemi2",
+          "jugador2Id": "rec",
           "resultado": null
         }
       ]
