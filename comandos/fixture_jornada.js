@@ -27,7 +27,7 @@ module.exports = {
 
   async execute(interaction) {
     const categoria = interaction.options.getString('categoria');
-    const jornadaInput = interaction.options.getString('jornada'); // ahora es string
+    const jornadaInput = interaction.options.getString('jornada'); // ahora siempre string
 
     const filePath = path.join(__dirname, '..', 'ligas', `liga_${categoria}.json`);
     if (!fs.existsSync(filePath)) {
@@ -40,13 +40,13 @@ module.exports = {
     const liga = JSON.parse(fs.readFileSync(filePath, 'utf8'));
     let jornada;
 
-    // Si es número, buscamos como antes
     if (!isNaN(jornadaInput)) {
-      jornada = liga.jornadas.find(j => j.ronda === jornadaInput);
+      // si el input es numérico, comparamos como string
+      jornada = liga.jornadas.find(j => String(j.ronda) === jornadaInput);
     } else {
-      // si es semi o final
+      // si es "semi" o "final"
       const fase = jornadaInput.toLowerCase();
-      jornada = liga.jornadas.find(j => j.ronda?.toLowerCase().includes(fase));
+      jornada = liga.jornadas.find(j => String(j.ronda).toLowerCase().includes(fase));
     }
 
     if (!jornada) {
