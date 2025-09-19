@@ -62,14 +62,15 @@ module.exports = {
     ),
 
   async execute(interaction) {
-    await interaction.deferReply({ ephemeral: true });
-
-    const directivoRoleId = botConfig.directivos; // ID del rol
+    const directivoRoleId = botConfig.directivos;
     const member = interaction.member;
 
     if (!member.roles.cache.has(directivoRoleId)) {
-      return interaction.editReply({ content: '❌ Solo el organizador puede usar este comando.' });
+      return interaction.reply({ content: '❌ Solo el organizador puede usar este comando.', ephemeral: true });
     }
+
+    // Respuesta provisional inmediata para evitar timeout
+    await interaction.reply({ content: '⏳ Registrando resultado...', ephemeral: true });
 
     const opts = interaction.options;
     const division = opts.getString('division');
@@ -102,7 +103,6 @@ module.exports = {
       let partidoEncontrado = false;
       let rondaEncontrada = 'desconocida';
 
-      // Buscar partido y actualizar resultado
       for (const jornada of liga.jornadas) {
         for (const partido of jornada.partidos) {
           if ((partido.jugador1Id === jugador.id && partido.jugador2Id === otrojugador.id) ||
@@ -132,7 +132,7 @@ module.exports = {
       await guardarLiga(liga, filePath, letraDivision, interaction);
       await actualizarTablaEnCanal(letraDivision, interaction.client, interaction.guildId);
 
-      // Mostrar resultado públicamente
+      // Mostrar resultado públicamente y actualizar mensaje provisional
       await interaction.editReply({
         content: `🏆 División ${division} - Ronda: ${rondaEncontrada} - Fecha: ${fecha}\n${jugador} ||${puntosjugador} - ${puntosotrojugador}|| ${otrojugador}`,
         ephemeral: false
