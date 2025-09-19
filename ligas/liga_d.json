@@ -304,23 +304,12 @@
         {
           "jugador1Id": "757033857362165792",
           "jugador2Id": "425297928610119692",
-          "resultado": {
-            "425297928610119692": 2,
-            "757033857362165792": 0,
-            "fecha": "2025-09-01"
-          }
+          "resultado": null
         },
         {
           "jugador1Id": "846515810381987860",
           "jugador2Id": "524738089252552716",
-          "resultado": {
-            "846515810381987860": 1,
-            "524738089252552716": 2,
-            "draftmapas": "https://aoe2cm.net/draft/OZjou",
-            "draftcivis": "https://aoe2cm.net/draft/vTySa",
-            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1406454641935253554/el_cuco_magno.rar?ex=68a28675&is=68a134f5&hm=ccb793c5101f8495761d473d9a5429e81a9ee4a2eb8faab47988496a44619645&",
-            "fecha": "2025-08-16"
-          }
+          "resultado": null
         },
         {
           "jugador1Id": "580229190645972994",
@@ -373,11 +362,7 @@
         {
           "jugador1Id": "757033857362165792",
           "jugador2Id": "582941701518262412",
-          "resultado": {
-            "582941701518262412": 2,
-            "757033857362165792": 0,
-            "fecha": "2025-09-01"
-          }
+          "resultado": null
         },
         {
           "jugador1Id": "846515810381987860",
@@ -401,24 +386,7 @@
         {
           "jugador1Id": "425297928610119692",
           "jugador2Id": "582941701518262412",
-          "resultado": {
-            "425297928610119692": 2,
-            "582941701518262412": 1,
-            "draftmapas": "https://aoe2cm.net/draft/rTsgb",
-            "draftcivis": "https://aoe2cm.net/draft/MazGW",
-            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1407538234510151731/NicoGP11_Vs_Matixxx.zip?ex=68a677a1&is=68a52621&hm=f10943fc4c665316b2ed12f8b6f7e63c0c0a49b815523ae40a3d125a91fb89a5&",
-            "fecha": "2025-08-19"
-          },
-          "id": 1755604576186,
-          "fecha": "19/08/2025",
-          "diaSemana": "Martes",
-          "horario": "21:00",
-          "gmt": "-3",
-          "timestamp": "2025-08-19T11:56:16.186Z",
-          "coordinadoPor": {
-            "id": "582941701518262412",
-            "nombre": "matixxx_"
-          }
+          "resultado": null
         },
         {
           "jugador1Id": "465307831583637514",
@@ -432,11 +400,7 @@
         {
           "jugador1Id": "757033857362165792",
           "jugador2Id": "846515810381987860",
-          "resultado": {
-            "757033857362165792": 0,
-            "846515810381987860": 2,
-            "fecha": "2025-09-01"
-          }
+          "resultado": null
         }
       ]
     },
@@ -446,7 +410,14 @@
         {
           "jugador1Id": "662427737138528308",
           "jugador2Id": "582941701518262412",
-          "resultado": null
+          "resultado": {
+            "582941701518262412": 2,
+            "662427737138528308": 0,
+            "draftmapas": null,
+            "draftcivis": null,
+            "rec": null,
+            "fecha": "2025-09-17"
+          }
         },
         {
           "jugador1Id": "524738089252552716",
@@ -472,11 +443,7 @@
         {
           "jugador1Id": "465307831583637514",
           "jugador2Id": "757033857362165792",
-          "resultado": {
-            "465307831583637514": 2,
-            "757033857362165792": 0,
-            "fecha": "2025-09-01"
-          }
+          "resultado": null
         }
       ]
     }
