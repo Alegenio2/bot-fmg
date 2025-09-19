@@ -166,7 +166,11 @@
         {
           "jugador1Id": "833806737902534738",
           "jugador2Id": "249400646782943235",
-          "resultado": null
+          "resultado": {
+            "249400646782943235": 0,
+            "833806737902534738": 2,
+            "fecha": "2025-08-25"
+          }
         },
         {
           "jugador1Id": "341001672786575360",
@@ -265,7 +269,11 @@
         {
           "jugador1Id": "286607198854053890",
           "jugador2Id": "249400646782943235",
-          "resultado": null
+          "resultado": {
+            "286607198854053890": 2,
+            "249400646782943235": 0,
+            "fecha": "2025-08-25"
+          }
         },
         {
           "jugador1Id": "238414625417330688",
@@ -327,7 +335,11 @@
         {
           "jugador1Id": "249400646782943235",
           "jugador2Id": "341001672786575360",
-          "resultado": null
+          "resultado": {
+            "249400646782943235": 0,
+            "341001672786575360": 2,
+            "fecha": "2025-08-25"
+          }
         },
         {
           "jugador1Id": "238414625417330688",
@@ -412,12 +424,23 @@
         {
           "jugador1Id": "249400646782943235",
           "jugador2Id": "590693837509361902",
-          "resultado": null
+          "resultado": {
+            "249400646782943235": 0,
+            "590693837509361902": 2,
+            "fecha": "2025-08-25"
+          }
         },
         {
           "jugador1Id": "238414625417330688",
           "jugador2Id": "244547091362217984",
-          "resultado": null
+          "resultado": {
+            "238414625417330688": 2,
+            "244547091362217984": 0,
+            "draftmapas": "https://aoe2cm.net/draft/IZnGx",
+            "draftcivis": "https://aoe2cm.net/draft/OAITS",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1409683534573998162/Rxon_vs_Garezo.rar?ex=68ae4599&is=68acf419&hm=d2b602d914894ecb2da80a496afb324b502b9ec329671e3c693f982ee0fa3ba8&",
+            "fecha": "2025-08-23"
+          }
         }
       ]
     },
@@ -439,7 +462,24 @@
         {
           "jugador1Id": "341001672786575360",
           "jugador2Id": "590693837509361902",
-          "resultado": null
+          "resultado": {
+            "590693837509361902": 2,
+            "341001672786575360": 0,
+            "draftmapas": "https://aoe2cm.net/draft/lgKxU",
+            "draftcivis": "https://aoe2cm.net/draft/xLKKc",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1410443130368430152/Metalmania_vs_Nadie.zip?ex=68b10907&is=68afb787&hm=92bc9854ed8277e5aa5c61bdb3d00182c33c8e65bd2b1fa8ca4097b79853d570&",
+            "fecha": "2025-08-27"
+          },
+          "id": 1756168002898,
+          "fecha": "27/08/2025",
+          "diaSemana": "Miércoles",
+          "horario": "21:30",
+          "gmt": "-3",
+          "timestamp": "2025-08-26T00:26:42.898Z",
+          "coordinadoPor": {
+            "id": "341001672786575360",
+            "nombre": "nadie6689"
+          }
         },
         {
           "jugador1Id": "427965323799691284",
@@ -453,7 +493,11 @@
         {
           "jugador1Id": "249400646782943235",
           "jugador2Id": "238414625417330688",
-          "resultado": null
+          "resultado": {
+            "249400646782943235": 0,
+            "238414625417330688": 2,
+            "fecha": "2025-08-25"
+          }
         }
       ]
     },
@@ -485,17 +529,45 @@
         {
           "jugador1Id": "833806737902534738",
           "jugador2Id": "244547091362217984",
-          "resultado": null
+          "resultado": {
+            "833806737902534738": 2,
+            "244547091362217984": 0,
+            "draftmapas": "https://aoe2cm.net/draft/aNZRv",
+            "draftcivis": "https://aoe2cm.net/draft/YWKzW",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1410813903910469763/Liga_Uruguaya_-_Vissti_vs_Garezo.rar?ex=68b26256&is=68b110d6&hm=82bb5eb4d4ea62794b792a65ceb8ad232b7b44f08d9a21b9fdd4287ab121f5c6&",
+            "fecha": "2025-08-28"
+          },
+          "id": 1756248873227,
+          "fecha": "28/08/2025",
+          "diaSemana": "Jueves",
+          "horario": "22:00",
+          "gmt": "GMT-3",
+          "timestamp": "2025-08-26T22:54:33.227Z",
+          "coordinadoPor": {
+            "id": "244547091362217984",
+            "nombre": "garezo"
+          }
         },
         {
           "jugador1Id": "341001672786575360",
           "jugador2Id": "238414625417330688",
-          "resultado": null
+          "resultado": {
+            "238414625417330688": 2,
+            "341001672786575360": 0,
+            "draftmapas": "https://aoe2cm.net/draft/tXHsr",
+            "draftcivis": "https://aoe2cm.net/draft/iIscW",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1411550641180119080/Rxon_v_Nadie.rar?ex=68b5107a&is=68b3befa&hm=fc7134d8a59ce62b7ce1950e48b86998e9ca7c895fdc2cd2fc5f0ea446b27e76&",
+            "fecha": "2025-08-30"
+          }
         },
         {
           "jugador1Id": "427965323799691284",
           "jugador2Id": "249400646782943235",
-          "resultado": null
+          "resultado": {
+            "249400646782943235": 0,
+            "427965323799691284": 0,
+            "fecha": "2025-08-25"
+          }
         }
       ]
     }
