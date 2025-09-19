@@ -75,10 +75,11 @@ module.exports = {
 
     if (!serverConfig.mensajeTabla) serverConfig.mensajeTabla = {};
 
-    // Filtrar jornadas según fase si se eligió
-    const jornadasFiltradas = faseElegida
-      ? liga.jornadas.filter(j => j.fase?.toLowerCase().includes(faseElegida))
-      : liga.jornadas;
+  // Filtrar jornadas según fase si se eligió
+const jornadasFiltradas = faseElegida
+  ? liga.jornadas.filter(j => j.ronda?.toLowerCase().includes(faseElegida))
+  : liga.jornadas;
+
 
     let texto;
 
@@ -145,4 +146,5 @@ module.exports = {
     });
   }
 };
+
 
