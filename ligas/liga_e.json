@@ -234,14 +234,24 @@
         {
           "jugador1Id": "952599207410303016",
           "jugador2Id": "207643066855718923",
-          "resultado": null
+          "resultado": {
+            "952599207410303016": 2,
+            "207643066855718923": 0,
+            "fecha": "2025-09-01"
+          }
         },
         {
           "jugador1Id": "709879345346248785",
           "jugador2Id": "694749732467245088",
-          "resultado": null,
+          "resultado": {
+            "694749732467245088": 2,
+            "709879345346248785": 1,
+            "draftmapas": "https://aoe2cm.net/draft/EvLQd",
+            "draftcivis": "https://aoe2cm.net/draft/cVghx",
+            "fecha": "2025-08-18"
+          },
           "id": 1755223952353,
-          "fecha": "18-09-2025",
+          "fecha": "18-08-2025",
           "diaSemana": "Jueves",
           "horario": "21:00",
           "gmt": "GMT-3",
@@ -303,7 +313,11 @@
         {
           "jugador1Id": "121771867198455808",
           "jugador2Id": "694749732467245088",
-          "resultado": null
+          "resultado": {
+            "121771867198455808": 0,
+            "694749732467245088": 2,
+            "fecha": "2025-09-01"
+          }
         },
         {
           "jugador1Id": "952599207410303016",
@@ -337,7 +351,11 @@
         {
           "jugador1Id": "852387609916211270",
           "jugador2Id": "207643066855718923",
-          "resultado": null
+          "resultado": {
+            "852387609916211270": 2,
+            "207643066855718923": 0,
+            "fecha": "2025-09-01"
+          }
         },
         {
           "jugador1Id": "1008090545513570495",
@@ -364,7 +382,11 @@
         {
           "jugador1Id": "121771867198455808",
           "jugador2Id": "952599207410303016",
-          "resultado": null
+          "resultado": {
+            "121771867198455808": 0,
+            "952599207410303016": 2,
+            "fecha": "2025-09-01"
+          }
         }
       ]
     },
@@ -374,12 +396,23 @@
         {
           "jugador1Id": "1293646842625785968",
           "jugador2Id": "207643066855718923",
-          "resultado": null
+          "resultado": {
+            "1293646842625785968": 2,
+            "207643066855718923": 0,
+            "fecha": "2025-09-01"
+          }
         },
         {
           "jugador1Id": "896216989922635777",
           "jugador2Id": "694749732467245088",
-          "resultado": null,
+          "resultado": {
+            "694749732467245088": 2,
+            "896216989922635777": 0,
+            "draftmapas": "https://aoe2cm.net/draft/nbFjh",
+            "draftcivis": "https://aoe2cm.net/draft/lzGaO",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1404500114994892830/Campeonato_Uruguayo_2025_Shebby_vs_Tatosky.zip?ex=68a747a9&is=68a5f629&hm=ac5e4078b297fac423972d2421547720bd191f4a1868c7e20e4657bd05c208a6&",
+            "fecha": "2025-08-10"
+          },
           "id": 1754857792899,
           "fecha": "10-08-2025",
           "diaSemana": "Domingo",
@@ -394,12 +427,36 @@
         {
           "jugador1Id": "852387609916211270",
           "jugador2Id": "709879345346248785",
-          "resultado": null
+          "resultado": {
+            "709879345346248785": 2,
+            "852387609916211270": 1,
+            "draftmapas": "https://aoe2cm.net/draft/fyIfl",
+            "draftcivis": "https://aoe2cm.net/draft/uBsiz",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1414007273440804935/MP_Replay_v101.103.22566.0_2025.09.06_174752_2.zip?ex=68be0064&is=68bcaee4&hm=92ba582666a5ac301439ab2d8cdcd6c5e3c89187d4a1eb06fc064cb642126d6f&",
+            "fecha": "2025-09-06"
+          },
+          "id": 1757184579544,
+          "fecha": "06/09/2025",
+          "diaSemana": "Sábado",
+          "horario": "16:30",
+          "gmt": "-3",
+          "timestamp": "2025-09-06T18:49:39.544Z",
+          "coordinadoPor": {
+            "id": "852387609916211270",
+            "nombre": "zakk156"
+          }
         },
         {
           "jugador1Id": "1008090545513570495",
           "jugador2Id": "952599207410303016",
-          "resultado": null
+          "resultado": {
+            "1008090545513570495": 2,
+            "952599207410303016": 0,
+            "draftmapas": "https://aoe2cm.net/draft/zvjnn",
+            "draftcivis": "https://aoe2cm.net/draft/RdPoO",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1408144953908924446/MP_Replay_v101.103.22566.0_2025.08.21_141918_1.aoe2record?ex=68a8acaf&is=68a75b2f&hm=fa3267ea25f15834501ebb5ed817a2035b276e1d0d767ef3fcf4140923eeeff4&",
+            "fecha": "2025-08-21"
+          }
         }
       ]
     },
@@ -409,7 +466,14 @@
         {
           "jugador1Id": "1293646842625785968",
           "jugador2Id": "694749732467245088",
-          "resultado": null,
+          "resultado": {
+            "1293646842625785968": 0,
+            "694749732467245088": 2,
+            "draftmapas": "https://aoe2cm.net/draft/zUjMJ",
+            "draftcivis": "https://aoe2cm.net/draft/fgaxM",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1407907823719022632/Campeonato_Uruguayo_-_RosserB_vs_Shebby.zip?ex=68a7cfd6&is=68a67e56&hm=94d0515c1784f9d1c618164b2dca5369c7273e06ceb0bc6b544980541bb061bb&",
+            "fecha": "2025-08-20"
+          },
           "id": 1755224381277,
           "fecha": "19-08-2025",
           "diaSemana": "Martes",
@@ -424,17 +488,32 @@
         {
           "jugador1Id": "207643066855718923",
           "jugador2Id": "709879345346248785",
-          "resultado": null
+          "resultado": {
+            "709879345346248785": 2,
+            "207643066855718923": 0,
+            "fecha": "2025-09-01"
+          }
         },
         {
           "jugador1Id": "896216989922635777",
           "jugador2Id": "952599207410303016",
-          "resultado": null
+          "resultado": {
+            "896216989922635777": 2,
+            "952599207410303016": 0,
+            "draftmapas": "https://aoe2cm.net/draft/Axzzc",
+            "draftcivis": "https://aoe2cm.net/draft/lxbmK",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1406859761764274267/Campeonato_Uruguayo_2025_Teutoburguista_vs_Tatosky.zip?ex=68a74b81&is=68a5fa01&hm=dd2eeba87fb1ed6acd33d86a23a9197d9d825b56666e35cec1516d210912d354&",
+            "fecha": "2025-08-07"
+          }
         },
         {
           "jugador1Id": "852387609916211270",
           "jugador2Id": "121771867198455808",
-          "resultado": null
+          "resultado": {
+            "852387609916211270": 2,
+            "121771867198455808": 0,
+            "fecha": "2025-09-01"
+          }
         }
       ]
     },
@@ -456,17 +535,38 @@
         {
           "jugador1Id": "694749732467245088",
           "jugador2Id": "952599207410303016",
-          "resultado": null
+          "resultado": null,
+          "id": 1756059451014,
+          "fecha": "24/08/2025",
+          "diaSemana": "Domingo",
+          "horario": "20:00",
+          "gmt": "GMT-3",
+          "timestamp": "2025-08-24T18:17:31.014Z",
+          "coordinadoPor": {
+            "id": "694749732467245088",
+            "nombre": "sheb_by"
+          }
         },
         {
           "jugador1Id": "207643066855718923",
           "jugador2Id": "121771867198455808",
-          "resultado": null
+          "resultado": {
+            "121771867198455808": 2,
+            "207643066855718923": 0,
+            "fecha": "2025-09-01"
+          }
         },
         {
           "jugador1Id": "852387609916211270",
           "jugador2Id": "1008090545513570495",
-          "resultado": null
+          "resultado": {
+            "1008090545513570495": 1,
+            "852387609916211270": 2,
+            "draftmapas": "https://aoe2cm.net/draft/aTPhq",
+            "draftcivis": "https://aoe2cm.net/draft/pNDbz",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1409044934119653497/OsoConBarbaVsZakkElRabdomante.rar?ex=68abf2db&is=68aaa15b&hm=6371eed71a06ff4bffa5cec999e122ba3e9361774b2bd2ffafb5c5cf7ca7b350&",
+            "fecha": "2025-08-23"
+          }
         }
       ]
     },
@@ -493,12 +593,33 @@
         {
           "jugador1Id": "207643066855718923",
           "jugador2Id": "1008090545513570495",
-          "resultado": null
+          "resultado": {
+            "1008090545513570495": 2,
+            "207643066855718923": 0,
+            "fecha": "2025-09-01"
+          }
         },
         {
           "jugador1Id": "896216989922635777",
           "jugador2Id": "852387609916211270",
-          "resultado": null
+          "resultado": {
+            "896216989922635777": 2,
+            "852387609916211270": 0,
+            "draftmapas": "https://aoe2cm.net/draft/fcERx",
+            "draftcivis": "https://aoe2cm.net/draft/LalfQ",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1406684378947387555/Campeonato_Uruguayo_2025_Zakk_Elrabdomante_vs_Tatosky.zip?ex=68a35c6a&is=68a20aea&hm=00d9b85029b96e8636f69b9fcc1e8a0043ba9860c26ef616fc6a198baa2e453c&",
+            "fecha": "2025-08-18"
+          },
+          "id": 1755436473668,
+          "fecha": "17/08/2025",
+          "diaSemana": "Domingo",
+          "horario": "10:45",
+          "gmt": "GMT-3",
+          "timestamp": "2025-08-17T13:14:33.668Z",
+          "coordinadoPor": {
+            "id": "852387609916211270",
+            "nombre": "zakk156"
+          }
         }
       ]
     },
@@ -508,22 +629,54 @@
         {
           "jugador1Id": "1293646842625785968",
           "jugador2Id": "121771867198455808",
-          "resultado": null
+          "resultado": {
+            "121771867198455808": 0,
+            "1293646842625785968": 2,
+            "fecha": "2025-09-01"
+          }
         },
         {
           "jugador1Id": "709879345346248785",
           "jugador2Id": "1008090545513570495",
-          "resultado": null
+          "resultado": {
+            "709879345346248785": 2,
+            "1008090545513570495": 0,
+            "draftmapas": "https://aoe2cm.net/draft/oTRuR",
+            "draftcivis": "https://aoe2cm.net/draft/QPpxG",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1418428656283291829/1418437647260717056/MP_Replay_v101.103.22566.0_2025.09.06_174752_2.zip?ex=68ce1e80&is=68cccd00&hm=0233e1cbc47010cfab982bd11ff609173d5cbb05a04212919fe2b4dde1c1f475&",
+            "fecha": "2025-09-17"
+          }
         },
         {
           "jugador1Id": "694749732467245088",
           "jugador2Id": "852387609916211270",
-          "resultado": null
+          "resultado": {
+            "694749732467245088": 1,
+            "852387609916211270": 2,
+            "draftmapas": "https://aoe2cm.net/draft/jgWWi",
+            "draftcivis": "https://aoe2cm.net/draft/kcwxw",
+            "rec": "https://cdn.discordapp.com/ephemeral-attachments/1390796719226359932/1414083371910299709/ZakkvsShebby.rar?ex=68be4744&is=68bcf5c4&hm=685899c8f1d2e627b6d7865d43527f831ffaefcbac7779b9431015fb8bbf4bd1&",
+            "fecha": "2025-09-06"
+          },
+          "id": 1757024631670,
+          "fecha": "06/09/2025",
+          "diaSemana": "Sábado",
+          "horario": "21:00",
+          "gmt": "GMT-3",
+          "timestamp": "2025-09-04T22:23:51.670Z",
+          "coordinadoPor": {
+            "id": "694749732467245088",
+            "nombre": "sheb_by"
+          }
         },
         {
           "jugador1Id": "207643066855718923",
           "jugador2Id": "896216989922635777",
-          "resultado": null
+          "resultado": {
+            "896216989922635777": 2,
+            "207643066855718923": 0,
+            "fecha": "2025-09-01"
+          }
         }
       ]
     }
