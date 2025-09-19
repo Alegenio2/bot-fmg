@@ -5,7 +5,7 @@ const path = require('path');
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName('fixture_jornada')        // ✅ name definido
+    .setName('fixture_jornada')
     .setDescription('Muestra los partidos de una jornada de liga')
     .addStringOption(option =>
       option.setName('categoria')
@@ -19,15 +19,15 @@ module.exports = {
           { name: 'Milicia', value: 'e' }
         )
     )
-    .addIntegerOption(option =>
+    .addStringOption(option =>
       option.setName('jornada')
-        .setDescription('Número de la jornada')
+        .setDescription('Número de jornada o fase (ej: 1, 2, semi, final)')
         .setRequired(true)
     ),
 
   async execute(interaction) {
     const categoria = interaction.options.getString('categoria');
-    const jornadaNum = interaction.options.getInteger('jornada');
+    const jornadaInput = interaction.options.getString('jornada'); // ahora es string
 
     const filePath = path.join(__dirname, '..', 'ligas', `liga_${categoria}.json`);
     if (!fs.existsSync(filePath)) {
@@ -38,30 +38,35 @@ module.exports = {
     }
 
     const liga = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-    const jornada = liga.jornadas.find(j => Number(j.ronda) === jornadaNum);
+    let jornada;
+
+    // Si es número, buscamos como antes
+    if (!isNaN(jornadaInput)) {
+      jornada = liga.jornadas.find(j => j.ronda === jornadaInput);
+    } else {
+      // si es semi o final
+      const fase = jornadaInput.toLowerCase();
+      jornada = liga.jornadas.find(j => j.ronda?.toLowerCase().includes(fase));
+    }
 
     if (!jornada) {
       return await interaction.reply({
-        content: `⚠️ No se encontró la jornada **${jornadaNum}** en la categoría **${categoria}**.`,
+        content: `⚠️ No se encontró la jornada/fase **${jornadaInput}** en la categoría **${categoria}**.`,
         ephemeral: true
       });
     }
 
-    let mensaje = `📅 **Jornada ${jornadaNum} - Categoría ${categoria.toUpperCase()}**\n\n`;
+    let mensaje = `📅 **${jornada.ronda} - Categoría ${categoria.toUpperCase()}**\n\n`;
 
     for (const partido of jornada.partidos) {
-      let tipoPartido = '';
-      if (partido.semifinal) tipoPartido = '🏆 Semifinal';
-      else if (partido.final) tipoPartido = '🏆 Final';
-
-      mensaje += `👥 ${partido.jugador1} vs ${partido.jugador2} `;
+      mensaje += `👥 <@${partido.jugador1Id}> vs <@${partido.jugador2Id}> `;
       if (partido.resultado) {
         mensaje += `||${partido.resultado[partido.jugador1Id]} - ${partido.resultado[partido.jugador2Id]}|| `;
       }
-      mensaje += tipoPartido ? `- ${tipoPartido}` : '';
       mensaje += `\n`;
     }
 
     await interaction.reply({ content: mensaje, ephemeral: false });
   }
 };
+
