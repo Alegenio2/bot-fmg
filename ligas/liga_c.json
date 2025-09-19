@@ -335,7 +335,11 @@
         {
           "jugador1Id": "326046458673365002",
           "jugador2Id": "750789709252395108",
-          "resultado": null,
+          "resultado": {
+            "750789709252395108": 1,
+            "326046458673365002": 1,
+            "fecha": "2025-09-15"
+          },
           "id": 1753102802017,
           "fecha": "25/07/2025",
           "diaSemana": "Viernes",
@@ -1130,13 +1134,13 @@
       "ronda": "Semifinal",
       "partidos": [
         {
-          "jugador1Id": "1A",
-          "jugador2Id": "2B",
+          "jugador1Id": "709904591453683766",
+          "jugador2Id": "724668688145580062",
           "resultado": null
         },
         {
-          "jugador1Id": "1B",
-          "jugador2Id": "2A",
+          "jugador1Id": "689907393001291884",
+          "jugador2Id": "135113382217908224",
           "resultado": null
         }
       ]
