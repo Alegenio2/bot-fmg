@@ -1,7 +1,7 @@
 // comandos/admin_win.js
-const fs = require('fs');
+const { SlashCommandBuilder } = require('discord.js');
+const fs = require('fs').promises;
 const path = require('path');
-const { ApplicationCommandOptionType } = require('discord.js');
 const { convertirFormatoFecha } = require('../utils/fechas.js');
 const { guardarLiga } = require('../utils/guardarLiga.js');
 const { actualizarTablaEnCanal } = require('../utils/tablaPosiciones.js');
@@ -24,28 +24,21 @@ const puntosChoices = [
 ];
 
 module.exports = {
-  data: {
-    name: 'admin_win',
-    description: 'Registrar un resultado manualmente como admin',
-    options: [
-      { name: 'division', type: ApplicationCommandOptionType.String, required: true, choices: divisionesChoices },
-      { name: 'fecha', type: ApplicationCommandOptionType.String, required: true },
-      { name: 'jugador', type: ApplicationCommandOptionType.User, required: true },
-      { name: 'puntosjugador', type: ApplicationCommandOptionType.Integer, required: true, choices: puntosChoices },
-      { name: 'otrojugador', type: ApplicationCommandOptionType.User, required: true },
-      { name: 'puntosotrojugador', type: ApplicationCommandOptionType.Integer, required: true, choices: puntosChoices },
-      { name: 'draftmapas', type: ApplicationCommandOptionType.String, required: false },
-      { name: 'draftcivis', type: ApplicationCommandOptionType.String, required: false },
-      { name: 'archivo', type: ApplicationCommandOptionType.Attachment, required: false },
-    ],
-  },
+  data: new SlashCommandBuilder()
+    .setName('admin_win')
+    .setDescription('Registrar un resultado manualmente como admin')
+    .addStringOption(opt => opt.setName('division').setDescription('División de la liga').setRequired(true).addChoices(...divisionesChoices))
+    .addStringOption(opt => opt.setName('fecha').setDescription('Fecha del partido (DD/MM/AAAA)').setRequired(true))
+    .addUserOption(opt => opt.setName('jugador').setDescription('Primer jugador').setRequired(true))
+    .addIntegerOption(opt => opt.setName('puntosjugador').setDescription('Puntos del primer jugador').setRequired(true).addChoices(...puntosChoices))
+    .addUserOption(opt => opt.setName('otrojugador').setDescription('Segundo jugador').setRequired(true))
+    .addIntegerOption(opt => opt.setName('puntosotrojugador').setDescription('Puntos del segundo jugador').setRequired(true).addChoices(...puntosChoices)),
 
   async execute(interaction) {
     await interaction.deferReply({ ephemeral: true });
 
-    // Verificar que el usuario sea admin
     if (!botConfig.directivos.includes(interaction.user.id)) {
-      return interaction.editReply({ content: '❌ Solo los directivos pueden usar este comando.', ephemeral: true });
+      return interaction.editReply({ content: '❌ Solo el organizador puede usar este comando.' });
     }
 
     const opts = interaction.options;
@@ -55,79 +48,65 @@ module.exports = {
     const puntosjugador = opts.getInteger('puntosjugador');
     const otrojugador = opts.getUser('otrojugador');
     const puntosotrojugador = opts.getInteger('puntosotrojugador');
-    const draftmapas = opts.getString('draftmapas') || null;
-    const draftcivis = opts.getString('draftcivis') || null;
-    const archivoAdjunto = opts.getAttachment('archivo');
 
-    if (!jugador || !otrojugador) return interaction.editReply({ content: "❌ Faltan jugadores.", ephemeral: true });
+    if (!jugador || !otrojugador || puntosjugador == null || puntosotrojugador == null) {
+      return interaction.editReply({ content: "❌ Faltan datos obligatorios." });
+    }
 
     const fechaISO = convertirFormatoFecha(fecha);
-    if (!fechaISO) return interaction.editReply({ content: "⚠️ Fecha inválida.", ephemeral: true });
+    if (!fechaISO) return interaction.editReply({ content: "⚠️ Fecha inválida. Usa DD/MM/AAAA o DD-MM-AAAA." });
 
     const letraDivision = division.split('_')[1];
     const filePath = path.join(__dirname, '..', 'ligas', `liga_${letraDivision}.json`);
-    if (!fs.existsSync(filePath)) return interaction.editReply({ content: "⚠️ Liga no encontrada.", ephemeral: true });
 
     try {
-      let liga = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-      let partidoEncontrado = false;
-      let yaTeniaResultado = false;
+      await fs.access(filePath);
+    } catch {
+      return interaction.editReply({ content: "⚠️ Liga no encontrada." });
+    }
 
-      // Buscar partido en cualquier ronda
+    try {
+      const ligaJSON = await fs.readFile(filePath, 'utf8');
+      const liga = JSON.parse(ligaJSON);
+
+      let partidoEncontrado = false;
+      let rondaEncontrada = '';
+
       for (const jornada of liga.jornadas) {
         for (const partido of jornada.partidos) {
           if ((partido.jugador1Id === jugador.id && partido.jugador2Id === otrojugador.id) ||
               (partido.jugador1Id === otrojugador.id && partido.jugador2Id === jugador.id)) {
 
-            if (partido.resultado) yaTeniaResultado = true;
-
             partido.resultado = {
               [jugador.id]: puntosjugador,
               [otrojugador.id]: puntosotrojugador,
-              draftmapas,
-              draftcivis,
-              rec: archivoAdjunto?.url || null,
               fecha: fechaISO,
             };
 
             partidoEncontrado = true;
+            rondaEncontrada = jornada.ronda || 'desconocida';
             break;
           }
         }
         if (partidoEncontrado) break;
       }
 
-      if (!partidoEncontrado) return interaction.editReply({ content: "⚠️ No se encontró el partido.", ephemeral: true });
+      if (!partidoEncontrado) return interaction.editReply({ content: "⚠️ No se encontró el partido." });
 
-      // Actualizar semifinales y final
-      try { actualizarSemifinales(liga); actualizarFinal(liga); }
-      catch (err) { console.warn("⚠️ Error actualizando semi/final:", err.message); }
-
-      // Guardar liga
+      await actualizarSemifinales(liga);
+      await actualizarFinal(liga);
       await guardarLiga(liga, filePath, letraDivision, interaction);
+      await actualizarTablaEnCanal(letraDivision, interaction.client, interaction.guildId);
 
-      // Actualizar tabla en canal
-      try { await actualizarTablaEnCanal(letraDivision, interaction.client, interaction.guildId); }
-      catch (err) { console.warn("⚠️ Error actualizando tabla:", err.message); }
-
-      // Mensaje final público
-      const mensaje = `🏆 División ${division} - Fecha: ${fecha}\n${jugador} ||${puntosjugador} - ${puntosotrojugador}|| ${otrojugador}\nMapas: ${draftmapas || 'No disponibles'}\nCivs: ${draftcivis || 'No disponibles'}\nArchivo: ${archivoAdjunto?.url || 'No adjunto'}`;
-
-      await interaction.followUp({ content: mensaje, ephemeral: false });
-
-      if (yaTeniaResultado) {
-        console.log(`⚠️ Resultado modificado para ${jugador.username} vs ${otrojugador.username}`);
-      } else {
-        console.log(`✅ Resultado registrado para ${jugador.username} vs ${otrojugador.username}`);
-      }
+      // Mostrar resultado públicamente
+      await interaction.editReply({ 
+        content: `🏆 División ${division} - Ronda: ${rondaEncontrada} - Fecha: ${fecha}\n${jugador} ||${puntosjugador} - ${puntosotrojugador}|| ${otrojugador}`,
+        ephemeral: false
+      });
 
     } catch (err) {
       console.error("❌ Error procesando admin_win:", err);
-      if (interaction.deferred || interaction.replied) {
-        await interaction.followUp({ content: "⚠️ Ocurrió un error al procesar la liga.", ephemeral: true });
-      } else {
-        await interaction.reply({ content: "⚠️ Ocurrió un error al procesar la liga.", ephemeral: true });
-      }
+      await interaction.editReply({ content: "⚠️ Ocurrió un error al procesar la liga." });
     }
   }
 };
