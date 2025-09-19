@@ -61,5 +61,3 @@ app.get('/proxy-image', async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Servidor web escuchando en http://localhost:${PORT}`);
 });
-
-
