@@ -89,17 +89,23 @@ function actualizarFinal(liga) {
   const [semi1, semi2] = semifinales.partidos;
 
   if (semi1.resultado) {
-    const idGanadorSemi1 = Object.keys(semi1.resultado).reduce((a, b) =>
-      semi1.resultado[a] > semi1.resultado[b] ? a : b
-    );
-    final.partidos[0].jugador1Id = idGanadorSemi1;
+    const jugadores = Object.keys(semi1.resultado).filter(id => /^\d+$/.test(id)); // solo IDs numéricos
+    if (jugadores.length === 2) {
+      const idGanadorSemi1 = jugadores.reduce((a, b) =>
+        semi1.resultado[a] > semi1.resultado[b] ? a : b
+      );
+      final.partidos[0].jugador1Id = idGanadorSemi1;
+    }
   }
 
   if (semi2.resultado) {
-    const idGanadorSemi2 = Object.keys(semi2.resultado).reduce((a, b) =>
-      semi2.resultado[a] > semi2.resultado[b] ? a : b
-    );
-    final.partidos[0].jugador2Id = idGanadorSemi2;
+    const jugadores = Object.keys(semi2.resultado).filter(id => /^\d+$/.test(id));
+    if (jugadores.length === 2) {
+      const idGanadorSemi2 = jugadores.reduce((a, b) =>
+        semi2.resultado[a] > semi2.resultado[b] ? a : b
+      );
+      final.partidos[0].jugador2Id = idGanadorSemi2;
+    }
   }
 
   return liga;
