@@ -19,7 +19,6 @@ module.exports = {
   description: 'Registra la fecha y horario de un encuentro',
   options: [
     { name: 'division', description: 'División en la que juegas.', type: ApplicationCommandOptionType.String, required: true, choices: divisionesChoices },
-    { name: 'ronda', description: 'Número de jornada a coordinar', type: ApplicationCommandOptionType.Integer, required: true },
     { name: 'fecha', description: 'Ingrese la fecha en formato DD-MM-YYYY.', type: ApplicationCommandOptionType.String, required: true },
     { name: 'jugador', description: 'Tu nombre', type: ApplicationCommandOptionType.User, required: true },
     { name: 'rival', description: 'Nombre del rival', type: ApplicationCommandOptionType.User, required: true },
@@ -32,7 +31,6 @@ module.exports = {
 
     const { options, user } = interaction;
     const division = options.getString('division');
-    const ronda = options.getInteger('ronda');
     const fecha = options.getString('fecha');
     const jugador = options.getUser('jugador');
     const rival = options.getUser('rival');
@@ -57,10 +55,10 @@ module.exports = {
       let partidoCoordinado = false;
       let fueRecoord = false;
       let tipoFase = "";
+      let rondaTexto = "";
 
+      // Buscar partido automáticamente
       for (const jornada of liga.jornadas) {
-        if (Number(jornada.ronda) !== ronda) continue;
-
         for (const partido of jornada.partidos) {
           const j1 = partido.jugador1Id;
           const j2 = partido.jugador2Id;
@@ -81,8 +79,9 @@ module.exports = {
             partido.coordinadoPor = { id: user.id, nombre: user.username };
             partidoCoordinado = true;
 
-            // Detectar tipo de fase (si existe)
+            // Detectar tipo de fase automáticamente
             tipoFase = jornada.tipo || "";
+            rondaTexto = jornada.ronda || "";
             break;
           }
         }
@@ -94,14 +93,15 @@ module.exports = {
 
         const advertencia = fueRecoord ? "\n⚠️ *Este partido ya estaba coordinado anteriormente. Datos actualizados.*" : "";
         const faseMsg = tipoFase ? `\n🏆 Fase: **${tipoFase.toUpperCase()}**` : "";
+        const rondaMsg = rondaTexto ? `\n📌 Ronda: **${rondaTexto}**` : "";
 
         await interaction.editReply({ content: "✅ Partido coordinado correctamente.", ephemeral: true });
         await interaction.followUp({
-          content: `📅 Partido coordinado en División **${division}**, Ronda **${ronda}**${faseMsg}\n🕒 ${fecha} (${diaSemana}) a las ${horarioFormateado}-hs ${gmt}\n👥 ${jugador} vs ${rival}${advertencia}`,
+          content: `📅 Partido coordinado en División **${division}**${rondaMsg}${faseMsg}\n🕒 ${fecha} (${diaSemana}) a las ${horarioFormateado}-hs ${gmt}\n👥 ${jugador} vs ${rival}${advertencia}`,
           ephemeral: false
         });
       } else {
-        await interaction.editReply({ content: `⚠️ No se encontró el partido entre ${jugador.username} y ${rival.username} en la ronda ${ronda}.`, ephemeral: true });
+        await interaction.editReply({ content: `⚠️ No se encontró el partido entre ${jugador.username} y ${rival.username} en esta división.`, ephemeral: true });
       }
     } catch (error) {
       console.error("❌ Error al coordinar:", error);
@@ -109,3 +109,4 @@ module.exports = {
     }
   }
 };
+
