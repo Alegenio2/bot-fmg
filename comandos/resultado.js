@@ -1,3 +1,4 @@
+// comandos/resultado.js
 const { SlashCommandBuilder } = require('discord.js');
 const fs = require('fs').promises;
 const path = require('path');
@@ -62,17 +63,17 @@ module.exports = {
     .addStringOption(opt =>
       opt.setName('draftmapas')
         .setDescription('Draft de mapas')
-        .setRequired(true)
+        .setRequired(false)
     )
     .addStringOption(opt =>
       opt.setName('draftcivis')
         .setDescription('Draft de civilizaciones')
-        .setRequired(true)
+        .setRequired(false)
     )
     .addAttachmentOption(opt =>
       opt.setName('archivo')
         .setDescription('Archivo adjunto opcional')
-        .setRequired(true)
+        .setRequired(false)
     ),
 
   async execute(interaction) {
@@ -105,15 +106,13 @@ module.exports = {
       const liga = JSON.parse(ligaJSON);
 
       let partidoEncontrado = false;
-      let yaTeniaResultado = false;
+      let rondaEncontrada = 'desconocida';
 
-      // Buscar partido en cualquier ronda
+      // Buscar partido
       for (const jornada of liga.jornadas) {
         for (const partido of jornada.partidos) {
           if ((partido.jugador1Id === jugador.id && partido.jugador2Id === otrojugador.id) ||
               (partido.jugador1Id === otrojugador.id && partido.jugador2Id === jugador.id)) {
-
-            if (partido.resultado) yaTeniaResultado = true;
 
             partido.resultado = {
               [jugador.id]: puntosjugador,
@@ -125,6 +124,7 @@ module.exports = {
             };
 
             partidoEncontrado = true;
+            rondaEncontrada = jornada.ronda || 'desconocida';
             break;
           }
         }
@@ -133,19 +133,18 @@ module.exports = {
 
       if (!partidoEncontrado) return interaction.editReply({ content: "⚠️ No se encontró el partido." });
 
-      // Actualizar semifinales y final
-      try { actualizarSemifinales(liga); actualizarFinal(liga); }
-      catch (err) { console.warn("⚠️ Error actualizando semi/final:", err.message); }
+      // 🔄 Actualizar semifinales y final **después de actualizar el JSON**
+      await actualizarSemifinales(liga);
+      await actualizarFinal(liga);
 
-      // Guardar liga
+      // 💾 Guardar liga
       await guardarLiga(liga, filePath, letraDivision, interaction);
 
-      // Actualizar tabla en canal
-      try { await actualizarTablaEnCanal(letraDivision, interaction.client, interaction.guildId); }
-      catch (err) { console.warn("⚠️ Error actualizando tabla:", err.message); }
+      // 📊 Actualizar tabla en canal
+      await actualizarTablaEnCanal(letraDivision, interaction.client, interaction.guildId);
 
-      // Mensaje final público
-      const mensaje = `🏆 División ${division} - Fecha: ${fecha}\n${jugador} ||${puntosjugador} - ${puntosotrojugador}|| ${otrojugador}\nMapas: ${draftmapas || 'No disponibles'}\nCivs: ${draftcivis || 'No disponibles'}\nArchivo: ${archivoAdjunto?.url || 'No adjunto'}`;
+      // ✅ Mensaje final
+      const mensaje = `🏆 División ${division} - Ronda: ${rondaEncontrada} - Fecha: ${fecha}\n${jugador} ||${puntosjugador} - ${puntosotrojugador}|| ${otrojugador}\nMapas: ${draftmapas || 'No disponibles'}\nCivs: ${draftcivis || 'No disponibles'}\nArchivo: ${archivoAdjunto?.url || 'No adjunto'}`;
 
       await interaction.followUp({ content: mensaje, ephemeral: false });
 
