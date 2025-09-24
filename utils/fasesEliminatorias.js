@@ -1,4 +1,5 @@
-// utiles/fasesEliminatorias.js
+// utils/fasesEliminatorias.js
+
 function calcularTablaGrupo(participantes, partidos) {
   const tabla = participantes.map(p => ({
     id: p.id,
@@ -6,7 +7,8 @@ function calcularTablaGrupo(participantes, partidos) {
     puntos: 0,
     ganados: 0,
     perdidos: 0,
-    pendiente: false, // flag para indicar si aún tiene partidos sin jugar
+    diferencia: 0,
+    pendiente: false, // jugador aún tiene partidos pendientes
   }));
 
   for (const partido of partidos) {
@@ -15,7 +17,6 @@ function calcularTablaGrupo(participantes, partidos) {
     const p2 = tabla.find(t => t.id === id2);
 
     if (!partido.resultado) {
-      // marcar como pendiente si no hay resultado
       if (p1) p1.pendiente = true;
       if (p2) p2.pendiente = true;
       continue;
@@ -33,16 +34,21 @@ function calcularTablaGrupo(participantes, partidos) {
       p1.perdidos++;
       p2.puntos += 3;
     } else {
-      // empate
       p1.puntos += 1;
       p2.puntos += 1;
     }
+
+    // diferencia de victorias para desempate
+    if (p1 && p2) {
+      p1.diferencia = p1.ganados - p1.perdidos;
+      p2.diferencia = p2.ganados - p2.perdidos;
+    }
   }
 
-  // ordenar por puntos > diferencia de victorias > nombre
+  // ordenar por puntos > diferencia > nombre
   tabla.sort((a, b) =>
     b.puntos - a.puntos ||
-    (b.ganados - b.perdidos) - (a.ganados - a.perdidos) ||
+    b.diferencia - a.diferencia ||
     a.nombre.localeCompare(b.nombre)
   );
 
@@ -55,75 +61,66 @@ function actualizarSemifinales(liga) {
   const semifinales = liga.jornadas.find(j => j.ronda === "Semifinal");
   if (!semifinales) return liga;
 
-  // Partidos de Grupo A
-  const partidosGrupoA = liga.jornadas
+  const partidosRondas = liga.jornadas
     .filter(j => typeof j.ronda === "number")
-    .flatMap(j => j.partidos)
-    .filter(p =>
-      liga.grupos.A.some(x => x.id === p.jugador1Id || x.id === p.jugador2Id)
-    );
+    .flatMap(j => j.partidos);
 
-  // Partidos de Grupo B
-  const partidosGrupoB = liga.jornadas
-    .filter(j => typeof j.ronda === "number")
-    .flatMap(j => j.partidos)
-    .filter(p =>
-      liga.grupos.B.some(x => x.id === p.jugador1Id || x.id === p.jugador2Id)
-    );
+  const tablaA = calcularTablaGrupo(liga.grupos.A, partidosRondas);
+  const tablaB = calcularTablaGrupo(liga.grupos.B, partidosRondas);
 
-  const tablaA = calcularTablaGrupo(liga.grupos.A, partidosGrupoA);
-  const tablaB = calcularTablaGrupo(liga.grupos.B, partidosGrupoB);
-
-  // solo clasificar jugadores que no tengan partidos pendientes
+  // solo clasificados sin pendientes
   const clasificadosA = tablaA.filter(t => !t.pendiente).slice(0, 2);
   const clasificadosB = tablaB.filter(t => !t.pendiente).slice(0, 2);
 
   if (clasificadosA.length < 2 || clasificadosB.length < 2) {
-    // todavía hay partidos pendientes, no llenar semifinales
+    // todavía faltan partidos, no actualizar semi
     return liga;
   }
 
-  // Emparejamientos correctos: 1A vs 2B, 1B vs 2A
+  // Emparejamientos correctos
   semifinales.partidos[0].jugador1Id = clasificadosA[0].id; // 1A
   semifinales.partidos[0].jugador2Id = clasificadosB[1].id; // 2B
-
   semifinales.partidos[1].jugador1Id = clasificadosB[0].id; // 1B
   semifinales.partidos[1].jugador2Id = clasificadosA[1].id; // 2A
+
+  // Guardar nombres para mostrar en mensajes
+  semifinales.partidos[0].jugador1Nombre = clasificadosA[0].nombre;
+  semifinales.partidos[0].jugador2Nombre = clasificadosB[1].nombre;
+  semifinales.partidos[1].jugador1Nombre = clasificadosB[0].nombre;
+  semifinales.partidos[1].jugador2Nombre = clasificadosA[1].nombre;
 
   return liga;
 }
 
 function actualizarFinal(liga) {
-  if (liga.modo !== "grupos_final") return liga;
-
   const semifinales = liga.jornadas.find(j => j.ronda === "Semifinal");
   const final = liga.jornadas.find(j => j.ronda === "Final");
-
   if (!semifinales || !final) return liga;
 
   const [semi1, semi2] = semifinales.partidos;
 
-  if (semi1.resultado) {
-    const jugadores = Object.keys(semi1.resultado).filter(id => /^\d+$/.test(id)); // solo IDs numéricos
-    if (jugadores.length === 2) {
-      const idGanadorSemi1 = jugadores.reduce((a, b) =>
-        semi1.resultado[a] > semi1.resultado[b] ? a : b
-      );
-      final.partidos[0].jugador1Id = idGanadorSemi1;
-    }
-  }
+  const ganadorSemi1 = obtenerGanador(semi1);
+  const ganadorSemi2 = obtenerGanador(semi2);
 
-  if (semi2.resultado) {
-    const jugadores = Object.keys(semi2.resultado).filter(id => /^\d+$/.test(id));
-    if (jugadores.length === 2) {
-      const idGanadorSemi2 = jugadores.reduce((a, b) =>
-        semi2.resultado[a] > semi2.resultado[b] ? a : b
-      );
-      final.partidos[0].jugador2Id = idGanadorSemi2;
-    }
-  }
+  if (!ganadorSemi1 || !ganadorSemi2) return liga;
+
+  final.partidos[0].jugador1Id = ganadorSemi1.id;
+  final.partidos[0].jugador1Nombre = ganadorSemi1.nombre;
+  final.partidos[0].jugador2Id = ganadorSemi2.id;
+  final.partidos[0].jugador2Nombre = ganadorSemi2.nombre;
 
   return liga;
+}
+
+function obtenerGanador(partido) {
+  if (!partido || !partido.resultado) return null;
+  const { jugador1Id, jugador1Nombre, jugador2Id, jugador2Nombre, resultado } = partido;
+  const score1 = resultado[jugador1Id] ?? 0;
+  const score2 = resultado[jugador2Id] ?? 0;
+
+  if (score1 > score2) return { id: jugador1Id, nombre: jugador1Nombre };
+  if (score2 > score1) return { id: jugador2Id, nombre: jugador2Nombre };
+  return null;
 }
 
 module.exports = {
