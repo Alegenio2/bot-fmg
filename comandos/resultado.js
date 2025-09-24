@@ -133,14 +133,14 @@ module.exports = {
 
       if (!partidoEncontrado) return interaction.editReply({ content: "⚠️ No se encontró el partido." });
 
-      // 🔄 Actualizar semifinales y final **después de actualizar el JSON**
+      // 🔹 Guardar primero el resultado en el JSON
+      await guardarLiga(liga, filePath, letraDivision, interaction);
+
+      // 🔹 Luego actualizar semifinales y final
       await actualizarSemifinales(liga);
       await actualizarFinal(liga);
 
-      // 💾 Guardar liga
-      await guardarLiga(liga, filePath, letraDivision, interaction);
-
-      // 📊 Actualizar tabla en canal
+      // 🔹 Actualizar tabla de posiciones en Discord
       await actualizarTablaEnCanal(letraDivision, interaction.client, interaction.guildId);
 
       // ✅ Mensaje final
