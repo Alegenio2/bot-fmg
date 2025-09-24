@@ -1,15 +1,13 @@
 // utiles/fasesEliminatorias.js
 // 🏆 Calcula automáticamente semifinales y final a partir de los resultados de grupos
-
 function calcularTablaGrupo(participantes, partidos) {
-  // Inicializa tabla de puntos por jugador
   const tabla = participantes.map(p => ({
     id: p.id,
     nombre: p.nombre,
     puntos: 0,
     ganados: 0,
     perdidos: 0,
-    pendiente: false
+    pendiente: false, // indica si aún tiene partidos sin jugar
   }));
 
   for (const partido of partidos) {
@@ -23,11 +21,9 @@ function calcularTablaGrupo(participantes, partidos) {
       continue;
     }
 
+    // 🔹 Tomamos los puntos según tu estructura actual
     const score1 = partido.resultado[id1] ?? 0;
     const score2 = partido.resultado[id2] ?? 0;
-
-    p1.puntos += score1;
-    p2.puntos += score2;
 
     if (score1 > score2) {
       p1.ganados++;
@@ -36,9 +32,12 @@ function calcularTablaGrupo(participantes, partidos) {
       p2.ganados++;
       p1.perdidos++;
     }
+    // puntos = cantidad de juegos ganados en la partida
+    p1.puntos += score1;
+    p2.puntos += score2;
   }
 
-  // Ordena por puntos, luego por diferencia de victorias, luego por nombre
+  // ordenar por puntos > diferencia de victorias > nombre
   tabla.sort((a, b) =>
     b.puntos - a.puntos ||
     (b.ganados - b.perdidos) - (a.ganados - a.perdidos) ||
@@ -49,17 +48,15 @@ function calcularTablaGrupo(participantes, partidos) {
 }
 
 function actualizarSemifinales(liga) {
-  if (!liga.grupos || !liga.jornadas) return liga;
+  if (liga.modo !== "grupos_final" || !liga.grupos) return liga;
 
   const semifinales = liga.jornadas.find(j => j.ronda === "Semifinal");
   if (!semifinales) return liga;
 
-  // Recopilar todos los partidos de grupos
   const partidosRondas = liga.jornadas
     .filter(j => typeof j.ronda === "number")
     .flatMap(j => j.partidos);
 
-  // Calcular tabla de cada grupo
   const tablaA = calcularTablaGrupo(liga.grupos.A, partidosRondas);
   const tablaB = calcularTablaGrupo(liga.grupos.B, partidosRondas);
 
@@ -68,10 +65,11 @@ function actualizarSemifinales(liga) {
 
   if (clasificadosA.length < 2 || clasificadosB.length < 2) return liga;
 
-  // Llenar semifinales según 1A vs 2B y 1B vs 2A
+  // Semifinal 1: A1 vs B2
   semifinales.partidos[0].jugador1Id = clasificadosA[0].id;
   semifinales.partidos[0].jugador2Id = clasificadosB[1].id;
 
+  // Semifinal 2: B1 vs A2
   semifinales.partidos[1].jugador1Id = clasificadosB[0].id;
   semifinales.partidos[1].jugador2Id = clasificadosA[1].id;
 
@@ -79,26 +77,26 @@ function actualizarSemifinales(liga) {
 }
 
 function actualizarFinal(liga) {
-  if (!liga.jornadas) return liga;
+  if (liga.modo !== "grupos_final") return liga;
 
   const semifinales = liga.jornadas.find(j => j.ronda === "Semifinal");
   const final = liga.jornadas.find(j => j.ronda === "Final");
-
   if (!semifinales || !final) return liga;
 
-  for (let i = 0; i < 2; i++) {
-    const semi = semifinales.partidos[i];
-    if (!semi.resultado) continue;
+  // 🔹 Ganador de semi 1
+  const semi1 = semifinales.partidos[0];
+  if (semi1.resultado) {
+    const ids = [semi1.jugador1Id, semi1.jugador2Id];
+    const idGanador = ids.reduce((a, b) => (semi1.resultado[a] > semi1.resultado[b] ? a : b));
+    final.partidos[0].jugador1Id = idGanador;
+  }
 
-    const [id1, id2] = [semi.jugador1Id, semi.jugador2Id];
-    const score1 = semi.resultado[id1] ?? 0;
-    const score2 = semi.resultado[id2] ?? 0;
-    const ganador = score1 > score2 ? id1 : (score2 > score1 ? id2 : null);
-
-    if (ganador) {
-      if (i === 0) final.partidos[0].jugador1Id = ganador;
-      else final.partidos[0].jugador2Id = ganador;
-    }
+  // 🔹 Ganador de semi 2
+  const semi2 = semifinales.partidos[1];
+  if (semi2.resultado) {
+    const ids = [semi2.jugador1Id, semi2.jugador2Id];
+    const idGanador = ids.reduce((a, b) => (semi2.resultado[a] > semi2.resultado[b] ? a : b));
+    final.partidos[0].jugador2Id = idGanador;
   }
 
   return liga;
@@ -106,5 +104,5 @@ function actualizarFinal(liga) {
 
 module.exports = {
   actualizarSemifinales,
-  actualizarFinal
+  actualizarFinal,
 };
