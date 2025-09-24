@@ -6,7 +6,7 @@ function calcularTablaGrupo(participantes, partidos) {
     puntos: 0,
     ganados: 0,
     perdidos: 0,
-    pendiente: false, // nuevo flag para indicar si aún tiene partidos sin jugar
+    pendiente: false, // flag para indicar si aún tiene partidos sin jugar
   }));
 
   for (const partido of partidos) {
@@ -55,12 +55,24 @@ function actualizarSemifinales(liga) {
   const semifinales = liga.jornadas.find(j => j.ronda === "Semifinal");
   if (!semifinales) return liga;
 
-  const partidosRondas = liga.jornadas
+  // Partidos de Grupo A
+  const partidosGrupoA = liga.jornadas
     .filter(j => typeof j.ronda === "number")
-    .flatMap(j => j.partidos);
+    .flatMap(j => j.partidos)
+    .filter(p =>
+      liga.grupos.A.some(x => x.id === p.jugador1Id || x.id === p.jugador2Id)
+    );
 
-  const tablaA = calcularTablaGrupo(liga.grupos.A, partidosRondas);
-  const tablaB = calcularTablaGrupo(liga.grupos.B, partidosRondas);
+  // Partidos de Grupo B
+  const partidosGrupoB = liga.jornadas
+    .filter(j => typeof j.ronda === "number")
+    .flatMap(j => j.partidos)
+    .filter(p =>
+      liga.grupos.B.some(x => x.id === p.jugador1Id || x.id === p.jugador2Id)
+    );
+
+  const tablaA = calcularTablaGrupo(liga.grupos.A, partidosGrupoA);
+  const tablaB = calcularTablaGrupo(liga.grupos.B, partidosGrupoB);
 
   // solo clasificar jugadores que no tengan partidos pendientes
   const clasificadosA = tablaA.filter(t => !t.pendiente).slice(0, 2);
@@ -71,6 +83,7 @@ function actualizarSemifinales(liga) {
     return liga;
   }
 
+  // Emparejamientos correctos: 1A vs 2B, 1B vs 2A
   semifinales.partidos[0].jugador1Id = clasificadosA[0].id; // 1A
   semifinales.partidos[0].jugador2Id = clasificadosB[1].id; // 2B
 
@@ -117,4 +130,3 @@ module.exports = {
   actualizarSemifinales,
   actualizarFinal
 };
-
