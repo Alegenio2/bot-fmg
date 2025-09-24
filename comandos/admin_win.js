@@ -103,6 +103,7 @@ module.exports = {
       let partidoEncontrado = false;
       let rondaEncontrada = 'desconocida';
 
+      // 🔹 Buscar y actualizar el partido con el resultado
       for (const jornada of liga.jornadas) {
         for (const partido of jornada.partidos) {
           if ((partido.jugador1Id === jugador.id && partido.jugador2Id === otrojugador.id) ||
@@ -124,15 +125,17 @@ module.exports = {
 
       if (!partidoEncontrado) return interaction.editReply({ content: "⚠️ No se encontró el partido." });
 
-      // Actualizar semi y final
+      // 🔹 Guardar primero el resultado en el JSON
+      await guardarLiga(liga, filePath, letraDivision, interaction);
+
+      // 🔹 Luego actualizar semifinales y final
       await actualizarSemifinales(liga);
       await actualizarFinal(liga);
 
-      // Guardar liga y actualizar tabla
-      await guardarLiga(liga, filePath, letraDivision, interaction);
+      // 🔹 Actualizar tabla de posiciones en Discord
       await actualizarTablaEnCanal(letraDivision, interaction.client, interaction.guildId);
 
-      // Mostrar resultado públicamente y actualizar mensaje provisional
+      // 🔹 Mostrar resultado públicamente
       await interaction.editReply({
         content: `🏆 División ${division} - Ronda: ${rondaEncontrada} - Fecha: ${fecha}\n${jugador} ||${puntosjugador} - ${puntosotrojugador}|| ${otrojugador}`,
         ephemeral: false
