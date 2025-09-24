@@ -1,12 +1,15 @@
 // utiles/fasesEliminatorias.js
+// 🏆 Calcula automáticamente semifinales y final a partir de los resultados de grupos
+
 function calcularTablaGrupo(participantes, partidos) {
+  // Inicializa tabla de puntos por jugador
   const tabla = participantes.map(p => ({
     id: p.id,
     nombre: p.nombre,
-    puntos: 0,   // ahora serán los partidos ganados
+    puntos: 0,
     ganados: 0,
     perdidos: 0,
-    pendiente: false,
+    pendiente: false
   }));
 
   for (const partido of partidos) {
@@ -23,6 +26,9 @@ function calcularTablaGrupo(participantes, partidos) {
     const score1 = partido.resultado[id1] ?? 0;
     const score2 = partido.resultado[id2] ?? 0;
 
+    p1.puntos += score1;
+    p2.puntos += score2;
+
     if (score1 > score2) {
       p1.ganados++;
       p2.perdidos++;
@@ -30,12 +36,9 @@ function calcularTablaGrupo(participantes, partidos) {
       p2.ganados++;
       p1.perdidos++;
     }
-
-    // puntos según partidos ganados
-    if (p1) p1.puntos += score1;
-    if (p2) p2.puntos += score2;
   }
 
+  // Ordena por puntos, luego por diferencia de victorias, luego por nombre
   tabla.sort((a, b) =>
     b.puntos - a.puntos ||
     (b.ganados - b.perdidos) - (a.ganados - a.perdidos) ||
@@ -46,15 +49,17 @@ function calcularTablaGrupo(participantes, partidos) {
 }
 
 function actualizarSemifinales(liga) {
-  if (liga.modo !== "grupos_final" || !liga.grupos) return liga;
+  if (!liga.grupos || !liga.jornadas) return liga;
 
   const semifinales = liga.jornadas.find(j => j.ronda === "Semifinal");
   if (!semifinales) return liga;
 
+  // Recopilar todos los partidos de grupos
   const partidosRondas = liga.jornadas
     .filter(j => typeof j.ronda === "number")
     .flatMap(j => j.partidos);
 
+  // Calcular tabla de cada grupo
   const tablaA = calcularTablaGrupo(liga.grupos.A, partidosRondas);
   const tablaB = calcularTablaGrupo(liga.grupos.B, partidosRondas);
 
@@ -63,11 +68,10 @@ function actualizarSemifinales(liga) {
 
   if (clasificadosA.length < 2 || clasificadosB.length < 2) return liga;
 
-  // Semifinal 1: A1 vs B2
+  // Llenar semifinales según 1A vs 2B y 1B vs 2A
   semifinales.partidos[0].jugador1Id = clasificadosA[0].id;
   semifinales.partidos[0].jugador2Id = clasificadosB[1].id;
 
-  // Semifinal 2: B1 vs A2
   semifinales.partidos[1].jugador1Id = clasificadosB[0].id;
   semifinales.partidos[1].jugador2Id = clasificadosA[1].id;
 
@@ -75,29 +79,32 @@ function actualizarSemifinales(liga) {
 }
 
 function actualizarFinal(liga) {
-  if (liga.modo !== "grupos_final") return liga;
+  if (!liga.jornadas) return liga;
 
   const semifinales = liga.jornadas.find(j => j.ronda === "Semifinal");
   const final = liga.jornadas.find(j => j.ronda === "Final");
+
   if (!semifinales || !final) return liga;
 
-  // Determinar ganadores de las semifinales
   for (let i = 0; i < 2; i++) {
     const semi = semifinales.partidos[i];
     if (!semi.resultado) continue;
 
-    const ids = Object.keys(semi.resultado);
-    const idGanador = ids.reduce((a, b) =>
-      semi.resultado[a] > semi.resultado[b] ? a : b
-    );
+    const [id1, id2] = [semi.jugador1Id, semi.jugador2Id];
+    const score1 = semi.resultado[id1] ?? 0;
+    const score2 = semi.resultado[id2] ?? 0;
+    const ganador = score1 > score2 ? id1 : (score2 > score1 ? id2 : null);
 
-    if (i === 0) final.partidos[0].jugador1Id = idGanador;
-    if (i === 1) final.partidos[0].jugador2Id = idGanador;
+    if (ganador) {
+      if (i === 0) final.partidos[0].jugador1Id = ganador;
+      else final.partidos[0].jugador2Id = ganador;
+    }
   }
 
   return liga;
 }
 
-module.exports = { actualizarSemifinales, actualizarFinal };
-
-
+module.exports = {
+  actualizarSemifinales,
+  actualizarFinal
+};
