@@ -51,7 +51,7 @@ module.exports = {
     )
     .addUserOption(opt =>
       opt.setName('otrojugador')
-        .Description('Segundo jugador')
+        .setDescription('Segundo jugador')
         .setRequired(true)
     )
     .addIntegerOption(opt =>
@@ -143,3 +143,4 @@ module.exports = {
     }
   }
 };
+
