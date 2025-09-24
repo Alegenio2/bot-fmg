@@ -51,7 +51,7 @@ module.exports = {
     )
     .addUserOption(opt =>
       opt.setName('otrojugador')
-        .setDescription('Segundo jugador')
+        .Description('Segundo jugador')
         .setRequired(true)
     )
     .addIntegerOption(opt =>
@@ -69,7 +69,6 @@ module.exports = {
       return interaction.reply({ content: '❌ Solo el organizador puede usar este comando.', ephemeral: true });
     }
 
-    // Respuesta provisional inmediata para evitar timeout
     await interaction.reply({ content: '⏳ Registrando resultado...', ephemeral: true });
 
     const opts = interaction.options;
@@ -80,9 +79,7 @@ module.exports = {
     const otrojugador = opts.getUser('otrojugador');
     const puntosotrojugador = opts.getInteger('puntosotrojugador');
 
-    if (!jugador || !otrojugador) {
-      return interaction.editReply({ content: "❌ Faltan datos obligatorios." });
-    }
+    if (!jugador || !otrojugador) return interaction.editReply({ content: "❌ Faltan datos obligatorios." });
 
     const fechaISO = convertirFormatoFecha(fecha);
     if (!fechaISO) return interaction.editReply({ content: "⚠️ Fecha inválida. Usa DD/MM/AAAA o DD-MM-AAAA." });
@@ -103,7 +100,6 @@ module.exports = {
       let partidoEncontrado = false;
       let rondaEncontrada = 'desconocida';
 
-      // 🔹 Buscar y actualizar el partido con el resultado
       for (const jornada of liga.jornadas) {
         for (const partido of jornada.partidos) {
           if ((partido.jugador1Id === jugador.id && partido.jugador2Id === otrojugador.id) ||
@@ -125,12 +121,12 @@ module.exports = {
 
       if (!partidoEncontrado) return interaction.editReply({ content: "⚠️ No se encontró el partido." });
 
-      // 🔹 Guardar primero el resultado en el JSON
-      await guardarLiga(liga, filePath, letraDivision, interaction);
-
-      // 🔹 Luego actualizar semifinales y final
+      // 🔹 Actualizar semifinales y final en memoria
       await actualizarSemifinales(liga);
       await actualizarFinal(liga);
+
+      // 🔹 Guardar liga y subir a GitHub
+      await guardarLiga(liga, filePath, letraDivision, interaction);
 
       // 🔹 Actualizar tabla de posiciones en Discord
       await actualizarTablaEnCanal(letraDivision, interaction.client, interaction.guildId);
@@ -147,3 +143,4 @@ module.exports = {
     }
   }
 };
+
