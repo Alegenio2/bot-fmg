@@ -1100,7 +1100,11 @@
         {
           "jugador1Id": "724668688145580062",
           "jugador2Id": "1244725529093869687",
-          "resultado": null
+          "resultado": {
+            "724668688145580062": 2,
+            "1244725529093869687": 0,
+            "fecha": "2025-09-23"
+          }
         },
         {
           "jugador1Id": "689907393001291884",
@@ -1139,11 +1143,11 @@
       "partidos": [
         {
           "jugador1Id": "709904591453683766",
-          "jugador2Id": "724668688145580062",
+          "jugador2Id": "689907393001291884",
           "resultado": null
         },
         {
-          "jugador1Id": "689907393001291884",
+          "jugador1Id": "724668688145580062",
           "jugador2Id": "135113382217908224",
           "resultado": {
             "135113382217908224": 3,
@@ -1171,7 +1175,7 @@
       "partidos": [
         {
           "jugador1Id": "GanadorSemi1",
-          "jugador2Id": "135113382217908224",
+          "jugador2Id": "rec",
           "resultado": null
         }
       ]
