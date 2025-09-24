@@ -1,151 +1,107 @@
 // utils/fasesEliminatorias.js
+function calcularTablaGrupo(grupo) {
+  const jugadores = {};
 
-/**
- * Calcula la tabla de un grupo a partir de sus participantes y partidos jugados.
- */
-function calcularTablaGrupo(participantes, partidos) {
-  const tabla = participantes.map(p => ({
-    id: p.id,
-    nombre: p.nombre,
-    puntos: 0,
-    ganados: 0,
-    perdidos: 0,
-    diferencia: 0,
-    pendiente: false, // flag para indicar si aún tiene partidos sin jugar
+  for (const jornada of grupo.jornadas) {
+    for (const partido of jornada.partidos) {
+      if (!partido.resultado) continue;
+
+      const j1 = partido.jugador1Id;
+      const j2 = partido.jugador2Id;
+      const r1 = partido.resultado[j1];
+      const r2 = partido.resultado[j2];
+
+      // inicializar si no existe
+      if (!jugadores[j1]) {
+        jugadores[j1] = { id: j1, nombre: partido.jugador1Nombre || '', ganados: 0, perdidos: 0, puntos: 0 };
+      }
+      if (!jugadores[j2]) {
+        jugadores[j2] = { id: j2, nombre: partido.jugador2Nombre || '', ganados: 0, perdidos: 0, puntos: 0 };
+      }
+
+      // sumar puntos
+      jugadores[j1].puntos += r1;
+      jugadores[j2].puntos += r2;
+
+      if (r1 > r2) {
+        jugadores[j1].ganados += 1;
+        jugadores[j2].perdidos += 1;
+      } else if (r2 > r1) {
+        jugadores[j2].ganados += 1;
+        jugadores[j1].perdidos += 1;
+      }
+    }
+  }
+
+  // devolver ranking ordenado
+  return Object.values(jugadores).sort((a, b) => {
+    if (b.ganados !== a.ganados) return b.ganados - a.ganados;
+    return b.puntos - a.puntos;
+  });
+}
+
+async function actualizarSemifinales(liga) {
+  if (!liga.grupos || liga.grupos.length < 2) {
+    console.log("⚠️ No hay suficientes grupos para semifinales");
+    return;
+  }
+
+  const grupoA = liga.grupos.find(g => g.nombre === "A");
+  const grupoB = liga.grupos.find(g => g.nombre === "B");
+
+  if (!grupoA || !grupoB) {
+    console.log("⚠️ No se encontraron los grupos A y B");
+    return;
+  }
+
+  const rankingA = calcularTablaGrupo(grupoA);
+  const rankingB = calcularTablaGrupo(grupoB);
+
+  if (rankingA.length < 2 || rankingB.length < 2) {
+    console.log("⚠️ No hay suficientes jugadores en los grupos");
+    return;
+  }
+
+  const semifinales = [
+    { jugador1: rankingA[0], jugador2: rankingB[1] }, // 1A vs 2B
+    { jugador1: rankingB[0], jugador2: rankingA[1] }, // 1B vs 2A
+  ];
+
+  liga.semifinales = semifinales.map((sf, idx) => ({
+    id: `SF${idx + 1}`,
+    jugador1Id: sf.jugador1.id,
+    jugador1Nombre: sf.jugador1.nombre,
+    jugador2Id: sf.jugador2.id,
+    jugador2Nombre: sf.jugador2.nombre,
+    resultado: null,
   }));
 
-  for (const partido of partidos) {
-    const [id1, id2] = [partido.jugador1Id, partido.jugador2Id];
-    const p1 = tabla.find(t => t.id === id1);
-    const p2 = tabla.find(t => t.id === id2);
-
-    // si alguno de los jugadores no pertenece al grupo, ignorar este partido
-    if (!p1 || !p2) continue;
-
-    if (!partido.resultado) {
-      // marcar como pendiente si no hay resultado
-      p1.pendiente = true;
-      p2.pendiente = true;
-      continue;
-    }
-
-    const score1 = partido.resultado[id1] ?? 0;
-    const score2 = partido.resultado[id2] ?? 0;
-
-    if (score1 > score2) {
-      p1.ganados++;
-      p2.perdidos++;
-      p1.puntos += 3;
-    } else if (score2 > score1) {
-      p2.ganados++;
-      p1.perdidos++;
-      p2.puntos += 3;
-    } else {
-      // empate
-      p1.puntos += 1;
-      p2.puntos += 1;
-    }
-
-    // actualizar diferencia
-    p1.diferencia = p1.ganados - p1.perdidos;
-    p2.diferencia = p2.ganados - p2.perdidos;
-  }
-
-  // ordenar por puntos > diferencia > nombre
-  tabla.sort((a, b) =>
-    b.puntos - a.puntos ||
-    b.diferencia - a.diferencia ||
-    a.nombre.localeCompare(b.nombre)
-  );
-
-  return tabla;
+  console.log("✅ Semifinales actualizadas:", liga.semifinales);
 }
 
-/**
- * Genera y actualiza las semifinales de la liga.
- */
-function actualizarSemifinales(liga) {
-  if (liga.modo !== "grupos_final" || !liga.grupos) return liga;
-
-  const semifinales = liga.jornadas.find(j => j.ronda === "Semifinal");
-  if (!semifinales) return liga;
-
-  // Partidos de Grupo A
-  const partidosGrupoA = liga.jornadas
-    .filter(j => typeof j.ronda === "number")
-    .flatMap(j => j.partidos)
-    .filter(p =>
-      liga.grupos.A.some(x => x.id === p.jugador1Id || x.id === p.jugador2Id)
-    );
-
-  // Partidos de Grupo B
-  const partidosGrupoB = liga.jornadas
-    .filter(j => typeof j.ronda === "number")
-    .flatMap(j => j.partidos)
-    .filter(p =>
-      liga.grupos.B.some(x => x.id === p.jugador1Id || x.id === p.jugador2Id)
-    );
-
-  const tablaA = calcularTablaGrupo(liga.grupos.A, partidosGrupoA);
-  const tablaB = calcularTablaGrupo(liga.grupos.B, partidosGrupoB);
-
-  // solo clasificar jugadores que no tengan partidos pendientes
-  const clasificadosA = tablaA.filter(t => !t.pendiente).slice(0, 2);
-  const clasificadosB = tablaB.filter(t => !t.pendiente).slice(0, 2);
-
-  if (clasificadosA.length < 2 || clasificadosB.length < 2) {
-    // todavía hay partidos pendientes, no llenar semifinales
-    return liga;
+async function actualizarFinal(liga) {
+  if (!liga.semifinales || liga.semifinales.length < 2) {
+    console.log("⚠️ No hay semifinales suficientes para generar final");
+    return;
   }
 
-  // Emparejamientos correctos: 1A vs 2B, 1B vs 2A
-  semifinales.partidos[0].jugador1Id = clasificadosA[0].id; // 1A
-  semifinales.partidos[0].jugador2Id = clasificadosB[1].id; // 2B
+  const final = {
+    id: "F1",
+    jugador1Id: null,
+    jugador1Nombre: null,
+    jugador2Id: null,
+    jugador2Nombre: null,
+    resultado: null,
+  };
 
-  semifinales.partidos[1].jugador1Id = clasificadosB[0].id; // 1B
-  semifinales.partidos[1].jugador2Id = clasificadosA[1].id; // 2A
-
-  return liga;
-}
-
-/**
- * Genera y actualiza la final de la liga.
- */
-function actualizarFinal(liga) {
-  if (liga.modo !== "grupos_final") return liga;
-
-  const semifinales = liga.jornadas.find(j => j.ronda === "Semifinal");
-  const final = liga.jornadas.find(j => j.ronda === "Final");
-
-  if (!semifinales || !final) return liga;
-
-  const [semi1, semi2] = semifinales.partidos;
-
-  if (semi1 && semi1.resultado) {
-    const jugadores = Object.keys(semi1.resultado).filter(id => /^\d+$/.test(id));
-    if (jugadores.length === 2) {
-      const idGanadorSemi1 = jugadores.reduce((a, b) =>
-        semi1.resultado[a] > semi1.resultado[b] ? a : b
-      );
-      final.partidos[0].jugador1Id = idGanadorSemi1;
-    }
-  }
-
-  if (semi2 && semi2.resultado) {
-    const jugadores = Object.keys(semi2.resultado).filter(id => /^\d+$/.test(id));
-    if (jugadores.length === 2) {
-      const idGanadorSemi2 = jugadores.reduce((a, b) =>
-        semi2.resultado[a] > semi2.resultado[b] ? a : b
-      );
-      final.partidos[0].jugador2Id = idGanadorSemi2;
-    }
-  }
-
-  return liga;
+  liga.final = final;
+  console.log("✅ Final preparada (esperando semifinales)");
 }
 
 module.exports = {
+  calcularTablaGrupo,
   actualizarSemifinales,
-  actualizarFinal
+  actualizarFinal,
 };
+
 
