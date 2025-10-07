@@ -1,45 +1,50 @@
-// utiles/asignarRoles.js
-const fs = require('fs');
-const path = require('path');
+// utils/asignarRoles.js
+const fs = require("fs");
+const path = require("path");
 
 /**
- * 🔹 Asigna roles según el promedio de ELO y guarda en la categoría correspondiente.
- * Usa los límites configurados en elo_limites.json
+ * Asigna roles según el promedio de ELO individual
+ * @param {GuildMember} member - Miembro de Discord
+ * @param {number} promedio - Promedio de ELO del jugador
+ * @param {Object} configServidor - Configuración del servidor
+ * @param {string} torneo - Clave del torneo (ej: "copa_uruguaya_1v1" o "copa_uruguaya_2v2")
  */
-async function asignarRolesPorPromedio(member, promedio, configServidor, torneo = 'copa_uruguaya_1v1') {
-  const rolInscripto = configServidor?.rolInscripto;
-  const categoria = definirCategoriaDesdeJSON(promedio, torneo);
-  const rolCategoria = configServidor?.[`categoria${categoria.toUpperCase()}`];
-
+async function asignarRolesPorPromedio(member, promedio, configServidor, torneo) {
   try {
+    const categoria = definirCategoria(promedio, torneo);
+    const rolInscripto = configServidor?.rolInscripto;
+    const rolCategoria = configServidor?.[`categoria${categoria.toUpperCase()}`];
+
     const rolesCategorias = obtenerRolesCategorias(configServidor);
 
+    // Remover roles antiguos y agregar nuevos
     await member.roles.remove(rolesCategorias);
     if (rolInscripto) await member.roles.add(rolInscripto);
     if (rolCategoria) await member.roles.add(rolCategoria);
 
-    guardarEnCategoria(member.id, member.user.username, categoria);
+    guardarEnCategoria(member.id, member.user.username, categoria, torneo);
+
+    console.log(`✅ ${member.user.username} asignado a categoría ${categoria.toUpperCase()} (${torneo})`);
   } catch (error) {
-    console.error("❌ Error al asignar roles o guardar jugador:", error);
+    console.error("❌ Error al asignar roles:", error);
   }
 }
 
 /**
- * 🔹 Asigna roles y guarda jugadores de un equipo de cualquier tamaño
- * Ejemplo: asignarRolesPorPromedioEquipo([j1, j2], promedio, config, 'copa_uruguaya_2v2')
+ * Asigna roles y guarda los jugadores de un equipo (2v2, 3v3, 4v4)
  */
-async function asignarRolesPorPromedioEquipo(jugadores, promedioEquipo, configServidor, torneo = 'copa_uruguaya_2v2') {
+async function asignarRolesPorPromedioEquipo(jugadores, promedioEquipo, configServidor, torneo) {
   if (!Array.isArray(jugadores) || jugadores.length === 0) {
     console.error("❌ asignarRolesPorPromedioEquipo: lista de jugadores vacía");
     return;
   }
 
-  const rolInscripto = configServidor?.rolInscripto;
-  const categoria = definirCategoriaDesdeJSON(promedioEquipo, torneo);
-  const rolCategoria = configServidor?.[`categoria${categoria.toUpperCase()}`];
-  const rolesCategorias = obtenerRolesCategorias(configServidor);
-
   try {
+    const categoria = definirCategoria(promedioEquipo, torneo);
+    const rolInscripto = configServidor?.rolInscripto;
+    const rolCategoria = configServidor?.[`categoria${categoria.toUpperCase()}`];
+    const rolesCategorias = obtenerRolesCategorias(configServidor);
+
     for (const member of jugadores) {
       if (!member) continue;
 
@@ -47,48 +52,51 @@ async function asignarRolesPorPromedioEquipo(jugadores, promedioEquipo, configSe
       if (rolInscripto) await member.roles.add(rolInscripto);
       if (rolCategoria) await member.roles.add(rolCategoria);
 
-      guardarEnCategoria(member.id, member.user.username, categoria);
+      guardarEnCategoria(member.id, member.user.username, categoria, torneo);
     }
 
-    console.log(`✅ Roles asignados correctamente a equipo ${jugadores.map(j => j.user.username).join(", ")}`);
+    console.log(
+      `✅ Roles asignados a equipo (${torneo}): ${jugadores.map(j => j.user.username).join(", ")} → ${categoria.toUpperCase()}`
+    );
   } catch (error) {
     console.error("❌ Error al asignar roles de equipo:", error);
   }
 }
 
 /**
- * 📊 Determina la categoría según el promedio y los límites del torneo
+ * Determina la categoría según el ELO promedio y el torneo indicado.
  */
-function definirCategoriaDesdeJSON(promedio, torneo) {
-  const filePath = path.join(__dirname, '..', 'elo_limites.json');
-  if (!fs.existsSync(filePath)) {
-    console.warn("⚠️ No se encontró elo_limites.json, usando valores por defecto");
-    return definirCategoriaPorDefecto(promedio);
+function definirCategoria(promedio, torneo) {
+  const eloPath = path.join(__dirname, "..", "elo_limites.json");
+
+  if (!fs.existsSync(eloPath)) {
+    console.warn("⚠️ No se encontró elo_limites.json, usando categorías por defecto.");
+    return calcularCategoriaPorDefecto(promedio);
   }
 
-  const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+  const data = JSON.parse(fs.readFileSync(eloPath, "utf8"));
   const limites = data[torneo];
 
   if (!limites) {
-    console.warn(`⚠️ No hay configuración para el torneo ${torneo}, usando valores por defecto`);
-    return definirCategoriaPorDefecto(promedio);
+    console.warn(`⚠️ No hay límites definidos para el torneo ${torneo}. Usando valores por defecto.`);
+    return calcularCategoriaPorDefecto(promedio);
   }
 
-  // Ordenar categorías por ELO máximo descendente
-  const ordenadas = Object.entries(limites).sort((a, b) => b[1] - a[1]);
+  // Ordenar categorías de mayor a menor (por valor)
+  const categoriasOrdenadas = Object.entries(limites).sort((a, b) => b[1] - a[1]);
 
-  for (const [cat, max] of ordenadas) {
-    if (promedio >= max) return cat;
+  for (const [cat, valor] of categoriasOrdenadas) {
+    if (promedio >= valor) return cat;
   }
 
-  // Si no cumple ninguna, asignar la más baja
-  return ordenadas[ordenadas.length - 1][0];
+  // Si no cumple con ninguna, va a la más baja
+  return categoriasOrdenadas.at(-1)?.[0] || "sin_categoria";
 }
 
 /**
- * 🔹 Categorías de respaldo si no hay JSON
+ * Categorías de fallback si no existe el JSON
  */
-function definirCategoriaPorDefecto(promedio) {
+function calcularCategoriaPorDefecto(promedio) {
   if (promedio >= 1701) return "a";
   if (promedio >= 1501) return "b";
   if (promedio >= 1301) return "c";
@@ -97,7 +105,7 @@ function definirCategoriaPorDefecto(promedio) {
 }
 
 /**
- * Devuelve la lista de roles de categorías configurados
+ * Devuelve todos los roles de categorías definidos en la config
  */
 function obtenerRolesCategorias(configServidor) {
   return [
@@ -110,24 +118,24 @@ function obtenerRolesCategorias(configServidor) {
 }
 
 /**
- * Guarda un jugador en el archivo JSON de su categoría
+ * Guarda el jugador en el archivo de su categoría y torneo
  */
-function guardarEnCategoria(id, nombre, categoria) {
+function guardarEnCategoria(id, nombre, categoria, torneo) {
   try {
-    const dataPath = path.join(__dirname, '..', 'categorias');
+    const dataPath = path.join(__dirname, "..", "categorias", torneo);
     const filePath = path.join(dataPath, `categoria_${categoria}.json`);
 
-    if (!fs.existsSync(dataPath)) fs.mkdirSync(dataPath);
+    if (!fs.existsSync(dataPath)) fs.mkdirSync(dataPath, { recursive: true });
 
     let jugadores = [];
     if (fs.existsSync(filePath)) {
-      jugadores = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+      jugadores = JSON.parse(fs.readFileSync(filePath, "utf8"));
     }
 
     if (!jugadores.some(j => j.id === id)) {
       jugadores.push({ id, nombre });
-      fs.writeFileSync(filePath, JSON.stringify(jugadores, null, 2), 'utf8');
-      console.log(`✅ Agregado ${nombre} a categoria_${categoria}.json`);
+      fs.writeFileSync(filePath, JSON.stringify(jugadores, null, 2), "utf8");
+      console.log(`✅ Agregado ${nombre} a ${torneo}/categoria_${categoria}.json`);
     }
   } catch (err) {
     console.error("❌ Error guardando jugador en categoría:", err);
@@ -135,4 +143,3 @@ function guardarEnCategoria(id, nombre, categoria) {
 }
 
 module.exports = { asignarRolesPorPromedio, asignarRolesPorPromedioEquipo };
-
