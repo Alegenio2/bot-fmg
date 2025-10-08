@@ -363,11 +363,11 @@
             "fecha": "2025-07-17T23:47:55.867Z"
           },
           "id": 1752683944882,
-          "fecha": "17/07/2025",
+          "fecha": "09/10/2025",
           "diaSemana": "Jueves",
-          "horario": "19.30hs",
-          "gmt": "-3",
-          "timestamp": "2025-07-16T16:39:04.882Z",
+          "horario": "19:30",
+          "gmt": "GMT-3",
+          "timestamp": "2025-10-08T18:14:10.011Z",
           "coordinadoPor": {
             "id": "135113382217908224",
             "nombre": "juasteint"
