@@ -67,6 +67,25 @@ client.on('interactionCreate', async (interaction) => {
   }
 });
 
+// --------- AUTOCOMPLETE PARA EQUIPOS ---------
+client.on('interactionCreate', async (interaction) => {
+  if (!interaction.isAutocomplete()) return;
+
+  const focused = interaction.options.getFocused(true);
+  const equiposPath = path.join(__dirname, 'data', 'inscripciones_equipos.json');
+
+  if (!fs.existsSync(equiposPath)) return;
+
+  const equipos = JSON.parse(fs.readFileSync(equiposPath, 'utf8'));
+  const listaEquipos = equipos.map(e => e.nombre_equipo);
+
+  const filtrados = listaEquipos
+    .filter(n => n.toLowerCase().includes(focused.value.toLowerCase()))
+    .slice(0, 25);
+
+  await interaction.respond(filtrados.map(nombre => ({ name: nombre, value: nombre })));
+});
+
 // Ready
 client.on('ready', async (c) => {
   console.log(`${c.user.username} is online`);
@@ -136,4 +155,5 @@ client.on('guildMemberAdd', async member => {
 });
 
 client.login(process.env.TOKEN).catch(err => console.error("❌ Error al iniciar sesión con el bot:", err));
+
 
