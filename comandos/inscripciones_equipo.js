@@ -1,149 +1,186 @@
-//comandos/inscripciones_equipo.js
-const fs = require('fs');
-const path = require('path');
-const { SlashCommandBuilder } = require('discord.js');
-const { asignarRolesPorPromedioEquipo } = require('../utils/asignarRoles.js');
-
-
-const torneosChoices = [
-  { name: 'Campeonato_Uruguayo', value: 'campeonato_uruguayo' },
-  { name: 'Copa_Uruguay', value: 'copa_uruguay' },
-  { name: 'Uruguay_Open_Cup_2v2', value: 'uruguay_open_cup_2v2' },
-  { name: 'Uruguay_Open_Cup_3v3', value: 'uruguay_open_cup_3v3' },
-  { name: 'Uruguay_Open_Cup_4v4', value: 'uruguay_open_cup_4v4' },
-];
+// comandos/inscripciones_equipo.js
+const { ApplicationCommandOptionType } = require("discord.js");
+const fs = require("fs");
+const path = require("path");
+const crypto = require("crypto");
+const { asignarRolesPorPromedio } = require("../utils/asignarRoles.js");
+const { actualizarCategoriasDesdeRoles } = require("../utils/actualizarCategorias.js");
 
 module.exports = {
-  data: new SlashCommandBuilder()
-    .setName('inscripciones_equipo')
-    .setDescription('Inscripción de equipos para torneos 2v2, 3v3 o 4v4.')
-    .addStringOption(opt =>
-      opt.setName('nombre_equipo')
-        .setDescription('Nombre del equipo')
-        .setRequired(true)
-    )
-    .addStringOption(opt =>
-      opt.setName('torneo')
-        .setDescription('Nombre del torneo')
-        .setRequired(true)
-         .addChoices(...torneosChoices)             
-    )
-    .addStringOption(opt =>
-      opt.setName('categoria')
-        .setDescription('Categoría (a, b, c...)')
-        .setRequired(true)
-    )
-    .addIntegerOption(opt =>
-      opt.setName('elo1')
-        .setDescription('ELO promedio del jugador que ejecuta el comando')
-        .setRequired(true)
-    )
-    .addUserOption(opt =>
-      opt.setName('jugador2')
-        .setDescription('Segundo jugador del equipo')
-        .setRequired(true)
-    )
-    .addIntegerOption(opt =>
-      opt.setName('elo2')
-        .setDescription('ELO promedio del segundo jugador')
-        .setRequired(true)
-    )
-    .addUserOption(opt =>
-      opt.setName('jugador3')
-        .setDescription('Tercer jugador (solo en 3v3 o 4v4)')
-        .setRequired(false)
-    )
-    .addIntegerOption(opt =>
-      opt.setName('elo3')
-        .setDescription('ELO promedio del tercer jugador')
-        .setRequired(false)
-    )
-    .addUserOption(opt =>
-      opt.setName('jugador4')
-        .setDescription('Cuarto jugador (solo en 4v4)')
-        .setRequired(false)
-    )
-    .addIntegerOption(opt =>
-      opt.setName('elo4')
-        .setDescription('ELO promedio del cuarto jugador')
-        .setRequired(false)
-    ),
+  name: "inscripciones_equipo",
+  description: "Inscripción de equipos para torneos 2v2, 3v3 o 4v4.",
+  options: [
+    {
+      name: "nombre_equipo",
+      description: "Nombre del equipo.",
+      type: ApplicationCommandOptionType.String,
+      required: true,
+    },
+    {
+      name: "torneo",
+      description: "Selecciona el torneo.",
+      type: ApplicationCommandOptionType.String,
+      required: true,
+      choices: [
+        { name: "Copa Uruguaya 2v2", value: "copa_uruguaya_2v2" },
+        { name: "Uruguay Open Cup 2v2", value: "uruguay_open_cup_2v2" },
+        { name: "Uruguay Open Cup 3v3", value: "uruguay_open_cup_3v3" },
+        { name: "Uruguay Open Cup 4v4", value: "uruguay_open_cup_4v4" },
+      ],
+    },
+    // Jugador 1
+    {
+      name: "jugador1",
+      description: "Nombre del Jugador 1.",
+      type: ApplicationCommandOptionType.String,
+      required: true,
+    },
+    { name: "elo_max_j1", description: "ELO máximo del Jugador 1.", type: ApplicationCommandOptionType.Number, required: true },
+    { name: "elo_actual_j1", description: "ELO actual del Jugador 1.", type: ApplicationCommandOptionType.Number, required: true },
+    { name: "link_j1", description: "Link de perfil AoE2 Companion del Jugador 1.", type: ApplicationCommandOptionType.String, required: true },
+
+    // Jugador 2
+    {
+      name: "jugador2",
+      description: "Nombre del Jugador 2.",
+      type: ApplicationCommandOptionType.String,
+      required: true,
+    },
+    { name: "elo_max_j2", description: "ELO máximo del Jugador 2.", type: ApplicationCommandOptionType.Number, required: true },
+    { name: "elo_actual_j2", description: "ELO actual del Jugador 2.", type: ApplicationCommandOptionType.Number, required: true },
+    { name: "link_j2", description: "Link de perfil AoE2 Companion del Jugador 2.", type: ApplicationCommandOptionType.String, required: true },
+
+    // Jugador 3 (opcional)
+    {
+      name: "jugador3",
+      description: "Nombre del Jugador 3 (si aplica).",
+      type: ApplicationCommandOptionType.String,
+      required: false,
+    },
+    { name: "elo_max_j3", description: "ELO máximo del Jugador 3.", type: ApplicationCommandOptionType.Number, required: false },
+    { name: "elo_actual_j3", description: "ELO actual del Jugador 3.", type: ApplicationCommandOptionType.Number, required: false },
+    { name: "link_j3", description: "Link de perfil AoE2 Companion del Jugador 3.", type: ApplicationCommandOptionType.String, required: false },
+
+    // Jugador 4 (opcional)
+    {
+      name: "jugador4",
+      description: "Nombre del Jugador 4 (si aplica).",
+      type: ApplicationCommandOptionType.String,
+      required: false,
+    },
+    { name: "elo_max_j4", description: "ELO máximo del Jugador 4.", type: ApplicationCommandOptionType.Number, required: false },
+    { name: "elo_actual_j4", description: "ELO actual del Jugador 4.", type: ApplicationCommandOptionType.Number, required: false },
+    { name: "link_j4", description: "Link de perfil AoE2 Companion del Jugador 4.", type: ApplicationCommandOptionType.String, required: false },
+  ],
 
   async execute(interaction) {
-    const { guild, member } = interaction;
-    const nombreEquipo = interaction.options.getString('nombre_equipo');
-    const torneo = interaction.options.getString('torneo').toLowerCase();
-    const categoria = interaction.options.getString('categoria').toLowerCase();
+    const { options, user, member, guild } = interaction;
 
-    // Jugadores
-    const jugadores = [member];
-    const elos = [interaction.options.getInteger('elo1')];
+    const nombre_equipo = options.getString("nombre_equipo");
+    const torneo = options.getString("torneo");
 
-    const jugador2 = interaction.options.getUser('jugador2');
-    const elo2 = interaction.options.getInteger('elo2');
-    jugadores.push(await guild.members.fetch(jugador2.id));
-    elos.push(elo2);
-
-    const jugador3 = interaction.options.getUser('jugador3');
-    const jugador4 = interaction.options.getUser('jugador4');
-    if (jugador3) {
-      const elo3 = interaction.options.getInteger('elo3');
-      jugadores.push(await guild.members.fetch(jugador3.id));
-      elos.push(elo3);
-    }
-    if (jugador4) {
-      const elo4 = interaction.options.getInteger('elo4');
-      jugadores.push(await guild.members.fetch(jugador4.id));
-      elos.push(elo4);
+    // Crear array de jugadores (filtrando los no usados)
+    const jugadores = [];
+    for (let i = 1; i <= 4; i++) {
+      const nombre = options.getString(`jugador${i}`);
+      if (!nombre) continue;
+      jugadores.push({
+        nombre,
+        elo_max: options.getNumber(`elo_max_j${i}`),
+        elo_actual: options.getNumber(`elo_actual_j${i}`),
+        link: options.getString(`link_j${i}`),
+      });
     }
 
-    // Calcular promedio del equipo
-    const promedioEquipo = Math.round(elos.reduce((a, b) => a + b, 0) / elos.length);
-
-    // Verificar límites
-    const filePath = path.join(__dirname, '..', 'elo_limites.json');
-    if (!fs.existsSync(filePath)) {
-      return interaction.reply('⚠️ No hay límites configurados aún. Usa `/admin_set_elo` primero.');
+    // ✅ Validar cantidad mínima según el torneo
+    const tipo = torneo.includes("4v4") ? 4 : torneo.includes("3v3") ? 3 : 2;
+    if (jugadores.length !== tipo) {
+      return interaction.reply({
+        content: `❌ Este torneo es **${tipo}v${tipo}**, y registraste **${jugadores.length} jugadores**.`,
+        ephemeral: true,
+      });
     }
 
-    const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-    const limite = data[torneo]?.[categoria];
-    if (!limite) {
-      return interaction.reply(`⚠️ No hay límite configurado para ${torneo} categoría ${categoria.toUpperCase()}.`);
+    // ✅ Validar links
+    for (const j of jugadores) {
+      if (!/^https:\/\/(www\.)?aoe2companion\.com\/profile\/\d+$/.test(j.link)) {
+        return interaction.reply({
+          content: `❌ El link del jugador **${j.nombre}** no es válido. Debe ser algo como:
+https://www.aoe2companion.com/profile/2587873713`,
+          ephemeral: true,
+        });
+      }
     }
 
-    if (promedioEquipo > limite) {
-      return interaction.reply(`❌ El promedio del equipo (${promedioEquipo}) supera el máximo permitido (${limite}) para ${categoria.toUpperCase()}.`);
+    // 📊 Calcular promedio general del equipo
+    const promedios = jugadores.map(j => Math.round((j.elo_actual + j.elo_max) / 2));
+    const promedioEquipo = Math.round(promedios.reduce((a, b) => a + b, 0) / jugadores.length);
+
+    // 📁 Leer límites de ELO
+    const eloPath = path.join(__dirname, "..", "elo_limites.json");
+    const eloLimites = JSON.parse(fs.readFileSync(eloPath, "utf8"));
+    const limites = eloLimites[torneo];
+
+    if (!limites) {
+      return interaction.reply({
+        content: `❌ No se encontraron límites de ELO para el torneo **${torneo}**.`,
+        ephemeral: true,
+      });
     }
 
-    // Guardar inscripción
-    const inscripcionesFile = path.join(__dirname, '..', `equipos_${torneo}.json`);
+    // 🏅 Determinar categoría
+    let categoria = "sin_categoria";
+    for (const [cat, valor] of Object.entries(limites)) {
+      if (promedioEquipo >= valor) {
+        categoria = cat;
+        break;
+      }
+    }
+
+    // 🆔 Crear ID de equipo único
+    const equipoId = crypto.randomBytes(4).toString("hex");
+
+    // 📦 Guardar inscripción
+    const inscripcionesPath = path.join(__dirname, "..", "data", "inscripciones_equipos.json");
     let inscripciones = [];
-    if (fs.existsSync(inscripcionesFile)) {
-      inscripciones = JSON.parse(fs.readFileSync(inscripcionesFile, 'utf8'));
+    if (fs.existsSync(inscripcionesPath)) {
+      inscripciones = JSON.parse(fs.readFileSync(inscripcionesPath, "utf8"));
     }
 
     inscripciones.push({
-      nombre_equipo: nombreEquipo,
+      id: equipoId,
+      nombre_equipo,
       torneo,
       categoria,
-      promedioEquipo,
-      jugadores: jugadores.map((j, i) => ({
-        id: j.id,
-        nombre: j.user.username,
-        elo: elos[i],
-      })),
+      promedio: promedioEquipo,
+      jugadores,
     });
 
-    fs.writeFileSync(inscripcionesFile, JSON.stringify(inscripciones, null, 2), 'utf8');
+    fs.writeFileSync(inscripcionesPath, JSON.stringify(inscripciones, null, 2));
 
-    await interaction.reply(
-      `✅ Equipo **${nombreEquipo}** inscripto en **${torneo}** categoría **${categoria.toUpperCase()}**.\n📊 Promedio del equipo: **${promedioEquipo}**`
-    );
+    // 💬 Mensaje resumen
+    let mensaje = `✅ **Equipo Inscripto Correctamente**
+🏆 **Torneo:** ${torneo.replace(/_/g, " ")}
+🎯 **Categoría:** ${categoria.toUpperCase()}
+📊 **Promedio del equipo:** ${promedioEquipo}
+🆔 **ID del equipo:** \`${equipoId}\`
+🎮 **Nombre del equipo:** ${nombre_equipo}
 
-    // Asignar roles automáticamente a todos los jugadores del equipo
-    const configServidor = require('../botConfig').servidores[guild.id];
-    const { asignarRolesPorPromedioEquipo } = require('../utils/asignarRoles.js');
-    await asignarRolesPorPromedioEquipo(jugadores, promedioEquipo, configServidor, torneo);
-  }
+👥 **Integrantes:**
+${jugadores
+  .map(
+    (j, i) =>
+      `**Jugador ${i + 1}:** ${j.nombre}\n• Máximo: ${j.elo_max}\n• Actual: ${j.elo_actual}\n🔗 ${j.link}`
+  )
+  .join("\n\n")}`;
+
+    await interaction.reply(mensaje);
+
+    // 🎭 Asignar roles automáticamente si corresponde
+    const configServidor = require("../botConfig").servidores[guild.id];
+    if (member) {
+      await asignarRolesPorPromedio(member, promedioEquipo, configServidor, torneo);
+      await actualizarCategoriasDesdeRoles(guild);
+    }
+  },
 };
