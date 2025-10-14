@@ -1,159 +1,77 @@
-require('dotenv').config();
+// index.js
 const fs = require('fs');
 const path = require('path');
-const web = require("./web.js");
-const { Client, GatewayIntentBits, Collection, AttachmentBuilder, ActivityType } = require('discord.js');
-const cron = require('node-cron');
-const botConfig = require('./botConfig.json');
+const { Client, GatewayIntentBits, Collection, REST, Routes } = require('discord.js');
+require('dotenv').config();
 
-const client = new Client({ 
+const client = new Client({
   intents: [
-    GatewayIntentBits.Guilds, 
-    GatewayIntentBits.GuildMessages, 
-    GatewayIntentBits.GuildMembers
-  ] 
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMessages,
+    GatewayIntentBits.MessageContent,
+  ],
 });
 
-// Colección de comandos
 client.commands = new Collection();
-
-// Cargar comandos y handlers
 const comandosPath = path.join(__dirname, 'comandos');
-const handlersPath = path.join(__dirname, 'handlers');
+const comandoArchivos = fs.readdirSync(comandosPath).filter(file => file.endsWith('.js'));
 
-fs.readdirSync(comandosPath).forEach(file => {
-  if (file.endsWith('.js')) {
-    const cmd = require(path.join(comandosPath, file));
-
-    if (cmd.data && cmd.execute) {
-      client.commands.set(cmd.data.name, cmd);
-    } else if (cmd.name && cmd.execute) {
-      client.commands.set(cmd.name, cmd);
-    } else {
-      console.warn(`⚠️ El comando ${file} no tiene data o execute, se omitirá.`);
-    }
+for (const archivo of comandoArchivos) {
+  const comando = require(path.join(comandosPath, archivo));
+  if ('data' in comando && 'execute' in comando) {
+    client.commands.set(comando.data.name, comando);
+  } else {
+    console.warn(`⚠️ El comando en ${archivo} no tiene las propiedades necesarias.`);
   }
+}
+
+client.once('ready', async () => {
+  console.log(`✅ Bot iniciado como ${client.user.tag}`);
+  await registrarComandos();
 });
 
-
-// Registrar comandos
-require('./registrarComandos');
-
-// Exportar client y botConfig
-module.exports = { client, botConfig };
-
-// Manejo de interacciones
-client.on('interactionCreate', async (interaction) => {
+client.on('interactionCreate', async interaction => {
   if (!interaction.isChatInputCommand()) return;
-
-  const command = client.commands.get(interaction.commandName);
-  if (!command) return;
+  const comando = client.commands.get(interaction.commandName);
+  if (!comando) return;
 
   try {
-    if (!command.execute) {
-      return interaction.reply({ 
-        content: '❌ Este comando aún no tiene lógica asignada.', 
-        ephemeral: true 
-      });
-    }
-    await command.execute(interaction, client);
+    await comando.execute(interaction, client);
   } catch (error) {
-    console.error(`Error en comando ${interaction.commandName}:`, error);
-    if (interaction.deferred || interaction.replied) {
-      await interaction.followUp({ content: '❌ Ocurrió un error ejecutando el comando.', ephemeral: true });
-    } else {
-      await interaction.reply({ content: '❌ Ocurrió un error ejecutando el comando.', ephemeral: true });
-    }
+    console.error(`❌ Error ejecutando el comando ${interaction.commandName}:`, error);
+    await interaction.reply({
+      content: 'Hubo un error ejecutando este comando 😢',
+      ephemeral: true,
+    });
   }
 });
 
-// --------- AUTOCOMPLETE PARA EQUIPOS ---------
-client.on('interactionCreate', async (interaction) => {
-  if (!interaction.isAutocomplete()) return;
+async function registrarComandos() {
+  const clientId = process.env.CLIENT_ID;
+  const guildId = process.env.GUILD_ID;
+  const token = process.env.TOKEN;
 
-  const focused = interaction.options.getFocused(true);
-  const equiposPath = path.join(__dirname, 'data', 'inscripciones_equipos.json');
+  const rest = new REST({ version: '10' }).setToken(token);
 
-  if (!fs.existsSync(equiposPath)) return;
+  const comandos = client.commands.map(cmd => cmd.data.toJSON());
 
-  const equipos = JSON.parse(fs.readFileSync(equiposPath, 'utf8'));
-  const listaEquipos = equipos.map(e => e.nombre_equipo);
+  console.log('📋 Iniciando registro de comandos...');
+  console.log('📦 Comandos encontrados:', comandos.map(c => c.name).join(', '));
 
-  const filtrados = listaEquipos
-    .filter(n => n.toLowerCase().includes(focused.value.toLowerCase()))
-    .slice(0, 25);
-
-  await interaction.respond(filtrados.map(nombre => ({ name: nombre, value: nombre })));
-});
-
-// Ready
-client.on('ready', async (c) => {
-  console.log(`${c.user.username} is online`);
-
-  // Mensaje de prueba
-  const canalTestId = "1381716348996030575"; 
-  const canal = await client.channels.fetch(canalTestId).catch(err => console.error("❌ Error al buscar el canal:", err));
-  if (canal) canal.send("✅ El bot AldeanoOscar está conectado y activo.");
-
-  // Cron jobs
-  const { actualizarYPublicarRankingClan } = require('./utils/rankingClan.js');
-  const { actualizarYPublicarRankingURU } = require('./utils/rankingUru.js');
-  const { guardarTorneosFiltrados: guardarTorneos } = require('./utils/guardarTorneos');
-  const { subirTorneos } = require('./git/subirTorneosGit.js');
-
-  // Ranking Clan - lunes 09:00
-  cron.schedule('0 9 * * 1', () => {
-    actualizarYPublicarRankingClan(client, '693245375615860838');
-  });
-
-  // Ranking URU - lunes 22:00
-  cron.schedule('0 22 * * 1', () => {
-    const rankingURU = require('./rankingConfig.json').rankingURU;
-    for (const guildId of Object.keys(rankingURU)) {
-      actualizarYPublicarRankingURU(client, guildId);
+  for (const comando of comandos) {
+    console.log(`\n📤 Registrando comando: ${comando.name}...`);
+    try {
+      await rest.put(
+        Routes.applicationGuildCommands(clientId, guildId),
+        { body: [comando] }
+      );
+      console.log(`✅ Registrado correctamente: ${comando.name}`);
+    } catch (err) {
+      console.error(`❌ Error registrando ${comando.name}:`, err.rawError?.errors || err.message);
     }
-  });
+  }
 
-  // Guardado y subida torneos - diario a 01:50 UTC-3
-  cron.schedule('37 15 * * 1', async () => await guardarTorneos(), { timezone: 'America/Montevideo' });
-  cron.schedule('38 15 * * 1', async () => await subirTorneos(), { timezone: 'America/Montevideo' });
+  console.log('\n✅ Todos los comandos procesados.');
+}
 
-  // Actividad
-  c.user.setActivity('Age of Empires II: Definitive Edition', { type: ActivityType.Playing });
-});
-
-// Bienvenida con Canvas
-client.on('guildMemberAdd', async member => {
-  const Canvas = require('canvas');
-  const config = require('./bienvenidaConfig.json');
-
-  const canvas = Canvas.createCanvas(1028, 468);
-  const ctx = canvas.getContext('2d');
-
-  const backgroundImages = ["./img/bg.png", "./img/bg2.png"];
-  const selectedBackgroundImg = backgroundImages[Math.floor(Math.random() * backgroundImages.length)];
-
-  const backgroundImg = await Canvas.loadImage(selectedBackgroundImg);
-  ctx.drawImage(backgroundImg, 0, 0, canvas.width, canvas.height);    
-
-  ctx.font = 'bold 40px Arial';
-  ctx.fillStyle = '#ffffff';
-  ctx.textAlign = 'center';
-  ctx.fillText(`¡Bienvenido, ${member.user.username}!`, canvas.width / 2, 100);
-
-  const avatar = await Canvas.loadImage(member.user.displayAvatarURL({ size:1024, extension: "png" }));
-  ctx.drawImage(avatar, 800, 130, 150, 150);
-
-  const attachment = new AttachmentBuilder(canvas.toBuffer("image/png"), { name: 'welcome-image.png' });
-  const channelId = config[member.guild.id];
-  if (!channelId) return;
-  const channel = member.guild.channels.cache.get(channelId);
-  if (channel) await channel.send({ files: [attachment] });
-
-  // Asignar rol automáticamente
-  await member.roles.add('1392243967663542364').catch(console.error);  
-});
-
-client.login(process.env.TOKEN).catch(err => console.error("❌ Error al iniciar sesión con el bot:", err));
-
-
+client.login(process.env.TOKEN);
