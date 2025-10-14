@@ -69,6 +69,7 @@ module.exports = {
       return interaction.reply({ content: '❌ Solo el organizador puede usar este comando.', ephemeral: true });
     }
 
+    // Respuesta provisional inmediata para evitar timeout
     await interaction.reply({ content: '⏳ Registrando resultado...', ephemeral: true });
 
     const opts = interaction.options;
@@ -79,7 +80,9 @@ module.exports = {
     const otrojugador = opts.getUser('otrojugador');
     const puntosotrojugador = opts.getInteger('puntosotrojugador');
 
-    if (!jugador || !otrojugador) return interaction.editReply({ content: "❌ Faltan datos obligatorios." });
+    if (!jugador || !otrojugador) {
+      return interaction.editReply({ content: "❌ Faltan datos obligatorios." });
+    }
 
     const fechaISO = convertirFormatoFecha(fecha);
     if (!fechaISO) return interaction.editReply({ content: "⚠️ Fecha inválida. Usa DD/MM/AAAA o DD-MM-AAAA." });
@@ -121,17 +124,15 @@ module.exports = {
 
       if (!partidoEncontrado) return interaction.editReply({ content: "⚠️ No se encontró el partido." });
 
-      // 🔹 Actualizar semifinales y final en memoria
+      // Actualizar semi y final
       await actualizarSemifinales(liga);
       await actualizarFinal(liga);
 
-      // 🔹 Guardar liga y subir a GitHub
+      // Guardar liga y actualizar tabla
       await guardarLiga(liga, filePath, letraDivision, interaction);
-
-      // 🔹 Actualizar tabla de posiciones en Discord
       await actualizarTablaEnCanal(letraDivision, interaction.client, interaction.guildId);
 
-      // 🔹 Mostrar resultado públicamente
+      // Mostrar resultado públicamente y actualizar mensaje provisional
       await interaction.editReply({
         content: `🏆 División ${division} - Ronda: ${rondaEncontrada} - Fecha: ${fecha}\n${jugador} ||${puntosjugador} - ${puntosotrojugador}|| ${otrojugador}`,
         ephemeral: false
@@ -143,4 +144,3 @@ module.exports = {
     }
   }
 };
-

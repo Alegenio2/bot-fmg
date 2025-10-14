@@ -41,14 +41,13 @@ module.exports = {
     let jornada;
 
     if (!isNaN(jornadaInput)) {
-  // si el input es numérico, comparamos como string
-  jornada = liga.jornadas.find(j => String(j.ronda) === jornadaInput);
-} else {
-  // si es "semi" o "final" (coincidencia exacta, no parcial)
-  const fase = jornadaInput.toLowerCase().trim();
-  jornada = liga.jornadas.find(j => String(j.ronda).toLowerCase().trim() === fase);
-}
-
+      // si el input es numérico, comparamos como string
+      jornada = liga.jornadas.find(j => String(j.ronda) === jornadaInput);
+    } else {
+      // si es "semi" o "final"
+      const fase = jornadaInput.toLowerCase();
+      jornada = liga.jornadas.find(j => String(j.ronda).toLowerCase().includes(fase));
+    }
 
     if (!jornada) {
       return await interaction.reply({
@@ -70,5 +69,3 @@ module.exports = {
     await interaction.reply({ content: mensaje, ephemeral: false });
   }
 };
-
-
