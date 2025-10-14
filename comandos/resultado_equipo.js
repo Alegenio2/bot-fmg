@@ -76,6 +76,26 @@ module.exports = {
         .setRequired(false)
     ),
 
+  async autocomplete(interaction) {
+    const focused = interaction.options.getFocused(true);
+    const torneo = interaction.options.getString('torneo');
+    if (!torneo) return interaction.respond([]);
+
+    const equiposPath = path.join(__dirname, '..', 'inscripciones_equipos.json');
+    if (!fs.existsSync(equiposPath)) return interaction.respond([]);
+
+    const todosEquipos = JSON.parse(fs.readFileSync(equiposPath, 'utf8'));
+    const equipos = todosEquipos
+      .filter(e => e.torneo === torneo)
+      .map(e => e.nombre_equipo);
+
+    const filtrados = equipos
+      .filter(n => n.toLowerCase().includes(focused.value.toLowerCase()))
+      .slice(0, 25);
+
+    await interaction.respond(filtrados.map(nombre => ({ name: nombre, value: nombre })));
+  },
+
   async execute(interaction) {
     await interaction.reply({ content: '⏳ Registrando resultado...', ephemeral: true });
 
@@ -89,36 +109,31 @@ module.exports = {
     const draftcivis = interaction.options.getString('draftcivis') || null;
     const archivoAdjunto = interaction.options.getAttachment('archivo');
 
-    // Validaciones básicas
     if (equipo1 === equipo2) {
       return interaction.editReply({ content: '⚠️ No puedes registrar un partido entre el mismo equipo.' });
     }
 
     const fechaISO = convertirFormatoFecha(fecha);
-    if (!fechaISO) {
-      return interaction.editReply({ content: '⚠️ Fecha inválida.' });
-    }
+    if (!fechaISO) return interaction.editReply({ content: '⚠️ Fecha inválida.' });
 
-    // 📂 Leer la liga del torneo correspondiente
     const filePath = path.join(__dirname, '..', 'ligas', `${torneo}.json`);
-    if (!fs.existsSync(filePath)) {
-      return interaction.editReply({ content: `⚠️ No existe el archivo de liga para ${torneo}.` });
-    }
+    if (!fs.existsSync(filePath)) return interaction.editReply({ content: `⚠️ No existe el archivo de liga para ${torneo}.` });
 
     const liga = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 
-    // Buscar partido entre esos equipos
     let partidoEncontrado = null;
-    for (const ronda of liga.rondas || []) {
+    for (const ronda of liga.jornadas || []) {
       for (const partido of ronda.partidos) {
         if (
-          (partido.equipo1 === equipo1 && partido.equipo2 === equipo2) ||
-          (partido.equipo1 === equipo2 && partido.equipo2 === equipo1)
+          (partido.equipo1Id === equipo1 && partido.equipo2Id === equipo2) ||
+          (partido.equipo1Id === equipo2 && partido.equipo2Id === equipo1)
         ) {
           partidoEncontrado = partido;
           partido.resultado = {
-            [equipo1]: puntos1,
-            [equipo2]: puntos2,
+            puntos1,
+            puntos2,
+            jugadores1: partido.jugadores1,
+            jugadores2: partido.jugadores2,
             draftmapas,
             draftcivis,
             rec: archivoAdjunto?.url || null,
@@ -130,20 +145,15 @@ module.exports = {
       if (partidoEncontrado) break;
     }
 
-    if (!partidoEncontrado) {
-      return interaction.editReply({ content: '⚠️ No se encontró un partido entre esos equipos.' });
-    }
+    if (!partidoEncontrado) return interaction.editReply({ content: '⚠️ No se encontró un partido entre esos equipos.' });
 
-    // Guardar la liga actualizada
     await guardarLiga(liga, filePath, torneo, interaction);
-
-    // Actualizar tabla de posiciones
     await actualizarTablaEnCanal(torneo, interaction.client, interaction.guildId);
 
-    // Mensaje final público
     const mensaje = `🏆 **${torneo}**  
 📅 Fecha: ${fecha}  
-🎮 ${equipo1} (${puntos1}) 🆚 ${equipo2} (${puntos2})  
+🎮 ${equipo1} (${puntos1}) - Jugadores: ${partidoEncontrado.jugadores1.join(', ')}
+🆚 ${equipo2} (${puntos2}) - Jugadores: ${partidoEncontrado.jugadores2.join(', ')}
 🗺️ Mapas: ${draftmapas || 'N/D'}  
 ⚔️ Civilizaciones: ${draftcivis || 'N/D'}  
 📎 ${archivoAdjunto?.url || 'Sin archivo'}`;
