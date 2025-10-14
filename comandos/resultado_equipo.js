@@ -63,17 +63,17 @@ module.exports = {
     .addStringOption(opt =>
       opt.setName('draftmapas')
         .setDescription('Draft de mapas')
-        .setRequired(false)
+        .setRequired(true)
     )
     .addStringOption(opt =>
       opt.setName('draftcivis')
         .setDescription('Draft de civilizaciones')
-        .setRequired(false)
+        .setRequired(true)
     )
     .addAttachmentOption(opt =>
       opt.setName('archivo')
         .setDescription('Archivo adjunto (opcional)')
-        .setRequired(false)
+        .setRequired(true)
     ),
 
   async autocomplete(interaction) {
