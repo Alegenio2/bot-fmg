@@ -18,7 +18,7 @@ async function subirTodosLosTorneos() {
 
   for (const archivo of archivos) {
     const LOCAL_FILE_PATH = path.join(torneoPath, archivo);
-    const RELATIVE_FILE_PATH = `ligas/${archivo}`; // para GitHub
+    const RELATIVE_FILE_PATH = `torneos/${archivo}`; // para GitHub
 
     if (!fs.existsSync(LOCAL_FILE_PATH)) continue;
 
@@ -70,4 +70,5 @@ async function subirTodosLosTorneos() {
 }
 
 module.exports = { subirTodosLosTorneos };
+
 
