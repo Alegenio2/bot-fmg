@@ -2,7 +2,7 @@
 const { SlashCommandBuilder } = require("discord.js");
 const fs = require("fs");
 const path = require("path");
-const { crearTorneoDesdeEquipos } = require("../utils/crearTorneo.js");
+const { crearTorneoDesdeEquipos } = require("../utils/creartorneo.js");
 const botConfig = require("../botConfig.json");
 
 // Cargar torneos disponibles desde equipos_inscritos.json
@@ -83,3 +83,4 @@ module.exports = {
     }
   },
 };
+
