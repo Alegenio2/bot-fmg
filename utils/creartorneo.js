@@ -1,6 +1,7 @@
 // utils/crearTorneo.js
 const fs = require("fs");
 const path = require("path");
+const { subirTodosLosTorneos } = require("../git/guardarTorneosGit");
 
 async function crearTorneoDesdeEquipos(torneoId, cantidadGrupos, clasificadosPorGrupo) {
   const rutaEquipos = path.join(__dirname, "..", "equipos_inscritos.json");
@@ -57,6 +58,14 @@ async function crearTorneoDesdeEquipos(torneoId, cantidadGrupos, clasificadosPor
   fs.mkdirSync(path.dirname(rutaTorneo), { recursive: true });
   fs.writeFileSync(rutaTorneo, JSON.stringify(torneoData, null, 2), "utf8");
 
+  // 🔄 Subir automáticamente al repositorio GitHub
+  try {
+    await subirTodosLosTorneos();
+    console.log("✅ Sincronizado con GitHub correctamente.");
+  } catch (err) {
+    console.error("❌ Error al sincronizar con GitHub:", err.message);
+  }
+  
   return `✅ Torneo **${torneoId}** creado con éxito.\n📦 ${equipos.length} equipos distribuidos en ${cantidadGrupos} grupos.`;
 }
 
@@ -114,3 +123,4 @@ function generarEliminatorias(grupos, clasificadosPorGrupo) {
 }
 
 module.exports = { crearTorneoDesdeEquipos };
+
