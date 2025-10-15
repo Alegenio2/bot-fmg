@@ -112,7 +112,14 @@
               "equipo1Nombre": "LA Loca",
               "equipo2Id": "ee3da911-6e05-403c-844a-e7201caff342",
               "equipo2Nombre": "LA Turbia",
-              "resultado": null
+              "resultado": {
+                "LA Loca": 2,
+                "LA Turbia": 1,
+                "fecha": "2025-10-16",
+                "draftmapas": null,
+                "draftcivis": null,
+                "archivo": null
+              }
             }
           ]
         },
