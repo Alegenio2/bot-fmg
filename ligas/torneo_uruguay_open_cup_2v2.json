@@ -345,7 +345,14 @@
           "equipo1Nombre": "LA TASCONETA",
           "equipo2Id": "ee3da911-6e05-403c-844a-e9271caff342",
           "equipo2Nombre": "LA Loca",
-          "resultado": null,
+          "resultado": {
+            "LA TASCONETA": 2,
+            "LA Loca": 1,
+            "fecha": "2025-10-25",
+            "draftmapas": "www.gogole.com.uy/456",
+            "draftcivis": "www.gogo.com.uy/789",
+            "archivo": "https://cdn.discordapp.com/ephemeral-attachments/1428090283333124278/1428091322505498825/Rxon_vs_Harooooo.rar?ex=68f13d2f&is=68efebaf&hm=c22a3596d050be3bad63d37f60c01fdd211810c4fa5d6c0c6591b033d7d9bae9&"
+          },
           "fecha": "25-10-2025",
           "horario": "19:30",
           "diaSemana": "Sábado"
