@@ -98,28 +98,20 @@
               "equipo1Nombre": "LA TASCONETA",
               "equipo2Id": "eb3da811-6e05-403c-844a-e9201caff342",
               "equipo2Nombre": "Los Nadie",
-              "resultado": {
-                "LA TASCONETA": 2,
-                "Los Nadie": 1,
-                "fecha": "2025-10-25",
-                "draftmapas": null,
-                "draftcivis": null,
-                "archivo": null
-              }
+              "resultado": null,
+              "fecha": null,
+              "horario": null,
+              "diaSemana": null
             },
             {
               "equipo1Id": "ee3da911-6e05-403c-844a-e9271caff342",
               "equipo1Nombre": "LA Loca",
               "equipo2Id": "ee3da911-6e05-403c-844a-e7201caff342",
               "equipo2Nombre": "LA Turbia",
-              "resultado": {
-                "LA Loca": 2,
-                "LA Turbia": 1,
-                "fecha": "2025-10-16",
-                "draftmapas": null,
-                "draftcivis": null,
-                "archivo": null
-              }
+              "resultado": null,
+              "fecha": null,
+              "horario": null,
+              "diaSemana": null
             }
           ]
         },
@@ -131,14 +123,20 @@
               "equipo1Nombre": "LA TASCONETA",
               "equipo2Id": "ee3da911-6e05-403c-844a-e7201caff342",
               "equipo2Nombre": "LA Turbia",
-              "resultado": null
+              "resultado": null,
+              "fecha": null,
+              "horario": null,
+              "diaSemana": null
             },
             {
               "equipo1Id": "eb3da811-6e05-403c-844a-e9201caff342",
               "equipo1Nombre": "Los Nadie",
               "equipo2Id": "ee3da911-6e05-403c-844a-e9271caff342",
               "equipo2Nombre": "LA Loca",
-              "resultado": null
+              "resultado": null,
+              "fecha": null,
+              "horario": null,
+              "diaSemana": null
             }
           ]
         },
@@ -150,14 +148,20 @@
               "equipo1Nombre": "LA TASCONETA",
               "equipo2Id": "ee3da911-6e05-403c-844a-e9271caff342",
               "equipo2Nombre": "LA Loca",
-              "resultado": null
+              "resultado": null,
+              "fecha": null,
+              "horario": null,
+              "diaSemana": null
             },
             {
               "equipo1Id": "ee3da911-6e05-403c-844a-e7201caff342",
               "equipo1Nombre": "LA Turbia",
               "equipo2Id": "eb3da811-6e05-403c-844a-e9201caff342",
               "equipo2Nombre": "Los Nadie",
-              "resultado": null
+              "resultado": null,
+              "fecha": null,
+              "horario": null,
+              "diaSemana": null
             }
           ]
         }
@@ -174,14 +178,20 @@
               "equipo1Nombre": "LA Rxoneta",
               "equipo2Id": "ea3da811-6e05-403c-844a-e9201caff342",
               "equipo2Nombre": "LA Guranga",
-              "resultado": null
+              "resultado": null,
+              "fecha": null,
+              "horario": null,
+              "diaSemana": null
             },
             {
               "equipo1Id": "ee3da911-6e05-403c-844a-e9207caff342",
               "equipo1Nombre": "cachimba del piojo",
               "equipo2Id": "ee3da911-6e05-403c-544a-e9201caff342",
               "equipo2Nombre": "El OVO",
-              "resultado": null
+              "resultado": null,
+              "fecha": null,
+              "horario": null,
+              "diaSemana": null
             }
           ]
         },
@@ -193,14 +203,20 @@
               "equipo1Nombre": "LA Rxoneta",
               "equipo2Id": "ee3da911-6e05-403c-544a-e9201caff342",
               "equipo2Nombre": "El OVO",
-              "resultado": null
+              "resultado": null,
+              "fecha": null,
+              "horario": null,
+              "diaSemana": null
             },
             {
               "equipo1Id": "ea3da811-6e05-403c-844a-e9201caff342",
               "equipo1Nombre": "LA Guranga",
               "equipo2Id": "ee3da911-6e05-403c-844a-e9207caff342",
               "equipo2Nombre": "cachimba del piojo",
-              "resultado": null
+              "resultado": null,
+              "fecha": null,
+              "horario": null,
+              "diaSemana": null
             }
           ]
         },
@@ -212,14 +228,20 @@
               "equipo1Nombre": "LA Rxoneta",
               "equipo2Id": "ee3da911-6e05-403c-844a-e9207caff342",
               "equipo2Nombre": "cachimba del piojo",
-              "resultado": null
+              "resultado": null,
+              "fecha": null,
+              "horario": null,
+              "diaSemana": null
             },
             {
               "equipo1Id": "ee3da911-6e05-403c-544a-e9201caff342",
               "equipo1Nombre": "El OVO",
               "equipo2Id": "ea3da811-6e05-403c-844a-e9201caff342",
               "equipo2Nombre": "LA Guranga",
-              "resultado": null
+              "resultado": null,
+              "fecha": null,
+              "horario": null,
+              "diaSemana": null
             }
           ]
         }
@@ -236,14 +258,20 @@
               "equipo1Nombre": "LA Culero",
               "equipo2Id": "ae3da811-6e05-403c-844a-e9201caff342",
               "equipo2Nombre": "LA Dura",
-              "resultado": null
+              "resultado": null,
+              "fecha": null,
+              "horario": null,
+              "diaSemana": null
             },
             {
               "equipo1Id": "ee3da911-6e05-403c-844a-e9201caff842",
               "equipo1Nombre": "La Banda",
               "equipo2Id": "ee3da911-5e05-403c-844a-e9201caff342",
               "equipo2Nombre": "Adminwin",
-              "resultado": null
+              "resultado": null,
+              "fecha": null,
+              "horario": null,
+              "diaSemana": null
             }
           ]
         },
@@ -255,14 +283,20 @@
               "equipo1Nombre": "LA Culero",
               "equipo2Id": "ee3da911-5e05-403c-844a-e9201caff342",
               "equipo2Nombre": "Adminwin",
-              "resultado": null
+              "resultado": null,
+              "fecha": null,
+              "horario": null,
+              "diaSemana": null
             },
             {
               "equipo1Id": "ae3da811-6e05-403c-844a-e9201caff342",
               "equipo1Nombre": "LA Dura",
               "equipo2Id": "ee3da911-6e05-403c-844a-e9201caff842",
               "equipo2Nombre": "La Banda",
-              "resultado": null
+              "resultado": null,
+              "fecha": null,
+              "horario": null,
+              "diaSemana": null
             }
           ]
         },
@@ -274,14 +308,20 @@
               "equipo1Nombre": "LA Culero",
               "equipo2Id": "ee3da911-6e05-403c-844a-e9201caff842",
               "equipo2Nombre": "La Banda",
-              "resultado": null
+              "resultado": null,
+              "fecha": null,
+              "horario": null,
+              "diaSemana": null
             },
             {
               "equipo1Id": "ee3da911-5e05-403c-844a-e9201caff342",
               "equipo1Nombre": "Adminwin",
               "equipo2Id": "ae3da811-6e05-403c-844a-e9201caff342",
               "equipo2Nombre": "LA Dura",
-              "resultado": null
+              "resultado": null,
+              "fecha": null,
+              "horario": null,
+              "diaSemana": null
             }
           ]
         }
@@ -298,14 +338,20 @@
               "equipo1Nombre": "LA Buyan",
               "equipo2Id": "ee3da811-6e05-403c-844a-e9201caff342",
               "equipo2Nombre": "LA MXT",
-              "resultado": null
+              "resultado": null,
+              "fecha": null,
+              "horario": null,
+              "diaSemana": null
             },
             {
               "equipo1Id": "ee3da911-6e05-403c-844a-e9201caff382",
               "equipo1Nombre": "LA Juastein",
               "equipo2Id": "ee2da911-6e05-403c-844a-e9201caff342",
               "equipo2Nombre": "LA Fulera",
-              "resultado": null
+              "resultado": null,
+              "fecha": null,
+              "horario": null,
+              "diaSemana": null
             }
           ]
         },
@@ -317,14 +363,20 @@
               "equipo1Nombre": "LA Buyan",
               "equipo2Id": "ee2da911-6e05-403c-844a-e9201caff342",
               "equipo2Nombre": "LA Fulera",
-              "resultado": null
+              "resultado": null,
+              "fecha": null,
+              "horario": null,
+              "diaSemana": null
             },
             {
               "equipo1Id": "ee3da811-6e05-403c-844a-e9201caff342",
               "equipo1Nombre": "LA MXT",
               "equipo2Id": "ee3da911-6e05-403c-844a-e9201caff382",
               "equipo2Nombre": "LA Juastein",
-              "resultado": null
+              "resultado": null,
+              "fecha": null,
+              "horario": null,
+              "diaSemana": null
             }
           ]
         },
@@ -336,14 +388,20 @@
               "equipo1Nombre": "LA Buyan",
               "equipo2Id": "ee3da911-6e05-403c-844a-e9201caff382",
               "equipo2Nombre": "LA Juastein",
-              "resultado": null
+              "resultado": null,
+              "fecha": null,
+              "horario": null,
+              "diaSemana": null
             },
             {
               "equipo1Id": "ee2da911-6e05-403c-844a-e9201caff342",
               "equipo1Nombre": "LA Fulera",
               "equipo2Id": "ee3da811-6e05-403c-844a-e9201caff342",
               "equipo2Nombre": "LA MXT",
-              "resultado": null
+              "resultado": null,
+              "fecha": null,
+              "horario": null,
+              "diaSemana": null
             }
           ]
         }
@@ -353,78 +411,16 @@
   "eliminatorias": [
     {
       "ronda": "Cuartos",
-      "partidos": [
-        {
-          "equipo1Id": "ee3da911-6e05-403c-844a-e9201caff342",
-          "equipo1Nombre": "LA TASCONETA",
-          "equipo2Id": "ee3da911-6e05-403c-844a-e9271caff342",
-          "equipo2Nombre": "LA Loca",
-          "resultado": {
-            "LA TASCONETA": 2,
-            "LA Loca": 1,
-            "fecha": "2025-10-25",
-            "draftmapas": "www.gogole.com.uy/456",
-            "draftcivis": "www.gogo.com.uy/789",
-            "archivo": "https://cdn.discordapp.com/ephemeral-attachments/1428090283333124278/1428091322505498825/Rxon_vs_Harooooo.rar?ex=68f13d2f&is=68efebaf&hm=c22a3596d050be3bad63d37f60c01fdd211810c4fa5d6c0c6591b033d7d9bae9&"
-          },
-          "fecha": "25-10-2025",
-          "horario": "19:30",
-          "diaSemana": "Sábado"
-        },
-        {
-          "equipo1Id": "ee3da911-6e05-403c-844a-e9201caff345",
-          "equipo1Nombre": "LA Rxoneta",
-          "equipo2Id": "ee3da911-6e05-403c-844a-e9207caff342",
-          "equipo2Nombre": "cachimba del piojo",
-          "resultado": null
-        },
-        {
-          "equipo1Id": "ee3da911-6e05-403c-844a-e9201caff352",
-          "equipo1Nombre": "LA Culero",
-          "equipo2Id": "ee3da911-6e05-403c-844a-e9201caff842",
-          "equipo2Nombre": "La Banda",
-          "resultado": null
-        },
-        {
-          "equipo1Id": "ee3da911-6e05-403c-844a-e9201caff542",
-          "equipo1Nombre": "LA Buyan",
-          "equipo2Id": "ee3da911-6e05-403c-844a-e9201caff382",
-          "equipo2Nombre": "LA Juastein",
-          "resultado": null
-        }
-      ]
+      "partidos": []
     },
     {
       "ronda": "Semifinal",
-      "partidos": [
-        {
-          "equipo1Id": "Ganador_Cuartos_1",
-          "equipo1Nombre": "Ganador Cuartos #1",
-          "equipo2Id": "Ganador_Cuartos_2",
-          "equipo2Nombre": "Ganador Cuartos #2",
-          "resultado": null
-        },
-        {
-          "equipo1Id": "Ganador_Cuartos_3",
-          "equipo1Nombre": "Ganador Cuartos #3",
-          "equipo2Id": "Ganador_Cuartos_4",
-          "equipo2Nombre": "Ganador Cuartos #4",
-          "resultado": null
-        }
-      ]
+      "partidos": []
     },
     {
       "ronda": "Final",
-      "partidos": [
-        {
-          "equipo1Id": "Ganador_Semifinal_1",
-          "equipo1Nombre": "Ganador Semifinal #1",
-          "equipo2Id": "Ganador_Semifinal_2",
-          "equipo2Nombre": "Ganador Semifinal #2",
-          "resultado": null
-        }
-      ]
+      "partidos": []
     }
   ],
-  "creado": "2025-10-15T17:22:58.513Z"
+  "creado": "2025-10-15T20:05:01.240Z"
 }
