@@ -98,7 +98,14 @@
               "equipo1Nombre": "LA TASCONETA",
               "equipo2Id": "eb3da811-6e05-403c-844a-e9201caff342",
               "equipo2Nombre": "Los Nadie",
-              "resultado": null
+              "resultado": {
+                "LA TASCONETA": 2,
+                "Los Nadie": 1,
+                "fecha": "2025-10-25",
+                "draftmapas": null,
+                "draftcivis": null,
+                "archivo": null
+              }
             },
             {
               "equipo1Id": "ee3da911-6e05-403c-844a-e9271caff342",
