@@ -135,3 +135,19 @@ client.on('guildMemberAdd', async member => {
 });
 
 client.login(process.env.TOKEN).catch(err => console.error("❌ Error al iniciar sesión con el bot:", err));
+
+
+/* -----------------------------------
+   🔹 Servidor Express para Render 🔹
+----------------------------------- */
+const app = express();
+const PORT = process.env.PORT || 8080;
+
+app.get('/', (req, res) => {
+  res.send('🤖 AldeanoOscar Bot está activo y funcionando correctamente.');
+});
+
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Servidor web escuchando en el puerto ${PORT}`);
+});
+
