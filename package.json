@@ -19,6 +19,7 @@
     "liquipedia": "^1.2.0",
     "node": "^22.19.0",
     "node-cron": "^4.1.0",
-    "node-fetch": "^2.7.0"
+    "node-fetch": "^2.7.0",
+    "uuid": "^8.3.2"
   }
 }
