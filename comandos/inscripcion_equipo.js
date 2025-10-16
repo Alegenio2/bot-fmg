@@ -11,8 +11,7 @@ const { v4: uuidv4 } = require("uuid");
 
 // Funciones de utilidad de tu sistema
 const { asociarUsuario } = require("../utils/asociar.js");
-const { actualizarCategoriasDesdeRoles } = require("../utils/actualizarCategorias.js");
-const { asignarRolesPorPromedio } = require("../utils/asignarRoles.js");
+const { guardarYSubirEquipos } = require("../git/guardarInscripcionesGit.js");
 
 const torneosActivos = [
   { label: "Uruguay Open Cup 2v2", value: "uruguay_open_cup_2v2" },
@@ -180,7 +179,7 @@ module.exports = {
 
         equipos.push(nuevoEquipo);
         fs.writeFileSync(rutaEquipos, JSON.stringify(equipos, null, 2));
-
+        guardarYSubirEquipos();
         // Crear embed visual
         const embed = new EmbedBuilder()
           .setTitle(`✅ Equipo inscrito: ${nombreEquipo}`)
