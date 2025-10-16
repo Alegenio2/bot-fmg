@@ -144,6 +144,8 @@ module.exports = {
       collector.on("collect", async (i) => {
         const torneoId = i.values[0];
         const limites = eloLimites[torneoId];
+        console.log(torneoId);
+        console.log(limites);
         let categoriaSeleccionada = null;
 
         for (const cat in limites) {
@@ -218,3 +220,4 @@ module.exports = {
     }
   },
 };
+
