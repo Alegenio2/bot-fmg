@@ -18,7 +18,10 @@ const torneosActivos = [
   { label: "Copa Uruguaya 3v3", value: "copa_uruguaya_3v3" },
 ];
 
-const eloLimites = JSON.parse(fs.readFileSync("./elo_limites.json", "utf8"));
+const path = require("path");
+const eloLimitesPath = path.join(__dirname, "..", "elo_limites.json");
+const eloLimites = JSON.parse(fs.readFileSync(eloLimitesPath, "utf8"));
+
 const rutaEquipos = "./equipos_inscritos.json";
 
 module.exports = {
@@ -220,4 +223,5 @@ module.exports = {
     }
   },
 };
+
 
