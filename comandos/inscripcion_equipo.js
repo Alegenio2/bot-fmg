@@ -1,3 +1,5 @@
+//comandos/inscripcion_equipo
+
 const {
   SlashCommandBuilder,
   StringSelectMenuBuilder,
@@ -15,8 +17,7 @@ const { guardarYSubirEquipos } = require("../git/guardarInscripcionesGit.js");
 
 const torneosActivos = [
   { label: "Uruguay Open Cup 2v2", value: "uruguay_open_cup_2v2" },
-  { label: "Copa Uruguaya 3v3", value: "copa_uruguaya_3v3" },
-];
+ ];
 
 const path = require("path");
 const eloLimitesPath = path.join(__dirname, "..", "elo_limites.json");
@@ -223,5 +224,4 @@ module.exports = {
     }
   },
 };
-
 
