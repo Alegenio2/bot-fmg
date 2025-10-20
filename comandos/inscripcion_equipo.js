@@ -152,8 +152,9 @@ module.exports = {
         console.log(limites);
         let categoriaSeleccionada = null;
 
+        const margen = 15; // tolerancia de +15 puntos
         for (const cat in limites) {
-          if (promedioEquipo <= limites[cat]) {
+          if (promedioEquipo <= limites[cat] + margen) {
             categoriaSeleccionada = cat;
             break;
           }
@@ -224,4 +225,5 @@ module.exports = {
     }
   },
 };
+
 
