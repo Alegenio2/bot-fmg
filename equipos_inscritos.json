@@ -21,5 +21,28 @@
     ],
     "promedio_elo": 1491.25,
     "logo": null
+  },
+  {
+    "id": "b8d83110-cad6-44b9-a318-57aa6c09a7b1",
+    "torneo": "uruguay_open_cup_2v2",
+    "modo": "2v2",
+    "categoria": "a",
+    "nombre": "Cachimba del piojo",
+    "jugadores": [
+      {
+        "nick": "Tano Stokes",
+        "elo_actual": 1401,
+        "elo_max": 1433,
+        "perfil": "https://www.aoe2companion.com/profile/4822389"
+      },
+      {
+        "nick": "DS_xS4NT1",
+        "elo_actual": 1445,
+        "elo_max": 1462,
+        "perfil": "https://www.aoe2companion.com/profile/11489065"
+      }
+    ],
+    "promedio_elo": 1435.25,
+    "logo": null
   }
 ]
