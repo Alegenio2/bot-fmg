@@ -1,0 +1,27 @@
+{
+  "game": "Age of Empires II",
+  "type": "Unknown",
+  "tier": "Age_of_Empires_II/A-Tier_Tournaments",
+  "name": "Medieval Masters",
+  "start": "2025-06-23T03:00:00.000Z",
+  "end": "2025-07-06T03:00:00.000Z",
+  "prizePool": {
+    "amount": 10000,
+    "code": "USD"
+  },
+  "participants": [],
+  "participantsCount": 16,
+  "location": {
+    "name": "World",
+    "country": {
+      "name": "World",
+      "code": "EARTH"
+    },
+    "type": "Online"
+  },
+  "league": {
+    "name": "",
+    "image": "https://liquipedia.net/commons/images/thumb/b/b3/Medieval_Masters_Icon_Allmode.png/93px-Medieval_Masters_Icon_Allmode.png"
+  },
+  "path": "Medieval_Masters"
+}
