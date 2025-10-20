@@ -44,5 +44,28 @@
     ],
     "promedio_elo": 1435.25,
     "logo": null
+  },
+  {
+    "id": "b059eaea-69ee-4f48-9907-c1725097899b",
+    "torneo": "uruguay_open_cup_2v2",
+    "modo": "2v2",
+    "categoria": "a",
+    "nombre": "RxonSky",
+    "jugadores": [
+      {
+        "nick": "Rxon",
+        "elo_actual": 1790,
+        "elo_max": 1806,
+        "perfil": "https://www.aoe2companion.com/profile/1780624"
+      },
+      {
+        "nick": "TatoSky",
+        "elo_actual": 1129,
+        "elo_max": 1249,
+        "perfil": "https://www.aoe2companion.com/profile/8921754"
+      }
+    ],
+    "promedio_elo": 1493.5,
+    "logo": null
   }
 ]
