@@ -90,5 +90,28 @@
     ],
     "promedio_elo": 1514.5,
     "logo": null
+  },
+  {
+    "id": "11c48981-7efc-43e6-b2e6-52fd414659a6",
+    "torneo": "uruguay_open_cup_2v2",
+    "modo": "2v2",
+    "categoria": "a",
+    "nombre": "DGHIR URUGUAY DE LA C",
+    "jugadores": [
+      {
+        "nick": "DGHIR | NICOGP11",
+        "elo_actual": 1209,
+        "elo_max": 1275,
+        "perfil": "https://www.aoe2companion.com/profile/1464680"
+      },
+      {
+        "nick": "DGHIR | SamuraiNinja08",
+        "elo_actual": 1325,
+        "elo_max": 1431,
+        "perfil": "https://www.aoe2companion.com/profile/1465372"
+      }
+    ],
+    "promedio_elo": 1310,
+    "logo": null
   }
 ]
