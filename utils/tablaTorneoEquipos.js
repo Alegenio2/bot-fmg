@@ -1,93 +1,59 @@
 // utils/tablaTorneoEquipos.js
 const { EmbedBuilder } = require('discord.js');
-const fs = require('fs');
-const path = require('path');
-const configPath = path.join(__dirname, '../botConfig.json');
-let config = require(configPath);
+
+// Hardcode temporal para el torneo Uruguay Open Cup 2v2
+const HARD_CODE_CANAL = '1430007183491207260';
+const HARD_CODE_MESSAGE = '1430007989800145028';
 
 /**
  * Publica o actualiza la tabla de posiciones de un torneo de equipos en Discord.
- * Usa IDs de equipos y mantiene el nombre para mostrar en la tabla.
+ * Para este caso, todos los grupos se publican en un solo canal y mensaje.
  *
  * @param {Object} client - Cliente de Discord
- * @param {Object} torneo - Datos del torneo (nombre, servidorId, etc.)
+ * @param {Object} torneo - Datos del torneo
  * @param {Object} tablasPorGrupo - Tablas calculadas por grupo
  */
 async function tablaTorneoEquipos(client, torneo, tablasPorGrupo) {
-  const serverId = torneo.serverId;
-  const servidor = config.servidores[serverId];
+  try {
+    const canal = await client.channels.fetch(HARD_CODE_CANAL);
 
-  if (!servidor) {
-    console.error(`Servidor ${serverId} no encontrado en botConfig.json`);
-    return;
-  }
+    // Construir tabla combinada de todos los grupos
+    let descripcion = '';
+    for (const [grupo, posiciones] of Object.entries(tablasPorGrupo)) {
+      descripcion += `📊 **${grupo}**\n\`\`\`\n`;
+      descripcion += `Pos | Equipo            | PJ | PG | PP | Pts | Dif\n`;
+      descripcion += `------------------------------------------------\n`;
+      posiciones.forEach((p, i) => {
+        const pj = p.jugados ?? 0;
+        const pg = p.ganados ?? 0;
+        const pp = p.perdidos ?? 0;
+        const pts = p.puntos ?? 0;
+        const diff = p.diferencia ?? 0;
+        descripcion += `${(i + 1).toString().padEnd(3)} | ${p.nombre.padEnd(16)} | ${pj.toString().padEnd(2)} | ${pg.toString().padEnd(2)} | ${pp.toString().padEnd(2)} | ${pts.toString().padEnd(3)} | ${diff.toString().padEnd(3)}\n`;
+      });
+      descripcion += `\`\`\`\n\n`;
+    }
 
-  for (const [grupo, posiciones] of Object.entries(tablasPorGrupo)) {
-    // Crear tabla de texto
-    let tablaTexto = `\`\`\`\n`;
-    tablaTexto += `Pos | Equipo            | PJ | PG | PP | Pts | Dif\n`;
-    tablaTexto += `------------------------------------------------\n`;
-
-    posiciones.forEach((p, i) => {
-      const pj = p.jugados ?? 0;
-      const pg = p.ganados ?? 0;
-      const pp = p.perdidos ?? 0;
-      const pts = p.puntos ?? 0;
-      const diff = p.diferencia ?? 0;
-
-      tablaTexto += `${(i + 1).toString().padEnd(3)} | ${p.nombre.padEnd(16)} | ${pj.toString().padEnd(2)} | ${pg.toString().padEnd(2)} | ${pp.toString().padEnd(2)} | ${pts.toString().padEnd(3)} | ${diff.toString().padEnd(3)}\n`;
-    });
-    tablaTexto += `\`\`\``;
-
-    // Crear embed
     const embed = new EmbedBuilder()
-      .setTitle(`📊 ${torneo.torneo} - ${grupo}`)
-      .setDescription(tablaTexto)
-      .setColor("#0c74f5")
-      .setFooter({ text: "Actualizado automáticamente" })
+      .setTitle(`📊 ${torneo.torneo} - Tabla de Posiciones`)
+      .setDescription(descripcion)
+      .setColor('#0c74f5')
+      .setFooter({ text: 'Actualizado automáticamente' })
       .setTimestamp();
 
-    // Canal de la categoría
-const letraGrupo = grupo.replace(/[^A-Z]/gi, ''); // toma solo "A", "B", etc.
-const canalId = servidor[`tablaCategoria${letraGrupo}`];
-
-    if (!canalId) {
-      console.warn(`No se encontró tablaCategoria${grupo.toUpperCase()} en botConfig.json`);
-      continue;
+    // Editar mensaje existente o publicar uno nuevo
+    try {
+      const message = await canal.messages.fetch(HARD_CODE_MESSAGE);
+      await message.edit({ embeds: [embed] });
+      console.log('✅ Tabla de posiciones actualizada.');
+    } catch (err) {
+      // Si no existe el mensaje, crearlo
+      const message = await canal.send({ embeds: [embed] });
+      console.log('🆕 Tabla de posiciones publicada por primera vez.');
     }
-
-    const canal = await client.channels.fetch(canalId);
-
-    // Buscar si ya hay un mensaje guardado
-    const messageId = servidor.mensajeTabla?.[grupo.toLowerCase()];
-    if (messageId) {
-      try {
-        const message = await canal.messages.fetch(messageId);
-        await message.edit({ embeds: [embed] });
-        console.log(`✅ Tabla del grupo ${grupo} actualizada.`);
-      } catch (error) {
-        console.warn(`No se pudo editar el mensaje del grupo ${grupo}. Se publicará uno nuevo.`, error);
-        await publicarNuevoMensaje(canal, embed, serverId, grupo);
-      }
-    } else {
-      await publicarNuevoMensaje(canal, embed, serverId, grupo);
-    }
+  } catch (error) {
+    console.error('Error publicando tabla de posiciones:', error);
   }
-}
-
-/**
- * Publica un nuevo mensaje de tabla y guarda su ID en botConfig.json
- */
-async function publicarNuevoMensaje(canal, embed, serverId, grupo) {
-  const message = await canal.send({ embeds: [embed] });
-
-  if (!config.servidores[serverId].mensajeTabla) {
-    config.servidores[serverId].mensajeTabla = {};
-  }
-  config.servidores[serverId].mensajeTabla[grupo.toLowerCase()] = message.id;
-
-  fs.writeFileSync(configPath, JSON.stringify(config, null, 2));
-  console.log(`🆕 Nueva tabla publicada para grupo ${grupo}, messageId guardado.`);
 }
 
 module.exports = { tablaTorneoEquipos };
