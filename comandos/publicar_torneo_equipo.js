@@ -1,4 +1,3 @@
-// comandos/publicar_torneo_equipo.js
 const { SlashCommandBuilder } = require('discord.js');
 const fs = require('fs');
 const path = require('path');
@@ -27,22 +26,17 @@ module.exports = {
   },
 
   async execute(interaction) {
-    await interaction.deferReply({ ephemeral: true }); // Defer al inicio
+    await interaction.deferReply({ ephemeral: true });
 
     try {
-      const { options, user, guildId, client } = interaction;
+      const { options, user, client } = interaction;
       const torneoId = options.getString('torneo_id');
 
       if (user.id !== botConfig.ownerId) {
         return interaction.editReply({ content: '❌ Solo el organizador puede ejecutar este comando.' });
       }
 
-      const serverConfig = botConfig.servidores[guildId];
-      if (!serverConfig) {
-        return interaction.editReply({ content: '⚠️ Este servidor no está configurado en botConfig' });
-      }
-
-      // Leer archivo JSON del torneo
+      // Leer JSON del torneo
       const filePath = path.join(__dirname, '..', 'torneos', `torneo_${torneoId}.json`);
       if (!fs.existsSync(filePath)) {
         return interaction.editReply({ content: `⚠️ No se encontró el archivo del torneo ${torneoId}` });
@@ -50,20 +44,14 @@ module.exports = {
 
       const torneo = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 
-      // 📊 Calcular tabla de posiciones usando IDs de equipo
+      // Calcular tabla de posiciones por grupo
       const tablas = calcularTablaPosiciones(torneo);
 
-      // Hardcode del canal y mensaje para publicar la tabla
-      const canalTablaId = '1430007183491207260';
-      const messageTablaId = '1430007989800145028';
-      const canalTabla = await client.channels.fetch(canalTablaId);
-
-      // Publicar tabla de posiciones
-      for (const [grupo, posiciones] of Object.entries(tablas)) {
-        await tablaTorneoEquipos(client, { ...torneo, serverId: guildId }, { [grupo]: posiciones });
-      }
+      // Publicar tabla separando grupos
+      await tablaTorneoEquipos(client, torneo, tablas);
 
       await interaction.editReply({ content: `✅ Tabla del torneo ${torneo.torneo} publicada correctamente.` });
+
     } catch (error) {
       console.error('Error al publicar torneo:', error);
       try {
@@ -74,6 +62,5 @@ module.exports = {
     }
   }
 };
-
 
 
