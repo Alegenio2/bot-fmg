@@ -3,7 +3,8 @@ const { SlashCommandBuilder } = require('discord.js');
 const fs = require('fs');
 const path = require('path');
 const botConfig = require('../botConfig.json');
-const { calcularTablaEquipos, generarTextoTablaEquipos } = require('../utils/tablaTorneoEquipos.js');
+const { calcularTablaPosiciones } = require('../utils/calcularTablaPosiciones.js');
+const { tablaTorneoEquipos } = require('../utils/tablaTorneoEquipos.js');
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -63,7 +64,7 @@ module.exports = {
             for (const partido of rondaPartidos.partidos) {
               const eq1 = partido.equipo1Nombre || "Desconocido";
               const eq2 = partido.equipo2Nombre || "Desconocido";
-              const res = partido.resultado ? ` (${partido.resultado})` : "";
+              const res = partido.resultado ? ` (${partido.resultado[partido.equipo1Id]} - ${partido.resultado[partido.equipo2Id]})` : "";
               mensaje += `🏆 ${eq1} vs ${eq2}${res}\n`;
             }
           }
@@ -71,10 +72,9 @@ module.exports = {
         await canal.send(mensaje);
       }
 
-      // 📊 Calcular y publicar tabla de posiciones
-      const tablas = calcularTablaEquipos(torneo);
-      const textoTabla = generarTextoTablaEquipos(tablas, torneo.torneo);
-      await canal.send(textoTabla);
+      // 📊 Calcular y publicar tabla de posiciones usando IDs de equipo
+      const tablas = calcularTablaPosiciones(torneo);
+      await tablaTorneoEquipos(client, torneo, tablas);
 
       await interaction.editReply({ content: `✅ Torneo ${torneo.torneo} publicado correctamente.` });
     } catch (error) {
