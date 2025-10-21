@@ -223,6 +223,13 @@ for (const ronda of torneo.rondas_grupos || []) {
     await actualizarEliminatorias(torneo, filePath, interaction);
 
   // Después de guardar los resultados y actualizar eliminatorias
+// Después de guardar los resultados y actualizar eliminatorias
+const { calcularTablaPosiciones } = require("../utils/calcularTablaPosiciones.js");
+const { tablaTorneoEquipos } = require("../utils/tablaTorneoEquipos.js");
+
+const tablas = calcularTablaPosiciones(torneo);
+await tablaTorneoEquipos(interaction.client, torneo, tablas);
+    
 // Determinar color según resultado
 let colorEmbed = '#0c74f5';
 if (puntosEq1 > puntosEq2) colorEmbed = '#16a34a'; // verde
@@ -267,3 +274,4 @@ await interaction.editReply({
 
   },
 };
+
