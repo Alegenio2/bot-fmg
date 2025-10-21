@@ -67,5 +67,28 @@
     ],
     "promedio_elo": 1493.5,
     "logo": null
+  },
+  {
+    "id": "dd3d5cad-765c-488b-b3cc-88ff71da0fb1",
+    "torneo": "uruguay_open_cup_2v2",
+    "modo": "2v2",
+    "categoria": "a",
+    "nombre": "URUwUS",
+    "jugadores": [
+      {
+        "nick": "Culero Connor",
+        "elo_actual": 1518,
+        "elo_max": 1545,
+        "perfil": "https://www.aoe2companion.com/profile/5736044"
+      },
+      {
+        "nick": "Juasteint",
+        "elo_actual": 1432,
+        "elo_max": 1563,
+        "perfil": "https://www.aoe2companion.com/profile/2878364"
+      }
+    ],
+    "promedio_elo": 1514.5,
+    "logo": null
   }
 ]
