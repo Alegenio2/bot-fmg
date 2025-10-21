@@ -85,8 +85,9 @@ module.exports = {
       }
 
       // 📊 Calcular y publicar tabla de posiciones usando IDs de equipo
-      const tablas = calcularTablaPosiciones(torneo);
-      await tablaTorneoEquipos(client, torneo, tablas);
+  const tablas = calcularTablaPosiciones(torneo);
+await tablaTorneoEquipos(client, { ...torneo, serverId: guildId }, tablas);
+
 
       // Confirmar éxito
       await interaction.editReply({ content: `✅ Torneo ${torneo.torneo} publicado correctamente.` });
@@ -105,6 +106,7 @@ module.exports = {
     }
   }
 };
+
 
 
 
