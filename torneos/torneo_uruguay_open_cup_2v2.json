@@ -5,20 +5,20 @@
       "nombre": "Grupo A",
       "equipos": [
         {
+          "id": "dd3d5cad-765c-488b-b3cc-88ff71da0fb1",
+          "nombre": "URUwUS"
+        },
+        {
           "id": "ee3da911-6e05-403c-844a-e9201caff342",
           "nombre": "LA TASCONETA"
         },
         {
-          "id": "ee3da911-6e05-403c-844a-e9271caff342",
-          "nombre": "LA Loca"
+          "id": "c20cd462-76bf-433f-b733-17be775a6b57",
+          "nombre": "La Banda Oriental"
         },
         {
-          "id": "ee3da911-6e05-403c-844a-e7201caff342",
-          "nombre": "LA Turbia"
-        },
-        {
-          "id": "eb3da811-6e05-403c-844a-e9201caff342",
-          "nombre": "Los Nadie"
+          "id": "11c48981-7efc-43e6-b2e6-52fd414659a6",
+          "nombre": "DGHIR URUGUAY DE LA C"
         }
       ]
     },
@@ -26,62 +26,20 @@
       "nombre": "Grupo B",
       "equipos": [
         {
-          "id": "ee3da911-6e05-403c-844a-e9201caff345",
-          "nombre": "LA Rxoneta"
+          "id": "646c7c18-fc92-451a-9cf3-3c812ade1c6e",
+          "nombre": "#1"
         },
         {
-          "id": "ee3da911-6e05-403c-844a-e9207caff342",
-          "nombre": "cachimba del piojo"
+          "id": "b059eaea-69ee-4f48-9907-c1725097899b",
+          "nombre": "RxonSky"
         },
         {
-          "id": "ee3da911-6e05-403c-544a-e9201caff342",
-          "nombre": "El OVO"
+          "id": "b93b725a-9883-49b3-9c33-91a6038b59a1",
+          "nombre": "AdminWin"
         },
         {
-          "id": "ea3da811-6e05-403c-844a-e9201caff342",
-          "nombre": "LA Guranga"
-        }
-      ]
-    },
-    {
-      "nombre": "Grupo C",
-      "equipos": [
-        {
-          "id": "ee3da911-6e05-403c-844a-e9201caff352",
-          "nombre": "LA Culero"
-        },
-        {
-          "id": "ee3da911-6e05-403c-844a-e9201caff842",
-          "nombre": "La Banda"
-        },
-        {
-          "id": "ee3da911-5e05-403c-844a-e9201caff342",
-          "nombre": "Adminwin"
-        },
-        {
-          "id": "ae3da811-6e05-403c-844a-e9201caff342",
-          "nombre": "LA Dura"
-        }
-      ]
-    },
-    {
-      "nombre": "Grupo D",
-      "equipos": [
-        {
-          "id": "ee3da911-6e05-403c-844a-e9201caff542",
-          "nombre": "LA Buyan"
-        },
-        {
-          "id": "ee3da911-6e05-403c-844a-e9201caff382",
-          "nombre": "LA Juastein"
-        },
-        {
-          "id": "ee2da911-6e05-403c-844a-e9201caff342",
-          "nombre": "LA Fulera"
-        },
-        {
-          "id": "ee3da811-6e05-403c-844a-e9201caff342",
-          "nombre": "LA MXT"
+          "id": "b8d83110-cad6-44b9-a318-57aa6c09a7b1",
+          "nombre": "Cachimba del piojo"
         }
       ]
     }
@@ -94,20 +52,20 @@
           "ronda": 1,
           "partidos": [
             {
-              "equipo1Id": "ee3da911-6e05-403c-844a-e9201caff342",
-              "equipo1Nombre": "LA TASCONETA",
-              "equipo2Id": "eb3da811-6e05-403c-844a-e9201caff342",
-              "equipo2Nombre": "Los Nadie",
+              "equipo1Id": "dd3d5cad-765c-488b-b3cc-88ff71da0fb1",
+              "equipo1Nombre": "URUwUS",
+              "equipo2Id": "11c48981-7efc-43e6-b2e6-52fd414659a6",
+              "equipo2Nombre": "DGHIR URUGUAY DE LA C",
               "resultado": null,
               "fecha": null,
               "horario": null,
               "diaSemana": null
             },
             {
-              "equipo1Id": "ee3da911-6e05-403c-844a-e9271caff342",
-              "equipo1Nombre": "LA Loca",
-              "equipo2Id": "ee3da911-6e05-403c-844a-e7201caff342",
-              "equipo2Nombre": "LA Turbia",
+              "equipo1Id": "ee3da911-6e05-403c-844a-e9201caff342",
+              "equipo1Nombre": "LA TASCONETA",
+              "equipo2Id": "c20cd462-76bf-433f-b733-17be775a6b57",
+              "equipo2Nombre": "La Banda Oriental",
               "resultado": null,
               "fecha": null,
               "horario": null,
@@ -119,20 +77,20 @@
           "ronda": 2,
           "partidos": [
             {
-              "equipo1Id": "ee3da911-6e05-403c-844a-e9201caff342",
-              "equipo1Nombre": "LA TASCONETA",
-              "equipo2Id": "ee3da911-6e05-403c-844a-e7201caff342",
-              "equipo2Nombre": "LA Turbia",
+              "equipo1Id": "dd3d5cad-765c-488b-b3cc-88ff71da0fb1",
+              "equipo1Nombre": "URUwUS",
+              "equipo2Id": "c20cd462-76bf-433f-b733-17be775a6b57",
+              "equipo2Nombre": "La Banda Oriental",
               "resultado": null,
               "fecha": null,
               "horario": null,
               "diaSemana": null
             },
             {
-              "equipo1Id": "eb3da811-6e05-403c-844a-e9201caff342",
-              "equipo1Nombre": "Los Nadie",
-              "equipo2Id": "ee3da911-6e05-403c-844a-e9271caff342",
-              "equipo2Nombre": "LA Loca",
+              "equipo1Id": "11c48981-7efc-43e6-b2e6-52fd414659a6",
+              "equipo1Nombre": "DGHIR URUGUAY DE LA C",
+              "equipo2Id": "ee3da911-6e05-403c-844a-e9201caff342",
+              "equipo2Nombre": "LA TASCONETA",
               "resultado": null,
               "fecha": null,
               "horario": null,
@@ -144,20 +102,20 @@
           "ronda": 3,
           "partidos": [
             {
-              "equipo1Id": "ee3da911-6e05-403c-844a-e9201caff342",
-              "equipo1Nombre": "LA TASCONETA",
-              "equipo2Id": "ee3da911-6e05-403c-844a-e9271caff342",
-              "equipo2Nombre": "LA Loca",
+              "equipo1Id": "dd3d5cad-765c-488b-b3cc-88ff71da0fb1",
+              "equipo1Nombre": "URUwUS",
+              "equipo2Id": "ee3da911-6e05-403c-844a-e9201caff342",
+              "equipo2Nombre": "LA TASCONETA",
               "resultado": null,
               "fecha": null,
               "horario": null,
               "diaSemana": null
             },
             {
-              "equipo1Id": "ee3da911-6e05-403c-844a-e7201caff342",
-              "equipo1Nombre": "LA Turbia",
-              "equipo2Id": "eb3da811-6e05-403c-844a-e9201caff342",
-              "equipo2Nombre": "Los Nadie",
+              "equipo1Id": "c20cd462-76bf-433f-b733-17be775a6b57",
+              "equipo1Nombre": "La Banda Oriental",
+              "equipo2Id": "11c48981-7efc-43e6-b2e6-52fd414659a6",
+              "equipo2Nombre": "DGHIR URUGUAY DE LA C",
               "resultado": null,
               "fecha": null,
               "horario": null,
@@ -174,20 +132,20 @@
           "ronda": 1,
           "partidos": [
             {
-              "equipo1Id": "ee3da911-6e05-403c-844a-e9201caff345",
-              "equipo1Nombre": "LA Rxoneta",
-              "equipo2Id": "ea3da811-6e05-403c-844a-e9201caff342",
-              "equipo2Nombre": "LA Guranga",
+              "equipo1Id": "646c7c18-fc92-451a-9cf3-3c812ade1c6e",
+              "equipo1Nombre": "#1",
+              "equipo2Id": "b8d83110-cad6-44b9-a318-57aa6c09a7b1",
+              "equipo2Nombre": "Cachimba del piojo",
               "resultado": null,
               "fecha": null,
               "horario": null,
               "diaSemana": null
             },
             {
-              "equipo1Id": "ee3da911-6e05-403c-844a-e9207caff342",
-              "equipo1Nombre": "cachimba del piojo",
-              "equipo2Id": "ee3da911-6e05-403c-544a-e9201caff342",
-              "equipo2Nombre": "El OVO",
+              "equipo1Id": "b059eaea-69ee-4f48-9907-c1725097899b",
+              "equipo1Nombre": "RxonSky",
+              "equipo2Id": "b93b725a-9883-49b3-9c33-91a6038b59a1",
+              "equipo2Nombre": "AdminWin",
               "resultado": null,
               "fecha": null,
               "horario": null,
@@ -199,20 +157,20 @@
           "ronda": 2,
           "partidos": [
             {
-              "equipo1Id": "ee3da911-6e05-403c-844a-e9201caff345",
-              "equipo1Nombre": "LA Rxoneta",
-              "equipo2Id": "ee3da911-6e05-403c-544a-e9201caff342",
-              "equipo2Nombre": "El OVO",
+              "equipo1Id": "646c7c18-fc92-451a-9cf3-3c812ade1c6e",
+              "equipo1Nombre": "#1",
+              "equipo2Id": "b93b725a-9883-49b3-9c33-91a6038b59a1",
+              "equipo2Nombre": "AdminWin",
               "resultado": null,
               "fecha": null,
               "horario": null,
               "diaSemana": null
             },
             {
-              "equipo1Id": "ea3da811-6e05-403c-844a-e9201caff342",
-              "equipo1Nombre": "LA Guranga",
-              "equipo2Id": "ee3da911-6e05-403c-844a-e9207caff342",
-              "equipo2Nombre": "cachimba del piojo",
+              "equipo1Id": "b8d83110-cad6-44b9-a318-57aa6c09a7b1",
+              "equipo1Nombre": "Cachimba del piojo",
+              "equipo2Id": "b059eaea-69ee-4f48-9907-c1725097899b",
+              "equipo2Nombre": "RxonSky",
               "resultado": null,
               "fecha": null,
               "horario": null,
@@ -224,180 +182,20 @@
           "ronda": 3,
           "partidos": [
             {
-              "equipo1Id": "ee3da911-6e05-403c-844a-e9201caff345",
-              "equipo1Nombre": "LA Rxoneta",
-              "equipo2Id": "ee3da911-6e05-403c-844a-e9207caff342",
-              "equipo2Nombre": "cachimba del piojo",
+              "equipo1Id": "646c7c18-fc92-451a-9cf3-3c812ade1c6e",
+              "equipo1Nombre": "#1",
+              "equipo2Id": "b059eaea-69ee-4f48-9907-c1725097899b",
+              "equipo2Nombre": "RxonSky",
               "resultado": null,
               "fecha": null,
               "horario": null,
               "diaSemana": null
             },
             {
-              "equipo1Id": "ee3da911-6e05-403c-544a-e9201caff342",
-              "equipo1Nombre": "El OVO",
-              "equipo2Id": "ea3da811-6e05-403c-844a-e9201caff342",
-              "equipo2Nombre": "LA Guranga",
-              "resultado": null,
-              "fecha": null,
-              "horario": null,
-              "diaSemana": null
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "grupo": "C",
-      "partidos": [
-        {
-          "ronda": 1,
-          "partidos": [
-            {
-              "equipo1Id": "ee3da911-6e05-403c-844a-e9201caff352",
-              "equipo1Nombre": "LA Culero",
-              "equipo2Id": "ae3da811-6e05-403c-844a-e9201caff342",
-              "equipo2Nombre": "LA Dura",
-              "resultado": null,
-              "fecha": null,
-              "horario": null,
-              "diaSemana": null
-            },
-            {
-              "equipo1Id": "ee3da911-6e05-403c-844a-e9201caff842",
-              "equipo1Nombre": "La Banda",
-              "equipo2Id": "ee3da911-5e05-403c-844a-e9201caff342",
-              "equipo2Nombre": "Adminwin",
-              "resultado": null,
-              "fecha": null,
-              "horario": null,
-              "diaSemana": null
-            }
-          ]
-        },
-        {
-          "ronda": 2,
-          "partidos": [
-            {
-              "equipo1Id": "ee3da911-6e05-403c-844a-e9201caff352",
-              "equipo1Nombre": "LA Culero",
-              "equipo2Id": "ee3da911-5e05-403c-844a-e9201caff342",
-              "equipo2Nombre": "Adminwin",
-              "resultado": null,
-              "fecha": null,
-              "horario": null,
-              "diaSemana": null
-            },
-            {
-              "equipo1Id": "ae3da811-6e05-403c-844a-e9201caff342",
-              "equipo1Nombre": "LA Dura",
-              "equipo2Id": "ee3da911-6e05-403c-844a-e9201caff842",
-              "equipo2Nombre": "La Banda",
-              "resultado": null,
-              "fecha": null,
-              "horario": null,
-              "diaSemana": null
-            }
-          ]
-        },
-        {
-          "ronda": 3,
-          "partidos": [
-            {
-              "equipo1Id": "ee3da911-6e05-403c-844a-e9201caff352",
-              "equipo1Nombre": "LA Culero",
-              "equipo2Id": "ee3da911-6e05-403c-844a-e9201caff842",
-              "equipo2Nombre": "La Banda",
-              "resultado": null,
-              "fecha": null,
-              "horario": null,
-              "diaSemana": null
-            },
-            {
-              "equipo1Id": "ee3da911-5e05-403c-844a-e9201caff342",
-              "equipo1Nombre": "Adminwin",
-              "equipo2Id": "ae3da811-6e05-403c-844a-e9201caff342",
-              "equipo2Nombre": "LA Dura",
-              "resultado": null,
-              "fecha": null,
-              "horario": null,
-              "diaSemana": null
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "grupo": "D",
-      "partidos": [
-        {
-          "ronda": 1,
-          "partidos": [
-            {
-              "equipo1Id": "ee3da911-6e05-403c-844a-e9201caff542",
-              "equipo1Nombre": "LA Buyan",
-              "equipo2Id": "ee3da811-6e05-403c-844a-e9201caff342",
-              "equipo2Nombre": "LA MXT",
-              "resultado": null,
-              "fecha": null,
-              "horario": null,
-              "diaSemana": null
-            },
-            {
-              "equipo1Id": "ee3da911-6e05-403c-844a-e9201caff382",
-              "equipo1Nombre": "LA Juastein",
-              "equipo2Id": "ee2da911-6e05-403c-844a-e9201caff342",
-              "equipo2Nombre": "LA Fulera",
-              "resultado": null,
-              "fecha": null,
-              "horario": null,
-              "diaSemana": null
-            }
-          ]
-        },
-        {
-          "ronda": 2,
-          "partidos": [
-            {
-              "equipo1Id": "ee3da911-6e05-403c-844a-e9201caff542",
-              "equipo1Nombre": "LA Buyan",
-              "equipo2Id": "ee2da911-6e05-403c-844a-e9201caff342",
-              "equipo2Nombre": "LA Fulera",
-              "resultado": null,
-              "fecha": null,
-              "horario": null,
-              "diaSemana": null
-            },
-            {
-              "equipo1Id": "ee3da811-6e05-403c-844a-e9201caff342",
-              "equipo1Nombre": "LA MXT",
-              "equipo2Id": "ee3da911-6e05-403c-844a-e9201caff382",
-              "equipo2Nombre": "LA Juastein",
-              "resultado": null,
-              "fecha": null,
-              "horario": null,
-              "diaSemana": null
-            }
-          ]
-        },
-        {
-          "ronda": 3,
-          "partidos": [
-            {
-              "equipo1Id": "ee3da911-6e05-403c-844a-e9201caff542",
-              "equipo1Nombre": "LA Buyan",
-              "equipo2Id": "ee3da911-6e05-403c-844a-e9201caff382",
-              "equipo2Nombre": "LA Juastein",
-              "resultado": null,
-              "fecha": null,
-              "horario": null,
-              "diaSemana": null
-            },
-            {
-              "equipo1Id": "ee2da911-6e05-403c-844a-e9201caff342",
-              "equipo1Nombre": "LA Fulera",
-              "equipo2Id": "ee3da811-6e05-403c-844a-e9201caff342",
-              "equipo2Nombre": "LA MXT",
+              "equipo1Id": "b93b725a-9883-49b3-9c33-91a6038b59a1",
+              "equipo1Nombre": "AdminWin",
+              "equipo2Id": "b8d83110-cad6-44b9-a318-57aa6c09a7b1",
+              "equipo2Nombre": "Cachimba del piojo",
               "resultado": null,
               "fecha": null,
               "horario": null,
@@ -410,10 +208,6 @@
   ],
   "eliminatorias": [
     {
-      "ronda": "Cuartos",
-      "partidos": []
-    },
-    {
       "ronda": "Semifinal",
       "partidos": []
     },
@@ -422,5 +216,5 @@
       "partidos": []
     }
   ],
-  "creado": "2025-10-15T20:16:42.339Z"
+  "creado": "2025-10-21T01:38:24.226Z"
 }
