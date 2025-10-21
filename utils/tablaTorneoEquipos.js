@@ -11,6 +11,7 @@ const CANAL_TABLA = '1430007183491207260';
 const MENSAJE_TABLA = '1430007989800145028';
 
 async function tablaTorneoEquipos(client, torneoId) {
+     console.log(torneoId);
   // Leer JSON del torneo
   const filePath = path.join(__dirname, '..', 'torneos', `torneo_${torneoId}.json`);
   if (!fs.existsSync(filePath)) {
