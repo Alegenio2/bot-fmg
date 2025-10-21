@@ -48,7 +48,9 @@ async function tablaTorneoEquipos(client, torneo, tablasPorGrupo) {
       .setTimestamp();
 
     // Canal de la categoría
-    const canalId = servidor[`tablaCategoria${grupo.toUpperCase()}`];
+const letraGrupo = grupo.replace(/[^A-Z]/gi, ''); // toma solo "A", "B", etc.
+const canalId = servidor[`tablaCategoria${letraGrupo}`];
+
     if (!canalId) {
       console.warn(`No se encontró tablaCategoria${grupo.toUpperCase()} en botConfig.json`);
       continue;
