@@ -6,15 +6,15 @@ const path = require('path');
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('fixture_jornada_equipo')
-    .setDescription('Muestra los partidos de una jornada de un torneo por equipos')
+    .setDescription('Muestra los partidos de una jornada o fase del torneo')
     .addStringOption(option =>
       option.setName('torneo')
-        .setDescription('ID del torneo')
+        .setDescription('ID del torneo (por ejemplo: uruguay_open_cup_2v2)')
         .setRequired(true)
     )
     .addStringOption(option =>
       option.setName('fase')
-        .setDescription('Número de jornada o fase (ej: 1, 2, Semifinal, Final)')
+        .setDescription('Ej: A-1 para Grupo A Ronda 1, o Semifinal/Final')
         .setRequired(true)
     ),
 
@@ -32,30 +32,53 @@ module.exports = {
 
     const torneo = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 
-    // Buscar la jornada en grupos
-    let jornada = torneo.rondas_grupos.find(j => String(j.grupo) === faseInput);
-    // Si no está en grupos, buscar en eliminatorias
-    if (!jornada && torneo.eliminatorias) {
-      jornada = torneo.eliminatorias.find(f => f.ronda.toLowerCase() === faseInput.toLowerCase());
+    let mensaje = '';
+    let partidos = [];
+
+    // --- Caso 1: fase tipo "A-1" (grupo A, ronda 1)
+    const match = faseInput.match(/^([A-Z])-(\d+)$/i);
+    if (match) {
+      const grupo = match[1].toUpperCase();
+      const rondaNum = parseInt(match[2]);
+
+      const grupoData = torneo.rondas_grupos.find(g => g.grupo.toUpperCase() === grupo);
+      if (grupoData) {
+        const rondaData = grupoData.partidos.find(r => r.ronda === rondaNum);
+        if (rondaData) {
+          partidos = rondaData.partidos;
+          mensaje += `📅 **Grupo ${grupo} - Ronda ${rondaNum} (${torneo.torneo})**\n\n`;
+        }
+      }
     }
 
-    if (!jornada) {
+    // --- Caso 2: fase eliminatoria (Semifinal, Final, etc.)
+    if (partidos.length === 0 && torneo.eliminatorias) {
+      const fase = torneo.eliminatorias.find(f => f.ronda.toLowerCase() === faseInput.toLowerCase());
+      if (fase) {
+        partidos = fase.partidos;
+        mensaje += `📅 **${fase.ronda} - Torneo ${torneo.torneo}**\n\n`;
+      }
+    }
+
+    if (partidos.length === 0) {
       return interaction.reply({
-        content: `⚠️ No se encontró la jornada/fase **${faseInput}** en el torneo **${torneo.torneo}**.`,
+        content: `⚠️ No se encontró la jornada o fase **${faseInput}** en el torneo **${torneo.torneo}**.`,
         ephemeral: true
       });
     }
 
-    // Crear mensaje con los partidos
-    let mensaje = `📅 **${jornada.grupo || jornada.ronda} - Torneo ${torneo.torneo}**\n\n`;
-    for (const partido of jornada.partidos) {
-      mensaje += `🏆 **${partido.equipo1}** vs **${partido.equipo2}**`;
-      if (partido.resultado) {
-        mensaje += ` ||${partido.resultado.equipo1 || '-'} - ${partido.resultado.equipo2 || '-'}||`;
-      }
-      mensaje += `\n`;
+    // --- Construir mensaje
+    for (const partido of partidos) {
+      const eq1 = partido.equipo1Nombre || partido.equipo1 || "???";
+      const eq2 = partido.equipo2Nombre || partido.equipo2 || "???";
+      const res = partido.resultado
+        ? ` ||${partido.resultado.equipo1 || '-'} - ${partido.resultado.equipo2 || '-'}||`
+        : '';
+
+      mensaje += `🏆 **${eq1}** vs **${eq2}**${res}\n`;
     }
 
     await interaction.reply({ content: mensaje, ephemeral: false });
   }
 };
+
