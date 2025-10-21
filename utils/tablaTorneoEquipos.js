@@ -1,4 +1,4 @@
-//utils/tablaTorneoEquipos.js
+// utils/tablaTorneoEquipos.js
 const { EmbedBuilder } = require('discord.js');
 const fs = require('fs');
 const path = require('path');
@@ -7,8 +7,7 @@ let config = require(configPath);
 
 /**
  * Publica o actualiza la tabla de posiciones de un torneo de equipos en Discord.
- * Si ya existe un mensaje registrado en botConfig.json, lo edita.
- * Si no existe, publica uno nuevo y guarda el messageId.
+ * Usa IDs de equipos y mantiene el nombre para mostrar en la tabla.
  *
  * @param {Object} client - Cliente de Discord
  * @param {Object} torneo - Datos del torneo (nombre, servidorId, etc.)
@@ -28,8 +27,15 @@ async function tablaTorneoEquipos(client, torneo, tablasPorGrupo) {
     let tablaTexto = `\`\`\`\n`;
     tablaTexto += `Pos | Equipo            | PJ | PG | PP | Pts | Dif\n`;
     tablaTexto += `------------------------------------------------\n`;
+
     posiciones.forEach((p, i) => {
-      tablaTexto += `${(i + 1).toString().padEnd(3)} | ${p.nombre.padEnd(16)} | ${p.pj.toString().padEnd(2)} | ${p.pg.toString().padEnd(2)} | ${p.pp.toString().padEnd(2)} | ${p.pts.toString().padEnd(3)} | ${p.diff.toString().padEnd(3)}\n`;
+      const pj = p.jugados ?? 0;
+      const pg = p.ganados ?? 0;
+      const pp = p.perdidos ?? 0;
+      const pts = p.puntos ?? 0;
+      const diff = p.diferencia ?? 0;
+
+      tablaTexto += `${(i + 1).toString().padEnd(3)} | ${p.nombre.padEnd(16)} | ${pj.toString().padEnd(2)} | ${pg.toString().padEnd(2)} | ${pp.toString().padEnd(2)} | ${pts.toString().padEnd(3)} | ${diff.toString().padEnd(3)}\n`;
     });
     tablaTexto += `\`\`\``;
 
@@ -83,4 +89,5 @@ async function publicarNuevoMensaje(canal, embed, serverId, grupo) {
 }
 
 module.exports = { tablaTorneoEquipos };
+
 
