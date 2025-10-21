@@ -1,58 +1,80 @@
 // utils/tablaTorneoEquipos.js
-const { EmbedBuilder } = require('discord.js');
-
-// Hardcode temporal para el torneo Uruguay Open Cup 2v2
-const HARD_CODE_CANAL = '1430007183491207260';
-const HARD_CODE_MESSAGE = '1430007989800145028';
+const { EmbedBuilder } = require("discord.js");
+const fs = require("fs");
+const path = require("path");
+const configPath = path.join(__dirname, "../botConfig.json");
+let config = require(configPath);
 
 /**
  * Publica o actualiza la tabla de posiciones de un torneo de equipos en Discord.
- * Para este caso, todos los grupos se publican en un solo canal y mensaje.
- *
- * @param {Object} client - Cliente de Discord
- * @param {Object} torneo - Datos del torneo
- * @param {Object} tablasPorGrupo - Tablas calculadas por grupo
+ * Si el torneo no tiene aún posiciones, las inicia vacías.
  */
-async function tablaTorneoEquipos(client, torneo, tablasPorGrupo) {
+async function tablaTorneoEquipos(client, torneo) {
+  const filePath = path.join(__dirname, "..", "torneos", `${torneo}.json`);
+  if (!fs.existsSync(filePath)) {
+    console.error(`❌ No se encontró el archivo ${torneo}.json`);
+    return;
+  }
+
+  const data = JSON.parse(fs.readFileSync(filePath, "utf8"));
+  const serverId = "1302823385167826995"; // 🔧 ID fijo para este caso
+  const servidor = config.servidores[serverId];
+
+  if (!servidor) {
+    console.error(`Servidor ${serverId} no encontrado en botConfig.json`);
+    return;
+  }
+
+  const canalId = "1430007183491207260"; // 🔧 Canal fijo de tabla
+  const mensajeId = "1430007989800145028"; // 🔧 Mensaje fijo para editar
+  const canal = await client.channels.fetch(canalId);
+
+  // Si el JSON tiene "grupos" (como el tuyo)
+  if (!data.grupos || !Array.isArray(data.grupos)) {
+    console.error("❌ El JSON del torneo no contiene el campo 'grupos'");
+    return;
+  }
+
+  let contenido = `📊 **${data.torneo.replaceAll("_", " ")} - Tabla de Posiciones**\n`;
+
+  for (const grupo of data.grupos) {
+    contenido += `\n📌 **${grupo.nombre}**\n`;
+    contenido += "```\n";
+    contenido += `Pos | Equipo               | PJ | PG | PP | Pts | Dif\n`;
+    contenido += `----------------------------------------------------\n`;
+
+    grupo.equipos.forEach((eq, i) => {
+      const pj = eq.jugados ?? 0;
+      const pg = eq.ganados ?? 0;
+      const pp = eq.perdidos ?? 0;
+      const pts = eq.puntos ?? 0;
+      const dif = eq.diferencia ?? 0;
+
+      contenido += `${(i + 1).toString().padEnd(3)} | ${eq.nombre.padEnd(20)} | ${pj
+        .toString()
+        .padEnd(2)} | ${pg.toString().padEnd(2)} | ${pp
+        .toString()
+        .padEnd(2)} | ${pts.toString().padEnd(3)} | ${dif.toString().padEnd(3)}\n`;
+    });
+
+    contenido += "```\n";
+  }
+
+  const embed = new EmbedBuilder()
+    .setTitle(`📊 ${data.torneo.replaceAll("_", " ")}`)
+    .setDescription(contenido)
+    .setColor("#0c74f5")
+    .setFooter({ text: "Actualizado automáticamente" })
+    .setTimestamp();
+
   try {
-    const canal = await client.channels.fetch(HARD_CODE_CANAL);
-
-    // Construir tabla combinada de todos los grupos
-    let descripcion = '';
-    for (const [grupo, posiciones] of Object.entries(tablasPorGrupo)) {
-      descripcion += `📊 **${grupo}**\n\`\`\`\n`;
-      descripcion += `Pos | Equipo            | PJ | PG | PP | Pts | Dif\n`;
-      descripcion += `------------------------------------------------\n`;
-      posiciones.forEach((p, i) => {
-        const pj = p.jugados ?? 0;
-        const pg = p.ganados ?? 0;
-        const pp = p.perdidos ?? 0;
-        const pts = p.puntos ?? 0;
-        const diff = p.diferencia ?? 0;
-        descripcion += `${(i + 1).toString().padEnd(3)} | ${p.nombre.padEnd(16)} | ${pj.toString().padEnd(2)} | ${pg.toString().padEnd(2)} | ${pp.toString().padEnd(2)} | ${pts.toString().padEnd(3)} | ${diff.toString().padEnd(3)}\n`;
-      });
-      descripcion += `\`\`\`\n\n`;
-    }
-
-    const embed = new EmbedBuilder()
-      .setTitle(`📊 ${torneo.torneo} - Tabla de Posiciones`)
-      .setDescription(descripcion)
-      .setColor('#0c74f5')
-      .setFooter({ text: 'Actualizado automáticamente' })
-      .setTimestamp();
-
-    // Editar mensaje existente o publicar uno nuevo
-    try {
-      const message = await canal.messages.fetch(HARD_CODE_MESSAGE);
-      await message.edit({ embeds: [embed] });
-      console.log('✅ Tabla de posiciones actualizada.');
-    } catch (err) {
-      // Si no existe el mensaje, crearlo
-      const message = await canal.send({ embeds: [embed] });
-      console.log('🆕 Tabla de posiciones publicada por primera vez.');
-    }
+    const msg = await canal.messages.fetch(mensajeId);
+    await msg.edit({ embeds: [embed] });
+    console.log("✅ Tabla actualizada correctamente.");
   } catch (error) {
-    console.error('Error publicando tabla de posiciones:', error);
+    console.warn("⚠️ No se pudo editar el mensaje, publicando uno nuevo...", error);
+    const newMsg = await canal.send({ embeds: [embed] });
+    console.log("🆕 Nueva tabla publicada:", newMsg.id);
   }
 }
 
