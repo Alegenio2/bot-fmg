@@ -43,7 +43,7 @@ module.exports = {
       }
 
       // Leer archivo JSON del torneo
-      const filePath = path.join(__dirname, '..', 'torneos', `${torneoId}.json`);
+      const filePath = path.join(__dirname, '..', 'torneos', `torneo_${torneoId}.json`);
       if (!fs.existsSync(filePath)) {
         return interaction.editReply({ content: `⚠️ No se encontró el archivo del torneo ${torneoId}` });
       }
@@ -74,5 +74,6 @@ module.exports = {
     }
   }
 };
+
 
 
