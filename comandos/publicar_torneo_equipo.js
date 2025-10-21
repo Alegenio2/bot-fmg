@@ -3,11 +3,12 @@ const { SlashCommandBuilder } = require('discord.js');
 const fs = require('fs');
 const path = require('path');
 const botConfig = require('../botConfig.json');
+const { calcularTablaEquipos, generarTextoTablaEquipos } = require('../utils/tablaTorneoEquipos.js');
 
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('publicar_torneo_equipo')
-    .setDescription('Publica los grupos y eliminatorias de un torneo de equipos')
+    .setDescription('Publica los grupos, resultados y tabla del torneo')
     .addStringOption(option =>
       option.setName('torneo_id')
         .setDescription('ID del torneo a publicar')
@@ -51,42 +52,31 @@ module.exports = {
       }
 
       const torneo = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-
-      // ✅ DeferReply para evitar "Unknown interaction"
       await interaction.deferReply({ ephemeral: true });
 
-      // PUBLICAR GRUPOS (visibles para todos)
+      // 📢 Publicar grupos con resultados
       for (const grupoObj of torneo.grupos) {
-        let mensaje = `📌 **${grupoObj.nombre} - Torneo ${torneo.torneo}**\n\n`;
+        let mensaje = `📌 **${grupoObj.nombre} - ${torneo.torneo}**\n\n`;
         const ronda = torneo.rondas_grupos.find(r => r.grupo === grupoObj.nombre.slice(-1));
         if (ronda) {
           for (const rondaPartidos of ronda.partidos) {
             for (const partido of rondaPartidos.partidos) {
               const eq1 = partido.equipo1Nombre || "Desconocido";
               const eq2 = partido.equipo2Nombre || "Desconocido";
-              mensaje += `🏆 ${eq1} vs ${eq2}\n`;
+              const res = partido.resultado ? ` (${partido.resultado})` : "";
+              mensaje += `🏆 ${eq1} vs ${eq2}${res}\n`;
             }
           }
         }
         await canal.send(mensaje);
       }
 
-      // PUBLICAR ELIMINATORIAS (visibles para todos)
-      if (torneo.eliminatorias && torneo.eliminatorias.length > 0) {
-        for (const fase of torneo.eliminatorias) {
-          let mensaje = `🏁 **${fase.ronda} - Torneo ${torneo.torneo}**\n\n`;
-          for (const partido of fase.partidos) {
-            const eq1 = partido.equipo1Nombre || "Desconocido";
-            const eq2 = partido.equipo2Nombre || "Desconocido";
-            mensaje += `🏆 ${eq1} vs ${eq2}\n`;
-          }
-          await canal.send(mensaje);
-        }
-      }
+      // 📊 Calcular y publicar tabla de posiciones
+      const tablas = calcularTablaEquipos(torneo);
+      const textoTabla = generarTextoTablaEquipos(tablas, torneo.torneo);
+      await canal.send(textoTabla);
 
-      // Confirmación al organizador (ephemeral)
       await interaction.editReply({ content: `✅ Torneo ${torneo.torneo} publicado correctamente.` });
-
     } catch (error) {
       console.error('Error al publicar torneo:', error);
       if (interaction.deferred || interaction.replied) {
@@ -97,3 +87,5 @@ module.exports = {
     }
   }
 };
+
+
