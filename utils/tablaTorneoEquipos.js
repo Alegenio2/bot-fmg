@@ -1,36 +1,22 @@
-// utils/tablaTorneoEquipos.js
 const { EmbedBuilder } = require('discord.js');
-const fs = require('fs');
-const path = require('path');
-
-const configPath = path.join(__dirname, '../botConfig.json');
-let config = require(configPath);
 
 // Canal y mensaje fijo para este torneo
 const CANAL_TABLA = '1430007183491207260';
 const MENSAJE_TABLA = '1430007989800145028';
 
-async function tablaTorneoEquipos(client, torneoId) {
-     console.log(torneoId);
-  // Leer JSON del torneo
-  const filePath = path.join(__dirname, '..', 'torneos', `torneo_${torneoId}.json`);
-  if (!fs.existsSync(filePath)) {
-    console.error(`❌ No se encontró el archivo torneo_${torneoId}.json`);
-    return;
-  }
-
-  const torneo = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+async function tablaTorneoEquipos(client, torneo, tablasPorGrupo) {
+  // tablasPorGrupo: { A: [...], B: [...] }
 
   // Construir texto de la tabla por grupo
-  const tablaTextoPorGrupo = torneo.grupos.map(grupo => {
-    let texto = `📌 ${grupo.nombre}\n`;
+  const tablaTextoPorGrupo = Object.entries(tablasPorGrupo).map(([grupo, equipos]) => {
+    let texto = `📌 Grupo ${grupo}\n`;
     texto += `Pos | Equipo            | PJ | PG | PP | Pts | Dif\n`;
     texto += `------------------------------------------------\n`;
-    grupo.equipos.forEach((eq, i) => {
-      texto += `${(i + 1).toString().padEnd(3)} | ${eq.nombre.padEnd(16)} | 0  | 0  | 0  | 0   | 0\n`;
+    equipos.forEach((eq, i) => {
+      texto += `${(i + 1).toString().padEnd(3)} | ${eq.nombre.padEnd(16)} | ${eq.pj}  | ${eq.pg}  | ${eq.pp}  | ${eq.pts}   | ${eq.dif}\n`;
     });
     return texto;
-  }).join('\n');
+  }).join('\n\n');
 
   // Crear embed
   const embed = new EmbedBuilder()
