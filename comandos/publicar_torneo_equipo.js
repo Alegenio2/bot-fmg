@@ -21,6 +21,7 @@ module.exports = {
     const focusedValue = interaction.options.getFocused();
     const torneosPath = path.join(__dirname, '..', 'torneos');
     const files = fs.readdirSync(torneosPath).filter(f => f.endsWith('.json'));
+    console.log('Archivos JSON encontrados:', files);
     const torneos = files.map(f => f.replace('.json', ''));
     const filtered = torneos.filter(t => t.toLowerCase().includes(focusedValue.toLowerCase()));
     await interaction.respond(filtered.map(t => ({ name: t, value: t })));
@@ -87,5 +88,6 @@ module.exports = {
     }
   }
 };
+
 
 
