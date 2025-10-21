@@ -19,13 +19,13 @@ module.exports = {
     ),
 
   async autocomplete(interaction) {
-      const focusedOption = interaction.options.getFocused(true); // option con nombre y valor
+    const focusedOption = interaction.options.getFocused(true); // option con nombre y valor
     const torneosPath = path.join(__dirname, '..', 'torneos');
     const files = fs.readdirSync(torneosPath).filter(f => f.endsWith('.json'));
     const torneos = files.map(f => f.replace('.json', ''));
 
      // Autocomplete para el nombre del torneo
-    if (focusedOption.name === 'torneo') {
+    if (focusedOption.name === 'torneo_id') {
       const filtered = torneos.filter(t => t.toLowerCase().includes(focusedOption.value.toLowerCase()));
       await interaction.respond(filtered.map(t => ({ name: t, value: t })));
       return;
@@ -105,6 +105,7 @@ module.exports = {
     }
   }
 };
+
 
 
 
