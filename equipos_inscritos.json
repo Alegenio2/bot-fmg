@@ -159,5 +159,28 @@
     ],
     "promedio_elo": 1449.5,
     "logo": null
+  },
+  {
+    "id": "c20cd462-76bf-433f-b733-17be775a6b57",
+    "torneo": "uruguay_open_cup_2v2",
+    "modo": "2v2",
+    "categoria": "a",
+    "nombre": "La Banda Oriental",
+    "jugadores": [
+      {
+        "nick": "|FMG| Lautreamont",
+        "elo_actual": 1401,
+        "elo_max": 1515,
+        "perfil": "https://www.aoe2companion.com/profile/973968"
+      },
+      {
+        "nick": "|FMG| Gral_Artigas",
+        "elo_actual": 1495,
+        "elo_max": 1503,
+        "perfil": "https://www.aoe2companion.com/profile/2899006"
+      }
+    ],
+    "promedio_elo": 1478.5,
+    "logo": null
   }
 ]
