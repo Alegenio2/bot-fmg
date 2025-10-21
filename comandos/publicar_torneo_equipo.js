@@ -19,12 +19,17 @@ module.exports = {
     ),
 
   async autocomplete(interaction) {
-    const focusedValue = interaction.options.getFocused();
+      const focusedOption = interaction.options.getFocused(true); // option con nombre y valor
     const torneosPath = path.join(__dirname, '..', 'torneos');
     const files = fs.readdirSync(torneosPath).filter(f => f.endsWith('.json'));
     const torneos = files.map(f => f.replace('.json', ''));
-    const filtered = torneos.filter(t => t.toLowerCase().includes(focusedValue.toLowerCase()));
-    await interaction.respond(filtered.map(t => ({ name: t, value: t })));
+
+     // Autocomplete para el nombre del torneo
+    if (focusedOption.name === 'torneo') {
+      const filtered = torneos.filter(t => t.toLowerCase().includes(focusedOption.value.toLowerCase()));
+      await interaction.respond(filtered.map(t => ({ name: t, value: t })));
+      return;
+    }
   },
 
   async execute(interaction) {
@@ -53,7 +58,7 @@ module.exports = {
       const canal = await client.channels.fetch(canalId);
 
       // Leer archivo JSON del torneo
-      const filePath = path.join(__dirname, '..', 'torneos', `${torneoId}.json`);
+      const filePath = path.join(__dirname, '..', 'torneos', `torneo_${torneoId}.json`);
       if (!fs.existsSync(filePath)) {
         return await interaction.editReply({ content: `⚠️ No se encontró el archivo del torneo ${torneoId}` });
       }
@@ -100,6 +105,7 @@ module.exports = {
     }
   }
 };
+
 
 
 
