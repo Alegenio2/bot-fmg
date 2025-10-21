@@ -113,5 +113,28 @@
     ],
     "promedio_elo": 1310,
     "logo": null
+  },
+  {
+    "id": "646c7c18-fc92-451a-9cf3-3c812ade1c6e",
+    "torneo": "uruguay_open_cup_2v2",
+    "modo": "2v2",
+    "categoria": "a",
+    "nombre": "#1",
+    "jugadores": [
+      {
+        "nick": "|FMG| Donde Estan Mis 5 Pizzas",
+        "elo_actual": 1313,
+        "elo_max": 1350,
+        "perfil": "https://www.aoe2companion.com/profile/10222046"
+      },
+      {
+        "nick": "|FMG| Nadie",
+        "elo_actual": 1582,
+        "elo_max": 1733,
+        "perfil": "https://www.aoe2companion.com/profile/673060"
+      }
+    ],
+    "promedio_elo": 1494.5,
+    "logo": null
   }
 ]
