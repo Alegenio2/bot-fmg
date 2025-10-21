@@ -2,7 +2,7 @@ const { EmbedBuilder } = require('discord.js');
 
 // Canal y mensaje fijo para este torneo
 const CANAL_TABLA = '1430007183491207260';
-const MENSAJE_TABLA = '1430007989800145028';
+const MENSAJE_TABLA = '1430007281176678530';
 
 async function tablaTorneoEquipos(client, torneo, tablasPorGrupo) {
   // tablasPorGrupo: { A: [...], B: [...] }
