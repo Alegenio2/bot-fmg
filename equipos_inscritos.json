@@ -136,5 +136,28 @@
     ],
     "promedio_elo": 1494.5,
     "logo": null
+  },
+  {
+    "id": "b93b725a-9883-49b3-9c33-91a6038b59a1",
+    "torneo": "uruguay_open_cup_2v2",
+    "modo": "2v2",
+    "categoria": "a",
+    "nombre": "AdminWin",
+    "jugadores": [
+      {
+        "nick": "|FMG|DavidTG",
+        "elo_actual": 1261,
+        "elo_max": 1461,
+        "perfil": "https://www.aoe2companion.com/profile/4465309"
+      },
+      {
+        "nick": "|FMG| twitch/JabsUY",
+        "elo_actual": 1486,
+        "elo_max": 1590,
+        "perfil": "https://www.aoe2companion.com/profile/2583713"
+      }
+    ],
+    "promedio_elo": 1449.5,
+    "logo": null
   }
 ]
