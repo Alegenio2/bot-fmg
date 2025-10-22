@@ -61,4 +61,3 @@ async function tablaTorneoEquipos(client, torneo, tablasPorGrupo) {
 
 module.exports = { tablaTorneoEquipos };
 
-
