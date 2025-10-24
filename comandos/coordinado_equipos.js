@@ -86,7 +86,8 @@ module.exports = {
     const fecha = interaction.options.getString('fecha');
     const horario = interaction.options.getString('horario');
 
-    const filePath = path.join(__dirname, '..', 'torneos', `toreno_${torneoId}.json`);
+   const filePath = path.join(__dirname, '..', 'torneos', `toreno_${torneoId}.json`);
+
 
     let torneo;
     try {
@@ -154,6 +155,7 @@ module.exports = {
     }
   }
 };
+
 
 
 
