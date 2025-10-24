@@ -47,34 +47,34 @@ module.exports = {
     ),
 
   // Autocomplete: Usamos la sintaxis de asignación de función (CORRECCIÓN de SyntaxError)
-  autocomplete: async (interaction) => {
-    const focusedOption = interaction.options.getFocused(true);
+ autocomplete: async (interaction) => {
+  const focusedOption = interaction.options.getFocused(true);
 
-    // Autocomplete para el nombre del torneo
-    if (focusedOption.name === 'torneo') {
-        const torneos = await obtenerTorneosDisponibles(); 
-        console.log(torneos);    
-        const filtered = torneos.filter(t => t.value.toLowerCase().includes(focusedOption.value.toLowerCase()));
-        return await interaction.respond(filtered);
-    }
+  // AUTOCOMPLETAR TORNEOS
+  if (focusedOption.name === 'torneo') {
+    const torneos = await obtenerTorneosDisponibles();
+    const filtered = torneos
+      .filter(t => t.name.toLowerCase().includes(focusedOption.value.toLowerCase()))
+      .slice(0, 25); // Discord solo permite 25 sugerencias
 
-    // Autocomplete para los equipos
-    if (focusedOption.name === 'equipo1' || focusedOption.isFocused.name === 'equipo2') {
-        const torneoId = interaction.options.getString('torneo');
-        console.log(torneoId);  
-        if (!torneoId) {
-          return await interaction.respond([]);
-        }
-        
-        const equipos = await obtenerEquiposInscritos(torneoId);
+    return await interaction.respond(filtered);
+  }
 
-        const filtered = equipos
-            .filter(e => e.toLowerCase().includes(focusedOption.value.toLowerCase()))
-            .map(e => ({ name: e, value: e }));
-            
-        return await interaction.respond(filtered);
-    }
-  },
+  // AUTOCOMPLETAR EQUIPOS
+  if (focusedOption.name === 'equipo1' || focusedOption.name === 'equipo2') {
+    const torneoId = interaction.options.getString('torneo');
+    if (!torneoId) return await interaction.respond([]);
+
+    const equipos = await obtenerEquiposInscritos(torneoId);
+
+    const filtered = equipos
+      .filter(e => e.toLowerCase().includes(focusedOption.value.toLowerCase()))
+      .map(e => ({ name: e, value: e }))
+      .slice(0, 25);
+
+    return await interaction.respond(filtered);
+  }
+},
 
   // Execute: Usamos la sintaxis de asignación de función (CORRECCIÓN de SyntaxError)
   execute: async (interaction) => {
@@ -154,5 +154,6 @@ module.exports = {
     }
   }
 };
+
 
 
