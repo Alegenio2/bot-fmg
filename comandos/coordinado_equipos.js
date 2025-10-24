@@ -132,24 +132,30 @@ autocomplete: async (interaction) => {
     const horarioFormateado = validarYFormatearHorario(horario);
     if (!horarioFormateado) return await interaction.editReply({ content: "❌ Formato de horario inválido (HH:MM)", ephemeral: true });
 
-    let partidoCoordinado = false;
+let partidoCoordinado = false;
+const eq1Lower = eq1.toLowerCase().trim();
+const eq2Lower = eq2.toLowerCase().trim();
 
-    // Buscamos el partido en grupos
-    for (const grupo of torneo.grupos || []) {
-      for (const partido of grupo.partidos || []) {
-        if (
-          (partido.equipo1Nombre === eq1 && partido.equipo2Nombre === eq2) ||
-          (partido.equipo1Nombre === eq2 && partido.equipo2Nombre === eq1)
-        ) {
-          partido.fecha = fecha;
-          partido.horario = horarioFormateado;
-          partido.diaSemana = diaSemana;
-          partidoCoordinado = true;
-          break;
-        }
-      }
-      if (partidoCoordinado) break;
-    }
+// Buscamos el partido en rondas de grupos
+for (const ronda of torneo.rondas_grupos || []) {
+  for (const partido of ronda.partidos || []) {
+    const eq1Partido = partido.equipo1Nombre?.toLowerCase().trim();
+    const eq2Partido = partido.equipo2Nombre?.toLowerCase().trim();
+
+    if (
+      (eq1Partido === eq1Lower && eq2Partido === eq2Lower) ||
+      (eq1Partido === eq2Lower && eq2Partido === eq1Lower)
+    ) {
+      partido.fecha = fecha;
+      partido.horario = horarioFormateado;
+      partido.diaSemana = diaSemana;
+      partidoCoordinado = true;
+      break;
+    }
+  }
+  if (partidoCoordinado) break;
+}
+
 
     // Si no lo encontramos en grupos, buscamos en eliminatorias
     if (!partidoCoordinado) {
@@ -178,6 +184,7 @@ autocomplete: async (interaction) => {
     }
   }
 };
+
 
 
 
