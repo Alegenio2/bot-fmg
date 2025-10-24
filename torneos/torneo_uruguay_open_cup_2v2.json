@@ -162,9 +162,9 @@
               "equipo2Id": "b93b725a-9883-49b3-9c33-91a6038b59a1",
               "equipo2Nombre": "AdminWin",
               "resultado": null,
-              "fecha": null,
-              "horario": null,
-              "diaSemana": null
+              "fecha": "27/10/2025",
+              "horario": "11:59",
+              "diaSemana": "Lunes"
             },
             {
               "equipo1Id": "b8d83110-cad6-44b9-a318-57aa6c09a7b1",
