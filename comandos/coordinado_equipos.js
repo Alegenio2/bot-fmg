@@ -92,6 +92,7 @@ module.exports = {
     try {
         const data = await fs.readFile(filePath, 'utf8'); 
         torneo = JSON.parse(data);
+        console.log(torneo);    
     } catch (error) {
         if (error.code === 'ENOENT') {
             return await interaction.editReply({ content: `⚠️ No se encontró el archivo del torneo ${torneoId}`, ephemeral: true });
@@ -153,4 +154,5 @@ module.exports = {
     }
   }
 };
+
 
