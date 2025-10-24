@@ -1,52 +1,54 @@
-// utils/obtenerTorneos.js (Nuevo Archivo de Utilidad)
+// utils/obtenerTorneos.js
 const fs = require("fs/promises");
 const path = require("path");
 
+const RUTA_EQUIPOS_INSCRITOS = path.join(__dirname, "..", "equipos_inscritos.json");
+
 /**
- * Carga de forma asíncrona todos los torneos disponibles desde equipos_inscritos.json
- * @returns {Promise<Array<{name: string, value: string}>>} Lista de torneos
+ * Carga de forma asíncrona todos los torneos disponibles desde equipos_inscritos.json.
+ * @returns {Promise<Array<{name: string, value: string}>>} Lista de torneos para el autocompletado.
  */
 async function obtenerTorneosDisponibles() {
-    const rutaEquipos = path.join(__dirname, "..", "equipos_inscritos.json");
-    
     try {
-        // ➡️ Usamos fs.readFile (asíncrono)
-        const data = await fs.readFile(rutaEquipos, "utf8");
+        // Lee el archivo de forma asíncrona
+        const data = await fs.readFile(RUTA_EQUIPOS_INSCRITOS, "utf8");
         const equipos = JSON.parse(data);
         
         // Extraer nombres de torneos únicos
         const torneosUnicos = [...new Set(equipos.map(e => e.torneo))];
         
+        // Formato requerido por Discord: [{ name: "torneo_nombre", value: "torneo_nombre" }]
         return torneosUnicos.map(t => ({ name: t, value: t }));
 
     } catch (error) {
-        // Si el archivo no existe (ENOENT) o hay error de lectura/parseo, retorna un array vacío.
+        // Si el archivo no existe o hay error, retorna un array vacío.
         if (error.code !== 'ENOENT') {
-            console.error("Error al leer equipos_inscritos.json:", error);
+            console.error("Error al leer equipos_inscritos.json para torneos:", error);
         }
         return [];
     }
 }
 
-// ⚠️ NOTA IMPORTANTE: Necesitas una función similar para obtener TODOS los equipos
 /**
- * Carga de forma asíncrona la lista de equipos inscritos de un torneo.
- * @param {string} torneoId - El ID del torneo.
+ * Carga de forma asíncrona la lista de nombres de equipos inscritos de un torneo.
+ * @param {string} torneoId - El ID del torneo (ej: "uruguay_open_cup_2v2").
  * @returns {Promise<Array<string>>} Lista de nombres de equipos.
  */
 async function obtenerEquiposInscritos(torneoId) {
-    const rutaEquipos = path.join(__dirname, "..", "equipos_inscritos.json");
-    
     try {
-        const data = await fs.readFile(rutaEquipos, "utf8");
+        // Lee el archivo de forma asíncrona
+        const data = await fs.readFile(RUTA_EQUIPOS_INSCRITOS, "utf8");
         const equipos = JSON.parse(data);
         
-        // ➡️ Filtrar solo los equipos del torneo deseado
+        // Filtrar y obtener nombres únicos de equipos del torneo deseado
         const equiposDelTorneo = equipos
             .filter(e => e.torneo === torneoId)
             .map(e => e.nombre);
         
-        return [...new Set(equiposDelTorneo)]; // Retornar nombres únicos
+        // Mapear al formato requerido por el autocomplete en el comando principal:
+        // El comando 'coordinado_equipos.js' ya se encarga del mapeo final a {name, value}.
+        // Aquí solo devolvemos la lista de strings.
+        return [...new Set(equiposDelTorneo)];
         
     } catch (error) {
         if (error.code !== 'ENOENT') {
@@ -55,6 +57,5 @@ async function obtenerEquiposInscritos(torneoId) {
         return [];
     }
 }
-
 
 module.exports = { obtenerTorneosDisponibles, obtenerEquiposInscritos };
