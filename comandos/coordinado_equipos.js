@@ -87,7 +87,7 @@ module.exports = {
     const horario = interaction.options.getString('horario');
 
    const filePath = path.join(__dirname, '..', 'torneos', `toreno_${torneoId}.json`);
-
+  console.log(filePath);  
 
     let torneo;
     try {
@@ -155,6 +155,7 @@ module.exports = {
     }
   }
 };
+
 
 
 
