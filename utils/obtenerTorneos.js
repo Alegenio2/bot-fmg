@@ -1,4 +1,4 @@
-// utils/obtenerTorneosDisponibles.js (Nuevo Archivo de Utilidad)
+// utils/obtenerTorneos.js (Nuevo Archivo de Utilidad)
 const fs = require("fs/promises");
 const path = require("path");
 
