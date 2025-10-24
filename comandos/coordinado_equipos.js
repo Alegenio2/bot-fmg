@@ -53,6 +53,7 @@ module.exports = {
     // Autocomplete para el nombre del torneo
     if (focusedOption.name === 'torneo') {
         const torneos = await obtenerTorneosDisponibles(); 
+        console.log(torneos);    
         const filtered = torneos.filter(t => t.value.toLowerCase().includes(focusedOption.value.toLowerCase()));
         return await interaction.respond(filtered);
     }
@@ -60,6 +61,7 @@ module.exports = {
     // Autocomplete para los equipos
     if (focusedOption.name === 'equipo1' || focusedOption.isFocused.name === 'equipo2') {
         const torneoId = interaction.options.getString('torneo');
+        console.log(torneoId);  
         if (!torneoId) {
           return await interaction.respond([]);
         }
@@ -151,3 +153,4 @@ module.exports = {
     }
   }
 };
+
