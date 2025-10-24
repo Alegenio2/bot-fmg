@@ -109,7 +109,7 @@ autocomplete: async (interaction) => {
     const fecha = interaction.options.getString('fecha');
     const horario = interaction.options.getString('horario');
 
-   const filePath = path.join(__dirname, '..', 'torneos', `toreno_${torneoId}.json`);
+   const filePath = path.join(__dirname, '..', 'torneos', `torneo_${torneoId}.json`);
   console.log(filePath);  
 
     let torneo;
@@ -178,6 +178,7 @@ autocomplete: async (interaction) => {
     }
   }
 };
+
 
 
 
