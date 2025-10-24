@@ -180,14 +180,44 @@ for (const grupo of torneo.rondas_grupos || []) {
       }
     }
 
-    if (partidoCoordinado) {
-        await guardarTorneo(torneo, filePath, interaction);
-        await interaction.editReply({ content: `✅ Partido coordinado correctamente: **${eq1}** vs **${eq2}** el **${fecha}** (${diaSemana}) a las **${horarioFormateado}**`, ephemeral: false });
-    } else {
-        await interaction.editReply({ content: `⚠️ No se encontró el partido ${eq1} vs ${eq2} en el torneo.`, ephemeral: true });
-    }
+if (partidoCoordinado) {
+  // Guardamos el torneo
+  await guardarTorneo(torneo, filePath, interaction);
+
+  // ✅ Mensaje privado de confirmación
+  await interaction.editReply({
+    content: `✅ Partido coordinado correctamente: ${eq1} vs ${eq2} el ${fechaFormatoCorrecto} (${diaSemana}) a las ${horarioFormateado}`,
+    ephemeral: true
+  });
+
+  // 🧾 Embed público para el canal
+  const embed = {
+    color: 0x0c74f5,
+    title: `📅 Partido Coordinado`,
+    fields: [
+      { name: "🏆 Torneo", value: torneoId.replace(/_/g, ' '), inline: false },
+      { name: "⚔️ Enfrentamiento", value: `**${eq1}** vs **${eq2}**`, inline: false },
+      { name: "🗓 Fecha", value: fechaFormatoCorrecto, inline: true },
+      { name: "⏰ Horario", value: horarioFormateado, inline: true },
+      { name: "📅 Día", value: diaSemana, inline: true }
+    ],
+    footer: { text: "Uruguay Open Cup 2v2 - Coordinación de Partidas" },
+    timestamp: new Date().toISOString()
+  };
+
+  // Enviamos el embed al mismo canal (visible para todos)
+  await interaction.channel.send({ embeds: [embed] });
+
+} else {
+  await interaction.editReply({
+    content: `⚠️ No se encontró el partido ${eq1} vs ${eq2} en el torneo.`,
+    ephemeral: true
+  });
+}
+
   }
 };
+
 
 
 
