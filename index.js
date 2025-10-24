@@ -44,43 +44,42 @@ module.exports = { client, botConfig };
 
 // Manejo de interacciones
 client.on('interactionCreate', async (interaction) => {
-  // --- AUTOCOMPLETADO ---
+  // ✅ 1️⃣ Autocomplete handler
   if (interaction.isAutocomplete()) {
     const command = client.commands.get(interaction.commandName);
     if (!command || !command.autocomplete) return;
-
     try {
       await command.autocomplete(interaction);
-    } catch (error) {
-      console.error(`❌ Error en autocomplete de ${interaction.commandName}:`, error);
+    } catch (err) {
+      console.error(`❌ Error en autocomplete de ${interaction.commandName}:`, err);
     }
-    return; // 👈 Importante para que no siga a la parte de ejecución
+    return; // 🚨 Importante: que no siga al execute
   }
 
-  // --- COMANDOS NORMALES ---
-  if (!interaction.isChatInputCommand()) return;
+  // ✅ 2️⃣ Slash command handler
+  if (interaction.isChatInputCommand()) {
+    const command = client.commands.get(interaction.commandName);
+    if (!command) return;
 
-  const command = client.commands.get(interaction.commandName);
-  if (!command) return;
-
-  try {
-    if (!command.execute) {
-      return interaction.reply({ 
-        content: '❌ Este comando aún no tiene lógica asignada.', 
-        ephemeral: true 
-      });
-    }
-
-    await command.execute(interaction, client);
-  } catch (error) {
-    console.error(`Error en comando ${interaction.commandName}:`, error);
-    if (interaction.deferred || interaction.replied) {
-      await interaction.followUp({ content: '❌ Ocurrió un error ejecutando el comando.', ephemeral: true });
-    } else {
-      await interaction.reply({ content: '❌ Ocurrió un error ejecutando el comando.', ephemeral: true });
+    try {
+      await command.execute(interaction, client);
+    } catch (error) {
+      console.error(`Error en comando ${interaction.commandName}:`, error);
+      if (interaction.deferred || interaction.replied) {
+        await interaction.followUp({
+          content: '❌ Ocurrió un error ejecutando el comando.',
+          ephemeral: true,
+        });
+      } else {
+        await interaction.reply({
+          content: '❌ Ocurrió un error ejecutando el comando.',
+          ephemeral: true,
+        });
+      }
     }
   }
 });
+
 
 
 // Ready
@@ -152,6 +151,7 @@ client.on('guildMemberAdd', async member => {
 });
 
 client.login(process.env.TOKEN).catch(err => console.error("❌ Error al iniciar sesión con el bot:", err));
+
 
 
 
