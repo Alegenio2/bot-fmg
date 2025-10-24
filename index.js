@@ -44,6 +44,20 @@ module.exports = { client, botConfig };
 
 // Manejo de interacciones
 client.on('interactionCreate', async (interaction) => {
+  // --- AUTOCOMPLETADO ---
+  if (interaction.isAutocomplete()) {
+    const command = client.commands.get(interaction.commandName);
+    if (!command || !command.autocomplete) return;
+
+    try {
+      await command.autocomplete(interaction);
+    } catch (error) {
+      console.error(`❌ Error en autocomplete de ${interaction.commandName}:`, error);
+    }
+    return; // 👈 Importante para que no siga a la parte de ejecución
+  }
+
+  // --- COMANDOS NORMALES ---
   if (!interaction.isChatInputCommand()) return;
 
   const command = client.commands.get(interaction.commandName);
@@ -56,6 +70,7 @@ client.on('interactionCreate', async (interaction) => {
         ephemeral: true 
       });
     }
+
     await command.execute(interaction, client);
   } catch (error) {
     console.error(`Error en comando ${interaction.commandName}:`, error);
@@ -66,6 +81,7 @@ client.on('interactionCreate', async (interaction) => {
     }
   }
 });
+
 
 // Ready
 client.on('ready', async (c) => {
@@ -136,6 +152,7 @@ client.on('guildMemberAdd', async member => {
 });
 
 client.login(process.env.TOKEN).catch(err => console.error("❌ Error al iniciar sesión con el bot:", err));
+
 
 
 
