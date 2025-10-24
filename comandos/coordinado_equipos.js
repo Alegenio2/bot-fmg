@@ -47,34 +47,57 @@ module.exports = {
     ),
 
   // Autocomplete: Usamos la sintaxis de asignación de función (CORRECCIÓN de SyntaxError)
- autocomplete: async (interaction) => {
-  const focusedOption = interaction.options.getFocused(true);
+autocomplete: async (interaction) => {
+  try {
+    const focusedOption = interaction.options.getFocused(true);
+    const value = focusedOption.value?.toLowerCase() || '';
 
-  // AUTOCOMPLETAR TORNEOS
-  if (focusedOption.name === 'torneo') {
-    const torneos = await obtenerTorneosDisponibles();
-    const filtered = torneos
-      .filter(t => t.name.toLowerCase().includes(focusedOption.value.toLowerCase()))
-      .slice(0, 25); // Discord solo permite 25 sugerencias
+    // --- AUTOCOMPLETAR TORNEOS ---
+    if (focusedOption.name === 'torneo') {
+      // Llamada rápida sin await lentos
+      const torneos = await obtenerTorneosDisponibles();
+      if (!torneos || torneos.length === 0) {
+        return interaction.respond([]).catch(() => {});
+      }
 
-    return await interaction.respond(filtered);
-  }
+      const filtered = torneos
+        .filter(t => t.name.toLowerCase().includes(value))
+        .slice(0, 25);
 
-  // AUTOCOMPLETAR EQUIPOS
-  if (focusedOption.name === 'equipo1' || focusedOption.name === 'equipo2') {
-    const torneoId = interaction.options.getString('torneo');
-    if (!torneoId) return await interaction.respond([]);
+      return interaction.respond(filtered).catch(() => {});
+    }
 
-    const equipos = await obtenerEquiposInscritos(torneoId);
+    // --- AUTOCOMPLETAR EQUIPOS ---
+    if (focusedOption.name === 'equipo1' || focusedOption.name === 'equipo2') {
+      const torneoId = interaction.options.getString('torneo');
+      if (!torneoId) {
+        // Si el usuario no eligió torneo todavía
+        return interaction.respond([]).catch(() => {});
+      }
 
-    const filtered = equipos
-      .filter(e => e.toLowerCase().includes(focusedOption.value.toLowerCase()))
-      .map(e => ({ name: e, value: e }))
-      .slice(0, 25);
+      const equipos = await obtenerEquiposInscritos(torneoId);
+      if (!equipos || equipos.length === 0) {
+        return interaction.respond([]).catch(() => {});
+      }
 
-    return await interaction.respond(filtered);
+      const filtered = equipos
+        .filter(e => e.toLowerCase().includes(value))
+        .map(e => ({ name: e, value: e }))
+        .slice(0, 25);
+
+      return interaction.respond(filtered).catch(() => {});
+    }
+
+    // En caso de que no entre en ninguno de los dos if
+    return interaction.respond([]).catch(() => {});
+
+  } catch (error) {
+    console.error('❌ Error en autocomplete de coordinado_equipos:', error);
+    // Prevenir crash si ya se respondió o la interacción expiró
+    try { await interaction.respond([]); } catch {}
   }
 },
+
 
   // Execute: Usamos la sintaxis de asignación de función (CORRECCIÓN de SyntaxError)
   execute: async (interaction) => {
@@ -155,6 +178,7 @@ module.exports = {
     }
   }
 };
+
 
 
 
