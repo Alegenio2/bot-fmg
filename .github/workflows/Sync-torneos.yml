@@ -1,9 +1,9 @@
-name: Sync torneo_uruguay_open_cup_2v2.json to civs repo
+name: Sync torneos JSON to civs repo
 
 on:
   push:
     paths:
-      - torneos/torneo_uruguay_open_cup_2v2.json  # Ejecuta solo si este archivo cambia
+      - 'torneos/*.json'  # Ejecuta si cambia cualquier JSON en la carpeta
 
 jobs:
   sync:
@@ -18,8 +18,14 @@ jobs:
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
           git clone https://x-access-token:${{ secrets.PUBLIC_REPO_TOKEN }}@github.com/Alegenio2/civs.git
-          cp torneos/torneo_uruguay_open_cup_2v2.json civs/torneos/
+          
+          # Copiar todos los JSON
+          for file in torneos/*.json; do
+            cp "$file" civs/torneos/
+          done
+
           cd civs
-          git add torneos/torneo_uruguay_open_cup_2v2.json
-          git commit -m "Sync automático de torneo_uruguay_open_cup_2v2.json desde bot-fmg" || echo "Sin cambios"
+          git add torneos/*.json
+          git commit -m "Sync automático de JSON de torneos desde bot-fmg" || echo "Sin cambios"
           git push
+
