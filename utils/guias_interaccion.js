@@ -57,6 +57,6 @@ async function mostrarGuiaModal(interaction) {
   }
 }
 
-module.exports = { mostrarGuia };
+module.exports = { mostrarGuiaModal };
 
 
