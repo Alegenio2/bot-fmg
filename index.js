@@ -5,7 +5,6 @@ const { Client, GatewayIntentBits, Collection, AttachmentBuilder, ActivityType }
 const cron = require('node-cron');
 const botConfig = require('./botConfig.json');
 const { manejarGuias } = require('./utils/guias_interaccion.js');
-
 require('./web.js');
 
 const client = new Client({ 
@@ -82,11 +81,10 @@ client.on('interactionCreate', async (interaction) => {
   }
 
   // ✅ 3️⃣ Botones de guía
-try {
-  await manejarGuias(interaction);
-} catch (err) {
-  console.error('❌ Error al procesar botones de guía:', err);
-}
+  if (interaction.isButton()) {
+    await manejarGuias(interaction);
+    return; // Para que no siga a otros handlers
+  }
 
 });
 
@@ -161,6 +159,7 @@ client.on('guildMemberAdd', async member => {
 });
 
 client.login(process.env.TOKEN).catch(err => console.error("❌ Error al iniciar sesión con el bot:", err));
+
 
 
 
