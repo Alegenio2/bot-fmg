@@ -1,37 +1,54 @@
-//utils/guias_interaccion.js
-const { ModalBuilder, TextInputBuilder, TextInputStyle, ActionRowBuilder } = require('discord.js');
+// utils/guias_interaccion.js
+const { ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 
-module.exports = async function manejarGuias(interaction) {
-  if (!interaction.isButton()) return;
-
-  const guias = {
-    ver_guia_coordinar: {
-      titulo: '📘 Guía para Coordinar Partidas',
-      pasos: '1️⃣ Usa /coordinado_equipos\n2️⃣ Selecciona torneo y equipos\n3️⃣ Indica fecha y hora\n4️⃣ El bot confirmará con un embed.'
-    },
-    ver_guia_recs: {
-      titulo: '💾 Guía para Enviar RECs',
-      pasos: '1️⃣ Abre Age → Un Jugador → Recs \n2️⃣ Comprimir los archivo .aoe2record \n3️⃣ Usar comando /resultado_equipos y completar los campos'
-    },
-    ver_guia_inscripcion: {
-      titulo: '📝 Guía de Inscripción',
-      pasos: '1️⃣ Usa /inscribirequipo\n2️⃣ Completa datos\n3️⃣ Espera confirmación del bot o admin.'
-    }
-  };
-
-  const guia = guias[interaction.customId];
-  if (!guia) return;
-
-  const modal = new ModalBuilder().setCustomId(`${interaction.customId}_modal`).setTitle(guia.titulo);
-  const texto = new TextInputBuilder()
-    .setCustomId('texto_guia')
-    .setLabel('Pasos')
-    .setStyle(TextInputStyle.Paragraph)
-    .setValue(guia.pasos)
-    .setRequired(false);
-
-  const fila = new ActionRowBuilder().addComponents(texto);
-  modal.addComponents(fila);
-
-  await interaction.showModal(modal);
+// Mensajes de guía según el tipo
+const guias = {
+  recs: [
+    "📌 **Guía de Recomendaciones:**",
+    "1️⃣ Abre Age → Un Jugador → Recs.",
+    "2️⃣ Comprimir los archivo .aoe2record.",
+    "3️⃣ Usar comando /resultado_equipos y completar los campos."
+  ],
+  coordinar: [
+    "📌 **Guía para Coordinar Partidos:**",
+    "1️⃣ Usa `/coordinado_equipos`.",
+    "2️⃣ Selecciona torneo y equipos.",
+    "3️⃣ Indica fecha y hora."
+  ],
+  inscripcion: [
+    "📌 **Guía de Inscripción:**",
+    "1️⃣ Usa `/inscripcion` para inscribirte.",
+    "2️⃣ Completa todos los campos obligatorios.",
+    "3️⃣ Espera confirmación en el canal de inscripciones."
+  ]
 };
+
+async function manejarGuias(interaction) {
+  try {
+    if (!interaction.isButton()) return;
+
+    const tipo = interaction.customId; // Espera que el customId sea "recs", "coordinar" o "inscripcion"
+    const mensajes = guias[tipo];
+
+    if (!mensajes) {
+      return interaction.reply({ content: "❌ Guía desconocida.", ephemeral: true });
+    }
+
+    // Mandamos los mensajes uno por uno
+    for (const msg of mensajes) {
+      await interaction.channel.send(msg);
+    }
+
+    // Confirmación al presionar el botón
+    await interaction.reply({ content: `✅ Guía enviada: ${tipo}`, ephemeral: true });
+
+  } catch (error) {
+    console.error("❌ Error al procesar botones de guía:", error);
+    if (!interaction.replied) {
+      await interaction.reply({ content: "❌ Error al enviar la guía.", ephemeral: true });
+    }
+  }
+}
+
+module.exports = { manejarGuias };
+
