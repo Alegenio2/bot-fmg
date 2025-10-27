@@ -179,7 +179,7 @@ module.exports = {
           { name: '📆 Día', value: diaSemana, inline: true },
           { name: '📢 Coordinado por', value: `<@${interaction.user.id}>`, inline: false }
         )
-        .setThumbnail('https://cdn-icons-png.flaticon.com/512/3763/3763458.png')
+        .setThumbnail('https://aua.netlify.app/img/aua.png')
         .setFooter({ text: 'Uruguay Open Cup 2v2 - Coordinación de Partidas' })
         .setTimestamp();
 
@@ -193,6 +193,7 @@ module.exports = {
     }
   }
 };
+
 
 
 
