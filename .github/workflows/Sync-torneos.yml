@@ -13,18 +13,18 @@ jobs:
       - name: Checkout repositorio privado (bot-fmg)
         uses: actions/checkout@v3
 
-      - name: Clonar repositorio público (civs)
+      - name: Clonar repositorio prviado (aua)
         run: |
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
-          git clone https://x-access-token:${{ secrets.PUBLIC_REPO_TOKEN }}@github.com/Alegenio2/civs.git
+          git clone https://x-access-token:${{ secrets.PUBLIC_REPO_TOKEN }}@github.com/Alegenio2/aua.git
           
           # Copiar todos los JSON
           for file in torneos/*.json; do
-            cp "$file" civs/torneos/
+            cp "$file" aua/torneos/
           done
 
-          cd civs
+          cd aua
           git add torneos/*.json
           git commit -m "Sync automático de JSON de torneos desde bot-fmg" || echo "Sin cambios"
           git push
