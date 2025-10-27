@@ -1,4 +1,4 @@
-// utils/mostrarGuiasModal.js
+// utils/guias_interaccion.js
 const { ModalBuilder, TextInputBuilder, TextInputStyle, ActionRowBuilder } = require('discord.js');
 
 // Mensajes de guía según tipo
