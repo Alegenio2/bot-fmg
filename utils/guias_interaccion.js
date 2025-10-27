@@ -27,7 +27,7 @@ async function manejarGuias(interaction) {
   try {
     if (!interaction.isButton()) return;
 
-    const tipo = interaction.customId; // Espera que el customId sea "recs", "coordinar" o "inscripcion"
+    const tipo = interaction.customId.replace('ver_guia_', '');
     const mensajes = guias[tipo];
 
     if (!mensajes) {
