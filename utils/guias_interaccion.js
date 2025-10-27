@@ -1,54 +1,62 @@
-// utils/guias_interaccion.js
-const { ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
+// utils/mostrarGuiasModal.js
+const { ModalBuilder, TextInputBuilder, TextInputStyle, ActionRowBuilder } = require('discord.js');
 
-// Mensajes de guía según el tipo
+// Mensajes de guía según tipo
 const guias = {
-  recs: [
-    "📌 **Guía de Recomendaciones:**",
-    "1️⃣ Abre Age → Un Jugador → Recs.",
-    "2️⃣ Comprimir los archivo .aoe2record.",
-    "3️⃣ Usar comando /resultado_equipos y completar los campos."
-  ],
-  coordinar: [
-    "📌 **Guía para Coordinar Partidos:**",
-    "1️⃣ Usa `/coordinado_equipos`.",
-    "2️⃣ Selecciona torneo y equipos.",
-    "3️⃣ Indica fecha y hora."
-  ],
-  inscripcion: [
-    "📌 **Guía de Inscripción:**",
-    "1️⃣ Usa `/inscripcion` para inscribirte.",
-    "2️⃣ Completa todos los campos obligatorios.",
-    "3️⃣ Espera confirmación en el canal de inscripciones."
-  ]
+  recs: `📌 Guía de Recomendaciones:\n
+1️⃣ Abre Age → Un Jugador → Recs
+2️⃣ Comprimir los archivos .aoe2record
+3️⃣ Usar comando /resultado_equipos y completar los campos
+`,
+  coordinar: `📌 Guía para Coordinar Partidos:\n
+1️⃣ Usa /coordinado_equipos
+2️⃣ Selecciona torneo y equipos
+3️⃣ Indica fecha y hora
+`,
+  inscripcion: `📌 Guía de Inscripción:\n
+1️⃣ Usa /inscripcion para inscribirte
+2️⃣ Completa todos los campos obligatorios
+3️⃣ Espera confirmación en el canal de inscripciones
+`
 };
 
-async function manejarGuias(interaction) {
+async function mostrarGuiaModal(interaction) {
   try {
     if (!interaction.isButton()) return;
 
-    const tipo = interaction.customId.replace('ver_guia_', '');
-    const mensajes = guias[tipo];
+    // Sacamos el tipo del customId: "ver_guia_coordinar" → "coordinar"
+    const tipo = interaction.customId.split('_')[2];
+    const textoGuia = guias[tipo];
 
-    if (!mensajes) {
+    if (!textoGuia) {
       return interaction.reply({ content: "❌ Guía desconocida.", ephemeral: true });
     }
 
-    // Mandamos los mensajes uno por uno
-    for (const msg of mensajes) {
-      await interaction.channel.send(msg);
-    }
+    // Creamos el modal
+    const modal = new ModalBuilder()
+      .setCustomId(`modal_guia_${tipo}`)
+      .setTitle(`Guía: ${tipo.charAt(0).toUpperCase() + tipo.slice(1)}`);
 
-    // Confirmación al presionar el botón
-    await interaction.reply({ content: `✅ Guía enviada: ${tipo}`, ephemeral: true });
+    const input = new TextInputBuilder()
+      .setCustomId('contenido_guia')
+      .setLabel('Pasos a seguir')
+      .setStyle(TextInputStyle.Paragraph)
+      .setValue(textoGuia)
+      .setRequired(false);
+
+    const row = new ActionRowBuilder().addComponents(input);
+    modal.addComponents(row);
+
+    await interaction.showModal(modal);
 
   } catch (error) {
-    console.error("❌ Error al procesar botones de guía:", error);
+    console.error("❌ Error mostrando modal de guía:", error);
     if (!interaction.replied) {
-      await interaction.reply({ content: "❌ Error al enviar la guía.", ephemeral: true });
+      await interaction.reply({ content: "❌ Error al mostrar la guía.", ephemeral: true });
     }
   }
 }
 
-module.exports = { manejarGuias };
+module.exports = { mostrarGuia };
+
 
