@@ -163,7 +163,7 @@
               "equipo2Nombre": "AdminWin",
               "resultado": null,
               "fecha": "27/10/2025",
-              "horario": "23:59",
+              "horario": "23:58",
               "diaSemana": "Lunes"
             },
             {
@@ -187,9 +187,9 @@
               "equipo2Id": "b059eaea-69ee-4f48-9907-c1725097899b",
               "equipo2Nombre": "RxonSky",
               "resultado": null,
-              "fecha": null,
-              "horario": null,
-              "diaSemana": null
+              "fecha": "08-11-2025",
+              "horario": "23:59",
+              "diaSemana": "Sábado"
             },
             {
               "equipo1Id": "b93b725a-9883-49b3-9c33-91a6038b59a1",
