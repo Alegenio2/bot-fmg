@@ -1,83 +1,110 @@
-// utils/calcularTablaPosiciones.js (Versión Corregida)
-
+// utils/calcularTablaPosiciones.js
 function calcularTablaPosiciones(torneo) {
   const tablas = {};
 
-  // Bucle 1: Itera sobre los objetos que definen el GRUPO ("A" y "B")
   for (const infoGrupo of torneo.rondas_grupos || []) {
-    
-    // Obtiene el nombre del grupo (ej: "A" o "B")
-    const nombreGrupo = infoGrupo.grupo || "Grupo Desconocido";
-    if (!tablas[nombreGrupo]) {
-      tablas[nombreGrupo] = {};
-    }
+    const claveGrupo = infoGrupo.grupo ?? "Desconocido";
+    if (!tablas[claveGrupo]) tablas[claveGrupo] = {};
 
-    // Bucle 2: Itera sobre las RONDAS dentro de ese GRUPO (Ronda 1, Ronda 2, etc.)
-    for (const ronda of infoGrupo.partidos || []) { 
-      
-      // Bucle 3: Itera sobre los PARTIDOS dentro de esa RONDA
-      for (const partido of ronda.partidos || []) { // Ahora itera sobre los objetos de partido
-        
-        const { equipo1Id: eq1Id, equipo1Nombre: eq1Nombre, equipo2Id: eq2Id, equipo2Nombre: eq2Nombre, resultado } = partido;
-        if (!eq1Id || !eq2Id) continue;
+    for (const rondaObj of infoGrupo.partidos || []) {
+      for (const partido of rondaObj.partidos || []) {
+        const { equipo1Id, equipo1Nombre, equipo2Id, equipo2Nombre, resultado } = partido;
 
-        // Inicializar equipos si no existen
-        if (!tablas[nombreGrupo][eq1Id]) {
-          tablas[nombreGrupo][eq1Id] = { nombre: eq1Nombre, jugados: 0, ganados: 0, perdidos: 0, setsGanados: 0, setsPerdidos: 0, puntos: 0 };
-        }
-        if (!tablas[nombreGrupo][eq2Id]) {
-          tablas[nombreGrupo][eq2Id] = { nombre: eq2Nombre, jugados: 0, ganados: 0, perdidos: 0, setsGanados: 0, setsPerdidos: 0, puntos: 0 };
-        }
+        if (!equipo1Id || !equipo2Id) continue;
 
-        // Si hay un resultado, procesar estadísticas (la lógica interna se mantiene igual)
-        if (resultado) {
-          const puntosEq1 = resultado[eq1Id];
-          const puntosEq2 = resultado[eq2Id];
-          if (typeof puntosEq1 !== 'number' || typeof puntosEq2 !== 'number') continue;
+        // Inicializar equipos
+        if (!tablas[claveGrupo][equipo1Id]) tablas[claveGrupo][equipo1Id] = crearEquipo(equipo1Id, equipo1Nombre);
+        if (!tablas[claveGrupo][equipo2Id]) tablas[claveGrupo][equipo2Id] = crearEquipo(equipo2Id, equipo2Nombre);
 
-          // ... (resto de la lógica de cálculo de sets/puntos) ...
-          tablas[nombreGrupo][eq1Id].jugados++;
-          tablas[nombreGrupo][eq2Id].jugados++;
-          tablas[nombreGrupo][eq1Id].setsGanados += puntosEq1;
-          tablas[nombreGrupo][eq1Id].setsPerdidos += puntosEq2;
-          tablas[nombreGrupo][eq2Id].setsGanados += puntosEq2;
-          tablas[nombreGrupo][eq2Id].setsPerdidos += puntosEq1;
+        if (!resultado) continue;
 
-          if (puntosEq1 > puntosEq2) {
-            tablas[nombreGrupo][eq1Id].ganados++;
-            tablas[nombreGrupo][eq2Id].perdidos++;
-            tablas[nombreGrupo][eq1Id].puntos += 3;
-          } else if (puntosEq2 > puntosEq1) {
-            tablas[nombreGrupo][eq2Id].ganados++;
-            tablas[nombreGrupo][eq1Id].perdidos++;
-            tablas[nombreGrupo][eq2Id].puntos += 3;
-          } else {
-            // Empate
-            tablas[nombreGrupo][eq1Id].puntos += 1;
-            tablas[nombreGrupo][eq2Id].puntos += 1;
-          }
+        // Obtener scores (sets ganados)
+        const score1 = obtenerScore(resultado, equipo1Nombre, equipo1Id);
+        const score2 = obtenerScore(resultado, equipo2Nombre, equipo2Id);
+        if (!Number.isFinite(score1) || !Number.isFinite(score2)) continue;
+
+        const equipo1 = tablas[claveGrupo][equipo1Id];
+        const equipo2 = tablas[claveGrupo][equipo2Id];
+
+        equipo1.jugados++;
+        equipo2.jugados++;
+
+        equipo1.setsGanados += score1;
+        equipo1.setsPerdidos += score2;
+        equipo2.setsGanados += score2;
+        equipo2.setsPerdidos += score1;
+
+        // --- Lógica de puntos personalizada ---
+        if (score1 === 2 && score2 === 0) {
+          equipo1.ganados++; equipo2.perdidos++;
+          equipo1.puntos += 2;
+        } else if (score1 === 2 && score2 === 1) {
+          equipo1.ganados++; equipo2.perdidos++;
+          equipo1.puntos += 2;
+          equipo2.puntos += 1;
+        } else if (score2 === 2 && score1 === 0) {
+          equipo2.ganados++; equipo1.perdidos++;
+          equipo2.puntos += 2;
+        } else if (score2 === 2 && score1 === 1) {
+          equipo2.ganados++; equipo1.perdidos++;
+          equipo2.puntos += 2;
+          equipo1.puntos += 1;
+        } else if (score1 === score2) {
+          // Empate (por si hay formato 1-1)
+          equipo1.puntos += 1;
+          equipo2.puntos += 1;
         }
       }
     }
   }
 
-  // Ordenar los grupos (esta parte no necesita cambios)
-  for (const grupo in tablas) {
-    tablas[grupo] = Object.entries(tablas[grupo])
-      .map(([id, datos]) => ({
-        id,
-        nombre: datos.nombre,
-        ...datos,
-        diferencia: datos.setsGanados - datos.setsPerdidos
-      }))
-      .sort((a, b) =>
-        b.puntos - a.puntos ||
-        b.diferencia - a.diferencia ||
-        b.setsGanados - a.setsGanados
-      );
+  // Calcular diferencia y ordenar
+  const resultadoFinal = {};
+  for (const [grupo, equiposObj] of Object.entries(tablas)) {
+    const arr = Object.entries(equiposObj).map(([id, d]) => ({
+      id,
+      nombre: d.nombre,
+      jugados: d.jugados,
+      ganados: d.ganados,
+      perdidos: d.perdidos,
+      setsGanados: d.setsGanados,
+      setsPerdidos: d.setsPerdidos,
+      puntos: d.puntos,
+      diferencia: d.setsGanados - d.setsPerdidos
+    }));
+
+    arr.sort((a, b) =>
+      b.puntos - a.puntos ||
+      b.diferencia - a.diferencia ||
+      b.setsGanados - a.setsGanados
+    );
+
+    resultadoFinal[grupo] = arr;
   }
 
-  return tablas;
+  return resultadoFinal;
+}
+
+// Helpers
+function crearEquipo(id, nombre) {
+  return {
+    id,
+    nombre: nombre ?? id,
+    jugados: 0,
+    ganados: 0,
+    perdidos: 0,
+    setsGanados: 0,
+    setsPerdidos: 0,
+    puntos: 0
+  };
+}
+
+function obtenerScore(resultadoObj, equipoNombre, equipoId) {
+  if (!resultadoObj || typeof resultadoObj !== 'object') return NaN;
+  if (resultadoObj.hasOwnProperty(equipoNombre)) return Number(resultadoObj[equipoNombre]);
+  if (resultadoObj.hasOwnProperty(equipoId)) return Number(resultadoObj[equipoId]);
+  return NaN;
 }
 
 module.exports = { calcularTablaPosiciones };
+
