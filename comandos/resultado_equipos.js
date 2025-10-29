@@ -105,7 +105,9 @@ autocomplete: async (interaction) => {
     const draftcivis = options.getString("draftcivis");
     const archivoAdjunto = options.getAttachment("archivo")?.url || null;
     const fechaISO = convertirFormatoFecha(fecha);
-
+    console.log(torneoId);
+    console.log(eq1);
+    console.log(eq2);
     // ➡️ Adelantamos el deferReply para mejorar la experiencia de usuario
     await interaction.deferReply({ ephemeral: true });
 
@@ -225,6 +227,7 @@ autocomplete: async (interaction) => {
     }
   },
 };
+
 
 
 
