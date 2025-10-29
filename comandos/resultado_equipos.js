@@ -112,7 +112,7 @@ autocomplete: async (interaction) => {
     await interaction.deferReply({ ephemeral: true });
 
     try {
-      const filePath = path.join(__dirname, "..", "torneos", `${torneoId}.json`);
+      const filePath = path.join(__dirname, "..", "torneos", `torneo_${torneoId}.json`);
       
       // ⬅️ Reemplazamos fs.existsSync y fs.readFileSync con fs.readFile
       const data = await fs.readFile(filePath, "utf8");
@@ -227,6 +227,7 @@ autocomplete: async (interaction) => {
     }
   },
 };
+
 
 
 
