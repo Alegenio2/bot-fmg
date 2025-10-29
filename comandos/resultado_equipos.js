@@ -19,15 +19,21 @@ module.exports = {
         .setRequired(true)
         .setAutocomplete(true)
     )
-    .addStringOption((opt) =>
-      opt.setName("equipo1").setDescription("Primer equipo").setRequired(true)
-    )
+     .addStringOption(opt =>
+      opt.setName('equipo1')
+        .setDescription('Primer equipo')
+        .setRequired(true)
+        .setAutocomplete(true)
+    )
     .addIntegerOption((opt) =>
       opt.setName("puntos_equipo1").setDescription("Puntos del primer equipo").setRequired(true)
     )
-    .addStringOption((opt) =>
-      opt.setName("equipo2").setDescription("Segundo equipo").setRequired(true)
-    )
+     .addStringOption(opt =>
+      opt.setName('equipo2')
+        .setDescription('Segundo equipo')
+        .setRequired(true)
+        .setAutocomplete(true)
+    )
     .addIntegerOption((opt) =>
       opt.setName("puntos_equipo2").setDescription("Puntos del segundo equipo").setRequired(true)
     )
@@ -45,23 +51,45 @@ module.exports = {
     ),
 
   // Autocomplete (Ahora asíncrono)
-  async autocomplete(interaction) {
-    const focusedValue = interaction.options.getFocused();
-    const torneosPath = path.join(__dirname, "..", "torneos");
-    
-    try {
-      // ⬅️ Usamos fs.readdir (asíncrono)
-      const files = await fs.readdir(torneosPath); 
-      const filteredFiles = files.filter((f) => f.endsWith(".json"));
-      const torneos = filteredFiles.map((f) => f.replace(".json", ""));
-      const filtered = torneos.filter((t) => t.toLowerCase().includes(focusedValue.toLowerCase()));
-      await interaction.respond(filtered.map((t) => ({ name: t, value: t })));
-    } catch (error) {
-      // Manejar error de lectura de directorio si es necesario
-      console.error('Error en autocompletado:', error);
-      await interaction.respond([]);
-    }
-  },
+autocomplete: async (interaction) => {
+    try {
+      const focusedOption = interaction.options.getFocused(true);
+      const value = focusedOption.value?.toLowerCase() || '';
+
+      // --- AUTOCOMPLETAR TORNEOS ---
+      if (focusedOption.name === 'torneo') {
+        const torneos = await obtenerTorneosDisponibles();
+        if (!torneos || torneos.length === 0) return interaction.respond([]).catch(() => {});
+
+        const filtered = torneos
+          .filter(t => t.name.toLowerCase().includes(value))
+          .slice(0, 25);
+
+        return interaction.respond(filtered).catch(() => {});
+      }
+
+      // --- AUTOCOMPLETAR EQUIPOS ---
+      if (focusedOption.name === 'equipo1' || focusedOption.name === 'equipo2') {
+        const torneoId = interaction.options.getString('torneo');
+        if (!torneoId) return interaction.respond([]).catch(() => {});
+
+        const equipos = await obtenerEquiposInscritos(torneoId);
+        if (!equipos || equipos.length === 0) return interaction.respond([]).catch(() => {});
+
+        const filtered = equipos
+          .filter(e => e.toLowerCase().includes(value))
+          .map(e => ({ name: e, value: e }))
+          .slice(0, 25);
+
+        return interaction.respond(filtered).catch(() => {});
+      }
+
+      return interaction.respond([]).catch(() => {});
+    } catch (error) {
+      console.error('❌ Error en autocomplete de coordinado_equipos:', error);
+      try { await interaction.respond([]); } catch {}
+    }
+  },
 
   async execute(interaction) {
     const { options, client, channel } = interaction;
@@ -196,3 +224,4 @@ module.exports = {
     }
   },
 };
+
