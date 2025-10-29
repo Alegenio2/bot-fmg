@@ -7,6 +7,7 @@ const { convertirFormatoFecha } = require("../utils/fechas");
 const { guardarTorneo } = require("../utils/guardarTorneo");
 const { calcularTablaPosiciones } = require("../utils/calcularTablaPosiciones");
 const { tablaTorneoEquipos } = require("../utils/tablaTorneoEquipos");
+const { obtenerTorneosDisponibles, obtenerEquiposInscritos } = require('../utils/obtenerTorneos.js');
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -224,4 +225,5 @@ autocomplete: async (interaction) => {
     }
   },
 };
+
 
