@@ -42,13 +42,13 @@ module.exports = {
       opt.setName("fecha").setDescription("Fecha del partido DD-MM-YYYY").setRequired(true)
     )
     .addStringOption((opt) =>
-      opt.setName("draftmapas").setDescription("Draft de mapas").setRequired(false)
+      opt.setName("draftmapas").setDescription("Draft de mapas").setRequired(true)
     )
     .addStringOption((opt) =>
-      opt.setName("draftcivis").setDescription("Draft de civilizaciones").setRequired(false)
+      opt.setName("draftcivis").setDescription("Draft de civilizaciones").setRequired(true)
     )
     .addAttachmentOption((opt) =>
-      opt.setName("archivo").setDescription("Archivo adjunto opcional").setRequired(false)
+      opt.setName("archivo").setDescription("Archivo adjunto opcional").setRequired(true)
     ),
 
   // Autocomplete (Ahora asíncrono)
@@ -225,5 +225,6 @@ autocomplete: async (interaction) => {
     }
   },
 };
+
 
 
