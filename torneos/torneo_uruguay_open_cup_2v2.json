@@ -161,7 +161,14 @@
               "equipo1Nombre": "#1",
               "equipo2Id": "b93b725a-9883-49b3-9c33-91a6038b59a1",
               "equipo2Nombre": "AdminWin",
-              "resultado": null,
+              "resultado": {
+                "#1": 2,
+                "AdminWin": 0,
+                "fecha": "2025-10-27",
+                "draftmapas": "https://aoe2cm.net/draft/YMMJo",
+                "draftcivis": "https://aoe2cm.net/draft/UledY",
+                "archivo": "https://cdn.discordapp.com/ephemeral-attachments/1428090283333124278/1432957970802806844/AdminWinvs1.zip?ex=6902f19b&is=6901a01b&hm=79b6e208ae71df9e8609f1418e8c5cc62492266d40c8a28c8b18ddd1a3526d4c&"
+              },
               "fecha": "27/10/2025",
               "horario": "23:58",
               "diaSemana": "Lunes"
