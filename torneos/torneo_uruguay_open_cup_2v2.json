@@ -66,7 +66,14 @@
               "equipo1Nombre": "LA TASCONETA",
               "equipo2Id": "c20cd462-76bf-433f-b733-17be775a6b57",
               "equipo2Nombre": "La Banda Oriental",
-              "resultado": null,
+              "resultado": {
+                "LA TASCONETA": 2,
+                "La Banda Oriental": 1,
+                "fecha": "2025-10-28",
+                "draftmapas": "https://aoe2cm.net/draft/pJBzt",
+                "draftcivis": "https://aoe2cm.net/draft/Ecqts",
+                "archivo": null
+              },
               "fecha": "28/10/2025",
               "horario": "21:00",
               "diaSemana": "Martes"
