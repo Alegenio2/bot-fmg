@@ -57,9 +57,9 @@
               "equipo2Id": "11c48981-7efc-43e6-b2e6-52fd414659a6",
               "equipo2Nombre": "DGHIR URUGUAY DE LA C",
               "resultado": null,
-              "fecha": null,
-              "horario": null,
-              "diaSemana": null
+              "fecha": "05-11-2025",
+              "horario": "22:00",
+              "diaSemana": "Miércoles"
             },
             {
               "equipo1Id": "ee3da911-6e05-403c-844a-e9201caff342",
