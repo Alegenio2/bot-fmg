@@ -56,7 +56,14 @@
               "equipo1Nombre": "URUwUS",
               "equipo2Id": "11c48981-7efc-43e6-b2e6-52fd414659a6",
               "equipo2Nombre": "DGHIR URUGUAY DE LA C",
-              "resultado": null,
+              "resultado": {
+                "URUwUS": 2,
+                "DGHIR URUGUAY DE LA C": 1,
+                "fecha": "2025-11-05",
+                "draftmapas": "https://aoe2cm.net/draft/XFDbq",
+                "draftcivis": "https://aoe2cm.net/draft/CuSXm",
+                "archivo": "https://cdn.discordapp.com/ephemeral-attachments/1428090283333124278/1435833892790599753/UrUwus_vs_DGHIR.rar?ex=690d6804&is=690c1684&hm=7c043fc5b0ae7788e70587dc86aac008094b53ab9fa682b87e2428e34c48b071&"
+              },
               "fecha": "05-11-2025",
               "horario": "22:00",
               "diaSemana": "Miércoles"
