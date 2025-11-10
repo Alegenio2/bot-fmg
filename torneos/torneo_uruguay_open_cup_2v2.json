@@ -128,9 +128,9 @@
               "equipo2Id": "ee3da911-6e05-403c-844a-e9201caff342",
               "equipo2Nombre": "LA TASCONETA",
               "resultado": null,
-              "fecha": null,
-              "horario": null,
-              "diaSemana": null
+              "fecha": "12-11-2025",
+              "horario": "22:00",
+              "diaSemana": "Miércoles"
             },
             {
               "equipo1Id": "c20cd462-76bf-433f-b733-17be775a6b57",
