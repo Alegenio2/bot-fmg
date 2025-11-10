@@ -221,7 +221,14 @@
               "equipo1Nombre": "#1",
               "equipo2Id": "b059eaea-69ee-4f48-9907-c1725097899b",
               "equipo2Nombre": "RxonSky",
-              "resultado": null,
+              "resultado": {
+                "RxonSky": 2,
+                "#1": 1,
+                "fecha": "2025-11-08",
+                "draftmapas": "https://aoe2cm.net/draft/AlBnC",
+                "draftcivis": "https://aoe2cm.net/draft/kDtmw",
+                "archivo": "https://cdn.discordapp.com/ephemeral-attachments/1428090283333124278/1437285998869610568/Open_Cup_Uruguay_RxonSky_VS_1.zip?ex=6912b065&is=69115ee5&hm=be073ab4dd80614b4ccb5fdbf1daad6de64abc3dc01d596fb5d0de92ffe5046a&"
+              },
               "fecha": "08-11-2025",
               "horario": "23:59",
               "diaSemana": "Sábado"
