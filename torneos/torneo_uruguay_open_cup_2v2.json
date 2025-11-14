@@ -220,7 +220,14 @@
               "equipo1Nombre": "Cachimba del piojo",
               "equipo2Id": "b059eaea-69ee-4f48-9907-c1725097899b",
               "equipo2Nombre": "RxonSky",
-              "resultado": null,
+              "resultado": {
+                "RxonSky": 2,
+                "Cachimba del piojo": 0,
+                "fecha": "2025-11-13",
+                "draftmapas": "https://aoe2cm.net/draft/akOcE",
+                "draftcivis": "https://aoe2cm.net/draft/akOcE",
+                "archivo": null
+              },
               "fecha": null,
               "horario": null,
               "diaSemana": null
