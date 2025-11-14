@@ -252,7 +252,14 @@
               "equipo1Nombre": "AdminWin",
               "equipo2Id": "b8d83110-cad6-44b9-a318-57aa6c09a7b1",
               "equipo2Nombre": "Cachimba del piojo",
-              "resultado": null,
+              "resultado": {
+                "AdminWin": 2,
+                "Cachimba del piojo": 0,
+                "fecha": "2025-11-13",
+                "draftmapas": "https://aoe2cm.net/draft/akOcE",
+                "draftcivis": "https://aoe2cm.net/draft/akOcE",
+                "archivo": null
+              },
               "fecha": null,
               "horario": null,
               "diaSemana": null
