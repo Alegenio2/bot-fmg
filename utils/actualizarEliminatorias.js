@@ -1,56 +1,85 @@
 // utils/actualizarEliminatorias.js
-const { guardarTorneo } = require('./guardarTorneo.js');
+const fs = require("fs/promises");
 
-/**
- * Actualiza automáticamente las eliminatorias de un torneo
- * a medida que se completan los resultados de cada ronda.
- * @param {Object} torneo - Objeto del torneo cargado del JSON
- */
-async function actualizarEliminatorias(torneo, filePath, interaction = null) {
-  if (!torneo.eliminatorias || torneo.eliminatorias.length === 0) return;
-
-  for (let r = 0; r < torneo.eliminatorias.length - 1; r++) {
-    const rondaActual = torneo.eliminatorias[r];
-    const rondaSiguiente = torneo.eliminatorias[r + 1];
-
-    // Recorremos los partidos de la ronda actual
-    const ganadores = [];
-    for (const partido of rondaActual.partidos) {
-      if (!partido.resultado) continue; // aún no hay resultado
-      // Determinar ganador
-      let ganador = null;
-      if (partido.resultado[partido.equipo1Id] > partido.resultado[partido.equipo2Id]) {
-        ganador = { id: partido.equipo1Id, nombre: partido.equipo1Nombre };
-      } else if (partido.resultado[partido.equipo2Id] > partido.resultado[partido.equipo1Id]) {
-        ganador = { id: partido.equipo2Id, nombre: partido.equipo2Nombre };
-      } else {
-        // empate: no avanzamos hasta que se defina (opcional: definir reglas de desempate)
-        continue;
-      }
-      ganadores.push(ganador);
+async function actualizarEliminatorias(torneo, filePath, interaction) {
+  try {
+    // Si ya existen eliminatorias, no regenerar
+    if (torneo.eliminatorias && torneo.eliminatorias.length > 0) {
+      return; 
     }
 
-    // Si no todos los partidos tienen ganador, no avanzamos
-    if (ganadores.length !== rondaActual.partidos.length) continue;
-
-    // Actualizamos los partidos de la siguiente ronda
-    for (let i = 0; i < rondaSiguiente.partidos.length; i++) {
-      const p = rondaSiguiente.partidos[i];
-      const eq1 = ganadores[i * 2];
-      const eq2 = ganadores[i * 2 + 1];
-      if (eq1) {
-        p.equipo1Id = eq1.id;
-        p.equipo1Nombre = eq1.nombre;
-      }
-      if (eq2) {
-        p.equipo2Id = eq2.id;
-        p.equipo2Nombre = eq2.nombre;
-      }
+    // Verificar que existan rondas de grupos
+    if (!torneo.rondas_grupos || torneo.rondas_grupos.length === 0) {
+      return;
     }
+
+    // 1️⃣ Verificar si TODOS los partidos de grupo tienen resultado
+    let todosCompletos = true;
+
+    for (const ronda of torneo.rondas_grupos) {
+      for (const grupo of ronda.partidos) {
+        for (const partido of grupo.partidos) {
+          if (!partido.resultado) {
+            todosCompletos = false;
+            break;
+          }
+        }
+        if (!todosCompletos) break;
+      }
+      if (!todosCompletos) break;
+    }
+
+    if (!todosCompletos) {
+      return; // aún no terminó la fase de grupos
+    }
+
+    // 2️⃣ Obtener tabla de posiciones final
+    const { calcularTablaPosiciones } = require("./calcularTablaPosiciones.js");
+    const tablas = calcularTablaPosiciones(torneo);
+
+    // Se espera que sean grupos A, B, etc.
+    const nombresGrupos = Object.keys(tablas);
+    if (nombresGrupos.length < 2) {
+      console.error("❌ No hay suficientes grupos para hacer semifinales");
+      return;
+    }
+
+    const grupoA = tablas[nombresGrupos[0]];
+    const grupoB = tablas[nombresGrupos[1]];
+
+    const semi1 = {
+      equipo1Nombre: grupoA[0].nombre,
+      equipo2Nombre: grupoB[1].nombre,
+      resultado: null
+    };
+
+    const semi2 = {
+      equipo1Nombre: grupoB[0].nombre,
+      equipo2Nombre: grupoA[1].nombre,
+      resultado: null
+    };
+
+    // 3️⃣ Guardar eliminatorias
+    torneo.eliminatorias = [
+      {
+        nombre: "Semifinales",
+        partidos: [semi1, semi2]
+      }
+    ];
+
+    // Guardar archivo
+    await fs.writeFile(filePath, JSON.stringify(torneo, null, 2));
+
+    // Avisar en Discord
+    await interaction.followUp({
+      content: "🏆 **Fase de grupos finalizada. Semifinales generadas automáticamente!**",
+      ephemeral: false
+    });
+
+  } catch (error) {
+    console.error("❌ Error al actualizar eliminatorias automáticamente:", error);
   }
-
-  // Guardar torneo actualizado
-  await guardarTorneo(torneo, filePath, interaction);
 }
 
 module.exports = { actualizarEliminatorias };
+
