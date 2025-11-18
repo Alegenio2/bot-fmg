@@ -299,7 +299,10 @@
           "equipo1Nombre": "URUwUS",
           "equipo2Id": "646c7c18-fc92-451a-9cf3-3c812ade1c6e",
           "equipo2Nombre": "#1",
-          "resultado": null
+          "resultado": null,
+          "fecha": "19-11-2025",
+          "horario": "21:30",
+          "diaSemana": "Miércoles"
         },
         {
           "equipo1Id": "ee3da911-6e05-403c-844a-e9201caff342",
