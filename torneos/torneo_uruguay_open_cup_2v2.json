@@ -293,11 +293,22 @@
   "eliminatorias": [
     {
       "ronda": "Semifinal",
-      "partidos": []
-    },
-    {
-      "ronda": "Final",
-      "partidos": []
+      "partidos": [
+        {
+          "equipo1Id": "dd3d5cad-765c-488b-b3cc-88ff71da0fb1",
+          "equipo1Nombre": "URUwUS",
+          "equipo2Id": "646c7c18-fc92-451a-9cf3-3c812ade1c6e",
+          "equipo2Nombre": "#1",
+          "resultado": null
+        },
+        {
+          "equipo1Id": "ee3da911-6e05-403c-844a-e9201caff342",
+          "equipo1Nombre": "LA TASCONETA",
+          "equipo2Id": "b059eaea-69ee-4f48-9907-c1725097899b",
+          "equipo2Nombre": "RxonSky",
+          "resultado": null
+        }
+      ]
     }
   ],
   "creado": "2025-10-21T01:38:24.226Z"
