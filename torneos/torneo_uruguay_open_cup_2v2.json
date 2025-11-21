@@ -299,7 +299,18 @@
           "equipo1Nombre": "URUwUS",
           "equipo2Id": "646c7c18-fc92-451a-9cf3-3c812ade1c6e",
           "equipo2Nombre": "#1",
-          "resultado": null,
+          "resultado": {
+            "URUwUS": 2,
+            "#1": 1,
+            "fecha": "2025-11-20",
+            "draftmapas": "https://aoe2cm.net/draft/UsUuI",
+            "draftcivis": "https://aoe2cm.net/draft/zBkCc",
+            "archivo": null,
+            "ganador": {
+              "id": "dd3d5cad-765c-488b-b3cc-88ff71da0fb1",
+              "nombre": "URUwUS"
+            }
+          },
           "fecha": "19-11-2025",
           "horario": "21:30",
           "diaSemana": "Miércoles"
