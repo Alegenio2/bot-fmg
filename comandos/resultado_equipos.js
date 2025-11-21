@@ -162,21 +162,28 @@ module.exports = {
       if (!partidoEncontrado) {
         for (const fase of torneo.eliminatorias || []) {
           for (const partido of fase.partidos || []) {
-            if (
-              (partido.equipo1Nombre === eq1 && partido.equipo2Nombre === eq2) ||
-              (partido.equipo1Nombre === eq2 && partido.equipo2Nombre === eq1)
-            ) {
-              partido.resultado = {
-                [eq1]: puntosEq1,
-                [eq2]: puntosEq2,
-                fecha: fechaISO,
-                draftmapas,
-                draftcivis,
-                archivo: archivoAdjunto,
-              };
-              partidoEncontrado = true;
-              break;
-            }
+const nombre1 = (partido.equipo1Nombre || "").toLowerCase().trim();
+const nombre2 = (partido.equipo2Nombre || "").toLowerCase().trim();
+const eq1Lower = eq1.toLowerCase().trim();
+const eq2Lower = eq2.toLowerCase().trim();
+
+if (
+  (nombre1 === eq1Lower && nombre2 === eq2Lower) ||
+  (nombre1 === eq2Lower && nombre2 === eq1Lower)
+) {
+  partido.resultado = {
+    [eq1]: puntosEq1,
+    [eq2]: puntosEq2,
+    fecha: fechaISO,
+    draftmapas,
+    draftcivis,
+    archivo: archivoAdjunto,
+    ganador: puntosEq1 > puntosEq2 ? { id: partido.equipo1Id, nombre: partido.equipo1Nombre } :
+              puntosEq2 > puntosEq1 ? { id: partido.equipo2Id, nombre: partido.equipo2Nombre } : null
+  };
+  partidoEncontrado = true;
+  break;
+}
           }
           if (partidoEncontrado) break;
         }
@@ -245,6 +252,7 @@ module.exports = {
     }
   },
 };
+
 
 
 
