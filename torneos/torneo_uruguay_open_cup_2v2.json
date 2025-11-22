@@ -334,6 +334,18 @@
           }
         }
       ]
+    },
+    {
+      "ronda": "Final",
+      "partidos": [
+        {
+          "equipo1Id": "dd3d5cad-765c-488b-b3cc-88ff71da0fb1",
+          "equipo1Nombre": "URUwUS",
+          "equipo2Id": "ee3da911-6e05-403c-844a-e9201caff342",
+          "equipo2Nombre": "LA TASCONETA",
+          "resultado": null
+        }
+      ]
     }
   ],
   "creado": "2025-10-21T01:38:24.226Z"
