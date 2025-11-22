@@ -320,7 +320,18 @@
           "equipo1Nombre": "LA TASCONETA",
           "equipo2Id": "b059eaea-69ee-4f48-9907-c1725097899b",
           "equipo2Nombre": "RxonSky",
-          "resultado": null
+          "resultado": {
+            "LA TASCONETA": 2,
+            "RxonSky": 0,
+            "fecha": "2025-11-21",
+            "draftmapas": "https://aoe2cm.net/draft/lMHmp",
+            "draftcivis": "https://aoe2cm.net/draft/rrwHf",
+            "archivo": "https://cdn.discordapp.com/ephemeral-attachments/1428090283333124278/1441583641305284733/la_tasconeta_vs_tatosky.zip?ex=692252e3&is=69210163&hm=13db78e0e0e628c8f5fb2b29136578d16ef8093271f7ae6e5a7840060c3f705d&",
+            "ganador": {
+              "id": "ee3da911-6e05-403c-844a-e9201caff342",
+              "nombre": "LA TASCONETA"
+            }
+          }
         }
       ]
     }
