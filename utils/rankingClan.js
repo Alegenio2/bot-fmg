@@ -3,7 +3,7 @@ const path = require('path');
 const { obtenerEloActual } = require('./elo');
 const rankingConfig = require('../rankingConfig.json');
 
-const usuariosPath = path.resolve(__dirname, 'usuarios.json');
+const usuariosPath = path.resolve(__dirname, '../usuarios.json');
 const CLAN_BUSCADO = 'FUMAG';
 
 async function actualizarYPublicarRankingClan(client, guildId) {
@@ -66,3 +66,4 @@ async function actualizarYPublicarRankingClan(client, guildId) {
 }
 
 module.exports = { actualizarYPublicarRankingClan };
+
