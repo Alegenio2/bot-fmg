@@ -106,9 +106,11 @@ client.on('ready', async (c) => {
   const { subirTorneos } = require('./git/subirTorneosGit.js');
 
   // Ranking Clan - lunes 09:00
-  cron.schedule('0 9 * * 1', () => {
-    actualizarYPublicarRankingClan(client, '693245375615860838');
-  });
+ cron.schedule('0 14 * * 6', () => {
+  actualizarYPublicarRankingClan(client, '693245375615860838');
+}, {
+  timezone: "America/Montevideo"
+});
 
   // Ranking URU - lunes 22:00
   cron.schedule('0 22 * * 1', () => {
@@ -159,6 +161,7 @@ client.on('guildMemberAdd', async member => {
 });
 
 client.login(process.env.TOKEN).catch(err => console.error("❌ Error al iniciar sesión con el bot:", err));
+
 
 
 
