@@ -2,10 +2,11 @@
 const { ApplicationCommandOptionType, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 const botConfig = require('../botConfig.json');
 const { asociarUsuario } = require('../utils/asociar');
+const { obtenerEloActual } = require('../utils/elo');
 
 module.exports = {
   name: 'vincular',
-  description: 'Vincula tu cuenta de Discord con tu ID de aoe2companion.',
+  description: 'Vincula tu cuenta de Discord con tu perfil de AoE2 Companion.',
   options: [
     {
       name: 'aoe2id',
@@ -30,6 +31,7 @@ module.exports = {
     // 🔗 Validar URL
     const urlCompleta = options.getString('aoe2id');
     const match = urlCompleta.match(/^https:\/\/(www\.)?aoe2companion\.com\/profile\/(\d+)$/);
+
     if (!match) {
       const row = new ActionRowBuilder().addComponents(
         new ButtonBuilder()
@@ -37,21 +39,46 @@ module.exports = {
           .setStyle(ButtonStyle.Link)
           .setURL("https://www.aoe2companion.com/")
       );
+
       return interaction.reply({
-        content: "❌ La URL no es válida. Asegurate de que sea algo como:\n`https://www.aoe2companion.com/profile/2587873713`",
+        content: "❌ La URL no es válida.\nEjemplo:\n`https://www.aoe2companion.com/profile/2304739`",
         components: [row],
         ephemeral: true
       });
     }
 
-    const aoeId = match[2];
+    const profileId = match[2];
 
-    // Asociar usuario
-    asociarUsuario(user.id, aoeId);
+    // 🔍 Obtener datos reales del jugador
+    const datos = await obtenerEloActual(profileId);
 
-    // Respuesta confirmando
+    if (!datos) {
+      return interaction.reply({
+        content: "❌ No se pudieron obtener los datos del perfil. Verificá el ID.",
+        ephemeral: true
+      });
+    }
+
+    // 🧠 Construir objeto usuario
+    const usuario = {
+      profileId,
+      nombre: datos.nombre,
+      elo: datos.elo,
+      rank: datos.rank,
+      wins: datos.wins,
+      losses: datos.losses,
+      pais: datos.pais,
+      country: datos.country,
+      clan: datos.clan,
+      elomax: datos.elomax,
+      ultimapartida: datos.ultimapartida
+    };
+
+    // 💾 Guardar
+    asociarUsuario(user.id, usuario);
+
     return interaction.reply({
-      content: `✅ Tu cuenta fue vinculada con AOE2 ID: ${aoeId}`,
+      content: `✅ Tu cuenta fue vinculada correctamente con **${usuario.nombre}** (ELO ${usuario.elo})`,
       ephemeral: true
     });
   }
