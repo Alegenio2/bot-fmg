@@ -1,5 +1,17 @@
 {
-  "286607198854053890": "973968",
+  "286607198854053890": {
+    "profileId": "973968",
+    "nombre": "|FMG| Lautreamont",
+    "elo": 1401,
+    "rank": 5861,
+    "wins": 134,
+    "losses": 78,
+    "pais": "🇺🇾",
+    "country": "uy",
+    "clan": "FUMAG",
+    "elomax": 1515,
+    "ultimapartida": "2025-08-22T02:34:34.000Z"
+  },
   "697996987210924072": {
     "profileId": "2304739",
     "nombre": "|FMG| TINCHO",
