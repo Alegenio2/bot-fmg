@@ -106,7 +106,7 @@ client.on('ready', async (c) => {
   const { subirTorneos } = require('./git/subirTorneosGit.js');
 
   // Ranking Clan - Viernes 15:00
- cron.schedule('0 15 * * 5', () => {
+ cron.schedule('15 12 * * 1', () => {
   actualizarYPublicarRankingClan(client, '693245375615860838');
 }, {
   timezone: "America/Montevideo"
@@ -161,6 +161,7 @@ client.on('guildMemberAdd', async member => {
 });
 
 client.login(process.env.TOKEN).catch(err => console.error("❌ Error al iniciar sesión con el bot:", err));
+
 
 
 
