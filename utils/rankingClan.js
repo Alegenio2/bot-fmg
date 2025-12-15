@@ -14,50 +14,62 @@ async function actualizarYPublicarRankingClan(client, guildId) {
   }
 
   if (!fs.existsSync(usuariosPath)) {
-    console.log('No hay usuarios vinculados.');
+    console.log('❌ No hay usuarios vinculados.');
     return;
   }
 
-  const asociaciones = JSON.parse(fs.readFileSync(usuariosPath));
+  const asociaciones = JSON.parse(fs.readFileSync(usuariosPath, 'utf8'));
   let jugadores = [];
 
   for (const discordId of Object.keys(asociaciones)) {
-    const aoeId = asociaciones[discordId];
+    // 🔹 AHORA el usuario es un objeto
+    const usuario = asociaciones[discordId];
+
+    // 🔹 Tomamos el profileId correctamente
+    const aoeId = usuario?.profileId;
     if (!aoeId) continue;
 
     const datos = await obtenerEloActual(aoeId);
     if (!datos) continue;
 
-    if (datos.clan && datos.clan.toUpperCase() === CLAN_BUSCADO.toUpperCase()) {
+    if (
+      datos.clan &&
+      datos.clan.toUpperCase() === CLAN_BUSCADO.toUpperCase()
+    ) {
       jugadores.push({
         discordId,
-        nombre: datos.nombre,
+        nombre: datos.nombre || usuario.nombre,
         elo: datos.elo,
-        pais: datos.country || datos.pais,
+        pais: datos.country || datos.pais || usuario.pais,
       });
     }
   }
 
   if (jugadores.length === 0) {
-    console.log(`No se encontraron jugadores del clan ${CLAN_BUSCADO}.`);
+    console.log(`❌ No se encontraron jugadores del clan ${CLAN_BUSCADO}.`);
     return;
   }
 
   jugadores.sort((a, b) => b.elo - a.elo);
 
-  let mensaje = `**Ranking ELO Clan ${CLAN_BUSCADO}**\n\n`;
+  let mensaje = `**🏆 Ranking ELO Clan ${CLAN_BUSCADO}**\n\n`;
   jugadores.forEach((jugador, i) => {
-    mensaje += `${i + 1}. ${jugador.nombre} — ELO: ${jugador.elo} — País: ${jugador.pais}\n`;
+    mensaje += `${i + 1}. ${jugador.nombre} — **ELO:** ${jugador.elo} — ${jugador.pais}\n`;
   });
 
   try {
     const canal = await client.channels.fetch(canalId);
     const mensajes = await canal.messages.fetch({ limit: 10 });
-   // Buscar el último mensaje del bot en el canal
-    const ultimoMensajeBot = mensajes.find(msg => msg.author.id === client.user.id);
+
+    // 🔹 borrar último mensaje del bot
+    const ultimoMensajeBot = mensajes.find(
+      msg => msg.author.id === client.user.id
+    );
+
     if (ultimoMensajeBot) {
       await ultimoMensajeBot.delete();
     }
+
     await canal.send(mensaje);
     console.log('✅ Ranking del clan publicado correctamente.');
   } catch (error) {
@@ -66,4 +78,6 @@ async function actualizarYPublicarRankingClan(client, guildId) {
 }
 
 module.exports = { actualizarYPublicarRankingClan };
+
+
 
