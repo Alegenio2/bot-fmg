@@ -647,5 +647,18 @@
     "clan": null,
     "elomax": 1385,
     "ultimapartida": "2025-08-13T21:41:36.000Z"
+  },
+  "760308403087867916": {
+    "profileId": "4822389",
+    "nombre": "|FMG| Tano Stokes",
+    "elo": 1470,
+    "rank": 4779,
+    "wins": 290,
+    "losses": 248,
+    "pais": "🇺🇾",
+    "country": "uy",
+    "clan": "FUMAG",
+    "elomax": 1552,
+    "ultimapartida": null
   }
 }
