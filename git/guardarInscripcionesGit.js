@@ -1,4 +1,5 @@
-// guardarGit.js 
+// git/guardarInscripcionesGit.js
+
 const axios = require('axios');
 const fs = require('fs');
 
@@ -47,3 +48,4 @@ module.exports = {
   guardarYSubirEquipos: () => subirArchivoAGit('equipos_inscritos.json', 'Update equipos_inscritos.json'),
   guardarYSubirUsuarios1v1: () => subirArchivoAGit('usuarios_inscritos.json', 'Update usuarios_inscritos.json')
 };
+
