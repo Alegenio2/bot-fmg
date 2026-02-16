@@ -27,13 +27,6 @@ module.exports = {
           { name: "Equipos (Team Games)", value: "equipos" }
         )
     )
-    .addStringOption(opt =>
-      opt
-        .setName("torneo")
-        .setDescription("Selecciona el torneo para crear la estructura")
-        .setRequired(true)
-        .addChoices(...obtenerTorneosDisponibles())
-    )
     .addIntegerOption(opt =>
       opt
         .setName("cantidad_grupos")
@@ -93,5 +86,6 @@ module.exports = {
     }
   },
 };
+
 
 
