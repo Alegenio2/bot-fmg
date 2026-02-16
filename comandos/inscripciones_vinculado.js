@@ -22,7 +22,7 @@ module.exports = {
     }
 
     const promedio = Math.round((datos.elo + datos.elomax) / 2);
-    const mensaje = `✅ Inscripto a la Copa Uruguaya 2025 (vía vinculación)
+    const mensaje = `✅ Inscripto a la Copa Uruguaya 2026 (vía vinculación)
 🎮 **Nick Steam**: ${datos.nombre}
 📈 **ELO Actual**: ${datos.elo}
 📉 **ELO Máximo**: ${datos.elomax}
@@ -39,3 +39,4 @@ module.exports = {
     }
   }
 };
+
