@@ -70,7 +70,7 @@ module.exports = {
 
     const promedio = Math.round((eloactual + elomaximo) / 2);
 
-    let mensaje = `✅ Inscripto a la Copa Uruguaya 2025
+    let mensaje = `✅ Inscripto a la Copa Uruguaya 2026
 🎮 **Nick Steam**: ${nombre}
 📈 **ELO Actual**: ${eloactual}
 📉 **ELO Máximo**: ${elomaximo}
@@ -90,3 +90,4 @@ module.exports = {
     }
   }
 };
+
