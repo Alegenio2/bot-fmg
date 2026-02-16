@@ -19,6 +19,15 @@ module.exports = {
     .setName("crear_torneo")
     .setDescription("Genera automáticamente un torneo con grupos y fases finales")
     .addStringOption(opt =>
+      opt.setName("tipo")
+        .setDescription("¿Es un torneo de equipos o 1v1?")
+        .setRequired(true)
+        .addChoices(
+          { name: "Individual (1v1)", value: "1v1" },
+          { name: "Equipos (Team Games)", value: "equipos" }
+        )
+    )
+    .addStringOption(opt =>
       opt
         .setName("torneo")
         .setDescription("Selecciona el torneo para crear la estructura")
@@ -58,18 +67,19 @@ module.exports = {
           ephemeral: true,
         });
       }
-
+      const tipo = options.getString("tipo");
       const torneo = options.getString("torneo");
       const cantidadGrupos = options.getInteger("cantidad_grupos");
       const clasificados = options.getInteger("clasificados");
 
       await interaction.deferReply();
 
-      const resultado = await crearTorneoDesdeEquipos(
-        torneo,
-        cantidadGrupos,
-        clasificados
-      );
+      let resultado;
+    if (tipo === "1v1") {
+      resultado = await crearTorneo1v1(nombreTorneo, grupos, clasificados);
+    } else {
+      resultado = await crearTorneoDesdeEquipos(nombreTorneo, grupos, clasificados);
+    }
 
       await interaction.editReply({
         content: resultado,
@@ -83,4 +93,5 @@ module.exports = {
     }
   },
 };
+
 
