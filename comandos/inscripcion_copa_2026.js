@@ -2,7 +2,7 @@ const { ApplicationCommandOptionType, ActionRowBuilder, ButtonBuilder, ButtonSty
 const fs = require('fs');
 const path = require('path');
 const { asociarUsuario } = require('../utils/asociar.js');
-const { guardarYSubirUsuarios1v1 } = require('../utils/guardarGit.js'); // Ajusta la ruta si es necesario
+const { guardarYSubirUsuarios1v1 } = require('../git/guardarInscripcionesGit.js'); // Ajusta la ruta si es necesario
 
 module.exports = {
   name: 'inscripcion_copa_2026', // Nombre único para el comando
@@ -101,7 +101,9 @@ module.exports = {
       inscritos.push(datosJugador);
     }
     fs.writeFileSync(rutaInscritos, JSON.stringify(inscritos, null, 2), 'utf8');
-
+    // NUEVO: Subir a GitHub inmediatamente
+    await guardarYSubirUsuarios1v1();
+    
     // 4. Asignación de Roles
     try {
       if (member && configServidor) {
