@@ -2,6 +2,7 @@ const { ApplicationCommandOptionType, ActionRowBuilder, ButtonBuilder, ButtonSty
 const fs = require('fs');
 const path = require('path');
 const { asociarUsuario } = require('../utils/asociar.js');
+const { guardarYSubirUsuarios1v1 } = require('../utils/guardarGit.js'); // Ajusta la ruta si es necesario
 
 module.exports = {
   name: 'inscripcion_copa_2026', // Nombre único para el comando
