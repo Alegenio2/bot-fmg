@@ -1,5 +1,4 @@
-// asociar.js
-// asociar.js
+// utils/asociar.js
 const fs = require('fs');
 const { guardarYSubirCambiosArchivo } = require('../git/guardarGit');
 
@@ -74,4 +73,5 @@ module.exports = {
   obtenerProfileId,
   obtenerUsuario
 };
+
 
