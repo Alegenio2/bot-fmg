@@ -2,7 +2,7 @@ const { obtenerEloActual } = require('../utils/elo');
 const fs = require('fs');
 const path = require('path');
 const vinculados = require('../usuarios.json');
-const { guardarYSubirUsuarios1v1 } = require('../utils/guardarInscripcionesGit.js'); // Ajusta la ruta si es necesario
+const { guardarYSubirUsuarios1v1 } = require('../git/guardarInscripcionesGit.js'); // Ajusta la ruta si es necesario
 
 
 
