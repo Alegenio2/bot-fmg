@@ -22,10 +22,11 @@ module.exports = {
       }
 
       // 3. Obtener datos actualizados de la API de AoE2
-      const datos = await obtenerEloActual(profileId);
-      if (!datos) {
-        return interaction.editReply('⚠️ No se pudo obtener tu información desde AOE2 Companion. Intenta nuevamente en unos minutos.');
-      }
+      // Modifica esta parte en tu comando de inscripción:
+const datos = await obtenerEloActual(profileId);
+if (!datos) {
+    return interaction.editReply(`⚠️ No pude obtener datos para el ID: **${profileId}**. Verifica que el perfil sea público en AoE2 Companion.`);
+}
 
       const promedio = Math.round((datos.elo + datos.elomax) / 2);
       const idTorneo = "copa_uruguaya_2026";
