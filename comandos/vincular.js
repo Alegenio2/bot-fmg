@@ -30,7 +30,7 @@ module.exports = {
 
     // 🔗 Validar URL
     const urlCompleta = options.getString('aoe2id');
-    const match = urlCompleta.match(/^https:\/\/(www\.)?aoe2companion\.com\/profile\/(\d+)$/);
+    const match = urlCompleta.match(/^https:\/\/(www\.)?aoe2companion\.com\/players\/(\d+)$/);
 
     if (!match) {
       const row = new ActionRowBuilder().addComponents(
@@ -41,7 +41,7 @@ module.exports = {
       );
 
       return interaction.reply({
-        content: "❌ La URL no es válida.\nEjemplo:\n`https://www.aoe2companion.com/profile/2304739`",
+        content: "❌ La URL no es válida.\nEjemplo:\n`https://www.aoe2companion.com/players/2304739`",
         components: [row],
         ephemeral: true
       });
@@ -83,3 +83,4 @@ module.exports = {
     });
   }
 };
+
