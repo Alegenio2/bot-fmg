@@ -128,39 +128,50 @@ client.on('ready', async (c) => {
   c.user.setActivity('Age of Empires II: Definitive Edition', { type: ActivityType.Playing });
 });
 
-// Bienvenida con Canvas
+// Bienvenida con Canvas en index.js
 client.on('guildMemberAdd', async member => {
   const Canvas = require('canvas');
+  const { AttachmentBuilder } = require('discord.js'); // Asegúrate de tenerlo importado
   const config = require('./bienvenidaConfig.json');
 
-  const canvas = Canvas.createCanvas(1028, 468);
-  const ctx = canvas.getContext('2d');
+  try {
+    const canvas = Canvas.createCanvas(1028, 468);
+    const ctx = canvas.getContext('2d');
 
-  const backgroundImages = ["./img/bg.png", "./img/bg2.png"];
-  const selectedBackgroundImg = backgroundImages[Math.floor(Math.random() * backgroundImages.length)];
+    const backgroundImages = ["./img/bg.png", "./img/bg2.png"];
+    const selectedBackgroundImg = backgroundImages[Math.floor(Math.random() * backgroundImages.length)];
 
-  const backgroundImg = await Canvas.loadImage(selectedBackgroundImg);
-  ctx.drawImage(backgroundImg, 0, 0, canvas.width, canvas.height);    
+    const backgroundImg = await Canvas.loadImage(selectedBackgroundImg);
+    ctx.drawImage(backgroundImg, 0, 0, canvas.width, canvas.height);    
 
-  ctx.font = 'bold 40px Arial';
-  ctx.fillStyle = '#ffffff';
-  ctx.textAlign = 'center';
-  ctx.fillText(`¡Bienvenido, ${member.user.username}!`, canvas.width / 2, 100);
+    ctx.font = 'bold 40px Arial';
+    ctx.fillStyle = '#ffffff';
+    ctx.textAlign = 'center';
+    ctx.fillText(`¡Bienvenido, ${member.user.username}!`, canvas.width / 2, 100);
 
-  const avatar = await Canvas.loadImage(member.user.displayAvatarURL({ size:1024, extension: "png" }));
-  ctx.drawImage(avatar, 800, 130, 150, 150);
+    // Dibujar Avatar
+    const avatar = await Canvas.loadImage(member.user.displayAvatarURL({ size:1024, extension: "png" }));
+    ctx.drawImage(avatar, 800, 130, 150, 150);
 
-  const attachment = new AttachmentBuilder(canvas.toBuffer("image/png"), { name: 'welcome-image.png' });
-  const channelId = config[member.guild.id];
-  if (!channelId) return;
-  const channel = member.guild.channels.cache.get(channelId);
-  if (channel) await channel.send({ files: [attachment] });
-
-  // Asignar rol automáticamente
-  await member.roles.add('1392243967663542364').catch(console.error);  
+    const attachment = new AttachmentBuilder(canvas.toBuffer("image/png"), { name: 'welcome-image.png' });
+    
+    const channelId = config[member.guild.id];
+    if (channelId) {
+      const channel = member.guild.channels.cache.get(channelId);
+      if (channel) {
+        await channel.send({ 
+          content: `¡Hola ${member}! Bienvenido a la comunidad. 🛡️\nPara acceder a todos los canales, por favor usa el comando \`/vincular\` en este canal.`, 
+          files: [attachment] 
+        });
+      }
+    }
+  } catch (error) {
+    console.error("Error en bienvenida:", error);
+  }
 });
 
 client.login(process.env.TOKEN).catch(err => console.error("❌ Error al iniciar sesión con el bot:", err));
+
 
 
 
