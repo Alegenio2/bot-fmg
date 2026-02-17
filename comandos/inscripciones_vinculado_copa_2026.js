@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const vinculados = require('../usuarios.json');
 const { guardarYSubirUsuarios1v1 } = require('../git/guardarInscripcionesGit.js');
+const {obtenerProfileId } = require('../utils/asociar');
 
 module.exports = {
     name: 'inscripcion_vinc_copa', // Nombre corto para evitar errores de longitud
