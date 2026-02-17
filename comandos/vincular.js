@@ -17,8 +17,10 @@ module.exports = {
   ],
 
   async execute(interaction) {
-    const { user, options, guildId, channelId } = interaction;
-    const canalVincular = botConfig.servidores[guildId]?.canalVincular;
+    const { user, options, guildId, channelId, member, guild } = interaction;
+    const configServidor = botConfig.servidores[guildId];
+    const canalVincular = configServidor?.canalVincular;
+    const ROL_ACCESO_ID = '1377760878807613520'; // <--- Tu ID de rol de acceso
 
     // 🔒 Validar canal
     if (!canalVincular || channelId !== canalVincular) {
@@ -27,6 +29,9 @@ module.exports = {
         ephemeral: true
       });
     }
+
+    // ⏳ Diferir respuesta (importante para evitar timeouts de la API de AoE)
+    await interaction.deferReply({ ephemeral: true });
 
     // 🔗 Validar URL
     const urlCompleta = options.getString('aoe2id');
@@ -40,10 +45,9 @@ module.exports = {
           .setURL("https://www.aoe2companion.com/")
       );
 
-      return interaction.reply({
+      return interaction.editReply({
         content: "❌ La URL no es válida.\nEjemplo:\n`https://www.aoe2companion.com/players/2304739`",
-        components: [row],
-        ephemeral: true
+        components: [row]
       });
     }
 
@@ -53,9 +57,8 @@ module.exports = {
     const datos = await obtenerEloActual(profileId);
 
     if (!datos) {
-      return interaction.reply({
-        content: "❌ No se pudieron obtener los datos del perfil. Verificá el ID.",
-        ephemeral: true
+      return interaction.editReply({
+        content: "❌ No se pudieron obtener los datos del perfil. Verificá el ID o intentá más tarde."
       });
     }
 
@@ -74,13 +77,26 @@ module.exports = {
       ultimapartida: datos.ultimapartida
     };
 
-    // 💾 Guardar
+    // 💾 Guardar en JSON y subir a Git
     asociarUsuario(user.id, usuario);
 
-    return interaction.reply({
-      content: `✅ Tu cuenta fue vinculada correctamente con **${usuario.nombre}** (ELO ${usuario.elo})`,
-      ephemeral: true
+    // 🎭 ASIGNAR ROL DE ACCESO
+    try {
+      if (member) {
+        const rolAcceso = guild.roles.cache.get(ROL_ACCESO_ID);
+        if (rolAcceso) {
+          await member.roles.add(rolAcceso);
+        } else {
+          console.error("⚠️ El rol de acceso no existe en el servidor.");
+        }
+      }
+    } catch (error) {
+      console.error("❌ Error al asignar el rol de acceso:", error);
+      // No cortamos el flujo aquí porque la vinculación ya se guardó
+    }
+
+    return interaction.editReply({
+      content: `✅ Tu cuenta fue vinculada correctamente con **${usuario.nombre}** (ELO ${usuario.elo}).\n🔓 **Se te ha otorgado acceso al servidor.**`
     });
   }
 };
-
