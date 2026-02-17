@@ -7,7 +7,7 @@ const { guardarYSubirUsuarios1v1 } = require('../git/guardarInscripcionesGit.js'
 
 
 module.exports = {
-  name: 'inscripciones_vinculado_copa_2026',
+  name: 'inscripcion_vinculado_2026',
   description: 'Inscripción rápida a la Copa Uruguaya 2026 para usuarios vinculados.',
 
   async execute(interaction) {
