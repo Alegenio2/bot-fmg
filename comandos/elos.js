@@ -1,7 +1,7 @@
 // comandos/elos.js
 const { ApplicationCommandOptionType } = require("discord.js");
 const { obtenerEloActual } = require('../utils/elo');
-const { obtenerAoeId } = require('../utils/asociar');
+const { obtenerProfileId } = require('../utils/asociar');
 
 module.exports = {
   name: 'elos',
@@ -22,7 +22,7 @@ module.exports = {
     const jugador = options.getUser('jugador') || user;
 
     // Obtenemos el ID de AoE vinculado al usuario
-    const aoeId = obtenerAoeId(jugador.id);
+    const aoeId = obtenerProfileId(jugador.id);
     if (!aoeId) {
       return interaction.editReply(`❌ ${jugador.username} no ha vinculado su cuenta aún. Usa /vincular.`);
     }
@@ -47,3 +47,4 @@ module.exports = {
     }
   }
 };
+
