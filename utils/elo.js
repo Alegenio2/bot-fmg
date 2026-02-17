@@ -1,4 +1,4 @@
-// elo.js
+// utils/elo.js
 const fetch = require('node-fetch');
 
 const DELAY_MS = 500;
@@ -46,3 +46,4 @@ async function obtenerEloActual(profileId) {
 }
 
 module.exports = { obtenerEloActual };
+
