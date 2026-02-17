@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "id": "286607198854053890",
+    "torneo": "copa_uruguaya_2026",
+    "modo": "1v1",
+    "nombre": "|FMG| twitch/JabsUY",
+    "elo_actual": 1516,
+    "elo_max": 1590,
+    "promedio_elo": 1553,
+    "perfil": "https://www.aoe2companion.com/profile/2583713",
+    "logo": null,
+    "fecha": "2026-02-17T01:25:27.087Z"
+  }
+]
