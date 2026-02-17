@@ -2,6 +2,9 @@ const { obtenerEloActual } = require('../utils/elo');
 const fs = require('fs');
 const path = require('path');
 const vinculados = require('../usuarios.json');
+const { guardarYSubirUsuarios1v1 } = require('../utils/guardarInscripcionesGit.js'); // Ajusta la ruta si es necesario
+
+
 
 module.exports = {
   name: 'inscripciones_vinculado_copa_2026',
@@ -33,6 +36,9 @@ module.exports = {
       inscritos = JSON.parse(fs.readFileSync(rutaInscritos, 'utf8'));
     }
 
+// NUEVO: Subir a GitHub inmediatamente
+await guardarYSubirUsuarios1v1();
+    
     const datosJugador = {
       id: user.id,
       torneo: idTorneo,
