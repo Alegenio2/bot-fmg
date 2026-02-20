@@ -1,17 +1,5 @@
 [
   {
-    "id": "286607198854053890",
-    "torneo": "copa_uruguaya_2026",
-    "modo": "1v1",
-    "nombre": "JabsUY",
-    "elo_actual": 1519,
-    "elo_max": 1560,
-    "promedio_elo": 1540,
-    "perfil": "https://www.aoe2companion.com/players/2583713",
-    "logo": null,
-    "fecha": "2026-02-20T15:26:17.034Z"
-  },
-  {
     "id": "238414625417330688",
     "torneo": "copa_uruguaya_2026",
     "modo": "1v1",
