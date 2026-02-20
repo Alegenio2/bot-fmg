@@ -17,41 +17,41 @@ module.exports = {
   ],
 
   async execute(interaction) {
-    const { options, user, member, guild } = interaction;
-    const configServidor = require('../botConfig').servidores[guild.id];
-
-    // 1. Validar Link inmediatamente (antes del defer para ser rápidos)
-    const link = options.getString('link');
-    const match = link.match(/^https:\/\/(www\.)?aoe2companion\.com\/players\/(\d+)$/);
-    
-    if (!match) {
-      const row = new ActionRowBuilder().addComponents(
-        new ButtonBuilder().setLabel("Buscar Perfil").setStyle(ButtonStyle.Link).setURL("https://www.aoe2companion.com/")
-      );
-      return interaction.reply({ content: "❌ URL no válida. Debe ser de AoE2 Companion.", components: [row], ephemeral: true });
-    }
-
-    // 2. Iniciar Defer para evitar el timeout de 3 segundos
+    // 1. RESPUESTA INMEDIATA (Evita el error 10062 Unknown Interaction)
     try {
       await interaction.deferReply({ ephemeral: false });
     } catch (e) {
-      console.error("Error en deferReply:", e);
+      console.error("Error crítico en deferReply:", e);
       return;
     }
 
+    const { options, user, member, guild } = interaction;
+
     try {
+      // 2. VALIDACIÓN DE LINK
+      const link = options.getString('link');
+      const match = link.match(/^https:\/\/(www\.)?aoe2companion\.com\/players\/(\d+)$/);
+
+      if (!match) {
+        const row = new ActionRowBuilder().addComponents(
+          new ButtonBuilder().setLabel("Buscar Perfil").setStyle(ButtonStyle.Link).setURL("https://www.aoe2companion.com/")
+        );
+        return interaction.editReply({ 
+          content: "❌ URL no válida. Debe ser de AoE2 Companion (ej: https://www.aoe2companion.com/players/123456)", 
+          components: [row] 
+        });
+      }
+
+      // 3. PROCESAMIENTO DE DATOS
+      const configServidor = require('../botConfig').servidores[guild.id];
       const nombre = options.getString('nombre');
       const eloactual = options.getNumber('eloactual');
       const elomaximo = options.getNumber('elomaximo');
       const promedio = Math.round((eloactual + elomaximo) / 2);
       const archivoAdjunto = options.getAttachment('archivo');
-      const aoeId = match[2];
-
-      // Asociar cuenta
-     
       const idTorneo = "copa_uruguaya_2026";
 
-      // 3. Guardar localmente
+      // Cargar inscritos localmente
       const rutaInscritos = path.join(__dirname, '..', 'usuarios_inscritos.json');
       let inscritos = [];
       if (fs.existsSync(rutaInscritos)) {
@@ -72,51 +72,56 @@ module.exports = {
         logo: archivoAdjunto ? archivoAdjunto.url : null,
         fecha: new Date().toISOString()
       };
+
+      // 4. GUARDADO LOCAL Y ASOCIACIÓN
+      // asociarUsuario dispara internamente la subida de usuarios.json
       asociarUsuario(user.id, datosJugador);
-      console.log("Iniciando secuencia de subida a Git...");
+
       const index = inscritos.findIndex(u => u.id === user.id && u.torneo === idTorneo);
-     let mensajeFinal = "";
-if (index !== -1) {
-    // Si existe, reemplazamos (Actualización)
-    inscritos[index] = datosJugador;
-    mensajeFinal = `🔄 **¡Datos actualizados!** Tu inscripción para la Copa Uruguaya 2026 ha sido actualizada con tu ELO actual.`;
-} else {
-    // Si no existe, agregamos (Nueva inscripción)
-    inscritos.push(datosJugador);
-    mensajeFinal = `✅ **¡Inscripción confirmada!** Bienvenido a la Copa Uruguaya 2026.`;
-}
+      let mensajeFinal = "";
+
+      if (index !== -1) {
+        inscritos[index] = datosJugador;
+        mensajeFinal = `🔄 **¡Datos actualizados!** Tu inscripción ha sido actualizada.`;
+      } else {
+        inscritos.push(datosJugador);
+        mensajeFinal = `✅ **¡Inscripción confirmada!** Bienvenido a la Copa Uruguaya 2026.`;
+      }
+
       fs.writeFileSync(rutaInscritos, JSON.stringify(inscritos, null, 2), 'utf8');
 
-      // 4. Sincronizar GitHub (SIN await para no bloquear la respuesta a Discord)
-       setTimeout(async () => {
+      // 5. SINCRONIZACIÓN GITHUB (Diferida para evitar errores de SHA)
+      console.log("Programando subida a Git...");
+      setTimeout(async () => {
         try {
-          guardarYSubirUsuarios1v1();
-          console.log("✅ Sincronización de torneo completada.");
+          await guardarYSubirUsuarios1v1();
+          console.log("✅ GitHub: usuarios_inscritos.json actualizado.");
         } catch (err) {
-          console.error("❌ Error Git diferido:", err);
+          console.error("❌ Error en subida Git diferida:", err.message);
         }
-      }, 3000); // 3 segundos de "respiro" para GitHub
-      // 5. Asignación de Roles
+      }, 4000); // Subimos a los 4 segundos para dar tiempo a usuarios.json
+
+      // 6. ASIGNACIÓN DE ROLES
       if (member && configServidor) {
         const roles = [];
         if (configServidor.rolInscripto) roles.push(configServidor.rolInscripto);
         if (configServidor.rolcopauruguaya2026) roles.push(configServidor.rolcopauruguaya2026);
-        if (roles.length > 0) await member.roles.add(roles).catch(console.error);
+        if (roles.length > 0) await member.roles.add(roles).catch(err => console.error("Error Roles:", err.message));
       }
 
-      // 6. Confirmación (Usando editReply porque hubo defer)
+      // 7. RESPUESTA FINAL
       await interaction.editReply({
-        content: `✅ **¡Inscripción confirmada!**\n` +
+        content: `${mensajeFinal}\n` +
                  `🏆 **Torneo**: Copa Uruguaya 2026\n` +
                  `👤 **Jugador**: ${nombre}\n` +
                  `📊 **Promedio ELO**: ${promedio}\n` +
-                 `✨ Roles asignados correctamente.`
+                 `✨ Roles actualizados correctamente.`
       });
 
     } catch (error) {
-      console.error("Error en inscripcion_copa_2026:", error);
+      console.error("Error en ejecución de inscripción:", error);
       if (interaction.deferred || interaction.replied) {
-        await interaction.editReply('❌ Ocurrió un error procesando tu inscripción.');
+        await interaction.editReply('❌ Ocurrió un error procesando tu inscripción. Intenta de nuevo.');
       }
     }
   }
