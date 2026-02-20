@@ -1,3 +1,4 @@
+//comandos/inscripcion_copa_2026.js
 const { ApplicationCommandOptionType, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require("discord.js");
 const fs = require('fs');
 const path = require('path');
