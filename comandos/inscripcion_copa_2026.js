@@ -46,7 +46,7 @@ module.exports = {
 
     // 1. Validaciones iniciales
     const link = options.getString('link');
-    const match = link.match(/^https:\/\/(www\.)?aoe2companion\.com\/profile\/(\d+)$/);
+    const match = link.match(/^https:\/\/(www\.)?aoe2companion\.com\/players\/(\d+)$/);
     
     if (!match) {
       const row = new ActionRowBuilder().addComponents(
