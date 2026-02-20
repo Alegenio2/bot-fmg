@@ -62,16 +62,25 @@ module.exports = {
                 fecha: new Date().toISOString()
             };
 
-            const index = inscritos.findIndex(u => u.id === user.id && u.torneo === idTorneo);
-            if (index !== -1) inscritos[index] = datosJugador;
-            else inscritos.push(datosJugador);
+// Buscamos si el usuario ya existe en este torneo
+ const index = inscritos.findIndex(u => u.id === user.id && u.torneo === idTorneo);
+let mensajeFinal = "";
+if (index !== -1) {
+    // Si existe, reemplazamos (Actualización)
+    inscritos[index] = datosJugador;
+    mensajeFinal = `🔄 **¡Datos actualizados!** Tu inscripción para la Copa Uruguaya 2026 ha sido actualizada con tu ELO actual.`;
+} else {
+    // Si no existe, agregamos (Nueva inscripción)
+    inscritos.push(datosJugador);
+    mensajeFinal = `✅ **¡Inscripción confirmada!** Bienvenido a la Copa Uruguaya 2026.`;
+}
 
-            fs.writeFileSync(rutaInscritos, JSON.stringify(inscritos, null, 2), 'utf8');
+// Guardar en el archivo local
+fs.writeFileSync(rutaInscritos, JSON.stringify(inscritos, null, 2), 'utf8');
 
-            // 4. GitHub (Sin esperar a que termine para responder rápido a Discord)
-            guardarYSubirUsuarios1v1().catch(err => console.error("Error Git:", err));
-
-            // 5. Roles
+// Subir a GitHub (sin bloquear la respuesta)
+guardarYSubirUsuarios1v1().catch(err => console.error("❌ Error Git:", err));
+               // 5. Roles
             const configServidor = require('../botConfig').servidores[guild.id];
             if (member && configServidor) {
                 const rolesAsignar = [];
