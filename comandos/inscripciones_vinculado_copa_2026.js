@@ -57,7 +57,7 @@ module.exports = {
                 elo_actual: datos.elo,
                 elo_max: datos.elomax,
                 promedio_elo: promedio,
-                perfil: `https://www.aoe2companion.com/profile/${profileId}`,
+                perfil: `https://www.aoe2companion.com/players/${profileId}`,
                 logo: null,
                 fecha: new Date().toISOString()
             };
