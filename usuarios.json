@@ -1,18 +1,4 @@
-{
-  "286607198854053890": {
-    "profileId": "2583713",
-    "nombre": "|FMG| twitch/JabsUY",
-    "elo": 1516,
-    "rank": 3985,
-    "wins": 262,
-    "losses": 234,
-    "pais": "🇺🇾",
-    "country": "uy",
-    "clan": "FUMAG",
-    "elomax": 1590,
-    "ultimapartida": "2026-02-03T03:57:42.000Z"
-  },
-  "697996987210924072": {
+{ "697996987210924072": {
     "profileId": "2304739",
     "nombre": "|FMG| TINCHO",
     "elo": 1838,
@@ -647,6 +633,5 @@
     "clan": null,
     "elomax": 1385,
     "ultimapartida": "2025-08-13T21:41:36.000Z"
-  },
-  "760308403087867916": {}
+  }
 }
