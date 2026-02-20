@@ -93,13 +93,13 @@ guardarYSubirUsuarios1v1().catch(err => console.error("❌ Error Git:", err));
             }
 
             // 6. Confirmación final
-            await interaction.editReply({
-                content: `✅ **¡Inscripto con éxito!**\n` +
-                         `🏆 **Torneo**: Copa Uruguaya 2026\n` +
-                         `🎮 **Nick**: ${datos.nombre}\n` +
-                         `📊 **Promedio**: ${promedio}\n` +
-                         `✨ Rol asignado correctamente.`
-            });
+         await interaction.editReply({
+    content: `${mensajeFinal}\n` + // <--- Aquí usas la variable inteligente
+             `🏆 **Torneo**: Copa Uruguaya 2026\n` +
+             `🎮 **Nick**: ${datos.nombre}\n` +
+             `📊 **Promedio**: ${promedio}\n` +
+             `✨ Rol asignado correctamente.`
+});
 
         } catch (error) {
             console.error("Error en ejecución de inscripción:", error);
