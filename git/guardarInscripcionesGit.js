@@ -1,5 +1,4 @@
 // git/guardarInscripcionesGit.js
-
 const axios = require('axios');
 const fs = require('fs');
 
@@ -14,19 +13,19 @@ async function subirArchivoAGit(nombreArchivo, mensajeCommit) {
   const nuevoContenidoBase64 = Buffer.from(nuevoContenido).toString('base64');
 
   try {
-    // 1. Obtener SHA
+    // 1. Obtener SHA actualizado (añadimos timestamp para evitar caché)
     let shaActual = null;
     try {
       const { data } = await axios.get(
-        `https://api.github.com/repos/${GITHUB_REPO}/contents/${nombreArchivo}?ref=${BRANCH}`,
-        { headers: { Authorization: `Bearer ${GH_TOKEN}` } }
+        `https://api.github.com/repos/${GITHUB_REPO}/contents/${nombreArchivo}?ref=${BRANCH}&t=${Date.now()}`,
+        { headers: { Authorization: `Bearer ${GH_TOKEN}`, 'Cache-Control': 'no-cache' } }
       );
       shaActual = data.sha;
     } catch (e) {
-      // Si el archivo no existe en Git, no pasa nada, se crea
+      // Archivo nuevo, no hay SHA
     }
 
-    // 2. Subir
+    // 2. Subir archivo
     await axios.put(
       `https://api.github.com/repos/${GITHUB_REPO}/contents/${nombreArchivo}`,
       {
@@ -39,13 +38,27 @@ async function subirArchivoAGit(nombreArchivo, mensajeCommit) {
     );
     console.log(`✅ ${nombreArchivo} sincronizado con GitHub`);
   } catch (error) {
-    console.error(`❌ Error Git (${nombreArchivo}):`, error.response?.data || error.message);
+    // Si da error 409, es que otro proceso ganó la carrera. No matamos el bot.
+    console.error(`❌ Error Git (${nombreArchivo}):`, error.response?.data?.message || error.message);
+    throw error; // Lanzamos el error para que la cadena sepa que falló
   }
 }
 
-// Exportamos funciones específicas para que sea más fácil usarlas
+// Función maestra para sincronizar todo en orden
+async function sincronizarTodo() {
+  try {
+    // Subimos uno por uno con AWAIT para que no choquen
+    await subirArchivoAGit('usuarios.json', 'Update usuarios.json');
+    await subirArchivoAGit('usuarios_inscritos.json', 'Update usuarios_inscritos.json');
+  } catch (err) {
+    console.error("Error en la cadena de sincronización masiva.");
+  }
+}
+
 module.exports = {
+  subirArchivoAGit,
   guardarYSubirEquipos: () => subirArchivoAGit('equipos_inscritos.json', 'Update equipos_inscritos.json'),
-  guardarYSubirUsuarios1v1: () => subirArchivoAGit('usuarios_inscritos.json', 'Update usuarios_inscritos.json')
+  // Usamos sincronizarTodo para que actualice ambos archivos sin conflictos
+  guardarYSubirUsuarios1v1: sincronizarTodo 
 };
 
