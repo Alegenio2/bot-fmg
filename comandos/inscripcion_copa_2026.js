@@ -49,6 +49,7 @@ module.exports = {
 
       // Asociar cuenta
       asociarUsuario(user.id, { profileId: aoeId, nombre: nombre });
+      const idTorneo = "copa_uruguaya_2026";
 
       // 3. Guardar localmente
       const rutaInscritos = path.join(__dirname, '..', 'usuarios_inscritos.json');
@@ -61,7 +62,7 @@ module.exports = {
 
       const datosJugador = {
         id: user.id,
-        torneo: "copa_uruguaya_2026",
+        torneo: idTorneo,
         modo: "1v1",
         nombre: nombre,
         elo_actual: eloactual,
@@ -72,10 +73,17 @@ module.exports = {
         fecha: new Date().toISOString()
       };
 
-      const index = inscritos.findIndex(u => u.id === user.id && u.torneo === "copa_uruguaya_2026");
-      if (index !== -1) inscritos[index] = datosJugador;
-      else inscritos.push(datosJugador);
-
+      const index = inscritos.findIndex(u => u.id === user.id && u.torneo === idTorneo);
+     let mensajeFinal = "";
+if (index !== -1) {
+    // Si existe, reemplazamos (Actualización)
+    inscritos[index] = datosJugador;
+    mensajeFinal = `🔄 **¡Datos actualizados!** Tu inscripción para la Copa Uruguaya 2026 ha sido actualizada con tu ELO actual.`;
+} else {
+    // Si no existe, agregamos (Nueva inscripción)
+    inscritos.push(datosJugador);
+    mensajeFinal = `✅ **¡Inscripción confirmada!** Bienvenido a la Copa Uruguaya 2026.`;
+}
       fs.writeFileSync(rutaInscritos, JSON.stringify(inscritos, null, 2), 'utf8');
 
       // 4. Sincronizar GitHub (SIN await para no bloquear la respuesta a Discord)
