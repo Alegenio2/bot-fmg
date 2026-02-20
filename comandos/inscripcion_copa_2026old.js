@@ -6,7 +6,7 @@ const { asociarUsuario } = require('../utils/asociar.js');
 const { guardarYSubirUsuarios1v1 } = require('../git/guardarInscripcionesGit.js');
 
 module.exports = {
-  name: 'inscripcion_copa_2026',
+  name: 'inscripcion_copa_2026old',
   description: 'Inscripción exclusiva para la Copa Uruguaya 2026 (1v1).',
   options: [
     { name: 'nombre', description: 'Tu Nick en Steam / AoE2.', type: ApplicationCommandOptionType.String, required: true },
