@@ -48,7 +48,7 @@ module.exports = {
       const aoeId = match[2];
 
       // Asociar cuenta
-      asociarUsuario(user.id, { profileId: aoeId, nombre: nombre });
+     
       const idTorneo = "copa_uruguaya_2026";
 
       // 3. Guardar localmente
@@ -72,7 +72,8 @@ module.exports = {
         logo: archivoAdjunto ? archivoAdjunto.url : null,
         fecha: new Date().toISOString()
       };
-
+      asociarUsuario(user.id, datosJugador);
+      console.log("Iniciando secuencia de subida a Git...");
       const index = inscritos.findIndex(u => u.id === user.id && u.torneo === idTorneo);
      let mensajeFinal = "";
 if (index !== -1) {
@@ -87,8 +88,14 @@ if (index !== -1) {
       fs.writeFileSync(rutaInscritos, JSON.stringify(inscritos, null, 2), 'utf8');
 
       // 4. Sincronizar GitHub (SIN await para no bloquear la respuesta a Discord)
-      guardarYSubirUsuarios1v1().catch(err => console.error("❌ Error Git diferido:", err));
-      
+       setTimeout(async () => {
+        try {
+          guardarYSubirUsuarios1v1();
+          console.log("✅ Sincronización de torneo completada.");
+        } catch (err) {
+          console.error("❌ Error Git diferido:", err);
+        }
+      }, 3000); // 3 segundos de "respiro" para GitHub
       // 5. Asignación de Roles
       if (member && configServidor) {
         const roles = [];
