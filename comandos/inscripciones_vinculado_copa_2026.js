@@ -1,3 +1,4 @@
+//comandos/inscripciones_vinculado_copa_2026.js
 const { obtenerEloActual } = require('../utils/elo');
 const fs = require('fs');
 const path = require('path');
