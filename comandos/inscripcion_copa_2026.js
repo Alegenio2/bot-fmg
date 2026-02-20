@@ -92,11 +92,12 @@ module.exports = {
       }, 4000);
 
       // 5. RESPUESTA FINAL
-      await interaction.editReply({
-        content: `${mensajeFinal} Bienvenido a la Copa Uruguaya 2026.\n` +
-                 `🏆 **Nick Detectado**: ${datosApi.nombre}\n` +
-                 `📊 **Elo Actual**: ${datosApi.elo} | **Máximo**: ${datosApi.elomax}\n` +
-                 `✨ Tu cuenta ha quedado vinculada y registrada automáticamente.`
+        await interaction.editReply({
+        content: `${mensajeFinal}\n` +
+                 `🏆 **Torneo**: Copa Uruguaya 2026\n` +
+                 `👤 **Jugador**: ${datosApi.nombre}\n` +
+                 `📊 **Promedio ELO**: ${promedio}\n` +
+                 `✨ Roles actualizados correctamente.`
       });
 
     } catch (error) {
