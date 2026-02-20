@@ -1,0 +1,107 @@
+const { ApplicationCommandOptionType, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require("discord.js");
+const fs = require('fs');
+const path = require('path');
+const { asociarUsuario } = require('../utils/asociar.js');
+const { obtenerEloActual } = require('../utils/elo'); // Importamos tu buscador de API
+const { guardarYSubirUsuarios1v1 } = require('../git/guardarInscripcionesGit.js');
+
+module.exports = {
+  name: 'inscripcion_copa_2026',
+  description: 'Inscripción automática a la Copa 2026 usando tu ID de AoE2.',
+  options: [
+    { 
+      name: 'id_o_link', 
+      description: 'Tu ID de AoE2 (ej: 2583713) o el link de tu perfil.', 
+      type: ApplicationCommandOptionType.String, 
+      required: true 
+    },
+    { 
+      name: 'archivo', 
+      description: 'Sube tu logo o una foto de perfil (opcional).', 
+      type: ApplicationCommandOptionType.Attachment, 
+      required: false 
+    },
+  ],
+
+  async execute(interaction) {
+    try {
+      await interaction.deferReply({ ephemeral: false });
+    } catch (e) { return; }
+
+    const { options, user, member, guild } = interaction;
+
+    try {
+      const entrada = options.getString('id_o_link');
+      // Extraemos el ID si ponen el link, o nos quedamos con el número si ponen solo el ID
+      const match = entrada.match(/\d+$/); 
+      const profileId = match ? match[0] : null;
+
+      if (!profileId) {
+        return interaction.editReply("❌ No pude encontrar un ID válido. Pon el número de ID o el link completo.");
+      }
+
+      // 1. LLAMADA A LA API (Igual que en vincular)
+      const datosApi = await obtenerEloActual(profileId);
+      if (!datosApi) {
+        return interaction.editReply(`❌ No encontré datos en la API para el ID **${profileId}**.`);
+      }
+
+      const promedio = Math.round((datosApi.elo + datosApi.elomax) / 2);
+      const idTorneo = "copa_uruguaya_2026";
+      const archivoAdjunto = options.getAttachment('archivo');
+
+      // 2. PREPARAR DATOS PARA EL TORNEO
+      const datosJugador = {
+        id: user.id,
+        torneo: idTorneo,
+        modo: "1v1",
+        nombre: datosApi.nombre,
+        elo_actual: datosApi.elo,
+        elo_max: datosApi.elomax,
+        promedio_elo: promedio,
+        perfil: `https://www.aoe2companion.com/players/${profileId}`,
+        logo: archivoAdjunto ? archivoAdjunto.url : null,
+        fecha: new Date().toISOString()
+      };
+
+      // 3. GUARDADO LOCAL Y ASOCIACIÓN (Fusión de datos)
+      // Pasamos profileId explícitamente para que asociarUsuario no lo pierda
+      asociarUsuario(user.id, { ...datosApi, profileId });
+
+      const rutaInscritos = path.join(__dirname, '..', 'usuarios_inscritos.json');
+      let inscritos = [];
+      if (fs.existsSync(rutaInscritos)) {
+        try {
+          inscritos = JSON.parse(fs.readFileSync(rutaInscritos, 'utf8'));
+        } catch (e) { inscritos = []; }
+      }
+
+      const index = inscritos.findIndex(u => u.id === user.id && u.torneo === idTorneo);
+      let mensajeFinal = index !== -1 
+        ? `🔄 **¡Datos actualizados!**` 
+        : `✅ **¡Inscripción confirmada!**`;
+
+      if (index !== -1) inscritos[index] = datosJugador;
+      else inscritos.push(datosJugador);
+
+      fs.writeFileSync(rutaInscritos, JSON.stringify(inscritos, null, 2), 'utf8');
+
+      // 4. SINCRONIZACIÓN GITHUB (Diferida)
+      setTimeout(async () => {
+        try { await guardarYSubirUsuarios1v1(); } catch (err) {}
+      }, 4000);
+
+      // 5. RESPUESTA FINAL
+      await interaction.editReply({
+        content: `${mensajeFinal} Bienvenido a la Copa Uruguaya 2026.\n` +
+                 `🏆 **Nick Detectado**: ${datosApi.nombre}\n` +
+                 `📊 **Elo Actual**: ${datosApi.elo} | **Máximo**: ${datosApi.elomax}\n` +
+                 `✨ Tu cuenta ha quedado vinculada y registrada automáticamente.`
+      });
+
+    } catch (error) {
+      console.error(error);
+      await interaction.editReply('❌ Error al procesar la inscripción automática.');
+    }
+  }
+};
