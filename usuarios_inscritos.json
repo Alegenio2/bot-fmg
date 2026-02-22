@@ -4,12 +4,12 @@
     "torneo": "copa_uruguaya_2026",
     "modo": "1v1",
     "nombre": "FMG | Rxon",
-    "elo_actual": 1927,
-    "elo_max": 1927,
-    "promedio_elo": 1927,
-    "perfil": "https://www.aoe2companion.com/players/1780624",
+    "elo_actual": 1911,
+    "elo_max": 1911,
+    "promedio_elo": 1911,
+    "perfil": "https://www.aoe2companion.com/profile/1780624",
     "logo": null,
-    "fecha": "2026-02-20T20:34:13.979Z"
+    "fecha": "2026-02-20T15:02:18.302Z"
   },
   {
     "id": "286607198854053890",
@@ -22,5 +22,17 @@
     "perfil": "https://www.aoe2companion.com/players/2583713",
     "logo": null,
     "fecha": "2026-02-20T20:25:32.346Z"
+  },
+  {
+    "id": "244547091362217984",
+    "torneo": "copa_uruguaya_2026",
+    "modo": "1v1",
+    "nombre": "DGHIR | Garezo",
+    "elo_actual": 1603,
+    "elo_max": 1693,
+    "promedio_elo": 1648,
+    "perfil": "https://www.aoe2companion.com/players/15605540",
+    "logo": null,
+    "fecha": "2026-02-22T01:47:51.244Z"
   }
 ]
