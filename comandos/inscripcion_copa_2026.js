@@ -4,7 +4,6 @@ const path = require('path');
 const { asociarUsuario } = require('../utils/asociar.js');
 const { obtenerEloActual } = require('../utils/elo'); // Importamos tu buscador de API
 const { guardarYSubirUsuarios1v1 } = require('../git/guardarInscripcionesGit.js');
-const configServidor = require('../botConfig').servidores[guild.id];
 
 module.exports = {
   name: 'inscripcion_copa_2026',
