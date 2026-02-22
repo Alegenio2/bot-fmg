@@ -46,5 +46,17 @@
     "perfil": "https://www.aoe2companion.com/players/8921754",
     "logo": null,
     "fecha": "2026-02-22T04:53:05.173Z"
+  },
+  {
+    "id": "697996987210924072",
+    "torneo": "copa_uruguaya_2026",
+    "modo": "1v1",
+    "nombre": "|FMG| TINCHO",
+    "elo_actual": 1745,
+    "elo_max": 1880,
+    "promedio_elo": 1813,
+    "perfil": "https://www.aoe2companion.com/players/2304739",
+    "logo": null,
+    "fecha": "2026-02-22T13:40:34.497Z"
   }
 ]
