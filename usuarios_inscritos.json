@@ -34,5 +34,17 @@
     "perfil": "https://www.aoe2companion.com/players/15605540",
     "logo": null,
     "fecha": "2026-02-22T01:47:51.244Z"
+  },
+  {
+    "id": "896216989922635777",
+    "torneo": "copa_uruguaya_2026",
+    "modo": "1v1",
+    "nombre": "|FMG| TatoSky",
+    "elo_actual": 1233,
+    "elo_max": 1300,
+    "promedio_elo": 1267,
+    "perfil": "https://www.aoe2companion.com/players/8921754",
+    "logo": null,
+    "fecha": "2026-02-22T04:53:05.173Z"
   }
 ]
