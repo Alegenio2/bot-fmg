@@ -4,6 +4,7 @@ const path = require('path');
 const { asociarUsuario } = require('../utils/asociar.js');
 const { obtenerEloActual } = require('../utils/elo'); // Importamos tu buscador de API
 const { guardarYSubirUsuarios1v1 } = require('../git/guardarInscripcionesGit.js');
+const configServidor = require('../botConfig').servidores[guild.id];
 
 module.exports = {
   name: 'inscripcion_copa_2026',
@@ -86,12 +87,29 @@ module.exports = {
 
       fs.writeFileSync(rutaInscritos, JSON.stringify(inscritos, null, 2), 'utf8');
 
-      // 4. SINCRONIZACIÓN GITHUB (Diferida)
+      // 4. ASIGNACIÓN DE ROLES (Bloque restaurado y corregido)
+      try {
+        const configServidor = require('../botConfig').servidores[guild.id];
+        if (member && configServidor) {
+          const rolesAAsignar = [];
+          if (configServidor.rolInscripto) rolesAAsignar.push(configServidor.rolInscripto);
+          if (configServidor.rolcopauruguaya2026) rolesAAsignar.push(configServidor.rolcopauruguaya2026);
+          
+          if (rolesAAsignar.length > 0) {
+            await member.roles.add(rolesAAsignar);
+            console.log(`Roles asignados a ${user.username}`);
+          }
+        }
+      } catch (errRol) {
+        console.error("Error asignando roles:", errRol.message);
+      }
+      
+      // 5. SINCRONIZACIÓN GITHUB (Diferida)
       setTimeout(async () => {
         try { await guardarYSubirUsuarios1v1(); } catch (err) {}
       }, 4000);
 
-      // 5. RESPUESTA FINAL
+      // 6. RESPUESTA FINAL
         await interaction.editReply({
         content: `${mensajeFinal}\n` +
                  `🏆 **Torneo**: Copa Uruguaya 2026\n` +
