@@ -647,5 +647,18 @@
     "clan": "FUMAG",
     "elomax": 1590,
     "ultimapartida": "2026-02-03T03:57:42.000Z"
+  },
+  "1172334660903260230": {
+    "profileId": "11625892",
+    "nombre": "[ZCHE] JUAN",
+    "elo": 1490,
+    "rank": 4567,
+    "wins": 121,
+    "losses": 101,
+    "pais": "🇦🇷",
+    "country": "ar",
+    "clan": "ZCHE",
+    "elomax": 1569,
+    "ultimapartida": "2026-02-22T19:12:19.000Z"
   }
 }
