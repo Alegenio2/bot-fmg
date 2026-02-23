@@ -660,5 +660,18 @@
     "clan": "ZCHE",
     "elomax": 1569,
     "ultimapartida": "2026-02-22T19:12:19.000Z"
+  },
+  "326186986572611586": {
+    "profileId": "21978703",
+    "nombre": "ManzanaConTuco",
+    "elo": 504,
+    "rank": 43672,
+    "wins": 87,
+    "losses": 100,
+    "pais": "🇺🇾",
+    "country": "uy",
+    "clan": null,
+    "elomax": 652,
+    "ultimapartida": "2026-02-22T23:32:46.000Z"
   }
 }
