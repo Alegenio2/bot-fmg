@@ -58,5 +58,17 @@
     "perfil": "https://www.aoe2companion.com/players/2304739",
     "logo": null,
     "fecha": "2026-02-22T13:40:34.497Z"
+  },
+  {
+    "id": "662427737138528308",
+    "torneo": "copa_uruguaya_2026",
+    "modo": "1v1",
+    "nombre": "kakaidolo",
+    "elo_actual": 1193,
+    "elo_max": 1293,
+    "promedio_elo": 1243,
+    "perfil": "https://www.aoe2companion.com/players/14501687",
+    "logo": null,
+    "fecha": "2026-02-23T12:56:53.836Z"
   }
 ]
