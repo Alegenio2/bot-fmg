@@ -70,5 +70,17 @@
     "perfil": "https://www.aoe2companion.com/players/14501687",
     "logo": null,
     "fecha": "2026-02-23T12:56:53.836Z"
+  },
+  {
+    "id": "582941701518262412",
+    "torneo": "copa_uruguaya_2026",
+    "modo": "1v1",
+    "nombre": "Matixxx",
+    "elo_actual": 1192,
+    "elo_max": 1295,
+    "promedio_elo": 1244,
+    "perfil": "https://www.aoe2companion.com/players/14779963",
+    "logo": null,
+    "fecha": "2026-02-23T21:53:48.754Z"
   }
 ]
