@@ -94,5 +94,17 @@
     "perfil": "https://www.aoe2companion.com/players/4822389",
     "logo": null,
     "fecha": "2026-02-24T20:39:20.810Z"
+  },
+  {
+    "id": "724668688145580062",
+    "torneo": "copa_uruguaya_2026",
+    "modo": "1v1",
+    "nombre": "|FMG| Gral_Artigas",
+    "elo_actual": 1482,
+    "elo_max": 1513,
+    "promedio_elo": 1498,
+    "perfil": "https://www.aoe2companion.com/players/2899006",
+    "logo": null,
+    "fecha": "2026-02-25T23:01:32.415Z"
   }
 ]
