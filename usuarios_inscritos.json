@@ -106,5 +106,17 @@
     "perfil": "https://www.aoe2companion.com/players/2899006",
     "logo": null,
     "fecha": "2026-02-25T23:01:32.415Z"
+  },
+  {
+    "id": "465307831583637514",
+    "torneo": "copa_uruguaya_2026",
+    "modo": "1v1",
+    "nombre": "|FMG| ROGELIO III",
+    "elo_actual": 1192,
+    "elo_max": 1266,
+    "promedio_elo": 1229,
+    "perfil": "https://www.aoe2companion.com/players/19032038",
+    "logo": null,
+    "fecha": "2026-03-03T01:48:19.740Z"
   }
 ]
