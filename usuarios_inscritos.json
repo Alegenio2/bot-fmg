@@ -118,5 +118,17 @@
     "perfil": "https://www.aoe2companion.com/players/19032038",
     "logo": null,
     "fecha": "2026-03-03T01:48:19.740Z"
+  },
+  {
+    "id": "408054148110614529",
+    "torneo": "copa_uruguaya_2026",
+    "modo": "1v1",
+    "nombre": "-FMG- Rodri",
+    "elo_actual": 1538,
+    "elo_max": 1626,
+    "promedio_elo": 1582,
+    "perfil": "https://www.aoe2companion.com/players/3147129",
+    "logo": null,
+    "fecha": "2026-03-04T16:47:45.914Z"
   }
 ]
