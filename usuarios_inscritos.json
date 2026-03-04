@@ -130,5 +130,17 @@
     "perfil": "https://www.aoe2companion.com/players/3147129",
     "logo": null,
     "fecha": "2026-03-04T16:47:45.914Z"
+  },
+  {
+    "id": "485610092092456975",
+    "torneo": "copa_uruguaya_2026",
+    "modo": "1v1",
+    "nombre": "Kroyen",
+    "elo_actual": 1476,
+    "elo_max": 1514,
+    "promedio_elo": 1495,
+    "perfil": "https://www.aoe2companion.com/players/828458",
+    "logo": null,
+    "fecha": "2026-03-04T22:44:25.192Z"
   }
 ]
