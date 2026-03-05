@@ -85,7 +85,11 @@
               "jugador1Nick": "FMG | Rxon",
               "jugador2Id": "485610092092456975",
               "jugador2Nick": "Kroyen",
-              "resultado": null
+              "resultado": null,
+              "fecha": "06-03-2026",
+              "horario": "21:30",
+              "diaSemana": "Viernes",
+              "coordinadoPor": "jabsuy"
             },
             {
               "jugador1Id": "896216989922635777",
