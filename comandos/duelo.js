@@ -48,10 +48,10 @@ module.exports = {
     let favorecido = null;
 
     if (diferencia >= 200) {
-      if (diferencia >= 800) handicap = 20;
-      else if (diferencia >= 600) handicap = 15;
-      else if (diferencia >= 400) handicap = 10;
-      else if (diferencia >= 200) handicap = 5;
+      if (diferencia >= 600) handicap = 20;
+      else if (diferencia >= 450) handicap = 15;
+      else if (diferencia >= 300) handicap = 10;
+      else if (diferencia >= 150) handicap = 5;
 
       favorecido = elo1 < elo2 ? data1.nombre : data2.nombre;
     }
@@ -66,7 +66,7 @@ module.exports = {
       respuesta += `⚖️ **Hándicap recomendado:**\n` +
                    `El jugador **${favorecido}** debería recibir un **${handicap}%** de hándicap.`;
     } else {
-      respuesta += `⚖️ **Duelo equilibrado:** No se recomienda hándicap (diferencia menor a 200 pts).`;
+      respuesta += `⚖️ **Duelo equilibrado:** No se recomienda hándicap (diferencia menor a 150 pts).`;
     }
 
     await interaction.reply(respuesta);
