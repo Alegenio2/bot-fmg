@@ -1,0 +1,349 @@
+{
+  "torneo": "copa_uruguaya_2026",
+  "tipo": "1v1",
+  "grupos": [
+    {
+      "nombre": "Grupo A",
+      "jugadores": [
+        {
+          "id": "238414625417330688",
+          "nick": "FMG | Rxon",
+          "elo": 1911
+        },
+        {
+          "id": "896216989922635777",
+          "nick": "|FMG| TatoSky",
+          "elo": 1267
+        },
+        {
+          "id": "697996987210924072",
+          "nick": "|FMG| TINCHO",
+          "elo": 1813
+        },
+        {
+          "id": "760308403087867916",
+          "nick": "|FMG| Tano Stokes",
+          "elo": 1632
+        },
+        {
+          "id": "724668688145580062",
+          "nick": "|FMG| Gral_Artigas",
+          "elo": 1498
+        },
+        {
+          "id": "485610092092456975",
+          "nick": "Kroyen",
+          "elo": 1495
+        }
+      ]
+    },
+    {
+      "nombre": "Grupo B",
+      "jugadores": [
+        {
+          "id": "286607198854053890",
+          "nick": "|FMG| twitch/JabsUY",
+          "elo": 1542
+        },
+        {
+          "id": "244547091362217984",
+          "nick": "DGHIR | Garezo",
+          "elo": 1648
+        },
+        {
+          "id": "662427737138528308",
+          "nick": "kakaidolo",
+          "elo": 1243
+        },
+        {
+          "id": "582941701518262412",
+          "nick": "Matixxx",
+          "elo": 1244
+        },
+        {
+          "id": "465307831583637514",
+          "nick": "|FMG| ROGELIO III",
+          "elo": 1229
+        },
+        {
+          "id": "408054148110614529",
+          "nick": "-FMG- Rodri",
+          "elo": 1582
+        }
+      ]
+    }
+  ],
+  "rondas_grupos": [
+    {
+      "grupo": "A",
+      "partidos": [
+        {
+          "ronda": 1,
+          "partidos": [
+            {
+              "jugador1Id": "238414625417330688",
+              "jugador1Nick": "FMG | Rxon",
+              "jugador2Id": "485610092092456975",
+              "jugador2Nick": "Kroyen",
+              "resultado": null
+            },
+            {
+              "jugador1Id": "896216989922635777",
+              "jugador1Nick": "|FMG| TatoSky",
+              "jugador2Id": "724668688145580062",
+              "jugador2Nick": "|FMG| Gral_Artigas",
+              "resultado": null
+            },
+            {
+              "jugador1Id": "697996987210924072",
+              "jugador1Nick": "|FMG| TINCHO",
+              "jugador2Id": "760308403087867916",
+              "jugador2Nick": "|FMG| Tano Stokes",
+              "resultado": null
+            }
+          ]
+        },
+        {
+          "ronda": 2,
+          "partidos": [
+            {
+              "jugador1Id": "238414625417330688",
+              "jugador1Nick": "FMG | Rxon",
+              "jugador2Id": "724668688145580062",
+              "jugador2Nick": "|FMG| Gral_Artigas",
+              "resultado": null
+            },
+            {
+              "jugador1Id": "485610092092456975",
+              "jugador1Nick": "Kroyen",
+              "jugador2Id": "760308403087867916",
+              "jugador2Nick": "|FMG| Tano Stokes",
+              "resultado": null
+            },
+            {
+              "jugador1Id": "896216989922635777",
+              "jugador1Nick": "|FMG| TatoSky",
+              "jugador2Id": "697996987210924072",
+              "jugador2Nick": "|FMG| TINCHO",
+              "resultado": null
+            }
+          ]
+        },
+        {
+          "ronda": 3,
+          "partidos": [
+            {
+              "jugador1Id": "238414625417330688",
+              "jugador1Nick": "FMG | Rxon",
+              "jugador2Id": "760308403087867916",
+              "jugador2Nick": "|FMG| Tano Stokes",
+              "resultado": null
+            },
+            {
+              "jugador1Id": "724668688145580062",
+              "jugador1Nick": "|FMG| Gral_Artigas",
+              "jugador2Id": "697996987210924072",
+              "jugador2Nick": "|FMG| TINCHO",
+              "resultado": null
+            },
+            {
+              "jugador1Id": "485610092092456975",
+              "jugador1Nick": "Kroyen",
+              "jugador2Id": "896216989922635777",
+              "jugador2Nick": "|FMG| TatoSky",
+              "resultado": null
+            }
+          ]
+        },
+        {
+          "ronda": 4,
+          "partidos": [
+            {
+              "jugador1Id": "238414625417330688",
+              "jugador1Nick": "FMG | Rxon",
+              "jugador2Id": "697996987210924072",
+              "jugador2Nick": "|FMG| TINCHO",
+              "resultado": null
+            },
+            {
+              "jugador1Id": "760308403087867916",
+              "jugador1Nick": "|FMG| Tano Stokes",
+              "jugador2Id": "896216989922635777",
+              "jugador2Nick": "|FMG| TatoSky",
+              "resultado": null
+            },
+            {
+              "jugador1Id": "724668688145580062",
+              "jugador1Nick": "|FMG| Gral_Artigas",
+              "jugador2Id": "485610092092456975",
+              "jugador2Nick": "Kroyen",
+              "resultado": null
+            }
+          ]
+        },
+        {
+          "ronda": 5,
+          "partidos": [
+            {
+              "jugador1Id": "238414625417330688",
+              "jugador1Nick": "FMG | Rxon",
+              "jugador2Id": "896216989922635777",
+              "jugador2Nick": "|FMG| TatoSky",
+              "resultado": null
+            },
+            {
+              "jugador1Id": "697996987210924072",
+              "jugador1Nick": "|FMG| TINCHO",
+              "jugador2Id": "485610092092456975",
+              "jugador2Nick": "Kroyen",
+              "resultado": null
+            },
+            {
+              "jugador1Id": "760308403087867916",
+              "jugador1Nick": "|FMG| Tano Stokes",
+              "jugador2Id": "724668688145580062",
+              "jugador2Nick": "|FMG| Gral_Artigas",
+              "resultado": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "grupo": "B",
+      "partidos": [
+        {
+          "ronda": 1,
+          "partidos": [
+            {
+              "jugador1Id": "286607198854053890",
+              "jugador1Nick": "|FMG| twitch/JabsUY",
+              "jugador2Id": "408054148110614529",
+              "jugador2Nick": "-FMG- Rodri",
+              "resultado": null
+            },
+            {
+              "jugador1Id": "244547091362217984",
+              "jugador1Nick": "DGHIR | Garezo",
+              "jugador2Id": "465307831583637514",
+              "jugador2Nick": "|FMG| ROGELIO III",
+              "resultado": null
+            },
+            {
+              "jugador1Id": "662427737138528308",
+              "jugador1Nick": "kakaidolo",
+              "jugador2Id": "582941701518262412",
+              "jugador2Nick": "Matixxx",
+              "resultado": null
+            }
+          ]
+        },
+        {
+          "ronda": 2,
+          "partidos": [
+            {
+              "jugador1Id": "286607198854053890",
+              "jugador1Nick": "|FMG| twitch/JabsUY",
+              "jugador2Id": "465307831583637514",
+              "jugador2Nick": "|FMG| ROGELIO III",
+              "resultado": null
+            },
+            {
+              "jugador1Id": "408054148110614529",
+              "jugador1Nick": "-FMG- Rodri",
+              "jugador2Id": "582941701518262412",
+              "jugador2Nick": "Matixxx",
+              "resultado": null
+            },
+            {
+              "jugador1Id": "244547091362217984",
+              "jugador1Nick": "DGHIR | Garezo",
+              "jugador2Id": "662427737138528308",
+              "jugador2Nick": "kakaidolo",
+              "resultado": null
+            }
+          ]
+        },
+        {
+          "ronda": 3,
+          "partidos": [
+            {
+              "jugador1Id": "286607198854053890",
+              "jugador1Nick": "|FMG| twitch/JabsUY",
+              "jugador2Id": "582941701518262412",
+              "jugador2Nick": "Matixxx",
+              "resultado": null
+            },
+            {
+              "jugador1Id": "465307831583637514",
+              "jugador1Nick": "|FMG| ROGELIO III",
+              "jugador2Id": "662427737138528308",
+              "jugador2Nick": "kakaidolo",
+              "resultado": null
+            },
+            {
+              "jugador1Id": "408054148110614529",
+              "jugador1Nick": "-FMG- Rodri",
+              "jugador2Id": "244547091362217984",
+              "jugador2Nick": "DGHIR | Garezo",
+              "resultado": null
+            }
+          ]
+        },
+        {
+          "ronda": 4,
+          "partidos": [
+            {
+              "jugador1Id": "286607198854053890",
+              "jugador1Nick": "|FMG| twitch/JabsUY",
+              "jugador2Id": "662427737138528308",
+              "jugador2Nick": "kakaidolo",
+              "resultado": null
+            },
+            {
+              "jugador1Id": "582941701518262412",
+              "jugador1Nick": "Matixxx",
+              "jugador2Id": "244547091362217984",
+              "jugador2Nick": "DGHIR | Garezo",
+              "resultado": null
+            },
+            {
+              "jugador1Id": "465307831583637514",
+              "jugador1Nick": "|FMG| ROGELIO III",
+              "jugador2Id": "408054148110614529",
+              "jugador2Nick": "-FMG- Rodri",
+              "resultado": null
+            }
+          ]
+        },
+        {
+          "ronda": 5,
+          "partidos": [
+            {
+              "jugador1Id": "286607198854053890",
+              "jugador1Nick": "|FMG| twitch/JabsUY",
+              "jugador2Id": "244547091362217984",
+              "jugador2Nick": "DGHIR | Garezo",
+              "resultado": null
+            },
+            {
+              "jugador1Id": "662427737138528308",
+              "jugador1Nick": "kakaidolo",
+              "jugador2Id": "408054148110614529",
+              "jugador2Nick": "-FMG- Rodri",
+              "resultado": null
+            },
+            {
+              "jugador1Id": "582941701518262412",
+              "jugador1Nick": "Matixxx",
+              "jugador2Id": "465307831583637514",
+              "jugador2Nick": "|FMG| ROGELIO III",
+              "resultado": null
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "creado": "2026-03-05T19:20:28.090Z"
+}
