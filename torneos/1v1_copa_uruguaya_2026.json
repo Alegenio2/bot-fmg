@@ -103,7 +103,14 @@
               "jugador1Nick": "|FMG| TatoSky",
               "jugador2Id": "724668688145580062",
               "jugador2Nick": "|FMG| Gral_Artigas",
-              "resultado": null,
+              "resultado": {
+                "724668688145580062": 2,
+                "896216989922635777": 1,
+                "mapas": "https://www.mapas.com",
+                "civs": "https://www.civs.com",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479198564272967712/1479210713875480678/MP_Replay_v101.103.31214.0_2026.02.03_235034_4.zip?ex=69ab35d4&is=69a9e454&hm=fdb20b03b6113be911cbb420a8ad96d5f853cbbeb5b40c82ba63027801ff817c&",
+                "fecha_registro": "2026-03-05T20:15:16.485Z"
+              },
               "fecha": "06-03-2026",
               "horario": "22:00",
               "diaSemana": "Viernes",
