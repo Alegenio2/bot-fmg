@@ -103,7 +103,11 @@
               "jugador1Nick": "|FMG| TatoSky",
               "jugador2Id": "724668688145580062",
               "jugador2Nick": "|FMG| Gral_Artigas",
-              "resultado": null
+              "resultado": null,
+              "fecha": "06-03-2026",
+              "horario": "22:00",
+              "diaSemana": "Viernes",
+              "coordinadoPor": "jabsuy"
             },
             {
               "jugador1Id": "697996987210924072",
