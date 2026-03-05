@@ -86,13 +86,12 @@
               "jugador2Id": "485610092092456975",
               "jugador2Nick": "Kroyen",
               "resultado": {
-                "485610092092456975": 2,
-                "238414625417330688": 0,
-                "mapas": "ww.drftma.com",
-                "civs": "www.civs.com",
-                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479198564272967712/1479203048688713798/MP_Replay_v101.103.31214.0_2026.02.03_235034_4.zip?ex=69ab2eb1&is=69a9dd31&hm=1d45c35b37c57b63e6483636223263ad6bf1ba5db772664019af02e029bcffb2&",
-                "recs_local": "Copa2026_GA_R1_kroyen_vs_rxon_MP_Replay_v101.103.31214.0_2026.02.03_235034_4.zip",
-                "fecha_registro": "2026-03-05T19:44:50.006Z"
+                "238414625417330688": 2,
+                "485610092092456975": 0,
+                "mapas": "ww.map.com",
+                "civs": "ww.cvis.com",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479198564272967712/1479203855718678680/MP_Replay_v101.103.31214.0_2026.02.03_235034_4.zip?ex=69ab2f71&is=69a9ddf1&hm=aefa0a3e262dcedb7b6937df7a3de1bf651d58cfc1f79d74b6fca758e9122736&",
+                "fecha_registro": "2026-03-05T19:48:02.083Z"
               },
               "fecha": "06-03-2026",
               "horario": "21:30",
