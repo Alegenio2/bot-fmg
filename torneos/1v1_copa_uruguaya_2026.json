@@ -85,7 +85,14 @@
               "jugador1Nick": "FMG | Rxon",
               "jugador2Id": "485610092092456975",
               "jugador2Nick": "Kroyen",
-              "resultado": null,
+              "resultado": {
+                "238414625417330688": 2,
+                "485610092092456975": 0,
+                "mapas": "ww.maps.com",
+                "civs": "www.civs.com",
+                "evidencia": "https://cdn.discordapp.com/ephemeral-attachments/1479198564272967712/1479201260812112064/MP_Replay_v101.103.31214.0_2026.02.04_012408_4.aoe2record?ex=69ab2d06&is=69a9db86&hm=902e93ab467201c7512911ad0a74d1293d6c3a9e68b1db6cbb9b4981e19b5635&",
+                "fecha_registro": "2026-03-05T19:37:42.377Z"
+              },
               "fecha": "06-03-2026",
               "horario": "21:30",
               "diaSemana": "Viernes",
