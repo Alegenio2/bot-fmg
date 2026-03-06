@@ -12,7 +12,7 @@
   "dependencies": {
     "@napi-rs/canvas": "^0.1.95",
     "axios": "^1.13.6",
-    "canvas": "@napi-rs/canvas",
+    "canvas": "npm:@napi-rs/canvas@^0.1.95",
     "cors": "^2.8.6",
     "discord.js": "^14.25.1",
     "dotenv": "^17.3.1",
@@ -21,7 +21,8 @@
     "node-cron": "^4.2.1",
     "node-fetch": "^2.7.0",
     "uuid": "^8.3.2"
-  }"engines": {
+  },
+  "engines": {
     "node": "22.x"
   }
 }
