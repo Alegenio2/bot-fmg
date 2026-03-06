@@ -38,7 +38,7 @@ fs.readdirSync(comandosPath).forEach(file => {
 
 
 // Registrar comandos
-require('./registrarComandos');
+//require('./registrarComandos');
 
 // Exportar client y botConfig
 module.exports = { client, botConfig };
@@ -94,6 +94,12 @@ client.on('interactionCreate', async (interaction) => {
 client.on('ready', async (c) => {
   console.log(`${c.user.username} is online`);
 
+  // Mueve el registro aquí para que no bloquee el login
+  try {
+    require('./registrarComandos'); 
+  } catch (err) {
+    console.error("Error al registrar comandos:", err);
+  }
   // Mensaje de prueba
   const canalTestId = "1381716348996030575"; 
   const canal = await client.channels.fetch(canalTestId).catch(err => console.error("❌ Error al buscar el canal:", err));
@@ -171,6 +177,7 @@ client.on('guildMemberAdd', async member => {
 });
 
 client.login(process.env.TOKEN).catch(err => console.error("❌ Error al iniciar sesión con el bot:", err));
+
 
 
 
