@@ -101,10 +101,6 @@ client.login(process.env.TOKEN)
 client.on('ready', async (c) => {
   console.log(`${c.user.username} is online`);
 
-// Ejecutamos el registro después de que el bot ya está online
-    // Pasamos el array de comandos que ya cargaste arriba
-    const comandosArray = Array.from(client.commands.values()).map(c => c.data.toJSON ? c.data.toJSON() : c);
-    registrarComandos(comandosArray);
   // Mensaje de prueba
   const canalTestId = "1381716348996030575"; 
   const canal = await client.channels.fetch(canalTestId).catch(err => console.error("❌ Error al buscar el canal:", err));
@@ -183,6 +179,7 @@ client.on('guildMemberAdd', async member => {
 });
 
 client.login(process.env.TOKEN).catch(err => console.error("❌ Error al iniciar sesión con el bot:", err));
+
 
 
 
