@@ -6,6 +6,7 @@ const cron = require('node-cron');
 const botConfig = require('./botConfig.json');
 const { mostrarGuiaModal } = require('./utils/guias_interaccion.js');
 require('./web.js');
+const { createCanvas, loadImage } = require('@napi-rs/canvas');
 
 const client = new Client({ 
   intents: [
@@ -136,18 +137,18 @@ client.on('ready', async (c) => {
 
 // Bienvenida con Canvas en index.js
 client.on('guildMemberAdd', async member => {
-  const Canvas = require('canvas');
-  const { AttachmentBuilder } = require('discord.js'); // Asegúrate de tenerlo importado
   const config = require('./bienvenidaConfig.json');
 
   try {
-    const canvas = Canvas.createCanvas(1028, 468);
+    // 2. Ya no usas Canvas.createCanvas, sino directamente createCanvas
+    const canvas = createCanvas(1028, 468);
     const ctx = canvas.getContext('2d');
 
     const backgroundImages = ["./img/bg.png", "./img/bg2.png"];
     const selectedBackgroundImg = backgroundImages[Math.floor(Math.random() * backgroundImages.length)];
 
-    const backgroundImg = await Canvas.loadImage(selectedBackgroundImg);
+    // 3. Usa loadImage directamente
+    const backgroundImg = await loadImage(selectedBackgroundImg);
     ctx.drawImage(backgroundImg, 0, 0, canvas.width, canvas.height);    
 
     ctx.font = 'bold 40px Arial';
@@ -156,17 +157,18 @@ client.on('guildMemberAdd', async member => {
     ctx.fillText(`¡Bienvenido, ${member.user.username}!`, canvas.width / 2, 100);
 
     // Dibujar Avatar
-    const avatar = await Canvas.loadImage(member.user.displayAvatarURL({ size:1024, extension: "png" }));
+    const avatar = await loadImage(member.user.displayAvatarURL({ size: 1024, extension: "png" }));
     ctx.drawImage(avatar, 800, 130, 150, 150);
 
-    const attachment = new AttachmentBuilder(canvas.toBuffer("image/png"), { name: 'welcome-image.png' });
+    // 4. El buffer se obtiene de forma un poco más directa
+    const attachment = new AttachmentBuilder(await canvas.encode('png'), { name: 'welcome-image.png' });
     
     const channelId = config[member.guild.id];
     if (channelId) {
       const channel = member.guild.channels.cache.get(channelId);
       if (channel) {
         await channel.send({ 
-          content: `¡Hola ${member}! Bienvenido a la comunidad. 🛡️\nPara acceder a todos los canales, por favor usa el comando \`/vincular\` en el canal <#1380280393357590578>.`, 
+          content: `¡Hola ${member}! Bienvenido a la comunidad. 🛡️`, 
           files: [attachment] 
         });
       }
@@ -177,6 +179,7 @@ client.on('guildMemberAdd', async member => {
 });
 
 client.login(process.env.TOKEN).catch(err => console.error("❌ Error al iniciar sesión con el bot:", err));
+
 
 
 
