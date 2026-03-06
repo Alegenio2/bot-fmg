@@ -47,7 +47,7 @@ module.exports = {
     let handicap = 0;
     let favorecido = null;
 
-    if (diferencia >= 200) {
+    if (diferencia >= 150) {
       if (diferencia >= 600) handicap = 20;
       else if (diferencia >= 450) handicap = 15;
       else if (diferencia >= 300) handicap = 10;

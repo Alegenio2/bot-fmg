@@ -3,16 +3,8 @@ const { SlashCommandBuilder } = require("discord.js");
 const fs = require("fs");
 const path = require("path");
 const { crearTorneoDesdeEquipos } = require("../utils/creartorneo.js");
+const { crearTorneo1v1 } = require("../utils/crearTorneo1v1.js");
 const botConfig = require("../botConfig.json");
-
-// Cargar torneos disponibles desde equipos_inscritos.json
-function obtenerTorneosDisponibles() {
-  const rutaEquipos = path.join(__dirname, "..", "equipos_inscritos.json");
-  if (!fs.existsSync(rutaEquipos)) return [];
-  const equipos = JSON.parse(fs.readFileSync(rutaEquipos, "utf8"));
-  const torneosUnicos = [...new Set(equipos.map(e => e.torneo))];
-  return torneosUnicos.map(t => ({ name: t, value: t }));
-}
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -27,10 +19,14 @@ module.exports = {
           { name: "Equipos (Team Games)", value: "equipos" }
         )
     )
+    .addStringOption(opt =>
+      opt.setName("nombre")
+        .setDescription("ID del torneo (ej: copa_uruguaya_2026)")
+        .setRequired(true)
+    )
     .addIntegerOption(opt =>
-      opt
-        .setName("cantidad_grupos")
-        .setDescription("Número de grupos (2, 4 u 8)")
+      opt.setName("cantidad_grupos")
+        .setDescription("Número de grupos")
         .setRequired(true)
         .addChoices(
           { name: "2 Grupos", value: 2 },
@@ -39,53 +35,62 @@ module.exports = {
         )
     )
     .addIntegerOption(opt =>
-      opt
-        .setName("clasificados")
-        .setDescription("Equipos que clasifican por grupo (1 o 2)")
+      opt.setName("clasificados")
+        .setDescription("Equipos/Jugadores que clasifican por grupo")
         .setRequired(true)
         .addChoices(
           { name: "1 por grupo", value: 1 },
           { name: "2 por grupo", value: 2 }
         )
+    )
+    .addBooleanOption(opt => 
+    opt.setName('redondear')
+       .setDescription('¿Redondear ELO a múltiplos de 50 para el hándicap?')
+       .setRequired(true)
     ),
 
   async execute(interaction) {
+    const { options, user } = interaction;
+
+    // 1. Verificación de permisos
+    if (user.id !== botConfig.ownerId) {
+      return interaction.reply({
+        content: "❌ Solo el organizador puede usar este comando.",
+        ephemeral: true,
+      });
+    }
+
     try {
-      const { options, user } = interaction;
-
-      // Solo el organizador puede ejecutar
-      if (user.id !== botConfig.ownerId) {
-        return interaction.reply({
-          content: "❌ Solo el organizador puede usar este comando.",
-          ephemeral: true,
-        });
-      }
-      const tipo = options.getString("tipo");
-      const torneo = options.getString("torneo");
-      const cantidadGrupos = options.getInteger("cantidad_grupos");
-      const clasificados = options.getInteger("clasificados");
-
       await interaction.deferReply();
 
+      const tipo = options.getString("tipo");
+      const torneoId = options.getString("nombre"); // Ahora capturamos el nombre
+      const cantidadGrupos = options.getInteger("cantidad_grupos");
+      const clasificados = options.getInteger("clasificados");
+      const redondear = options.getBoolean("redondear"); // <--- CAPTURAR ESTO
+
       let resultado;
-    if (tipo === "1v1") {
-      resultado = await crearTorneo1v1(nombreTorneo, grupos, clasificados);
-    } else {
-      resultado = await crearTorneoDesdeEquipos(nombreTorneo, grupos, clasificados);
-    }
+
+      if (tipo === "1v1") {
+        // Llamamos a la utilidad 1v1
+        resultado = await crearTorneo1v1(torneoId, cantidadGrupos, clasificados, redondear);
+      } else {
+        // Llamamos a la utilidad de Equipos
+        resultado = await crearTorneoDesdeEquipos(torneoId, cantidadGrupos, clasificados);
+      }
 
       await interaction.editReply({
         content: resultado,
       });
+
     } catch (err) {
-      console.error(err);
-      await interaction.reply({
-        content: "⚠️ Ocurrió un error al crear el torneo.",
-        ephemeral: true,
-      });
+      console.error("Error en crear_torneo:", err);
+      // Verificamos si ya respondimos para evitar doble respuesta
+      if (interaction.deferred) {
+        await interaction.editReply({ content: "⚠️ Ocurrió un error al crear el torneo." });
+      } else {
+        await interaction.reply({ content: "⚠️ Ocurrió un error al crear el torneo.", ephemeral: true });
+      }
     }
   },
 };
-
-
-
