@@ -89,7 +89,13 @@ client.on('interactionCreate', async (interaction) => {
 
 });
 
+console.log("🔍 Verificando entorno...");
+console.log("TOKEN existe:", !!process.env.TOKEN);
+console.log("CLIENT_ID existe:", !!process.env.CLIENT_ID);
 
+client.login(process.env.TOKEN)
+  .then(() => console.log("✅ Conexión con Discord establecida"))
+  .catch(err => console.error("❌ Falló el login de Discord:", err));
 
 // Ready
 client.on('ready', async (c) => {
@@ -177,6 +183,7 @@ client.on('guildMemberAdd', async member => {
 });
 
 client.login(process.env.TOKEN).catch(err => console.error("❌ Error al iniciar sesión con el bot:", err));
+
 
 
 
