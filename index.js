@@ -1,7 +1,7 @@
 require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
-const { Client, GatewayIntentBits, Collection, AttachmentBuilder, ActivityType } = require('discord.js');
+const { Client, GatewayIntentBits, Collection, AttachmentBuilder, ActivityType, ActionRowBuilder, ButtonBuilder, ButtonStyle, ModalBuilder, TextInputBuilder, TextInputStyle } = require('discord.js');
 const cron = require('node-cron');
 const botConfig = require('./botConfig.json');
 const { mostrarGuiaModal } = require('./utils/guias_interaccion.js');
@@ -12,170 +12,160 @@ const client = new Client({
   intents: [
     GatewayIntentBits.Guilds, 
     GatewayIntentBits.GuildMessages, 
-    GatewayIntentBits.GuildMembers
+    GatewayIntentBits.GuildMembers,
+    GatewayIntentBits.MessageContent
   ] 
 });
 
-// Colección de comandos
 client.commands = new Collection();
 
-// Cargar comandos y handlers
+// Cargar comandos
 const comandosPath = path.join(__dirname, 'comandos');
-const handlersPath = path.join(__dirname, 'handlers');
-
 fs.readdirSync(comandosPath).forEach(file => {
   if (file.endsWith('.js')) {
     const cmd = require(path.join(comandosPath, file));
-
     if (cmd.data && cmd.execute) {
       client.commands.set(cmd.data.name, cmd);
     } else if (cmd.name && cmd.execute) {
       client.commands.set(cmd.name, cmd);
-    } else {
-      console.warn(`⚠️ El comando ${file} no tiene data o execute, se omitirá.`);
     }
   }
 });
 
-
-// Registrar comandos
 require('./registrarComandos');
 
-// Exportar client y botConfig
 module.exports = { client, botConfig };
 
-// Manejo de interacciones
+// --- MANEJO DE INTERACCIONES ---
 client.on('interactionCreate', async (interaction) => {
-  // ✅ 1️⃣ Autocomplete handler
+  
+  // 1️⃣ Autocomplete
   if (interaction.isAutocomplete()) {
     const command = client.commands.get(interaction.commandName);
-    if (!command || !command.autocomplete) return;
-    try {
-      await command.autocomplete(interaction);
-    } catch (err) {
-      console.error(`❌ Error en autocomplete de ${interaction.commandName}:`, err);
-    }
-    return; // 🚨 Importante: que no siga al execute
+    if (command?.autocomplete) await command.autocomplete(interaction);
+    return;
   }
 
-  // ✅ 2️⃣ Slash command handler
+  // 2️⃣ Slash Commands
   if (interaction.isChatInputCommand()) {
     const command = client.commands.get(interaction.commandName);
     if (!command) return;
-
     try {
       await command.execute(interaction, client);
     } catch (error) {
-      console.error(`Error en comando ${interaction.commandName}:`, error);
-      if (interaction.deferred || interaction.replied) {
-        await interaction.followUp({
-          content: '❌ Ocurrió un error ejecutando el comando.',
-          ephemeral: true,
-        });
-      } else {
-        await interaction.reply({
-          content: '❌ Ocurrió un error ejecutando el comando.',
-          ephemeral: true,
-        });
-      }
+      console.error(error);
+      const reply = { content: '❌ Error ejecutando el comando.', ephemeral: true };
+      interaction.deferred || interaction.replied ? await interaction.followUp(reply) : await interaction.reply(reply);
     }
   }
 
-  // ✅ 3️⃣ Botones de guía
+  // 3️⃣ Botones
   if (interaction.isButton()) {
+    // Si es el botón de bienvenida
+    if (interaction.customId === 'abrir_modal_vincular') {
+      const modal = new ModalBuilder()
+        .setCustomId('modal_vincular_aoe2')
+        .setTitle('Vincular Cuenta AoE2');
+
+      const urlInput = new TextInputBuilder()
+        .setCustomId('aoe2_url_input')
+        .setLabel("URL de tu perfil de AoE2 Companion")
+        .setPlaceholder("https://www.aoe2companion.com/players/2583756566")
+        .setStyle(TextInputStyle.Short)
+        .setRequired(true);
+
+      modal.addComponents(new ActionRowBuilder().addComponents(urlInput));
+      return await interaction.showModal(modal);
+    }
+    
+    // Otros botones (Guías)
     await mostrarGuiaModal(interaction);
-    return; // Para que no siga a otros handlers
   }
 
-});
+  // 4️⃣ Envío de Modales (Procesar la vinculación)
+  if (interaction.isModalSubmit()) {
+    if (interaction.customId === 'modal_vincular_aoe2') {
+      const urlCompleta = interaction.fields.getTextInputValue('aoe2_url_input');
+      const ROL_ACCESO_ID = '1377760878807613520';
 
-console.log("🔍 Verificando entorno...");
-console.log("TOKEN existe:", !!process.env.TOKEN);
-console.log("CLIENT_ID existe:", !!process.env.CLIENT_ID);
+      await interaction.deferReply({ ephemeral: true });
 
-// Ready
-client.on('ready', async (c) => {
-  console.log(`${c.user.username} is online`);
+      const match = urlCompleta.match(/^https:\/\/(www\.)?aoe2companion\.com\/players\/(\d+)$/);
+      if (!match) {
+        return interaction.editReply({ content: "❌ URL no válida. Debe ser el link de tu perfil." });
+      }
 
-  // Mensaje de prueba
-  const canalTestId = "1381716348996030575"; 
-  const canal = await client.channels.fetch(canalTestId).catch(err => console.error("❌ Error al buscar el canal:", err));
-  if (canal) canal.send("✅ El bot AldeanoOscar está conectado y activo.");
+      const profileId = match[2];
+      const { obtenerEloActual } = require('./utils/elo');
+      const { asociarUsuario } = require('./utils/asociar');
+      
+      const datos = await obtenerEloActual(profileId);
+      if (!datos) return interaction.editReply({ content: "❌ No se encontró el perfil." });
 
-  // Cron jobs
-  const { actualizarYPublicarRankingClan } = require('./utils/rankingClan.js');
-  const { actualizarYPublicarRankingURU } = require('./utils/rankingUru.js');
-  const { guardarTorneosFiltrados: guardarTorneos } = require('./utils/guardarTorneos');
-  const { subirTorneos } = require('./git/subirTorneosGit.js');
+      asociarUsuario(interaction.user.id, {
+        profileId, nombre: datos.nombre, elo: datos.elo, pais: datos.pais
+      });
 
-  // Ranking Clan - Viernes 15:00
- cron.schedule('15 12 * * 1', () => {
-  actualizarYPublicarRankingClan(client, '693245375615860838');
-}, {
-  timezone: "America/Montevideo"
-});
+      try {
+        const role = interaction.guild.roles.cache.get(ROL_ACCESO_ID);
+        if (role) await interaction.member.roles.add(role);
+      } catch (e) { console.error("Error rol:", e); }
 
-  // Ranking URU - lunes 22:00
-  cron.schedule('0 22 * * 1', () => {
-    const rankingURU = require('./rankingConfig.json').rankingURU;
-    for (const guildId of Object.keys(rankingURU)) {
-      actualizarYPublicarRankingURU(client, guildId);
+      await interaction.editReply({ content: `✅ ¡Vinculado como **${datos.nombre}**! Acceso concedido.` });
     }
-  });
-
-  // Guardado y subida torneos - diario a 01:50 UTC-3
-  cron.schedule('37 15 * * 1', async () => await guardarTorneos(), { timezone: 'America/Montevideo' });
-  cron.schedule('38 15 * * 1', async () => await subirTorneos(), { timezone: 'America/Montevideo' });
-
-  // Actividad
-  c.user.setActivity('Age of Empires II: Definitive Edition', { type: ActivityType.Playing });
+  }
 });
 
-// Bienvenida con Canvas en index.js
+// --- READY EVENT ---
+client.on('ready', async (c) => {
+  console.log(`🤖 ${c.user.username} online`);
+  c.user.setActivity('Age of Empires II', { type: ActivityType.Playing });
+});
+
+// --- BIENVENIDA CON BOTÓN ---
 client.on('guildMemberAdd', async member => {
   const config = require('./bienvenidaConfig.json');
+  const channelId = config[member.guild.id];
+  if (!channelId) return;
 
   try {
-    // 2. Ya no usas Canvas.createCanvas, sino directamente createCanvas
     const canvas = createCanvas(1028, 468);
     const ctx = canvas.getContext('2d');
-
     const backgroundImages = ["./img/bg.png", "./img/bg2.png"];
-    const selectedBackgroundImg = backgroundImages[Math.floor(Math.random() * backgroundImages.length)];
-
-    // 3. Usa loadImage directamente
-    const backgroundImg = await loadImage(selectedBackgroundImg);
-    ctx.drawImage(backgroundImg, 0, 0, canvas.width, canvas.height);    
-
-    ctx.font = 'bold 40px Arial';
+    const backgroundImg = await loadImage(path.resolve(backgroundImages[Math.floor(Math.random() * backgroundImages.length)]));
+    
+    ctx.drawImage(backgroundImg, 0, 0, canvas.width, canvas.height);
+    ctx.font = 'bold 45px Arial';
     ctx.fillStyle = '#ffffff';
     ctx.textAlign = 'center';
     ctx.fillText(`¡Bienvenido, ${member.user.username}!`, canvas.width / 2, 100);
 
-    // Dibujar Avatar
     const avatar = await loadImage(member.user.displayAvatarURL({ size: 1024, extension: "png" }));
     ctx.drawImage(avatar, 800, 130, 150, 150);
 
-    // 4. El buffer se obtiene de forma un poco más directa
-    const attachment = new AttachmentBuilder(await canvas.encode('png'), { name: 'welcome-image.png' });
+    const attachment = new AttachmentBuilder(await canvas.encode('png'), { name: 'welcome.png' });
     
-    const channelId = config[member.guild.id];
-    if (channelId) {
-      const channel = member.guild.channels.cache.get(channelId);
-      if (channel) {
-        await channel.send({ 
-          content: `¡Hola ${member}! Bienvenido a la comunidad. 🛡️ \nPara acceder a todos los canales, por favor usa el comando \`/vincular\` en el canal <#1380280393357590578>.` , 
-          files: [attachment] 
-        });
-      }
+    // Fila con el botón
+    const row = new ActionRowBuilder().addComponents(
+      new ButtonBuilder()
+        .setCustomId('abrir_modal_vincular')
+        .setLabel('Vincular Perfil y Entrar')
+        .setStyle(ButtonStyle.Success)
+        .setEmoji('🛡️')
+    );
+
+    const channel = member.guild.channels.cache.get(channelId) || await member.guild.channels.fetch(channelId).catch(() => null);
+    if (channel) {
+      await channel.send({ 
+        content: `¡Hola ${member}! 🏰 Bienvenido a la comunidad.🛡️ \nPara acceder a todos los canales vincula tu cuenta con el botón de abajo.`, 
+        files: [attachment],
+        components: [row]
+      });
     }
-  } catch (error) {
-    console.error("Error en bienvenida:", error);
-  }
+  } catch (error) { console.error("Error bienvenida:", error); }
 });
 
-client.login(process.env.TOKEN).catch(err => console.error("❌ Error al iniciar sesión con el bot:", err));
-
+client.login(process.env.TOKEN);
 
 
 
