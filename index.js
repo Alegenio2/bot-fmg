@@ -69,7 +69,7 @@ client.on('interactionCreate', async (interaction) => {
 
       const urlInput = new TextInputBuilder()
         .setCustomId('aoe2_url_input')
-        .setLabel("Pega aquí la URL de tu perfil de AoE2 Companion")
+        .setLabel("URL de tu perfil de AoE2 Companion")
         .setPlaceholder("https://www.aoe2companion.com/players/2583756566")
         .setStyle(TextInputStyle.Short)
         .setRequired(true);
@@ -170,6 +170,7 @@ client.on('guildMemberAdd', async member => {
 });
 
 client.login(process.env.TOKEN);
+
 
 
 
