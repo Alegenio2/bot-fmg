@@ -699,5 +699,18 @@
     "clan": "FUMAG",
     "elomax": 1626,
     "ultimapartida": "2025-08-08T18:51:03.000Z"
+  },
+  "594988359965999118": {
+    "profileId": "2295211",
+    "nombre": "N4cHoV",
+    "elo": 1158,
+    "rank": 13929,
+    "wins": 708,
+    "losses": 694,
+    "pais": "🇺🇾",
+    "country": "uy",
+    "clan": null,
+    "elomax": 1238,
+    "ultimapartida": "2026-03-07T18:02:04.000Z"
   }
 }
