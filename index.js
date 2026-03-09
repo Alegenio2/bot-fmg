@@ -69,7 +69,7 @@ client.on('interactionCreate', async (interaction) => {
 
       const urlInput = new TextInputBuilder()
         .setCustomId('aoe2_url_input')
-        .setLabel("URL de tu perfil de AoE2 Companion")
+        .setLabel("Pega aquí la URL de tu perfil de AoE2 Companion")
         .setPlaceholder("https://www.aoe2companion.com/players/2583756566")
         .setStyle(TextInputStyle.Short)
         .setRequired(true);
@@ -147,6 +147,10 @@ client.on('guildMemberAdd', async member => {
     
     // Fila con el botón
     const row = new ActionRowBuilder().addComponents(
+       new ButtonBuilder()
+        .setLabel('1. Buscar mi Perfil')
+        .setStyle(ButtonStyle.Link) // Estilo Link para salir a la web
+        .setURL('https://www.aoe2companion.com/'),
       new ButtonBuilder()
         .setCustomId('abrir_modal_vincular')
         .setLabel('Vincular Perfil y Entrar')
@@ -166,6 +170,7 @@ client.on('guildMemberAdd', async member => {
 });
 
 client.login(process.env.TOKEN);
+
 
 
 
