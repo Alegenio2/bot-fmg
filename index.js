@@ -164,7 +164,7 @@ client.on('guildMemberAdd', async member => {
       const channel = member.guild.channels.cache.get(channelId);
       if (channel) {
         await channel.send({ 
-          content: `¡Hola ${member}! Bienvenido a la comunidad. 🛡️`, 
+          content: `¡Hola ${member}! Bienvenido a la comunidad. 🛡️ Para acceder a todos los canales, por favor usa el comando /vincular en el canal ⁠1380280393357590578.` , 
           files: [attachment] 
         });
       }
@@ -175,6 +175,7 @@ client.on('guildMemberAdd', async member => {
 });
 
 client.login(process.env.TOKEN).catch(err => console.error("❌ Error al iniciar sesión con el bot:", err));
+
 
 
 
