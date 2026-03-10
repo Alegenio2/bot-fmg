@@ -6,11 +6,10 @@ const axios = require('axios');
 const { subirTodosLosTorneos } = require("../git/guardarTorneosGit");
 const { publicarTablaCopa } = require('../utils/actualizarTablaCopa');
 
-// Función para evitar el error de URL inválida
+// Función para asegurar formato de URL
 function asegurarHttps(url) {
   if (!url) return null;
-  if (url.startsWith('http://') || url.startsWith('https://')) return url;
-  return `https://${url}`;
+  return url.startsWith('http') ? url : `https://${url}`;
 }
 
 module.exports = {
@@ -32,17 +31,16 @@ module.exports = {
     const p2 = interaction.options.getInteger('puntos_j2');
     const attachment = interaction.options.getAttachment('recs');
     
-    // Validamos y formateamos los links de los usuarios
     const linkMapas = asegurarHttps(interaction.options.getString('mapas'));
     const linkCivs = asegurarHttps(interaction.options.getString('civs'));
 
     if (j1.id === j2.id) return interaction.reply({ content: "❌ Error: mismo jugador.", ephemeral: true });
 
-    await interaction.deferReply({ ephemeral: true });
+    // 1. Respondemos rápido para no agotar el tiempo de Discord
+    await interaction.deferReply({ ephemeral: false });
 
     const filePath = path.join(__dirname, '..', 'torneos', '1v1_copa_uruguaya_2026.json');
     const recsFolder = path.join(__dirname, '..', 'recs_descargados');
-
     if (!existsSync(recsFolder)) mkdirSync(recsFolder, { recursive: true });
 
     try {
@@ -51,23 +49,13 @@ module.exports = {
       let partidoEncontrado = false;
       let infoExtra = { grupo: "", ronda: "" };
 
+      // Lógica de actualización de datos
       for (const grupoObj of torneo.rondas_grupos) {
         for (const rondaObj of grupoObj.partidos) {
           for (const partido of rondaObj.partidos) {
             if ((partido.jugador1Id === j1.id && partido.jugador2Id === j2.id) ||
                 (partido.jugador1Id === j2.id && partido.jugador2Id === j1.id)) {
-
-              // Descarga Local (Backup)
-              const nombreArchivo = `Copa26_G${grupoObj.grupo}_R${rondaObj.ronda}_${j1.username}_vs_${j2.username}_${attachment.name}`;
-              const rutaLocalRec = path.join(recsFolder, nombreArchivo);
               
-              try {
-                const response = await axios({ method: 'GET', url: attachment.url, responseType: 'stream' });
-                const writer = createWriteStream(rutaLocalRec);
-                response.data.pipe(writer);
-              } catch (e) { console.error("Error bajando rec:", e); }
-
-              // Actualizar JSON
               partido.resultado = {
                 [j1.id]: p1,
                 [j2.id]: p2,
@@ -87,49 +75,52 @@ module.exports = {
         if (partidoEncontrado) break;
       }
 
-      if (!partidoEncontrado) return interaction.editReply({ content: `⚠️ Partido no encontrado.` });
+      if (!partidoEncontrado) return interaction.editReply({ content: `⚠️ Partido no encontrado en el torneo.` });
 
+      // Guardado rápido del JSON
       await fs.writeFile(filePath, JSON.stringify(torneo, null, 2), 'utf8');
-      await subirTodosLosTorneos();
-// Actualizar la tabla en el canal fijo
-await publicarTablaCopa(interaction.client);
-      // CREACIÓN DE BOTONES CON LINKS VALIDADOS
-      const row = new ActionRowBuilder().addComponents(
-        new ButtonBuilder()
-          .setLabel('Descargar RECS')
-          .setStyle(ButtonStyle.Link)
-          .setURL(attachment.url),
-        new ButtonBuilder()
-          .setLabel('Mapa Draft')
-          .setStyle(ButtonStyle.Link)
-          .setURL(linkMapas),
-        new ButtonBuilder()
-          .setLabel('Civ Draft')
-          .setStyle(ButtonStyle.Link)
-          .setURL(linkCivs)
-      );
 
-      await interaction.editReply({ content: "✅ Resultado procesado exitosamente." });
-      
-// Determinamos quién ganó para poner la corona (dentro del spoiler)
+      // 2. Respuesta al usuario inmediata
       const ganador = p1 > p2 ? j1 : (p2 > p1 ? j2 : null);
       const marcador = `|| ${j1.username} ${p1} - ${p2} ${j2.username} ${ganador ? '' : '🏆'} ||`;
 
-      await interaction.followUp({
-       content: `📢 **RESULTADO REGISTRADO**\n` +
+      const row = new ActionRowBuilder().addComponents(
+        new ButtonBuilder().setLabel('Descargar RECS').setStyle(ButtonStyle.Link).setURL(attachment.url),
+        new ButtonBuilder().setLabel('Mapa Draft').setStyle(ButtonStyle.Link).setURL(linkMapas),
+        new ButtonBuilder().setLabel('Civ Draft').setStyle(ButtonStyle.Link).setURL(linkCivs)
+      );
+
+      await interaction.editReply({
+        content: `📢 **RESULTADO REGISTRADO**\n` +
                  `━━━━━━━━━━━━━━━━━━━━━━━━\n` +
                  `🏆 **Copa 2026** | **Grupo ${infoExtra.grupo}** - Ronda ${infoExtra.ronda}\n\n` +
                  `⚔️ **Duelo:** ${j1.username} **vs** ${j2.username}\n` +
                  `📊 **Resultado:** ${marcador}\n\n` +
-                 `*Haz clic en el cuadro oscuro para ver quién ganó.*\n` +
-                 `━━━━━━━━━━━━━━━━━━━━━━━━`,
-        components: [row],
-        ephemeral: false
+                 `*Haz clic en el cuadro oscuro para ver quién ganó.*`,
+        components: [row]
       });
+
+      // 3. Tareas pesadas en segundo plano (NO bloquean al usuario)
+      (async () => {
+        try {
+          // Descarga del REC
+          const nombreArchivo = `Copa26_G${infoExtra.grupo}_R${infoExtra.ronda}_${j1.username}_vs_${j2.username}_${attachment.name}`;
+          const rutaLocalRec = path.join(recsFolder, nombreArchivo);
+          const response = await axios({ method: 'GET', url: attachment.url, responseType: 'stream' });
+          const writer = createWriteStream(rutaLocalRec);
+          response.data.pipe(writer);
+
+          // Subidas y sincronización
+          await subirTodosLosTorneos();
+          await publicarTablaCopa(interaction.client);
+        } catch (err) {
+          console.error("Error en tareas de fondo:", err);
+        }
+      })();
 
     } catch (err) {
       console.error(err);
-      await interaction.editReply({ content: "❌ Error interno. Revisa que los links sean válidos." });
+      await interaction.editReply({ content: "❌ Error interno al registrar el resultado." });
     }
   }
 };
