@@ -115,7 +115,14 @@
               "jugador1Nick": "|FMG| Tano Stokes",
               "jugador2Id": "896216989922635777",
               "jugador2Nick": "|FMG| TatoSky",
-              "resultado": null
+              "resultado": {
+                "760308403087867916": 0,
+                "896216989922635777": 2,
+                "mapas": "https://aoe2cm.net/draft/lMHmp",
+                "civs": "https://aoe2cm.net/draft/rrwHf",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1481065697990803473/AgeIIDE_Replay_458643161.zip?ex=69b1f56b&is=69b0a3eb&hm=3b96c662b58f33e63cd57a7d3ccf68e1874e38029d287c040f314991de0a90ef&",
+                "fecha_registro": "2026-03-10T23:06:19.940Z"
+              }
             },
             {
               "jugador1Id": "408054148110614529",
