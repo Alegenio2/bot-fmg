@@ -1,23 +1,23 @@
+// utils/procesarInscripcion.js
 const fs = require('fs');
 const path = require('path');
 const { EmbedBuilder } = require('discord.js');
-const { asociarUsuario } = require('./asociar.js');
+const { asociarUsuario, obtenerProfileId } = require('./asociar.js'); // Importamos ambos aquí
 const { obtenerEloActual } = require('./elo'); 
 const { guardarYSubirUsuarios1v1 } = require('../git/guardarInscripcionesGit.js');
 
-async function ejecutarInscripcion(interaction, profileId, esRapida = false) {
+// AÑADIMOS archivoAdjunto como parámetro opcional
+async function ejecutarInscripcion(interaction, profileId, esRapida = false, archivoAdjunto = null) {
     const { user, member, guild } = interaction;
 
-    // Si es inscripción rápida, profileId llega como nulo o no se usa, 
-    // lo buscamos en tu archivo de usuarios.json
+    // 1. LÓGICA DE OBTENCIÓN DE ID
     if (esRapida) {
-        const { obtenerProfileId } = require('./asociar.js');
+        // Ya no necesitamos el require aquí adentro, lo subimos al inicio del archivo
         profileId = obtenerProfileId(user.id);
         if (!profileId) throw new Error("NO_VINCULADO");
     }
 
-    
-    // 1. LLAMADA A LA API
+    // 2. LLAMADA A LA API
     const datosApi = await obtenerEloActual(profileId);
     if (!datosApi) throw new Error("API_ERROR");
 
@@ -33,11 +33,11 @@ async function ejecutarInscripcion(interaction, profileId, esRapida = false) {
         elo_max: datosApi.elomax,
         promedio_elo: promedio,
         perfil: `https://www.aoe2companion.com/players/${profileId}`,
-        logo: archivoAdjunto ? archivoAdjunto.url : null,
+        logo: archivoAdjunto ? archivoAdjunto.url : null, // Ahora sí existe la variable
         fecha: new Date().toISOString()
     };
 
-    // 2. GUARDADO Y ASOCIACIÓN
+    // 3. GUARDADO Y ASOCIACIÓN
     asociarUsuario(user.id, { ...datosApi, profileId });
 
     const rutaInscritos = path.join(__dirname, '..', 'usuarios_inscritos.json');
@@ -56,9 +56,10 @@ async function ejecutarInscripcion(interaction, profileId, esRapida = false) {
 
     fs.writeFileSync(rutaInscritos, JSON.stringify(inscritos, null, 2), 'utf8');
 
-    // 3. ASIGNACIÓN DE ROLES (Tu lógica original)
+    // 4. ASIGNACIÓN DE ROLES
     try {
-        const botConfig = require('../botConfig');
+        // Asegúrate de que la ruta a botConfig sea correcta (../botConfig o ../botConfig.json)
+        const botConfig = require('../botConfig.json'); 
         const configServidor = botConfig.servidores[guild.id];
         if (member && configServidor) {
             const rolesAAsignar = [];
@@ -68,8 +69,8 @@ async function ejecutarInscripcion(interaction, profileId, esRapida = false) {
         }
     } catch (errRol) { console.error("Error roles:", errRol.message); }
 
-    // 4. ENVÍO AL CANAL #INSCRIPTOS (La ficha pública)
-    const canalInscriptosId = "1380280393357590578"; // <--- Tu canal de inscriptos
+    // 5. ENVÍO AL CANAL #INSCRIPTOS
+    const canalInscriptosId = "1380280393357590578"; 
     const canalPublico = guild.channels.cache.get(canalInscriptosId) || await guild.channels.fetch(canalInscriptosId).catch(() => null);
     
     if (canalPublico) {
@@ -81,6 +82,7 @@ async function ejecutarInscripcion(interaction, profileId, esRapida = false) {
                 { name: "ELO Máximo", value: `${datosApi.elomax}`, inline: true },
                 { name: "Promedio", value: `${promedio}`, inline: true }
             )
+            // Si hay logo lo pone, si no, usa el avatar de Discord
             .setThumbnail(archivoAdjunto ? archivoAdjunto.url : user.displayAvatarURL())
             .setColor("#f1c40f")
             .setFooter({ text: "Copa Uruguaya 2026" })
@@ -89,13 +91,12 @@ async function ejecutarInscripcion(interaction, profileId, esRapida = false) {
         await canalPublico.send({ embeds: [embedFicha] });
     }
 
-    // 5. GITHUB
+    // 6. GITHUB
     setTimeout(async () => {
         try { await guardarYSubirUsuarios1v1(); } catch (err) {}
     }, 4000);
 
-    // Retornamos los datos para la respuesta del comando/botón
-   return { mensajeFinal, nombre: datosApi.nombre, promedio: Math.round((datosApi.elo + datosApi.elomax) / 2) };
+    return { mensajeFinal, nombre: datosApi.nombre, promedio };
 }
 
 module.exports = { ejecutarInscripcion };
