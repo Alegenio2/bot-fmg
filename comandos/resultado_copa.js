@@ -5,6 +5,7 @@ const path = require('path');
 const axios = require('axios');
 const { subirTodosLosTorneos } = require("../git/guardarTorneosGit");
 const { publicarTablaCopa } = require('../utils/actualizarTablaCopa');
+const { obtenerUsuario } = require('../utils/asociar'); // Asegúrate de que la ruta sea correcta
 
 // Función para asegurar formato de URL
 function asegurarHttps(url) {
@@ -80,9 +81,15 @@ module.exports = {
       // Guardado rápido del JSON
       await fs.writeFile(filePath, JSON.stringify(torneo, null, 2), 'utf8');
 
-      // 2. Respuesta al usuario inmediata
-      const ganador = p1 > p2 ? j1 : (p2 > p1 ? j2 : null);
-      const marcador = `|| ${j1.username} ${p1} - ${p2} ${j2.username} ${ganador ? '' : '🏆'} ||`;
+
+const datosJ1 = obtenerUsuario(j1.id);
+const datosJ2 = obtenerUsuario(j2.id);
+
+const nombreJ1 = datosJ1 ? datosJ1.nombre : j1.username;
+const nombreJ2 = datosJ2 ? datosJ2.nombre : j2.username;
+
+// Marcador con nombres de AoE2
+       const marcador = `|| ${nombreJ1} ${p1} - ${p2} ${nombreJ2} ||`;
 
       const row = new ActionRowBuilder().addComponents(
         new ButtonBuilder().setLabel('Descargar RECS').setStyle(ButtonStyle.Link).setURL(attachment.url),
@@ -92,11 +99,11 @@ module.exports = {
 
       await interaction.editReply({
         content: `📢 **RESULTADO REGISTRADO**\n` +
-                 `━━━━━━━━━━━━━━━━━━━━━━━━\n` +
-                 `🏆 **Copa 2026** | **Grupo ${infoExtra.grupo}** - Ronda ${infoExtra.ronda}\n\n` +
-                 `⚔️ **Duelo:** ${j1.username} **vs** ${j2.username}\n` +
-                 `📊 **Resultado:** ${marcador}\n\n` +
-                 `*Haz clic en el cuadro oscuro para ver quién ganó.*`,
+             `━━━━━━━━━━━━━━━━━━━━━━━━\n` +
+             `🏆 **Copa 2026** | **Grupo ${infoExtra.grupo}** - Ronda ${infoExtra.ronda}\n\n` +
+             `⚔️ **Duelo:** ${nombreJ1} **vs** ${nombreJ2}\n` + // También aquí puedes usar los nombres
+             `📊 **Resultado:** ${marcador}\n\n` +
+             `*Haz clic en el cuadro oscuro para ver quién ganó.*`,
         components: [row]
       });
 
@@ -124,3 +131,4 @@ module.exports = {
     }
   }
 };
+
