@@ -70,7 +70,7 @@ async function ejecutarInscripcion(interaction, profileId, esRapida = false, arc
     } catch (errRol) { console.error("Error roles:", errRol.message); }
 
     // 5. ENVÍO AL CANAL #INSCRIPTOS
-    const canalInscriptosId = "1380280393357590578"; 
+    const canalInscriptosId = "1473060055396913192"; 
     const canalPublico = guild.channels.cache.get(canalInscriptosId) || await guild.channels.fetch(canalInscriptosId).catch(() => null);
     
     if (canalPublico) {
