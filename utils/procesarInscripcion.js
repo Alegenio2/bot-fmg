@@ -69,27 +69,23 @@ async function ejecutarInscripcion(interaction, profileId, esRapida = false, arc
         }
     } catch (errRol) { console.error("Error roles:", errRol.message); }
 
-    // 5. ENVÍO AL CANAL #INSCRIPTOS
-    const canalInscriptosId = "1473060055396913192"; 
-    const canalPublico = guild.channels.cache.get(canalInscriptosId) || await guild.channels.fetch(canalInscriptosId).catch(() => null);
-    
-    if (canalPublico) {
-        const embedFicha = new EmbedBuilder()
-            .setTitle(`🛡️ Jugador Inscripto: ${datosApi.nombre}`)
-            .setURL(`https://www.aoe2companion.com/players/${profileId}`)
-            .addFields(
-                { name: "ELO Actual", value: `${datosApi.elo}`, inline: true },
-                { name: "ELO Máximo", value: `${datosApi.elomax}`, inline: true },
-                { name: "Promedio", value: `${promedio}`, inline: true }
-            )
-            // Si hay logo lo pone, si no, usa el avatar de Discord
-            .setThumbnail(archivoAdjunto ? archivoAdjunto.url : user.displayAvatarURL())
-            .setColor("#f1c40f")
-            .setFooter({ text: "Copa Uruguaya 2026" })
-            .setTimestamp();
+    // 5. ENVÍO AL CANAL #INSCRIPTOS (Mensaje de texto, no Embed)
+const canalInscriptosId = "1473060055396913192"; 
+const canalPublico = guild.channels.cache.get(canalInscriptosId) || await guild.channels.fetch(canalInscriptosId).catch(() => null);
 
-        await canalPublico.send({ embeds: [embedFicha] });
-    }
+if (canalPublico) {
+    const mensajeInscrito = 
+        `🛡️ **Jugador Inscripto: ${datosApi.nombre}**\n` +
+        `🏆 **Torneo**: Copa Uruguaya 2026\n` +
+        `📊 **ELO Actual**: ${datosApi.elo}\n` +
+        `📈 **ELO Máximo**: ${datosApi.elomax}\n` +
+        `💎 **Promedio**: ${promedio}\n` +
+        `✨ Roles actualizados correctamente.\n`+
+        `👤 **Perfil**: https://www.aoe2companion.com/players/${profileId}`;
+    
+
+    await canalPublico.send({ content: mensajeInscrito });
+}
 
     // 6. GITHUB
     setTimeout(async () => {
