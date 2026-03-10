@@ -2,7 +2,6 @@ require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
 const { Client, GatewayIntentBits, Collection, AttachmentBuilder, ActivityType, ActionRowBuilder, ButtonBuilder, ButtonStyle, ModalBuilder, TextInputBuilder, TextInputStyle } = require('discord.js');
-const cron = require('node-cron');
 const botConfig = require('./botConfig.json');
 const { mostrarGuiaModal } = require('./utils/guias_interaccion.js');
 require('./web.js');
@@ -78,9 +77,8 @@ client.on('interactionCreate', async (interaction) => {
       return await interaction.showModal(modal);
     }
 
-    // B. Botón de Inscripción Manual (Copa) - Abre el Modal
+    // B. Botón de Inscripción Manual (Copa) - Abre el Modal directamente
     if (interaction.customId === 'abrir_modal_copa_2026') {
-      await interaction.deferReply({ ephemeral: true });
       const modal = new ModalBuilder()
         .setCustomId('modal_copa_2026')
         .setTitle('Inscripción Copa 2026');
@@ -96,25 +94,26 @@ client.on('interactionCreate', async (interaction) => {
       return await interaction.showModal(modal);
     }
 
-    // C. Botón de Inscripción Rápida (Vinculados)
+    // C. Botón de Inscripción Rápida (Vinculados) - RESPUESTA PRIVADA
     if (interaction.customId === 'boton_inscripcion_rapida') {
-        await interaction.deferReply({ ephemeral: true });
+        await interaction.deferReply({ ephemeral: true }); // ✅ PRIVADO
         try {
             const { ejecutarInscripcion } = require('./utils/procesarInscripcion');
-            const res = await ejecutarInscripcion(interaction, null, true); // true = esRapida
+            const res = await ejecutarInscripcion(interaction, null, true);
             
-            return await interaction.editReply({
-                content: `${res.mensajeFinal}\n🏆 **Torneo**: Copa Uruguaya 2026\n👤 **Jugador**: ${res.nombre}\n📊 **Promedio ELO**: ${res.promedio}\n✨ Roles actualizados.`
-            });
+           // Respuesta privada al usuario que presionó el botón
+await interaction.editReply({
+    content: `✅ ¡${res.mensajeFinal}! Tus datos ya fueron publicados en el canal de inscriptos.`
+});
         } catch (error) {
             if (error.message === "NO_VINCULADO") 
-                return interaction.editReply("⚠️ No estás vinculado. Usa el botón de arriba primero.");
+                return interaction.editReply("⚠️ No estás vinculado. Usa el botón de inscripción manual.");
             console.error(error);
             return await interaction.editReply("❌ Error al procesar.");
         }
     }
     
-    // D. Si no es ninguno de los anteriores, es una Guía
+    // D. Guías
     await mostrarGuiaModal(interaction);
   }
 
@@ -152,7 +151,7 @@ client.on('interactionCreate', async (interaction) => {
       await interaction.editReply({ content: `✅ ¡Vinculado como **${datos.nombre}**! Acceso concedido.` });
     }
 
-    // Procesar Inscripción Manual (Copa)
+    // Procesar Inscripción Manual (Copa) - RESPUESTA PRIVADA
     if (interaction.customId === 'modal_copa_2026') {
         const { ejecutarInscripcion } = require('./utils/procesarInscripcion');
         const entrada = interaction.fields.getTextInputValue('id_input');
@@ -161,16 +160,13 @@ client.on('interactionCreate', async (interaction) => {
         if (!match) return interaction.reply({ content: "❌ ID inválido.", ephemeral: true });
 
         try {
-            await interaction.deferReply({ ephemeral: false });
+            await interaction.deferReply({ ephemeral: true }); // ✅ PRIVADO
             const res = await ejecutarInscripcion(interaction, match[0]);
             
-            await interaction.editReply({
-                content: `${res.mensajeFinal}\n` +
-                         `🏆 **Torneo**: Copa Uruguaya 2026\n` +
-                         `👤 **Jugador**: ${res.nombre}\n` +
-                         `📊 **Promedio ELO**: ${res.promedio}\n` +
-                         `✨ Roles actualizados correctamente.`
-            });
+           // Respuesta privada al usuario que presionó el botón
+await interaction.editReply({
+    content: `✅ ¡${res.mensajeFinal}! Tus datos ya fueron publicados en el canal de inscriptos.`
+});
         } catch (error) {
             console.error(error);
             await interaction.editReply('❌ Error al procesar la inscripción.');
@@ -185,7 +181,7 @@ client.on('ready', async (c) => {
   c.user.setActivity('Age of Empires II', { type: ActivityType.Playing });
 });
 
-// --- BIENVENIDA CON BOTÓN ---
+// --- BIENVENIDA ---
 client.on('guildMemberAdd', async member => {
   const config = require('./bienvenidaConfig.json');
   const channelId = config[member.guild.id];
@@ -232,4 +228,3 @@ client.on('guildMemberAdd', async member => {
 });
 
 client.login(process.env.TOKEN);
-
