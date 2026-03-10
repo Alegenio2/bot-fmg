@@ -101,7 +101,14 @@
               "jugador1Nick": "FMG | Rxon",
               "jugador2Id": "465307831583637514",
               "jugador2Nick": "|FMG| ROGELIO III",
-              "resultado": null
+              "resultado": {
+                "238414625417330688": 2,
+                "465307831583637514": 1,
+                "mapas": "https://aoe2cm.net/draft/UsUuI",
+                "civs": "https://aoe2cm.net/draft/zBkCc",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1481062626493595820/AgeIIDE_Replay_460550054.zip?ex=69b1f28e&is=69b0a10e&hm=cde49f81217a94752ed38fd930d6a73d2a04bc66c083724e760365eeb4632581&",
+                "fecha_registro": "2026-03-10T22:54:07.632Z"
+              }
             },
             {
               "jugador1Id": "760308403087867916",
