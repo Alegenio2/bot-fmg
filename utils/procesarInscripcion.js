@@ -5,9 +5,18 @@ const { asociarUsuario } = require('./asociar.js');
 const { obtenerEloActual } = require('./elo'); 
 const { guardarYSubirUsuarios1v1 } = require('../git/guardarInscripcionesGit.js');
 
-async function ejecutarInscripcion(interaction, profileId, archivoAdjunto = null) {
+async function ejecutarInscripcion(interaction, profileId, esRapida = false) {
     const { user, member, guild } = interaction;
 
+    // Si es inscripción rápida, profileId llega como nulo o no se usa, 
+    // lo buscamos en tu archivo de usuarios.json
+    if (esRapida) {
+        const { obtenerProfileId } = require('./asociar.js');
+        profileId = obtenerProfileId(user.id);
+        if (!profileId) throw new Error("NO_VINCULADO");
+    }
+
+    
     // 1. LLAMADA A LA API
     const datosApi = await obtenerEloActual(profileId);
     if (!datosApi) throw new Error("API_ERROR");
@@ -86,7 +95,7 @@ async function ejecutarInscripcion(interaction, profileId, archivoAdjunto = null
     }, 4000);
 
     // Retornamos los datos para la respuesta del comando/botón
-    return { mensajeFinal, nombre: datosApi.nombre, promedio };
+   return { mensajeFinal, nombre: datosApi.nombre, promedio: Math.round((datosApi.elo + datosApi.elomax) / 2) };
 }
 
 module.exports = { ejecutarInscripcion };
