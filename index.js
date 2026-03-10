@@ -80,6 +80,7 @@ client.on('interactionCreate', async (interaction) => {
 
     // B. Botón de Inscripción Manual (Copa) - Abre el Modal
     if (interaction.customId === 'abrir_modal_copa_2026') {
+      await interaction.deferReply({ ephemeral: true });
       const modal = new ModalBuilder()
         .setCustomId('modal_copa_2026')
         .setTitle('Inscripción Copa 2026');
@@ -97,7 +98,7 @@ client.on('interactionCreate', async (interaction) => {
 
     // C. Botón de Inscripción Rápida (Vinculados)
     if (interaction.customId === 'boton_inscripcion_rapida') {
-        await interaction.deferReply({ ephemeral: false });
+        await interaction.deferReply({ ephemeral: true });
         try {
             const { ejecutarInscripcion } = require('./utils/procesarInscripcion');
             const res = await ejecutarInscripcion(interaction, null, true); // true = esRapida
@@ -231,3 +232,4 @@ client.on('guildMemberAdd', async member => {
 });
 
 client.login(process.env.TOKEN);
+
