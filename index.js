@@ -84,6 +84,8 @@ client.on('interactionCreate', async (interaction) => {
 
   // 4️⃣ Envío de Modales (Procesar la vinculación)
   if (interaction.isModalSubmit()) {
+
+    
     if (interaction.customId === 'modal_vincular_aoe2') {
       const urlCompleta = interaction.fields.getTextInputValue('aoe2_url_input');
       const ROL_ACCESO_ID = '1377760878807613520';
@@ -112,6 +114,48 @@ client.on('interactionCreate', async (interaction) => {
       } catch (e) { console.error("Error rol:", e); }
 
       await interaction.editReply({ content: `✅ ¡Vinculado como **${datos.nombre}**! Acceso concedido.` });
+    }
+    // --- LÓGICA DE INSCRIPCIÓN COPA 2026 (La nueva) ---
+    if (interaction.customId === 'modal_copa_2026') {
+        const { ejecutarInscripcion } = require('./utils/procesarInscripcion');
+        const entrada = interaction.fields.getTextInputValue('id_input');
+        
+        // Extraer ID (ya que el usuario puede poner el link o el ID)
+        const match = entrada.match(/\d+$/);
+        if (!match) return interaction.reply({ content: "❌ ID inválido.", ephemeral: true });
+
+        // Esta función hace todo el trabajo pesado, roles, JSON, Git y el mensaje final
+        try {
+            await interaction.deferReply({ ephemeral: false });
+            const res = await ejecutarInscripcion(interaction, match[0]);
+            
+            await interaction.editReply({
+                content: `${res.mensajeFinal}\n` +
+                         `🏆 **Torneo**: Copa Uruguaya 2026\n` +
+                         `👤 **Jugador**: ${res.nombre}\n` +
+                         `📊 **Promedio ELO**: ${res.promedio}\n` +
+                         `✨ Roles actualizados correctamente.`
+            });
+        } catch (error) {
+            console.error(error);
+            await interaction.editReply('❌ Error al procesar la inscripción.');
+        }
+    }
+    // BOTÓN 2: Inscripción Rápida (Vinculados)
+    if (interaction.customId === 'boton_inscripcion_rapida') {
+        await interaction.deferReply({ ephemeral: false });
+        try {
+            const { ejecutarInscripcion } = require('./utils/procesarInscripcion');
+            const res = await ejecutarInscripcion(interaction, null, true); // true = esRapida
+            
+            await interaction.editReply({
+                content: `${res.mensajeFinal}\n🏆 **Torneo**: Copa Uruguaya 2026\n👤 **Jugador**: ${res.nombre}\n📊 **Promedio ELO**: ${res.promedio}\n✨ Roles actualizados.`
+            });
+        } catch (error) {
+            if (error.message === "NO_VINCULADO") 
+                return interaction.editReply("⚠️ No estás vinculado. Usa el botón de arriba primero.");
+            await interaction.editReply("❌ Error al procesar.");
+        }
     }
   }
 });
@@ -170,6 +214,7 @@ client.on('guildMemberAdd', async member => {
 });
 
 client.login(process.env.TOKEN);
+
 
 
 
