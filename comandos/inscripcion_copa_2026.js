@@ -1,4 +1,5 @@
 // comandos/inscripcion_copa_2026.js
+const { ApplicationCommandOptionType, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require("discord.js");
 const { ejecutarInscripcion } = require('../utils/procesarInscripcion');
 
 module.exports = {
