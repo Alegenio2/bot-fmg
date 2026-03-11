@@ -122,6 +122,13 @@ const nombreJ2 = datosJ2 ? datosJ2.nombre : j2.username;
           // Subidas y sincronización
           await subirTodosLosTorneos();
           await publicarTablaCopa(interaction.client);
+
+// 2. LLAMADA AL OTRO BOT (Aviso de actualización)
+    // Esto lo "despierta" para que procese los cambios que acabas de subir
+    await axios.post('http://localhost:3000/trigger')
+      .then(() => console.log("✅ Aviso enviado al segundo bot correctamente."))
+      .catch(err => console.error("⚠️ El segundo bot no respondió, pero los datos se guardaron igual."));
+          
         } catch (err) {
           console.error("Error en tareas de fondo:", err);
         }
@@ -133,6 +140,7 @@ const nombreJ2 = datosJ2 ? datosJ2.nombre : j2.username;
     }
   }
 };
+
 
 
 
