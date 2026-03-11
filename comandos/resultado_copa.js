@@ -103,6 +103,7 @@ const nombreJ2 = datosJ2 ? datosJ2.nombre : j2.username;
              `🏆 **Copa 2026** | **Grupo ${infoExtra.grupo}** - Ronda ${infoExtra.ronda}\n\n` +
              `⚔️ **Duelo:** ${nombreJ1} **vs** ${nombreJ2}\n` + // También aquí puedes usar los nombres
              `📊 **Resultado:** ${marcador}\n\n` +
+            `${linkMapas ---- ${linkCivs'} +
              `*Haz clic en el cuadro oscuro para ver quién ganó.*`,
         components: [row]
       });
@@ -131,4 +132,5 @@ const nombreJ2 = datosJ2 ? datosJ2.nombre : j2.username;
     }
   }
 };
+
 
