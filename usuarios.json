@@ -712,5 +712,18 @@
     "clan": null,
     "elomax": 1238,
     "ultimapartida": "2026-03-07T18:02:04.000Z"
+  },
+  "382688182002515978": {
+    "profileId": "2175073",
+    "nombre": "[VL] Karistho",
+    "elo": 1269,
+    "rank": 9502,
+    "wins": 34,
+    "losses": 28,
+    "pais": "🇺🇾",
+    "country": "uy",
+    "clan": "MAAP",
+    "elomax": 1287,
+    "ultimapartida": "2026-03-12T02:44:41.000Z"
   }
 }
