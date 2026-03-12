@@ -167,7 +167,14 @@
               "jugador1Nick": "FMG | Rxon",
               "jugador2Id": "485610092092456975",
               "jugador2Nick": "Kroyen",
-              "resultado": null
+              "resultado": {
+                "238414625417330688": 2,
+                "485610092092456975": 0,
+                "mapas": "https://aoe2cm.net/draft/vKWWg",
+                "civs": "https://aoe2cm.net/draft/Jhxde",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1481457442851389562/AgeIIDE_Replay_457034038.aoe2record?ex=69b36242&is=69b210c2&hm=e446a8837c6aa244470a847308a0e68904414d2bb775e899f5e89cefdb077f95&",
+                "fecha_registro": "2026-03-12T01:02:59.269Z"
+              }
             },
             {
               "jugador1Id": "896216989922635777",
