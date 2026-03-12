@@ -141,7 +141,14 @@
               "jugador1Nick": "FMG | Rxon",
               "jugador2Id": "896216989922635777",
               "jugador2Nick": "|FMG| TatoSky",
-              "resultado": null
+              "resultado": {
+                "238414625417330688": 2,
+                "896216989922635777": 0,
+                "mapas": "https://aoe2cm.net/draft/vKWWg",
+                "civs": "https://aoe2cm.net/draft/Jhxde",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1481458393016434758/AgeIIDE_Replay_457034038.aoe2record?ex=69b36325&is=69b211a5&hm=d2655df84d604e4f3e03e7a688ed4cf36b19dfc241a208c358f6097fc8f2fdea&",
+                "fecha_registro": "2026-03-12T01:06:45.891Z"
+              }
             },
             {
               "jugador1Id": "465307831583637514",
