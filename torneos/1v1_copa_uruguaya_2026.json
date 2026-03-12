@@ -129,7 +129,14 @@
               "jugador1Nick": "-FMG- Rodri",
               "jugador2Id": "485610092092456975",
               "jugador2Nick": "Kroyen",
-              "resultado": null
+              "resultado": {
+                "408054148110614529": 2,
+                "485610092092456975": 0,
+                "mapas": "https://aoe2cm.net/draft/vKWWg",
+                "civs": "https://aoe2cm.net/draft/Jhxde",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1481458682129678366/AgeIIDE_Replay_457034038.aoe2record?ex=69b36369&is=69b211e9&hm=7e7b38c86aa4bd031b0b275e26a28d4f01a9150e1781ba5749cda82348702eba&",
+                "fecha_registro": "2026-03-12T01:07:54.610Z"
+              }
             }
           ]
         },
