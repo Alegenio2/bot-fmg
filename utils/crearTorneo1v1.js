@@ -2,26 +2,32 @@ const fs = require("fs");
 const path = require("path");
 const { subirTodosLosTorneos } = require("../git/guardarTorneosGit");
 
-// Función de utilidad para el redondeo a múltiplos de 50
+// Función para redondear a múltiplos de 50
 function aplicarRedondeo(elo) {
   return Math.round(elo / 50) * 50;
+}
+
+// Nueva función para extraer el ID de la URL del perfil
+function extraerIdAoE2(url) {
+  if (!url) return null;
+  // Busca la última secuencia de números en la URL
+  const match = url.match(/\d+$/);
+  return match ? match[0] : null;
 }
 
 async function crearTorneo1v1(torneoId, cantidadGrupos, clasificadosPorGrupo, redondear) {
   const rutaInscriptos = path.join(__dirname, "..", "usuarios_inscritos.json");
   if (!fs.existsSync(rutaInscriptos)) return "⚠️ No hay archivo de usuarios inscritos.";
 
-  // Cargamos jugadores y filtramos por el torneo actual
   const jugadoresOriginales = JSON.parse(fs.readFileSync(rutaInscriptos, "utf8"))
     .filter(u => u.torneo === torneoId);
 
   if (jugadoresOriginales.length === 0) return `⚠️ No hay inscritos para **${torneoId}**.`;
 
   // Ordenar por promedio de ELO (descendente)
-  // Usamos 'promedio_elo' que es el nombre correcto en tu JSON de inscritos
   jugadoresOriginales.sort((a, b) => (b.promedio_elo || 0) - (a.promedio_elo || 0));
 
-  // Snake Draft para balancear grupos
+  // Snake Draft
   const grupos = Array.from({ length: cantidadGrupos }, () => []);
   let direccion = 1;
   let gIdx = 0;
@@ -34,7 +40,7 @@ async function crearTorneo1v1(torneoId, cantidadGrupos, clasificadosPorGrupo, re
     }
   }
 
-  // Generar Fixture Round Robin
+  // Generar Fixture
   const rondasGrupos = grupos.map((g, idx) => ({
     grupo: String.fromCharCode(65 + idx),
     partidos: generarFixture1v1(g),
@@ -52,9 +58,10 @@ async function crearTorneo1v1(torneoId, cantidadGrupos, clasificadosPorGrupo, re
       jugadores: g.map(j => ({ 
         id: j.id,
         nick: j.nombre, 
-        // Aplicamos redondeo si el usuario marcó "True" en el comando
         elo: redondear ? aplicarRedondeo(j.promedio_elo) : j.promedio_elo,
-        elo_real: j.promedio_elo // Guardamos el real por si necesitas consultar sin redondeo
+        elo_real: j.promedio_elo,
+        // EXTRAEMOS EL ID DEL PERFIL AQUÍ
+        idaoe2: extraerIdAoE2(j.perfil) 
       })),
     })),
     rondas_grupos: rondasGrupos,
@@ -73,6 +80,7 @@ async function crearTorneo1v1(torneoId, cantidadGrupos, clasificadosPorGrupo, re
   return `✅ Torneo 1v1 **${torneoId}** creado.\n👤 ${jugadoresOriginales.length} jugadores en ${cantidadGrupos} grupos.\n⚖️ Redondeo ELO (50): **${redondear ? "Activado" : "Desactivado"}**.`;
 }
 
+// ... (Función generarFixture1v1 se mantiene igual)
 function generarFixture1v1(participantes) {
   const lista = [...participantes];
   if (lista.length % 2 !== 0) lista.push(null);
