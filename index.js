@@ -94,23 +94,24 @@ client.on('interactionCreate', async (interaction) => {
       return await interaction.showModal(modal);
     }
 
-    // C. Botón de Inscripción Rápida (Vinculados) - RESPUESTA PRIVADA
+// C. Botón de Inscripción Rápida (Vinculados) - RESPUESTA PRIVADA
     if (interaction.customId === 'boton_inscripcion_rapida') {
         await interaction.deferReply({ ephemeral: true }); // ✅ PRIVADO
         try {
             const { ejecutarInscripcion } = require('./utils/procesarInscripcion');
             const res = await ejecutarInscripcion(interaction, null, true);
             
-           // Respuesta privada al usuario que presionó el botón
-await interaction.editReply({
-    content: `✅ ¡${res.mensajeFinal}! Tus datos ya fueron publicados en el canal de inscriptos.`
-});
+            // Respuesta privada al usuario que presionó el botón
+            await interaction.editReply({
+                content: `✅ ¡${res.mensajeFinal}! Tus datos ya fueron publicados en el canal de inscriptos.`
+            });
         } catch (error) {
             if (error.message === "NO_VINCULADO") 
                 return interaction.editReply("⚠️ No estás vinculado. Usa el botón de inscripción manual.");
             console.error(error);
-            return await interaction.editReply("❌ Error al procesar.");
+            await interaction.editReply("❌ Error al procesar.");
         }
+        return; // ✅ FIX: evita que mostrarGuiaModal se ejecute con la interacción ya respondida
     }
     
     // D. Guías
