@@ -190,5 +190,17 @@
     "perfil": "https://www.aoe2companion.com/players/2175073",
     "logo": null,
     "fecha": "2026-03-15T00:05:26.312Z"
+  },
+  {
+    "id": "689907393001291884",
+    "torneo": "copa_uruguaya_2026",
+    "modo": "1v1",
+    "nombre": "Culero Connor",
+    "elo_actual": 1502,
+    "elo_max": 1547,
+    "promedio_elo": 1525,
+    "perfil": "https://www.aoe2companion.com/players/5736044",
+    "logo": null,
+    "fecha": "2026-03-15T00:05:44.808Z"
   }
 ]
