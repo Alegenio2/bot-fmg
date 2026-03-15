@@ -154,5 +154,17 @@
     "perfil": "https://www.aoe2companion.com/players/2878364",
     "logo": null,
     "fecha": "2026-03-15T00:03:12.045Z"
+  },
+  {
+    "id": "694749732467245088",
+    "torneo": "copa_uruguaya_2026",
+    "modo": "1v1",
+    "nombre": "[LOPDA] Shebby",
+    "elo_actual": 968,
+    "elo_max": 1113,
+    "promedio_elo": 1041,
+    "perfil": "https://www.aoe2companion.com/players/2213923",
+    "logo": null,
+    "fecha": "2026-03-15T00:04:18.134Z"
   }
 ]
