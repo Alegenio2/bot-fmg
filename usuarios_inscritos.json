@@ -202,5 +202,17 @@
     "perfil": "https://www.aoe2companion.com/players/5736044",
     "logo": null,
     "fecha": "2026-03-15T00:05:44.808Z"
+  },
+  {
+    "id": "959267535524606022",
+    "torneo": "copa_uruguaya_2026",
+    "modo": "1v1",
+    "nombre": "DGHIR | Rorro Knight®",
+    "elo_actual": 1315,
+    "elo_max": 1454,
+    "promedio_elo": 1385,
+    "perfil": "https://www.aoe2companion.com/players/5627235",
+    "logo": null,
+    "fecha": "2026-03-15T00:28:39.648Z"
   }
 ]
