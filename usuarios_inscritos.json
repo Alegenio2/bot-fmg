@@ -142,5 +142,17 @@
     "perfil": "https://www.aoe2companion.com/players/2583713",
     "logo": null,
     "fecha": "2026-03-15T00:01:16.273Z"
+  },
+  {
+    "id": "135113382217908224",
+    "torneo": "copa_uruguaya_2026",
+    "modo": "1v1",
+    "nombre": "URU | Juasteint",
+    "elo_actual": 1482,
+    "elo_max": 1605,
+    "promedio_elo": 1544,
+    "perfil": "https://www.aoe2companion.com/players/2878364",
+    "logo": null,
+    "fecha": "2026-03-15T00:03:12.045Z"
   }
 ]
