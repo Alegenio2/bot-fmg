@@ -178,5 +178,17 @@
     "perfil": "https://www.aoe2companion.com/players/2295211",
     "logo": null,
     "fecha": "2026-03-15T00:04:51.771Z"
+  },
+  {
+    "id": "382688182002515978",
+    "torneo": "copa_uruguaya_2026",
+    "modo": "1v1",
+    "nombre": "[VL] Karistho",
+    "elo_actual": 1269,
+    "elo_max": 1287,
+    "promedio_elo": 1278,
+    "perfil": "https://www.aoe2companion.com/players/2175073",
+    "logo": null,
+    "fecha": "2026-03-15T00:05:26.312Z"
   }
 ]
