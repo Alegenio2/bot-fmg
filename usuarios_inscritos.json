@@ -166,5 +166,17 @@
     "perfil": "https://www.aoe2companion.com/players/2213923",
     "logo": null,
     "fecha": "2026-03-15T00:04:18.134Z"
+  },
+  {
+    "id": "594988359965999118",
+    "torneo": "copa_uruguaya_2026",
+    "modo": "1v1",
+    "nombre": "N4cHoV",
+    "elo_actual": 1156,
+    "elo_max": 1238,
+    "promedio_elo": 1197,
+    "perfil": "https://www.aoe2companion.com/players/2295211",
+    "logo": null,
+    "fecha": "2026-03-15T00:04:51.771Z"
   }
 ]
