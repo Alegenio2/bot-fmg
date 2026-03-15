@@ -1,0 +1,273 @@
+{
+  "meta": {
+    "torneo": "copa_uruguaya_2026",
+    "ultima_actualizacion": "2026-03-15T23:16:06.088Z",
+    "total_partidas": 2
+  },
+  "jugadores": {
+    "238414625417330688": {
+      "nick": "FMG | Rxon",
+      "aoe2Id": "1780624",
+      "global": {
+        "pj": 2,
+        "pg": 0,
+        "pp": 2,
+        "winrate": 0
+      },
+      "civs": {
+        "Burmese": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "Arena": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        },
+        "Britons": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "CopaU_2026_Slopes v2 (Custom)": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        }
+      },
+      "mapas": {
+        "Arena": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        },
+        "CopaU_2026_Slopes v2 (Custom)": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        }
+      }
+    },
+    "760308403087867916": {
+      "nick": "|FMG| Tano Stokes",
+      "aoe2Id": "4822389",
+      "global": {
+        "pj": 2,
+        "pg": 2,
+        "pp": 0,
+        "winrate": 100
+      },
+      "civs": {
+        "Sicilians": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "Arena": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        },
+        "Mongols": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "CopaU_2026_Slopes v2 (Custom)": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        }
+      },
+      "mapas": {
+        "Arena": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        },
+        "CopaU_2026_Slopes v2 (Custom)": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        }
+      }
+    }
+  },
+  "mapas": {
+    "Arena": {
+      "total_partidas": 1,
+      "civs_ganadoras": {
+        "Sicilians": 1
+      },
+      "civs_perdedoras": {
+        "Burmese": 1
+      },
+      "enfrentamientos": {
+        "Burmese_vs_Sicilians": {
+          "total": 1,
+          "gano_primero": 0,
+          "civ_a": "Burmese",
+          "civ_b": "Sicilians"
+        }
+      }
+    },
+    "CopaU_2026_Slopes v2 (Custom)": {
+      "total_partidas": 1,
+      "civs_ganadoras": {
+        "Mongols": 1
+      },
+      "civs_perdedoras": {
+        "Britons": 1
+      },
+      "enfrentamientos": {
+        "Britons_vs_Mongols": {
+          "total": 1,
+          "gano_primero": 0,
+          "civ_a": "Britons",
+          "civ_b": "Mongols"
+        }
+      }
+    }
+  },
+  "civs": {
+    "Burmese": {
+      "total_jugadas": 1,
+      "total_ganadas": 0,
+      "winrate": 0,
+      "por_mapa": {
+        "Arena": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        }
+      },
+      "vs_civs": {
+        "Sicilians": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        }
+      }
+    },
+    "Sicilians": {
+      "total_jugadas": 1,
+      "total_ganadas": 1,
+      "winrate": 100,
+      "por_mapa": {
+        "Arena": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        }
+      },
+      "vs_civs": {
+        "Burmese": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        }
+      }
+    },
+    "Britons": {
+      "total_jugadas": 1,
+      "total_ganadas": 0,
+      "winrate": 0,
+      "por_mapa": {
+        "CopaU_2026_Slopes v2 (Custom)": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        }
+      },
+      "vs_civs": {
+        "Mongols": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        }
+      }
+    },
+    "Mongols": {
+      "total_jugadas": 1,
+      "total_ganadas": 1,
+      "winrate": 100,
+      "por_mapa": {
+        "CopaU_2026_Slopes v2 (Custom)": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        }
+      },
+      "vs_civs": {
+        "Britons": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        }
+      }
+    }
+  },
+  "partidas": [
+    {
+      "matchId": 463309937,
+      "fecha": "2026-03-15T22:18:43.000Z",
+      "mapa": "Arena",
+      "duracion": 3,
+      "grupo": "A",
+      "ronda": 5,
+      "jugador1": {
+        "discordId": "238414625417330688",
+        "nick": "FMG | Rxon",
+        "civ": "Burmese",
+        "gano": false
+      },
+      "jugador2": {
+        "discordId": "760308403087867916",
+        "nick": "|FMG| Tano Stokes",
+        "civ": "Sicilians",
+        "gano": true
+      }
+    },
+    {
+      "matchId": 463308777,
+      "fecha": "2026-03-15T22:14:34.000Z",
+      "mapa": "CopaU_2026_Slopes v2 (Custom)",
+      "duracion": 3,
+      "grupo": "A",
+      "ronda": 5,
+      "jugador1": {
+        "discordId": "238414625417330688",
+        "nick": "FMG | Rxon",
+        "civ": "Britons",
+        "gano": false
+      },
+      "jugador2": {
+        "discordId": "760308403087867916",
+        "nick": "|FMG| Tano Stokes",
+        "civ": "Mongols",
+        "gano": true
+      }
+    }
+  ]
+}
