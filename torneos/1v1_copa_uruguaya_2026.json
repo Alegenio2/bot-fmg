@@ -182,7 +182,14 @@
               "jugador1Nick": "FMG | Rxon",
               "jugador2Id": "760308403087867916",
               "jugador2Nick": "|FMG| Tano Stokes",
-              "resultado": null
+              "resultado": {
+                "238414625417330688": 0,
+                "760308403087867916": 2,
+                "mapas": "https://aoe2cm.net/draft/RvHZM",
+                "civs": "https://aoe2cm.net/draft/WzPwz",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1482866910625398824/RxonvsTano.rar?ex=69b882ed&is=69b7316d&hm=e220746ea5925de87a6bc76189eacf2bb5121219cdcfd1ec5d66999617fae38f&",
+                "fecha_registro": "2026-03-15T22:23:42.526Z"
+              }
             },
             {
               "jugador1Id": "896216989922635777",
