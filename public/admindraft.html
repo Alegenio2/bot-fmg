@@ -586,15 +586,6 @@ h3 { display: none; }
 
 <main class="draft-main">
 
-    <!-- TOKEN CONFIG -->
-    <section class="token-section">
-        <div class="token-inner">
-            <span class="token-label">🔑 GitHub Token</span>
-            <input type="password" id="ghToken" placeholder="ghp_xxxxxxxxxxxxxxxx" oninput="guardarToken(this.value)"/>
-            <span id="token-status" class="token-status off">No configurado</span>
-        </div>
-    </section>
-
     <!-- JUGADORES -->
     <section class="players-bar">
         <div class="player-card host">
@@ -771,85 +762,9 @@ function actualizarNombres() {
 }
 
 // ─── Token ───────────────────────────────────────────────────────────────────
-function guardarToken(val) {
-    const t = val.trim();
-    if (t) {
-        localStorage.setItem('aua_gh_token', t);
-        setTokenStatus(true);
-    } else {
-        localStorage.removeItem('aua_gh_token');
-        setTokenStatus(false);
-    }
-}
-
-function setTokenStatus(ok) {
-    const el = document.getElementById('token-status');
-    if (!el) return;
-    el.textContent = ok ? '✓ Token guardado' : 'No configurado';
-    el.className   = 'token-status ' + (ok ? 'ok' : 'off');
-}
-
-function cargarToken() {
-    const t = localStorage.getItem('aua_gh_token');
-    if (t) {
-        document.getElementById('ghToken').value = '●'.repeat(20);
-        setTokenStatus(true);
-    }
-}
 
 // ─── GitHub config ───────────────────────────────────────────────────────────
-const GH_USER   = 'Alegenio2';
-const GH_REPO   = 'aua';
-const GH_PATH   = 'json/draft_state.json';
-const GH_BRANCH = 'main';
-const TOKEN_KEY  = 'aua_gh_token';
-const WS_SERVER  = 'https://aldeanooscar.squareweb.app';
-
-function getToken() { return localStorage.getItem(TOKEN_KEY) || ''; }
-
-async function obtenerShaGH() {
-    const token = getToken();
-    if (!token) return null;
-    try {
-        const res = await fetch(
-            `https://api.github.com/repos/${GH_USER}/${GH_REPO}/contents/${GH_PATH}?ref=${GH_BRANCH}`,
-            { headers: { Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json' } }
-        );
-        if (res.status === 404) return null;
-        const d = await res.json();
-        return d.sha ?? null;
-    } catch { return null; }
-}
-
-async function subirAGitHub(state) {
-    const token = getToken();
-    if (!token) {
-        setEstadoBtn('⚠ Token no configurado', '#c87060');
-        return false;
-    }
-    const sha  = await obtenerShaGH();
-    const body = {
-        message: `draft: update state ${new Date().toISOString()}`,
-        content: btoa(unescape(encodeURIComponent(JSON.stringify(state, null, 2)))),
-        branch:  GH_BRANCH,
-        ...(sha ? { sha } : {})
-    };
-    try {
-        const res = await fetch(
-            `https://api.github.com/repos/${GH_USER}/${GH_REPO}/contents/${GH_PATH}`,
-            {
-                method: 'PUT',
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                    Accept:        'application/vnd.github+json',
-                    'Content-Type':'application/json',
-                },
-                body: JSON.stringify(body)
-            }
-        );
-        return res.ok;
-    } catch { return false; }
-}
+const WS_SERVER = 'https://aldeanooscar.squareweb.app';
 
 function setEstadoBtn(texto, color) {
     const btn = document.getElementById('btnActualizar');
@@ -880,23 +795,21 @@ document.getElementById("btnActualizar").addEventListener("click", async functio
         ts:          Date.now(),
     };
 
-    // 2. Servidor WS (instantáneo)
+    // Enviar a Oscar (broadcast WS + persiste en memoria)
     try {
-        const wsR = await fetch(WS_SERVER + '/overlay/draft', {
+        const r = await fetch(WS_SERVER + '/overlay/draft', {
             method:  'POST',
             headers: { 'Content-Type': 'application/json' },
             body:    JSON.stringify(state)
         });
-        if (wsR.ok) console.log('✅ Draft enviado al servidor WS');
-    } catch(e) { console.warn('WS no disponible:', e.message); }
-
-        // 3. Subir a GitHub
-    const ok = await subirAGitHub(state);
-
-    if (ok) {
-        setEstadoBtn('✅ Overlay actualizado', '#5a8030');
-    } else {
-        setEstadoBtn('⚠ Solo WS (GitHub falló)', '#a07820');
+        if (r.ok) {
+            setEstadoBtn('✅ Overlay actualizado', '#5a8030');
+        } else {
+            setEstadoBtn('❌ Error al enviar', '#803020');
+        }
+    } catch(e) {
+        setEstadoBtn('❌ Servidor no disponible', '#803020');
+        console.error('Error:', e.message);
     }
 
     // 4. Recargar la UI local
@@ -905,7 +818,6 @@ document.getElementById("btnActualizar").addEventListener("click", async functio
 
 document.addEventListener('DOMContentLoaded', function() {
     cargarEstado();
-    cargarToken();
     // Render draft data from localStorage
     if (typeof renderCivs === 'function')        renderCivs();
     if (typeof renderNeutralCivs === 'function') renderNeutralCivs();
