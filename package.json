@@ -20,7 +20,8 @@
     "liquipedia": "^1.2.0",
     "node-cron": "^4.2.1",
     "node-fetch": "^2.7.0",
-    "uuid": "^8.3.2"
+    "uuid": "^8.3.2",
+    "ws": "^8.19.0"
   },
   "engines": {
     "node": "22.x"
