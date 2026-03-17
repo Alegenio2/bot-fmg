@@ -53,8 +53,14 @@ app.use(cors({ origin: ['https://aua.netlify.app', 'https://aldeanooscar.squarew
 app.use(express.json({ limit: '2mb' }));
 
 // Servir archivos estáticos desde /public
-app.use(express.static(path.join(__dirname, 'public')));
-
+// Servir archivos estáticos desde /public con headers de no-cache para desarrollo
+app.use(express.static(path.join(__dirname, 'public'), {
+  setHeaders: (res, path) => {
+    res.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+    res.set('Pragma', 'no-cache');
+    res.set('Expires', '0');
+  }
+}));
 // ── Endpoints existentes ──────────────────────────────────────────────────────
 app.get('/', (req, res) => res.send('Estoy vivo 🤖 - Aldeano Oscar'));
 
