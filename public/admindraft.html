@@ -5,9 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administrador de Drafts — Copa Uruguaya 2026</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" href="css/draftmapas.css">
-    <link rel="stylesheet" href="css/draftcivs.css">
+    <link rel="stylesheet" href="../css/draftmapas.css">
+    <link rel="stylesheet" href="../css/draftcivs.css">
     <style>
+        .btn-admindraft{
+  display:flex;align-items:center;gap:8px;padding:10px 18px;border-radius:8px;
+  background:#1a1208;border:1px solid #e8c87a;color:#e8c87a;
+  font-size:12px;font-weight:600;font-family:'Cinzel',serif;letter-spacing:1px;
+  cursor:pointer;text-decoration:none;transition:all 0.18s;
+}
+.btn-admindraft:hover{background:#2a1a08;box-shadow:0 0 14px rgba(232,200,122,.25)}
     /* Token section */
     .token-section {
         background: var(--bg2);
@@ -168,6 +175,7 @@
             <h1>Administrador de Drafts</h1>
             <div class="draft-subtitle">Copa Uruguaya 2026</div>
         </div>
+           <a href="overlay_control.html" class="btn-admindraft" target="_blank">🛡 Abrir Overlay de Control</a>
     </div>
 </header>
 
