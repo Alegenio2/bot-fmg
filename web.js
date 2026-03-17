@@ -1,64 +1,147 @@
-const express = require('express');
-const cors = require('cors');
-const { Liquipedia } = require('liquipedia');
-const fs = require('fs');
-const path = require('path');
-const fetch = require('node-fetch'); // 👈 importante para hacer el proxy
+const express   = require('express');
+const cors      = require('cors');
+const http      = require('http');
+const WebSocket = require('ws');
+const fs        = require('fs');
+const path      = require('path');
+const fetch     = require('node-fetch');
 
-const app = express();
-const PORT = process.env.PORT || 8080;
+const app    = express();
+const server = http.createServer(app);
+const PORT   = process.env.PORT || 8080;
 
-// Habilitar CORS solo para AUA
-app.use(cors({
-  origin: 'https://aua.netlify.app'
-}));
+// ── WebSocket ─────────────────────────────────────────────────────────────────
+const wss = new WebSocket.Server({ server });
 
-const liquipedia = new Liquipedia({
-  USER_AGENT: 'aldeano-oscar/1.0 (jabstv2@gmail.com)'
+// Último estado de cada canal (para enviar al reconectar)
+const lastState = {
+  overlay: null,
+  mapa:    null,
+  draft:   null,
+};
+
+wss.on('connection', (ws, req) => {
+  const url   = new URL(req.url, 'http://localhost');
+  const canal = url.searchParams.get('canal') || 'overlay';
+  ws.canal    = canal;
+  console.log(`[WS] conectado — canal: ${canal} | clientes: ${wss.clients.size}`);
+
+  // Enviar último estado conocido al conectar
+  if (lastState[canal]) {
+    ws.send(JSON.stringify(lastState[canal]));
+  }
+
+  ws.on('close', () => console.log(`[WS] desconectado — canal: ${canal}`));
+  ws.on('error', err => console.error('[WS] error:', err.message));
 });
 
-app.get('/', (req, res) => {
-  res.send("Estoy vivo 🤖 - Aldeano Oscar");
-});
+function broadcast(canal, data) {
+  lastState[canal] = data;
+  const msg = JSON.stringify(data);
+  let count = 0;
+  wss.clients.forEach(ws => {
+    if (ws.canal === canal && ws.readyState === WebSocket.OPEN) {
+      ws.send(msg);
+      count++;
+    }
+  });
+  console.log(`[WS] broadcast → canal:${canal} | ${count} clientes`);
+}
 
-// Endpoint para servir torneo_actual.json
+// ── Middleware ────────────────────────────────────────────────────────────────
+app.use(cors({ origin: ['https://aua.netlify.app', 'https://aldeanooscar.squareweb.app'] }));
+app.use(express.json({ limit: '2mb' }));
+
+// Servir archivos estáticos desde /public
+app.use(express.static(path.join(__dirname, 'public')));
+
+// ── Endpoints existentes ──────────────────────────────────────────────────────
+app.get('/', (req, res) => res.send('Estoy vivo 🤖 - Aldeano Oscar'));
+
 app.get('/api/torneos', (req, res) => {
   const filePath = path.join(__dirname, 'data', 'torneos.json');
-  if (!fs.existsSync(filePath)) {
-    return res.status(404).json({ error: 'Archivo de torneo actual no encontrado' });
-  }
-  const json = fs.readFileSync(filePath, 'utf-8');
-  res.json(JSON.parse(json));
+  if (!fs.existsSync(filePath)) return res.status(404).json({ error: 'No encontrado' });
+  res.json(JSON.parse(fs.readFileSync(filePath, 'utf-8')));
 });
 
-// ✅ Nuevo endpoint para proxy de imágenes
 app.get('/proxy-image', async (req, res) => {
   const url = req.query.url;
-  if (!url) {
-    return res.status(400).send("Falta parámetro 'url'");
-  }
-
+  if (!url) return res.status(400).send("Falta parámetro 'url'");
   try {
-    const response = await fetch(url, {
-      headers: { "User-Agent": "Mozilla/5.0" } // simula navegador
-    });
-
-    if (!response.ok) {
-      return res.status(response.status).send("No se pudo cargar la imagen");
-    }
-
-    const contentType = response.headers.get("content-type");
-    res.set("Content-Type", contentType);
-
-    const buffer = await response.arrayBuffer();
-    res.send(Buffer.from(buffer));
+    const response = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0' } });
+    if (!response.ok) return res.status(response.status).send('No se pudo cargar');
+    res.set('Content-Type', response.headers.get('content-type'));
+    res.send(Buffer.from(await response.arrayBuffer()));
   } catch (err) {
-    console.error("Error en proxy-image:", err);
-    res.status(500).send("Error al cargar la imagen");
+    res.status(500).send('Error al cargar la imagen');
   }
 });
 
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`🚀 Servidor web activo en puerto ${PORT}`);
+// ── Stats del torneo (para el dashboard AUA y el overlay_control) ─────────────
+app.get('/api/stats', (req, res) => {
+  const p = path.join(__dirname, 'torneos', 'stats_copa_2026.json');
+  if (!fs.existsSync(p)) return res.status(404).json({ error: 'Sin stats aún' });
+  res.json(JSON.parse(fs.readFileSync(p, 'utf-8')));
 });
 
+// ── Mapas (para overlay_control y overlay_maps) ───────────────────────────────
+app.get('/api/mapas', (req, res) => {
+  const p = path.join(__dirname, 'public', 'mapas.json');
+  if (!fs.existsSync(p)) return res.status(404).json({});
+  res.json(JSON.parse(fs.readFileSync(p, 'utf-8')));
+});
+
+// ── Civs por mapa (top 5 por mapa) ───────────────────────────────────────────
+app.get('/api/civs-mapa', (req, res) => {
+  const p = path.join(__dirname, 'public', 'civs_por_mapa.json');
+  if (!fs.existsSync(p)) return res.status(404).json({});
+  res.json(JSON.parse(fs.readFileSync(p, 'utf-8')));
+});
+
+// ── Overlay: estado actual (fallback si WS no conectó aún) ───────────────────
+app.get('/api/overlay/:canal', (req, res) => {
+  const canal = req.params.canal;
+  res.json(lastState[canal] || { visible: false, ts: 0 });
+});
+
+// ── Overlay: actualizar draft (desde admindraft) ─────────────────────────────
+app.post('/overlay/draft', (req, res) => {
+  const state = { ...req.body, ts: Date.now() };
+  broadcast('draft', state);
+  console.log(`[overlay] draft actualizado`);
+  res.json({ ok: true, ts: state.ts });
+});
+
+// ── Overlay: actualizar stats (desde overlay_control) ────────────────────────
+app.post('/overlay/update', (req, res) => {
+  const state = { ...req.body, ts: Date.now() };
+  broadcast('overlay', state);
+  console.log(`[overlay] update → visible:${state.visible} modo:${state.modo}`);
+  res.json({ ok: true, ts: state.ts });
+});
+
+// ── Overlay: actualizar mapa (desde overlay_control) ─────────────────────────
+app.post('/overlay/mapa', (req, res) => {
+  const state = { ...req.body, ts: Date.now() };
+  broadcast('mapa', state);
+  console.log(`[overlay] mapa → ${state.name || 'oculto'}`);
+  res.json({ ok: true, ts: state.ts });
+});
+
+// ── Health check ──────────────────────────────────────────────────────────────
+app.get('/health', (req, res) => {
+  res.json({
+    ok: true,
+    uptime: Math.floor(process.uptime()),
+    wsClients: wss.clients.size,
+    timestamp: new Date().toISOString(),
+  });
+});
+
+// ── Arrancar ──────────────────────────────────────────────────────────────────
+server.listen(PORT, '0.0.0.0', () => {
+  console.log(`🚀 Oscar activo en puerto ${PORT}`);
+  console.log(`   Overlays: https://aldeanooscar.squareweb.app/overlay.html`);
+  console.log(`   Control:  https://aldeanooscar.squareweb.app/overlay_control.html`);
+  console.log(`   Draft:    https://aldeanooscar.squareweb.app/draftoverlay.html`);
+});
