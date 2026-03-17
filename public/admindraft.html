@@ -6,523 +6,112 @@
     <title>Administrador de Drafts — Copa Uruguaya 2026</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
     <style>
-/* === draftcivs.css === */
-/* ══════════════════════════════════════════
-   DRAFT CIVS — Estilo AUA Medieval Oscuro
-══════════════════════════════════════════ */
 :root {
-    --gold:      #e8c87a;
-    --gold2:     #c8a040;
-    --gold-dim:  rgba(232,200,122,0.12);
-    --bg0:       #0a0a0a;
-    --bg1:       #111008;
-    --bg2:       #1a1208;
-    --bg3:       #22180a;
-    --brown:     #3a2a1a;
-    --brown-dim: #2a1a0a;
-    --text:      #e8e0d0;
-    --muted:     #a09070;
-    --dim:       #665544;
-    --host:      #6aaae8;
-    --host-bg:   rgba(74,138,220,0.1);
-    --host-dim:  rgba(74,138,220,0.22);
-    --guest:     #e86a8a;
-    --guest-bg:  rgba(220,74,106,0.1);
-    --guest-dim: rgba(220,74,106,0.22);
-    --win:       #a8c860;
-    --ban-border:#7a2020;
-    --pick-border:#3a7a3a;
+    --gold:#e8c87a; --gold2:#c8a040; --gold-dim:rgba(232,200,122,0.12);
+    --bg0:#0a0a0a; --bg1:#111008; --bg2:#1a1208; --bg3:#22180a;
+    --brown:#3a2a1a; --brown-dim:#2a1a0a; --text:#e8e0d0; --muted:#a09070; --dim:#665544;
+    --host:#6aaae8; --host-bg:rgba(74,138,220,0.1); --host-dim:rgba(74,138,220,0.22);
+    --guest:#e86a8a; --guest-bg:rgba(220,74,106,0.1); --guest-dim:rgba(220,74,106,0.22);
+    --win:#a8c860; --ban-border:#7a2020; --pick-border:#3a7a3a;
 }
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-    font-family: 'Inter', 'Arial', sans-serif;
-    background-color: var(--bg0);
-    color: var(--text);
-    min-height: 100vh;
-    overflow-y: scroll;
-}
-
-/* ── Header ── */
-.draft-header { background: linear-gradient(180deg,#1a0a00,var(--bg1)); border-bottom: 1px solid var(--brown); padding: 20px 24px; }
-.draft-header-inner { display: flex; align-items: center; gap: 16px; max-width: 1200px; margin: 0 auto; }
-.draft-logo { font-size: 28px; color: var(--gold); }
-.draft-header h1 { font-family: 'Cinzel', serif; font-size: 20px; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; }
-.draft-subtitle { font-size: 12px; color: var(--dim); letter-spacing: 1px; margin-top: 2px; }
-
-/* ── Main ── */
-.draft-main { max-width: 1200px; margin: 0 auto; padding: 24px 20px; }
-
-/* ── Players bar ── */
-.players-bar { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; background: var(--bg2); border: 0.5px solid var(--brown); border-radius: 10px; padding: 14px 22px; }
-.player-card { flex: 1; padding: 10px 16px; border-radius: 8px; }
-.player-card.host  { background: var(--host-bg);  border: 0.5px solid var(--host-dim); }
-.player-card.guest { background: var(--guest-bg); border: 0.5px solid var(--guest-dim); text-align: right; }
-.player-role { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
-.player-card.host  .player-role { color: var(--host); }
-.player-card.guest .player-role { color: var(--guest); }
-.player-name { font-family: 'Cinzel', serif; font-size: 18px; color: var(--text); }
-.vs-badge { font-family: 'Cinzel', serif; font-size: 20px; color: var(--brown); letter-spacing: 4px; min-width: 60px; text-align: center; }
-
-/* ── Inputs grid ── */
-.inputs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 24px; }
-.input-block { background: var(--bg2); border: 0.5px solid var(--brown); border-radius: 8px; padding: 14px 16px; }
-.input-block > label { display: block; font-size: 10px; color: var(--dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
-
-.input-row { display: flex; gap: 8px; }
-.input-row input,
-input[type="text"] {
-    flex: 1;
-    background: var(--bg0);
-    border: 0.5px solid var(--brown);
-    border-radius: 6px;
-    padding: 8px 12px;
-    color: var(--text);
-    font-size: 13px;
-    font-family: 'Inter', sans-serif;
-    outline: none;
-    transition: border-color 0.2s;
-}
-.input-row input:focus, input[type="text"]:focus { border-color: var(--gold2); }
-.input-row input::placeholder, input[type="text"]::placeholder { color: var(--brown); }
-
-/* Buttons */
-.input-row button, button {
-    background: var(--bg3);
-    border: 0.5px solid var(--brown);
-    border-radius: 6px;
-    color: var(--gold);
-    font-size: 12px;
-    font-weight: 600;
-    font-family: 'Inter', sans-serif;
-    padding: 8px 16px;
-    cursor: pointer;
-    transition: all 0.18s;
-    white-space: nowrap;
-}
-.input-row button:hover, button:hover { background: var(--brown); border-color: var(--gold2); }
-
-/* ── Swap row ── */
-.swap-row {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 10px;
-    padding: 9px 12px;
-    background: var(--bg3);
-    border: 0.5px solid var(--brown-dim);
-    border-radius: 7px;
-    flex-wrap: wrap;
-}
-.swap-label { font-size: 10px; color: var(--dim); letter-spacing: 1px; text-transform: uppercase; min-width: 40px; }
-.name-inputs { display: flex; gap: 8px; flex: 1; min-width: 0; }
-.name-field { display: flex; align-items: center; gap: 5px; flex: 1; min-width: 0; }
-.name-field label, .lbl-host, .lbl-guest { font-size: 10px; letter-spacing: 1px; white-space: nowrap; }
-.lbl-host  { color: var(--host); }
-.lbl-guest { color: var(--guest); }
-.name-field input {
-    flex: 1; min-width: 0;
-    background: var(--bg0);
-    border: 0.5px solid var(--brown-dim);
-    border-radius: 5px;
-    padding: 5px 8px;
-    color: var(--text);
-    font-size: 12px;
-    font-family: 'Inter', sans-serif;
-    outline: none;
-}
-.name-field input:focus { border-color: var(--gold2); }
-
-.swap-btn {
-    padding: 5px 12px !important;
-    font-size: 12px !important;
-    background: var(--bg2) !important;
-    border: 0.5px solid var(--brown) !important;
-    color: var(--gold) !important;
-    border-radius: 5px !important;
-    cursor: pointer;
-    transition: all 0.18s;
-    white-space: nowrap;
-}
-.swap-btn:hover { background: var(--brown) !important; border-color: var(--gold2) !important; }
-
-.swap-badge {
-    font-size: 9px;
-    padding: 2px 8px;
-    border-radius: 10px;
-    letter-spacing: 1px;
-    background: rgba(232,200,122,0.08);
-    border: 0.5px solid rgba(232,200,122,0.25);
-    color: var(--gold2);
-    display: none;
-    white-space: nowrap;
-}
-.swap-badge.visible { display: inline-block; }
-
-/* ── Sections ── */
-.draft-section { margin-bottom: 28px; }
-.section-title { font-family: 'Cinzel', serif; font-size: 14px; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 14px; padding-bottom: 8px; border-bottom: 0.5px solid var(--brown); }
-h2 { color: var(--gold); font-family: 'Cinzel', serif; }
-h3 { display: none; }
-
-/* ── Col labels ── */
-.col-label {
-    font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
-    margin-bottom: 8px; padding: 4px 10px; border-radius: 4px; display: inline-block;
-}
-.host-label    { color: var(--host);  background: var(--host-bg);  border: 0.5px solid var(--host-dim); }
-.guest-label   { color: var(--guest); background: var(--guest-bg); border: 0.5px solid var(--guest-dim); }
-.neutral-label { color: var(--gold);  background: var(--gold-dim); border: 0.5px solid rgba(232,200,122,0.25); }
-
-/* ── Maps & civs grids ── */
-.maps-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
-.maps-col  { display: flex; flex-direction: column; }
-.civs-grid { display: grid; grid-template-columns: 1fr 1.4fr 1fr; gap: 14px; }
-.civs-col  { display: flex; flex-direction: column; }
-.neutral-col { align-items: center; }
-
-/* ── Column container ── */
-.column {
-    display: flex; flex-direction: column; gap: 6px;
-    min-height: 36px; padding: 8px; border-radius: 8px;
-    background: var(--bg1); border: 0.5px solid var(--brown-dim); margin-bottom: 4px;
-}
-
-/* ── Civ item ── */
-.civ {
-    display: flex; align-items: center; gap: 10px; padding: 7px 10px;
-    border-radius: 6px; background: var(--bg2); border: 0.5px solid var(--brown);
-    transition: transform 0.15s;
-}
-.civ:hover { transform: translateY(-2px); }
-.civ img   { width: 26px; height: 26px; border-radius: 4px; object-fit: cover; }
-.civ label { font-size: 13px; color: var(--text); flex: 1; cursor: default; }
-
-.civ-pick { background: rgba(40,120,40,0.08); border-color: var(--pick-border); }
-.civ-ban  { background: rgba(180,40,40,0.08); border-color: var(--ban-border); opacity: 0.8; }
-.civ-ban label { color: var(--muted); text-decoration: line-through; }
-
-.status-image { width: 18px; height: 18px; flex-shrink: 0; }
-
-/* ── Update ── */
-.update-bar { display: flex; justify-content: center; margin-top: 8px; padding-top: 18px; border-top: 0.5px solid var(--brown-dim); }
-.btn-update {
-    background: var(--gold); color: var(--bg0); border: none;
-    padding: 12px 36px; border-radius: 8px; font-size: 14px; font-weight: 700;
-    font-family: 'Cinzel', serif; letter-spacing: 1px; cursor: pointer; transition: all 0.18s;
-}
-.btn-update:hover { background: #f0d48a; transform: translateY(-1px); }
-
-/* ── Footer ── */
-.draft-footer { text-align: center; padding: 16px; font-size: 11px; color: var(--dim); letter-spacing: 1px; border-top: 0.5px solid var(--brown-dim); display: flex; justify-content: center; gap: 10px; }
-
-.input-container { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
-#draftCode, #mapDraftCode { background: var(--bg0); border: 0.5px solid var(--brown); border-radius: 6px; padding: 8px 12px; color: var(--text); font-size: 13px; width: 100%; outline: none; font-family: 'Inter', sans-serif; }
-#draftCode:focus, #mapDraftCode:focus { border-color: var(--gold2); }
-
-@media (max-width: 768px) {
-    .inputs-grid { grid-template-columns: 1fr; }
-    .maps-grid   { grid-template-columns: 1fr; }
-    .civs-grid   { grid-template-columns: 1fr; }
-    .players-bar { flex-direction: column; }
-    .swap-row    { flex-direction: column; align-items: flex-start; }
-}
-
-
-/* === draftmapas.css === */
-/* ══════════════════════════════════════════
-   DRAFT MAPAS — Estilo AUA Medieval Oscuro
-══════════════════════════════════════════ */
-
-.map-section {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    padding: 8px;
-    min-height: 50px;
-    background: var(--bg1);
-    border: 0.5px solid var(--brown-dim);
-    border-radius: 8px;
-}
-
-/* ── Tarjeta de mapa ── */
-.map-card {
-    position: relative;
-    width: 110px;
-    height: 140px;
-    border-radius: 8px;
-    border: 0.5px solid var(--brown);
-    background: var(--bg2);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    overflow: hidden;
-    transition: transform 0.18s, border-color 0.18s;
-    cursor: default;
-}
-.map-card:hover { transform: translateY(-3px); border-color: var(--gold2); }
-
-/* Imagen de fondo del mapa */
-.map-img {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.75;
-    border-radius: 8px;
-    transition: opacity 0.18s;
-}
-.map-card:hover .map-img { opacity: 0.9; }
-
-/* Gradiente sobre la imagen */
-.map-card::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, transparent 35%, rgba(8,5,2,0.92) 100%);
-    border-radius: 8px;
-    pointer-events: none;
-}
-
-/* Nombre del mapa */
-.map-name {
-    position: relative;
-    z-index: 2;
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--text);
-    text-align: center;
-    padding: 0 6px 8px;
-    line-height: 1.2;
-    font-family: 'Inter', sans-serif;
-    letter-spacing: 0.3px;
-}
-
-/* ── Estados ── */
-
-/* Ban — tinte rojo + tachado */
-.map-ban {
-    border-color: var(--ban-border) !important;
-}
-.map-ban .map-img {
-    opacity: 0.3;
-    filter: grayscale(80%) sepia(40%);
-}
-.map-ban .map-name {
-    color: #c07070;
-    text-decoration: line-through;
-}
-.map-ban::before {
-    content: 'BAN';
-    position: absolute;
-    top: 8px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 3;
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    color: #e07070;
-    background: rgba(120,20,20,0.7);
-    padding: 2px 8px;
-    border-radius: 3px;
-    font-family: 'Inter', sans-serif;
-}
-
-/* Pick host */
-.map-pick-host {
-    border-color: var(--host-dim) !important;
-    box-shadow: inset 0 0 0 1px var(--host-dim);
-}
-.map-pick-host::before {
-    content: 'HOST';
-    position: absolute;
-    top: 8px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 3;
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    color: var(--host);
-    background: rgba(20,60,120,0.7);
-    padding: 2px 8px;
-    border-radius: 3px;
-    font-family: 'Inter', sans-serif;
-}
-
-/* Pick guest */
-.map-pick-guest {
-    border-color: var(--guest-dim) !important;
-    box-shadow: inset 0 0 0 1px var(--guest-dim);
-}
-.map-pick-guest::before {
-    content: 'GUEST';
-    position: absolute;
-    top: 8px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 3;
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    color: var(--guest);
-    background: rgba(120,20,60,0.7);
-    padding: 2px 8px;
-    border-radius: 3px;
-    font-family: 'Inter', sans-serif;
-}
-
-/* Neutral (disponible) */
-.map-neutral {
-    border-color: rgba(232,200,122,0.2) !important;
-}
-
-/* ── Botones de acción sobre la carta ── */
-.map-buttons {
-    position: relative;
-    z-index: 3;
-    display: flex;
-    gap: 4px;
-    padding-bottom: 6px;
-}
-.map-buttons button {
-    font-size: 14px;
-    padding: 3px 6px;
-    border: none;
-    background: rgba(0,0,0,0.5);
-    border-radius: 4px;
-    cursor: pointer;
-    line-height: 1;
-    transition: background 0.15s, transform 0.15s;
-}
-.map-buttons button:hover {
-    background: rgba(232,200,122,0.25);
-    transform: scale(1.15);
-}
-
-/* ── Map container header ── */
-.map-container { margin-bottom: 0; }
-
-
-/* === extras === */
-.btn-admindraft{display:flex;align-items:center;gap:8px;padding:10px 18px;border-radius:8px;background:#1a1208;border:1px solid #e8c87a;color:#e8c87a;font-size:12px;font-weight:600;font-family:'Cinzel',serif;letter-spacing:1px;cursor:pointer;text-decoration:none;transition:all 0.18s;margin-left:auto;}
+*{box-sizing:border-box;margin:0;padding:0}
+html{overflow-y:scroll!important;scrollbar-width:thin;scrollbar-color:#3a2a1a #0a0a0a}
+body{font-family:'Inter','Arial',sans-serif;background-color:var(--bg0);color:var(--text);min-height:100vh;overflow-y:visible!important}
+.draft-header{background:linear-gradient(180deg,#1a0a00,var(--bg1));border-bottom:1px solid var(--brown);padding:20px 24px}
+.draft-header-inner{display:flex;align-items:center;gap:16px;max-width:1200px;margin:0 auto}
+.draft-logo{font-size:28px;color:var(--gold)}
+.draft-header h1{font-family:'Cinzel',serif;font-size:20px;color:var(--gold);letter-spacing:2px;text-transform:uppercase}
+.draft-subtitle{font-size:12px;color:var(--dim);letter-spacing:1px;margin-top:2px}
+.btn-admindraft{display:flex;align-items:center;gap:8px;padding:10px 18px;border-radius:8px;background:#1a1208;border:1px solid #e8c87a;color:#e8c87a;font-size:12px;font-weight:600;font-family:'Cinzel',serif;letter-spacing:1px;cursor:pointer;text-decoration:none;transition:all 0.18s;margin-left:auto}
 .btn-admindraft:hover{background:#2a1a08;box-shadow:0 0 14px rgba(232,200,122,.25)}
-    </style>
-    <style>
-        .btn-admindraft{
-  display:flex;align-items:center;gap:8px;padding:10px 18px;border-radius:8px;
-  background:#1a1208;border:1px solid #e8c87a;color:#e8c87a;
-  font-size:12px;font-weight:600;font-family:'Cinzel',serif;letter-spacing:1px;
-  cursor:pointer;text-decoration:none;transition:all 0.18s;
-}
-.btn-admindraft:hover{background:#2a1a08;box-shadow:0 0 14px rgba(232,200,122,.25)}
-    /* Token section */
-    .token-section {
-        background: var(--bg2);
-        border: 0.5px solid var(--brown);
-        border-radius: 8px;
-        padding: 10px 16px;
-        margin-bottom: 14px;
-    }
-    .token-inner {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        flex-wrap: wrap;
-    }
-    .token-label {
-        font-size: 11px;
-        color: var(--dim);
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        white-space: nowrap;
-    }
-    .token-section input[type="password"] {
-        flex: 1;
-        min-width: 200px;
-        max-width: 380px;
-        background: var(--bg0);
-        border: 0.5px solid var(--brown);
-        border-radius: 6px;
-        padding: 6px 10px;
-        color: var(--text);
-        font-size: 13px;
-        font-family: 'Inter', sans-serif;
-        outline: none;
-        letter-spacing: 2px;
-    }
-    .token-section input[type="password"]:focus { border-color: var(--gold2); }
-    .token-status {
-        font-size: 11px;
-        padding: 3px 10px;
-        border-radius: 10px;
-        white-space: nowrap;
-    }
-    .token-status.ok  { color: #a8c860; background: rgba(100,160,40,.1); border: 0.5px solid rgba(100,160,40,.3); }
-    .token-status.off { color: var(--dim); background: rgba(60,40,20,.3); border: 0.5px solid var(--brown); }
-
-    /* OBS: scroll siempre visible */
-    html { overflow-y: scroll !important; scrollbar-width: thin; scrollbar-color: #3a2a1a #0a0a0a; }
-    body { overflow-y: visible !important; min-height: 100vh; }
-
-    /* Control flotante de zoom */
-    #zoom-ctrl {
-        position: fixed;
-        top: 8px; right: 8px;
-        z-index: 9999;
-        display: flex; align-items: center; gap: 6px;
-        background: rgba(10,6,2,0.95);
-        border: 0.5px solid #3a2a1a;
-        border-radius: 8px;
-        padding: 5px 10px;
-        backdrop-filter: blur(4px);
-    }
-    #zoom-ctrl .zlabel {
-        font-size: 10px; color: #665544;
-        font-family: 'Inter', sans-serif;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        margin-right: 2px;
-    }
-    #zoom-val {
-        font-size: 12px; color: #e8c87a;
-        font-family: 'Cinzel', serif;
-        min-width: 40px; text-align: center;
-    }
-    .zbtn {
-        width: 28px !important; height: 28px !important;
-        padding: 0 !important; margin: 0 !important;
-        font-size: 18px !important; font-weight: 700 !important;
-        border-radius: 5px !important;
-        background: #1a1208 !important;
-        border: 0.5px solid #3a2a1a !important;
-        color: #e8c87a !important;
-        cursor: pointer !important;
-        display: flex !important; align-items: center !important; justify-content: center !important;
-        line-height: 1 !important;
-        transition: background 0.15s;
-    }
-    .zbtn:hover { background: #3a2a1a !important; }
-    .zbtn-reset {
-        font-size: 12px !important;
-        width: 36px !important;
-        letter-spacing: 0 !important;
-        color: #a09070 !important;
-    }
-
-    #zoom-wrap {
-        transform-origin: top left;
-        will-change: transform;
-    }
+.draft-main{max-width:1200px;margin:0 auto;padding:24px 20px}
+.players-bar{display:flex;align-items:center;gap:16px;margin-bottom:20px;background:var(--bg2);border:0.5px solid var(--brown);border-radius:10px;padding:14px 22px}
+.player-card{flex:1;padding:10px 16px;border-radius:8px}
+.player-card.host{background:var(--host-bg);border:0.5px solid var(--host-dim)}
+.player-card.guest{background:var(--guest-bg);border:0.5px solid var(--guest-dim);text-align:right}
+.player-role{font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px}
+.player-card.host .player-role{color:var(--host)}
+.player-card.guest .player-role{color:var(--guest)}
+.player-name{font-family:'Cinzel',serif;font-size:18px;color:var(--text)}
+.vs-badge{font-family:'Cinzel',serif;font-size:20px;color:var(--brown);letter-spacing:4px;min-width:60px;text-align:center}
+.inputs-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px}
+.input-block{background:var(--bg2);border:0.5px solid var(--brown);border-radius:8px;padding:14px 16px}
+.input-block>label{display:block;font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.input-row{display:flex;gap:8px}
+.input-row input,input[type="text"]{flex:1;background:var(--bg0);border:0.5px solid var(--brown);border-radius:6px;padding:8px 12px;color:var(--text);font-size:13px;font-family:'Inter',sans-serif;outline:none;transition:border-color 0.2s}
+.input-row input:focus,input[type="text"]:focus{border-color:var(--gold2)}
+.input-row input::placeholder,input[type="text"]::placeholder{color:var(--brown)}
+.input-row button,button{background:var(--bg3);border:0.5px solid var(--brown);border-radius:6px;color:var(--gold);font-size:12px;font-weight:600;font-family:'Inter',sans-serif;padding:8px 16px;cursor:pointer;transition:all 0.18s;white-space:nowrap}
+.input-row button:hover,button:hover{background:var(--brown);border-color:var(--gold2)}
+.swap-row{display:flex;align-items:center;gap:8px;margin-top:10px;padding:9px 12px;background:var(--bg3);border:0.5px solid var(--brown-dim);border-radius:7px;flex-wrap:wrap}
+.swap-label{font-size:10px;color:var(--dim);letter-spacing:1px;text-transform:uppercase;min-width:40px}
+.name-inputs{display:flex;gap:8px;flex:1;min-width:0}
+.name-field{display:flex;align-items:center;gap:5px;flex:1;min-width:0}
+.name-field label,.lbl-host,.lbl-guest{font-size:10px;letter-spacing:1px;white-space:nowrap}
+.lbl-host{color:var(--host)} .lbl-guest{color:var(--guest)}
+.name-field input{flex:1;min-width:0;background:var(--bg0);border:0.5px solid var(--brown-dim);border-radius:5px;padding:5px 8px;color:var(--text);font-size:12px;font-family:'Inter',sans-serif;outline:none}
+.name-field input:focus{border-color:var(--gold2)}
+.swap-btn{padding:5px 12px!important;font-size:12px!important;background:var(--bg2)!important;border:0.5px solid var(--brown)!important;color:var(--gold)!important;border-radius:5px!important;cursor:pointer;transition:all 0.18s;white-space:nowrap}
+.swap-btn:hover{background:var(--brown)!important;border-color:var(--gold2)!important}
+.swap-badge{font-size:9px;padding:2px 8px;border-radius:10px;letter-spacing:1px;background:rgba(232,200,122,0.08);border:0.5px solid rgba(232,200,122,0.25);color:var(--gold2);display:none;white-space:nowrap}
+.swap-badge.visible{display:inline-block}
+.draft-section{margin-bottom:28px}
+.section-title{font-family:'Cinzel',serif;font-size:14px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;padding-bottom:8px;border-bottom:0.5px solid var(--brown)}
+h2{color:var(--gold);font-family:'Cinzel',serif} h3{display:none}
+.col-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;padding:4px 10px;border-radius:4px;display:inline-block}
+.host-label{color:var(--host);background:var(--host-bg);border:0.5px solid var(--host-dim)}
+.guest-label{color:var(--guest);background:var(--guest-bg);border:0.5px solid var(--guest-dim)}
+.neutral-label{color:var(--gold);background:var(--gold-dim);border:0.5px solid rgba(232,200,122,0.25)}
+.maps-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+.maps-col{display:flex;flex-direction:column}
+.civs-grid{display:grid;grid-template-columns:1fr 1.4fr 1fr;gap:14px}
+.civs-col{display:flex;flex-direction:column}
+.neutral-col{align-items:center}
+.column{display:flex;flex-direction:column;gap:6px;min-height:36px;padding:8px;border-radius:8px;background:var(--bg1);border:0.5px solid var(--brown-dim);margin-bottom:4px}
+.civ{display:flex;align-items:center;gap:10px;padding:7px 10px;border-radius:6px;background:var(--bg2);border:0.5px solid var(--brown);transition:transform 0.15s}
+.civ:hover{transform:translateY(-2px)}
+.civ img{width:26px;height:26px;border-radius:4px;object-fit:cover}
+.civ label{font-size:13px;color:var(--text);flex:1;cursor:default}
+.civ-pick{background:rgba(40,120,40,0.08);border-color:var(--pick-border)}
+.civ-ban{background:rgba(180,40,40,0.08);border-color:var(--ban-border);opacity:0.8}
+.civ-ban label{color:var(--muted);text-decoration:line-through}
+.status-image{width:18px;height:18px;flex-shrink:0}
+.map-section{display:flex;flex-wrap:wrap;gap:10px;padding:8px;min-height:50px;background:var(--bg1);border:0.5px solid var(--brown-dim);border-radius:8px}
+.map-card{position:relative;width:110px;height:140px;border-radius:8px;border:0.5px solid var(--brown);background:var(--bg2);display:flex;flex-direction:column;align-items:center;justify-content:flex-end;overflow:hidden;transition:transform 0.18s,border-color 0.18s;cursor:default}
+.map-card:hover{transform:translateY(-3px);border-color:var(--gold2)}
+.map-img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0.75;border-radius:8px;transition:opacity 0.18s}
+.map-card:hover .map-img{opacity:0.9}
+.map-card::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 35%,rgba(8,5,2,0.92) 100%);border-radius:8px;pointer-events:none}
+.map-name{position:relative;z-index:2;font-size:11px;font-weight:600;color:var(--text);text-align:center;padding:0 6px 8px;line-height:1.2;font-family:'Inter',sans-serif;letter-spacing:0.3px}
+.map-ban{border-color:var(--ban-border)!important}
+.map-ban .map-img{opacity:0.3;filter:grayscale(80%) sepia(40%)}
+.map-ban .map-name{color:#c07070;text-decoration:line-through}
+.map-ban::before{content:'BAN';position:absolute;top:8px;left:50%;transform:translateX(-50%);z-index:3;font-size:9px;font-weight:700;letter-spacing:2px;color:#e07070;background:rgba(120,20,20,0.7);padding:2px 8px;border-radius:3px;font-family:'Inter',sans-serif}
+.map-pick-host{border-color:var(--host-dim)!important;box-shadow:inset 0 0 0 1px var(--host-dim)}
+.map-pick-host::before{content:'HOST';position:absolute;top:8px;left:50%;transform:translateX(-50%);z-index:3;font-size:9px;font-weight:700;letter-spacing:2px;color:var(--host);background:rgba(20,60,120,0.7);padding:2px 8px;border-radius:3px;font-family:'Inter',sans-serif}
+.map-pick-guest{border-color:var(--guest-dim)!important;box-shadow:inset 0 0 0 1px var(--guest-dim)}
+.map-pick-guest::before{content:'GUEST';position:absolute;top:8px;left:50%;transform:translateX(-50%);z-index:3;font-size:9px;font-weight:700;letter-spacing:2px;color:var(--guest);background:rgba(120,20,60,0.7);padding:2px 8px;border-radius:3px;font-family:'Inter',sans-serif}
+.map-neutral{border-color:rgba(232,200,122,0.2)!important}
+.map-buttons{position:relative;z-index:3;display:flex;gap:4px;padding-bottom:6px}
+.map-buttons button{font-size:14px;padding:3px 6px;border:none;background:rgba(0,0,0,0.5);border-radius:4px;cursor:pointer;line-height:1;transition:background 0.15s,transform 0.15s}
+.map-buttons button:hover{background:rgba(232,200,122,0.25);transform:scale(1.15)}
+.update-bar{display:flex;justify-content:center;margin-top:8px;padding-top:18px;border-top:0.5px solid var(--brown-dim)}
+.btn-update{background:var(--gold);color:var(--bg0);border:none;padding:12px 36px;border-radius:8px;font-size:14px;font-weight:700;font-family:'Cinzel',serif;letter-spacing:1px;cursor:pointer;transition:all 0.18s}
+.btn-update:hover{background:#f0d48a;transform:translateY(-1px)}
+.draft-footer{text-align:center;padding:16px;font-size:11px;color:var(--dim);letter-spacing:1px;border-top:0.5px solid var(--brown-dim);display:flex;justify-content:center;gap:10px}
+#draftCode,#mapDraftCode{background:var(--bg0);border:0.5px solid var(--brown);border-radius:6px;padding:8px 12px;color:var(--text);font-size:13px;width:100%;outline:none;font-family:'Inter',sans-serif}
+#zoom-ctrl{position:fixed;top:8px;right:8px;z-index:9999;display:flex;align-items:center;gap:6px;background:rgba(10,6,2,0.95);border:0.5px solid #3a2a1a;border-radius:8px;padding:5px 10px}
+#zoom-ctrl .zlabel{font-size:10px;color:#665544;font-family:'Inter',sans-serif;letter-spacing:1px;text-transform:uppercase;margin-right:2px}
+#zoom-val{font-size:12px;color:#e8c87a;font-family:'Cinzel',serif;min-width:40px;text-align:center}
+.zbtn{width:28px!important;height:28px!important;padding:0!important;margin:0!important;font-size:18px!important;font-weight:700!important;border-radius:5px!important;background:#1a1208!important;border:0.5px solid #3a2a1a!important;color:#e8c87a!important;cursor:pointer!important;display:flex!important;align-items:center!important;justify-content:center!important;line-height:1!important;transition:background 0.15s}
+.zbtn:hover{background:#3a2a1a!important}
+.zbtn-reset{font-size:12px!important;width:36px!important;letter-spacing:0!important;color:#a09070!important}
+#zoom-wrap{transform-origin:top left;will-change:transform}
+@media(max-width:768px){.inputs-grid,.maps-grid,.civs-grid{grid-template-columns:1fr}.players-bar,.swap-row{flex-direction:column}}
     </style>
 </head>
 <body>
 
-<!-- Control de zoom para OBS interactivo -->
 <div id="zoom-ctrl">
     <span class="zlabel">Zoom</span>
     <button class="zbtn" onclick="ajustarZoom(-0.1)">−</button>
@@ -532,42 +121,24 @@ h3 { display: none; }
 </div>
 
 <script>
-(function() {
-    const ZOOM_KEY = 'admindraft_zoom';
-    let zoom = parseFloat(localStorage.getItem(ZOOM_KEY) || '1');
-
-    function aplicarZoom() {
-        const wrap = document.getElementById('zoom-wrap');
-        if (!wrap) return;
-        wrap.style.transform = zoom !== 1 ? 'scale(' + zoom + ')' : '';
-        // Ajustar el ancho del wrap para que el scroll sea correcto
-        wrap.style.width     = zoom < 1 ? (100 / zoom) + '%' : '';
-        document.getElementById('zoom-val').textContent = Math.round(zoom * 100) + '%';
-        localStorage.setItem(ZOOM_KEY, String(zoom));
+(function(){
+    const ZOOM_KEY='admindraft_zoom';
+    let zoom=parseFloat(localStorage.getItem(ZOOM_KEY)||'1');
+    function aplicarZoom(){
+        const wrap=document.getElementById('zoom-wrap');
+        if(!wrap)return;
+        wrap.style.transform=zoom!==1?'scale('+zoom+')':'';
+        wrap.style.width=zoom<1?(100/zoom)+'%':'';
+        document.getElementById('zoom-val').textContent=Math.round(zoom*100)+'%';
+        localStorage.setItem(ZOOM_KEY,String(zoom));
     }
-
-    window.ajustarZoom = function(delta) {
-        zoom = Math.round(Math.min(2.0, Math.max(0.4, zoom + delta)) * 10) / 10;
-        aplicarZoom();
-    };
-
-    window.resetZoom = function() {
-        zoom = 1;
-        aplicarZoom();
-    };
-
-    document.addEventListener('DOMContentLoaded', function() {
-        // Mover todo el contenido del body (excepto zoom-ctrl y scripts inline) a #zoom-wrap
-        const wrap = document.createElement('div');
-        wrap.id    = 'zoom-wrap';
-        wrap.style.transformOrigin = 'top left';
-
-        const toMove = Array.from(document.body.children).filter(function(el) {
-            return el.id !== 'zoom-ctrl' && el.tagName !== 'SCRIPT';
-        });
-        toMove.forEach(function(el) { wrap.appendChild(el); });
+    window.ajustarZoom=function(d){zoom=Math.round(Math.min(2,Math.max(0.4,zoom+d))*10)/10;aplicarZoom()};
+    window.resetZoom=function(){zoom=1;aplicarZoom()};
+    document.addEventListener('DOMContentLoaded',function(){
+        const wrap=document.createElement('div');
+        wrap.id='zoom-wrap';wrap.style.transformOrigin='top left';
+        Array.from(document.body.children).filter(el=>el.id!=='zoom-ctrl'&&el.tagName!=='SCRIPT').forEach(el=>wrap.appendChild(el));
         document.body.appendChild(wrap);
-
         aplicarZoom();
     });
 })();
@@ -580,26 +151,17 @@ h3 { display: none; }
             <h1>Administrador de Drafts</h1>
             <div class="draft-subtitle">Copa Uruguaya 2026</div>
         </div>
-           <a href="overlay_control.html" class="btn-admindraft" target="_blank">🛡 Abrir Overlay de Control</a>
+        <a href="overlay_control.html" class="btn-admindraft" target="_blank">🛡 Abrir Overlay Control</a>
     </div>
 </header>
 
 <main class="draft-main">
-
-    <!-- JUGADORES -->
     <section class="players-bar">
-        <div class="player-card host">
-            <div class="player-role">HOST</div>
-            <div class="player-name" id="hostName">—</div>
-        </div>
+        <div class="player-card host"><div class="player-role">HOST</div><div class="player-name" id="hostName">—</div></div>
         <div class="vs-badge">VS</div>
-        <div class="player-card guest">
-            <div class="player-role">GUEST</div>
-            <div class="player-name" id="guestName">—</div>
-        </div>
+        <div class="player-card guest"><div class="player-role">GUEST</div><div class="player-name" id="guestName">—</div></div>
     </section>
 
-    <!-- INPUTS -->
     <section class="inputs-grid">
         <div class="input-block">
             <label for="draftCode">Código Draft de Civs</label>
@@ -610,20 +172,13 @@ h3 { display: none; }
             <div class="swap-row">
                 <span class="swap-label">Civs</span>
                 <div class="name-inputs">
-                    <div class="name-field">
-                        <label class="lbl-host">HOST</label>
-                        <input type="text" id="civHostName" placeholder="Nombre host" oninput="actualizarNombres()"/>
-                    </div>
-                    <div class="name-field">
-                        <label class="lbl-guest">GUEST</label>
-                        <input type="text" id="civGuestName" placeholder="Nombre guest" oninput="actualizarNombres()"/>
-                    </div>
+                    <div class="name-field"><label class="lbl-host">HOST</label><input type="text" id="civHostName" placeholder="Nombre host" oninput="actualizarNombres()"/></div>
+                    <div class="name-field"><label class="lbl-guest">GUEST</label><input type="text" id="civGuestName" placeholder="Nombre guest" oninput="actualizarNombres()"/></div>
                 </div>
                 <span class="swap-badge" id="civSwapBadge">SWAPPED</span>
                 <button class="swap-btn" onclick="swapCivs()">⇄ Swap Civs</button>
             </div>
         </div>
-
         <div class="input-block">
             <label for="mapDraftCode">Código Draft de Mapas</label>
             <div class="input-row">
@@ -633,14 +188,8 @@ h3 { display: none; }
             <div class="swap-row">
                 <span class="swap-label">Mapas</span>
                 <div class="name-inputs">
-                    <div class="name-field">
-                        <label class="lbl-host">HOST</label>
-                        <input type="text" id="mapHostName" placeholder="Nombre host" oninput="actualizarNombres()"/>
-                    </div>
-                    <div class="name-field">
-                        <label class="lbl-guest">GUEST</label>
-                        <input type="text" id="mapGuestName" placeholder="Nombre guest" oninput="actualizarNombres()"/>
-                    </div>
+                    <div class="name-field"><label class="lbl-host">HOST</label><input type="text" id="mapHostName" placeholder="Nombre host" oninput="actualizarNombres()"/></div>
+                    <div class="name-field"><label class="lbl-guest">GUEST</label><input type="text" id="mapGuestName" placeholder="Nombre guest" oninput="actualizarNombres()"/></div>
                 </div>
                 <span class="swap-badge" id="mapSwapBadge">SWAPPED</span>
                 <button class="swap-btn" onclick="swapMapas()">⇄ Swap Mapas</button>
@@ -648,26 +197,15 @@ h3 { display: none; }
         </div>
     </section>
 
-    <!-- MAPAS -->
-    <section class="draft-section" id="mapContainer">
+    <section class="draft-section">
         <h2 class="section-title">🗺 Mapas</h2>
         <div class="maps-grid">
-            <div class="maps-col">
-                <div class="col-label host-label" id="hostMapsLabel">Host</div>
-                <div id="hostMaps" class="map-section"></div>
-            </div>
-            <div class="maps-col">
-                <div class="col-label neutral-label">Neutrales</div>
-                <div id="neutralMaps" class="map-section"></div>
-            </div>
-            <div class="maps-col">
-                <div class="col-label guest-label" id="guestMapsLabel">Guest</div>
-                <div id="guestMaps" class="map-section"></div>
-            </div>
+            <div class="maps-col"><div class="col-label host-label" id="hostMapsLabel">Host</div><div id="hostMaps" class="map-section"></div></div>
+            <div class="maps-col"><div class="col-label neutral-label">Neutrales</div><div id="neutralMaps" class="map-section"></div></div>
+            <div class="maps-col"><div class="col-label guest-label" id="guestMapsLabel">Guest</div><div id="guestMaps" class="map-section"></div></div>
         </div>
     </section>
 
-    <!-- CIVS -->
     <section class="draft-section">
         <h2 class="section-title">🛡 Civilizaciones</h2>
         <div class="civs-grid">
@@ -695,16 +233,17 @@ h3 { display: none; }
     <div class="update-bar">
         <button class="btn-update" id="btnActualizar">↺ Actualizar Overlay</button>
     </div>
-
 </main>
 
 <footer class="draft-footer">
-    <span>Copa Uruguaya 2026 · AUA</span>
-    <span style="color:#3a2a1a">·</span>
-    <span>Diseñado por JabsUY</span>
+    <span>Copa Uruguaya 2026 · AUA</span><span style="color:#3a2a1a">·</span><span>Diseñado por JabsUY</span>
 </footer>
 
 <script>
+// ── Config ────────────────────────────────────────────────────────────────────
+const WS_SERVER = 'https://aldeanooscar.squareweb.app';
+
+// ── Swap / nombres ────────────────────────────────────────────────────────────
 let civSwapped = false;
 let mapSwapped = false;
 
@@ -719,6 +258,10 @@ function cargarEstado() {
     if (n.mapHost)  document.getElementById('mapHostName').value  = n.mapHost;
     if (n.mapGuest) document.getElementById('mapGuestName').value = n.mapGuest;
     actualizarNombres();
+    const hn = localStorage.getItem('hostName');
+    const gn = localStorage.getItem('guestName');
+    if (hn) document.getElementById('hostName').textContent = hn;
+    if (gn) document.getElementById('guestName').textContent = gn;
 }
 
 function swapCivs() {
@@ -742,15 +285,11 @@ function actualizarNombres() {
     const cg = document.getElementById('civGuestName').value.trim();
     const mh = document.getElementById('mapHostName').value.trim();
     const mg = document.getElementById('mapGuestName').value.trim();
-
-    localStorage.setItem('draftNames', JSON.stringify({ civHost:ch, civGuest:cg, mapHost:mh, mapGuest:mg }));
-
-    // Labels con swap aplicado
+    localStorage.setItem('draftNames', JSON.stringify({civHost:ch,civGuest:cg,mapHost:mh,mapGuest:mg}));
     const chLabel = civSwapped ? (cg||'Guest') : (ch||'Host');
     const cgLabel = civSwapped ? (ch||'Host')  : (cg||'Guest');
     const mhLabel = mapSwapped ? (mg||'Guest') : (mh||'Host');
     const mgLabel = mapSwapped ? (mh||'Host')  : (mg||'Guest');
-
     document.getElementById('hostCivsLabel').textContent  = chLabel + ' Picks';
     document.getElementById('hostBansLabel').textContent  = chLabel + ' Bans';
     document.getElementById('guestCivsLabel').textContent = cgLabel + ' Picks';
@@ -761,46 +300,37 @@ function actualizarNombres() {
     document.getElementById('guestName').textContent = cgLabel;
 }
 
-// ─── Token ───────────────────────────────────────────────────────────────────
-
-// ─── GitHub config ───────────────────────────────────────────────────────────
-const WS_SERVER = 'https://aldeanooscar.squareweb.app';
-
 function setEstadoBtn(texto, color) {
     const btn = document.getElementById('btnActualizar');
     btn.textContent = texto;
     btn.style.background = color || '';
-    if (color) setTimeout(() => {
-        btn.textContent = '↺ Actualizar Overlay';
-        btn.style.background = '';
-    }, 3000);
+    if (color) setTimeout(() => { btn.textContent = '↺ Actualizar Overlay'; btn.style.background = ''; }, 3000);
 }
 
-// ─── Botón Actualizar ─────────────────────────────────────────────────────────
-document.getElementById("btnActualizar").addEventListener("click", async function () {
-    // 1. Guardar en localStorage (para uso local si admindraft y overlay están en el mismo navegador)
-    if (typeof updatedCivsData !== 'undefined') localStorage.setItem('civsData',    JSON.stringify(updatedCivsData));
-    if (typeof updatedMapsData !== 'undefined') localStorage.setItem('mapasData',   JSON.stringify(updatedMapsData));
+// ── Botón Actualizar ──────────────────────────────────────────────────────────
+// Lee SIEMPRE desde localStorage — es la única fuente de verdad compartida
+// Los JS de civs/mapas guardan ahí inmediatamente al cargar el draft
+document.getElementById('btnActualizar').addEventListener('click', async function() {
+    const civsData    = JSON.parse(localStorage.getItem('civsData')    || '[]');
+    const neutralCivs = JSON.parse(localStorage.getItem('neutralCivs') || '[]');
+    const mapasData   = JSON.parse(localStorage.getItem('mapasData')   || '[]');
+    const draftNames  = JSON.parse(localStorage.getItem('draftNames')  || '{}');
+
+    // Debug: mostrar en consola qué se va a enviar
+    console.log('[Actualizar] civsData:', civsData.length, '| neutralCivs:', neutralCivs.length, '| mapasData:', mapasData.length);
+
+    const state = {
+        civsData,
+        neutralCivs,
+        mapasData,
+        draftNames,
+        civSwapped: localStorage.getItem('civSwapped') === 'true',
+        mapSwapped: localStorage.getItem('mapSwapped') === 'true',
+        ts: Date.now()
+    };
 
     setEstadoBtn('⏳ Enviando...', '#a07820');
 
-    // Guardar datos frescos en localStorage primero
-    if (typeof updatedCivsData !== 'undefined') localStorage.setItem('civsData',    JSON.stringify(updatedCivsData));
-    if (typeof updatedMapsData !== 'undefined') localStorage.setItem('mapasData',   JSON.stringify(updatedMapsData));
-
-    // Construir estado con datos frescos directamente de las variables JS
-    // (no desde localStorage para evitar que neutralCivs quede desactualizado)
-    const state = {
-        civsData:    typeof updatedCivsData  !== 'undefined' ? updatedCivsData  : JSON.parse(localStorage.getItem('civsData')    || '[]'),
-        neutralCivs: typeof updatedNeutralCivs !== 'undefined' ? updatedNeutralCivs : JSON.parse(localStorage.getItem('neutralCivs') || '[]'),
-        mapasData:   typeof updatedMapsData  !== 'undefined' ? updatedMapsData  : JSON.parse(localStorage.getItem('mapasData')   || '[]'),
-        draftNames:  JSON.parse(localStorage.getItem('draftNames')  || '{}'),
-        civSwapped:  localStorage.getItem('civSwapped') === 'true',
-        mapSwapped:  localStorage.getItem('mapSwapped') === 'true',
-        ts:          Date.now(),
-    };
-
-    // Enviar a Oscar (broadcast WS + persiste en memoria)
     try {
         const r = await fetch(WS_SERVER + '/overlay/draft', {
             method:  'POST',
@@ -809,379 +339,194 @@ document.getElementById("btnActualizar").addEventListener("click", async functio
         });
         if (r.ok) {
             setEstadoBtn('✅ Overlay actualizado', '#5a8030');
+            console.log('[Actualizar] ✅ enviado a Oscar');
         } else {
-            setEstadoBtn('❌ Error al enviar', '#803020');
+            setEstadoBtn('❌ Error ' + r.status, '#803020');
         }
     } catch(e) {
         setEstadoBtn('❌ Servidor no disponible', '#803020');
-        console.error('Error:', e.message);
+        console.error('[Actualizar] Error:', e.message);
     }
-
-    // 4. Recargar la UI local
-    location.reload();
+    // SIN location.reload() — no borramos los datos de memoria
 });
 
 document.addEventListener('DOMContentLoaded', function() {
     cargarEstado();
-    // Restaurar globals desde localStorage y renderizar
-    const _sc = localStorage.getItem("civsData");
-    const _sn = localStorage.getItem("neutralCivs");
-    const _sm = localStorage.getItem('mapasData');
-    if (_sc && typeof _civsData    !== 'undefined') _civsData    = JSON.parse(_sc);
-    if (_sn && typeof _neutralCivs !== 'undefined') _neutralCivs = JSON.parse(_sn);
-    if (_sm && typeof _mapasData   !== 'undefined') _mapasData   = JSON.parse(_sm);
-    if (typeof renderCivs         === 'function') renderCivs();
-    if (typeof renderNeutralCivs  === 'function') renderNeutralCivs();
-    if (typeof renderMaps         === 'function') renderMaps();
-    // Restore names from localStorage
-    const hn = localStorage.getItem('hostName');
-    const gn = localStorage.getItem('guestName');
-    if (hn) document.getElementById('hostName').textContent = hn;
-    if (gn) document.getElementById('guestName').textContent = gn;
-});
-</script>
-<script>
-/* ═══════════════════════════════
-   admindraftcivs.js — inlineado
-═══════════════════════════════ */
-// ── Variables globales en memoria (persisten mientras la página está abierta) ──
-let _civsData    = [];
-let _neutralCivs = [];
-let _mapasData   = [];
-
-async function fetchAndSaveDraftData() {
-  const draftCode = document.getElementById("draftCode").value;
-  if (!draftCode) {
-    alert("Por favor, ingresa un código de draft.");
-    return;
-  }
-
-  try {
-    const response = await fetch(`https://aoe2cm.net/api/draft/${draftCode}`);
-    const data = await response.json();
-
-    const hostName = data.nameHost || "Host";
-const guestName = data.nameGuest || "Guest";
-
-// Guardar en localStorage
-localStorage.setItem("hostName", hostName);
-localStorage.setItem("guestName", guestName);
-console.log(hostName);
-// Mostrar directamente si querés
-document.getElementById("hostName").textContent = hostName;
-document.getElementById("guestName").textContent = guestName;
-
-
-    const civsData = [];
-    const neutralCivs = [];
-
-
-    data.events.forEach((event) => {
-      // Validar que no esté vacío 'chosenOptionId' y que 'actionType' sea relevante
-      if (
-        !event.chosenOptionId ||
-        (event.player === "NONE" && !event.actionType)
-      ) {
-        return; // Ignorar civilizaciones sin nombre o con 'NONE' sin actionType
-      }
-
-      const civ = {
-        name: event.chosenOptionId,
-        player: event.player,
-        actionType: event.actionType,
-        won: false,
-        lost: false,
-      };
-      if (
-        event.player === "NONE" ||
-        (event.player === "NONE" && !event.actionType)
-      ) {
-        neutralCivs.push(civ); // Guardar civilizaciones neutrales por separado
-      } else {
-        civsData.push(civ); // Guardar civilizaciones de jugadores
-      }
-    });
-
-    localStorage.setItem("civsData", JSON.stringify(civsData));
-    localStorage.setItem("neutralCivs", JSON.stringify(neutralCivs));
-    // Actualizar globals en memoria
-    _civsData    = civsData;
-    _neutralCivs = neutralCivs;
-    console.log(neutralCivs);
-    alert("Datos cargados y guardados en localStorage.");
     renderCivs();
     renderNeutralCivs();
-  } catch (error) {
-    console.error("Error al obtener los datos del draft:", error);
-    alert(
-      "Error al obtener los datos del draft. Verifica el código e intenta nuevamente."
-    );
-  }
+    renderMaps();
+});
+</script>
+
+<script>
+// ── admindraftcivs ────────────────────────────────────────────────────────────
+async function fetchAndSaveDraftData() {
+    const draftCode = document.getElementById('draftCode').value;
+    if (!draftCode) { alert('Por favor, ingresa un código de draft.'); return; }
+    try {
+        const response = await fetch('https://aoe2cm.net/api/draft/' + draftCode);
+        const data = await response.json();
+
+        const hostName  = data.nameHost  || 'Host';
+        const guestName = data.nameGuest || 'Guest';
+        localStorage.setItem('hostName',  hostName);
+        localStorage.setItem('guestName', guestName);
+        document.getElementById('hostName').textContent  = hostName;
+        document.getElementById('guestName').textContent = guestName;
+
+        const civsData    = [];
+        const neutralCivs = [];
+
+        data.events.forEach(event => {
+            if (!event.chosenOptionId || (event.player === 'NONE' && !event.actionType)) return;
+            const civ = { name: event.chosenOptionId, player: event.player, actionType: event.actionType, won: false, lost: false };
+            if (event.player === 'NONE') neutralCivs.push(civ);
+            else civsData.push(civ);
+        });
+
+        localStorage.setItem('civsData',    JSON.stringify(civsData));
+        localStorage.setItem('neutralCivs', JSON.stringify(neutralCivs));
+        console.log('[fetchCivs] civsData:', civsData.length, '| neutralCivs:', neutralCivs.length);
+
+        alert('Datos de civs cargados.');
+        renderCivs();
+        renderNeutralCivs();
+    } catch(e) {
+        console.error('Error civs:', e);
+        alert('Error al cargar el draft de civs. Verificá el código.');
+    }
 }
 
 function renderCivs() {
-  const hostPicksColumn = document.getElementById("hostPicksColumn");
-  const guestPicksColumn = document.getElementById("guestPicksColumn");
-  const hostBansColumn = document.getElementById("hostBansColumn");
-  const guestBansColumn = document.getElementById("guestBansColumn");
-  const hostSnipesColumn = document.getElementById("hostSnipesColumn");
-  const guestSnipesColumn = document.getElementById("guestSnipesColumn");
+    const cols = {
+        hostPicks:  document.getElementById('hostPicksColumn'),
+        guestPicks: document.getElementById('guestPicksColumn'),
+        hostBans:   document.getElementById('hostBansColumn'),
+        guestBans:  document.getElementById('guestBansColumn'),
+        hostSnipes: document.getElementById('hostSnipesColumn'),
+        guestSnipes:document.getElementById('guestSnipesColumn'),
+    };
+    Object.values(cols).forEach(c => c.innerHTML = '');
 
-  hostPicksColumn.innerHTML = "";
-  guestPicksColumn.innerHTML = "";
-  hostBansColumn.innerHTML = "";
-  guestBansColumn.innerHTML = "";
-  hostSnipesColumn.innerHTML = "";
-  guestSnipesColumn.innerHTML = "";
+    const civsData   = JSON.parse(localStorage.getItem('civsData') || '[]');
+    const snipedCivs = civsData.filter(c => c.actionType === 'snipe').map(c => c.name);
 
-  const civsData = JSON.parse(localStorage.getItem("civsData")) || [];
+    civsData.forEach(civ => {
+        if (civ.player === 'NONE') return;
+        let col;
+        if      (civ.actionType === 'snipe') col = civ.player === 'HOST' ? cols.hostSnipes  : cols.guestSnipes;
+        else if (civ.actionType === 'ban')   col = civ.player === 'HOST' ? cols.hostBans    : cols.guestBans;
+        else if (civ.actionType === 'pick') {
+            if (snipedCivs.includes(civ.name)) return;
+            col = civ.player === 'HOST' ? cols.hostPicks : cols.guestPicks;
+        } else return;
 
-  // 🔸 Primero, obtener los nombres de las civs que fueron snipeadas
-  const snipedCivs = civsData
-    .filter((c) => c.actionType === "snipe")
-    .map((c) => c.name);
-
-  civsData.forEach((civ) => {
-    if (civ.player === "NONE") return;
-
-    let column;
-
-    if (civ.actionType === "snipe") {
-      column = civ.player === "HOST" ? hostSnipesColumn : guestSnipesColumn;
-    } else if (civ.actionType === "ban") {
-      column = civ.player === "HOST" ? hostBansColumn : guestBansColumn;
-    } else if (civ.actionType === "pick") {
-      // 🔸 Saltar si fue snipeada
-      if (snipedCivs.includes(civ.name)) return;
-
-      column = civ.player === "HOST" ? hostPicksColumn : guestPicksColumn;
-    } else {
-      return; // Acción desconocida
-    }
-
-    const civElement = document.createElement("div");
-    civElement.classList.add("civ");
-    if (civ.actionType === "ban") civElement.classList.add("civ-ban");
-    if (civ.actionType === "snipe") civElement.classList.add("civ-snipe");
-
-    if (civ.actionType === "snipe") {
-      const snipeImage = document.createElement("img");
-      snipeImage.src = "img/snipe.svg";
-      snipeImage.alt = "Snipeado";
-      snipeImage.classList.add("status-image");
-      civElement.appendChild(snipeImage);
-    }
-
-    if (civ.won) {
-      const wonImage = document.createElement("img");
-      wonImage.src = "img/gano.svg";
-      wonImage.alt = "Ganador";
-      wonImage.classList.add("status-image");
-      civElement.appendChild(wonImage);
-    }
-    if (civ.lost) {
-      const lostImage = document.createElement("img");
-      lostImage.src = "img/perdio.svg";
-      lostImage.alt = "Perdedor";
-      lostImage.classList.add("status-image");
-      civElement.appendChild(lostImage);
-    }
-
-    civElement.innerHTML += `
-          <span>${civ.name}</span>
-          ${
-            civ.actionType === "pick"
-              ? `
-              <label><input type="checkbox" ${
-                civ.won ? "checked" : ""
-              } onchange="markAsWinner('${
-                  civ.name
-                }', this.checked)"> Ganador</label>
-              <label><input type="checkbox" ${
-                civ.lost ? "checked" : ""
-              } onchange="markAsLoser('${
-                  civ.name
-                }', this.checked)"> Perdedor</label>
-          `
-              : ""
-          }
-      `;
-    column.appendChild(civElement);
-  });
+        const el = document.createElement('div');
+        el.classList.add('civ');
+        if (civ.actionType === 'ban')   el.classList.add('civ-ban');
+        if (civ.actionType === 'snipe') el.classList.add('civ-snipe');
+        if (civ.actionType === 'snipe') { const img = document.createElement('img'); img.src='img/snipe.svg'; img.classList.add('status-image'); el.appendChild(img); }
+        if (civ.won)  { const img = document.createElement('img'); img.src='img/gano.svg';   img.classList.add('status-image'); el.appendChild(img); }
+        if (civ.lost) { const img = document.createElement('img'); img.src='img/perdio.svg'; img.classList.add('status-image'); el.appendChild(img); }
+        el.innerHTML += '<span>' + civ.name + '</span>' + (civ.actionType === 'pick' ? '<label><input type="checkbox" ' + (civ.won?'checked':'') + ' onchange="markAsWinner(\'' + civ.name + '\',this.checked)"> Ganador</label><label><input type="checkbox" ' + (civ.lost?'checked':'') + ' onchange="markAsLoser(\'' + civ.name + '\',this.checked)"> Perdedor</label>' : '');
+        col.appendChild(el);
+    });
 }
 
 function renderNeutralCivs() {
-  const neutralColumn = document.getElementById("neutralCivsColumn");
-  neutralColumn.innerHTML = "";
-
-  const neutralCivs = JSON.parse(localStorage.getItem("neutralCivs")) || [];
-  console.log(neutralCivs);
-  // Filtrar civilizaciones neutrales que tienen un actionType válido
-  const filteredNeutralCivs = neutralCivs.filter((civ) => civ.actionType);
-
-  filteredNeutralCivs.forEach((civ) => {
-    const civElement = document.createElement("div");
-    civElement.classList.add("civ", "neutral-civ");
-
-    // Si la civilización fue baneada, agregar la clase civ-ban
-    if (civ.actionType === "ban") {
-      civElement.classList.add("civ-ban");
-    }
-
-    civElement.innerHTML = `<span>${civ.name}</span>`;
-    neutralColumn.appendChild(civElement);
-  });
+    const col = document.getElementById('neutralCivsColumn');
+    col.innerHTML = '';
+    const neutralCivs = JSON.parse(localStorage.getItem('neutralCivs') || '[]');
+    neutralCivs.filter(c => c.actionType).forEach(civ => {
+        const el = document.createElement('div');
+        el.classList.add('civ', 'neutral-civ');
+        if (civ.actionType === 'ban') el.classList.add('civ-ban');
+        el.innerHTML = '<span>' + civ.name + '</span>';
+        col.appendChild(el);
+    });
 }
 
 function markAsWinner(civName, isWinner) {
-  const civsData = JSON.parse(localStorage.getItem("civsData"));
-  const civ = civsData.find((c) => c.name === civName);
-  if (civ) civ.won = isWinner;
-  localStorage.setItem("civsData", JSON.stringify(civsData));
-  renderCivs();
+    const data = JSON.parse(localStorage.getItem('civsData'));
+    const c = data.find(x => x.name === civName);
+    if (c) c.won = isWinner;
+    localStorage.setItem('civsData', JSON.stringify(data));
+    renderCivs();
 }
 
 function markAsLoser(civName, isLoser) {
-  const civsData = JSON.parse(localStorage.getItem("civsData"));
-  const civ = civsData.find((c) => c.name === civName);
-  if (civ) civ.lost = isLoser;
-  localStorage.setItem("civsData", JSON.stringify(civsData));
-  renderCivs();
+    const data = JSON.parse(localStorage.getItem('civsData'));
+    const c = data.find(x => x.name === civName);
+    if (c) c.lost = isLoser;
+    localStorage.setItem('civsData', JSON.stringify(data));
+    renderCivs();
 }
-
-// actualizarDatos removed
-
-// Al cargar la página
-
-
-
-// Exponer datos actualizados para que admindraft los lea al pulsar Actualizar
-Object.defineProperty(window, 'updatedCivsData', {
-  get: () => _civsData.length > 0 ? _civsData : JSON.parse(localStorage.getItem('civsData') || '[]')
-});
-
-Object.defineProperty(window, 'updatedNeutralCivs', {
-  get: () => _neutralCivs.length > 0 ? _neutralCivs : JSON.parse(localStorage.getItem('neutralCivs') || '[]')
-});
-
 </script>
+
 <script>
-/* ════════════════════════════════
-   admindraftmapas.js — inlineado
-════════════════════════════════ */
-// Función para cargar y guardar los mapas en localStorage
+// ── admindraftmapas ───────────────────────────────────────────────────────────
 async function fetchAndSaveMapData() {
     const mapDraftCode = document.getElementById('mapDraftCode').value;
-    if (!mapDraftCode) {
-        alert("Por favor, ingresa un código de draft.");
-        return;
-    }
-
+    if (!mapDraftCode) { alert('Por favor, ingresa un código de draft.'); return; }
     try {
-        const response = await fetch(`https://aoe2cm.net/api/draft/${mapDraftCode}`);
-        const mapdata = await response.json();
+        const response = await fetch('https://aoe2cm.net/api/draft/' + mapDraftCode);
+        const mapdata  = await response.json();
 
         const mapasData = mapdata.events.map(event => {
-            const mapOption = mapdata.preset.draftOptions.find(option => option.id === event.chosenOptionId);
-
-            const rawImageUrl = mapOption?.imageUrls?.emblem || '';
-            const finalImageUrl = rawImageUrl.startsWith('http')
-                ? rawImageUrl
-                : `https://aoe2cm.net${rawImageUrl}`;
-
+            const opt = mapdata.preset.draftOptions.find(o => o.id === event.chosenOptionId);
+            const rawUrl = opt?.imageUrls?.emblem || '';
             return {
-                name: mapOption ? mapOption.name : event.chosenOptionId,
-                imageUrl: finalImageUrl,
-                player: event.player,
+                name:       opt ? opt.name : event.chosenOptionId,
+                imageUrl:   rawUrl.startsWith('http') ? rawUrl : 'https://aoe2cm.net' + rawUrl,
+                player:     event.player,
                 actionType: event.actionType,
-                won: false,
+                won:  false,
                 lost: false
             };
         });
 
         localStorage.setItem('mapasData', JSON.stringify(mapasData));
-    _mapasData = mapasData;
-        alert("Datos de mapas cargados y guardados en localStorage.");
-        renderMaps();
+        console.log('[fetchMapas] mapasData:', mapasData.length);
 
-    } catch (error) {
-        console.error("Error al obtener los datos del draft:", error);
-        alert("Error al obtener los datos del draft. Verifica el código e intenta nuevamente.");
+        alert('Datos de mapas cargados.');
+        renderMaps();
+    } catch(e) {
+        console.error('Error mapas:', e);
+        alert('Error al cargar el draft de mapas. Verificá el código.');
     }
 }
 
-
 function renderMaps() {
-    const hostMaps = document.getElementById('hostMaps');
-    const guestMaps = document.getElementById('guestMaps');
+    const hostMaps    = document.getElementById('hostMaps');
+    const guestMaps   = document.getElementById('guestMaps');
     const neutralMaps = document.getElementById('neutralMaps');
-    
-    // Limpiar el contenido actual
-    hostMaps.innerHTML = '';
-    guestMaps.innerHTML = '';
-    neutralMaps.innerHTML = '';
+    hostMaps.innerHTML = guestMaps.innerHTML = neutralMaps.innerHTML = '';
 
-    const mapasData = JSON.parse(localStorage.getItem('mapasData')) || [];
-    console.log(mapasData);
+    const mapasData = JSON.parse(localStorage.getItem('mapasData') || '[]');
     mapasData.forEach(map => {
-        const mapElement = document.createElement('div');
-        mapElement.className = `map-card ${map.actionType === 'ban' ? 'map-ban' : ''}`;
-
-        mapElement.innerHTML = `
-            <img src="${map.imageUrl}" alt="${map.name}" class="map-img">
-            <span class="map-name">${map.name}</span>
-            <div class="map-buttons">
-                <button onclick="markWin('${map.name}')">Ⓐ</button>
-                <button onclick="markLoss('${map.name}')">Ⓑ</button>
-            </div>
-        `;
-
-        if (map.player === 'HOST') {
-            hostMaps.appendChild(mapElement);
-        } else if (map.player === 'GUEST') {
-            guestMaps.appendChild(mapElement);
-        } else {
-            neutralMaps.appendChild(mapElement);
-        }
+        const el = document.createElement('div');
+        el.className = 'map-card' + (map.actionType === 'ban' ? ' map-ban' : '');
+        el.innerHTML = '<img src="' + map.imageUrl + '" alt="' + map.name + '" class="map-img"><span class="map-name">' + map.name + '</span><div class="map-buttons"><button onclick="markWin(\'' + map.name + '\')">Ⓐ</button><button onclick="markLoss(\'' + map.name + '\')">Ⓑ</button></div>';
+        if      (map.player === 'HOST')  hostMaps.appendChild(el);
+        else if (map.player === 'GUEST') guestMaps.appendChild(el);
+        else                             neutralMaps.appendChild(el);
     });
 }
 
-// Funciones para marcar victoria o derrota
 function markWin(mapName) {
-    const mapasData = JSON.parse(localStorage.getItem('mapasData')) || [];
-    mapasData.forEach(map => {
-        if (map.name === mapName) {
-            map.won = true;
-            map.lost = false;
-        }
-    });
-    localStorage.setItem('mapasData', JSON.stringify(mapasData));
+    const data = JSON.parse(localStorage.getItem('mapasData') || '[]');
+    data.forEach(m => { if (m.name === mapName) { m.won = true; m.lost = false; } });
+    localStorage.setItem('mapasData', JSON.stringify(data));
     renderMaps();
 }
 
 function markLoss(mapName) {
-    const mapasData = JSON.parse(localStorage.getItem('mapasData')) || [];
-    mapasData.forEach(map => {
-        if (map.name === mapName) {
-            map.won = false;
-            map.lost = true;
-        }
-    });
-    localStorage.setItem('mapasData', JSON.stringify(mapasData));
+    const data = JSON.parse(localStorage.getItem('mapasData') || '[]');
+    data.forEach(m => { if (m.name === mapName) { m.won = false; m.lost = true; } });
+    localStorage.setItem('mapasData', JSON.stringify(data));
     renderMaps();
 }
-
-// actualizarDatos removed
-
-// Llama a renderMaps al cargar la página para mostrar los mapas guardados
-
-
-
-// Exponer datos actualizados para que admindraft los lea al pulsar Actualizar
-Object.defineProperty(window, 'updatedMapsData', {
-  get: () => _mapasData.length > 0 ? _mapasData : JSON.parse(localStorage.getItem('mapasData') || '[]')
-});
-
 </script>
+
 </body>
 </html>
