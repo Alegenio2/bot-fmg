@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador de Drafts — Copa Uruguaya 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="../css/draftmapas.css">
+    <link rel="stylesheet" href="../css/draftcivs.css">
+    <style>
+        .btn-admindraft{
+  display:flex;align-items:center;gap:8px;padding:10px 18px;border-radius:8px;
+  background:#1a1208;border:1px solid #e8c87a;color:#e8c87a;
+  font-size:12px;font-weight:600;font-family:'Cinzel',serif;letter-spacing:1px;
+  cursor:pointer;text-decoration:none;transition:all 0.18s;
+}
+.btn-admindraft:hover{background:#2a1a08;box-shadow:0 0 14px rgba(232,200,122,.25)}
+    /* Token section */
+    .token-section {
+        background: var(--bg2);
+        border: 0.5px solid var(--brown);
+        border-radius: 8px;
+        padding: 10px 16px;
+        margin-bottom: 14px;
+    }
+    .token-inner {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    .token-label {
+        font-size: 11px;
+        color: var(--dim);
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        white-space: nowrap;
+    }
+    .token-section input[type="password"] {
+        flex: 1;
+        min-width: 200px;
+        max-width: 380px;
+        background: var(--bg0);
+        border: 0.5px solid var(--brown);
+        border-radius: 6px;
+        padding: 6px 10px;
+        color: var(--text);
+        font-size: 13px;
+        font-family: 'Inter', sans-serif;
+        outline: none;
+        letter-spacing: 2px;
+    }
+    .token-section input[type="password"]:focus { border-color: var(--gold2); }
+    .token-status {
+        font-size: 11px;
+        padding: 3px 10px;
+        border-radius: 10px;
+        white-space: nowrap;
+    }
+    .token-status.ok  { color: #a8c860; background: rgba(100,160,40,.1); border: 0.5px solid rgba(100,160,40,.3); }
+    .token-status.off { color: var(--dim); background: rgba(60,40,20,.3); border: 0.5px solid var(--brown); }
+
+    /* OBS: scroll siempre visible */
+    html { overflow-y: scroll !important; scrollbar-width: thin; scrollbar-color: #3a2a1a #0a0a0a; }
+    body { overflow-y: visible !important; min-height: 100vh; }
+
+    /* Control flotante de zoom */
+    #zoom-ctrl {
+        position: fixed;
+        top: 8px; right: 8px;
+        z-index: 9999;
+        display: flex; align-items: center; gap: 6px;
+        background: rgba(10,6,2,0.95);
+        border: 0.5px solid #3a2a1a;
+        border-radius: 8px;
+        padding: 5px 10px;
+        backdrop-filter: blur(4px);
+    }
+    #zoom-ctrl .zlabel {
+        font-size: 10px; color: #665544;
+        font-family: 'Inter', sans-serif;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-right: 2px;
+    }
+    #zoom-val {
+        font-size: 12px; color: #e8c87a;
+        font-family: 'Cinzel', serif;
+        min-width: 40px; text-align: center;
+    }
+    .zbtn {
+        width: 28px !important; height: 28px !important;
+        padding: 0 !important; margin: 0 !important;
+        font-size: 18px !important; font-weight: 700 !important;
+        border-radius: 5px !important;
+        background: #1a1208 !important;
+        border: 0.5px solid #3a2a1a !important;
+        color: #e8c87a !important;
+        cursor: pointer !important;
+        display: flex !important; align-items: center !important; justify-content: center !important;
+        line-height: 1 !important;
+        transition: background 0.15s;
+    }
+    .zbtn:hover { background: #3a2a1a !important; }
+    .zbtn-reset {
+        font-size: 12px !important;
+        width: 36px !important;
+        letter-spacing: 0 !important;
+        color: #a09070 !important;
+    }
+
+    #zoom-wrap {
+        transform-origin: top left;
+        will-change: transform;
+    }
+    </style>
+</head>
+<body>
+
+<!-- Control de zoom para OBS interactivo -->
+<div id="zoom-ctrl">
+    <span class="zlabel">Zoom</span>
+    <button class="zbtn" onclick="ajustarZoom(-0.1)">−</button>
+    <span id="zoom-val">100%</span>
+    <button class="zbtn" onclick="ajustarZoom(0.1)">+</button>
+    <button class="zbtn zbtn-reset" onclick="resetZoom()">↺ reset</button>
+</div>
+
+<script>
+(function() {
+    const ZOOM_KEY = 'admindraft_zoom';
+    let zoom = parseFloat(localStorage.getItem(ZOOM_KEY) || '1');
+
+    function aplicarZoom() {
+        const wrap = document.getElementById('zoom-wrap');
+        if (!wrap) return;
+        wrap.style.transform = zoom !== 1 ? 'scale(' + zoom + ')' : '';
+        // Ajustar el ancho del wrap para que el scroll sea correcto
+        wrap.style.width     = zoom < 1 ? (100 / zoom) + '%' : '';
+        document.getElementById('zoom-val').textContent = Math.round(zoom * 100) + '%';
+        localStorage.setItem(ZOOM_KEY, String(zoom));
+    }
+
+    window.ajustarZoom = function(delta) {
+        zoom = Math.round(Math.min(2.0, Math.max(0.4, zoom + delta)) * 10) / 10;
+        aplicarZoom();
+    };
+
+    window.resetZoom = function() {
+        zoom = 1;
+        aplicarZoom();
+    };
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Mover todo el contenido del body (excepto zoom-ctrl y scripts inline) a #zoom-wrap
+        const wrap = document.createElement('div');
+        wrap.id    = 'zoom-wrap';
+        wrap.style.transformOrigin = 'top left';
+
+        const toMove = Array.from(document.body.children).filter(function(el) {
+            return el.id !== 'zoom-ctrl' && el.tagName !== 'SCRIPT';
+        });
+        toMove.forEach(function(el) { wrap.appendChild(el); });
+        document.body.appendChild(wrap);
+
+        aplicarZoom();
+    });
+})();
+</script>
+
+<header class="draft-header">
+    <div class="draft-header-inner">
+        <div class="draft-logo">⚔</div>
+        <div>
+            <h1>Administrador de Drafts</h1>
+            <div class="draft-subtitle">Copa Uruguaya 2026</div>
+        </div>
+           <a href="overlay_control.html" class="btn-admindraft" target="_blank">🛡 Abrir Overlay de Control</a>
+    </div>
+</header>
+
+<main class="draft-main">
+
+    <!-- TOKEN CONFIG -->
+    <section class="token-section">
+        <div class="token-inner">
+            <span class="token-label">🔑 GitHub Token</span>
+            <input type="password" id="ghToken" placeholder="ghp_xxxxxxxxxxxxxxxx" oninput="guardarToken(this.value)"/>
+            <span id="token-status" class="token-status off">No configurado</span>
+        </div>
+    </section>
+
+    <!-- JUGADORES -->
+    <section class="players-bar">
+        <div class="player-card host">
+            <div class="player-role">HOST</div>
+            <div class="player-name" id="hostName">—</div>
+        </div>
+        <div class="vs-badge">VS</div>
+        <div class="player-card guest">
+            <div class="player-role">GUEST</div>
+            <div class="player-name" id="guestName">—</div>
+        </div>
+    </section>
+
+    <!-- INPUTS -->
+    <section class="inputs-grid">
+        <div class="input-block">
+            <label for="draftCode">Código Draft de Civs</label>
+            <div class="input-row">
+                <input type="text" id="draftCode" placeholder="ej: AbCdE"/>
+                <button onclick="fetchAndSaveDraftData()">Cargar</button>
+            </div>
+            <div class="swap-row">
+                <span class="swap-label">Civs</span>
+                <div class="name-inputs">
+                    <div class="name-field">
+                        <label class="lbl-host">HOST</label>
+                        <input type="text" id="civHostName" placeholder="Nombre host" oninput="actualizarNombres()"/>
+                    </div>
+                    <div class="name-field">
+                        <label class="lbl-guest">GUEST</label>
+                        <input type="text" id="civGuestName" placeholder="Nombre guest" oninput="actualizarNombres()"/>
+                    </div>
+                </div>
+                <span class="swap-badge" id="civSwapBadge">SWAPPED</span>
+                <button class="swap-btn" onclick="swapCivs()">⇄ Swap Civs</button>
+            </div>
+        </div>
+
+        <div class="input-block">
+            <label for="mapDraftCode">Código Draft de Mapas</label>
+            <div class="input-row">
+                <input type="text" id="mapDraftCode" placeholder="ej: XyZwQ"/>
+                <button onclick="fetchAndSaveMapData()">Cargar</button>
+            </div>
+            <div class="swap-row">
+                <span class="swap-label">Mapas</span>
+                <div class="name-inputs">
+                    <div class="name-field">
+                        <label class="lbl-host">HOST</label>
+                        <input type="text" id="mapHostName" placeholder="Nombre host" oninput="actualizarNombres()"/>
+                    </div>
+                    <div class="name-field">
+                        <label class="lbl-guest">GUEST</label>
+                        <input type="text" id="mapGuestName" placeholder="Nombre guest" oninput="actualizarNombres()"/>
+                    </div>
+                </div>
+                <span class="swap-badge" id="mapSwapBadge">SWAPPED</span>
+                <button class="swap-btn" onclick="swapMapas()">⇄ Swap Mapas</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAPAS -->
+    <section class="draft-section" id="mapContainer">
+        <h2 class="section-title">🗺 Mapas</h2>
+        <div class="maps-grid">
+            <div class="maps-col">
+                <div class="col-label host-label" id="hostMapsLabel">Host</div>
+                <div id="hostMaps" class="map-section"></div>
+            </div>
+            <div class="maps-col">
+                <div class="col-label neutral-label">Neutrales</div>
+                <div id="neutralMaps" class="map-section"></div>
+            </div>
+            <div class="maps-col">
+                <div class="col-label guest-label" id="guestMapsLabel">Guest</div>
+                <div id="guestMaps" class="map-section"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CIVS -->
+    <section class="draft-section">
+        <h2 class="section-title">🛡 Civilizaciones</h2>
+        <div class="civs-grid">
+            <div class="civs-col">
+                <div class="col-label host-label" id="hostCivsLabel">Host Picks</div>
+                <div id="hostPicksColumn" class="column"></div>
+                <div class="col-label host-label" style="margin-top:10px" id="hostBansLabel">Host Bans</div>
+                <div id="hostBansColumn" class="column"></div>
+                <div id="hostSnipesColumn" class="column"></div>
+            </div>
+            <div class="civs-col neutral-col">
+                <div class="col-label neutral-label">Civs Neutrales</div>
+                <div id="neutralCivsColumn" class="column"></div>
+            </div>
+            <div class="civs-col">
+                <div class="col-label guest-label" id="guestCivsLabel">Guest Picks</div>
+                <div id="guestPicksColumn" class="column"></div>
+                <div class="col-label guest-label" style="margin-top:10px" id="guestBansLabel">Guest Bans</div>
+                <div id="guestBansColumn" class="column"></div>
+                <div id="guestSnipesColumn" class="column"></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="update-bar">
+        <button class="btn-update" id="btnActualizar">↺ Actualizar Overlay</button>
+    </div>
+
+</main>
+
+<footer class="draft-footer">
+    <span>Copa Uruguaya 2026 · AUA</span>
+    <span style="color:#3a2a1a">·</span>
+    <span>Diseñado por JabsUY</span>
+</footer>
+
+<script>
+let civSwapped = false;
+let mapSwapped = false;
+
+function cargarEstado() {
+    civSwapped = localStorage.getItem('civSwapped') === 'true';
+    mapSwapped = localStorage.getItem('mapSwapped') === 'true';
+    document.getElementById('civSwapBadge').classList.toggle('visible', civSwapped);
+    document.getElementById('mapSwapBadge').classList.toggle('visible', mapSwapped);
+    const n = JSON.parse(localStorage.getItem('draftNames') || '{}');
+    if (n.civHost)  document.getElementById('civHostName').value  = n.civHost;
+    if (n.civGuest) document.getElementById('civGuestName').value = n.civGuest;
+    if (n.mapHost)  document.getElementById('mapHostName').value  = n.mapHost;
+    if (n.mapGuest) document.getElementById('mapGuestName').value = n.mapGuest;
+    actualizarNombres();
+}
+
+function swapCivs() {
+    civSwapped = !civSwapped;
+    localStorage.setItem('civSwapped', civSwapped);
+    document.getElementById('civSwapBadge').classList.toggle('visible', civSwapped);
+    actualizarNombres();
+    location.reload();
+}
+
+function swapMapas() {
+    mapSwapped = !mapSwapped;
+    localStorage.setItem('mapSwapped', mapSwapped);
+    document.getElementById('mapSwapBadge').classList.toggle('visible', mapSwapped);
+    actualizarNombres();
+    location.reload();
+}
+
+function actualizarNombres() {
+    const ch = document.getElementById('civHostName').value.trim();
+    const cg = document.getElementById('civGuestName').value.trim();
+    const mh = document.getElementById('mapHostName').value.trim();
+    const mg = document.getElementById('mapGuestName').value.trim();
+
+    localStorage.setItem('draftNames', JSON.stringify({ civHost:ch, civGuest:cg, mapHost:mh, mapGuest:mg }));
+
+    // Labels con swap aplicado
+    const chLabel = civSwapped ? (cg||'Guest') : (ch||'Host');
+    const cgLabel = civSwapped ? (ch||'Host')  : (cg||'Guest');
+    const mhLabel = mapSwapped ? (mg||'Guest') : (mh||'Host');
+    const mgLabel = mapSwapped ? (mh||'Host')  : (mg||'Guest');
+
+    document.getElementById('hostCivsLabel').textContent  = chLabel + ' Picks';
+    document.getElementById('hostBansLabel').textContent  = chLabel + ' Bans';
+    document.getElementById('guestCivsLabel').textContent = cgLabel + ' Picks';
+    document.getElementById('guestBansLabel').textContent = cgLabel + ' Bans';
+    document.getElementById('hostMapsLabel').textContent  = mhLabel;
+    document.getElementById('guestMapsLabel').textContent = mgLabel;
+    document.getElementById('hostName').textContent  = chLabel;
+    document.getElementById('guestName').textContent = cgLabel;
+}
+
+// ─── Token ───────────────────────────────────────────────────────────────────
+function guardarToken(val) {
+    const t = val.trim();
+    if (t) {
+        localStorage.setItem('aua_gh_token', t);
+        setTokenStatus(true);
+    } else {
+        localStorage.removeItem('aua_gh_token');
+        setTokenStatus(false);
+    }
+}
+
+function setTokenStatus(ok) {
+    const el = document.getElementById('token-status');
+    if (!el) return;
+    el.textContent = ok ? '✓ Token guardado' : 'No configurado';
+    el.className   = 'token-status ' + (ok ? 'ok' : 'off');
+}
+
+function cargarToken() {
+    const t = localStorage.getItem('aua_gh_token');
+    if (t) {
+        document.getElementById('ghToken').value = '●'.repeat(20);
+        setTokenStatus(true);
+    }
+}
+
+// ─── GitHub config ───────────────────────────────────────────────────────────
+const GH_USER   = 'Alegenio2';
+const GH_REPO   = 'aua';
+const GH_PATH   = 'json/draft_state.json';
+const GH_BRANCH = 'main';
+const TOKEN_KEY  = 'aua_gh_token';
+const WS_SERVER  = 'https://aldeanooscar.squareweb.app';
+
+function getToken() { return localStorage.getItem(TOKEN_KEY) || ''; }
+
+async function obtenerShaGH() {
+    const token = getToken();
+    if (!token) return null;
+    try {
+        const res = await fetch(
+            `https://api.github.com/repos/${GH_USER}/${GH_REPO}/contents/${GH_PATH}?ref=${GH_BRANCH}`,
+            { headers: { Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json' } }
+        );
+        if (res.status === 404) return null;
+        const d = await res.json();
+        return d.sha ?? null;
+    } catch { return null; }
+}
+
+async function subirAGitHub(state) {
+    const token = getToken();
+    if (!token) {
+        setEstadoBtn('⚠ Token no configurado', '#c87060');
+        return false;
+    }
+    const sha  = await obtenerShaGH();
+    const body = {
+        message: `draft: update state ${new Date().toISOString()}`,
+        content: btoa(unescape(encodeURIComponent(JSON.stringify(state, null, 2)))),
+        branch:  GH_BRANCH,
+        ...(sha ? { sha } : {})
+    };
+    try {
+        const res = await fetch(
+            `https://api.github.com/repos/${GH_USER}/${GH_REPO}/contents/${GH_PATH}`,
+            {
+                method: 'PUT',
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    Accept:        'application/vnd.github+json',
+                    'Content-Type':'application/json',
+                },
+                body: JSON.stringify(body)
+            }
+        );
+        return res.ok;
+    } catch { return false; }
+}
+
+function setEstadoBtn(texto, color) {
+    const btn = document.getElementById('btnActualizar');
+    btn.textContent = texto;
+    btn.style.background = color || '';
+    if (color) setTimeout(() => {
+        btn.textContent = '↺ Actualizar Overlay';
+        btn.style.background = '';
+    }, 3000);
+}
+
+// ─── Botón Actualizar ─────────────────────────────────────────────────────────
+document.getElementById("btnActualizar").addEventListener("click", async function () {
+    // 1. Guardar en localStorage (para uso local si admindraft y overlay están en el mismo navegador)
+    if (typeof updatedCivsData !== 'undefined') localStorage.setItem('civsData',    JSON.stringify(updatedCivsData));
+    if (typeof updatedMapsData !== 'undefined') localStorage.setItem('mapasData',   JSON.stringify(updatedMapsData));
+
+    setEstadoBtn('⏳ Enviando...', '#a07820');
+
+  // 1. Servidor WS (instantáneo)
+  try {
+    const wsR = await fetch(WS_SERVER + '/overlay/draft', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(state)
+    });
+    if (wsR.ok) console.log('✅ Draft enviado al servidor WS');
+  } catch(e) { console.warn('WS no disponible:', e.message); }
+
+    // 2. Construir el estado completo
+    const state = {
+        civsData:    JSON.parse(localStorage.getItem('civsData')    || '[]'),
+        neutralCivs: JSON.parse(localStorage.getItem('neutralCivs') || '[]'),
+        mapasData:   JSON.parse(localStorage.getItem('mapasData')   || '[]'),
+        draftNames:  JSON.parse(localStorage.getItem('draftNames')  || '{}'),
+        civSwapped:  localStorage.getItem('civSwapped') === 'true',
+        mapSwapped:  localStorage.getItem('mapSwapped') === 'true',
+        ts:          Date.now(),
+    };
+
+    // 3. Subir a GitHub
+    const ok = await subirAGitHub(state);
+
+    if (ok) {
+        setEstadoBtn('✅ Overlay actualizado', '#5a8030');
+    } else {
+        setEstadoBtn('⚠ Solo WS (GitHub falló)', '#a07820');
+    }
+
+    // 4. Recargar la UI local
+    location.reload();
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    cargarEstado();
+    cargarToken();
+});
+</script>
+<script src="js/admindraftcivs.js"></script>
+<script src="js/admindraftmapas.js"></script>
+</body>
+</html>
