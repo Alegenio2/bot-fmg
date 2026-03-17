@@ -1,0 +1,199 @@
+{
+  "civsData": [
+    {
+      "name": "Bohemians",
+      "player": "GUEST",
+      "actionType": "ban",
+      "won": false,
+      "lost": false
+    },
+    {
+      "name": "Koreans",
+      "player": "HOST",
+      "actionType": "ban",
+      "won": false,
+      "lost": false
+    },
+    {
+      "name": "Vietnamese",
+      "player": "HOST",
+      "actionType": "pick",
+      "won": false,
+      "lost": true
+    },
+    {
+      "name": "Vietnamese",
+      "player": "GUEST",
+      "actionType": "pick",
+      "won": false,
+      "lost": false
+    },
+    {
+      "name": "Portuguese",
+      "player": "HOST",
+      "actionType": "pick",
+      "won": false,
+      "lost": false
+    },
+    {
+      "name": "Chinese",
+      "player": "GUEST",
+      "actionType": "pick",
+      "won": false,
+      "lost": false
+    },
+    {
+      "name": "Italians",
+      "player": "HOST",
+      "actionType": "pick",
+      "won": true,
+      "lost": true
+    },
+    {
+      "name": "Mongols",
+      "player": "GUEST",
+      "actionType": "pick",
+      "won": false,
+      "lost": false
+    },
+    {
+      "name": "Spanish",
+      "player": "GUEST",
+      "actionType": "pick",
+      "won": false,
+      "lost": false
+    },
+    {
+      "name": "Wei",
+      "player": "HOST",
+      "actionType": "pick",
+      "won": false,
+      "lost": false
+    },
+    {
+      "name": "Britons",
+      "player": "GUEST",
+      "actionType": "pick",
+      "won": false,
+      "lost": false
+    },
+    {
+      "name": "Teutons",
+      "player": "HOST",
+      "actionType": "pick",
+      "won": false,
+      "lost": false
+    },
+    {
+      "name": "Bengalis",
+      "player": "GUEST",
+      "actionType": "pick",
+      "won": false,
+      "lost": false
+    },
+    {
+      "name": "Hindustanis",
+      "player": "HOST",
+      "actionType": "pick",
+      "won": false,
+      "lost": false
+    }
+  ],
+  "neutralCivs": [
+    {
+      "name": "Celts",
+      "player": "NONE",
+      "actionType": "ban",
+      "won": false,
+      "lost": false
+    },
+    {
+      "name": "Ethiopians",
+      "player": "NONE",
+      "actionType": "ban",
+      "won": false,
+      "lost": false
+    },
+    {
+      "name": "Malay",
+      "player": "NONE",
+      "actionType": "ban",
+      "won": false,
+      "lost": false
+    },
+    {
+      "name": "Bulgarians",
+      "player": "NONE",
+      "actionType": "ban",
+      "won": false,
+      "lost": false
+    }
+  ],
+  "mapasData": [
+    {
+      "name": "Arena",
+      "imageUrl": "https://aoe2cm.net/images/maps/arena.png",
+      "player": "GUEST",
+      "actionType": "pick",
+      "won": false,
+      "lost": false
+    },
+    {
+      "name": "Black Forest",
+      "imageUrl": "https://aoe2cm.net/images/maps/black-forest.png",
+      "player": "HOST",
+      "actionType": "pick",
+      "won": false,
+      "lost": false
+    },
+    {
+      "name": "MegaRandom",
+      "imageUrl": "https://aoe2cm.net/images/maps/megarandom.png",
+      "player": "GUEST",
+      "actionType": "ban",
+      "won": false,
+      "lost": false
+    },
+    {
+      "name": "Enclosed",
+      "imageUrl": "https://aoe2cm.net/images/maps/enclosed.png",
+      "player": "HOST",
+      "actionType": "ban",
+      "won": false,
+      "lost": false
+    },
+    {
+      "name": "Nomad",
+      "imageUrl": "https://aoe2cm.net/images/maps/nomad.png",
+      "player": "GUEST",
+      "actionType": "pick",
+      "won": false,
+      "lost": false
+    },
+    {
+      "name": "Arabia",
+      "imageUrl": "https://aoe2cm.net/images/maps/arabia.png",
+      "player": "HOST",
+      "actionType": "pick",
+      "won": false,
+      "lost": false
+    },
+    {
+      "name": "African Clearing",
+      "imageUrl": "https://aoe2cm.net/images/maps/african-clearing.png",
+      "player": "GUEST",
+      "actionType": "pick",
+      "won": false,
+      "lost": false
+    }
+  ],
+  "draftNames": {
+    "civHost": "Jabs",
+    "civGuest": "Tincho",
+    "mapHost": "Tincho",
+    "mapGuest": "Jabs"
+  },
+  "civSwapped": false,
+  "mapSwapped": false,
+  "ts": 1773761617386
+}
