@@ -784,11 +784,16 @@ document.getElementById("btnActualizar").addEventListener("click", async functio
 
     setEstadoBtn('⏳ Enviando...', '#a07820');
 
-    // 1. Construir el estado completo
+    // Guardar datos frescos en localStorage primero
+    if (typeof updatedCivsData !== 'undefined') localStorage.setItem('civsData',    JSON.stringify(updatedCivsData));
+    if (typeof updatedMapsData !== 'undefined') localStorage.setItem('mapasData',   JSON.stringify(updatedMapsData));
+
+    // Construir estado con datos frescos directamente de las variables JS
+    // (no desde localStorage para evitar que neutralCivs quede desactualizado)
     const state = {
-        civsData:    JSON.parse(localStorage.getItem('civsData')    || '[]'),
-        neutralCivs: JSON.parse(localStorage.getItem('neutralCivs') || '[]'),
-        mapasData:   JSON.parse(localStorage.getItem('mapasData')   || '[]'),
+        civsData:    typeof updatedCivsData  !== 'undefined' ? updatedCivsData  : JSON.parse(localStorage.getItem('civsData')    || '[]'),
+        neutralCivs: typeof updatedNeutralCivs !== 'undefined' ? updatedNeutralCivs : JSON.parse(localStorage.getItem('neutralCivs') || '[]'),
+        mapasData:   typeof updatedMapsData  !== 'undefined' ? updatedMapsData  : JSON.parse(localStorage.getItem('mapasData')   || '[]'),
         draftNames:  JSON.parse(localStorage.getItem('draftNames')  || '{}'),
         civSwapped:  localStorage.getItem('civSwapped') === 'true',
         mapSwapped:  localStorage.getItem('mapSwapped') === 'true',
@@ -818,10 +823,16 @@ document.getElementById("btnActualizar").addEventListener("click", async functio
 
 document.addEventListener('DOMContentLoaded', function() {
     cargarEstado();
-    // Render draft data from localStorage
-    if (typeof renderCivs === 'function')        renderCivs();
-    if (typeof renderNeutralCivs === 'function') renderNeutralCivs();
-    if (typeof renderMaps === 'function')        renderMaps();
+    // Restaurar globals desde localStorage y renderizar
+    const _sc = localStorage.getItem("civsData");
+    const _sn = localStorage.getItem("neutralCivs");
+    const _sm = localStorage.getItem('mapasData');
+    if (_sc && typeof _civsData    !== 'undefined') _civsData    = JSON.parse(_sc);
+    if (_sn && typeof _neutralCivs !== 'undefined') _neutralCivs = JSON.parse(_sn);
+    if (_sm && typeof _mapasData   !== 'undefined') _mapasData   = JSON.parse(_sm);
+    if (typeof renderCivs         === 'function') renderCivs();
+    if (typeof renderNeutralCivs  === 'function') renderNeutralCivs();
+    if (typeof renderMaps         === 'function') renderMaps();
     // Restore names from localStorage
     const hn = localStorage.getItem('hostName');
     const gn = localStorage.getItem('guestName');
@@ -833,6 +844,11 @@ document.addEventListener('DOMContentLoaded', function() {
 /* ═══════════════════════════════
    admindraftcivs.js — inlineado
 ═══════════════════════════════ */
+// ── Variables globales en memoria (persisten mientras la página está abierta) ──
+let _civsData    = [];
+let _neutralCivs = [];
+let _mapasData   = [];
+
 async function fetchAndSaveDraftData() {
   const draftCode = document.getElementById("draftCode").value;
   if (!draftCode) {
@@ -888,6 +904,9 @@ document.getElementById("guestName").textContent = guestName;
 
     localStorage.setItem("civsData", JSON.stringify(civsData));
     localStorage.setItem("neutralCivs", JSON.stringify(neutralCivs));
+    // Actualizar globals en memoria
+    _civsData    = civsData;
+    _neutralCivs = neutralCivs;
     console.log(neutralCivs);
     alert("Datos cargados y guardados en localStorage.");
     renderCivs();
@@ -1038,7 +1057,11 @@ function markAsLoser(civName, isLoser) {
 
 // Exponer datos actualizados para que admindraft los lea al pulsar Actualizar
 Object.defineProperty(window, 'updatedCivsData', {
-  get: () => JSON.parse(localStorage.getItem('civsData') || '[]')
+  get: () => _civsData.length > 0 ? _civsData : JSON.parse(localStorage.getItem('civsData') || '[]')
+});
+
+Object.defineProperty(window, 'updatedNeutralCivs', {
+  get: () => _neutralCivs.length > 0 ? _neutralCivs : JSON.parse(localStorage.getItem('neutralCivs') || '[]')
 });
 
 </script>
@@ -1077,6 +1100,7 @@ async function fetchAndSaveMapData() {
         });
 
         localStorage.setItem('mapasData', JSON.stringify(mapasData));
+    _mapasData = mapasData;
         alert("Datos de mapas cargados y guardados en localStorage.");
         renderMaps();
 
@@ -1155,7 +1179,7 @@ function markLoss(mapName) {
 
 // Exponer datos actualizados para que admindraft los lea al pulsar Actualizar
 Object.defineProperty(window, 'updatedMapsData', {
-  get: () => JSON.parse(localStorage.getItem('mapasData') || '[]')
+  get: () => _mapasData.length > 0 ? _mapasData : JSON.parse(localStorage.getItem('mapasData') || '[]')
 });
 
 </script>

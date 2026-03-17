@@ -45,7 +45,6 @@ html, body {
     padding: 0 10px;
     animation: fadeIn .45s ease both;
     /* Máximo hasta y≈390 para no tapar la cámara centrada */
-    max-height: 346px;
     overflow: hidden;
 }
 
@@ -63,15 +62,14 @@ html, body {
 /* Bloques civs y mapas en dos columnas lado a lado para aprovechar el ancho */
 .ov-blocks-row {
     display: grid;
-    grid-template-columns: 1.6fr 1fr;
-    gap: 6px;
+    gap: 120px;
     flex: 1;
     min-height: 0;
 }
 
 /* Bloque */
-.ov-block { background:var(--bg); border:0.5px solid var(--border); border-radius:8px; padding:8px 12px; }
-.ov-block-title { font-size:9px; color:var(--dim); letter-spacing:2px; text-transform:uppercase; margin-bottom:7px; padding-bottom:5px; border-bottom:0.5px solid rgba(232,200,122,0.1); }
+.ov-block {border:0.5px solid var(--border); border-radius:8px; padding:8px 12px; }
+.ov-block-title { font-size:20px; color:var(--dim); letter-spacing:2px; text-transform:uppercase; margin-bottom:7px; padding-bottom:5px; border-bottom:0.5px solid rgba(232,200,122,0.1); }
 
 /* 3 columnas */
 .three-cols { display:grid; grid-template-columns:1fr 1.1fr 1fr; gap:6px; }
@@ -108,7 +106,7 @@ html, body {
 
 .civ-ban-card { border-color:rgba(160,40,40,.5) !important; }
 .civ-ban-card .civ-img  { filter:grayscale(85%) brightness(.5); }
-.civ-ban-card .civ-name { color:#886666; text-decoration:line-through; }
+.civ-ban-card .civ-name { color:#886666;}
 .civ-ban-card::after {
     content:''; position:absolute; top:50%; left:50%;
     transform:translate(-50%,-50%) rotate(45deg);
@@ -147,7 +145,7 @@ html, body {
 .mbadge-ban   { color:#e07070; background:rgba(120,20,20,.7); }
 
 .map-ban .map-img  { filter:grayscale(80%) sepia(30%); opacity:.3; }
-.map-ban .map-name { color:#886666; text-decoration:line-through; }
+.map-ban .map-name { color:#886666; }
 .map-ban-neutral { border-color:rgba(160,40,40,.4) !important; }
 
 .maps-flex { display:flex; flex-wrap:wrap; gap:7px; }
