@@ -370,7 +370,7 @@ function render() {
     Object.values(civContainers).forEach(c => c.innerHTML = '');
 
     // ── neutralCivs: bans globales (player=NONE) guardados por el admindraft ──
-    const neutralCivs = JSON.parse(localStorage.getItem('neutralCivs') || '[]');
+    const neutralCivs = getNeutralCivs();
     neutralCivs.forEach(civ => {
         // neutralCivs siempre son NONE — van a globalBans si es ban, a neutral si es pick
         if (civ.actionType === 'ban' || civ.actionType === 'snipe') {
@@ -381,7 +381,7 @@ function render() {
     });
 
     // ── civsData: picks y bans de HOST y GUEST ────────────────────────────────
-    const civsRaw  = JSON.parse(localStorage.getItem('civsData') || '[]');
+    const civsRaw  = getCivsData();
     const civsList = Array.isArray(civsRaw) ? civsRaw : [];
 
     civsList.forEach(civ => {
@@ -467,37 +467,50 @@ async function asegurarCivDetails() {
     }
 }
 
-// ─── Polling GitHub raw cada 2.5s ───────────────────────────────────────────
-let lastTs = null;
+// ─── WebSocket (instantáneo) + polling fallback ──────────────────────────────
+const WS_SERVER = 'wss://aldeanooscar.squareweb.app';
+let lastTs      = null;
+let wsConnected = false;
 
-async function pollGitHub() {
-    try {
-        const res = await fetch(DRAFT_STATE_URL + '?t=' + Date.now());
-        if (!res.ok) return;
-        const data = await res.json();
-        if (data.ts !== lastTs) {
-            lastTs = data.ts;
-            _state = data;
-            render();
-            console.log('[draftoverlay] actualizado ts=' + data.ts);
-        }
-    } catch(e) {
-        // fallback silencioso a localStorage
+function aplicarState(data) {
+    if (data.ts !== lastTs) {
+        lastTs  = data.ts;
+        _state  = data;
+        render();
+        console.log('[draftoverlay] actualizado ts=' + data.ts);
     }
 }
 
-// Fallback: escuchar localStorage si admindraft y overlay están en el mismo navegador
+function conectarWS() {
+    try {
+        const ws = new WebSocket(WS_SERVER + '/ws?canal=draft');
+        ws.onopen    = () => { wsConnected = true; console.log('[WS] conectado'); };
+        ws.onmessage = e => { try { aplicarState(JSON.parse(e.data)); } catch(err) {} };
+        ws.onclose   = () => { wsConnected = false; console.log('[WS] desconectado — reintentando en 5s'); setTimeout(conectarWS, 5000); };
+        ws.onerror   = () => ws.close();
+    } catch(e) {}
+}
+
+async function pollFallback() {
+    if (wsConnected) return;
+    try {
+        const res = await fetch(DRAFT_STATE_URL + '?t=' + Date.now());
+        if (!res.ok) return;
+        aplicarState(await res.json());
+    } catch(e) {}
+}
+
 window.addEventListener('storage', e => {
     if (['civsData','neutralCivs','mapasData','civSwapped','mapSwapped','draftNames'].includes(e.key)) {
-        _state = {};
-        render();
+        _state = {}; render();
     }
 });
 
 asegurarCivDetails().then(() => {
-    render();         // render inicial desde localStorage si hay datos
-    pollGitHub();     // primer poll inmediato
-    setInterval(pollGitHub, 2500);
+    render();
+    conectarWS();
+    pollFallback();
+    setInterval(pollFallback, 3000);
 });
 </script>
 </body>
