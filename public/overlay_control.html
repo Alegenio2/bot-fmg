@@ -228,11 +228,25 @@ function authHeaders(extra) { return { 'Content-Type':'application/json', 'Autho
 
 (async function checkAuth() {
     const token = getAdminToken();
-    if (!token) { window.location.href = '/login.html?redirect=overlay_control.html'; return; }
+    if (!token) {
+        window.location.href = '/login.html?redirect=overlay_control.html';
+        return;
+    }
+    // Verificar token — solo redirigir si el servidor confirma que es inválido (401)
+    // No redirigir en caso de error de red para evitar loops
     try {
-        const r = await fetch(OSCAR + '/auth/verify', { headers: { 'Authorization': 'Bearer ' + token } });
-        if (!r.ok) { localStorage.removeItem('aua_admin_token'); window.location.href = '/login.html?redirect=overlay_control.html'; }
-    } catch(e) { console.warn('No se pudo verificar el token'); }
+        const r = await fetch(WS_SERVER + '/auth/verify', {
+            headers: { 'Authorization': 'Bearer ' + token }
+        });
+        if (r.status === 401) {
+            localStorage.removeItem('aua_admin_token');
+            window.location.href = '/login.html?redirect=overlay_control.html';
+        }
+        // Si r.ok o cualquier otro error → dejar cargar la página
+    } catch(e) {
+        // Error de red → no redirigir, dejar cargar igual
+        console.warn('[auth] No se pudo verificar el token:', e.message);
+    }
 })();
 
 const STATS_URL   = 'https://aldeanooscar.squareweb.app/api/stats';

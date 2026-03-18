@@ -255,11 +255,25 @@ function authHeaders() {
 // Verificar token al cargar — redirigir si no es válido
 (async function checkAuth() {
     const token = getAdminToken();
-    if (!token) { window.location.href = '/login.html?redirect=' + encodeURIComponent(window.location.pathname.split('/').pop()); return; }
+    if (!token) {
+        window.location.href = '/login.html?redirect=admindraft.html';
+        return;
+    }
+    // Verificar token — solo redirigir si el servidor confirma que es inválido (401)
+    // No redirigir en caso de error de red para evitar loops
     try {
-        const r = await fetch(WS_SERVER + '/auth/verify', { headers: { 'Authorization': 'Bearer ' + token } });
-        if (!r.ok) { localStorage.removeItem('aua_admin_token'); window.location.href = '/login.html?redirect=' + encodeURIComponent(window.location.pathname.split('/').pop()); }
-    } catch(e) { console.warn('No se pudo verificar el token'); }
+        const r = await fetch(WS_SERVER + '/auth/verify', {
+            headers: { 'Authorization': 'Bearer ' + token }
+        });
+        if (r.status === 401) {
+            localStorage.removeItem('aua_admin_token');
+            window.location.href = '/login.html?redirect=admindraft.html';
+        }
+        // Si r.ok o cualquier otro error → dejar cargar la página
+    } catch(e) {
+        // Error de red → no redirigir, dejar cargar igual
+        console.warn('[auth] No se pudo verificar el token:', e.message);
+    }
 })();
 
 const WS_SERVER = 'https://aldeanooscar.squareweb.app';
