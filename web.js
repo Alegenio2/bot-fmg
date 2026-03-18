@@ -5,6 +5,29 @@ const WebSocket = require('ws');
 const fs        = require('fs');
 const path      = require('path');
 const fetch     = require('node-fetch');
+const jwt       = require('jsonwebtoken');
+const crypto    = require('crypto');
+
+// ── Auth config (desde variables de entorno) ──────────────────────────────────
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'cambiar-en-produccion';
+const JWT_SECRET     = process.env.JWT_SECRET     || crypto.randomBytes(32).toString('hex');
+const JWT_EXPIRES    = '12h';
+
+// Páginas protegidas
+const PROTECTED_PAGES = ['admindraft.html', 'overlay_control.html'];
+
+// ── Middleware de autenticación ───────────────────────────────────────────────
+function requireAuth(req, res, next) {
+  const auth  = req.headers['authorization'] || '';
+  const token = auth.startsWith('Bearer ') ? auth.slice(7) : req.query.token || '';
+  if (!token) return res.status(401).json({ error: 'Token requerido' });
+  try {
+    req.user = jwt.verify(token, JWT_SECRET);
+    next();
+  } catch(e) {
+    return res.status(401).json({ error: 'Token inválido o expirado' });
+  }
+}
 
 const app    = express();
 const server = http.createServer(app);
@@ -52,8 +75,45 @@ function broadcast(canal, data) {
 app.use(cors({ origin: ['https://aua.netlify.app', 'https://aldeanooscar.squareweb.app'] }));
 app.use(express.json({ limit: '2mb' }));
 
+// ── Auth endpoints ───────────────────────────────────────────────────────────
+app.post('/auth/login', (req, res) => {
+  const { password } = req.body;
+  if (!password || password !== ADMIN_PASSWORD) {
+    console.log('[auth] intento fallido');
+    return res.status(401).json({ error: 'Contraseña incorrecta' });
+  }
+  const token = jwt.sign({ role: 'admin' }, JWT_SECRET, { expiresIn: JWT_EXPIRES });
+  console.log('[auth] login exitoso');
+  res.json({ token, expiresIn: JWT_EXPIRES });
+});
+
+app.get('/auth/verify', requireAuth, (req, res) => {
+  res.json({ ok: true, role: req.user.role });
+});
+
+// ── Proteger páginas admin (interceptar ANTES del static middleware) ───────────
+app.get('/:page', (req, res, next) => {
+  if (!PROTECTED_PAGES.includes(req.params.page)) return next();
+
+  // Verificar token desde query param o header
+  const token = req.query.token || (req.headers['authorization'] || '').replace('Bearer ', '');
+
+  if (!token) {
+    // Redirigir al login con la página de destino
+    return res.redirect('/login.html?redirect=' + encodeURIComponent(req.params.page));
+  }
+
+  try {
+    jwt.verify(token, JWT_SECRET);
+    next(); // Token válido → servir el archivo
+  } catch(e) {
+    return res.redirect('/login.html?redirect=' + encodeURIComponent(req.params.page));
+  }
+});
+
 // Servir archivos estáticos desde /public
-// Servir archivos estáticos desde /public con headers de no-cache para desarrollo
+//app.use(express.static(path.join(__dirname, 'public')));
+
 app.use(express.static(path.join(__dirname, 'public'), {
   setHeaders: (res, path) => {
     res.set('Cache-Control', 'no-cache, no-store, must-revalidate');
@@ -61,6 +121,8 @@ app.use(express.static(path.join(__dirname, 'public'), {
     res.set('Expires', '0');
   }
 }));
+
+
 // ── Endpoints existentes ──────────────────────────────────────────────────────
 app.get('/', (req, res) => res.send('Estoy vivo 🤖 - Aldeano Oscar'));
 
@@ -111,7 +173,7 @@ app.get('/api/overlay/:canal', (req, res) => {
 });
 
 // ── Overlay: actualizar draft (desde admindraft) ─────────────────────────────
-app.post('/overlay/draft', (req, res) => {
+app.post('/overlay/draft', requireAuth, (req, res) => {
   const state = { ...req.body, ts: Date.now() };
   broadcast('draft', state);
   console.log(`[overlay] draft actualizado`);
@@ -119,7 +181,7 @@ app.post('/overlay/draft', (req, res) => {
 });
 
 // ── Overlay: actualizar stats (desde overlay_control) ────────────────────────
-app.post('/overlay/update', (req, res) => {
+app.post('/overlay/update', requireAuth, (req, res) => {
   const state = { ...req.body, ts: Date.now() };
   broadcast('overlay', state);
   console.log(`[overlay] update → visible:${state.visible} modo:${state.modo}`);
@@ -127,7 +189,7 @@ app.post('/overlay/update', (req, res) => {
 });
 
 // ── Overlay: actualizar mapa (desde overlay_control) ─────────────────────────
-app.post('/overlay/mapa', (req, res) => {
+app.post('/overlay/mapa', requireAuth, (req, res) => {
   const state = { ...req.body, ts: Date.now() };
   broadcast('mapa', state);
   console.log(`[overlay] mapa → ${state.name || 'oculto'}`);
