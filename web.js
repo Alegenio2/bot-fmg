@@ -91,37 +91,9 @@ app.get('/auth/verify', requireAuth, (req, res) => {
   res.json({ ok: true, role: req.user.role });
 });
 
-// ── Proteger páginas admin (interceptar ANTES del static middleware) ───────────
-app.get('/:page', (req, res, next) => {
-  if (!PROTECTED_PAGES.includes(req.params.page)) return next();
-
-  // Verificar token desde query param o header
-  const token = req.query.token || (req.headers['authorization'] || '').replace('Bearer ', '');
-
-  if (!token) {
-    // Redirigir al login con la página de destino
-    return res.redirect('/login.html?redirect=' + encodeURIComponent(req.params.page));
-  }
-
-  try {
-    jwt.verify(token, JWT_SECRET);
-    next(); // Token válido → servir el archivo
-  } catch(e) {
-    return res.redirect('/login.html?redirect=' + encodeURIComponent(req.params.page));
-  }
-});
-
 // Servir archivos estáticos desde /public
-//app.use(express.static(path.join(__dirname, 'public')));
-
-app.use(express.static(path.join(__dirname, 'public'), {
-  setHeaders: (res, path) => {
-    res.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-    res.set('Pragma', 'no-cache');
-    res.set('Expires', '0');
-  }
-}));
-
+// (la protección de páginas admin la hace el JS del cliente via checkAuth())
+app.use(express.static(path.join(__dirname, 'public')));
 
 // ── Endpoints existentes ──────────────────────────────────────────────────────
 app.get('/', (req, res) => res.send('Estoy vivo 🤖 - Aldeano Oscar'));
