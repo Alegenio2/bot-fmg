@@ -140,6 +140,8 @@ const STATE_URL = 'https://aldeanooscar.squareweb.app/api/overlay/overlay';
 const civImg    = c => `https://backend.cdn.aoe2companion.com/public/aoe2/de/civilizations/${(c||'').toLowerCase().replace(/ /g,'_')}.png`;
 const wrColor   = w => w >= 60 ? '#a8c860' : w >= 40 ? '#e8c87a' : '#c87060';
 const cleanNick = n => (n||'').replace(/[|\[\]]/g,'').trim();
+const cleanMapName = m => (m||'').replace(/^CopaU_\d+_/i, '').replace(/\s*\(Custom\)\s*$/i, '').trim();
+
 
 function apply(s) {
   document.getElementById('pre').style.display          = 'none';
@@ -191,7 +193,7 @@ function buildPreJ(j) {
         <span class="civ-chip-wr">${d.winrate}%</span>
       </div>`).join('') || '<span style="font-size:12px;color:#2a1a0a">Sin historial</span>'}
     </div>
-    ${topM.length ? `<div class="maps-row">${topM.map(([m,d])=>`<div class="map-tag">🗺 ${m} <b>${d.winrate}%</b></div>`).join('')}</div>` : ''}
+    ${topM.length ? `<div class="maps-row">${topM.map(([m,d])=>`<div class="map-tag">🗺 ${cleanMapName(m)} <b>${d.winrate}%</b></div>`).join('')}</div>` : ''}
   `;
 }
 
