@@ -250,5 +250,17 @@
     "perfil": "https://www.aoe2companion.com/players/673060",
     "logo": null,
     "fecha": "2026-03-15T14:32:34.573Z"
+  },
+  {
+    "id": "425297928610119692",
+    "torneo": "copa_uruguaya_2026",
+    "modo": "1v1",
+    "nombre": "DGHIR | NICOGP11",
+    "elo_actual": 1222,
+    "elo_max": 1275,
+    "promedio_elo": 1249,
+    "perfil": "https://www.aoe2companion.com/players/1464680",
+    "logo": null,
+    "fecha": "2026-03-18T20:04:11.866Z"
   }
 ]
