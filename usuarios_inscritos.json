@@ -262,5 +262,17 @@
     "perfil": "https://www.aoe2companion.com/players/1464680",
     "logo": null,
     "fecha": "2026-03-18T20:04:11.866Z"
+  },
+  {
+    "id": "277256502023290881",
+    "torneo": "copa_uruguaya_2026",
+    "modo": "1v1",
+    "nombre": "DGHIR | Lionerrt",
+    "elo_actual": 1385,
+    "elo_max": 1512,
+    "promedio_elo": 1449,
+    "perfil": "https://www.aoe2companion.com/players/5204719",
+    "logo": null,
+    "fecha": "2026-03-19T00:59:43.090Z"
   }
 ]
