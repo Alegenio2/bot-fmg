@@ -274,5 +274,17 @@
     "perfil": "https://www.aoe2companion.com/players/5204719",
     "logo": null,
     "fecha": "2026-03-19T00:59:43.090Z"
+  },
+  {
+    "id": "697973693157998712",
+    "torneo": "copa_uruguaya_2026",
+    "modo": "1v1",
+    "nombre": "DGHIR | SamuraiNinja08",
+    "elo_actual": 1293,
+    "elo_max": 1431,
+    "promedio_elo": 1362,
+    "perfil": "https://www.aoe2companion.com/players/1465372",
+    "logo": null,
+    "fecha": "2026-03-19T01:32:14.151Z"
   }
 ]
