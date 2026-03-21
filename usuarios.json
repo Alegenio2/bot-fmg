@@ -731,5 +731,18 @@
     "nombre": "CORP_Mercy",
     "elo": 1624,
     "pais": "🇦🇷"
+  },
+  "733765577570779279": {
+    "profileId": "15442657",
+    "nombre": "Nacional",
+    "elo": 2009,
+    "rank": 527,
+    "wins": 2124,
+    "losses": 2063,
+    "pais": "🇺🇾",
+    "country": "uy",
+    "clan": null,
+    "elomax": 2206,
+    "ultimapartida": "2026-03-21T06:07:19.000Z"
   }
 }
