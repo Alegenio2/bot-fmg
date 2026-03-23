@@ -322,5 +322,17 @@
     "perfil": "https://www.aoe2companion.com/players/2249432",
     "logo": null,
     "fecha": "2026-03-23T02:35:52.302Z"
+  },
+  {
+    "id": "755853346149105786",
+    "torneo": "copa_uruguaya_2026",
+    "modo": "1v1",
+    "nombre": "|FMG| Donde Estan Mis 5 Pizzas",
+    "elo_actual": 1313,
+    "elo_max": 1340,
+    "promedio_elo": 1327,
+    "perfil": "https://www.aoe2companion.com/players/10222046",
+    "logo": null,
+    "fecha": "2026-03-23T03:57:48.674Z"
   }
 ]
