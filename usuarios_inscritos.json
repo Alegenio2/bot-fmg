@@ -298,5 +298,17 @@
     "perfil": "https://www.aoe2companion.com/players/15442657",
     "logo": null,
     "fecha": "2026-03-21T15:20:13.013Z"
+  },
+  {
+    "id": "481154599881932811",
+    "torneo": "copa_uruguaya_2026",
+    "modo": "1v1",
+    "nombre": "Hera",
+    "elo_actual": 2720,
+    "elo_max": 3045,
+    "promedio_elo": 2883,
+    "perfil": "https://www.aoe2companion.com/players/199325",
+    "logo": null,
+    "fecha": "2026-03-23T02:22:11.367Z"
   }
 ]
