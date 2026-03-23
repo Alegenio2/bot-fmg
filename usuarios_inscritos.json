@@ -310,5 +310,17 @@
     "perfil": "https://www.aoe2companion.com/players/199325",
     "logo": null,
     "fecha": "2026-03-23T02:22:11.367Z"
+  },
+  {
+    "id": "831027477652570132",
+    "torneo": "copa_uruguaya_2026",
+    "modo": "1v1",
+    "nombre": "[VL] Santiagoi1212",
+    "elo_actual": 990,
+    "elo_max": 1183,
+    "promedio_elo": 1087,
+    "perfil": "https://www.aoe2companion.com/players/2249432",
+    "logo": null,
+    "fecha": "2026-03-23T02:35:52.302Z"
   }
 ]
