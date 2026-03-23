@@ -744,5 +744,18 @@
     "clan": null,
     "elomax": 2206,
     "ultimapartida": "2026-03-21T06:07:19.000Z"
+  },
+  "831027477652570132": {
+    "profileId": "2249432",
+    "nombre": "[VL] Santiagoi1212",
+    "elo": 990,
+    "rank": 23414,
+    "wins": 221,
+    "losses": 215,
+    "pais": "🇺🇾",
+    "country": "uy",
+    "clan": "MAAP",
+    "elomax": 1183,
+    "ultimapartida": "2025-05-04T17:49:50.000Z"
   }
 }
