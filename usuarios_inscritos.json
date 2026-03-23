@@ -334,5 +334,17 @@
     "perfil": "https://www.aoe2companion.com/players/10222046",
     "logo": null,
     "fecha": "2026-03-23T03:57:48.674Z"
+  },
+  {
+    "id": "709904591453683766",
+    "torneo": "copa_uruguaya_2026",
+    "modo": "1v1",
+    "nombre": "buyanjavyn",
+    "elo_actual": 1418,
+    "elo_max": 1418,
+    "promedio_elo": 1418,
+    "perfil": "https://www.aoe2companion.com/players/476764",
+    "logo": null,
+    "fecha": "2026-03-23T17:07:37.108Z"
   }
 ]
