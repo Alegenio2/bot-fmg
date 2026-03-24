@@ -132,18 +132,6 @@
     "fecha": "2026-03-04T22:44:25.192Z"
   },
   {
-    "id": "286607198854053890",
-    "torneo": "copa_uruguaya_2026",
-    "modo": "1v1",
-    "nombre": "|FMG| doomjota",
-    "elo_actual": 1232,
-    "elo_max": 1304,
-    "promedio_elo": 1268,
-    "perfil": "https://www.aoe2companion.com/players/2251303",
-    "logo": null,
-    "fecha": "2026-03-23T03:59:51.051Z"
-  },
-  {
     "id": "135113382217908224",
     "torneo": "copa_uruguaya_2026",
     "modo": "1v1",
@@ -300,18 +288,6 @@
     "fecha": "2026-03-21T15:20:13.013Z"
   },
   {
-    "id": "481154599881932811",
-    "torneo": "copa_uruguaya_2026",
-    "modo": "1v1",
-    "nombre": "Hera",
-    "elo_actual": 2720,
-    "elo_max": 3045,
-    "promedio_elo": 2883,
-    "perfil": "https://www.aoe2companion.com/players/199325",
-    "logo": null,
-    "fecha": "2026-03-23T02:22:11.367Z"
-  },
-  {
     "id": "831027477652570132",
     "torneo": "copa_uruguaya_2026",
     "modo": "1v1",
@@ -334,6 +310,18 @@
     "perfil": "https://www.aoe2companion.com/players/10222046",
     "logo": null,
     "fecha": "2026-03-23T03:57:48.674Z"
+  },
+  {
+    "id": "286607198854053890",
+    "torneo": "copa_uruguaya_2026",
+    "modo": "1v1",
+    "nombre": "|FMG| Lautreamont",
+    "elo_actual": 1532,
+    "elo_max": 1533,
+    "promedio_elo": 1533,
+    "perfil": "https://www.aoe2companion.com/players/973968",
+    "logo": null,
+    "fecha": "2026-03-24T05:02:17.679Z"
   },
   {
     "id": "709904591453683766",
