@@ -1,8 +1,8 @@
 {
   "meta": {
     "torneo": "copa_uruguaya_2026",
-    "ultima_actualizacion": "2026-03-15T23:16:06.088Z",
-    "total_partidas": 2
+    "ultima_actualizacion": "2026-03-24T05:09:18.373Z",
+    "total_partidas": 5
   },
   "jugadores": {
     "238414625417330688": {
@@ -112,6 +112,154 @@
           "winrate": 100
         }
       }
+    },
+    "697996987210924072": {
+      "nick": "|FMG| TINCHO",
+      "aoe2Id": "2304739",
+      "global": {
+        "pj": 3,
+        "pg": 1,
+        "pp": 2,
+        "winrate": 33.3
+      },
+      "civs": {
+        "Vietnamese": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "CopaU_2026_Slopes v2 (Custom)": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        },
+        "Spanish": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "CopaU_2026_Quarry v3 (Custom)": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        },
+        "Romans": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "CopaU_2026_African River v3 (Custom)": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        }
+      },
+      "mapas": {
+        "CopaU_2026_Slopes v2 (Custom)": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        },
+        "CopaU_2026_Quarry v3 (Custom)": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        },
+        "CopaU_2026_African River v3 (Custom)": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        }
+      }
+    },
+    "689907393001291884": {
+      "nick": "Culero Connor",
+      "aoe2Id": "5736044",
+      "global": {
+        "pj": 3,
+        "pg": 2,
+        "pp": 1,
+        "winrate": 66.7
+      },
+      "civs": {
+        "Tupi": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "CopaU_2026_Slopes v2 (Custom)": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        },
+        "Portuguese": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "CopaU_2026_Quarry v3 (Custom)": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        },
+        "Chinese": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "CopaU_2026_African River v3 (Custom)": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        }
+      },
+      "mapas": {
+        "CopaU_2026_Slopes v2 (Custom)": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        },
+        "CopaU_2026_Quarry v3 (Custom)": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        },
+        "CopaU_2026_African River v3 (Custom)": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        }
+      }
     }
   },
   "mapas": {
@@ -133,12 +281,14 @@
       }
     },
     "CopaU_2026_Slopes v2 (Custom)": {
-      "total_partidas": 1,
+      "total_partidas": 2,
       "civs_ganadoras": {
-        "Mongols": 1
+        "Mongols": 1,
+        "Tupi": 1
       },
       "civs_perdedoras": {
-        "Britons": 1
+        "Britons": 1,
+        "Vietnamese": 1
       },
       "enfrentamientos": {
         "Britons_vs_Mongols": {
@@ -146,6 +296,46 @@
           "gano_primero": 0,
           "civ_a": "Britons",
           "civ_b": "Mongols"
+        },
+        "Tupi_vs_Vietnamese": {
+          "total": 1,
+          "gano_primero": 1,
+          "civ_a": "Tupi",
+          "civ_b": "Vietnamese"
+        }
+      }
+    },
+    "CopaU_2026_Quarry v3 (Custom)": {
+      "total_partidas": 1,
+      "civs_ganadoras": {
+        "Portuguese": 1
+      },
+      "civs_perdedoras": {
+        "Spanish": 1
+      },
+      "enfrentamientos": {
+        "Portuguese_vs_Spanish": {
+          "total": 1,
+          "gano_primero": 1,
+          "civ_a": "Portuguese",
+          "civ_b": "Spanish"
+        }
+      }
+    },
+    "CopaU_2026_African River v3 (Custom)": {
+      "total_partidas": 1,
+      "civs_ganadoras": {
+        "Romans": 1
+      },
+      "civs_perdedoras": {
+        "Chinese": 1
+      },
+      "enfrentamientos": {
+        "Chinese_vs_Romans": {
+          "total": 1,
+          "gano_primero": 0,
+          "civ_a": "Chinese",
+          "civ_b": "Romans"
         }
       }
     }
@@ -226,6 +416,120 @@
           "winrate": 100
         }
       }
+    },
+    "Vietnamese": {
+      "total_jugadas": 1,
+      "total_ganadas": 0,
+      "winrate": 0,
+      "por_mapa": {
+        "CopaU_2026_Slopes v2 (Custom)": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        }
+      },
+      "vs_civs": {
+        "Tupi": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        }
+      }
+    },
+    "Tupi": {
+      "total_jugadas": 1,
+      "total_ganadas": 1,
+      "winrate": 100,
+      "por_mapa": {
+        "CopaU_2026_Slopes v2 (Custom)": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        }
+      },
+      "vs_civs": {
+        "Vietnamese": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        }
+      }
+    },
+    "Spanish": {
+      "total_jugadas": 1,
+      "total_ganadas": 0,
+      "winrate": 0,
+      "por_mapa": {
+        "CopaU_2026_Quarry v3 (Custom)": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        }
+      },
+      "vs_civs": {
+        "Portuguese": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        }
+      }
+    },
+    "Portuguese": {
+      "total_jugadas": 1,
+      "total_ganadas": 1,
+      "winrate": 100,
+      "por_mapa": {
+        "CopaU_2026_Quarry v3 (Custom)": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        }
+      },
+      "vs_civs": {
+        "Spanish": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        }
+      }
+    },
+    "Romans": {
+      "total_jugadas": 1,
+      "total_ganadas": 1,
+      "winrate": 100,
+      "por_mapa": {
+        "CopaU_2026_African River v3 (Custom)": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        }
+      },
+      "vs_civs": {
+        "Chinese": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        }
+      }
+    },
+    "Chinese": {
+      "total_jugadas": 1,
+      "total_ganadas": 0,
+      "winrate": 0,
+      "por_mapa": {
+        "CopaU_2026_African River v3 (Custom)": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        }
+      },
+      "vs_civs": {
+        "Romans": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        }
+      }
     }
   },
   "partidas": [
@@ -267,6 +571,66 @@
         "nick": "|FMG| Tano Stokes",
         "civ": "Mongols",
         "gano": true
+      }
+    },
+    {
+      "matchId": 465185073,
+      "fecha": "2026-03-24T00:53:17.000Z",
+      "mapa": "CopaU_2026_Slopes v2 (Custom)",
+      "duracion": 21,
+      "grupo": "C",
+      "ronda": 1,
+      "jugador1": {
+        "discordId": "697996987210924072",
+        "nick": "|FMG| TINCHO",
+        "civ": "Vietnamese",
+        "gano": false
+      },
+      "jugador2": {
+        "discordId": "689907393001291884",
+        "nick": "Culero Connor",
+        "civ": "Tupi",
+        "gano": true
+      }
+    },
+    {
+      "matchId": 465180764,
+      "fecha": "2026-03-24T00:26:53.000Z",
+      "mapa": "CopaU_2026_Quarry v3 (Custom)",
+      "duracion": 20,
+      "grupo": "C",
+      "ronda": 1,
+      "jugador1": {
+        "discordId": "697996987210924072",
+        "nick": "|FMG| TINCHO",
+        "civ": "Spanish",
+        "gano": false
+      },
+      "jugador2": {
+        "discordId": "689907393001291884",
+        "nick": "Culero Connor",
+        "civ": "Portuguese",
+        "gano": true
+      }
+    },
+    {
+      "matchId": 465176292,
+      "fecha": "2026-03-24T00:03:49.000Z",
+      "mapa": "CopaU_2026_African River v3 (Custom)",
+      "duracion": 18,
+      "grupo": "C",
+      "ronda": 1,
+      "jugador1": {
+        "discordId": "697996987210924072",
+        "nick": "|FMG| TINCHO",
+        "civ": "Romans",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "689907393001291884",
+        "nick": "Culero Connor",
+        "civ": "Chinese",
+        "gano": false
       }
     }
   ]
