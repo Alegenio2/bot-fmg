@@ -757,5 +757,18 @@
     "clan": "MAAP",
     "elomax": 1183,
     "ultimapartida": "2025-05-04T17:49:50.000Z"
+  },
+  "264781067506941962": {
+    "profileId": "2251303",
+    "nombre": "|FMG| doomjota",
+    "elo": 1232,
+    "rank": 10678,
+    "wins": 608,
+    "losses": 584,
+    "pais": "🇺🇾",
+    "country": "uy",
+    "clan": "FUMAG",
+    "elomax": 1304,
+    "ultimapartida": "2026-03-20T23:45:33.000Z"
   }
 }
