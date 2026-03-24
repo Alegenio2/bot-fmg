@@ -334,5 +334,17 @@
     "perfil": "https://www.aoe2companion.com/players/476764",
     "logo": null,
     "fecha": "2026-03-23T17:07:37.108Z"
+  },
+  {
+    "id": "852387609916211270",
+    "torneo": "copa_uruguaya_2026",
+    "modo": "1v1",
+    "nombre": "Zakk El Rabdomante",
+    "elo_actual": 1096,
+    "elo_max": 1221,
+    "promedio_elo": 1159,
+    "perfil": "https://www.aoe2companion.com/players/1825664",
+    "logo": null,
+    "fecha": "2026-03-24T15:08:53.751Z"
   }
 ]
