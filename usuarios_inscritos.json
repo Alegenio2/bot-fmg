@@ -346,5 +346,17 @@
     "perfil": "https://www.aoe2companion.com/players/1825664",
     "logo": null,
     "fecha": "2026-03-24T15:08:53.751Z"
+  },
+  {
+    "id": "264781067506941962",
+    "torneo": "copa_uruguaya_2026",
+    "modo": "1v1",
+    "nombre": "|FMG| doomjota",
+    "elo_actual": 1232,
+    "elo_max": 1304,
+    "promedio_elo": 1268,
+    "perfil": "https://www.aoe2companion.com/players/2251303",
+    "logo": null,
+    "fecha": "2026-03-25T15:43:27.076Z"
   }
 ]
