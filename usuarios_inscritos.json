@@ -358,5 +358,17 @@
     "perfil": "https://www.aoe2companion.com/players/2251303",
     "logo": null,
     "fecha": "2026-03-25T15:43:27.076Z"
+  },
+  {
+    "id": "481154599881932811",
+    "torneo": "copa_uruguaya_2026",
+    "modo": "1v1",
+    "nombre": "|FMG| Lautreamont",
+    "elo_actual": 1532,
+    "elo_max": 1533,
+    "promedio_elo": 1533,
+    "perfil": "https://www.aoe2companion.com/players/973968",
+    "logo": null,
+    "fecha": "2026-03-25T16:01:15.040Z"
   }
 ]
