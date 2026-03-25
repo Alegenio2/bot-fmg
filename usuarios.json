@@ -770,5 +770,18 @@
     "clan": "FUMAG",
     "elomax": 1304,
     "ultimapartida": "2026-03-20T23:45:33.000Z"
+  },
+  "597598200949637123": {
+    "profileId": "1449645",
+    "nombre": "[VL] T-otti",
+    "elo": 988,
+    "rank": 23488,
+    "wins": 100,
+    "losses": 94,
+    "pais": "🇺🇾",
+    "country": "uy",
+    "clan": "VLs",
+    "elomax": 1100,
+    "ultimapartida": "2026-03-05T21:34:44.000Z"
   }
 }
