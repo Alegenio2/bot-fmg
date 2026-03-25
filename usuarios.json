@@ -55,7 +55,7 @@
     "profileId": "5627235",
     "nombre": "DGHIR | Rorro Knight®",
     "elo": 1315,
-    "rank": 8219,
+    "rank": 8123,
     "wins": 1251,
     "losses": 1220,
     "pais": "🇺🇾",
@@ -106,41 +106,41 @@
   "277256502023290881": {
     "profileId": "5204719",
     "nombre": "DGHIR | Lionerrt",
-    "elo": 1330,
-    "rank": 7114,
-    "wins": 328,
-    "losses": 298,
+    "elo": 1385,
+    "rank": 6457,
+    "wins": 437,
+    "losses": 405,
     "pais": "🇺🇾",
     "country": "uy",
     "clan": "Dghir",
-    "elomax": 1435,
-    "ultimapartida": "2025-09-01T21:13:49.000Z"
+    "elomax": 1512,
+    "ultimapartida": "2026-03-14T16:00:45.000Z"
   },
   "689907393001291884": {
     "profileId": "5736044",
     "nombre": "Culero Connor",
-    "elo": 1517,
-    "rank": 4013,
+    "elo": 1502,
+    "rank": 4258,
     "wins": 369,
-    "losses": 349,
+    "losses": 350,
     "pais": "🇺🇾",
     "country": "uy",
     "clan": null,
     "elomax": 1547,
-    "ultimapartida": "2026-03-12T22:27:43.000Z"
+    "ultimapartida": "2026-03-12T23:02:51.000Z"
   },
   "697973693157998712": {
     "profileId": "1465372",
     "nombre": "DGHIR | SamuraiNinja08",
-    "elo": 1379,
-    "rank": 6043,
-    "wins": 478,
-    "losses": 466,
+    "elo": 1293,
+    "rank": 9074,
+    "wins": 535,
+    "losses": 529,
     "pais": "🇺🇾",
     "country": "uy",
     "clan": "Dghir",
-    "elomax": 1408,
-    "ultimapartida": "2025-08-31T06:52:42.000Z"
+    "elomax": 1431,
+    "ultimapartida": "2026-01-30T03:01:59.000Z"
   },
   "724668688145580062": {
     "profileId": "2899006",
@@ -184,15 +184,15 @@
   "341001672786575360": {
     "profileId": "673060",
     "nombre": "|FMG| Nadie",
-    "elo": 1678,
-    "rank": 1949,
-    "wins": 829,
-    "losses": 784,
+    "elo": 1563,
+    "rank": 3322,
+    "wins": 956,
+    "losses": 923,
     "pais": "🇺🇾",
     "country": "uy",
     "clan": "FUMAG",
     "elomax": 1733,
-    "ultimapartida": "2025-09-02T23:43:57.000Z"
+    "ultimapartida": "2026-01-19T04:13:58.000Z"
   },
   "219641963371036672": {
     "profileId": "11546855",
@@ -214,15 +214,15 @@
   "709904591453683766": {
     "profileId": "476764",
     "nombre": "buyanjavyn",
-    "elo": 1384,
-    "rank": 5913,
-    "wins": 79,
+    "elo": 1418,
+    "rank": 5445,
+    "wins": 81,
     "losses": 61,
     "pais": "🇺🇾",
     "country": "uy",
     "clan": "Fur89",
-    "elomax": 1384,
-    "ultimapartida": "2025-07-16T16:47:16.000Z"
+    "elomax": 1418,
+    "ultimapartida": "2025-10-19T21:59:26.000Z"
   },
   "582941701518262412": {
     "profileId": "14779963",
@@ -239,16 +239,16 @@
   },
   "833806737902534738": {
     "profileId": "2639502",
-    "nombre": "Jaka Jaan",
-    "elo": 1657,
-    "rank": 2103,
-    "wins": 140,
-    "losses": 85,
+    "nombre": "URU | ToNGa",
+    "elo": 1703,
+    "rank": 1772,
+    "wins": 145,
+    "losses": 86,
     "pais": "🇺🇾",
     "country": "uy",
     "clan": "SURU",
-    "elomax": 1665,
-    "ultimapartida": "2025-08-10T01:54:39.000Z"
+    "elomax": 1713,
+    "ultimapartida": "2025-09-20T14:44:00.000Z"
   },
   "347539956605911041": {
     "profileId": "233173",
@@ -306,7 +306,7 @@
     "profileId": "2878364",
     "nombre": "URU | Juasteint",
     "elo": 1482,
-    "rank": 4663,
+    "rank": 4550,
     "wins": 555,
     "losses": 531,
     "pais": "🇺🇾",
@@ -383,28 +383,28 @@
   "425297928610119692": {
     "profileId": "1464680",
     "nombre": "DGHIR | NICOGP11",
-    "elo": 1176,
-    "rank": 13295,
-    "wins": 136,
-    "losses": 123,
+    "elo": 1222,
+    "rank": 11148,
+    "wins": 146,
+    "losses": 130,
     "pais": "🇺🇾",
     "country": "uy",
-    "clan": null,
+    "clan": "Dghir",
     "elomax": 1275,
-    "ultimapartida": "2026-02-08T15:33:55.000Z"
+    "ultimapartida": "2026-03-08T06:52:00.000Z"
   },
   "481154599881932811": {
     "profileId": "973968",
     "nombre": "|FMG| Lautreamont",
     "elo": 1532,
-    "rank": 1,
-    "wins": 4328,
-    "losses": 1549,
-    "pais": "🇨🇦",
-    "country": "ca",
+    "rank": 10,
+    "wins": 4880,
+    "losses": 1684,
+    "pais": "uy",
+    "country": "uy",
     "clan": null,
-    "elomax": 1533,
-    "ultimapartida": "2025-09-02T22:25:10.000Z"
+    "elomax": 1532,
+    "ultimapartida": "2026-03-21T13:01:31.000Z"
   },
   "524738089252552716": {
     "profileId": "2609789",
@@ -422,15 +422,15 @@
   "1008090545513570495": {
     "profileId": "10473376",
     "nombre": "ElOsoConBarba",
-    "elo": 1025,
-    "rank": 19487,
-    "wins": 751,
-    "losses": 740,
+    "elo": 1107,
+    "rank": 16298,
+    "wins": 1040,
+    "losses": 1024,
     "pais": "🇺🇾",
     "country": "uy",
     "clan": null,
-    "elomax": 1108,
-    "ultimapartida": "2025-09-01T23:26:22.000Z"
+    "elomax": 1146,
+    "ultimapartida": "2026-03-11T01:48:21.000Z"
   },
   "249400646782943235": {
     "profileId": "1795290",
@@ -475,7 +475,7 @@
     "profileId": "2213923",
     "nombre": "[LOPDA] Shebby",
     "elo": 968,
-    "rank": 25188,
+    "rank": 24680,
     "wins": 340,
     "losses": 336,
     "pais": "🇦🇷",
@@ -530,15 +530,15 @@
   "852387609916211270": {
     "profileId": "1825664",
     "nombre": "Zakk El Rabdomante",
-    "elo": 1045,
-    "rank": 18379,
-    "wins": 42,
-    "losses": 34,
+    "elo": 1096,
+    "rank": 16903,
+    "wins": 121,
+    "losses": 111,
     "pais": "🇺🇾",
     "country": "uy",
-    "clan": "AZiZi",
-    "elomax": 1115,
-    "ultimapartida": "2025-06-14T13:23:43.000Z"
+    "clan": null,
+    "elomax": 1221,
+    "ultimapartida": "2026-03-24T15:01:40.000Z"
   },
   "709879345346248785": {
     "profileId": "2582641",
@@ -636,17 +636,17 @@
     "ultimapartida": "2025-08-13T21:41:36.000Z"
   },
   "286607198854053890": {
-    "profileId": "2583713",
-    "nombre": "|FMG| twitch/JabsUY",
-    "elo": 1476,
-    "rank": 4654,
-    "wins": 266,
-    "losses": 240,
+    "profileId": "231568",
+    "nombre": "DityUy",
+    "elo": 1106,
+    "rank": 16555,
+    "wins": 234,
+    "losses": 225,
     "pais": "🇺🇾",
     "country": "uy",
     "clan": "FUMAG",
-    "elomax": 1590,
-    "ultimapartida": "2026-03-06T03:41:42.000Z"
+    "elomax": 1184,
+    "ultimapartida": "2026-02-21T18:09:54.000Z"
   },
   "1172334660903260230": {
     "profileId": "11625892",
@@ -703,21 +703,21 @@
   "594988359965999118": {
     "profileId": "2295211",
     "nombre": "N4cHoV",
-    "elo": 1158,
-    "rank": 13930,
-    "wins": 708,
-    "losses": 694,
+    "elo": 1156,
+    "rank": 13864,
+    "wins": 711,
+    "losses": 697,
     "pais": "🇺🇾",
     "country": "uy",
     "clan": null,
     "elomax": 1238,
-    "ultimapartida": "2026-03-07T18:02:04.000Z"
+    "ultimapartida": "2026-03-14T18:58:48.000Z"
   },
   "382688182002515978": {
     "profileId": "2175073",
     "nombre": "[VL] Karistho",
     "elo": 1269,
-    "rank": 9493,
+    "rank": 9452,
     "wins": 34,
     "losses": 28,
     "pais": "🇺🇾",
@@ -725,5 +725,50 @@
     "clan": "MAAP",
     "elomax": 1287,
     "ultimapartida": "2026-03-12T02:44:41.000Z"
+  },
+  "317151284442693632": {
+    "profileId": "234095",
+    "nombre": "CORP_Mercy",
+    "elo": 1624,
+    "pais": "🇦🇷"
+  },
+  "733765577570779279": {
+    "profileId": "15442657",
+    "nombre": "Nacional",
+    "elo": 2009,
+    "rank": 527,
+    "wins": 2124,
+    "losses": 2063,
+    "pais": "🇺🇾",
+    "country": "uy",
+    "clan": null,
+    "elomax": 2206,
+    "ultimapartida": "2026-03-21T06:07:19.000Z"
+  },
+  "831027477652570132": {
+    "profileId": "2249432",
+    "nombre": "[VL] Santiagoi1212",
+    "elo": 990,
+    "rank": 23414,
+    "wins": 221,
+    "losses": 215,
+    "pais": "🇺🇾",
+    "country": "uy",
+    "clan": "MAAP",
+    "elomax": 1183,
+    "ultimapartida": "2025-05-04T17:49:50.000Z"
+  },
+  "264781067506941962": {
+    "profileId": "2251303",
+    "nombre": "|FMG| doomjota",
+    "elo": 1232,
+    "rank": 10663,
+    "wins": 608,
+    "losses": 584,
+    "pais": "🇺🇾",
+    "country": "uy",
+    "clan": "FUMAG",
+    "elomax": 1304,
+    "ultimapartida": "2026-03-20T23:45:33.000Z"
   }
 }
