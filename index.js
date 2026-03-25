@@ -180,6 +180,22 @@ await interaction.editReply({
 client.on('ready', async (c) => {
   console.log(`🤖 ${c.user.username} online`);
   c.user.setActivity('Age of Empires II', { type: ActivityType.Playing });
+
+  // ✅ Restaurar datos desde branch 'data' de GitHub tras cada reinicio
+  // Así los JSONs nunca se pierden aunque Square Cloud reinicie el bot
+  try {
+    const { cargarUsuariosDesdeGit } = require('./git/guardarGit');
+    const { cargarInscritosDesdeGit, cargarEquiposDesdeGit } = require('./git/guardarInscripcionesGit');
+    await Promise.all([
+      cargarUsuariosDesdeGit(),
+      cargarInscritosDesdeGit(),
+      cargarEquiposDesdeGit()
+    ]);
+    console.log('✅ Datos restaurados desde GitHub correctamente.');
+  } catch (err) {
+    console.error('❌ Error restaurando datos desde GitHub:', err.message);
+  }
+  
 });
 
 // --- BIENVENIDA ---

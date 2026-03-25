@@ -1,0 +1,175 @@
+/* ══════════════════════════════════════════
+   DRAFT MAPAS — Estilo AUA Medieval Oscuro
+══════════════════════════════════════════ */
+
+.map-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 8px;
+    min-height: 50px;
+    background: var(--bg1);
+    border: 0.5px solid var(--brown-dim);
+    border-radius: 8px;
+}
+
+/* ── Tarjeta de mapa ── */
+.map-card {
+    position: relative;
+    width: 110px;
+    height: 140px;
+    border-radius: 8px;
+    border: 0.5px solid var(--brown);
+    background: var(--bg2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    overflow: hidden;
+    transition: transform 0.18s, border-color 0.18s;
+    cursor: default;
+}
+.map-card:hover { transform: translateY(-3px); border-color: var(--gold2); }
+
+/* Imagen de fondo del mapa */
+.map-img {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.75;
+    border-radius: 8px;
+    transition: opacity 0.18s;
+}
+.map-card:hover .map-img { opacity: 0.9; }
+
+/* Gradiente sobre la imagen */
+.map-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 35%, rgba(8,5,2,0.92) 100%);
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+/* Nombre del mapa */
+.map-name {
+    position: relative;
+    z-index: 2;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text);
+    text-align: center;
+    padding: 0 6px 8px;
+    line-height: 1.2;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.3px;
+}
+
+/* ── Estados ── */
+
+/* Ban — tinte rojo + tachado */
+.map-ban {
+    border-color: var(--ban-border) !important;
+}
+.map-ban .map-img {
+    opacity: 0.3;
+    filter: grayscale(80%) sepia(40%);
+}
+.map-ban .map-name {
+    color: #c07070;
+    text-decoration: line-through;
+}
+.map-ban::before {
+    content: 'BAN';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #e07070;
+    background: rgba(120,20,20,0.7);
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Pick host */
+.map-pick-host {
+    border-color: var(--host-dim) !important;
+    box-shadow: inset 0 0 0 1px var(--host-dim);
+}
+.map-pick-host::before {
+    content: 'HOST';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--host);
+    background: rgba(20,60,120,0.7);
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Pick guest */
+.map-pick-guest {
+    border-color: var(--guest-dim) !important;
+    box-shadow: inset 0 0 0 1px var(--guest-dim);
+}
+.map-pick-guest::before {
+    content: 'GUEST';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--guest);
+    background: rgba(120,20,60,0.7);
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Neutral (disponible) */
+.map-neutral {
+    border-color: rgba(232,200,122,0.2) !important;
+}
+
+/* ── Botones de acción sobre la carta ── */
+.map-buttons {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    gap: 4px;
+    padding-bottom: 6px;
+}
+.map-buttons button {
+    font-size: 14px;
+    padding: 3px 6px;
+    border: none;
+    background: rgba(0,0,0,0.5);
+    border-radius: 4px;
+    cursor: pointer;
+    line-height: 1;
+    transition: background 0.15s, transform 0.15s;
+}
+.map-buttons button:hover {
+    background: rgba(232,200,122,0.25);
+    transform: scale(1.15);
+}
+
+/* ── Map container header ── */
+.map-container { margin-bottom: 0; }
