@@ -85,9 +85,7 @@
             <div class="header-left">
                 <div class="header-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="#F5B800" stroke-width="1.5" stroke-linecap="round">
-                        <line x1="12" y1="2" x2="12" y2="18"/>
-                        <line x1="8" y1="10" x2="16" y2="10"/>
-                        <circle cx="12" cy="20" r="2" fill="#F5B800" stroke="none"/>
+                        <line x1="12" y1="2" x2="12" y2="18"/><line x1="8" y1="10" x2="16" y2="10"/><circle cx="12" cy="20" r="2" fill="#F5B800" stroke="none"/>
                     </svg>
                 </div>
                 <div>
@@ -98,9 +96,7 @@
             <div class="header-badge">
                 <div class="badge-text">EN VIVO</div>
                 <div class="badge-dots">
-                    <div class="badge-dot"></div>
-                    <div class="badge-dot"></div>
-                    <div class="badge-dot"></div>
+                    <div class="badge-dot"></div><div class="badge-dot"></div><div class="badge-dot"></div>
                 </div>
             </div>
         </div>
@@ -112,7 +108,7 @@
             <div class="map-image" id="mapImg"></div>
         </div>
         <div class="civs-bar">
-            <div class="civs-title">Top 5 civs &nbsp;·&nbsp; 1900+ &nbsp;·&nbsp; este mapa</div>
+            <div class="civs-title" id="civsTitle">Top civs · Copa Uruguaya 2026</div>
             <div class="civs-list" id="civsList">
                 <div class="civs-loading">Esperando mapa...</div>
             </div>
@@ -134,73 +130,70 @@
 </div>
 
 <script>
-const GH_USER      = 'Alegenio2';
-const GH_REPO      = 'aua';
-const GH_BRANCH    = 'main';
-const MAP_JSON_URL = 'https://aldeanooscar.squareweb.app/api/overlay/mapa';
-const CIV_IMG      = 'https://backend.cdn.aoe2companion.com/public/aoe2/de/civilizations/{slug}.png';
+// CONFIGURACIÓN DE RUTAS
+const MAPS_JSON_URL   = './mapas_data.json'; // Ajusta si el nombre de tu archivo es otro
+const API_CONTROL_URL = 'https://aldeanooscar.squareweb.app/api/overlay/mapa'; 
+const STATS_JSON_URL  = '../Torneos/stats_copa_2026.json';
+const CIV_IMG_BASE    = 'https://backend.cdn.aoe2companion.com/public/aoe2/de/civilizations/{slug}.png';
 
-let lastTs    = null;
-let civCache  = {};
+let baseDeMapas = {};
+let lastTs = null;
 
-function toSlug(name) {
-    return (name || '')
-        .toLowerCase()
-        .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
-        .replace(/\s+/g,'-')
-        .replace(/[^a-z0-9-]/g,'');
+// 1. Cargar la base de mapas local al iniciar
+async function cargarBaseDeMapas() {
+    try {
+        const r = await fetch(MAPS_JSON_URL + '?t=' + Date.now());
+        baseDeMapas = await r.json();
+    } catch (e) { console.error("Error cargando mapas local:", e); }
 }
 
-async function fetchTopCivs(mapName) {
-    const slug = toSlug(mapName);
-    if (civCache[slug]) return civCache[slug];
-    try {
-        const url   = 'https://aoestats.io/maps/' + slug + '/?grouping=random_map&elo_range=high';
-        const proxy = 'https://api.allorigins.win/get?url=' + encodeURIComponent(url);
-        const r     = await fetch(proxy);
-        if (!r.ok) return [];
-        const data  = await r.json();
-        const html  = data.contents || '';
-
-        // Extraer civs de la tabla: buscar patrón nombre + winrate
-        const civs = [];
-        const tableMatch = html.match(/### Civilizations([\s\S]*?)(?:###|$)/);
-        if (!tableMatch) return [];
-        const tableHtml = tableMatch[1];
-
-        // Cada fila tiene: [NombreCiv](url) ... WR%±
-        const rowRe = /\[([^\]]+)\]\(https:\/\/aoestats\.io\/civs\/([^/?]+)\//g;
-        const wrRe  = /(\d+\.\d+)%±/g;
-
-        const names = [], slugs = [], wrs = [];
-        let m;
-        while ((m = rowRe.exec(tableHtml)) !== null) { names.push(m[1]); slugs.push(m[2]); }
-        while ((m = wrRe.exec(tableHtml))  !== null) { wrs.push(parseFloat(m[1])); }
-
-        for (let i = 0; i < Math.min(5, names.length, wrs.length); i++) {
-            civs.push({ name: names[i], slug: slugs[i], wr: wrs[i] });
+// 2. Función para encontrar el mapa lindo usando el nombre feo de las stats
+function encontrarMapaConfig(nombreSucio) {
+    if (!nombreSucio) return null;
+    for (const id in baseDeMapas) {
+        if (nombreSucio.toLowerCase().includes(baseDeMapas[id].name.toLowerCase())) {
+            return baseDeMapas[id];
         }
-        if (civs.length) civCache[slug] = civs;
-        return civs;
-    } catch(e) {
-        console.error('aoestats:', e);
-        return [];
     }
+    return null;
+}
+
+// 3. Obtener el Top 5 desde las estadísticas reales del torneo
+async function fetchTopCivs(mapName) {
+    try {
+        const r = await fetch(STATS_JSON_URL + '?t=' + Date.now());
+        if (!r.ok) return null;
+        const data = await r.json();
+        
+        const ranking = [];
+        // Filtramos las civs que tengan datos para este mapa específico
+        for (const [civName, info] of Object.entries(data.civs)) {
+            if (info.por_mapa && info.por_mapa[mapName]) {
+                ranking.push({
+                    name: civName,
+                    slug: civName.toLowerCase(),
+                    wr: info.por_mapa[mapName].winrate,
+                    jugadas: info.por_mapa[mapName].jugadas
+                });
+            }
+        }
+        // Ordenamos por Winrate (desc) y luego por partidas jugadas (desc)
+        return ranking.sort((a,b) => b.wr - a.wr || b.jugadas - a.jugadas).slice(0, 5);
+    } catch(e) { return null; }
 }
 
 function renderCivs(civs) {
     const el = document.getElementById('civsList');
-    if (!civs || !civs.length) {
-        el.innerHTML = '<div class="civs-loading">Sin datos para este mapa</div>';
+    if (!civs || civs.length === 0) {
+        el.innerHTML = '<div class="civs-loading">Sin estadísticas en este mapa (Copa 2026)</div>';
         return;
     }
     el.innerHTML = civs.map(c => `
         <div class="civ-chip">
-            <img class="civ-img" src="${CIV_IMG.replace('{slug}', c.slug.toLowerCase())}"
-                 onerror="this.style.display='none'" alt="${c.name}"/>
+            <img class="civ-img" src="${CIV_IMG_BASE.replace('{slug}', c.slug)}" onerror="this.style.display='none'"/>
             <div class="civ-info">
                 <div class="civ-name-text">${c.name}</div>
-                <div class="civ-wr">${c.wr.toFixed(1)}%</div>
+                <div class="civ-wr">${c.wr.toFixed(0)}%</div>
             </div>
         </div>`).join('');
 }
@@ -210,86 +203,72 @@ async function updateUI(estado) {
     const imgEl  = document.getElementById('mapImg');
     const nameEl = document.getElementById('mapName');
     const catEl  = document.getElementById('mapCategory');
-    const metaEl = document.getElementById('metaText');
 
-    // Fade out
-    imgEl.style.opacity   = '0';
-    imgEl.style.transform = 'scale(1.03)';
-    nameEl.style.opacity  = '0';
+    // Mapeo inteligente
+    const config = encontrarMapaConfig(estado.name);
+
+    imgEl.style.opacity = '0';
     await new Promise(r => setTimeout(r, 320));
 
-    imgEl.style.backgroundImage = "url('" + estado.url + "')";
-    nameEl.textContent = estado.name || 'Sin nombre';
-    catEl.textContent  = estado.categoria ? '· ' + estado.categoria : '';
-    metaEl.textContent = 'Age of Empires II · Copa Uruguaya 2026';
+    if (config) {
+        imgEl.style.backgroundImage = `url('${config.url}')`;
+        nameEl.textContent = config.name.toUpperCase();
+        catEl.textContent  = config.Categoria ? `· ${config.Categoria}` : '';
+    } else {
+        // Fallback si no está en tu JSON
+        imgEl.style.backgroundImage = `url('${estado.url}')`;
+        nameEl.textContent = (estado.name || "DESCONOCIDO").toUpperCase();
+        catEl.textContent  = estado.categoria ? `· ${estado.categoria}` : '';
+    }
 
-    imgEl.style.opacity   = '1';
-    imgEl.style.transform = 'scale(1)';
-    nameEl.style.opacity  = '1';
+    imgEl.style.opacity = '1';
     panel.classList.remove('hiding');
     panel.classList.add('visible');
 
-    // Cargar top civs
-    document.getElementById('civsList').innerHTML = '<div class="civs-loading">Consultando aoestats.io...</div>';
-    const civs = await fetchTopCivs(estado.name);
-    renderCivs(civs);
+    // Actualizar estadísticas del torneo
+    renderCivs(await fetchTopCivs(estado.name));
 }
 
 function ocultarPanel() {
     const panel = document.getElementById('panel');
     panel.classList.remove('visible');
     panel.classList.add('hiding');
-    setTimeout(() => panel.classList.remove('hiding'), 700);
 }
 
+// Polling de la API de control
 async function poll() {
     try {
-        const r = await fetch(MAP_JSON_URL + '?t=' + Date.now());
-        if (!r.ok) return;
+        const r = await fetch(API_CONTROL_URL + '?t=' + Date.now());
         const estado = await r.json();
         if (estado.ts === lastTs) return;
         lastTs = estado.ts;
-        if (!estado.visible || !estado.id || estado.id === '0') {
-            ocultarPanel();
-        } else {
-            await updateUI(estado);
-        }
+        if (!estado.visible || !estado.id || estado.id === '0') ocultarPanel();
+        else await updateUI(estado);
     } catch(e) {}
 }
 
-// ── WebSocket (instantáneo) + polling GitHub (fallback) ─────────────────────
-const WS_SERVER = 'wss://aldeanooscar.squareweb.app';  // ← igual que en el control
+// WebSocket e Inicio
+const WS_SERVER = 'wss://aldeanooscar.squareweb.app';
 let wsConnected = false;
 
 function conectarWS() {
-  try {
     const ws = new WebSocket(WS_SERVER + '/ws?canal=mapa');
-    ws.onopen  = () => { wsConnected = true; };
+    ws.onopen = () => wsConnected = true;
     ws.onmessage = async e => {
-      try {
         const estado = JSON.parse(e.data);
         lastTs = estado.ts;
         if (!estado.visible || !estado.id || estado.id === '0') ocultarPanel();
         else await updateUI(estado);
-      } catch(err) {}
     };
-    ws.onclose = () => {
-      wsConnected = false;
-      setTimeout(conectarWS, 5000);
-    };
-    ws.onerror = () => ws.close();
-  } catch(e) {}
+    ws.onclose = () => { wsConnected = false; setTimeout(conectarWS, 5000); };
 }
 
-// Polling GitHub como fallback
-async function pollFallback() {
-  if (wsConnected) return;
-  await poll();
-}
-
-conectarWS();
-poll();
-setInterval(pollFallback, 3000);
+// Arranque
+cargarBaseDeMapas().then(() => {
+    conectarWS();
+    poll();
+    setInterval(() => { if (!wsConnected) poll(); }, 3000);
+});
 </script>
 </body>
 </html>
