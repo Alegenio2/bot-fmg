@@ -163,44 +163,45 @@ function encontrarMapaConfig(nombreSucio) {
 // 3. Obtener el Top 5 desde las estadísticas reales del torneo
 async function fetchTopCivs(mapName) {
     try {
-        // Log para debug: Verás en la consola si el nombre viene con espacios o símbolos
-        console.log("Buscando estadísticas para el mapa:", mapName);
+        console.log("Buscando estadísticas para el mapa (filtro):", mapName);
 
-        // Agregamos timestamp para evitar caché del navegador
         const r = await fetch(STATS_JSON_URL + '?t=' + Date.now());
         if (!r.ok) return null;
         
         const data = await r.json();
         const ranking = [];
 
-        // Verificamos que existan las secciones necesarias en tu JSON
-        if (!data.civs) {
-            console.error("El JSON de estadísticas no tiene la sección 'civs'");
-            return null;
-        }
+        if (!data.civs) return null;
+
+        const nombreBusqueda = mapName.toLowerCase();
 
         for (const civName in data.civs) {
             const civData = data.civs[civName];
             
-            // Acceso seguro: Usamos corchetes para nombres con espacios como "Slopes v2 (Custom)"
-            if (civData.por_mapa && civData.por_mapa[mapName]) {
-                const stats = civData.por_mapa[mapName];
-                
-                ranking.push({
-                    name: civName,
-                    slug: civName.toLowerCase().replace(/\s+/g, ''), // Limpiamos el slug para la imagen
-                    wr: stats.winrate,
-                    jugadas: stats.jugadas
-                });
+            if (civData.por_mapa) {
+                // Buscamos una clave que CONTENGA el nombre que viene del overlay
+                // Ejemplo: si mapName es "Slopes", encontrará "CopaU_2026_Slopes v2 (Custom)"
+                const mapaRealKey = Object.keys(civData.por_mapa).find(key => 
+                    key.toLowerCase().includes(nombreBusqueda)
+                );
+
+                if (mapaRealKey) {
+                    const stats = civData.por_mapa[mapaRealKey];
+                    ranking.push({
+                        name: civName,
+                        slug: civName.toLowerCase().replace(/\s+/g, ''),
+                        wr: stats.winrate,
+                        jugadas: stats.jugadas
+                    });
+                }
             }
         }
 
-        // Ordenar por Winrate y luego por cantidad de partidas
         const resultado = ranking
             .sort((a, b) => b.wr - a.wr || b.jugadas - a.jugadas)
             .slice(0, 5);
 
-        console.log(`Top civs encontradas para ${mapName}:`, resultado.length);
+        console.log(`Resultados encontrados para "${mapName}":`, resultado.length);
         return resultado;
 
     } catch (e) {
