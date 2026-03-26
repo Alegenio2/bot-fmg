@@ -113,7 +113,29 @@ client.on('interactionCreate', async (interaction) => {
         }
         return; // ✅ FIX: evita que mostrarGuiaModal se ejecute con la interacción ya respondida
     }
-    
+    // 🎲 D. Botón para el Rol de Timbas
+    if (interaction.customId === 'asignar_rol_timba') {
+      const ROL_TIMBA_ID = '1484698742266396712';
+      const role = interaction.guild.roles.cache.get(ROL_TIMBA_ID);
+
+      if (!role) {
+        return interaction.reply({ content: "❌ El rol de timbas no existe en este servidor.", ephemeral: true });
+      }
+
+      try {
+        if (interaction.member.roles.cache.has(ROL_TIMBA_ID)) {
+          await interaction.member.roles.remove(role);
+          await interaction.reply({ content: "✅ Se te ha quitado el rol de **Timbas**.", ephemeral: true });
+        } else {
+          await interaction.member.roles.add(role);
+          await interaction.reply({ content: "🎲 ¡Ahora tienes el rol de **Timbas**! Suerte en las apuestas.", ephemeral: true });
+        }
+      } catch (error) {
+        console.error("Error al asignar rol timba:", error);
+        await interaction.reply({ content: "❌ No tengo permisos suficientes para gestionar ese rol.", ephemeral: true });
+      }
+      return; // Importante para que no siga ejecutando mostrarGuiaModal
+    }
     // D. Guías
     await mostrarGuiaModal(interaction);
   }
