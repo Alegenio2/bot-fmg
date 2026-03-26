@@ -131,9 +131,10 @@
 
 <script>
 // CONFIGURACIÓN DE RUTAS
-const MAPS_JSON_URL   = 'json/mapas.json'; // Ajusta si el nombre de tu archivo es otro
+// Usa las APIs de tu servidor en lugar de archivos locales para evitar el 404
+const MAPS_JSON_URL   = 'https://aldeanooscar.squareweb.app/api/mapas'; 
 const API_CONTROL_URL = 'https://aldeanooscar.squareweb.app/api/overlay/mapa'; 
-const STATS_JSON_URL  = 'Torneos/stats_copa_2026.json';
+const STATS_JSON_URL  = 'https://aldeanooscar.squareweb.app/api/stats'; // Cambiado de archivo a API
 const CIV_IMG_BASE    = 'https://backend.cdn.aoe2companion.com/public/aoe2/de/civilizations/{slug}.png';
 
 let baseDeMapas = {};
