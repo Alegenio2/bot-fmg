@@ -112,7 +112,14 @@
               "jugador1Nick": "DGHIR | Garezo",
               "jugador2Id": "959267535524606022",
               "jugador2Nick": "DGHIR | Rorro Knight®",
-              "resultado": null
+              "resultado": {
+                "244547091362217984": 2,
+                "959267535524606022": 0,
+                "mapas": "https://aoe2cm.net/draft/BFZjB",
+                "civs": "https://aoe2cm.net/draft/FSijB",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1486856058574999612/Showmatch_Copa_Uruguaya_2026_-_Garezo_vs_Rorro.zip?ex=69c7061c&is=69c5b49c&hm=14cc94f76beef374ca0f1f220c1e707caa2b15cddd1eda0449335d82048737cc&",
+                "fecha_registro": "2026-03-26T22:35:09.416Z"
+              }
             }
           ]
         }
