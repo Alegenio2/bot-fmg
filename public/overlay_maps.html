@@ -150,6 +150,7 @@ async function cargarBaseDeMapas() {
 // 2. Función para encontrar el mapa lindo usando el nombre feo de las stats
 function encontrarMapaConfig(nombreSucio) {
     if (!nombreSucio) return null;
+    console.log(nombreSucio);
     for (const id in baseDeMapas) {
         if (nombreSucio.toLowerCase().includes(baseDeMapas[id].name.toLowerCase())) {
             return baseDeMapas[id];
@@ -166,20 +167,33 @@ async function fetchTopCivs(mapName) {
         const data = await r.json();
         
         const ranking = [];
-        // Filtramos las civs que tengan datos para este mapa específico
-        for (const [civName, info] of Object.entries(data.civs)) {
-            if (info.por_mapa && info.por_mapa[mapName]) {
+
+        // Accedemos directamente al objeto global 'civs' del JSON
+        for (const civName in data.civs) {
+            const civData = data.civs[civName];
+             console.log(civName);
+            // Verificamos si esta civilización tiene estadísticas para el mapa actual
+            if (civData.por_mapa && civData.por_mapa[mapName]) {
+                const statsEnMapa = civData.por_mapa[mapName];
+                
                 ranking.push({
                     name: civName,
                     slug: civName.toLowerCase(),
-                    wr: info.por_mapa[mapName].winrate,
-                    jugadas: info.por_mapa[mapName].jugadas
+                    wr: statsEnMapa.winrate,
+                    jugadas: statsEnMapa.jugadas
                 });
             }
         }
-        // Ordenamos por Winrate (desc) y luego por partidas jugadas (desc)
-        return ranking.sort((a,b) => b.wr - a.wr || b.jugadas - a.jugadas).slice(0, 5);
-    } catch(e) { return null; }
+
+        // Ordenamos por Winrate (descendente) y luego por partidas jugadas
+        return ranking
+            .sort((a, b) => b.wr - a.wr || b.jugadas - a.jugadas)
+            .slice(0, 5);
+
+    } catch (e) {
+        console.error("Error cargando estadísticas globales:", e);
+        return null;
+    }
 }
 
 function renderCivs(civs) {
