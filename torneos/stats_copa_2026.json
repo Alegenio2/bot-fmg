@@ -1,8 +1,8 @@
 {
   "meta": {
     "torneo": "copa_uruguaya_2026",
-    "ultima_actualizacion": "2026-03-24T05:09:18.373Z",
-    "total_partidas": 5
+    "ultima_actualizacion": "2026-03-26T22:35:14.486Z",
+    "total_partidas": 7
   },
   "jugadores": {
     "238414625417330688": {
@@ -260,6 +260,74 @@
           "winrate": 0
         }
       }
+    },
+    "244547091362217984": {
+      "nick": "DGHIR | Garezo",
+      "aoe2Id": "15605540",
+      "global": {
+        "pj": 2,
+        "pg": 1,
+        "pp": 1,
+        "winrate": 50
+      },
+      "civs": {
+        "Malay": {
+          "pj": 2,
+          "pg": 1,
+          "pp": 1,
+          "winrate": 50,
+          "por_mapa": {
+            "CopaU_2026_Quarry v3 (Custom)": {
+              "pj": 2,
+              "pg": 1,
+              "pp": 1,
+              "winrate": 50
+            }
+          }
+        }
+      },
+      "mapas": {
+        "CopaU_2026_Quarry v3 (Custom)": {
+          "pj": 2,
+          "pg": 1,
+          "pp": 1,
+          "winrate": 50
+        }
+      }
+    },
+    "959267535524606022": {
+      "nick": "DGHIR | Rorro Knight®",
+      "aoe2Id": "5627235",
+      "global": {
+        "pj": 2,
+        "pg": 1,
+        "pp": 1,
+        "winrate": 50
+      },
+      "civs": {
+        "Lithuanians": {
+          "pj": 2,
+          "pg": 1,
+          "pp": 1,
+          "winrate": 50,
+          "por_mapa": {
+            "CopaU_2026_Quarry v3 (Custom)": {
+              "pj": 2,
+              "pg": 1,
+              "pp": 1,
+              "winrate": 50
+            }
+          }
+        }
+      },
+      "mapas": {
+        "CopaU_2026_Quarry v3 (Custom)": {
+          "pj": 2,
+          "pg": 1,
+          "pp": 1,
+          "winrate": 50
+        }
+      }
     }
   },
   "mapas": {
@@ -306,12 +374,16 @@
       }
     },
     "CopaU_2026_Quarry v3 (Custom)": {
-      "total_partidas": 1,
+      "total_partidas": 3,
       "civs_ganadoras": {
-        "Portuguese": 1
+        "Portuguese": 1,
+        "Malay": 1,
+        "Lithuanians": 1
       },
       "civs_perdedoras": {
-        "Spanish": 1
+        "Spanish": 1,
+        "Lithuanians": 1,
+        "Malay": 1
       },
       "enfrentamientos": {
         "Portuguese_vs_Spanish": {
@@ -319,6 +391,12 @@
           "gano_primero": 1,
           "civ_a": "Portuguese",
           "civ_b": "Spanish"
+        },
+        "Lithuanians_vs_Malay": {
+          "total": 2,
+          "gano_primero": 1,
+          "civ_a": "Lithuanians",
+          "civ_b": "Malay"
         }
       }
     },
@@ -530,6 +608,44 @@
           "winrate": 0
         }
       }
+    },
+    "Malay": {
+      "total_jugadas": 2,
+      "total_ganadas": 1,
+      "winrate": 50,
+      "por_mapa": {
+        "CopaU_2026_Quarry v3 (Custom)": {
+          "jugadas": 2,
+          "ganadas": 1,
+          "winrate": 50
+        }
+      },
+      "vs_civs": {
+        "Lithuanians": {
+          "jugadas": 2,
+          "ganadas": 1,
+          "winrate": 50
+        }
+      }
+    },
+    "Lithuanians": {
+      "total_jugadas": 2,
+      "total_ganadas": 1,
+      "winrate": 50,
+      "por_mapa": {
+        "CopaU_2026_Quarry v3 (Custom)": {
+          "jugadas": 2,
+          "ganadas": 1,
+          "winrate": 50
+        }
+      },
+      "vs_civs": {
+        "Malay": {
+          "jugadas": 2,
+          "ganadas": 1,
+          "winrate": 50
+        }
+      }
     }
   },
   "partidas": [
@@ -631,6 +747,46 @@
         "nick": "Culero Connor",
         "civ": "Chinese",
         "gano": false
+      }
+    },
+    {
+      "matchId": 465613556,
+      "fecha": "2026-03-26T02:48:29.000Z",
+      "mapa": "CopaU_2026_Quarry v3 (Custom)",
+      "duracion": 8,
+      "grupo": "B",
+      "ronda": 1,
+      "jugador1": {
+        "discordId": "244547091362217984",
+        "nick": "DGHIR | Garezo",
+        "civ": "Malay",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "959267535524606022",
+        "nick": "DGHIR | Rorro Knight®",
+        "civ": "Lithuanians",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 465610784,
+      "fecha": "2026-03-26T02:31:23.000Z",
+      "mapa": "CopaU_2026_Quarry v3 (Custom)",
+      "duracion": 12,
+      "grupo": "B",
+      "ronda": 1,
+      "jugador1": {
+        "discordId": "244547091362217984",
+        "nick": "DGHIR | Garezo",
+        "civ": "Malay",
+        "gano": false
+      },
+      "jugador2": {
+        "discordId": "959267535524606022",
+        "nick": "DGHIR | Rorro Knight®",
+        "civ": "Lithuanians",
+        "gano": true
       }
     }
   ]
