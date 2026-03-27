@@ -2,13 +2,11 @@
  * utils/aoe2stats.js
  * Busca en la API de aoe2companion las partidas de un encuentro del torneo
  * y devuelve civs, mapas y ganador de cada juego.
- *
- * Uso desde resultado_copa.js:
- *   const { buscarEstadisticasEncuentro } = require('../utils/aoe2stats');
- *   const stats = await buscarEstadisticasEncuentro(torneo, j1.id, j2.id, totalPartidas);
  */
 
 const https = require('https');
+const fs = require('fs');
+const path = require('path');
 
 // ─── HTTP GET ─────────────────────────────────────────────────────────────────
 
@@ -47,8 +45,6 @@ function httpGet(hostname, path, timeoutMs = 15000) {
 }
 
 // ─── Fetch partidas — 1 solo request, perPage configurable ───────────────────
-// En producción: page=1, perPage=300 trae todo el historial reciente de una vez.
-// Las partidas del torneo siempre están dentro de las últimas 300 del jugador.
 
 async function fetchPartidas(profileId, perPage = 300) {
   const path = `/api/matches?profile_ids=${profileId}&use_enums=true&page=1&per_page=${perPage}`;
@@ -63,7 +59,6 @@ function filtrarDuelos(matches, aoe2Id1, aoe2Id2) {
   const id2 = String(aoe2Id2);
 
   return matches.filter(match => {
-    // Solo partidas unranked (las del torneo)
     if (match.leaderboard !== 'unranked' && match.leaderboardId !== 'unranked') return false;
 
     let team1 = null, team2 = null;
@@ -74,7 +69,6 @@ function filtrarDuelos(matches, aoe2Id1, aoe2Id2) {
         if (pid === id2) team2 = team.teamId;
       }
     }
-    // Ambos presentes en equipos distintos (descarta teamgames)
     return team1 !== null && team2 !== null && team1 !== team2;
   });
 }
@@ -103,7 +97,7 @@ function extraerPartida(match, aoe2Id1, aoe2Id2, discordId1 = null, discordId2 =
       : null,
     jugador1: {
       aoe2Id:    id1,
-      discordId: discordId1,   // para cruzar con el JSON del torneo
+      discordId: discordId1,
       nick:      j1?.name   ?? '?',
       civ:       j1?.civName ?? j1?.civ ?? '?',
       gano:      j1?.won === true,
@@ -121,17 +115,7 @@ function extraerPartida(match, aoe2Id1, aoe2Id2, discordId1 = null, discordId2 =
 
 // ─── Función principal exportada ─────────────────────────────────────────────
 
-/**
- * Busca las partidas de un encuentro del torneo en la API de aoe2companion.
- *
- * @param {Object} torneo         — El objeto JSON del torneo (ya parseado)
- * @param {string} discordId1     — Discord ID del jugador 1
- * @param {string} discordId2     — Discord ID del jugador 2
- * @param {number} totalPartidas  — Cuántas partidas tiene el encuentro (ej: 4 para un 3-1)
- * @returns {Object|null}         — Stats del encuentro o null si no se encontró nada
- */
 async function buscarEstadisticasEncuentro(torneo, discordId1, discordId2, totalPartidas) {
-  // Obtener los aoe2 IDs de los jugadores desde el JSON del torneo
   let aoe2Id1 = null, aoe2Id2 = null, nick1 = null, nick2 = null;
 
   for (const grupo of (torneo.grupos ?? [])) {
@@ -148,32 +132,44 @@ async function buscarEstadisticasEncuentro(torneo, discordId1, discordId2, total
 
   console.log(`🔍 [aoe2stats] Buscando partidas: ${nick1} (${aoe2Id1}) vs ${nick2} (${aoe2Id2})`);
 
-  // Un solo request con las últimas 300 partidas del jugador 1.
-  // Con perPage=300 traemos todo de una, sin paginación ni deduplicación.
-  // El jugador con menos partidas recientes puede no tener el encuentro,
-  // por eso buscamos por quien tenga el historial más completo (jugador 1 por defecto).
   let matches;
   try {
     matches = await fetchPartidas(aoe2Id1);
-    console.log(`   → ${matches.length} partidas obtenidas`);
+    console.log(`    → ${matches.length} partidas obtenidas`);
   } catch (e) {
     console.error(`❌ [aoe2stats] Error fetching partidas: ${e.message}`);
     return null;
   }
 
-  // Filtrar duelos válidos
   const duelos = filtrarDuelos(matches, aoe2Id1, aoe2Id2);
 
   if (duelos.length === 0) {
-    console.warn(`⚠️ [aoe2stats] No se encontraron duelos en las últimas 30 partidas de cada jugador.`);
+    console.warn(`⚠️ [aoe2stats] No se encontraron duelos.`);
     return null;
   }
 
-  // Ordenar por fecha descendente y tomar las N más recientes
+  // --- NUEVA LÓGICA: Ordenar, filtrar restores y loguear ---
   duelos.sort((a, b) => new Date(b.started ?? 0) - new Date(a.started ?? 0));
-  const partidas = duelos.slice(0, totalPartidas).map(m => extraerPartida(m, aoe2Id1, aoe2Id2, discordId1, discordId2));
 
-  // Construir estadísticas del encuentro
+  const mapasVistos = new Set();
+  const duelosFiltrados = duelos.filter(m => {
+    const nombreMapa = m.mapName ?? 'Desconocido';
+    if (mapasVistos.has(nombreMapa)) {
+      // Registro en log de la partida descartada
+      const logPath = path.join(__dirname, 'restores.log');
+      const logMsg = `[${new Date().toLocaleString()}] RESTORE: Mapa ${nombreMapa} descartado (ID: ${m.matchId}) entre ${nick1} y ${nick2}\n`;
+      fs.appendFileSync(logPath, logMsg);
+      return false; 
+    }
+    mapasVistos.add(nombreMapa);
+    return true;
+  });
+
+  const partidas = duelosFiltrados
+    .slice(0, totalPartidas)
+    .map(m => extraerPartida(m, aoe2Id1, aoe2Id2, discordId1, discordId2));
+  // -------------------------------------------------------
+
   const civs1 = {}, civs2 = {}, mapas = {};
   let victorias1 = 0, victorias2 = 0;
 
@@ -181,17 +177,14 @@ async function buscarEstadisticasEncuentro(torneo, discordId1, discordId2, total
     if (p.jugador1.gano) victorias1++;
     if (p.jugador2.gano) victorias2++;
 
-    // Civs jugador 1
     civs1[p.jugador1.civ] = civs1[p.jugador1.civ] ?? { jugadas: 0, ganadas: 0 };
     civs1[p.jugador1.civ].jugadas++;
     if (p.jugador1.gano) civs1[p.jugador1.civ].ganadas++;
 
-    // Civs jugador 2
     civs2[p.jugador2.civ] = civs2[p.jugador2.civ] ?? { jugadas: 0, ganadas: 0 };
     civs2[p.jugador2.civ].jugadas++;
     if (p.jugador2.gano) civs2[p.jugador2.civ].ganadas++;
 
-    // Mapas
     mapas[p.mapa] = mapas[p.mapa] ?? { jugadas: 0, gano1: 0, gano2: 0 };
     mapas[p.mapa].jugadas++;
     if (p.jugador1.gano) mapas[p.mapa].gano1++;
@@ -202,7 +195,7 @@ async function buscarEstadisticasEncuentro(torneo, discordId1, discordId2, total
     jugador1:   { discordId: discordId1, aoe2Id: aoe2Id1, nick: nick1, victorias: victorias1, civs: civs1 },
     jugador2:   { discordId: discordId2, aoe2Id: aoe2Id2, nick: nick2, victorias: victorias2, civs: civs2 },
     mapas,
-    partidas,   // detalle partido a partido
+    partidas,
   };
 }
 
