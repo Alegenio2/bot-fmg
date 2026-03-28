@@ -14,6 +14,11 @@ async function obtenerEstadisticasCopa() {
 
     // Inicializar jugadores del grupo (usando la lista oficial del grupo)
     const grupoOriginal = torneo.grupos.find(g => g.nombre === `Grupo ${letraGrupo}`);
+   
+if (!grupoOriginal) {
+    console.warn(`⚠️ Grupo ${letraGrupo} no encontrado — puede ser Showmatch, saltando`);
+    return;
+}
     grupoOriginal.jugadores.forEach(j => {
       stats[j.id] = { nick: j.nick, pj: 0, pg: 0, pp: 0, sf: 0, sc: 0, pts: 0 };
     });
