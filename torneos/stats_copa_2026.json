@@ -1,8 +1,8 @@
 {
   "meta": {
     "torneo": "copa_uruguaya_2026",
-    "ultima_actualizacion": "2026-03-26T22:35:14.486Z",
-    "total_partidas": 7
+    "ultima_actualizacion": "2026-03-28T03:26:59.526Z",
+    "total_partidas": 10
   },
   "jugadores": {
     "238414625417330688": {
@@ -328,6 +328,154 @@
           "winrate": 50
         }
       }
+    },
+    "135113382217908224": {
+      "nick": "URU | Juasteint",
+      "aoe2Id": "2878364",
+      "global": {
+        "pj": 3,
+        "pg": 1,
+        "pp": 2,
+        "winrate": 33.3
+      },
+      "civs": {
+        "Malay": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "CopaU_2026_Shorelines (Custom)": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        },
+        "Romans": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "Arabia": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        },
+        "Italians": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "Land Madness": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        }
+      },
+      "mapas": {
+        "CopaU_2026_Shorelines (Custom)": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        },
+        "Arabia": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        },
+        "Land Madness": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        }
+      }
+    },
+    "582941701518262412": {
+      "nick": "Matixxx",
+      "aoe2Id": "14779963",
+      "global": {
+        "pj": 3,
+        "pg": 2,
+        "pp": 1,
+        "winrate": 66.7
+      },
+      "civs": {
+        "Chinese": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "CopaU_2026_Shorelines (Custom)": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        },
+        "Persians": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "Arabia": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        },
+        "Magyars": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "Land Madness": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        }
+      },
+      "mapas": {
+        "CopaU_2026_Shorelines (Custom)": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        },
+        "Arabia": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        },
+        "Land Madness": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        }
+      }
     }
   },
   "mapas": {
@@ -414,6 +562,57 @@
           "gano_primero": 0,
           "civ_a": "Chinese",
           "civ_b": "Romans"
+        }
+      }
+    },
+    "CopaU_2026_Shorelines (Custom)": {
+      "total_partidas": 1,
+      "civs_ganadoras": {
+        "Chinese": 1
+      },
+      "civs_perdedoras": {
+        "Malay": 1
+      },
+      "enfrentamientos": {
+        "Chinese_vs_Malay": {
+          "total": 1,
+          "gano_primero": 1,
+          "civ_a": "Chinese",
+          "civ_b": "Malay"
+        }
+      }
+    },
+    "Arabia": {
+      "total_partidas": 1,
+      "civs_ganadoras": {
+        "Persians": 1
+      },
+      "civs_perdedoras": {
+        "Romans": 1
+      },
+      "enfrentamientos": {
+        "Persians_vs_Romans": {
+          "total": 1,
+          "gano_primero": 1,
+          "civ_a": "Persians",
+          "civ_b": "Romans"
+        }
+      }
+    },
+    "Land Madness": {
+      "total_partidas": 1,
+      "civs_ganadoras": {
+        "Italians": 1
+      },
+      "civs_perdedoras": {
+        "Magyars": 1
+      },
+      "enfrentamientos": {
+        "Italians_vs_Magyars": {
+          "total": 1,
+          "gano_primero": 1,
+          "civ_a": "Italians",
+          "civ_b": "Magyars"
         }
       }
     }
@@ -572,14 +771,19 @@
       }
     },
     "Romans": {
-      "total_jugadas": 1,
+      "total_jugadas": 2,
       "total_ganadas": 1,
-      "winrate": 100,
+      "winrate": 50,
       "por_mapa": {
         "CopaU_2026_African River v3 (Custom)": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "Arabia": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       },
       "vs_civs": {
@@ -587,18 +791,28 @@
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "Persians": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       }
     },
     "Chinese": {
-      "total_jugadas": 1,
-      "total_ganadas": 0,
-      "winrate": 0,
+      "total_jugadas": 2,
+      "total_ganadas": 1,
+      "winrate": 50,
       "por_mapa": {
         "CopaU_2026_African River v3 (Custom)": {
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "CopaU_2026_Shorelines (Custom)": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       },
       "vs_civs": {
@@ -606,18 +820,28 @@
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "Malay": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       }
     },
     "Malay": {
-      "total_jugadas": 2,
+      "total_jugadas": 3,
       "total_ganadas": 1,
-      "winrate": 50,
+      "winrate": 33.3,
       "por_mapa": {
         "CopaU_2026_Quarry v3 (Custom)": {
           "jugadas": 2,
           "ganadas": 1,
           "winrate": 50
+        },
+        "CopaU_2026_Shorelines (Custom)": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       },
       "vs_civs": {
@@ -625,6 +849,11 @@
           "jugadas": 2,
           "ganadas": 1,
           "winrate": 50
+        },
+        "Chinese": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       }
     },
@@ -644,6 +873,63 @@
           "jugadas": 2,
           "ganadas": 1,
           "winrate": 50
+        }
+      }
+    },
+    "Persians": {
+      "total_jugadas": 1,
+      "total_ganadas": 1,
+      "winrate": 100,
+      "por_mapa": {
+        "Arabia": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        }
+      },
+      "vs_civs": {
+        "Romans": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        }
+      }
+    },
+    "Italians": {
+      "total_jugadas": 1,
+      "total_ganadas": 1,
+      "winrate": 100,
+      "por_mapa": {
+        "Land Madness": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        }
+      },
+      "vs_civs": {
+        "Magyars": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        }
+      }
+    },
+    "Magyars": {
+      "total_jugadas": 1,
+      "total_ganadas": 0,
+      "winrate": 0,
+      "por_mapa": {
+        "Land Madness": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        }
+      },
+      "vs_civs": {
+        "Italians": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       }
     }
@@ -787,6 +1073,66 @@
         "nick": "DGHIR | Rorro Knight®",
         "civ": "Lithuanians",
         "gano": true
+      }
+    },
+    {
+      "matchId": 465796686,
+      "fecha": "2026-03-26T23:14:05.000Z",
+      "mapa": "CopaU_2026_Shorelines (Custom)",
+      "duracion": 14,
+      "grupo": "A",
+      "ronda": 1,
+      "jugador1": {
+        "discordId": "135113382217908224",
+        "nick": "URU | Juasteint",
+        "civ": "Malay",
+        "gano": false
+      },
+      "jugador2": {
+        "discordId": "582941701518262412",
+        "nick": "Matixxx",
+        "civ": "Chinese",
+        "gano": true
+      }
+    },
+    {
+      "matchId": 465790738,
+      "fecha": "2026-03-26T22:39:47.000Z",
+      "mapa": "Arabia",
+      "duracion": 28,
+      "grupo": "A",
+      "ronda": 1,
+      "jugador1": {
+        "discordId": "135113382217908224",
+        "nick": "URU | Juasteint",
+        "civ": "Romans",
+        "gano": false
+      },
+      "jugador2": {
+        "discordId": "582941701518262412",
+        "nick": "Matixxx",
+        "civ": "Persians",
+        "gano": true
+      }
+    },
+    {
+      "matchId": 465786161,
+      "fecha": "2026-03-26T22:14:57.000Z",
+      "mapa": "Land Madness",
+      "duracion": 19,
+      "grupo": "A",
+      "ronda": 1,
+      "jugador1": {
+        "discordId": "135113382217908224",
+        "nick": "URU | Juasteint",
+        "civ": "Italians",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "582941701518262412",
+        "nick": "Matixxx",
+        "civ": "Magyars",
+        "gano": false
       }
     }
   ]
