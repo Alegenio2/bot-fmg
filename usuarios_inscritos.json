@@ -370,5 +370,17 @@
     "perfil": "https://www.aoe2companion.com/players/973968",
     "logo": null,
     "fecha": "2026-03-25T16:01:15.040Z"
+  },
+  {
+    "id": "330453336522489857",
+    "torneo": "copa_uruguaya_2026",
+    "modo": "1v1",
+    "nombre": "DityUy",
+    "elo_actual": 1106,
+    "elo_max": 1184,
+    "promedio_elo": 1145,
+    "perfil": "https://www.aoe2companion.com/players/231568",
+    "logo": null,
+    "fecha": "2026-03-29T21:59:32.739Z"
   }
 ]
