@@ -788,6 +788,13 @@
     "profileId": "231568",
     "nombre": "DityUy",
     "elo": 1106,
-    "pais": "🇺🇾"
+    "rank": 16555,
+    "wins": 234,
+    "losses": 225,
+    "pais": "🇺🇾",
+    "country": "uy",
+    "clan": "FUMAG",
+    "elomax": 1184,
+    "ultimapartida": "2026-02-21T18:09:54.000Z"
   }
 }
