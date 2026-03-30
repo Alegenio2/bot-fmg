@@ -7,7 +7,7 @@ const { EmbedBuilder } = require('discord.js');
 
 // ID del canal donde se publican las stats de civs
 // Cambialo por el canal que quieras usar en tu servidor
-const CANAL_STATS_ID = process.env.CANAL_STATS_ID || '1473071125541027860';
+const CANAL_STATS_ID = process.env.CANAL_STATS_ID || '1481461741316472963';
 
 /**
  * Publica un embed con las estadísticas de civs y mapas del encuentro.
