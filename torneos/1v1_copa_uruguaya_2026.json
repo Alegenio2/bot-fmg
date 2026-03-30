@@ -3,12 +3,250 @@
   "tipo": "1v1",
   "config": {
     "redondeo_aplicado": true,
-    "clasificados_por_grupo": 1
+    "clasificados_por_grupo": 2
   },
   "grupos": [
     {
-      "nombre": "Showmatch A",
+      "nombre": "Grupo A",
       "jugadores": [
+        {
+          "id": "733765577570779279",
+          "nick": "Nacional",
+          "elo": 2100,
+          "elo_real": 2108,
+          "idaoe2": "15442657"
+        },
+        {
+          "id": "709904591453683766",
+          "nick": "buyanjavyn",
+          "elo": 1400,
+          "elo_real": 1418,
+          "idaoe2": "476764"
+        },
+        {
+          "id": "959267535524606022",
+          "nick": "DGHIR | Rorro Knight®",
+          "elo": 1400,
+          "elo_real": 1385,
+          "idaoe2": "5627235"
+        },
+        {
+          "id": "694749732467245088",
+          "nick": "[LOPDA] Shebby",
+          "elo": 1050,
+          "elo_real": 1041,
+          "idaoe2": "2213923"
+        }
+      ]
+    },
+    {
+      "nombre": "Grupo B",
+      "jugadores": [
+        {
+          "id": "238414625417330688",
+          "nick": "FMG | Rxon",
+          "elo": 1900,
+          "elo_real": 1911,
+          "idaoe2": "1780624"
+        },
+        {
+          "id": "277256502023290881",
+          "nick": "DGHIR | Lionerrt",
+          "elo": 1450,
+          "elo_real": 1449,
+          "idaoe2": "5204719"
+        },
+        {
+          "id": "697973693157998712",
+          "nick": "DGHIR | SamuraiNinja08",
+          "elo": 1350,
+          "elo_real": 1362,
+          "idaoe2": "1465372"
+        },
+        {
+          "id": "831027477652570132",
+          "nick": "[VL] Santiagoi1212",
+          "elo": 1100,
+          "elo_real": 1087,
+          "idaoe2": "2249432"
+        }
+      ]
+    },
+    {
+      "nombre": "Grupo C",
+      "jugadores": [
+        {
+          "id": "697996987210924072",
+          "nick": "|FMG| TINCHO",
+          "elo": 1800,
+          "elo_real": 1813,
+          "idaoe2": "2304739"
+        },
+        {
+          "id": "286607198854053890",
+          "nick": "Aztreonam",
+          "elo": 1450,
+          "elo_real": 1452,
+          "idaoe2": "2317043"
+        },
+        {
+          "id": "755853346149105786",
+          "nick": "|FMG| Donde Estan Mis 5 Pizzas",
+          "elo": 1350,
+          "elo_real": 1327,
+          "idaoe2": "10222046"
+        },
+        {
+          "id": "1008090545513570495",
+          "nick": "ElOsoConBarba",
+          "elo": 1150,
+          "elo_real": 1127,
+          "idaoe2": "10473376"
+        }
+      ]
+    },
+    {
+      "nombre": "Grupo D",
+      "jugadores": [
+        {
+          "id": "833806737902534738",
+          "nick": "URU | ToNGa",
+          "elo": 1800,
+          "elo_real": 1800,
+          "idaoe2": "2639502"
+        },
+        {
+          "id": "485610092092456975",
+          "nick": "Kroyen",
+          "elo": 1500,
+          "elo_real": 1495,
+          "idaoe2": "828458"
+        },
+        {
+          "id": "382688182002515978",
+          "nick": "[VL] Karistho",
+          "elo": 1300,
+          "elo_real": 1278,
+          "idaoe2": "2175073"
+        },
+        {
+          "id": "330453336522489857",
+          "nick": "DityUy",
+          "elo": 1150,
+          "elo_real": 1145,
+          "idaoe2": "231568"
+        }
+      ]
+    },
+    {
+      "nombre": "Grupo E",
+      "jugadores": [
+        {
+          "id": "244547091362217984",
+          "nick": "DGHIR | Garezo",
+          "elo": 1650,
+          "elo_real": 1648,
+          "idaoe2": "15605540"
+        },
+        {
+          "id": "724668688145580062",
+          "nick": "|FMG| Gral_Artigas",
+          "elo": 1500,
+          "elo_real": 1498,
+          "idaoe2": "2899006"
+        },
+        {
+          "id": "264781067506941962",
+          "nick": "|FMG| doomjota",
+          "elo": 1250,
+          "elo_real": 1268,
+          "idaoe2": "2251303"
+        },
+        {
+          "id": "852387609916211270",
+          "nick": "Zakk El Rabdomante",
+          "elo": 1150,
+          "elo_real": 1159,
+          "idaoe2": "1825664"
+        }
+      ]
+    },
+    {
+      "nombre": "Grupo F",
+      "jugadores": [
+        {
+          "id": "341001672786575360",
+          "nick": "|FMG| Nadie",
+          "elo": 1650,
+          "elo_real": 1648,
+          "idaoe2": "673060"
+        },
+        {
+          "id": "689907393001291884",
+          "nick": "Culero Connor",
+          "elo": 1550,
+          "elo_real": 1525,
+          "idaoe2": "5736044"
+        },
+        {
+          "id": "896216989922635777",
+          "nick": "|FMG| TatoSky",
+          "elo": 1250,
+          "elo_real": 1267,
+          "idaoe2": "8921754"
+        },
+        {
+          "id": "594988359965999118",
+          "nick": "N4cHoV",
+          "elo": 1200,
+          "elo_real": 1197,
+          "idaoe2": "2295211"
+        }
+      ]
+    },
+    {
+      "nombre": "Grupo G",
+      "jugadores": [
+        {
+          "id": "760308403087867916",
+          "nick": "|FMG| Tano Stokes",
+          "elo": 1650,
+          "elo_real": 1632,
+          "idaoe2": "4822389"
+        },
+        {
+          "id": "481154599881932811",
+          "nick": "|FMG| Lautreamont",
+          "elo": 1550,
+          "elo_real": 1533,
+          "idaoe2": "973968"
+        },
+        {
+          "id": "425297928610119692",
+          "nick": "DGHIR | NICOGP11",
+          "elo": 1250,
+          "elo_real": 1249,
+          "idaoe2": "1464680"
+        },
+        {
+          "id": "465307831583637514",
+          "nick": "|FMG| ROGELIO III",
+          "elo": 1250,
+          "elo_real": 1229,
+          "idaoe2": "19032038"
+        }
+      ]
+    },
+    {
+      "nombre": "Grupo H",
+      "jugadores": [
+        {
+          "id": "408054148110614529",
+          "nick": "-FMG- Rodri",
+          "elo": 1600,
+          "elo_real": 1582,
+          "idaoe2": "3147129"
+        },
         {
           "id": "135113382217908224",
           "nick": "URU | Juasteint",
@@ -22,63 +260,13 @@
           "elo": 1250,
           "elo_real": 1244,
           "idaoe2": "14779963"
-        }
-      ]
-    },
-    {
-      "nombre": "Showmatch B",
-      "jugadores": [
-        {
-          "id": "244547091362217984",
-          "nick": "DGHIR | Garezo",
-          "elo": 1650,
-          "elo_real": 1648,
-          "idaoe2": "15605540"
         },
         {
-          "id": "959267535524606022",
-          "nick": "DGHIR | Rorro Knight®",
-          "elo": 1400,
-          "elo_real": 1385,
-          "idaoe2": "5627235"
-        }
-      ]
-    },
-    {
-      "nombre": "Showmatch C",
-      "jugadores": [
-        {
-          "id": "697996987210924072",
-          "nick": "|FMG| TINCHO",
-          "elo": 1800,
-          "elo_real": 1813,
-          "idaoe2": "2304739"
-        },
-        {
-          "id": "689907393001291884",
-          "nick": "Culero Connor",
-          "elo": 1550,
-          "elo_real": 1525,
-          "idaoe2": "5736044"
-        }
-      ]
-    },
-    {
-      "nombre": "Showmatch D",
-      "jugadores": [
-        {
-          "id": "238414625417330688",
-          "nick": "FMG | Rxon",
-          "elo": 1900,
-          "elo_real": 1911,
-          "idaoe2": "1780624"
-        },
-        {
-          "id": "896216989922635777",
-          "nick": "|FMG| TatoSky",
+          "id": "662427737138528308",
+          "nick": "kakaidolo",
           "elo": 1250,
-          "elo_real": 1267,
-          "idaoe2": "8921754"
+          "elo_real": 1243,
+          "idaoe2": "14501687"
         }
       ]
     }
@@ -91,18 +279,56 @@
           "ronda": 1,
           "partidos": [
             {
-              "jugador1Id": "135113382217908224",
-              "jugador1Nick": "URU | Juasteint",
-              "jugador2Id": "582941701518262412",
-              "jugador2Nick": "Matixxx",
-              "resultado": {
-                "135113382217908224": 1,
-                "582941701518262412": 2,
-                "mapas": "https://aoe2cm.net/draft/RFMdM",
-                "civs": "https://aoe2cm.net/draft/TDBCL",
-                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1487291884622839818/MatixxxVSJuasteint.zip?ex=69c89c01&is=69c74a81&hm=d417729360b1aee5f06b77e28af2affe7f2607b5a29fe1f7ce976dfe6ecdfa09&",
-                "fecha_registro": "2026-03-28T03:26:58.575Z"
-              }
+              "jugador1Id": "733765577570779279",
+              "jugador1Nick": "Nacional",
+              "jugador2Id": "694749732467245088",
+              "jugador2Nick": "[LOPDA] Shebby",
+              "resultado": null
+            },
+            {
+              "jugador1Id": "709904591453683766",
+              "jugador1Nick": "buyanjavyn",
+              "jugador2Id": "959267535524606022",
+              "jugador2Nick": "DGHIR | Rorro Knight®",
+              "resultado": null
+            }
+          ]
+        },
+        {
+          "ronda": 2,
+          "partidos": [
+            {
+              "jugador1Id": "733765577570779279",
+              "jugador1Nick": "Nacional",
+              "jugador2Id": "959267535524606022",
+              "jugador2Nick": "DGHIR | Rorro Knight®",
+              "resultado": null
+            },
+            {
+              "jugador1Id": "694749732467245088",
+              "jugador1Nick": "[LOPDA] Shebby",
+              "jugador2Id": "709904591453683766",
+              "jugador2Nick": "buyanjavyn",
+              "resultado": null
+            }
+          ]
+        },
+        {
+          "ronda": 3,
+          "partidos": [
+            {
+              "jugador1Id": "733765577570779279",
+              "jugador1Nick": "Nacional",
+              "jugador2Id": "709904591453683766",
+              "jugador2Nick": "buyanjavyn",
+              "resultado": null
+            },
+            {
+              "jugador1Id": "959267535524606022",
+              "jugador1Nick": "DGHIR | Rorro Knight®",
+              "jugador2Id": "694749732467245088",
+              "jugador2Nick": "[LOPDA] Shebby",
+              "resultado": null
             }
           ]
         }
@@ -115,18 +341,56 @@
           "ronda": 1,
           "partidos": [
             {
-              "jugador1Id": "244547091362217984",
-              "jugador1Nick": "DGHIR | Garezo",
-              "jugador2Id": "959267535524606022",
-              "jugador2Nick": "DGHIR | Rorro Knight®",
-              "resultado": {
-                "244547091362217984": 2,
-                "959267535524606022": 0,
-                "mapas": "https://aoe2cm.net/draft/BFZjB",
-                "civs": "https://aoe2cm.net/draft/FSijB",
-                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1486856058574999612/Showmatch_Copa_Uruguaya_2026_-_Garezo_vs_Rorro.zip?ex=69c7061c&is=69c5b49c&hm=14cc94f76beef374ca0f1f220c1e707caa2b15cddd1eda0449335d82048737cc&",
-                "fecha_registro": "2026-03-26T22:35:09.416Z"
-              }
+              "jugador1Id": "238414625417330688",
+              "jugador1Nick": "FMG | Rxon",
+              "jugador2Id": "831027477652570132",
+              "jugador2Nick": "[VL] Santiagoi1212",
+              "resultado": null
+            },
+            {
+              "jugador1Id": "277256502023290881",
+              "jugador1Nick": "DGHIR | Lionerrt",
+              "jugador2Id": "697973693157998712",
+              "jugador2Nick": "DGHIR | SamuraiNinja08",
+              "resultado": null
+            }
+          ]
+        },
+        {
+          "ronda": 2,
+          "partidos": [
+            {
+              "jugador1Id": "238414625417330688",
+              "jugador1Nick": "FMG | Rxon",
+              "jugador2Id": "697973693157998712",
+              "jugador2Nick": "DGHIR | SamuraiNinja08",
+              "resultado": null
+            },
+            {
+              "jugador1Id": "831027477652570132",
+              "jugador1Nick": "[VL] Santiagoi1212",
+              "jugador2Id": "277256502023290881",
+              "jugador2Nick": "DGHIR | Lionerrt",
+              "resultado": null
+            }
+          ]
+        },
+        {
+          "ronda": 3,
+          "partidos": [
+            {
+              "jugador1Id": "238414625417330688",
+              "jugador1Nick": "FMG | Rxon",
+              "jugador2Id": "277256502023290881",
+              "jugador2Nick": "DGHIR | Lionerrt",
+              "resultado": null
+            },
+            {
+              "jugador1Id": "697973693157998712",
+              "jugador1Nick": "DGHIR | SamuraiNinja08",
+              "jugador2Id": "831027477652570132",
+              "jugador2Nick": "[VL] Santiagoi1212",
+              "resultado": null
             }
           ]
         }
@@ -141,16 +405,54 @@
             {
               "jugador1Id": "697996987210924072",
               "jugador1Nick": "|FMG| TINCHO",
-              "jugador2Id": "689907393001291884",
-              "jugador2Nick": "Culero Connor",
-              "resultado": {
-                "697996987210924072": 1,
-                "689907393001291884": 2,
-                "mapas": "https://aoe2cm.net/draft/MqRYW",
-                "civs": "https://aoe2cm.net/draft/pGdXc",
-                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1485868081258692608/showmatch_culero_vs_tincho.zip?ex=69c36dfc&is=69c21c7c&hm=906ec384f10bb1dc76b4754e84d0a50fcf4ca667d21067592e02dd53304ec651&",
-                "fecha_registro": "2026-03-24T05:09:17.278Z"
-              }
+              "jugador2Id": "1008090545513570495",
+              "jugador2Nick": "ElOsoConBarba",
+              "resultado": null
+            },
+            {
+              "jugador1Id": "286607198854053890",
+              "jugador1Nick": "Aztreonam",
+              "jugador2Id": "755853346149105786",
+              "jugador2Nick": "|FMG| Donde Estan Mis 5 Pizzas",
+              "resultado": null
+            }
+          ]
+        },
+        {
+          "ronda": 2,
+          "partidos": [
+            {
+              "jugador1Id": "697996987210924072",
+              "jugador1Nick": "|FMG| TINCHO",
+              "jugador2Id": "755853346149105786",
+              "jugador2Nick": "|FMG| Donde Estan Mis 5 Pizzas",
+              "resultado": null
+            },
+            {
+              "jugador1Id": "1008090545513570495",
+              "jugador1Nick": "ElOsoConBarba",
+              "jugador2Id": "286607198854053890",
+              "jugador2Nick": "Aztreonam",
+              "resultado": null
+            }
+          ]
+        },
+        {
+          "ronda": 3,
+          "partidos": [
+            {
+              "jugador1Id": "697996987210924072",
+              "jugador1Nick": "|FMG| TINCHO",
+              "jugador2Id": "286607198854053890",
+              "jugador2Nick": "Aztreonam",
+              "resultado": null
+            },
+            {
+              "jugador1Id": "755853346149105786",
+              "jugador1Nick": "|FMG| Donde Estan Mis 5 Pizzas",
+              "jugador2Id": "1008090545513570495",
+              "jugador2Nick": "ElOsoConBarba",
+              "resultado": null
             }
           ]
         }
@@ -163,10 +465,303 @@
           "ronda": 1,
           "partidos": [
             {
-              "jugador1Id": "238414625417330688",
-              "jugador1Nick": "FMG | Rxon",
+              "jugador1Id": "833806737902534738",
+              "jugador1Nick": "URU | ToNGa",
+              "jugador2Id": "330453336522489857",
+              "jugador2Nick": "DityUy",
+              "resultado": null
+            },
+            {
+              "jugador1Id": "485610092092456975",
+              "jugador1Nick": "Kroyen",
+              "jugador2Id": "382688182002515978",
+              "jugador2Nick": "[VL] Karistho",
+              "resultado": null
+            }
+          ]
+        },
+        {
+          "ronda": 2,
+          "partidos": [
+            {
+              "jugador1Id": "833806737902534738",
+              "jugador1Nick": "URU | ToNGa",
+              "jugador2Id": "382688182002515978",
+              "jugador2Nick": "[VL] Karistho",
+              "resultado": null
+            },
+            {
+              "jugador1Id": "330453336522489857",
+              "jugador1Nick": "DityUy",
+              "jugador2Id": "485610092092456975",
+              "jugador2Nick": "Kroyen",
+              "resultado": null
+            }
+          ]
+        },
+        {
+          "ronda": 3,
+          "partidos": [
+            {
+              "jugador1Id": "833806737902534738",
+              "jugador1Nick": "URU | ToNGa",
+              "jugador2Id": "485610092092456975",
+              "jugador2Nick": "Kroyen",
+              "resultado": null
+            },
+            {
+              "jugador1Id": "382688182002515978",
+              "jugador1Nick": "[VL] Karistho",
+              "jugador2Id": "330453336522489857",
+              "jugador2Nick": "DityUy",
+              "resultado": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "grupo": "E",
+      "partidos": [
+        {
+          "ronda": 1,
+          "partidos": [
+            {
+              "jugador1Id": "244547091362217984",
+              "jugador1Nick": "DGHIR | Garezo",
+              "jugador2Id": "852387609916211270",
+              "jugador2Nick": "Zakk El Rabdomante",
+              "resultado": null
+            },
+            {
+              "jugador1Id": "724668688145580062",
+              "jugador1Nick": "|FMG| Gral_Artigas",
+              "jugador2Id": "264781067506941962",
+              "jugador2Nick": "|FMG| doomjota",
+              "resultado": null
+            }
+          ]
+        },
+        {
+          "ronda": 2,
+          "partidos": [
+            {
+              "jugador1Id": "244547091362217984",
+              "jugador1Nick": "DGHIR | Garezo",
+              "jugador2Id": "264781067506941962",
+              "jugador2Nick": "|FMG| doomjota",
+              "resultado": null
+            },
+            {
+              "jugador1Id": "852387609916211270",
+              "jugador1Nick": "Zakk El Rabdomante",
+              "jugador2Id": "724668688145580062",
+              "jugador2Nick": "|FMG| Gral_Artigas",
+              "resultado": null
+            }
+          ]
+        },
+        {
+          "ronda": 3,
+          "partidos": [
+            {
+              "jugador1Id": "244547091362217984",
+              "jugador1Nick": "DGHIR | Garezo",
+              "jugador2Id": "724668688145580062",
+              "jugador2Nick": "|FMG| Gral_Artigas",
+              "resultado": null
+            },
+            {
+              "jugador1Id": "264781067506941962",
+              "jugador1Nick": "|FMG| doomjota",
+              "jugador2Id": "852387609916211270",
+              "jugador2Nick": "Zakk El Rabdomante",
+              "resultado": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "grupo": "F",
+      "partidos": [
+        {
+          "ronda": 1,
+          "partidos": [
+            {
+              "jugador1Id": "341001672786575360",
+              "jugador1Nick": "|FMG| Nadie",
+              "jugador2Id": "594988359965999118",
+              "jugador2Nick": "N4cHoV",
+              "resultado": null
+            },
+            {
+              "jugador1Id": "689907393001291884",
+              "jugador1Nick": "Culero Connor",
               "jugador2Id": "896216989922635777",
               "jugador2Nick": "|FMG| TatoSky",
+              "resultado": null
+            }
+          ]
+        },
+        {
+          "ronda": 2,
+          "partidos": [
+            {
+              "jugador1Id": "341001672786575360",
+              "jugador1Nick": "|FMG| Nadie",
+              "jugador2Id": "896216989922635777",
+              "jugador2Nick": "|FMG| TatoSky",
+              "resultado": null
+            },
+            {
+              "jugador1Id": "594988359965999118",
+              "jugador1Nick": "N4cHoV",
+              "jugador2Id": "689907393001291884",
+              "jugador2Nick": "Culero Connor",
+              "resultado": null
+            }
+          ]
+        },
+        {
+          "ronda": 3,
+          "partidos": [
+            {
+              "jugador1Id": "341001672786575360",
+              "jugador1Nick": "|FMG| Nadie",
+              "jugador2Id": "689907393001291884",
+              "jugador2Nick": "Culero Connor",
+              "resultado": null
+            },
+            {
+              "jugador1Id": "896216989922635777",
+              "jugador1Nick": "|FMG| TatoSky",
+              "jugador2Id": "594988359965999118",
+              "jugador2Nick": "N4cHoV",
+              "resultado": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "grupo": "G",
+      "partidos": [
+        {
+          "ronda": 1,
+          "partidos": [
+            {
+              "jugador1Id": "760308403087867916",
+              "jugador1Nick": "|FMG| Tano Stokes",
+              "jugador2Id": "465307831583637514",
+              "jugador2Nick": "|FMG| ROGELIO III",
+              "resultado": null
+            },
+            {
+              "jugador1Id": "481154599881932811",
+              "jugador1Nick": "|FMG| Lautreamont",
+              "jugador2Id": "425297928610119692",
+              "jugador2Nick": "DGHIR | NICOGP11",
+              "resultado": null
+            }
+          ]
+        },
+        {
+          "ronda": 2,
+          "partidos": [
+            {
+              "jugador1Id": "760308403087867916",
+              "jugador1Nick": "|FMG| Tano Stokes",
+              "jugador2Id": "425297928610119692",
+              "jugador2Nick": "DGHIR | NICOGP11",
+              "resultado": null
+            },
+            {
+              "jugador1Id": "465307831583637514",
+              "jugador1Nick": "|FMG| ROGELIO III",
+              "jugador2Id": "481154599881932811",
+              "jugador2Nick": "|FMG| Lautreamont",
+              "resultado": null
+            }
+          ]
+        },
+        {
+          "ronda": 3,
+          "partidos": [
+            {
+              "jugador1Id": "760308403087867916",
+              "jugador1Nick": "|FMG| Tano Stokes",
+              "jugador2Id": "481154599881932811",
+              "jugador2Nick": "|FMG| Lautreamont",
+              "resultado": null
+            },
+            {
+              "jugador1Id": "425297928610119692",
+              "jugador1Nick": "DGHIR | NICOGP11",
+              "jugador2Id": "465307831583637514",
+              "jugador2Nick": "|FMG| ROGELIO III",
+              "resultado": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "grupo": "H",
+      "partidos": [
+        {
+          "ronda": 1,
+          "partidos": [
+            {
+              "jugador1Id": "408054148110614529",
+              "jugador1Nick": "-FMG- Rodri",
+              "jugador2Id": "662427737138528308",
+              "jugador2Nick": "kakaidolo",
+              "resultado": null
+            },
+            {
+              "jugador1Id": "135113382217908224",
+              "jugador1Nick": "URU | Juasteint",
+              "jugador2Id": "582941701518262412",
+              "jugador2Nick": "Matixxx",
+              "resultado": null
+            }
+          ]
+        },
+        {
+          "ronda": 2,
+          "partidos": [
+            {
+              "jugador1Id": "408054148110614529",
+              "jugador1Nick": "-FMG- Rodri",
+              "jugador2Id": "582941701518262412",
+              "jugador2Nick": "Matixxx",
+              "resultado": null
+            },
+            {
+              "jugador1Id": "662427737138528308",
+              "jugador1Nick": "kakaidolo",
+              "jugador2Id": "135113382217908224",
+              "jugador2Nick": "URU | Juasteint",
+              "resultado": null
+            }
+          ]
+        },
+        {
+          "ronda": 3,
+          "partidos": [
+            {
+              "jugador1Id": "408054148110614529",
+              "jugador1Nick": "-FMG- Rodri",
+              "jugador2Id": "135113382217908224",
+              "jugador2Nick": "URU | Juasteint",
+              "resultado": null
+            },
+            {
+              "jugador1Id": "582941701518262412",
+              "jugador1Nick": "Matixxx",
+              "jugador2Id": "662427737138528308",
+              "jugador2Nick": "kakaidolo",
               "resultado": null
             }
           ]
@@ -174,5 +769,5 @@
       ]
     }
   ],
-  "creado": "2026-03-24T05:15:00.000Z"
+  "creado": "2026-03-30T11:52:56.730Z"
 }
