@@ -9,12 +9,11 @@ const jwt       = require('jsonwebtoken');
 const crypto    = require('crypto');
 
 // ── Auth config (desde variables de entorno) ──────────────────────────────────
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'cambiar-en-produccion';
-const JWT_SECRET     = process.env.JWT_SECRET     || crypto.randomBytes(32).toString('hex');
-const JWT_EXPIRES    = '12h';
-
-// Páginas protegidas
-const PROTECTED_PAGES = ['admindraft.html', 'overlay_control.html'];
+const PASS_DRAFT   = process.env.ADMIN_PASSWORD_DRAFT   || 'draft-cambiar';
+const PASS_CONTROL = process.env.ADMIN_PASSWORD_CONTROL || 'control-cambiar';
+const JWT_SECRET   = process.env.JWT_SECRET             || crypto.randomBytes(32).toString('hex');
+const GH_TOKEN     = process.env.GH_TOKEN               || '';
+const JWT_EXPIRES  = '12h';
 
 // ── Middleware de autenticación ───────────────────────────────────────────────
 function requireAuth(req, res, next) {
@@ -76,19 +75,39 @@ app.use(cors({ origin: ['https://aua.netlify.app', 'https://aldeanooscar.squarew
 app.use(express.json({ limit: '2mb' }));
 
 // ── Auth endpoints ───────────────────────────────────────────────────────────
-app.post('/auth/login', (req, res) => {
+// Login admindraft
+app.post('/auth/login/draft', (req, res) => {
   const { password } = req.body;
-  if (!password || password !== ADMIN_PASSWORD) {
-    console.log('[auth] intento fallido');
+  if (!password || password !== PASS_DRAFT) {
+    console.log('[auth] intento fallido — draft');
     return res.status(401).json({ error: 'Contraseña incorrecta' });
   }
-  const token = jwt.sign({ role: 'admin' }, JWT_SECRET, { expiresIn: JWT_EXPIRES });
-  console.log('[auth] login exitoso');
+  const token = jwt.sign({ role: 'draft' }, JWT_SECRET, { expiresIn: JWT_EXPIRES });
+  console.log('[auth] login OK — draft');
   res.json({ token, expiresIn: JWT_EXPIRES });
 });
 
+// Login overlay control
+app.post('/auth/login/control', (req, res) => {
+  const { password } = req.body;
+  if (!password || password !== PASS_CONTROL) {
+    console.log('[auth] intento fallido — control');
+    return res.status(401).json({ error: 'Contraseña incorrecta' });
+  }
+  const token = jwt.sign({ role: 'control' }, JWT_SECRET, { expiresIn: JWT_EXPIRES });
+  console.log('[auth] login OK — control');
+  res.json({ token, expiresIn: JWT_EXPIRES });
+});
+
+// Verify token (ambos roles)
 app.get('/auth/verify', requireAuth, (req, res) => {
   res.json({ ok: true, role: req.user.role });
+});
+
+// GitHub token — solo disponible si el cliente está autenticado
+app.get('/auth/gh-token', requireAuth, (req, res) => {
+  if (!GH_TOKEN) return res.status(404).json({ error: 'GH_TOKEN no configurado en el servidor' });
+  res.json({ token: GH_TOKEN });
 });
 
 // Servir archivos estáticos desde /public
