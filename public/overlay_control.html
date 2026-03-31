@@ -104,7 +104,7 @@ hr{border:none;border-top:0.5px solid #1a1208;margin:0}
       <h1>⚔ Control de Overlays</h1>
       <div class="subtitle">Copa Uruguaya 2026 — Panel de transmisión</div>
     </div>
-   
+    <a href="admindraft.html" class="btn-admindraft" target="_blank">🛡 Abrir Admin Draft</a>
   </div>
 
   <div class="layout">
@@ -223,8 +223,21 @@ hr{border:none;border-top:0.5px solid #1a1208;margin:0}
 
 // ── Auth ──────────────────────────────────────────────────────────────────────
 const OSCAR = 'https://aldeanooscar.squareweb.app';
-function getAdminToken() { return localStorage.getItem('aua_admin_token') || ''; }
-function authHeaders(extra) { return { 'Content-Type':'application/json', 'Authorization':'Bearer ' + getAdminToken(), ...extra }; }
+const TOKEN_KEY_CONTROL = 'aua_admin_token_control';
+function getAdminToken() { return localStorage.getItem(TOKEN_KEY_CONTROL) || ''; }
+function authHeaders(extra) { return { 'Content-Type':'application/json', 'Authorization':'Bearer ' + getAdminToken(), ...(extra||{}) }; }
+
+async function getGHToken() {
+    const cached = sessionStorage.getItem('gh_token_cache');
+    if (cached) return cached;
+    try {
+        const r = await fetch(OSCAR + '/auth/gh-token', { headers: { 'Authorization': 'Bearer ' + getAdminToken() } });
+        if (!r.ok) return '';
+        const { token } = await r.json();
+        sessionStorage.setItem('gh_token_cache', token);
+        return token;
+    } catch(e) { return ''; }
+}
 
 (async function checkAuth() {
     const token = getAdminToken();
@@ -268,19 +281,19 @@ function log(msg, tipo='info') {
 }
 
 // ── Token ─────────────────────────────────────────────────────────────────────
-function getToken() { return localStorage.getItem(TOKEN_KEY) || ''; }
+function getToken() { return sessionStorage.getItem('gh_token_cache') || ''; }
 
 function guardarToken() {
   const t = document.getElementById('gh-token').value.trim();
-  if (!t) { log('Token vacío', 'err'); return; }
-  localStorage.setItem(TOKEN_KEY, t);
+  if (!t || t.includes('●')) { log('Ingresá el token primero', 'err'); return; }
+  sessionStorage.setItem('gh_token_cache', t);
   document.getElementById('gh-token').value = '●'.repeat(20);
   setTokenUI(true);
-  log('Token guardado', 'ok');
+  log('Token guardado en sesión', 'ok');
 }
 
 function borrarToken() {
-  localStorage.removeItem(TOKEN_KEY);
+  sessionStorage.removeItem('gh_token_cache');
   document.getElementById('gh-token').value = '';
   setTokenUI(false);
   log('Token borrado', 'warn');
@@ -601,14 +614,18 @@ function setSt(tipo, texto) {
 
 // ── Init ──────────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', async () => {
-  // Token buttons
+  // Cargar GH token desde servidor automáticamente
+  const ghTok = await getGHToken();
+  if (ghTok) {
+    document.getElementById('gh-token').value = '●'.repeat(20);
+    setTokenUI(true);
+    log('🔑 GH Token cargado desde servidor', 'ok');
+  }
+
+  // Token buttons (por si el usuario quiere sobreescribir manualmente)
   document.getElementById('btn-guardar-token').addEventListener('click', guardarToken);
   document.getElementById('btn-borrar-token').addEventListener('click', borrarToken);
 
-  if (getToken()) {
-    document.getElementById('gh-token').value = '●'.repeat(20);
-    setTokenUI(true);
-  }
   await Promise.all([cargarStats(), cargarMapas()]);
   await leerMapaActual();
 });

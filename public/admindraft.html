@@ -243,37 +243,37 @@ h2{color:var(--gold);font-family:'Cinzel',serif} h3{display:none}
 // ── Config ────────────────────────────────────────────────────────────────────
 
 // ── Auth ──────────────────────────────────────────────────────────────────────
-function getAdminToken() { return localStorage.getItem('aua_admin_token') || ''; }
-
+const TOKEN_KEY_DRAFT = 'aua_admin_token_draft';
+function getAdminToken() { return localStorage.getItem(TOKEN_KEY_DRAFT) || ''; }
 function authHeaders() {
-    return {
-        'Content-Type':  'application/json',
-        'Authorization': 'Bearer ' + getAdminToken()
-    };
+    return { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getAdminToken() };
 }
 
-// Verificar token al cargar — redirigir si no es válido
+// Obtener GH token desde el servidor (no hardcodeado en el frontend)
+async function getGHToken() {
+    const cached = sessionStorage.getItem('gh_token_cache');
+    if (cached) return cached;
+    try {
+        const r = await fetch(WS_SERVER + '/auth/gh-token', {
+            headers: { 'Authorization': 'Bearer ' + getAdminToken() }
+        });
+        if (!r.ok) return '';
+        const { token } = await r.json();
+        sessionStorage.setItem('gh_token_cache', token);
+        return token;
+    } catch(e) { return ''; }
+}
+
 (async function checkAuth() {
     const token = getAdminToken();
-    if (!token) {
-        window.location.href = '/login.html?redirect=admindraft.html';
-        return;
-    }
-    // Verificar token — solo redirigir si el servidor confirma que es inválido (401)
-    // No redirigir en caso de error de red para evitar loops
+    if (!token) { window.location.href = '/login.html?redirect=admindraft.html'; return; }
     try {
-        const r = await fetch(WS_SERVER + '/auth/verify', {
-            headers: { 'Authorization': 'Bearer ' + token }
-        });
+        const r = await fetch(WS_SERVER + '/auth/verify', { headers: { 'Authorization': 'Bearer ' + token } });
         if (r.status === 401) {
-            localStorage.removeItem('aua_admin_token');
+            localStorage.removeItem(TOKEN_KEY_DRAFT);
             window.location.href = '/login.html?redirect=admindraft.html';
         }
-        // Si r.ok o cualquier otro error → dejar cargar la página
-    } catch(e) {
-        // Error de red → no redirigir, dejar cargar igual
-        console.warn('[auth] No se pudo verificar el token:', e.message);
-    }
+    } catch(e) { console.warn('[auth] No se pudo verificar:', e.message); }
 })();
 
 const WS_SERVER = 'https://aldeanooscar.squareweb.app';
