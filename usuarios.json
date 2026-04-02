@@ -796,5 +796,18 @@
     "clan": "FUMAG",
     "elomax": 1184,
     "ultimapartida": "2026-02-21T18:09:54.000Z"
+  },
+  "570056386130608149": {
+    "profileId": "3021354",
+    "nombre": "PetecoCaravasar",
+    "elo": 1194,
+    "rank": 12246,
+    "wins": 697,
+    "losses": 696,
+    "pais": "🇦🇷",
+    "country": "ar",
+    "clan": null,
+    "elomax": 1239,
+    "ultimapartida": "2026-04-02T16:32:24.000Z"
   }
 }
