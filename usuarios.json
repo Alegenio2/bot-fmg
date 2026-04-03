@@ -809,5 +809,18 @@
     "clan": null,
     "elomax": 1239,
     "ultimapartida": "2026-04-02T16:32:24.000Z"
+  },
+  "826524534526050411": {
+    "profileId": "5370278",
+    "nombre": "Lirantick",
+    "elo": 887,
+    "rank": 28839,
+    "wins": 71,
+    "losses": 66,
+    "pais": "🇺🇾",
+    "country": "uy",
+    "clan": null,
+    "elomax": 902,
+    "ultimapartida": "2026-03-08T06:38:52.000Z"
   }
 }
