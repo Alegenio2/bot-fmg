@@ -283,7 +283,14 @@
               "jugador1Nick": "Nacional",
               "jugador2Id": "694749732467245088",
               "jugador2Nick": "[LOPDA] Shebby",
-              "resultado": null
+              "resultado": {
+                "733765577570779279": 2,
+                "694749732467245088": 0,
+                "mapas": "https://aoe2cm.net/draft/EuCgH",
+                "civs": "https://aoe2cm.net/draft/XLjKf",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1490842585697091625/Copa_Uruguay_-_Nacional_vs._Shebby.zip?ex=69d586da&is=69d4355a&hm=301fed46cc76febd07f20f10c02c2d4df8aa8944a90b5b7d724157ef825f5c76&",
+                "fecha_registro": "2026-04-06T22:36:11.710Z"
+              }
             },
             {
               "jugador1Id": "709904591453683766",
