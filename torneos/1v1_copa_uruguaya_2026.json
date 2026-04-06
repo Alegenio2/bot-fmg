@@ -659,7 +659,11 @@
               "jugador1Nick": "|FMG| Tano Stokes",
               "jugador2Id": "662427737138528308",
               "jugador2Nick": "kakaidolo",
-              "resultado": null
+              "resultado": null,
+              "fecha": "06-04-2026",
+              "horario": "20:00",
+              "diaSemana": "Lunes",
+              "coordinadoPor": "tano_stokes"
             },
             {
               "jugador1Id": "481154599881932811",
