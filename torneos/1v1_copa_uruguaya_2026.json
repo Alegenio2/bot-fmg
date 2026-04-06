@@ -228,7 +228,7 @@
           "elo_real": 1249,
           "idaoe2": "1464680"
         },
-       {
+        {
           "id": "662427737138528308",
           "nick": "kakaidolo",
           "elo": 1250,
@@ -345,7 +345,11 @@
               "jugador1Nick": "FMG | Rxon",
               "jugador2Id": "831027477652570132",
               "jugador2Nick": "[VL] Santiagoi1212",
-              "resultado": null
+              "resultado": null,
+              "fecha": "08-04-2026",
+              "horario": "19:00",
+              "diaSemana": "Miércoles",
+              "coordinadoPor": "rxon"
             },
             {
               "jugador1Id": "277256502023290881",
