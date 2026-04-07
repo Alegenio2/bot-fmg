@@ -363,7 +363,11 @@
               "jugador1Nick": "DGHIR | Lionerrt",
               "jugador2Id": "697973693157998712",
               "jugador2Nick": "DGHIR | SamuraiNinja08",
-              "resultado": null
+              "resultado": null,
+              "fecha": "08-04-2026",
+              "horario": "22:30",
+              "diaSemana": "Miércoles",
+              "coordinadoPor": "lionerrt"
             }
           ]
         },
