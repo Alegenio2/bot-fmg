@@ -487,7 +487,11 @@
               "jugador1Nick": "Kroyen",
               "jugador2Id": "382688182002515978",
               "jugador2Nick": "[VL] Karistho",
-              "resultado": null
+              "resultado": null,
+              "fecha": "12-04-2026",
+              "horario": "16:00",
+              "diaSemana": "Domingo",
+              "coordinadoPor": "karistho"
             }
           ]
         },
