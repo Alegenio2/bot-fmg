@@ -507,7 +507,11 @@
               "jugador1Nick": "URU | ToNGa",
               "jugador2Id": "382688182002515978",
               "jugador2Nick": "[VL] Karistho",
-              "resultado": null
+              "resultado": null,
+              "fecha": "12-04-2026",
+              "horario": "20:30",
+              "diaSemana": "Domingo",
+              "coordinadoPor": "hola15151512335062"
             },
             {
               "jugador1Id": "330453336522489857",
