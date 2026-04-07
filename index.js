@@ -205,18 +205,22 @@ client.on('ready', async (c) => {
 
   // ✅ Restaurar datos desde branch 'data' de GitHub tras cada reinicio
   // Así los JSONs nunca se pierden aunque Square Cloud reinicie el bot
-  try {
+ try {
     const { cargarUsuariosDesdeGit } = require('./git/guardarGit');
     const { cargarInscritosDesdeGit, cargarEquiposDesdeGit } = require('./git/guardarInscripcionesGit');
+    // Importamos la nueva función
+    const { cargarTorneosDesdeGit } = require('./git/guardarTorneosGit'); 
+
     await Promise.all([
       cargarUsuariosDesdeGit(),
       cargarInscritosDesdeGit(),
-      cargarEquiposDesdeGit()
+      cargarEquiposDesdeGit(),
+      cargarTorneosDesdeGit() // <-- Agregado aquí
     ]);
-    console.log('✅ Datos restaurados desde GitHub correctamente.');
-  } catch (err) {
+    console.log('✅ Datos restaurados desde GitHub correctamente (Rama DATA).');
+} catch (err) {
     console.error('❌ Error restaurando datos desde GitHub:', err.message);
-  }
+}
   
 });
 
