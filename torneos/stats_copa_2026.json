@@ -1,1 +1,638 @@
 
+{
+  "meta": {
+    "torneo": "copa_uruguaya_2026",
+    "ultima_actualizacion": "2026-04-07T01:38:30.602Z",
+    "total_partidas": 5
+  },
+  "jugadores": {
+    "733765577570779279": {
+      "nick": "Nacional",
+      "aoe2Id": "15442657",
+      "global": {
+        "pj": 2,
+        "pg": 2,
+        "pp": 0,
+        "winrate": 100
+      },
+      "civs": {
+        "Berbers": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "Nomad": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        },
+        "Japanese": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "CopaU_2026_High Tides v3 (Custom)": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        }
+      },
+      "mapas": {
+        "Nomad": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        },
+        "CopaU_2026_High Tides v3 (Custom)": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        }
+      }
+    },
+    "694749732467245088": {
+      "nick": "[LOPDA] Shebby",
+      "aoe2Id": "2213923",
+      "global": {
+        "pj": 2,
+        "pg": 0,
+        "pp": 2,
+        "winrate": 0
+      },
+      "civs": {
+        "Franks": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "Nomad": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        },
+        "Malay": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "CopaU_2026_High Tides v3 (Custom)": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        }
+      },
+      "mapas": {
+        "Nomad": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        },
+        "CopaU_2026_High Tides v3 (Custom)": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        }
+      }
+    },
+    "662427737138528308": {
+      "nick": "kakaidolo",
+      "aoe2Id": "14501687",
+      "global": {
+        "pj": 3,
+        "pg": 2,
+        "pp": 1,
+        "winrate": 66.7
+      },
+      "civs": {
+        "Portuguese": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "CopaU_2026_Slopes v2 (Custom)": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        },
+        "Khitans": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "Arabia": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        },
+        "Magyars": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "CopaU_2026_African River v3 (Custom)": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        }
+      },
+      "mapas": {
+        "CopaU_2026_Slopes v2 (Custom)": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        },
+        "Arabia": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        },
+        "CopaU_2026_African River v3 (Custom)": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        }
+      }
+    },
+    "760308403087867916": {
+      "nick": "Tano Stokes",
+      "aoe2Id": "4822389",
+      "global": {
+        "pj": 3,
+        "pg": 1,
+        "pp": 2,
+        "winrate": 33.3
+      },
+      "civs": {
+        "Tatars": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "CopaU_2026_Slopes v2 (Custom)": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        },
+        "Mongols": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "Arabia": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        },
+        "Japanese": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "CopaU_2026_African River v3 (Custom)": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        }
+      },
+      "mapas": {
+        "CopaU_2026_Slopes v2 (Custom)": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        },
+        "Arabia": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        },
+        "CopaU_2026_African River v3 (Custom)": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        }
+      }
+    }
+  },
+  "mapas": {
+    "Nomad": {
+      "total_partidas": 1,
+      "civs_ganadoras": {
+        "Berbers": 1
+      },
+      "civs_perdedoras": {
+        "Franks": 1
+      },
+      "enfrentamientos": {
+        "Berbers_vs_Franks": {
+          "total": 1,
+          "gano_primero": 1,
+          "civ_a": "Berbers",
+          "civ_b": "Franks"
+        }
+      }
+    },
+    "CopaU_2026_High Tides v3 (Custom)": {
+      "total_partidas": 1,
+      "civs_ganadoras": {
+        "Japanese": 1
+      },
+      "civs_perdedoras": {
+        "Malay": 1
+      },
+      "enfrentamientos": {
+        "Japanese_vs_Malay": {
+          "total": 1,
+          "gano_primero": 1,
+          "civ_a": "Japanese",
+          "civ_b": "Malay"
+        }
+      }
+    },
+    "CopaU_2026_Slopes v2 (Custom)": {
+      "total_partidas": 1,
+      "civs_ganadoras": {
+        "Portuguese": 1
+      },
+      "civs_perdedoras": {
+        "Tatars": 1
+      },
+      "enfrentamientos": {
+        "Portuguese_vs_Tatars": {
+          "total": 1,
+          "gano_primero": 1,
+          "civ_a": "Portuguese",
+          "civ_b": "Tatars"
+        }
+      }
+    },
+    "Arabia": {
+      "total_partidas": 1,
+      "civs_ganadoras": {
+        "Khitans": 1
+      },
+      "civs_perdedoras": {
+        "Mongols": 1
+      },
+      "enfrentamientos": {
+        "Khitans_vs_Mongols": {
+          "total": 1,
+          "gano_primero": 1,
+          "civ_a": "Khitans",
+          "civ_b": "Mongols"
+        }
+      }
+    },
+    "CopaU_2026_African River v3 (Custom)": {
+      "total_partidas": 1,
+      "civs_ganadoras": {
+        "Japanese": 1
+      },
+      "civs_perdedoras": {
+        "Magyars": 1
+      },
+      "enfrentamientos": {
+        "Japanese_vs_Magyars": {
+          "total": 1,
+          "gano_primero": 1,
+          "civ_a": "Japanese",
+          "civ_b": "Magyars"
+        }
+      }
+    }
+  },
+  "civs": {
+    "Berbers": {
+      "total_jugadas": 1,
+      "total_ganadas": 1,
+      "winrate": 100,
+      "por_mapa": {
+        "Nomad": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        }
+      },
+      "vs_civs": {
+        "Franks": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        }
+      }
+    },
+    "Franks": {
+      "total_jugadas": 1,
+      "total_ganadas": 0,
+      "winrate": 0,
+      "por_mapa": {
+        "Nomad": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        }
+      },
+      "vs_civs": {
+        "Berbers": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        }
+      }
+    },
+    "Japanese": {
+      "total_jugadas": 2,
+      "total_ganadas": 2,
+      "winrate": 100,
+      "por_mapa": {
+        "CopaU_2026_High Tides v3 (Custom)": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        },
+        "CopaU_2026_African River v3 (Custom)": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        }
+      },
+      "vs_civs": {
+        "Malay": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        },
+        "Magyars": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        }
+      }
+    },
+    "Malay": {
+      "total_jugadas": 1,
+      "total_ganadas": 0,
+      "winrate": 0,
+      "por_mapa": {
+        "CopaU_2026_High Tides v3 (Custom)": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        }
+      },
+      "vs_civs": {
+        "Japanese": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        }
+      }
+    },
+    "Portuguese": {
+      "total_jugadas": 1,
+      "total_ganadas": 1,
+      "winrate": 100,
+      "por_mapa": {
+        "CopaU_2026_Slopes v2 (Custom)": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        }
+      },
+      "vs_civs": {
+        "Tatars": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        }
+      }
+    },
+    "Tatars": {
+      "total_jugadas": 1,
+      "total_ganadas": 0,
+      "winrate": 0,
+      "por_mapa": {
+        "CopaU_2026_Slopes v2 (Custom)": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        }
+      },
+      "vs_civs": {
+        "Portuguese": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        }
+      }
+    },
+    "Khitans": {
+      "total_jugadas": 1,
+      "total_ganadas": 1,
+      "winrate": 100,
+      "por_mapa": {
+        "Arabia": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        }
+      },
+      "vs_civs": {
+        "Mongols": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        }
+      }
+    },
+    "Mongols": {
+      "total_jugadas": 1,
+      "total_ganadas": 0,
+      "winrate": 0,
+      "por_mapa": {
+        "Arabia": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        }
+      },
+      "vs_civs": {
+        "Khitans": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        }
+      }
+    },
+    "Magyars": {
+      "total_jugadas": 1,
+      "total_ganadas": 0,
+      "winrate": 0,
+      "por_mapa": {
+        "CopaU_2026_African River v3 (Custom)": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        }
+      },
+      "vs_civs": {
+        "Japanese": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        }
+      }
+    }
+  },
+  "partidas": [
+    {
+      "matchId": 468287914,
+      "fecha": "2026-04-05T23:04:52.000Z",
+      "mapa": "Nomad",
+      "duracion": 32,
+      "grupo": "A",
+      "ronda": 1,
+      "jugador1": {
+        "discordId": "733765577570779279",
+        "nick": "Nacional",
+        "civ": "Berbers",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "694749732467245088",
+        "nick": "[LOPDA] Shebby",
+        "civ": "Franks",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 468280771,
+      "fecha": "2026-04-05T22:34:49.000Z",
+      "mapa": "CopaU_2026_High Tides v3 (Custom)",
+      "duracion": 26,
+      "grupo": "A",
+      "ronda": 1,
+      "jugador1": {
+        "discordId": "733765577570779279",
+        "nick": "Nacional",
+        "civ": "Japanese",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "694749732467245088",
+        "nick": "[LOPDA] Shebby",
+        "civ": "Malay",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 468547764,
+      "fecha": "2026-04-07T00:54:13.000Z",
+      "mapa": "CopaU_2026_Slopes v2 (Custom)",
+      "duracion": 15,
+      "grupo": "G",
+      "ronda": 1,
+      "jugador1": {
+        "discordId": "662427737138528308",
+        "nick": "kakaidolo",
+        "civ": "Portuguese",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "760308403087867916",
+        "nick": "Tano Stokes",
+        "civ": "Tatars",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 468541360,
+      "fecha": "2026-04-07T00:11:41.000Z",
+      "mapa": "Arabia",
+      "duracion": 33,
+      "grupo": "G",
+      "ronda": 1,
+      "jugador1": {
+        "discordId": "662427737138528308",
+        "nick": "kakaidolo",
+        "civ": "Khitans",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "760308403087867916",
+        "nick": "Tano Stokes",
+        "civ": "Mongols",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 468534981,
+      "fecha": "2026-04-06T23:30:37.000Z",
+      "mapa": "CopaU_2026_African River v3 (Custom)",
+      "duracion": 34,
+      "grupo": "G",
+      "ronda": 1,
+      "jugador1": {
+        "discordId": "662427737138528308",
+        "nick": "kakaidolo",
+        "civ": "Magyars",
+        "gano": false
+      },
+      "jugador2": {
+        "discordId": "760308403087867916",
+        "nick": "Tano Stokes",
+        "civ": "Japanese",
+        "gano": true
+      }
+    }
+  ]
+}
