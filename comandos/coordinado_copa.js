@@ -74,32 +74,31 @@ module.exports = {
         return await interaction.editReply(`❌ No encontré un partido pendiente entre ${jugador.username} y ${rival.username}.`);
       }
 
-      // 3. CÁLCULO DE HÁNDICAP (Lógica de duelo.js)
-      const data1 = inscritos.find(u => u.id === jugador.id);
-      const data2 = inscritos.find(u => u.id === rival.id);
+      // 3. CÁLCULO DE HÁNDICAP
+const data1 = inscritos.find(u => u.id === jugador.id);
+const data2 = inscritos.find(u => u.id === rival.id);
 
-      let msgHandicap = "⚖️ **Duelo equilibrado:** Sin hándicap.";
-      
-      if (data1 && data2) {
-        const elo1 = data1.elo ;
-        const elo2 = data2.elo;
-        const diferencia = Math.abs(elo1 - elo2);
-        let valorHandicap = 0;
+let msgHandicap = "⚖️ **Duelo equilibrado:** Sin hándicap.";
 
-    // Lógica de hándicap (se mantiene igual)
-    if (diferencia >= 150) {
-      if (diferencia >= 1050) handicap = 35;
-      else if (diferencia >= 900) handicap = 30;
-      else if (diferencia >= 750) handicap = 25;
-      else if (diferencia >= 600) handicap = 20;
-      else if (diferencia >= 450) handicap = 15;
-      else if (diferencia >= 300) handicap = 10;
-      else if (diferencia >= 150) handicap = 5;
+if (data1 && data2) {
+  // Usamos el ELO redondeado del JSON (ej: 2100, 1400)
+  const elo1 = data1.elo;
+  const elo2 = data2.elo;
+  const diferencia = Math.abs(elo1 - elo2);
+  
+  if (diferencia >= 150) {
+    // Cálculo dinámico: 5% cada 150 puntos
+    // Math.floor(diferencia / 150) nos da cuántos bloques de 150 hay
+    let valorHandicap = Math.floor(diferencia / 150) * 5;
+    
+    // Capamos el hándicap máximo si lo deseas (opcional, ejemplo 35%)
+    if (valorHandicap > 35) valorHandicap = 35;
 
-          const favorecido = elo1 < elo2 ? data1.nombre : data2.nombre;
-          msgHandicap = `⚖️ **Hándicap:** El jugador **${favorecido}** recibe un **${valorHandicap}%**.`;
-        }
-      }
+    const favorecido = elo1 < elo2 ? data1.nombre || data1.nick : data2.nombre || data2.nick;
+    msgHandicap = `⚖️ **Hándicap:** El jugador **${favorecido}** recibe un **${valorHandicap}%**.`;
+  
+  }
+}
 
       // 4. GUARDAR Y ANUNCIAR
       fs.writeFileSync(rutaTorneo, JSON.stringify(torneo, null, 2), 'utf8');
