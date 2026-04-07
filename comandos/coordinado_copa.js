@@ -81,16 +81,20 @@ module.exports = {
       let msgHandicap = "⚖️ **Duelo equilibrado:** Sin hándicap.";
       
       if (data1 && data2) {
-        const elo1 = data1.promedio_elo;
-        const elo2 = data2.promedio_elo;
+        const elo1 = data1.elo ;
+        const elo2 = data2.elo;
         const diferencia = Math.abs(elo1 - elo2);
         let valorHandicap = 0;
 
-        if (diferencia >= 150) {
-          if (diferencia >= 600) valorHandicap = 20;
-          else if (diferencia >= 450) valorHandicap = 15;
-          else if (diferencia >= 300) valorHandicap = 10;
-          else if (diferencia >= 150) valorHandicap = 5;
+    // Lógica de hándicap (se mantiene igual)
+    if (diferencia >= 150) {
+      if (diferencia >= 1050) handicap = 35;
+      else if (diferencia >= 900) handicap = 30;
+      else if (diferencia >= 750) handicap = 25;
+      else if (diferencia >= 600) handicap = 20;
+      else if (diferencia >= 450) handicap = 15;
+      else if (diferencia >= 300) handicap = 10;
+      else if (diferencia >= 150) handicap = 5;
 
           const favorecido = elo1 < elo2 ? data1.nombre : data2.nombre;
           msgHandicap = `⚖️ **Hándicap:** El jugador **${favorecido}** recibe un **${valorHandicap}%**.`;
