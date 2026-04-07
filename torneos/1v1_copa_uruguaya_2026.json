@@ -228,7 +228,7 @@
           "elo_real": 1249,
           "idaoe2": "1464680"
         },
-       {
+        {
           "id": "662427737138528308",
           "nick": "kakaidolo",
           "elo": 1250,
@@ -283,7 +283,14 @@
               "jugador1Nick": "Nacional",
               "jugador2Id": "694749732467245088",
               "jugador2Nick": "[LOPDA] Shebby",
-              "resultado": null
+              "resultado": {
+                "733765577570779279": 2,
+                "694749732467245088": 0,
+                "mapas": "https://aoe2cm.net/draft/EuCgH",
+                "civs": "https://aoe2cm.net/draft/XLjKf",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1490842585697091625/Copa_Uruguay_-_Nacional_vs._Shebby.zip?ex=69d586da&is=69d4355a&hm=301fed46cc76febd07f20f10c02c2d4df8aa8944a90b5b7d724157ef825f5c76&",
+                "fecha_registro": "2026-04-06T22:36:11.710Z"
+              }
             },
             {
               "jugador1Id": "709904591453683766",
@@ -345,7 +352,11 @@
               "jugador1Nick": "FMG | Rxon",
               "jugador2Id": "831027477652570132",
               "jugador2Nick": "[VL] Santiagoi1212",
-              "resultado": null
+              "resultado": null,
+              "fecha": "08-04-2026",
+              "horario": "19:00",
+              "diaSemana": "Miércoles",
+              "coordinadoPor": "rxon"
             },
             {
               "jugador1Id": "277256502023290881",
@@ -476,7 +487,11 @@
               "jugador1Nick": "Kroyen",
               "jugador2Id": "382688182002515978",
               "jugador2Nick": "[VL] Karistho",
-              "resultado": null
+              "resultado": null,
+              "fecha": "12-04-2026",
+              "horario": "16:00",
+              "diaSemana": "Domingo",
+              "coordinadoPor": "karistho"
             }
           ]
         },
@@ -655,7 +670,18 @@
               "jugador1Nick": "|FMG| Tano Stokes",
               "jugador2Id": "662427737138528308",
               "jugador2Nick": "kakaidolo",
-              "resultado": null
+              "resultado": {
+                "662427737138528308": 2,
+                "760308403087867916": 1,
+                "mapas": "https://aoe2cm.net/draft/mrFjJ",
+                "civs": "https://aoe2cm.net/draft/xkHpt",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1490888461916442736/kakaidolo_vs_Tano.zip?ex=69d5b194&is=69d46014&hm=ddb9a7d2a08d4b7f53ff34a9b513aea755f01f833ad0196e6c8cd7ebce27c960&",
+                "fecha_registro": "2026-04-07T01:38:29.560Z"
+              },
+              "fecha": "06-04-2026",
+              "horario": "20:00",
+              "diaSemana": "Lunes",
+              "coordinadoPor": "tano_stokes"
             },
             {
               "jugador1Id": "481154599881932811",
