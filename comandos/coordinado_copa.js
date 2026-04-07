@@ -7,7 +7,7 @@ const { subirTodosLosTorneos } = require("../git/guardarTorneosGit");
 
 module.exports = {
   name: 'coordinado_copa',
-  description: 'Coordina un partido y calcula el hándicap automáticamente',
+  description: 'Coordina un partido y calcula el hándicap basado en el ELO del torneo',
   options: [
     { name: 'fecha', description: 'Formato DD-MM-YYYY', type: ApplicationCommandOptionType.String, required: true },
     { name: 'jugador', description: 'Primer jugador', type: ApplicationCommandOptionType.User, required: true },
@@ -33,17 +33,15 @@ module.exports = {
     await interaction.deferReply({ ephemeral: true });
 
     const rutaTorneo = path.join(__dirname, '..', 'torneos', '1v1_copa_uruguaya_2026.json');
-    const rutaInscritos = path.join(__dirname, '..', 'usuarios_inscritos.json');
 
-    if (!fs.existsSync(rutaTorneo) || !fs.existsSync(rutaInscritos)) {
-      return await interaction.editReply("⚠️ No se encontró la base de datos necesaria.");
+    if (!fs.existsSync(rutaTorneo)) {
+      return await interaction.editReply("⚠️ No se encontró la base de datos del torneo.");
     }
 
     try {
       const torneo = JSON.parse(fs.readFileSync(rutaTorneo, 'utf8'));
-      const inscritos = JSON.parse(fs.readFileSync(rutaInscritos, 'utf8'));
 
-      let partidoEncontrado = false;
+      let partidoEncontrado = null;
       let grupoLetra = "";
       let nroRonda = "";
 
@@ -59,9 +57,9 @@ module.exports = {
               partido.diaSemana = obtenerDiaSemana(fechaFormatoCorrecto);
               partido.coordinadoPor = user.username;
               
+              partidoEncontrado = partido;
               grupoLetra = grupoObj.grupo;
               nroRonda = rondaObj.ronda;
-              partidoEncontrado = true;
               break;
             }
           }
@@ -74,37 +72,48 @@ module.exports = {
         return await interaction.editReply(`❌ No encontré un partido pendiente entre ${jugador.username} y ${rival.username}.`);
       }
 
-      // 3. CÁLCULO DE HÁNDICAP
-const data1 = inscritos.find(u => u.id === jugador.id);
-const data2 = inscritos.find(u => u.id === rival.id);
+      // 3. CÁLCULO DE HÁNDICAP (Tomando ELO del JSON del torneo)
+      let msgHandicap = "⚖️ **Duelo equilibrado:** Sin hándicap.";
+      
+      // Buscamos los datos de los jugadores en el array de grupos para obtener el ELO redondeado
+      const buscarDataJugador = (id) => {
+        for (const g of torneo.grupos) {
+          const p = g.jugadores.find(j => j.id === id);
+          if (p) return p;
+        }
+        return null;
+      };
 
-let msgHandicap = "⚖️ **Duelo equilibrado:** Sin hándicap.";
+      const data1 = buscarDataJugador(jugador.id);
+      const data2 = buscarDataJugador(rival.id);
 
-if (data1 && data2) {
-  // Usamos el ELO redondeado del JSON (ej: 2100, 1400)
-  const elo1 = data1.elo;
-  const elo2 = data2.elo;
-  const diferencia = Math.abs(elo1 - elo2);
-  
-  if (diferencia >= 150) {
-    // Cálculo dinámico: 5% cada 150 puntos
-    // Math.floor(diferencia / 150) nos da cuántos bloques de 150 hay
-    let valorHandicap = Math.floor(diferencia / 150) * 5;
-    
-    // Capamos el hándicap máximo si lo deseas (opcional, ejemplo 35%)
-    if (valorHandicap > 35) valorHandicap = 35;
+      if (data1 && data2) {
+        const elo1 = data1.elo;
+        const elo2 = data2.elo;
+        const diferencia = Math.abs(elo1 - elo2);
 
-    const favorecido = elo1 < elo2 ? data1.nombre || data1.nick : data2.nombre || data2.nick;
-    msgHandicap = `⚖️ **Hándicap:** El jugador **${favorecido}** recibe un **${valorHandicap}%**.`;
-  
-  }
-}
+        if (diferencia >= 150) {
+          // 5% cada 150 puntos de diferencia
+          let valorHandicap = Math.floor(diferencia / 150) * 5;
+          
+          // Límite máximo de 35%
+          if (valorHandicap > 35) valorHandicap = 35;
+
+          const favorecido = elo1 < elo2 ? data1.nick : data2.nick;
+          msgHandicap = `⚖️ **Hándicap:** El jugador **${favorecido}** recibe un **${valorHandicap}%**.`;
+        }
+      }
 
       // 4. GUARDAR Y ANUNCIAR
       fs.writeFileSync(rutaTorneo, JSON.stringify(torneo, null, 2), 'utf8');
-      try { await subirTodosLosTorneos(); } catch (e) { console.error("Error Git:", e); }
+      
+      try { 
+        await subirTodosLosTorneos(); 
+      } catch (e) { 
+        console.error("Error al subir a Git:", e); 
+      }
 
-      await interaction.editReply({ content: "✅ Coordinación y hándicap registrados." });
+      await interaction.editReply({ content: "✅ Coordinación registrada exitosamente." });
 
       await interaction.followUp({
         content: `📅 **PARTIDO COORDINADO - COPA 2026**\n` +
@@ -118,8 +127,8 @@ if (data1 && data2) {
       });
 
     } catch (error) {
-      console.error(error);
-      await interaction.editReply("❌ Error al procesar los datos.");
+      console.error("Error en coordinado_copa:", error);
+      await interaction.editReply("❌ Error al procesar los datos del torneo.");
     }
   }
 };
