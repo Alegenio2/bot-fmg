@@ -128,19 +128,24 @@ module.exports = {
           // 4. Subir todo a GitHub (incluye stats_copa_2026.json)
           await subirTodosLosTorneos();
 
-          // 5. Publicar tabla de posiciones
-          await publicarTablaCopa(interaction.client);
+        // 5. Publicar tabla de posiciones 
+// SE COMENTA PARA EVITAR SPOILERS EN DISCORD
+// await publicarTablaCopa(interaction.client);
 
-          // 6. Publicar embed con civs y mapas
-          if (encuentro) {
-            await publicarStatsEncuentro(
-              interaction.client,
-              encuentro,
-              p1, p2,
-              infoExtra.grupo,
-              infoExtra.ronda
-            );
-          }
+// 6. Publicar embed con civs y mapas
+// SE COMENTA PARA EVITAR SPOILERS EN DISCORD
+/* if (encuentro) {
+  await publicarStatsEncuentro(
+    interaction.client,
+    encuentro,
+    p1, p2,
+    infoExtra.grupo,
+    infoExtra.ronda
+  );
+} 
+*/
+
+console.log(`✅ Resultado de ${infoExtra.grupo} procesado silenciosamente.`);
 
         } catch (err) {
           console.error("❌ Error en tareas de fondo:", err);
