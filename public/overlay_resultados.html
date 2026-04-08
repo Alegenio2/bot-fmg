@@ -303,8 +303,7 @@ if (data.rondas_grupos && Array.isArray(data.rondas_grupos)) {
         <div class="ticker-card" style="animation-delay: ${i * 0.05}s">
           <div class="ticker-player">
             <span class="ticker-nick" title="${escapeHtml(r.p1)}">${truncateName(r.p1, 12)}</span>
-            <span class="ticker-grupo">G${r.grupo}</span>
-          </div>
+            </div>
           <div class="ticker-score">
             <span class="ticker-num ${win1 ? 'win' : (win2 ? 'lose' : 'draw')}">${r.score1}</span>
             <span class="ticker-vs">-</span>
@@ -335,7 +334,7 @@ if (data.rondas_grupos && Array.isArray(data.rondas_grupos)) {
         <div class="ticker-card" style="animation-delay: ${(resultados.length + i) * 0.05}s">
           <div class="ticker-player">
             <span class="ticker-nick" title="${escapeHtml(c.p1)}">${truncateName(c.p1, 12)}</span>
-            <span class="ticker-grupo">G${c.grupo}</span>
+           
           </div>
           <div class="ticker-coord-badge">
             <svg class="icon-clock" viewBox="0 0 24 24" fill="currentColor">
@@ -346,8 +345,7 @@ if (data.rondas_grupos && Array.isArray(data.rondas_grupos)) {
           <div class="ticker-player right">
             <span class="ticker-nick" title="${escapeHtml(c.p2)}">${truncateName(c.p2, 12)}</span>
           </div>
-          <span class="ticker-time">@${escapeHtml(c.coordinadoPor)}</span>
-        </div>
+         </div>
       `;
     });
   }
