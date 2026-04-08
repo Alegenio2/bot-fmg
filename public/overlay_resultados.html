@@ -244,48 +244,54 @@ function renderTicker(data) {
   const coordinados = [];
   
   // Recorrer todas las rondas de grupos
-  if (data.rondas_grupos && Array.isArray(data.rondas_grupos)) {
-    data.rondas_grupos.forEach(grupoData => {
-      if (grupoData.partidas && Array.isArray(grupoData.partidas)) {
-        grupoData.partidas.forEach(ronda => {
-          if (ronda.partidos && Array.isArray(ronda.partidos)) {
-            ronda.partidos.forEach(partido => {
-              const p1 = partido.jugador1Nick;
-              const p2 = partido.jugador2Nick;
-              const grupo = grupoData.grupo;
+// Recorrer cada grupo (A, B, C, etc.)
+if (data.rondas_grupos && Array.isArray(data.rondas_grupos)) {
+  data.rondas_grupos.forEach(grupoData => {
+    const grupo = grupoData.grupo;
+    
+    // Recorrer las rondas de ese grupo (Ronda 1, 2, 3)
+    if (grupoData.partidos && Array.isArray(grupoData.partidos)) {
+      grupoData.partidos.forEach(rondaObj => {
+        
+        // Recorrer los partidos individuales de esa ronda
+        if (rondaObj.partidos && Array.isArray(rondaObj.partidos)) {
+          rondaObj.partidos.forEach(partido => {
+            const p1 = partido.jugador1Nick;
+            const p2 = partido.jugador2Nick;
+            
+            // Lógica de Resultados
+            if (partido.resultado && typeof partido.resultado === 'object') {
+              // Obtenemos los IDs para buscar los scores exactos en el objeto resultado
+              const id1 = partido.jugador1Id;
+              const id2 = partido.jugador2Id;
               
-              // Si tiene resultado, es partido completado
-              if (partido.resultado && typeof partido.resultado === 'object') {
-                // Extraer solo los valores numéricos (scores), ignorar URLs y otros strings
-                const scores = Object.values(partido.resultado).filter(v => typeof v === 'number');
-                
-                if (scores.length >= 2) {
-                  const score1 = scores[0];
-                  const score2 = scores[1];
-                  
-                  resultados.push({
-                    p1, p2, score1, score2, grupo, tipo: 'resultado'
-                  });
-                }
-              }
-              // Si tiene coordinadoPor pero resultado null, es partido coordinado
-              else if (!partido.resultado && partido.coordinadoPor) {
-                coordinados.push({
-                  p1, p2, 
-                  fecha: partido.fecha,
-                  horario: partido.horario,
-                  diaSemana: partido.diaSemana,
-                  coordinadoPor: partido.coordinadoPor,
-                  grupo,
-                  tipo: 'coordinado'
+              const score1 = partido.resultado[id1];
+              const score2 = partido.resultado[id2];
+              
+              if (typeof score1 === 'number' && typeof score2 === 'number') {
+                resultados.push({
+                  p1, p2, score1, score2, grupo, tipo: 'resultado'
                 });
               }
-            });
-          }
-        });
-      }
-    });
-  }
+            }
+            // Lógica de Coordinados
+            else if (!partido.resultado && partido.coordinadoPor) {
+              coordinados.push({
+                p1, p2, 
+                fecha: partido.fecha,
+                horario: partido.horario,
+                diaSemana: partido.diaSemana,
+                coordinadoPor: partido.coordinadoPor,
+                grupo,
+                tipo: 'coordinado'
+              });
+            }
+          });
+        }
+      });
+    }
+  });
+}
   
   // Construir HTML
   let html = '';
