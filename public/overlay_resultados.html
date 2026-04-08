@@ -87,7 +87,7 @@ html,body{width:1920px;height:1080px;background:transparent;overflow:hidden;font
 .ticker-nick {
   font-family: 'Cinzel', serif;
   font-size: 13px;
-  color: #f0e0b0;
+  color: #ffffff;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -174,7 +174,7 @@ html,body{width:1920px;height:1080px;background:transparent;overflow:hidden;font
   flex-shrink: 0;
   font-family: 'Cinzel', serif;
   font-size: 9px;
-  color: #806040;
+  color: #ffffff;
   letter-spacing: 2px;
   padding: 6px 12px;
   background: rgba(232, 200, 122, 0.08);
@@ -270,7 +270,7 @@ if (data.rondas_grupos && Array.isArray(data.rondas_grupos)) {
               
               if (typeof score1 === 'number' && typeof score2 === 'number') {
                 resultados.push({
-                  p1, p2, score1, score2, grupo, tipo: 'resultado'
+                  p1, p2, score1, score2, tipo: 'resultado'
                 });
               }
             }
@@ -281,10 +281,8 @@ if (data.rondas_grupos && Array.isArray(data.rondas_grupos)) {
                 fecha: partido.fecha,
                 horario: partido.horario,
                 diaSemana: partido.diaSemana,
-                coordinadoPor: partido.coordinadoPor,
-                grupo,
-                tipo: 'coordinado'
-              });
+                coordinadoPor: partido.coordinadoPor
+                });
             }
           });
         }
