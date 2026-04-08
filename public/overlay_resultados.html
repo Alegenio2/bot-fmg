@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<title>Overlay Resultados — Copa Uruguaya 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1920px;height:1080px;background:transparent;overflow:hidden;font-family:'Inter',sans-serif}
+
+/* Ticker horizontal en el pie */
+#ticker-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 90px;
+  background: linear-gradient(to top, 
+    rgba(8, 5, 2, 0.95) 0%, 
+    rgba(8, 5, 2, 0.85) 50%,
+    rgba(8, 5, 2, 0.4) 80%,
+    transparent 100%);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.ticker-label {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  color: #806040;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 6px 20px 4px;
+}
+
+.ticker-track {
+  display: flex;
+  gap: 12px;
+  padding: 0 20px 10px;
+  will-change: transform;
+}
+
+.ticker-track.animate {
+  animation: scroll 80s linear infinite;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Tarjeta de resultado */
+.ticker-card {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(232, 200, 122, 0.08);
+  border: 0.5px solid rgba(232, 200, 122, 0.2);
+  border-radius: 6px;
+  padding: 8px 14px;
+  min-width: 200px;
+  animation: fadeIn 0.4s ease both;
+}
+
+.ticker-card.coordinado {
+  background: rgba(80, 160, 200, 0.1);
+  border-color: rgba(80, 160, 200, 0.25);
+}
+
+.ticker-player {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 85px;
+}
+
+.ticker-player.right {
+  text-align: right;
+}
+
+.ticker-nick {
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  color: #f0e0b0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 85px;
+}
+
+.ticker-card.coordinado .ticker-nick {
+  color: #b0d0e0;
+}
+
+.ticker-grupo {
+  font-size: 9px;
+  color: #554433;
+  letter-spacing: 1px;
+}
+
+.ticker-score {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 50px;
+  justify-content: center;
+}
+
+.ticker-num {
+  font-family: 'Cinzel', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #e8c87a;
+  line-height: 1;
+}
+
+.ticker-num.win { 
+  color: #4ade80;
+  text-shadow: 0 0 8px rgba(74, 222, 128, 0.3);
+}
+
+.ticker-num.lose { 
+  color: #f87171;
+  opacity: 0.7;
+}
+
+.ticker-num.draw { 
+  color: #fbbf24; 
+}
+
+.ticker-vs {
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  color: #554433;
+  letter-spacing: 2px;
+}
+
+.ticker-coord-badge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 9px;
+  color: #5090b0;
+  background: rgba(80, 160, 200, 0.15);
+  padding: 3px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.ticker-time {
+  font-size: 10px;
+  color: #665544;
+  margin-left: 4px;
+}
+
+/* Separador visual entre secciones */
+.ticker-section-divider {
+  flex-shrink: 0;
+  width: 1px;
+  height: 40px;
+  background: rgba(232, 200, 122, 0.15);
+  margin: 0 8px;
+  align-self: center;
+}
+
+/* Indicador de sección */
+.ticker-section-label {
+  flex-shrink: 0;
+  font-family: 'Cinzel', serif;
+  font-size: 9px;
+  color: #806040;
+  letter-spacing: 2px;
+  padding: 6px 12px;
+  background: rgba(232, 200, 122, 0.08);
+  border: 0.5px solid rgba(232, 200, 122, 0.15);
+  border-radius: 4px;
+  white-space: nowrap;
+  align-self: center;
+}
+
+/* Icono coordinados */
+.icon-clock {
+  width: 12px;
+  height: 12px;
+  opacity: 0.8;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Estrella para winner */
+.ticker-num.win::after {
+  content: ' ★';
+  font-size: 10px;
+  color: #4ade80;
+  margin-left: 2px;
+}
+</style>
+</head>
+<body>
+
+<div id="ticker-container">
+  <div class="ticker-label">RESULTADOS DEL DÍA</div>
+  <div class="ticker-track" id="ticker-track">
+    <!-- Se genera dinámicamente -->
+  </div>
+</div>
+
+<script>
+// Cargar datos del torneo
+async function loadTickerData() {
+  try {
+    const response = await fetch('/api/torneos/1v1_copa_uruguaya_2026');
+    const data = await response.json();
+    renderTicker(data);
+  } catch (error) {
+    console.error('Error cargando datos:', error);
+    // Fallback: intentar cargar directo
+    loadDirect();
+  }
+}
+
+async function loadDirect() {
+  try {
+    const response = await fetch('./torneos/1v1_copa_uruguaya_2026.json');
+    const data = await response.json();
+    renderTicker(data);
+  } catch (e) {
+    console.error('No se pudo cargar el archivo:', e);
+  }
+}
+
+function renderTicker(data) {
+  const track = document.getElementById('ticker-track');
+  const resultados = [];
+  const coordinados = [];
+  
+  // Recorrer todas las rondas de grupos
+  if (data.rondas_grupos && Array.isArray(data.rondas_grupos)) {
+    data.rondas_grupos.forEach(grupoData => {
+      if (grupoData.partidas && Array.isArray(grupoData.partidas)) {
+        grupoData.partidas.forEach(ronda => {
+          if (ronda.partidos && Array.isArray(ronda.partidos)) {
+            ronda.partidos.forEach(partido => {
+              const p1 = partido.jugador1Nick;
+              const p2 = partido.jugador2Nick;
+              const grupo = grupoData.grupo;
+              
+              // Si tiene resultado, es partido completado
+              if (partido.resultado && typeof partido.resultado === 'object') {
+                const scores = Object.values(partido.resultado);
+                const score1 = scores[0];
+                const score2 = scores[1];
+                
+                // Solo mostrar si hay scores válidos
+                if (typeof score1 === 'number' && typeof score2 === 'number') {
+                  resultados.push({
+                    p1, p2, score1, score2, grupo, tipo: 'resultado'
+                  });
+                }
+              }
+              // Si tiene coordinadoPor pero resultado null, es partido coordinado
+              else if (!partido.resultado && partido.coordinadoPor) {
+                coordinados.push({
+                  p1, p2, 
+                  fecha: partido.fecha,
+                  horario: partido.horario,
+                  diaSemana: partido.diaSemana,
+                  coordinadoPor: partido.coordinadoPor,
+                  grupo,
+                  tipo: 'coordinado'
+                });
+              }
+            });
+          }
+        });
+      }
+    });
+  }
+  
+  // Construir HTML
+  let html = '';
+  
+  // Sección de resultados jugados
+  if (resultados.length > 0) {
+    resultados.forEach((r, i) => {
+      const win1 = r.score1 > r.score2;
+      const win2 = r.score2 > r.score1;
+      html += `
+        <div class="ticker-card" style="animation-delay: ${i * 0.05}s">
+          <div class="ticker-player">
+            <span class="ticker-nick" title="${escapeHtml(r.p1)}">${truncateName(r.p1, 12)}</span>
+            <span class="ticker-grupo">G${r.grupo}</span>
+          </div>
+          <div class="ticker-score">
+            <span class="ticker-num ${win1 ? 'win' : (win2 ? 'lose' : 'draw')}">${r.score1}</span>
+            <span class="ticker-vs">-</span>
+            <span class="ticker-num ${win2 ? 'win' : (win1 ? 'lose' : 'draw')}">${r.score2}</span>
+          </div>
+          <div class="ticker-player right">
+            <span class="ticker-nick" title="${escapeHtml(r.p2)}">${truncateName(r.p2, 12)}</span>
+          </div>
+        </div>
+      `;
+    });
+  }
+  
+  // Separador y label para coordinados
+  if (resultados.length > 0 && coordinados.length > 0) {
+    html += '<div class="ticker-section-divider"></div>';
+    html += '<div class="ticker-section-label">PRÓXIMOS PARTIDOS</div>';
+  } else if (coordinados.length > 0) {
+    html += '<div class="ticker-section-label">PRÓXIMOS PARTIDOS</div>';
+  }
+  
+  // Sección de coordinados
+  if (coordinados.length > 0) {
+    coordinados.forEach((c, i) => {
+      const timeDisplay = c.horario ? c.horario : '';
+      const dayDisplay = c.diaSemana ? c.diaSemana.substring(0,3).toUpperCase() : '';
+      html += `
+        <div class="ticker-card coordinado" style="animation-delay: ${(resultados.length + i) * 0.05}s">
+          <div class="ticker-player">
+            <span class="ticker-nick" title="${escapeHtml(c.p1)}">${truncateName(c.p1, 12)}</span>
+            <span class="ticker-grupo">G${c.grupo}</span>
+          </div>
+          <div class="ticker-coord-badge">
+            <svg class="icon-clock" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm4.2 14.2L11 13V7h1.5v5.2l4.5 2.7-.8 1.3z"/>
+            </svg>
+            <span>${dayDisplay} ${timeDisplay}</span>
+          </div>
+          <div class="ticker-player right">
+            <span class="ticker-nick" title="${escapeHtml(c.p2)}">${truncateName(c.p2, 12)}</span>
+          </div>
+          <span class="ticker-time">@${escapeHtml(c.coordinadoPor)}</span>
+        </div>
+      `;
+    });
+  }
+  
+  // Duplicar para efecto infinito (si hay contenido)
+  if (html) {
+    track.innerHTML = html + html; // Duplicar para scroll continuo
+    
+    // Iniciar animación después de un pequeño delay para que cargue bien
+    setTimeout(() => {
+      track.classList.add('animate');
+    }, 100);
+  } else {
+    track.innerHTML = '<div class="ticker-section-label">No hay partidos recientes</div>';
+  }
+}
+
+function truncateName(name, maxLen) {
+  if (!name) return '';
+  return name.length > maxLen ? name.substring(0, maxLen - 1) + '…' : name;
+}
+
+function escapeHtml(text) {
+  if (!text) return '';
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
+
+// Auto-refresh cada 30 segundos
+loadTickerData();
+setInterval(loadTickerData, 30000);
+</script>
+
+</body>
+</html>
