@@ -145,10 +145,14 @@ app.get('/api/stats', (req, res) => {
 
 // ── Datos de un torneo específico (para overlays) ───────────────────────────────
 app.get('/api/torneos/:archivo', (req, res) => {
-  const archivo = req.params.archivo;
+  let archivo = req.params.archivo;
   // Sanitizar: solo permitir archivos JSON en la carpeta torneos
-  if (!archivo.endsWith('.json') || archivo.includes('..') || archivo.includes('/')) {
+  if (archivo.includes('..') || archivo.includes('/') || archivo.includes('\\')) {
     return res.status(400).json({ error: 'Archivo inválido' });
+  }
+  // Agregar extensión si no la tiene
+  if (!archivo.endsWith('.json')) {
+    archivo = archivo + '.json';
   }
   const p = path.join(__dirname, 'torneos', archivo);
   if (!fs.existsSync(p)) return res.status(404).json({ error: 'Torneo no encontrado' });
