@@ -256,12 +256,13 @@ function renderTicker(data) {
               
               // Si tiene resultado, es partido completado
               if (partido.resultado && typeof partido.resultado === 'object') {
-                const scores = Object.values(partido.resultado);
-                const score1 = scores[0];
-                const score2 = scores[1];
+                // Extraer solo los valores numéricos (scores), ignorar URLs y otros strings
+                const scores = Object.values(partido.resultado).filter(v => typeof v === 'number');
                 
-                // Solo mostrar si hay scores válidos
-                if (typeof score1 === 'number' && typeof score2 === 'number') {
+                if (scores.length >= 2) {
+                  const score1 = scores[0];
+                  const score2 = scores[1];
+                  
                   resultados.push({
                     p1, p2, score1, score2, grupo, tipo: 'resultado'
                   });
@@ -327,7 +328,7 @@ function renderTicker(data) {
       const timeDisplay = c.horario ? c.horario : '';
       const dayDisplay = c.diaSemana ? c.diaSemana.substring(0,3).toUpperCase() : '';
       html += `
-        <div class="ticker-card coordinado" style="animation-delay: ${(resultados.length + i) * 0.05}s">
+        <div class="ticker-card" style="animation-delay: ${(resultados.length + i) * 0.05}s">
           <div class="ticker-player">
             <span class="ticker-nick" title="${escapeHtml(c.p1)}">${truncateName(c.p1, 12)}</span>
             <span class="ticker-grupo">G${c.grupo}</span>
