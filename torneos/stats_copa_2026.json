@@ -1,8 +1,8 @@
 {
   "meta": {
     "torneo": "copa_uruguaya_2026",
-    "ultima_actualizacion": "2026-04-09T03:21:07.594Z",
-    "total_partidas": 12
+    "ultima_actualizacion": "2026-04-09T23:49:33.883Z",
+    "total_partidas": 14
   },
   "jugadores": {
     "733765577570779279": {
@@ -117,10 +117,10 @@
       "nick": "kakaidolo",
       "aoe2Id": "14501687",
       "global": {
-        "pj": 3,
-        "pg": 2,
+        "pj": 5,
+        "pg": 4,
         "pp": 1,
-        "winrate": 66.7
+        "winrate": 80
       },
       "civs": {
         "Portuguese": {
@@ -164,6 +164,34 @@
               "winrate": 0
             }
           }
+        },
+        "Spanish": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "Pilgrims": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        },
+        "Vietnamese": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "Enclosed": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
         }
       },
       "mapas": {
@@ -184,6 +212,18 @@
           "pg": 0,
           "pp": 1,
           "winrate": 0
+        },
+        "Pilgrims": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        },
+        "Enclosed": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
         }
       }
     },
@@ -498,15 +538,7 @@
               "pg": 1,
               "pp": 0,
               "winrate": 100
-            }
-          }
-        },
-        "Armenians": {
-          "pj": 1,
-          "pg": 1,
-          "pp": 0,
-          "winrate": 100,
-          "por_mapa": {
+            },
             "CopaU_2026_Shorelines (Custom)": {
               "pj": 1,
               "pg": 0,
@@ -562,25 +594,17 @@
       },
       "civs": {
         "Bulgarians": {
-          "pj": 1,
-          "pg": 0,
+          "pj": 2,
+          "pg": 1,
           "pp": 1,
-          "winrate": 0,
+          "winrate": 50,
           "por_mapa": {
             "CopaU_2026_Dry River (Custom)": {
               "pj": 1,
               "pg": 0,
               "pp": 1,
               "winrate": 0
-            }
-          }
-        },
-        "Persians": {
-          "pj": 1,
-          "pg": 1,
-          "pp": 0,
-          "winrate": 100,
-          "por_mapa": {
+            },
             "CopaU_2026_Shorelines (Custom)": {
               "pj": 1,
               "pg": 1,
@@ -616,6 +640,60 @@
           "pg": 1,
           "pp": 0,
           "winrate": 100
+        },
+        "Enclosed": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        }
+      }
+    },
+    "481154599881932811": {
+      "nick": "|FMG| Lautreamont",
+      "aoe2Id": "973968",
+      "global": {
+        "pj": 2,
+        "pg": 0,
+        "pp": 2,
+        "winrate": 0
+      },
+      "civs": {
+        "Persians": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "Pilgrims": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        },
+        "Shu": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "Enclosed": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        }
+      },
+      "mapas": {
+        "Pilgrims": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
         },
         "Enclosed": {
           "pj": 1,
@@ -796,12 +874,14 @@
       }
     },
     "Enclosed": {
-      "total_partidas": 1,
+      "total_partidas": 2,
       "civs_ganadoras": {
-        "Romans": 1
+        "Romans": 1,
+        "Vietnamese": 1
       },
       "civs_perdedoras": {
-        "Magyars": 1
+        "Magyars": 1,
+        "Shu": 1
       },
       "enfrentamientos": {
         "Magyars_vs_Romans": {
@@ -809,6 +889,29 @@
           "gano_primero": 0,
           "civ_a": "Magyars",
           "civ_b": "Romans"
+        },
+        "Shu_vs_Vietnamese": {
+          "total": 1,
+          "gano_primero": 0,
+          "civ_a": "Shu",
+          "civ_b": "Vietnamese"
+        }
+      }
+    },
+    "Pilgrims": {
+      "total_partidas": 1,
+      "civs_ganadoras": {
+        "Spanish": 1
+      },
+      "civs_perdedoras": {
+        "Persians": 1
+      },
+      "enfrentamientos": {
+        "Persians_vs_Spanish": {
+          "total": 1,
+          "gano_primero": 0,
+          "civ_a": "Persians",
+          "civ_b": "Spanish"
         }
       }
     }
@@ -1054,9 +1157,9 @@
       }
     },
     "Persians": {
-      "total_jugadas": 3,
+      "total_jugadas": 4,
       "total_ganadas": 2,
-      "winrate": 66.7,
+      "winrate": 50,
       "por_mapa": {
         "CopaU_2026_Shorelines (Custom)": {
           "jugadas": 2,
@@ -1064,6 +1167,11 @@
           "winrate": 100
         },
         "CopaU_2026_Stranded v3 (Custom)": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        },
+        "Pilgrims": {
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
@@ -1081,6 +1189,11 @@
           "winrate": 100
         },
         "Chinese": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        },
+        "Spanish": {
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
@@ -1214,6 +1327,63 @@
       },
       "vs_civs": {
         "Persians": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        }
+      }
+    },
+    "Spanish": {
+      "total_jugadas": 1,
+      "total_ganadas": 1,
+      "winrate": 100,
+      "por_mapa": {
+        "Pilgrims": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        }
+      },
+      "vs_civs": {
+        "Persians": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        }
+      }
+    },
+    "Vietnamese": {
+      "total_jugadas": 1,
+      "total_ganadas": 1,
+      "winrate": 100,
+      "por_mapa": {
+        "Enclosed": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        }
+      },
+      "vs_civs": {
+        "Shu": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        }
+      }
+    },
+    "Shu": {
+      "total_jugadas": 1,
+      "total_ganadas": 0,
+      "winrate": 0,
+      "por_mapa": {
+        "Enclosed": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        }
+      },
+      "vs_civs": {
+        "Vietnamese": {
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
@@ -1430,14 +1600,12 @@
       "grupo": "H",
       "ronda": 3,
       "jugador1": {
-        "discordId": "135113382217908224",
-        "nick": "URU | Juasteint",
+        "nick": "Juasteint",
         "civ": "Armenians",
         "gano": false
       },
       "jugador2": {
-        "discordId": "408054148110614529",
-        "nick": "-FMG- Rodri",
+        "nick": "Rodri",
         "civ": "Persians",
         "gano": true
       }
@@ -1459,6 +1627,46 @@
         "discordId": "408054148110614529",
         "nick": "-FMG- Rodri",
         "civ": "Magyars",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 469199966,
+      "fecha": "2026-04-09T23:33:32.000Z",
+      "mapa": "Pilgrims",
+      "duracion": 11,
+      "grupo": "G",
+      "ronda": 2,
+      "jugador1": {
+        "discordId": "662427737138528308",
+        "nick": "kakaidolo",
+        "civ": "Spanish",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "481154599881932811",
+        "nick": "|FMG| Lautreamont",
+        "civ": "Persians",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 469194471,
+      "fecha": "2026-04-09T22:59:51.000Z",
+      "mapa": "Enclosed",
+      "duracion": 30,
+      "grupo": "G",
+      "ronda": 2,
+      "jugador1": {
+        "discordId": "662427737138528308",
+        "nick": "kakaidolo",
+        "civ": "Vietnamese",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "481154599881932811",
+        "nick": "|FMG| Lautreamont",
+        "civ": "Shu",
         "gano": false
       }
     }
