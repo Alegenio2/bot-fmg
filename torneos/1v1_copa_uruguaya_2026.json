@@ -422,7 +422,14 @@
               "jugador1Nick": "|FMG| TINCHO",
               "jugador2Id": "1008090545513570495",
               "jugador2Nick": "ElOsoConBarba",
-              "resultado": null,
+              "resultado": {
+                "697996987210924072": 2,
+                "1008090545513570495": 0,
+                "mapas": "https://aoe2cm.net/draft/YXuhd",
+                "civs": "https://aoe2cm.net/draft/cCuCo",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1491620091547353158/copa_uruguaya_oso_vs_tincho.zip?ex=69d85af6&is=69d70976&hm=d1bd879bf449920763ed76a50c184aff5c1d312a3d62cabb306cb61af9ec3886&",
+                "fecha_registro": "2026-04-09T02:05:43.707Z"
+              },
               "fecha": "08-04-2026",
               "horario": "22:00",
               "diaSemana": "Miércoles",
