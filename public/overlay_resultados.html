@@ -2,11 +2,12 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8"/>
-<title>Ticker Copa Uruguaya 2026</title>
+<title>Ticker Copa Uruguaya 2026 — Final</title>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet"/>
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
   body{width:1920px;height:1080px;background:transparent;overflow:hidden;font-family:'Inter',sans-serif}
+  
   #ticker-container {
     position: absolute;
     bottom: 0; left: 0; right: 0; height: 100px;
@@ -14,53 +15,118 @@
     display: flex; flex-direction: column; overflow: hidden;
     border-top: 2px solid #e8c87a;
   }
-  .ticker-track { display: flex; gap: 40px; align-items: center; padding: 10px 20px; white-space: nowrap; }
+
+  .ticker-track { 
+    display: flex; 
+    gap: 40px; 
+    align-items: center; 
+    padding: 10px 20px; 
+    white-space: nowrap;
+    will-change: transform;
+  }
+
   .animate { animation: scroll 180s linear infinite; }
   @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
   
-  .section-tag { color: #e8c87a; font-family: 'Cinzel'; font-weight: 700; border-left: 3px solid #e8c87a; padding-left: 10px; margin-right: 10px; text-transform: uppercase; font-size: 14px; }
-  .ticker-card { flex-shrink: 0; display: flex; align-items: center; gap: 15px; background: rgba(232,200,122,0.1); padding: 8px 18px; border-radius: 8px; border: 1px solid rgba(232,200,122,0.2); }
+  .section-tag { 
+    color: #e8c87a; 
+    font-family: 'Cinzel'; 
+    font-weight: 700; 
+    border-left: 3px solid #e8c87a; 
+    padding-left: 10px; 
+    margin-right: 10px; 
+    text-transform: uppercase; 
+    font-size: 14px; 
+  }
+
+  .ticker-card { 
+    flex-shrink: 0; 
+    display: flex; 
+    align-items: center; 
+    gap: 15px; 
+    background: rgba(232,200,122,0.1); 
+    padding: 8px 18px; 
+    border-radius: 8px; 
+    border: 1px solid rgba(232,200,122,0.2); 
+  }
+
   .ticker-nick { font-family: 'Cinzel'; color: #fff; font-size: 16px; font-weight: 700; }
   .ticker-score { font-size: 22px; font-weight: 900; color: #e8c87a; display: flex; gap: 5px; align-items: center; }
   .ticker-time { font-size: 15px; color: #5090b0; font-weight: 700; background: rgba(80,144,176,0.1); padding: 4px 10px; border-radius: 4px; border: 1px solid rgba(80,144,176,0.3); }
+  
   .win { color: #4ade80; }
   .lose { color: #f87171; opacity: 0.8; }
-  #status { position: absolute; top: 20px; right: 20px; background: rgba(0,0,0,0.8); color: #e8c87a; padding: 5px 12px; font-size: 12px; border-radius: 4px; font-family: monospace; border: 1px solid #e8c87a; }
+
+  #status { 
+    position: absolute; top: 20px; right: 20px; 
+    background: rgba(0,0,0,0.8); color: #e8c87a; 
+    padding: 5px 12px; font-size: 12px; border-radius: 4px; 
+    font-family: monospace; border: 1px solid #e8c87a; 
+    z-index: 100;
+  }
 </style>
 </head>
 <body>
-<div id="status">CONECTANDO...</div>
+
+<div id="status">CARGANDO...</div>
+
 <div id="ticker-container">
   <div class="ticker-track" id="track"></div>
 </div>
 
 <script>
-let locked = false;
+let autoRefreshEnabled = true;
+let refreshInterval = null;
 
-// Función para convertir fecha DD/MM/YYYY y Hora HH:mm en objeto Date comparable
+// Función de escape para seguridad
+function escapeHtml(text) {
+  if (!text) return '';
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
+
+// Función de fecha corregida para guiones y barras
 function parseDateTime(fechaStr, horaStr) {
-    if (!fechaStr || !horaStr) return new Date(8640000000000000); // Fecha infinita si falta dato
-    const [day, month, year] = fechaStr.split('/').map(Number);
-    const [hours, minutes] = horaStr.split(':').map(Number);
-    return new Date(year, month - 1, day, hours, minutes);
+  try {
+    if (!fechaStr || !horaStr) return 8640000000000000;
+    const cleanFecha = fechaStr.replace(/-/g, '/');
+    const parts = cleanFecha.split('/');
+    const timeParts = horaStr.split(':');
+    
+    const day = parseInt(parts[0], 10);
+    const month = parseInt(parts[1], 10) - 1;
+    const year = parseInt(parts[2], 10);
+    const hh = parseInt(timeParts[0], 10);
+    const mm = parseInt(timeParts[1], 10);
+    
+    return new Date(year, month, day, hh, mm).getTime();
+  } catch (e) {
+    return 8640000000000000;
+  }
 }
 
 async function fetchData() {
-  if(locked) return;
+  const statusEl = document.getElementById('status');
+  statusEl.innerText = "ACTUALIZANDO...";
+  
   try {
     const [resP, resT] = await Promise.all([
       fetch('https://aldeanooscar.squareweb.app/api/torneos/1v1_copa_uruguaya_2026'),
       fetch('https://aldeanooscar.squareweb.app/api/torneos/tabla_posiciones')
     ]);
+    
     const partidosData = await resP.json();
     const tablasData = await resT.json();
+    
     render(partidosData, tablasData);
-    locked = true;
-    document.getElementById('status').innerText = "LIVE - CONGELADO (Pulsa L)";
-    document.getElementById('status').style.color = "#4ade80";
+    
+    statusEl.innerText = autoRefreshEnabled ? "LIVE (L: Refrescar / P: Pausar)" : "PAUSADO (P: Reanudar)";
+    statusEl.style.color = autoRefreshEnabled ? "#4ade80" : "#e8c87a";
   } catch(e) { 
     console.error(e); 
-    document.getElementById('status').innerText = "ERROR API";
+    statusEl.innerText = "ERROR DE CONEXIÓN";
+    statusEl.style.color = "#f87171";
   }
 }
 
@@ -73,79 +139,89 @@ function render(partidosData, tablasData) {
   const resultados = [];
   const coordinados = [];
 
-  // 1. Extraer TODOS los partidos (jugados y por jugar)
+  // Extraer datos
   partidosData.rondas_grupos.forEach(g => {
     g.partidos.forEach(r => {
       r.partidos.forEach(p => {
         if (p.resultado && p.jugador1Id && p.jugador2Id) {
-          // Es un resultado ya cargado
-          const s1 = p.resultado[p.jugador1Id];
-          const s2 = p.resultado[p.jugador2Id];
-          resultados.push({ p1: p.jugador1Nick, p2: p.jugador2Nick, s1, s2 });
+          resultados.push({
+            p1: p.jugador1Nick, p2: p.jugador2Nick,
+            s1: p.resultado[p.jugador1Id], s2: p.resultado[p.jugador2Id]
+          });
         } else if (p.fecha && p.horario) {
-          // Es un partido coordinado
           coordinados.push(p);
         }
       });
     });
   });
 
-  // 2. ORDENAR COORDINADOS POR FECHA (CRONOLÓGICO REAL)
+  // Ordenar coordinados cronológicamente
   coordinados.sort((a, b) => parseDateTime(a.fecha, a.horario) - parseDateTime(b.fecha, b.horario));
 
-  // 3. Generar HTML de Resultados
+  // Generar HTML
   resultados.forEach(r => {
     htmlResultados += `
       <div class="ticker-card">
-        <span class="ticker-nick">${r.p1}</span>
+        <span class="ticker-nick">${escapeHtml(r.p1)}</span>
         <div class="ticker-score">
           <span class="${r.s1 > r.s2 ? 'win' : 'lose'}">${r.s1}</span>
           <span style="opacity:0.3; font-size:14px;">-</span>
           <span class="${r.s2 > r.s1 ? 'win' : 'lose'}">${r.s2}</span>
         </div>
-        <span class="ticker-nick">${r.p2}</span>
+        <span class="ticker-nick">${escapeHtml(r.p2)}</span>
       </div>`;
   });
 
-  // 4. Generar HTML de Próximos (Ya ordenados)
   coordinados.forEach(p => {
     const dia = p.diaSemana ? p.diaSemana.substring(0,3).toUpperCase() : '---';
     htmlProximos += `
       <div class="ticker-card">
-        <span class="ticker-nick">${p.jugador1Nick}</span>
+        <span class="ticker-nick">${escapeHtml(p.jugador1Nick)}</span>
         <span class="ticker-time">${dia} ${p.horario}</span>
-        <span class="ticker-nick">${p.jugador2Nick}</span>
+        <span class="ticker-nick">${escapeHtml(p.jugador2Nick)}</span>
       </div>`;
   });
 
-  // 5. Generar HTML de Tablas
   if (tablasData) {
     Object.entries(tablasData).forEach(([nombreGrupo, jugadores]) => {
       htmlTablas += `<span class="section-tag">${nombreGrupo}</span>`;
       jugadores.forEach(j => {
         htmlTablas += `
           <div class="ticker-card">
-            <span class="ticker-nick">${j.nick}</span>
+            <span class="ticker-nick">${escapeHtml(j.nick)}</span>
             <span class="ticker-score">${j.pts} <small style="font-size:10px; margin-left:3px;">PTS</small></span>
           </div>`;
       });
     });
   }
 
-  // Unir todo y duplicar para el efecto infinito
   const fullHTML = htmlResultados + htmlProximos + htmlTablas;
+  track.classList.remove('animate');
   track.innerHTML = fullHTML + fullHTML;
-  track.classList.add('animate');
+  
+  // Reiniciar animación
+  setTimeout(() => track.classList.add('animate'), 50);
 }
 
-// Escuchar tecla L para refrescar manualmente
+// Control de teclado
 window.addEventListener('keydown', e => { 
-  if(e.key.toLowerCase() === 'l'){ 
-    locked = false; 
-    document.getElementById('status').innerText = "ACTUALIZANDO...";
-    fetchData(); 
+  const key = e.key.toLowerCase();
+  if(key === 'l'){ fetchData(); }
+  if(key === 'p'){ 
+    autoRefreshEnabled = !autoRefreshEnabled;
+    fetchData();
+  }
+  if(key === 'r'){
+    const track = document.getElementById('track');
+    track.classList.remove('animate');
+    setTimeout(() => track.classList.add('animate'), 50);
   }
 });
+
+// Auto-refresh cada 45 segundos
+setInterval(() => {
+  if(autoRefreshEnabled) fetchData();
+}, 45000);
 
 fetchData();
 </script>
