@@ -563,7 +563,7 @@
       "civs": {
         "Bulgarians": {
           "pj": 1,
-          "pg": ,
+          "pg": 0,
           "pp": 1,
           "winrate": 0,
           "por_mapa": {
@@ -1431,13 +1431,13 @@
       "ronda": 3,
       "jugador1": {
         "discordId": "135113382217908224",
-        "nick": "Juasteint",
+        "nick": "URU | Juasteint",
         "civ": "Armenians",
         "gano": false
       },
       "jugador2": {
         "discordId": "408054148110614529",
-        "nick": "Rodri",
+        "nick": "-FMG- Rodri",
         "civ": "Persians",
         "gano": true
       }
