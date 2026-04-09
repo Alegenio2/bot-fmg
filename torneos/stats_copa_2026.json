@@ -1,8 +1,8 @@
 {
   "meta": {
     "torneo": "copa_uruguaya_2026",
-    "ultima_actualizacion": "2026-04-07T01:38:30.602Z",
-    "total_partidas": 5
+    "ultima_actualizacion": "2026-04-09T02:05:44.720Z",
+    "total_partidas": 7
   },
   "jugadores": {
     "733765577570779279": {
@@ -260,6 +260,114 @@
           "winrate": 100
         }
       }
+    },
+    "697996987210924072": {
+      "nick": "|FMG| TINCHO",
+      "aoe2Id": "2304739",
+      "global": {
+        "pj": 2,
+        "pg": 2,
+        "pp": 0,
+        "winrate": 100
+      },
+      "civs": {
+        "Bohemians": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "Hideout": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        },
+        "Persians": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "CopaU_2026_Shorelines (Custom)": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        }
+      },
+      "mapas": {
+        "Hideout": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        },
+        "CopaU_2026_Shorelines (Custom)": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        }
+      }
+    },
+    "1008090545513570495": {
+      "nick": "ElOsoConBarba",
+      "aoe2Id": "10473376",
+      "global": {
+        "pj": 2,
+        "pg": 0,
+        "pp": 2,
+        "winrate": 0
+      },
+      "civs": {
+        "Italians": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "Hideout": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        },
+        "Georgians": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "CopaU_2026_Shorelines (Custom)": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        }
+      },
+      "mapas": {
+        "Hideout": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        },
+        "CopaU_2026_Shorelines (Custom)": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        }
+      }
     }
   },
   "mapas": {
@@ -345,6 +453,40 @@
           "gano_primero": 1,
           "civ_a": "Japanese",
           "civ_b": "Magyars"
+        }
+      }
+    },
+    "Hideout": {
+      "total_partidas": 1,
+      "civs_ganadoras": {
+        "Bohemians": 1
+      },
+      "civs_perdedoras": {
+        "Italians": 1
+      },
+      "enfrentamientos": {
+        "Bohemians_vs_Italians": {
+          "total": 1,
+          "gano_primero": 1,
+          "civ_a": "Bohemians",
+          "civ_b": "Italians"
+        }
+      }
+    },
+    "CopaU_2026_Shorelines (Custom)": {
+      "total_partidas": 1,
+      "civs_ganadoras": {
+        "Persians": 1
+      },
+      "civs_perdedoras": {
+        "Georgians": 1
+      },
+      "enfrentamientos": {
+        "Georgians_vs_Persians": {
+          "total": 1,
+          "gano_primero": 0,
+          "civ_a": "Georgians",
+          "civ_b": "Persians"
         }
       }
     }
@@ -530,6 +672,82 @@
           "winrate": 0
         }
       }
+    },
+    "Bohemians": {
+      "total_jugadas": 1,
+      "total_ganadas": 1,
+      "winrate": 100,
+      "por_mapa": {
+        "Hideout": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        }
+      },
+      "vs_civs": {
+        "Italians": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        }
+      }
+    },
+    "Italians": {
+      "total_jugadas": 1,
+      "total_ganadas": 0,
+      "winrate": 0,
+      "por_mapa": {
+        "Hideout": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        }
+      },
+      "vs_civs": {
+        "Bohemians": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        }
+      }
+    },
+    "Persians": {
+      "total_jugadas": 1,
+      "total_ganadas": 1,
+      "winrate": 100,
+      "por_mapa": {
+        "CopaU_2026_Shorelines (Custom)": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        }
+      },
+      "vs_civs": {
+        "Georgians": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        }
+      }
+    },
+    "Georgians": {
+      "total_jugadas": 1,
+      "total_ganadas": 0,
+      "winrate": 0,
+      "por_mapa": {
+        "CopaU_2026_Shorelines (Custom)": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        }
+      },
+      "vs_civs": {
+        "Persians": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        }
+      }
     }
   },
   "partidas": [
@@ -631,6 +849,46 @@
         "nick": "Tano Stokes",
         "civ": "Japanese",
         "gano": true
+      }
+    },
+    {
+      "matchId": 468995769,
+      "fecha": "2026-04-09T01:39:21.000Z",
+      "mapa": "Hideout",
+      "duracion": 22,
+      "grupo": "C",
+      "ronda": 1,
+      "jugador1": {
+        "discordId": "697996987210924072",
+        "nick": "|FMG| TINCHO",
+        "civ": "Bohemians",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "1008090545513570495",
+        "nick": "ElOsoConBarba",
+        "civ": "Italians",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 468991820,
+      "fecha": "2026-04-09T01:15:00.000Z",
+      "mapa": "CopaU_2026_Shorelines (Custom)",
+      "duracion": 22,
+      "grupo": "C",
+      "ronda": 1,
+      "jugador1": {
+        "discordId": "697996987210924072",
+        "nick": "|FMG| TINCHO",
+        "civ": "Persians",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "1008090545513570495",
+        "nick": "ElOsoConBarba",
+        "civ": "Georgians",
+        "gano": false
       }
     }
   ]
