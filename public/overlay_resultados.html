@@ -15,11 +15,7 @@ html,body{width:1920px;height:1080px;background:transparent;overflow:hidden;font
   left: 0;
   right: 0;
   height: 90px;
-  background: linear-gradient(to top, 
-    rgba(8, 5, 2, 0.95) 0%, 
-    rgba(8, 5, 2, 0.85) 50%,
-    rgba(8, 5, 2, 0.4) 80%,
-    transparent 100%);
+  background: linear-gradient(to top, rgba(8, 5, 2, 0.95) 0%, rgba(8, 5, 2, 0.85) 50%, rgba(8, 5, 2, 0.4) 80%, transparent 100%);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -45,10 +41,6 @@ html,body{width:1920px;height:1080px;background:transparent;overflow:hidden;font
   animation: scroll 80s linear infinite;
 }
 
-.ticker-track:hover {
-  animation-play-state: paused;
-}
-
 @keyframes scroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
@@ -68,11 +60,6 @@ html,body{width:1920px;height:1080px;background:transparent;overflow:hidden;font
   animation: fadeIn 0.4s ease both;
 }
 
-.ticker-card.coordinado {
-  background: rgba(80, 160, 200, 0.1);
-  border-color: rgba(80, 160, 200, 0.25);
-}
-
 .ticker-player {
   display: flex;
   flex-direction: column;
@@ -80,9 +67,7 @@ html,body{width:1920px;height:1080px;background:transparent;overflow:hidden;font
   min-width: 85px;
 }
 
-.ticker-player.right {
-  text-align: right;
-}
+.ticker-player.right { text-align: right; }
 
 .ticker-nick {
   font-family: 'Cinzel', serif;
@@ -92,16 +77,6 @@ html,body{width:1920px;height:1080px;background:transparent;overflow:hidden;font
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 85px;
-}
-
-.ticker-card.coordinado .ticker-nick {
-  color: #b0d0e0;
-}
-
-.ticker-grupo {
-  font-size: 9px;
-  color: #554433;
-  letter-spacing: 1px;
 }
 
 .ticker-score {
@@ -120,265 +95,214 @@ html,body{width:1920px;height:1080px;background:transparent;overflow:hidden;font
   line-height: 1;
 }
 
-.ticker-num.win { 
-  color: #4ade80;
-  text-shadow: 0 0 8px rgba(74, 222, 128, 0.3);
+.ticker-num.win { color: #4ade80; text-shadow: 0 0 8px rgba(74, 222, 128, 0.3); }
+.ticker-num.win::after { content: ' ★'; font-size: 10px; }
+.ticker-num.lose { color: #f87171; opacity: 0.7; }
+
+.ticker-vs { font-family: 'Cinzel', serif; font-size: 12px; color: #554433; }
+
+/* Tabla de Grupos Overlay */
+#groups-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(8, 5, 2, 0.98);
+  border: 2px solid #e8c87a;
+  padding: 30px;
+  border-radius: 12px;
+  display: none;
+  z-index: 1000;
+  box-shadow: 0 0 50px rgba(0,0,0,0.9);
+  max-width: 90%;
+  max-height: 80%;
+  overflow-y: auto;
 }
 
-.ticker-num.lose { 
-  color: #f87171;
-  opacity: 0.7;
+.groups-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
 }
 
-.ticker-num.draw { 
-  color: #fbbf24; 
+.group-table {
+  border-collapse: collapse;
+  width: 100%;
+  background: rgba(232, 200, 122, 0.05);
 }
 
-.ticker-vs {
+.group-table th {
   font-family: 'Cinzel', serif;
+  background: #e8c87a;
+  color: #000;
+  padding: 8px;
+  font-size: 14px;
+}
+
+.group-table td {
+  padding: 8px;
+  border-bottom: 1px solid rgba(232, 200, 122, 0.2);
+  color: #fff;
+  font-size: 13px;
+}
+
+.pos-pts { text-align: center; font-weight: bold; color: #4ade80; width: 40px; }
+
+/* Indicador de estado para el Streamer */
+#status-indicator {
+  position: absolute;
+  top: 20px;
+  right: 20px;
   font-size: 12px;
-  color: #554433;
-  letter-spacing: 2px;
-}
-
-.ticker-coord-badge {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 15px;
-  color: #5090b0;
-  background: rgba(80, 160, 200, 0.15);
-  padding: 3px 8px;
+  color: #555;
+  background: rgba(0,0,0,0.5);
+  padding: 5px 10px;
   border-radius: 4px;
-  white-space: nowrap;
-}
-
-.ticker-time {
-  font-size: 10px;
-  color: #665544;
-  margin-left: 4px;
-}
-
-/* Separador visual entre secciones */
-.ticker-section-divider {
-  flex-shrink: 0;
-  width: 1px;
-  height: 40px;
-  background: rgba(232, 200, 122, 0.15);
-  margin: 0 8px;
-  align-self: center;
-}
-
-/* Indicador de sección */
-.ticker-section-label {
-  flex-shrink: 0;
-  font-family: 'Cinzel', serif;
-  font-size: 9px;
-  color: #ffffff;
-  letter-spacing: 2px;
-  padding: 6px 12px;
-  background: rgba(232, 200, 122, 0.08);
-  border: 0.5px solid rgba(232, 200, 122, 0.15);
-  border-radius: 4px;
-  white-space: nowrap;
-  align-self: center;
-}
-
-/* Icono coordinados */
-.icon-clock {
-  width: 12px;
-  height: 12px;
-  opacity: 0.8;
+  font-family: monospace;
+  z-index: 2000;
 }
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
-
-/* Estrella para winner */
-.ticker-num.win::after {
-  content: ' ★';
-  font-size: 10px;
-  color: #4ade80;
-  margin-left: 2px;
-}
 </style>
 </head>
 <body>
 
+<div id="status-indicator">MODO ESTATICO - PULSA 'L' PARA ACTUALIZAR</div>
+
+<div id="groups-overlay">
+  <h2 style="font-family:'Cinzel'; color:#e8c87a; text-align:center; margin-bottom:20px; letter-spacing: 4px;">COPA URUGUAYA 2026 - POSICIONES</h2>
+  <div class="groups-grid" id="groups-grid"></div>
+</div>
+
 <div id="ticker-container">
-  <div class="ticker-label">RESULTADOS</div>
-  <div class="ticker-track" id="ticker-track">
-    <!-- Se genera dinámicamente -->
-  </div>
+  <div class="ticker-label">RESULTADOS Y PRÓXIMOS PARTIDOS</div>
+  <div class="ticker-track" id="ticker-track"></div>
 </div>
 
 <script>
-// Cargar datos del torneo
+let isLocked = false;
+let tournamentDataCache = null;
+
 async function loadTickerData() {
+  if (isLocked) return; // Si está bloqueado, no permite la actualización automática
+
   try {
-    const response = await fetch('/api/torneos/1v1_copa_uruguaya_2026');
-    const data = await response.json();
-    renderTicker(data);
+    const response = await fetch('https://aldeanooscar.squareweb.app/api/torneos/1v1_copa_uruguaya_2026');
+    tournamentDataCache = await response.json();
+    
+    renderTicker(tournamentDataCache);
+    renderGroups(tournamentDataCache);
+    
+    isLocked = true; // Bloqueamos tras la carga exitosa
+    updateStatusLabel("DATOS CONGELADOS (Pulsa L para refrescar)", "#f87171");
   } catch (error) {
     console.error('Error cargando datos:', error);
-    // Fallback: intentar cargar directo
-    loadDirect();
   }
 }
 
-async function loadDirect() {
-  try {
-    const response = await fetch('./torneos/1v1_copa_uruguaya_2026.json');
-    const data = await response.json();
-    renderTicker(data);
-  } catch (e) {
-    console.error('No se pudo cargar el archivo:', e);
-  }
+function updateStatusLabel(text, color) {
+  const el = document.getElementById('status-indicator');
+  el.innerText = text;
+  el.style.color = color;
 }
 
 function renderTicker(data) {
   const track = document.getElementById('ticker-track');
+  let html = '';
   const resultados = [];
   const coordinados = [];
   
-  // Recorrer todas las rondas de grupos
-// Recorrer cada grupo (A, B, C, etc.)
-if (data.rondas_grupos && Array.isArray(data.rondas_grupos)) {
-  data.rondas_grupos.forEach(grupoData => {
-    const grupo = grupoData.grupo;
-    
-    // Recorrer las rondas de ese grupo (Ronda 1, 2, 3)
-    if (grupoData.partidos && Array.isArray(grupoData.partidos)) {
-      grupoData.partidos.forEach(rondaObj => {
-        
-        // Recorrer los partidos individuales de esa ronda
-        if (rondaObj.partidos && Array.isArray(rondaObj.partidos)) {
-          rondaObj.partidos.forEach(partido => {
-            const p1 = partido.jugador1Nick;
-            const p2 = partido.jugador2Nick;
-            
-            // Lógica de Resultados
-            if (partido.resultado && typeof partido.resultado === 'object') {
-              // Obtenemos los IDs para buscar los scores exactos en el objeto resultado
-              const id1 = partido.jugador1Id;
-              const id2 = partido.jugador2Id;
-              
-              const score1 = partido.resultado[id1];
-              const score2 = partido.resultado[id2];
-              
-              if (typeof score1 === 'number' && typeof score2 === 'number') {
-                resultados.push({
-                  p1, p2, score1, score2, tipo: 'resultado'
-                });
+  if (data.rondas_grupos) {
+    data.rondas_grupos.forEach(grupoData => {
+      if (grupoData.partidos) {
+        grupoData.partidos.forEach(rondaObj => {
+          if (rondaObj.partidos) {
+            rondaObj.partidos.forEach(partido => {
+              if (partido.resultado) {
+                const score1 = partido.resultado[partido.jugador1Id];
+                const score2 = partido.resultado[partido.jugador2Id];
+                resultados.push({ p1: partido.jugador1Nick, p2: partido.jugador2Nick, s1: score1, s2: score2 });
+              } else if (partido.coordinadoPor) {
+                coordinados.push({ p1: partido.jugador1Nick, p2: partido.jugador2Nick, hora: partido.horario, dia: partido.diaSemana });
               }
-            }
-            // Lógica de Coordinados
-            else if (!partido.resultado && partido.coordinadoPor) {
-              coordinados.push({
-                p1, p2, 
-                fecha: partido.fecha,
-                horario: partido.horario,
-                diaSemana: partido.diaSemana,
-                coordinadoPor: partido.coordinadoPor
-                });
-            }
-          });
-        }
-      });
-    }
-  });
-}
-  
-  // Construir HTML
-  let html = '';
-  
-  // Sección de resultados jugados
-  if (resultados.length > 0) {
-    resultados.forEach((r, i) => {
-      const win1 = r.score1 > r.score2;
-      const win2 = r.score2 > r.score1;
-      html += `
-        <div class="ticker-card" style="animation-delay: ${i * 0.05}s">
-          <div class="ticker-player">
-            <span class="ticker-nick" title="${escapeHtml(r.p1)}">${truncateName(r.p1, 12)}</span>
-            </div>
-          <div class="ticker-score">
-            <span class="ticker-num ${win1 ? 'win' : (win2 ? 'lose' : 'draw')}">${r.score1}</span>
-            <span class="ticker-vs">-</span>
-            <span class="ticker-num ${win2 ? 'win' : (win1 ? 'lose' : 'draw')}">${r.score2}</span>
-          </div>
-          <div class="ticker-player right">
-            <span class="ticker-nick" title="${escapeHtml(r.p2)}">${truncateName(r.p2, 12)}</span>
-          </div>
+            });
+          }
+        });
+      }
+    });
+  }
+
+  // HTML para Resultados
+  resultados.forEach(r => {
+    html += `
+      <div class="ticker-card">
+        <div class="ticker-player"><span class="ticker-nick">${truncateName(r.p1, 10)}</span></div>
+        <div class="ticker-score">
+          <span class="ticker-num ${r.s1 > r.s2 ? 'win' : 'lose'}">${r.s1}</span>
+          <span class="ticker-vs">-</span>
+          <span class="ticker-num ${r.s2 > r.s1 ? 'win' : 'lose'}">${r.s2}</span>
         </div>
-      `;
+        <div class="ticker-player right"><span class="ticker-nick">${truncateName(r.p2, 10)}</span></div>
+      </div>`;
+  });
+
+  // HTML para Coordinados
+  coordinados.forEach(c => {
+    html += `
+      <div class="ticker-card">
+        <div class="ticker-player"><span class="ticker-nick">${truncateName(c.p1, 10)}</span></div>
+        <div style="color:#5090b0; font-size:11px; padding: 0 10px;">${c.dia ? c.dia.substring(0,3) : ''} ${c.hora || ''}</div>
+        <div class="ticker-player right"><span class="ticker-nick">${truncateName(c.p2, 10)}</span></div>
+      </div>`;
+  });
+
+  track.innerHTML = html + html; 
+  track.classList.add('animate');
+}
+
+function renderGroups(data) {
+  const grid = document.getElementById('groups-grid');
+  let html = '';
+  if (!data.rondas_grupos) return;
+
+  data.rondas_grupos.forEach(g => {
+    html += `
+      <table class="group-table">
+        <thead><tr><th colspan="3">GRUPO ${g.grupo}</th></tr></thead>
+        <tbody>`;
+    // Aquí se asume que 'jugadores' viene en la data del grupo
+    const jugadores = g.jugadores || [];
+    jugadores.forEach(j => {
+      html += `<tr><td>${j.nick}</td><td class="pos-pts">${j.partidosJugados || 0}J</td><td class="pos-pts">${j.puntos || 0} pts</td></tr>`;
     });
-  }
-  
-  // Separador y label para coordinados
-  if (resultados.length > 0 && coordinados.length > 0) {
-    html += '<div class="ticker-section-divider"></div>';
-    html += '<div class="ticker-section-label">PRÓXIMOS PARTIDOS</div>';
-  } else if (coordinados.length > 0) {
-    html += '<div class="ticker-section-label">PRÓXIMOS PARTIDOS</div>';
-  }
-  
-  // Sección de coordinados
-  if (coordinados.length > 0) {
-    coordinados.forEach((c, i) => {
-      const timeDisplay = c.horario ? c.horario : '';
-      const dayDisplay = c.diaSemana ? c.diaSemana.substring(0,3).toUpperCase() : '';
-      html += `
-        <div class="ticker-card" style="animation-delay: ${(resultados.length + i) * 0.05}s">
-          <div class="ticker-player">
-            <span class="ticker-nick" title="${escapeHtml(c.p1)}">${truncateName(c.p1, 12)}</span>
-           
-          </div>
-          <div class="ticker-coord-badge">
-            <svg class="icon-clock" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm4.2 14.2L11 13V7h1.5v5.2l4.5 2.7-.8 1.3z"/>
-            </svg>
-            <span>${dayDisplay} ${timeDisplay}</span>
-          </div>
-          <div class="ticker-player right">
-            <span class="ticker-nick" title="${escapeHtml(c.p2)}">${truncateName(c.p2, 12)}</span>
-          </div>
-         </div>
-      `;
-    });
-  }
-  
-  // Duplicar para efecto infinito (si hay contenido)
-  if (html) {
-    track.innerHTML = html + html; // Duplicar para scroll continuo
-    
-    // Iniciar animación después de un pequeño delay para que cargue bien
-    setTimeout(() => {
-      track.classList.add('animate');
-    }, 100);
-  } else {
-    track.innerHTML = '<div class="ticker-section-label">No hay partidos recientes</div>';
-  }
+    html += `</tbody></table>`;
+  });
+  grid.innerHTML = html;
 }
 
-function truncateName(name, maxLen) {
-  if (!name) return '';
-  return name.length > maxLen ? name.substring(0, maxLen - 1) + '…' : name;
+function truncateName(name, max) {
+  return name && name.length > max ? name.substring(0, max-1) + '…' : name;
 }
 
-function escapeHtml(text) {
-  if (!text) return '';
-  const div = document.createElement('div');
-  div.textContent = text;
-  return div.innerHTML;
-}
+// Atajos de teclado
+window.addEventListener('keydown', (e) => {
+  const key = e.key.toLowerCase();
+  if (key === 'l') { // L = Liberar/Actualizar
+    isLocked = false;
+    updateStatusLabel("ACTUALIZANDO...", "#4ade80");
+    loadTickerData();
+  }
+  if (key === 'g') { // G = Grupos
+    const overlay = document.getElementById('groups-overlay');
+    overlay.style.display = (overlay.style.display === 'block') ? 'none' : 'block';
+  }
+});
 
-// Auto-refresh cada 30 segundos
+// Carga inicial
 loadTickerData();
-setInterval(loadTickerData, 14400000);
 </script>
-
 </body>
 </html>
