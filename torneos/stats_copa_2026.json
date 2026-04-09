@@ -2,7 +2,7 @@
   "meta": {
     "torneo": "copa_uruguaya_2026",
     "ultima_actualizacion": "2026-04-09T03:21:07.594Z",
-    "total_partidas": 12
+    "total_partidas": 11
   },
   "jugadores": {
     "733765577570779279": {
@@ -498,7 +498,15 @@
               "pg": 1,
               "pp": 0,
               "winrate": 100
-            },
+            }
+          }
+        },
+        "Armenians": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
             "CopaU_2026_Shorelines (Custom)": {
               "pj": 1,
               "pg": 0,
@@ -564,13 +572,21 @@
               "pg": 0,
               "pp": 1,
               "winrate": 0
-            },
-            "CopaU_2026_Shorelines (Custom)": {
-              "pj": 1,
-              "pg": 1,
-              "pp": 0,
-              "winrate": 100
             }
+          }
+        }
+      },
+      "Persians": {
+        "pj": 1,
+        "pg": 0,
+        "pp": 1,
+        "winrate": 0,
+        "por_mapa": {
+          "CopaU_2026_Shorelines (Custom)": {
+            "pj": 1,
+            "pg": 1,
+            "pp": 0,
+            "winrate": 100
           }
         },
         "Magyars": {
