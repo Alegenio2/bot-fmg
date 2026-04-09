@@ -562,10 +562,10 @@
       },
       "civs": {
         "Bulgarians": {
-          "pj": 2,
-          "pg": 1,
+          "pj": 1,
+          "pg": ,
           "pp": 1,
-          "winrate": 50,
+          "winrate": 0,
           "por_mapa": {
             "CopaU_2026_Dry River (Custom)": {
               "pj": 1,
@@ -577,9 +577,9 @@
         },
         "Persians": {
           "pj": 1,
-          "pg": 0,
-          "pp": 1,
-          "winrate": 0,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
           "por_mapa": {
             "CopaU_2026_Shorelines (Custom)": {
               "pj": 1,
