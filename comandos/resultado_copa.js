@@ -9,6 +9,7 @@ const { obtenerUsuario }              = require('../utils/asociar');
 const { buscarEstadisticasEncuentro } = require('../utils/aoe2stats');
 const { acumularStats }               = require('../utils/statsEngine');
 const { publicarStatsEncuentro }      = require('../utils/publicarStatsEncuentro');
+const { obtenerEstadisticasCopa } = require('../utils/calculoTablaCopa');
 
 function asegurarHttps(url) {
   if (!url) return null;
@@ -127,6 +128,12 @@ module.exports = {
 
           // 4. Subir todo a GitHub (incluye stats_copa_2026.json)
           await subirTodosLosTorneos();
+
+          // DISPARAR RECÁLCULO DE TABLA
+console.log("🔄 Recalculando tabla de posiciones para la API...");
+await obtenerEstadisticasCopa();
+
+await interaction.editReply({ content: `✅ Resultado registrado y tabla actualizada.` });
 
         // 5. Publicar tabla de posiciones 
 // SE COMENTA PARA EVITAR SPOILERS EN DISCORD
