@@ -737,7 +737,14 @@
               "jugador1Nick": "kakaidolo",
               "jugador2Id": "481154599881932811",
               "jugador2Nick": "|FMG| Lautreamont",
-              "resultado": null,
+              "resultado": {
+                "662427737138528308": 2,
+                "481154599881932811": 0,
+                "mapas": "https://aoe2cm.net/draft/GOfPr",
+                "civs": "https://aoe2cm.net/draft/ToyGr",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1491948208752951497/kakaidolo_vs_Lautreamont.zip?ex=69d98c8c&is=69d83b0c&hm=884e61440e0e353c421276351f4a10f509465682392e84314de871942c5421d3&",
+                "fecha_registro": "2026-04-09T23:49:32.843Z"
+              },
               "fecha": "09-04-2026",
               "horario": "20:00",
               "diaSemana": "Jueves",
