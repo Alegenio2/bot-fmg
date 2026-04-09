@@ -2,212 +2,84 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8"/>
-<title>Overlay Copa Uruguaya 2026</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<title>Ticker Copa Uruguaya 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet"/>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{width:1920px;height:1080px;background:transparent;overflow:hidden;font-family:'Inter',sans-serif}
-
-#ticker-container {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100px;
-  background: linear-gradient(to top, rgba(8, 5, 2, 0.95) 0%, rgba(8, 5, 2, 0.4) 100%);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-
-.ticker-label {
-  font-family: 'Cinzel', serif;
-  font-size: 10px;
-  color: #806040;
-  letter-spacing: 3px;
-  padding: 6px 20px 2px;
-}
-
-.ticker-track {
-  display: flex;
-  gap: 20px;
-  padding: 0 20px 10px;
-  align-items: center;
-}
-
-.ticker-track.animate {
-  animation: scroll 120s linear infinite;
-}
-
-@keyframes scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-/* Tarjetas */
-.ticker-card {
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: rgba(232, 200, 122, 0.08);
-  border: 0.5px solid rgba(232, 200, 122, 0.2);
-  border-radius: 6px;
-  padding: 8px 15px;
-}
-
-.ticker-nick { font-family: 'Cinzel', serif; font-size: 14px; color: #fff; }
-.ticker-score { display: flex; gap: 8px; font-family: 'Cinzel', serif; font-size: 20px; font-weight: 700; color: #e8c87a; }
-.win { color: #4ade80; }
-.lose { color: #f87171; }
-
-/* Coordinados con hora 15px */
-.ticker-time-badge {
-  font-size: 15px; /* Según tu pedido */
-  color: #5090b0;
-  font-weight: 600;
-  background: rgba(80, 144, 176, 0.1);
-  padding: 2px 8px;
-  border-radius: 4px;
-}
-
-/* Mini Tablas de Grupos en el Ticker */
-.mini-group-table {
-  flex-shrink: 0;
-  border: 1px solid rgba(232, 200, 122, 0.3);
-  background: rgba(0,0,0,0.4);
-  font-size: 11px;
-  color: #fff;
-  border-collapse: collapse;
-}
-.mini-group-table th { background: #e8c87a; color: #000; padding: 2px 8px; font-family: 'Cinzel'; }
-.mini-group-table td { padding: 2px 8px; border-bottom: 0.5px solid rgba(255,255,255,0.1); }
-
-.section-tag {
-  color: #e8c87a;
-  font-family: 'Cinzel';
-  font-size: 12px;
-  border-left: 2px solid #e8c87a;
-  padding-left: 10px;
-  white-space: nowrap;
-}
-
-#status-indicator {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  font-size: 12px;
-  color: #f87171;
-  background: rgba(0,0,0,0.7);
-  padding: 5px 10px;
-  border-radius: 4px;
-  font-family: monospace;
-}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{width:1920px;height:1080px;background:transparent;overflow:hidden;font-family:'Inter',sans-serif}
+  #ticker-container {
+    position: absolute;
+    bottom: 0; left: 0; right: 0; height: 100px;
+    background: linear-gradient(to top, rgba(8,5,2,0.95), rgba(8,5,2,0.6));
+    display: flex; flex-direction: column; overflow: hidden;
+    border-top: 2px solid #e8c87a;
+  }
+  .ticker-track { display: flex; gap: 40px; align-items: center; padding: 10px 20px; white-space: nowrap; }
+  .animate { animation: scroll 180s linear infinite; }
+  @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+  
+  .section-tag { color: #e8c87a; font-family: 'Cinzel'; font-weight: 700; border-left: 3px solid #e8c87a; padding-left: 10px; margin-right: 10px; }
+  .ticker-card { flex-shrink: 0; display: flex; align-items: center; gap: 15px; background: rgba(232,200,122,0.1); padding: 10px 20px; border-radius: 8px; border: 1px solid rgba(232,200,122,0.2); }
+  .ticker-nick { font-family: 'Cinzel'; color: #fff; font-size: 16px; }
+  .ticker-score { font-size: 24px; font-weight: 900; color: #e8c87a; }
+  .ticker-time { font-size: 15px; color: #5090b0; font-weight: 700; background: rgba(80,144,176,0.1); padding: 4px 8px; border-radius: 4px; }
+  #status { position: absolute; top: 20px; right: 20px; background: rgba(255,0,0,0.7); color: #fff; padding: 5px 10px; font-size: 12px; border-radius: 4px; font-family: monospace; }
 </style>
 </head>
 <body>
-
-
-
+<div id="status">CARGANDO...</div>
 <div id="ticker-container">
-  <div class="ticker-label">COPA URUGUAYA 2026 — TRANSMISIÓN OFICIAL</div>
-  <div class="ticker-track" id="ticker-track"></div>
+  <div class="ticker-track" id="track"></div>
 </div>
 
 <script>
-let isLocked = false;
+let locked = false;
 
-async function loadTickerData() {
-  if (isLocked) return;
-
+async function fetchData() {
+  if(locked) return;
   try {
-    const response = await fetch('https://aldeanooscar.squareweb.app/api/torneos/1v1_copa_uruguaya_2026');
-    const data = await response.json();
-    renderAll(data);
-    isLocked = true;
-    document.getElementById('status-indicator').innerText = "DATOS CONGELADOS (L para Refrescar)";
-  } catch (e) { console.error(e); }
+    const [resP, resT] = await Promise.all([
+      fetch('https://aldeanooscar.squareweb.app/api/torneos/1v1_copa_uruguaya_2026'),
+      fetch('https://aldeanooscar.squareweb.app/api/torneos/tabla_posiciones')
+    ]);
+    const partidos = await resP.json();
+    const tablas = await resT.json();
+    render(partidos, tablas);
+    locked = true;
+    document.getElementById('status').innerText = "CONGELADO (Pulsa L)";
+  } catch(e) { console.error(e); }
 }
 
-function renderAll(data) {
-  const track = document.getElementById('ticker-track');
-  let resultadosHTML = '<span class="section-tag">RESULTADOS</span>';
-  let proximosHTML = '<span class="section-tag">PRÓXIMOS PARTIDOS</span>';
-  let gruposHTML = '<span class="section-tag">POSICIONES</span>';
+function render(partidos, tablas) {
+  const track = document.getElementById('track');
+  let html = '<span class="section-tag">RESULTADOS</span>';
+  
+  // Procesar Partidos Coordinados (Ordenados por fecha)
+  const coord = [];
+  partidos.rondas_grupos.forEach(g => g.partidos.forEach(r => r.partidos.forEach(p => {
+    if(!p.resultado && p.fecha && p.horario) coord.push(p);
+  })));
+  coord.sort((a,b) => new Date(a.fecha+'T'+a.horario) - new Date(b.fecha+'T'+b.horario));
 
-  const resultados = [];
-  const coordinados = [];
+  // HTML Resultados y Próximos...
+  coord.forEach(p => {
+    html += `<div class="ticker-card"><span class="ticker-nick">${p.jugador1Nick}</span><span class="ticker-time">${p.diaSemana.substring(0,3)} ${p.horario}</span><span class="ticker-nick">${p.jugador2Nick}</span></div>`;
+  });
 
-  // Procesar Data
-  data.rondas_grupos.forEach(g => {
-    g.partidos.forEach(r => {
-      r.partidos.forEach(p => {
-        if (p.resultado) {
-          resultados.push({
-            p1: p.jugador1Nick, p2: p.jugador2Nick,
-            s1: p.resultado[p.jugador1Id], s2: p.resultado[p.jugador2Id]
-          });
-        } else if (p.fecha && p.horario) {
-          coordinados.push({
-            p1: p.jugador1Nick, p2: p.jugador2Nick,
-            fecha: p.fecha, hora: p.horario, dia: p.diaSemana
-          });
-        }
-      });
+  // SECCIÓN TABLAS (Lo más importante)
+  Object.entries(tablas).forEach(([grupo, jugadores]) => {
+    html += `<span class="section-tag">${grupo.toUpperCase()}</span>`;
+    jugadores.forEach(j => {
+      html += `<div class="ticker-card"><span class="ticker-nick">${j.nick}</span><span class="ticker-score">${j.pts} <small style="font-size:12px">PTS</small></span></div>`;
     });
-
-    // Crear mini tabla por cada grupo
-    gruposHTML += `
-      <table class="mini-group-table">
-        <thead><tr><th colspan="2">GRUPO ${g.grupo}</th></tr></thead>
-        <tbody>
-          ${(g.jugadores || []).map(j => `
-            <tr><td>${j.nick.substring(0,8)}</td><td style="color:#4ade80"><b>${j.puntos || 0}</b></td></tr>
-          `).join('')}
-        </tbody>
-      </table>`;
   });
 
-  // Ordenar coordinados por fecha y hora
-  coordinados.sort((a, b) => new Date(a.fecha + 'T' + a.hora) - new Date(b.fecha + 'T' + b.hora));
-
-  // Construir HTML Final
-  resultados.forEach(r => {
-    resultadosHTML += `
-      <div class="ticker-card">
-        <span class="ticker-nick">${r.p1}</span>
-        <div class="ticker-score">
-          <span class="${r.s1 > r.s2 ? 'win' : 'lose'}">${r.s1}</span>
-          <span style="color:#444">-</span>
-          <span class="${r.s2 > r.s1 ? 'win' : 'lose'}">${r.s2}</span>
-        </div>
-        <span class="ticker-nick">${r.p2}</span>
-      </div>`;
-  });
-
-  coordinados.forEach(c => {
-    proximosHTML += `
-      <div class="ticker-card">
-        <span class="ticker-nick">${c.p1}</span>
-        <div class="ticker-time-badge">${c.dia ? c.dia.substring(0,3) : ''} ${c.hora}</div>
-        <span class="ticker-nick">${c.p2}</span>
-      </div>`;
-  });
-
-  const finalContent = resultadosHTML + proximosHTML + gruposHTML;
-  track.innerHTML = finalContent + finalContent; // Duplicar para scroll infinito
+  track.innerHTML = html + html;
   track.classList.add('animate');
 }
 
-window.addEventListener('keydown', (e) => {
-  if (e.key.toLowerCase() === 'l') {
-    isLocked = false;
-    document.getElementById('status-indicator').innerText = "ACTUALIZANDO...";
-    loadTickerData();
-  }
-});
-
-loadTickerData();
+window.addEventListener('keydown', e => { if(e.key.toLowerCase() === 'l'){ locked = false; fetchData(); }});
+fetchData();
 </script>
 </body>
 </html>
