@@ -143,6 +143,16 @@ app.get('/api/stats', (req, res) => {
   res.json(JSON.parse(fs.readFileSync(p, 'utf-8')));
 });
 
+// ── Datos tabla posiciones (para overlays y dashboard AUA) ───────────────────────────────
+app.get('/api/torneos/tabla_posiciones', (req, res) => {
+  const filePath = path.join(__dirname, 'torneos', 'tabla_posiciones.json');
+  if (fs.existsSync(filePath)) {
+    res.sendFile(filePath);
+  } else {
+    res.status(404).json({ error: "Tabla no generada" });
+  }
+});
+
 // ── Datos de un torneo específico (para overlays) ───────────────────────────────
 app.get('/api/torneos/:archivo', (req, res) => {
   let archivo = req.params.archivo;
