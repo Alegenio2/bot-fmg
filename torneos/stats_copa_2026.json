@@ -574,19 +574,19 @@
               "winrate": 0
             }
           }
-        }
-      },
-      "Persians": {
-        "pj": 1,
-        "pg": 0,
-        "pp": 1,
-        "winrate": 0,
-        "por_mapa": {
-          "CopaU_2026_Shorelines (Custom)": {
-            "pj": 1,
-            "pg": 1,
-            "pp": 0,
-            "winrate": 100
+        },
+        "Persians": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "CopaU_2026_Shorelines (Custom)": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
           }
         },
         "Magyars": {
@@ -1430,11 +1430,13 @@
       "grupo": "H",
       "ronda": 3,
       "jugador1": {
+        "discordId": "135113382217908224",
         "nick": "Juasteint",
         "civ": "Armenians",
         "gano": false
       },
       "jugador2": {
+        "discordId": "408054148110614529",
         "nick": "Rodri",
         "civ": "Persians",
         "gano": true
