@@ -44,7 +44,7 @@ function httpGet(hostname, path, timeoutMs = 15000) {
   });
 }
 
-// ─── Fetch partidas — 1 solo request, perPage configurable ───────────────────
+// ─── Fetch partidas ──────────────────────────────────────────────────────────
 
 async function fetchPartidas(profileId, perPage = 300) {
   const path = `/api/matches?profile_ids=${profileId}&use_enums=true&page=1&per_page=${perPage}`;
@@ -52,7 +52,7 @@ async function fetchPartidas(profileId, perPage = 300) {
   return Array.isArray(data) ? data : (data.matches ?? []);
 }
 
-// ─── Filtro: 1v1 unranked entre dos jugadores en equipos distintos ────────────
+// ─── Filtro: 1v1 unranked ────────────────────────────────────────────────────
 
 function filtrarDuelos(matches, aoe2Id1, aoe2Id2) {
   const id1 = String(aoe2Id1);
@@ -88,13 +88,15 @@ function extraerPartida(match, aoe2Id1, aoe2Id2, discordId1 = null, discordId2 =
     }
   }
 
+  const duracionMinutos = match.finished && match.started
+    ? Math.round((new Date(match.finished) - new Date(match.started)) / 60000)
+    : 0;
+
   return {
     matchId:  match.matchId,
     fecha:    match.started ? new Date(match.started).toISOString() : null,
     mapa:     match.mapName ?? 'Desconocido',
-    duracion: match.finished && match.started
-      ? Math.round((new Date(match.finished) - new Date(match.started)) / 60000)
-      : null,
+    duracion: duracionMinutos,
     jugador1: {
       aoe2Id:    id1,
       discordId: discordId1,
@@ -130,46 +132,58 @@ async function buscarEstadisticasEncuentro(torneo, discordId1, discordId2, total
     return null;
   }
 
-  console.log(`🔍 [aoe2stats] Buscando partidas: ${nick1} (${aoe2Id1}) vs ${nick2} (${aoe2Id2})`);
-
   let matches;
   try {
     matches = await fetchPartidas(aoe2Id1);
-    console.log(`    → ${matches.length} partidas obtenidas`);
   } catch (e) {
-    console.error(`❌ [aoe2stats] Error fetching partidas: ${e.message}`);
+    console.error(`❌ [aoe2stats] Error: ${e.message}`);
     return null;
   }
 
   const duelos = filtrarDuelos(matches, aoe2Id1, aoe2Id2);
+  if (duelos.length === 0) return null;
 
-  if (duelos.length === 0) {
-    console.warn(`⚠️ [aoe2stats] No se encontraron duelos.`);
-    return null;
-  }
-
-  // --- NUEVA LÓGICA: Ordenar, filtrar restores y loguear ---
+  // 1. Ordenar por fecha (más reciente primero)
   duelos.sort((a, b) => new Date(b.started ?? 0) - new Date(a.started ?? 0));
 
-  const mapasVistos = new Set();
-  const duelosFiltrados = duelos.filter(m => {
-    const nombreMapa = m.mapName ?? 'Desconocido';
-    if (mapasVistos.has(nombreMapa)) {
-      // Registro en log de la partida descartada
-      const logPath = path.join(__dirname, 'restores.log');
-      const logMsg = `[${new Date().toLocaleString()}] RESTORE: Mapa ${nombreMapa} descartado (ID: ${m.matchId}) entre ${nick1} y ${nick2}\n`;
-      fs.appendFileSync(logPath, logMsg);
-      return false; 
-    }
-    mapasVistos.add(nombreMapa);
-    return true;
-  });
+  const duelosSinRestores = [];
+  for (let i = 0; i < duelos.length; i++) {
+    const actual = duelos[i];
+    
+    // --- FILTRO POR DURACIÓN (Mínimo 8 minutos) ---
+    const duracionSegundos = actual.finished && actual.started 
+      ? (new Date(actual.finished) - new Date(actual.started)) / 1000 
+      : 0;
 
-  const partidas = duelosFiltrados
+    if (duracionSegundos < 480) { // 8 minutos * 60 segundos
+      const logPath = path.join(__dirname, 'restores.log');
+      fs.appendFileSync(logPath, `[${new Date().toLocaleString()}] DESCARTADA (Corta): Match ${actual.matchId} duró ${Math.round(duracionSegundos)}s\n`);
+      continue; 
+    }
+
+    // --- FILTRO POR PROXIMIDAD (Detectar restores largos) ---
+    const siguiente = duelos[i + 1];
+    if (siguiente && actual.mapName === siguiente.mapName) {
+      const diffHoras = Math.abs(new Date(actual.started) - new Date(siguiente.started)) / (1000 * 60 * 60);
+      
+      if (diffHoras < 1.5) {
+        const logPath = path.join(__dirname, 'restores.log');
+        fs.appendFileSync(logPath, `[${new Date().toLocaleString()}] RESTORE DETECTADO: Se conserva ${actual.matchId} y se ignora ${siguiente.matchId}\n`);
+        
+        duelosSinRestores.push(actual);
+        i++; // Saltar el siguiente duelo (el restore)
+        continue;
+      }
+    }
+    duelosSinRestores.push(actual);
+  }
+
+  // 3. Tomar la cantidad de partidas que indica el resultado
+  const partidas = duelosSinRestores
     .slice(0, totalPartidas)
     .map(m => extraerPartida(m, aoe2Id1, aoe2Id2, discordId1, discordId2));
-  // -------------------------------------------------------
 
+  // Procesar acumulados (Civs y Mapas)
   const civs1 = {}, civs2 = {}, mapas = {};
   let victorias1 = 0, victorias2 = 0;
 
@@ -192,8 +206,8 @@ async function buscarEstadisticasEncuentro(torneo, discordId1, discordId2, total
   }
 
   return {
-    jugador1:   { discordId: discordId1, aoe2Id: aoe2Id1, nick: nick1, victorias: victorias1, civs: civs1 },
-    jugador2:   { discordId: discordId2, aoe2Id: aoe2Id2, nick: nick2, victorias: victorias2, civs: civs2 },
+    jugador1: { discordId: discordId1, aoe2Id: aoe2Id1, nick: nick1, victorias: victorias1, civs: civs1 },
+    jugador2: { discordId: discordId2, aoe2Id: aoe2Id2, nick: nick2, victorias: victorias2, civs: civs2 },
     mapas,
     partidas,
   };
