@@ -363,7 +363,14 @@
               "jugador1Nick": "DGHIR | Lionerrt",
               "jugador2Id": "697973693157998712",
               "jugador2Nick": "DGHIR | SamuraiNinja08",
-              "resultado": null,
+              "resultado": {
+                "277256502023290881": 2,
+                "697973693157998712": 0,
+                "mapas": "https://aoe2cm.net/draft/rpzzs",
+                "civs": "https://aoe2cm.net/draft/aIRKF",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1491634195255267419/Lionerrt_vs_Samuraininja.zip?ex=69d86819&is=69d71699&hm=21f768ed1269663e32e551be6895a92bc06a33c54ba09f400f3d1d9cb1948ba2&",
+                "fecha_registro": "2026-04-09T03:01:45.988Z"
+              },
               "fecha": "08-04-2026",
               "horario": "22:30",
               "diaSemana": "Miércoles",
