@@ -801,7 +801,11 @@
               "jugador1Nick": "-FMG- Rodri",
               "jugador2Id": "135113382217908224",
               "jugador2Nick": "URU | Juasteint",
-              "resultado": null
+              "resultado": null,
+              "fecha": "08/04/2026",
+              "horario": "22:45",
+              "diaSemana": "Miércoles",
+              "coordinadoPor": "juasteint"
             },
             {
               "jugador1Id": "582941701518262412",
