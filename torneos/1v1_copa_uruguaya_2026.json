@@ -791,7 +791,11 @@
               "jugador1Nick": "-FMG- Rodri",
               "jugador2Id": "465307831583637514",
               "jugador2Nick": "|FMG| ROGELIO III",
-              "resultado": null
+              "resultado": null,
+              "fecha": "11-04-2026",
+              "horario": "11:00",
+              "diaSemana": "Sábado",
+              "coordinadoPor": "ignatiusj.reilly"
             },
             {
               "jugador1Id": "135113382217908224",
