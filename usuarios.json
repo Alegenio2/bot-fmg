@@ -822,5 +822,18 @@
     "clan": null,
     "elomax": 902,
     "ultimapartida": "2026-03-08T06:38:52.000Z"
+  },
+  "208024819017580544": {
+    "profileId": "2304739",
+    "nombre": "|FMG| TINCHO",
+    "elo": 1813,
+    "rank": 1222,
+    "wins": 162,
+    "losses": 104,
+    "pais": "🇺🇾",
+    "country": "uy",
+    "clan": "FUMAG",
+    "elomax": 1880,
+    "ultimapartida": "2026-03-30T02:08:25.000Z"
   }
 }
