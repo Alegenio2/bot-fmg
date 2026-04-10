@@ -133,7 +133,7 @@ module.exports = {
 console.log("🔄 Recalculando tabla de posiciones para la API...");
 await obtenerEstadisticasCopa();
 
-await interaction.editReply({ content: `✅ Resultado registrado y tabla actualizada.` });
+//await interaction.editReply({ content: `✅ Resultado registrado y tabla actualizada.` });
 
         // 5. Publicar tabla de posiciones 
 // SE COMENTA PARA EVITAR SPOILERS EN DISCORD
