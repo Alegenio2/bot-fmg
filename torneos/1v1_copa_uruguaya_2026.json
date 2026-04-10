@@ -572,7 +572,11 @@
               "jugador1Nick": "DGHIR | Garezo",
               "jugador2Id": "852387609916211270",
               "jugador2Nick": "Zakk El Rabdomante",
-              "resultado": null
+              "resultado": null,
+              "fecha": "10-04-2026",
+              "horario": "19:30",
+              "diaSemana": "Viernes",
+              "coordinadoPor": "garezo"
             },
             {
               "jugador1Id": "724668688145580062",
