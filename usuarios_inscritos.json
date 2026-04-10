@@ -382,5 +382,17 @@
     "perfil": "https://www.aoe2companion.com/players/231568",
     "logo": null,
     "fecha": "2026-03-29T21:59:32.739Z"
+  },
+  {
+    "id": "442189398667296788",
+    "torneo": "copa_uruguaya_2026",
+    "modo": "1v1",
+    "nombre": "|FMG|DavidTG",
+    "elo_actual": 1336,
+    "elo_max": 1467,
+    "promedio_elo": 1402,
+    "perfil": "https://www.aoe2companion.com/players/4465309",
+    "logo": null,
+    "fecha": "2026-04-10T15:56:32.431Z"
   }
 ]
