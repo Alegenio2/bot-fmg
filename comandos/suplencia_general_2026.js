@@ -28,7 +28,7 @@ module.exports = {
 
         if (!datosSuplente) return interaction.editReply("❌ El suplente no está inscripto.");
 
-        const rutaTorneo = path.join(__dirname, '../data/1v1_copa_uruguaya_2026.json');
+        const rutaTorneo = path.join(__dirname, '../torneos/1v1_copa_uruguaya_2026.json');
         let torneo = JSON.parse(fs.readFileSync(rutaTorneo, 'utf8'));
 
         const idAoe2 = datosSuplente.perfil.match(/\d+$/)?.[0];
