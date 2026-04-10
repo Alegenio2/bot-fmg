@@ -149,11 +149,11 @@
           "idaoe2": "15605540"
         },
         {
-          "id": "724668688145580062",
-          "nick": "|FMG| Gral_Artigas",
-          "elo": 1500,
-          "elo_real": 1498,
-          "idaoe2": "2899006"
+          "id": "442189398667296788",
+          "nick": "|FMG|DavidTG",
+          "elo": 1400,
+          "elo_real": 1336,
+          "idaoe2": "4465309"
         },
         {
           "id": "264781067506941962",
@@ -579,8 +579,8 @@
               "coordinadoPor": "garezo"
             },
             {
-              "jugador1Id": "724668688145580062",
-              "jugador1Nick": "|FMG| Gral_Artigas",
+              "jugador1Id": "442189398667296788",
+              "jugador1Nick": "|FMG|DavidTG",
               "jugador2Id": "264781067506941962",
               "jugador2Nick": "|FMG| doomjota",
               "resultado": null
@@ -600,8 +600,8 @@
             {
               "jugador1Id": "852387609916211270",
               "jugador1Nick": "Zakk El Rabdomante",
-              "jugador2Id": "724668688145580062",
-              "jugador2Nick": "|FMG| Gral_Artigas",
+              "jugador2Id": "442189398667296788",
+              "jugador2Nick": "|FMG|DavidTG",
               "resultado": null
             }
           ]
@@ -612,8 +612,8 @@
             {
               "jugador1Id": "244547091362217984",
               "jugador1Nick": "DGHIR | Garezo",
-              "jugador2Id": "724668688145580062",
-              "jugador2Nick": "|FMG| Gral_Artigas",
+              "jugador2Id": "442189398667296788",
+              "jugador2Nick": "|FMG|DavidTG",
               "resultado": null
             },
             {
