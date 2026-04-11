@@ -1,8 +1,8 @@
 {
   "meta": {
     "torneo": "copa_uruguaya_2026",
-    "ultima_actualizacion": "2026-04-10T04:52:27.106Z",
-    "total_partidas": 16
+    "ultima_actualizacion": "2026-04-11T00:59:07.529Z",
+    "total_partidas": 19
   },
   "jugadores": {
     "733765577570779279": {
@@ -790,16 +790,166 @@
           "winrate": 100
         }
       }
+    },
+    "244547091362217984": {
+      "nick": "DGHIR | Garezo",
+      "aoe2Id": "15605540",
+      "global": {
+        "pj": 3,
+        "pg": 2,
+        "pp": 1,
+        "winrate": 66.7
+      },
+      "civs": {
+        "Khitans": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "Hideout": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        },
+        "Bohemians": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "Nomad": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        },
+        "Japanese": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "CopaU_2026_Dry River (Custom)": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        }
+      },
+      "mapas": {
+        "Hideout": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        },
+        "Nomad": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        },
+        "CopaU_2026_Dry River (Custom)": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        }
+      }
+    },
+    "852387609916211270": {
+      "nick": "Zakk El Rabdomante",
+      "aoe2Id": "1825664",
+      "global": {
+        "pj": 3,
+        "pg": 1,
+        "pp": 2,
+        "winrate": 33.3
+      },
+      "civs": {
+        "Italians": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "Hideout": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        },
+        "Vikings": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "Nomad": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        },
+        "Britons": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "CopaU_2026_Dry River (Custom)": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        }
+      },
+      "mapas": {
+        "Hideout": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        },
+        "Nomad": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        },
+        "CopaU_2026_Dry River (Custom)": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        }
+      }
     }
   },
   "mapas": {
     "Nomad": {
-      "total_partidas": 1,
+      "total_partidas": 2,
       "civs_ganadoras": {
-        "Berbers": 1
+        "Berbers": 1,
+        "Vikings": 1
       },
       "civs_perdedoras": {
-        "Franks": 1
+        "Franks": 1,
+        "Bohemians": 1
       },
       "enfrentamientos": {
         "Berbers_vs_Franks": {
@@ -807,6 +957,12 @@
           "gano_primero": 1,
           "civ_a": "Berbers",
           "civ_b": "Franks"
+        },
+        "Bohemians_vs_Vikings": {
+          "total": 1,
+          "gano_primero": 0,
+          "civ_a": "Bohemians",
+          "civ_b": "Vikings"
         }
       }
     },
@@ -887,12 +1043,13 @@
       }
     },
     "Hideout": {
-      "total_partidas": 1,
+      "total_partidas": 2,
       "civs_ganadoras": {
-        "Bohemians": 1
+        "Bohemians": 1,
+        "Khitans": 1
       },
       "civs_perdedoras": {
-        "Italians": 1
+        "Italians": 2
       },
       "enfrentamientos": {
         "Bohemians_vs_Italians": {
@@ -900,6 +1057,12 @@
           "gano_primero": 1,
           "civ_a": "Bohemians",
           "civ_b": "Italians"
+        },
+        "Italians_vs_Khitans": {
+          "total": 1,
+          "gano_primero": 0,
+          "civ_a": "Italians",
+          "civ_b": "Khitans"
         }
       }
     },
@@ -945,18 +1108,25 @@
       }
     },
     "CopaU_2026_Dry River (Custom)": {
-      "total_partidas": 1,
+      "total_partidas": 2,
       "civs_ganadoras": {
-        "Japanese": 1
+        "Japanese": 2
       },
       "civs_perdedoras": {
-        "Bulgarians": 1
+        "Bulgarians": 1,
+        "Britons": 1
       },
       "enfrentamientos": {
         "Bulgarians_vs_Japanese": {
           "total": 1,
           "gano_primero": 0,
           "civ_a": "Bulgarians",
+          "civ_b": "Japanese"
+        },
+        "Britons_vs_Japanese": {
+          "total": 1,
+          "gano_primero": 0,
+          "civ_a": "Britons",
           "civ_b": "Japanese"
         }
       }
@@ -1069,8 +1239,8 @@
       }
     },
     "Japanese": {
-      "total_jugadas": 3,
-      "total_ganadas": 3,
+      "total_jugadas": 4,
+      "total_ganadas": 4,
       "winrate": 100,
       "por_mapa": {
         "CopaU_2026_High Tides v3 (Custom)": {
@@ -1084,8 +1254,8 @@
           "winrate": 100
         },
         "CopaU_2026_Dry River (Custom)": {
-          "jugadas": 1,
-          "ganadas": 1,
+          "jugadas": 2,
+          "ganadas": 2,
           "winrate": 100
         }
       },
@@ -1101,6 +1271,11 @@
           "winrate": 100
         },
         "Bulgarians": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        },
+        "Britons": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
@@ -1175,11 +1350,16 @@
       }
     },
     "Khitans": {
-      "total_jugadas": 1,
-      "total_ganadas": 1,
+      "total_jugadas": 2,
+      "total_ganadas": 2,
       "winrate": 100,
       "por_mapa": {
         "Arabia": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        },
+        "Hideout": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
@@ -1187,6 +1367,11 @@
       },
       "vs_civs": {
         "Mongols": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        },
+        "Italians": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
@@ -1242,14 +1427,19 @@
       }
     },
     "Bohemians": {
-      "total_jugadas": 1,
+      "total_jugadas": 2,
       "total_ganadas": 1,
-      "winrate": 100,
+      "winrate": 50,
       "por_mapa": {
         "Hideout": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "Nomad": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       },
       "vs_civs": {
@@ -1257,16 +1447,21 @@
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "Vikings": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       }
     },
     "Italians": {
-      "total_jugadas": 2,
+      "total_jugadas": 3,
       "total_ganadas": 1,
-      "winrate": 50,
+      "winrate": 33.3,
       "por_mapa": {
         "Hideout": {
-          "jugadas": 1,
+          "jugadas": 2,
           "ganadas": 0,
           "winrate": 0
         },
@@ -1286,6 +1481,11 @@
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "Khitans": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       }
     },
@@ -1372,14 +1572,19 @@
       }
     },
     "Vikings": {
-      "total_jugadas": 1,
-      "total_ganadas": 0,
-      "winrate": 0,
+      "total_jugadas": 2,
+      "total_ganadas": 1,
+      "winrate": 50,
       "por_mapa": {
         "CopaU_2026_High Tides v3 (Custom)": {
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "Nomad": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       },
       "vs_civs": {
@@ -1387,6 +1592,11 @@
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "Bohemians": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       }
     },
@@ -1546,6 +1756,25 @@
       },
       "vs_civs": {
         "Malay": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        }
+      }
+    },
+    "Britons": {
+      "total_jugadas": 1,
+      "total_ganadas": 0,
+      "winrate": 0,
+      "por_mapa": {
+        "CopaU_2026_Dry River (Custom)": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        }
+      },
+      "vs_civs": {
+        "Japanese": {
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
@@ -1869,6 +2098,66 @@
         "discordId": "481154599881932811",
         "nick": "|FMG| Lautreamont",
         "civ": "Spanish",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 469451097,
+      "fecha": "2026-04-11T00:09:21.000Z",
+      "mapa": "Hideout",
+      "duracion": 34,
+      "grupo": "E",
+      "ronda": 1,
+      "jugador1": {
+        "discordId": "244547091362217984",
+        "nick": "DGHIR | Garezo",
+        "civ": "Khitans",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "852387609916211270",
+        "nick": "Zakk El Rabdomante",
+        "civ": "Italians",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 469444891,
+      "fecha": "2026-04-10T23:32:31.000Z",
+      "mapa": "Nomad",
+      "duracion": 33,
+      "grupo": "E",
+      "ronda": 1,
+      "jugador1": {
+        "discordId": "244547091362217984",
+        "nick": "DGHIR | Garezo",
+        "civ": "Bohemians",
+        "gano": false
+      },
+      "jugador2": {
+        "discordId": "852387609916211270",
+        "nick": "Zakk El Rabdomante",
+        "civ": "Vikings",
+        "gano": true
+      }
+    },
+    {
+      "matchId": 469440285,
+      "fecha": "2026-04-10T23:12:29.000Z",
+      "mapa": "CopaU_2026_Dry River (Custom)",
+      "duracion": 18,
+      "grupo": "E",
+      "ronda": 1,
+      "jugador1": {
+        "discordId": "244547091362217984",
+        "nick": "DGHIR | Garezo",
+        "civ": "Japanese",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "852387609916211270",
+        "nick": "Zakk El Rabdomante",
+        "civ": "Britons",
         "gano": false
       }
     }
