@@ -802,7 +802,14 @@
               "jugador1Nick": "-FMG- Rodri",
               "jugador2Id": "465307831583637514",
               "jugador2Nick": "|FMG| ROGELIO III",
-              "resultado": null,
+              "resultado": {
+                "465307831583637514": 0,
+                "408054148110614529": 2,
+                "mapas": "https://aoe2cm.net/draft/Tvrfi",
+                "civs": "https://aoe2cm.net/draft/qXuGn",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1492544184333111357/partidas_rogeliovsrodri.zip?ex=69dbb797&is=69da6617&hm=022d5dd314572b68f52554270991097d903d44c312c9504c0ae191d170b383cb&",
+                "fecha_registro": "2026-04-11T15:17:44.956Z"
+              },
               "fecha": "11-04-2026",
               "horario": "11:00",
               "diaSemana": "Sábado",
