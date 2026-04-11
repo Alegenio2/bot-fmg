@@ -572,7 +572,14 @@
               "jugador1Nick": "DGHIR | Garezo",
               "jugador2Id": "852387609916211270",
               "jugador2Nick": "Zakk El Rabdomante",
-              "resultado": null,
+              "resultado": {
+                "244547091362217984": 2,
+                "852387609916211270": 1,
+                "mapas": "https://aoe2cm.net/draft/YzpxG",
+                "civs": "https://aoe2cm.net/draft/hJIyf",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1492328095787515954/Copa_Uruguaya_-_Garezo_vs_Zakk_el_Rabdomante.rar?ex=69daee58&is=69d99cd8&hm=81147729de97a553bfb33c016e74e7d1dd57d13f7a8c0b76c76b673ac23bdbc0&",
+                "fecha_registro": "2026-04-11T00:59:05.735Z"
+              },
               "fecha": "10-04-2026",
               "horario": "20:00",
               "diaSemana": "Viernes",
