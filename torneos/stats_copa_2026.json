@@ -1,8 +1,8 @@
 {
   "meta": {
     "torneo": "copa_uruguaya_2026",
-    "ultima_actualizacion": "2026-04-11T00:59:07.529Z",
-    "total_partidas": 19
+    "ultima_actualizacion": "2026-04-11T15:17:46.132Z",
+    "total_partidas": 21
   },
   "jugadores": {
     "733765577570779279": {
@@ -587,10 +587,10 @@
       "nick": "-FMG- Rodri",
       "aoe2Id": "3147129",
       "global": {
-        "pj": 3,
-        "pg": 1,
+        "pj": 5,
+        "pg": 3,
         "pp": 2,
-        "winrate": 33.3
+        "winrate": 60
       },
       "civs": {
         "Bulgarians": {
@@ -626,14 +626,42 @@
               "winrate": 0
             }
           }
+        },
+        "Vietnamese": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "Arabia": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        },
+        "Japanese": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "CopaU_2026_Dry River (Custom)": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
         }
       },
       "mapas": {
         "CopaU_2026_Dry River (Custom)": {
-          "pj": 1,
-          "pg": 0,
+          "pj": 2,
+          "pg": 1,
           "pp": 1,
-          "winrate": 0
+          "winrate": 50
         },
         "CopaU_2026_Shorelines (Custom)": {
           "pj": 1,
@@ -646,6 +674,12 @@
           "pg": 0,
           "pp": 1,
           "winrate": 0
+        },
+        "Arabia": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
         }
       }
     },
@@ -938,6 +972,60 @@
           "winrate": 0
         }
       }
+    },
+    "465307831583637514": {
+      "nick": "|FMG| ROGELIO III",
+      "aoe2Id": "19032038",
+      "global": {
+        "pj": 2,
+        "pg": 0,
+        "pp": 2,
+        "winrate": 0
+      },
+      "civs": {
+        "Ethiopians": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "Arabia": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        },
+        "Japanese": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "CopaU_2026_Dry River (Custom)": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        }
+      },
+      "mapas": {
+        "Arabia": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        },
+        "CopaU_2026_Dry River (Custom)": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        }
+      }
     }
   },
   "mapas": {
@@ -1009,12 +1097,14 @@
       }
     },
     "Arabia": {
-      "total_partidas": 1,
+      "total_partidas": 2,
       "civs_ganadoras": {
-        "Khitans": 1
+        "Khitans": 1,
+        "Vietnamese": 1
       },
       "civs_perdedoras": {
-        "Mongols": 1
+        "Mongols": 1,
+        "Ethiopians": 1
       },
       "enfrentamientos": {
         "Khitans_vs_Mongols": {
@@ -1022,6 +1112,12 @@
           "gano_primero": 1,
           "civ_a": "Khitans",
           "civ_b": "Mongols"
+        },
+        "Ethiopians_vs_Vietnamese": {
+          "total": 1,
+          "gano_primero": 0,
+          "civ_a": "Ethiopians",
+          "civ_b": "Vietnamese"
         }
       }
     },
@@ -1108,13 +1204,14 @@
       }
     },
     "CopaU_2026_Dry River (Custom)": {
-      "total_partidas": 2,
+      "total_partidas": 3,
       "civs_ganadoras": {
-        "Japanese": 2
+        "Japanese": 3
       },
       "civs_perdedoras": {
         "Bulgarians": 1,
-        "Britons": 1
+        "Britons": 1,
+        "Japanese": 1
       },
       "enfrentamientos": {
         "Bulgarians_vs_Japanese": {
@@ -1127,6 +1224,12 @@
           "total": 1,
           "gano_primero": 0,
           "civ_a": "Britons",
+          "civ_b": "Japanese"
+        },
+        "Japanese_vs_Japanese": {
+          "total": 1,
+          "gano_primero": 1,
+          "civ_a": "Japanese",
           "civ_b": "Japanese"
         }
       }
@@ -1239,9 +1342,9 @@
       }
     },
     "Japanese": {
-      "total_jugadas": 4,
-      "total_ganadas": 4,
-      "winrate": 100,
+      "total_jugadas": 6,
+      "total_ganadas": 5,
+      "winrate": 83.3,
       "por_mapa": {
         "CopaU_2026_High Tides v3 (Custom)": {
           "jugadas": 1,
@@ -1254,9 +1357,9 @@
           "winrate": 100
         },
         "CopaU_2026_Dry River (Custom)": {
-          "jugadas": 2,
-          "ganadas": 2,
-          "winrate": 100
+          "jugadas": 4,
+          "ganadas": 3,
+          "winrate": 75
         }
       },
       "vs_civs": {
@@ -1279,6 +1382,11 @@
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "Japanese": {
+          "jugadas": 2,
+          "ganadas": 1,
+          "winrate": 50
         }
       }
     },
@@ -1706,11 +1814,16 @@
       }
     },
     "Vietnamese": {
-      "total_jugadas": 1,
-      "total_ganadas": 1,
+      "total_jugadas": 2,
+      "total_ganadas": 2,
       "winrate": 100,
       "por_mapa": {
         "Enclosed": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        },
+        "Arabia": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
@@ -1718,6 +1831,11 @@
       },
       "vs_civs": {
         "Shu": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        },
+        "Ethiopians": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
@@ -1775,6 +1893,25 @@
       },
       "vs_civs": {
         "Japanese": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        }
+      }
+    },
+    "Ethiopians": {
+      "total_jugadas": 1,
+      "total_ganadas": 0,
+      "winrate": 0,
+      "por_mapa": {
+        "Arabia": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        }
+      },
+      "vs_civs": {
+        "Vietnamese": {
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
@@ -2159,6 +2296,46 @@
         "nick": "Zakk El Rabdomante",
         "civ": "Britons",
         "gano": false
+      }
+    },
+    {
+      "matchId": 469600986,
+      "fecha": "2026-04-11T14:36:20.000Z",
+      "mapa": "Arabia",
+      "duracion": 26,
+      "grupo": "H",
+      "ronda": 1,
+      "jugador1": {
+        "discordId": "465307831583637514",
+        "nick": "|FMG| ROGELIO III",
+        "civ": "Ethiopians",
+        "gano": false
+      },
+      "jugador2": {
+        "discordId": "408054148110614529",
+        "nick": "-FMG- Rodri",
+        "civ": "Vietnamese",
+        "gano": true
+      }
+    },
+    {
+      "matchId": 469595796,
+      "fecha": "2026-04-11T14:18:08.000Z",
+      "mapa": "CopaU_2026_Dry River (Custom)",
+      "duracion": 15,
+      "grupo": "H",
+      "ronda": 1,
+      "jugador1": {
+        "discordId": "465307831583637514",
+        "nick": "|FMG| ROGELIO III",
+        "civ": "Japanese",
+        "gano": false
+      },
+      "jugador2": {
+        "discordId": "408054148110614529",
+        "nick": "-FMG- Rodri",
+        "civ": "Japanese",
+        "gano": true
       }
     }
   ]
