@@ -1,8 +1,8 @@
 {
   "meta": {
     "torneo": "copa_uruguaya_2026",
-    "ultima_actualizacion": "2026-04-12T03:38:53.803Z",
-    "total_partidas": 23
+    "ultima_actualizacion": "2026-04-12T20:06:40.021Z",
+    "total_partidas": 25
   },
   "jugadores": {
     "733765577570779279": {
@@ -1134,6 +1134,114 @@
           "winrate": 0
         }
       }
+    },
+    "382688182002515978": {
+      "nick": "VL Karistho",
+      "aoe2Id": "2175073",
+      "global": {
+        "pj": 2,
+        "pg": 2,
+        "pp": 0,
+        "winrate": 100
+      },
+      "civs": {
+        "Portuguese": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "CopaU_2026_Comeer (Custom)": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        },
+        "Japanese": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "CopaU_2026_African River v3 (Custom)": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        }
+      },
+      "mapas": {
+        "CopaU_2026_Comeer (Custom)": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        },
+        "CopaU_2026_African River v3 (Custom)": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        }
+      }
+    },
+    "485610092092456975": {
+      "nick": "Kroyen",
+      "aoe2Id": "828458",
+      "global": {
+        "pj": 2,
+        "pg": 0,
+        "pp": 2,
+        "winrate": 0
+      },
+      "civs": {
+        "Lithuanians": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "CopaU_2026_Comeer (Custom)": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        },
+        "Mongols": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "CopaU_2026_African River v3 (Custom)": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        }
+      },
+      "mapas": {
+        "CopaU_2026_Comeer (Custom)": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        },
+        "CopaU_2026_African River v3 (Custom)": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        }
+      }
     }
   },
   "mapas": {
@@ -1238,12 +1346,13 @@
       }
     },
     "CopaU_2026_African River v3 (Custom)": {
-      "total_partidas": 1,
+      "total_partidas": 2,
       "civs_ganadoras": {
-        "Japanese": 1
+        "Japanese": 2
       },
       "civs_perdedoras": {
-        "Magyars": 1
+        "Magyars": 1,
+        "Mongols": 1
       },
       "enfrentamientos": {
         "Japanese_vs_Magyars": {
@@ -1251,6 +1360,12 @@
           "gano_primero": 1,
           "civ_a": "Japanese",
           "civ_b": "Magyars"
+        },
+        "Japanese_vs_Mongols": {
+          "total": 1,
+          "gano_primero": 1,
+          "civ_a": "Japanese",
+          "civ_b": "Mongols"
         }
       }
     },
@@ -1424,6 +1539,23 @@
           "civ_b": "Saracens"
         }
       }
+    },
+    "CopaU_2026_Comeer (Custom)": {
+      "total_partidas": 1,
+      "civs_ganadoras": {
+        "Portuguese": 1
+      },
+      "civs_perdedoras": {
+        "Lithuanians": 1
+      },
+      "enfrentamientos": {
+        "Lithuanians_vs_Portuguese": {
+          "total": 1,
+          "gano_primero": 0,
+          "civ_a": "Lithuanians",
+          "civ_b": "Portuguese"
+        }
+      }
     }
   },
   "civs": {
@@ -1476,9 +1608,9 @@
       }
     },
     "Japanese": {
-      "total_jugadas": 6,
-      "total_ganadas": 5,
-      "winrate": 83.3,
+      "total_jugadas": 7,
+      "total_ganadas": 6,
+      "winrate": 85.7,
       "por_mapa": {
         "CopaU_2026_High Tides v3 (Custom)": {
           "jugadas": 1,
@@ -1486,8 +1618,8 @@
           "winrate": 100
         },
         "CopaU_2026_African River v3 (Custom)": {
-          "jugadas": 1,
-          "ganadas": 1,
+          "jugadas": 2,
+          "ganadas": 2,
           "winrate": 100
         },
         "CopaU_2026_Dry River (Custom)": {
@@ -1521,6 +1653,11 @@
           "jugadas": 2,
           "ganadas": 1,
           "winrate": 50
+        },
+        "Mongols": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       }
     },
@@ -1554,11 +1691,16 @@
       }
     },
     "Portuguese": {
-      "total_jugadas": 1,
-      "total_ganadas": 1,
+      "total_jugadas": 2,
+      "total_ganadas": 2,
       "winrate": 100,
       "por_mapa": {
         "CopaU_2026_Slopes v2 (Custom)": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        },
+        "CopaU_2026_Comeer (Custom)": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
@@ -1566,6 +1708,11 @@
       },
       "vs_civs": {
         "Tatars": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        },
+        "Lithuanians": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
@@ -1621,7 +1768,7 @@
       }
     },
     "Mongols": {
-      "total_jugadas": 1,
+      "total_jugadas": 2,
       "total_ganadas": 0,
       "winrate": 0,
       "por_mapa": {
@@ -1629,10 +1776,20 @@
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "CopaU_2026_African River v3 (Custom)": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       },
       "vs_civs": {
         "Khitans": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        },
+        "Japanese": {
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
@@ -2076,6 +2233,25 @@
       },
       "vs_civs": {
         "Vietnamese": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        }
+      }
+    },
+    "Lithuanians": {
+      "total_jugadas": 1,
+      "total_ganadas": 0,
+      "winrate": 0,
+      "por_mapa": {
+        "CopaU_2026_Comeer (Custom)": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        }
+      },
+      "vs_civs": {
+        "Portuguese": {
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
@@ -2539,6 +2715,46 @@
         "discordId": "831027477652570132",
         "nick": "[VL] Santiagoi1212",
         "civ": "Magyars",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 469983053,
+      "fecha": "2026-04-12T19:39:03.000Z",
+      "mapa": "CopaU_2026_Comeer (Custom)",
+      "duracion": 17,
+      "grupo": "D",
+      "ronda": 1,
+      "jugador1": {
+        "discordId": "382688182002515978",
+        "nick": "VL Karistho",
+        "civ": "Portuguese",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "485610092092456975",
+        "nick": "Kroyen",
+        "civ": "Lithuanians",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 469976112,
+      "fecha": "2026-04-12T19:17:45.000Z",
+      "mapa": "CopaU_2026_African River v3 (Custom)",
+      "duracion": 19,
+      "grupo": "D",
+      "ronda": 1,
+      "jugador1": {
+        "discordId": "382688182002515978",
+        "nick": "VL Karistho",
+        "civ": "Japanese",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "485610092092456975",
+        "nick": "Kroyen",
+        "civ": "Mongols",
         "gano": false
       }
     }
