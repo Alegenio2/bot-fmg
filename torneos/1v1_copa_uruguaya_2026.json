@@ -316,7 +316,11 @@
               "jugador1Nick": "[LOPDA] Shebby",
               "jugador2Id": "709904591453683766",
               "jugador2Nick": "buyanjavyn",
-              "resultado": null
+              "resultado": null,
+              "fecha": "12/4/2026",
+              "horario": "17:30",
+              "diaSemana": "Domingo",
+              "coordinadoPor": "buyanjavyn"
             }
           ]
         },
