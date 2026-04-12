@@ -520,7 +520,14 @@
               "jugador1Nick": "Kroyen",
               "jugador2Id": "382688182002515978",
               "jugador2Nick": "[VL] Karistho",
-              "resultado": null,
+              "resultado": {
+                "382688182002515978": 2,
+                "485610092092456975": 0,
+                "mapas": "https://aoe2cm.net/draft/byaQz",
+                "civs": "https://aoe2cm.net/draft/mgiBP",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1492979277153571006/Karistho_VS_Kroyen.rar?ex=69dd4ccd&is=69dbfb4d&hm=5d39aa3701fa899a94e91ea495259b2c2e653f902809419b4c8195053af2cc98&",
+                "fecha_registro": "2026-04-12T20:06:38.737Z"
+              },
               "fecha": "12-04-2026",
               "horario": "16:00",
               "diaSemana": "Domingo",
