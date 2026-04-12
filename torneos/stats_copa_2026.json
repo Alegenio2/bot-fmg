@@ -1,8 +1,8 @@
 {
   "meta": {
     "torneo": "copa_uruguaya_2026",
-    "ultima_actualizacion": "2026-04-11T15:17:46.132Z",
-    "total_partidas": 21
+    "ultima_actualizacion": "2026-04-12T03:38:53.803Z",
+    "total_partidas": 23
   },
   "jugadores": {
     "733765577570779279": {
@@ -1026,6 +1026,114 @@
           "winrate": 0
         }
       }
+    },
+    "238414625417330688": {
+      "nick": "FMG | Rxon",
+      "aoe2Id": "1780624",
+      "global": {
+        "pj": 2,
+        "pg": 2,
+        "pp": 0,
+        "winrate": 100
+      },
+      "civs": {
+        "Chinese": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "Arabia": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        },
+        "Italians": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "CopaU_2026_Shorelines (Custom)": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        }
+      },
+      "mapas": {
+        "Arabia": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        },
+        "CopaU_2026_Shorelines (Custom)": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        }
+      }
+    },
+    "831027477652570132": {
+      "nick": "[VL] Santiagoi1212",
+      "aoe2Id": "2249432",
+      "global": {
+        "pj": 2,
+        "pg": 0,
+        "pp": 2,
+        "winrate": 0
+      },
+      "civs": {
+        "Berbers": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "Arabia": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        },
+        "Magyars": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "CopaU_2026_Shorelines (Custom)": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        }
+      },
+      "mapas": {
+        "Arabia": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        },
+        "CopaU_2026_Shorelines (Custom)": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        }
+      }
     }
   },
   "mapas": {
@@ -1097,14 +1205,16 @@
       }
     },
     "Arabia": {
-      "total_partidas": 2,
+      "total_partidas": 3,
       "civs_ganadoras": {
         "Khitans": 1,
-        "Vietnamese": 1
+        "Vietnamese": 1,
+        "Chinese": 1
       },
       "civs_perdedoras": {
         "Mongols": 1,
-        "Ethiopians": 1
+        "Ethiopians": 1,
+        "Berbers": 1
       },
       "enfrentamientos": {
         "Khitans_vs_Mongols": {
@@ -1118,6 +1228,12 @@
           "gano_primero": 0,
           "civ_a": "Ethiopians",
           "civ_b": "Vietnamese"
+        },
+        "Berbers_vs_Chinese": {
+          "total": 1,
+          "gano_primero": 0,
+          "civ_a": "Berbers",
+          "civ_b": "Chinese"
         }
       }
     },
@@ -1163,13 +1279,15 @@
       }
     },
     "CopaU_2026_Shorelines (Custom)": {
-      "total_partidas": 2,
+      "total_partidas": 3,
       "civs_ganadoras": {
-        "Persians": 2
+        "Persians": 2,
+        "Italians": 1
       },
       "civs_perdedoras": {
         "Georgians": 1,
-        "Armenians": 1
+        "Armenians": 1,
+        "Magyars": 1
       },
       "enfrentamientos": {
         "Georgians_vs_Persians": {
@@ -1183,6 +1301,12 @@
           "gano_primero": 0,
           "civ_a": "Armenians",
           "civ_b": "Persians"
+        },
+        "Italians_vs_Magyars": {
+          "total": 1,
+          "gano_primero": 1,
+          "civ_a": "Italians",
+          "civ_b": "Magyars"
         }
       }
     },
@@ -1304,14 +1428,19 @@
   },
   "civs": {
     "Berbers": {
-      "total_jugadas": 1,
+      "total_jugadas": 2,
       "total_ganadas": 1,
-      "winrate": 100,
+      "winrate": 50,
       "por_mapa": {
         "Nomad": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "Arabia": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       },
       "vs_civs": {
@@ -1319,6 +1448,11 @@
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "Chinese": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       }
     },
@@ -1506,7 +1640,7 @@
       }
     },
     "Magyars": {
-      "total_jugadas": 2,
+      "total_jugadas": 3,
       "total_ganadas": 0,
       "winrate": 0,
       "por_mapa": {
@@ -1519,6 +1653,11 @@
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "CopaU_2026_Shorelines (Custom)": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       },
       "vs_civs": {
@@ -1528,6 +1667,11 @@
           "winrate": 0
         },
         "Romans": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        },
+        "Italians": {
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
@@ -1564,9 +1708,9 @@
       }
     },
     "Italians": {
-      "total_jugadas": 3,
-      "total_ganadas": 1,
-      "winrate": 33.3,
+      "total_jugadas": 4,
+      "total_ganadas": 2,
+      "winrate": 50,
       "por_mapa": {
         "Hideout": {
           "jugadas": 2,
@@ -1574,6 +1718,11 @@
           "winrate": 0
         },
         "Enclosed": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        },
+        "CopaU_2026_Shorelines (Custom)": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
@@ -1594,6 +1743,11 @@
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "Magyars": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       }
     },
@@ -1709,11 +1863,16 @@
       }
     },
     "Chinese": {
-      "total_jugadas": 1,
-      "total_ganadas": 1,
+      "total_jugadas": 2,
+      "total_ganadas": 2,
       "winrate": 100,
       "por_mapa": {
         "CopaU_2026_Stranded v3 (Custom)": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        },
+        "Arabia": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
@@ -1721,6 +1880,11 @@
       },
       "vs_civs": {
         "Persians": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        },
+        "Berbers": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
@@ -2336,6 +2500,46 @@
         "nick": "-FMG- Rodri",
         "civ": "Japanese",
         "gano": true
+      }
+    },
+    {
+      "matchId": 469771337,
+      "fecha": "2026-04-12T02:41:38.000Z",
+      "mapa": "Arabia",
+      "duracion": 24,
+      "grupo": "B",
+      "ronda": 1,
+      "jugador1": {
+        "discordId": "238414625417330688",
+        "nick": "FMG | Rxon",
+        "civ": "Chinese",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "831027477652570132",
+        "nick": "[VL] Santiagoi1212",
+        "civ": "Berbers",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 469765968,
+      "fecha": "2026-04-12T02:14:22.000Z",
+      "mapa": "CopaU_2026_Shorelines (Custom)",
+      "duracion": 25,
+      "grupo": "B",
+      "ronda": 1,
+      "jugador1": {
+        "discordId": "238414625417330688",
+        "nick": "FMG | Rxon",
+        "civ": "Italians",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "831027477652570132",
+        "nick": "[VL] Santiagoi1212",
+        "civ": "Magyars",
+        "gano": false
       }
     }
   ]
