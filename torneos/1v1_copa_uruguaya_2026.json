@@ -316,7 +316,14 @@
               "jugador1Nick": "[LOPDA] Shebby",
               "jugador2Id": "709904591453683766",
               "jugador2Nick": "buyanjavyn",
-              "resultado": null,
+              "resultado": {
+                "709904591453683766": 2,
+                "694749732467245088": 1,
+                "mapas": "https://aoe2cm.net/draft/kjAnR",
+                "civs": "https://aoe2cm.net/draft/pUwFo",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1493003768470704319/buyan_v_shebby.zip?ex=69dd639d&is=69dc121d&hm=b7c351e22386ab2dda888c091da500b031a9dc7c90cce522644d4e5f45c11605&",
+                "fecha_registro": "2026-04-12T21:43:57.987Z"
+              },
               "fecha": "12/4/2026",
               "horario": "17:30",
               "diaSemana": "Domingo",
