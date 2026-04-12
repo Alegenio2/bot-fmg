@@ -352,7 +352,14 @@
               "jugador1Nick": "FMG | Rxon",
               "jugador2Id": "831027477652570132",
               "jugador2Nick": "[VL] Santiagoi1212",
-              "resultado": null,
+              "resultado": {
+                "238414625417330688": 2,
+                "831027477652570132": 0,
+                "mapas": "https://aoe2cm.net/draft/ieDiW",
+                "civs": "https://aoe2cm.net/draft/tNwqi",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1492730697041838090/Rxon_vs_Santiago.rar?ex=69dc654b&is=69db13cb&hm=4c459802c17409232d246677229b4d8652041c7b50fd918dcbfc940ffff1204f&",
+                "fecha_registro": "2026-04-12T03:38:52.638Z"
+              },
               "fecha": "11-04-2026",
               "horario": "19:00",
               "diaSemana": "Sábado",
