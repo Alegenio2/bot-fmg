@@ -1,8 +1,8 @@
 {
   "meta": {
     "torneo": "copa_uruguaya_2026",
-    "ultima_actualizacion": "2026-04-12T20:06:40.021Z",
-    "total_partidas": 25
+    "ultima_actualizacion": "2026-04-12T21:43:59.216Z",
+    "total_partidas": 28
   },
   "jugadores": {
     "733765577570779279": {
@@ -63,10 +63,10 @@
       "nick": "[LOPDA] Shebby",
       "aoe2Id": "2213923",
       "global": {
-        "pj": 2,
-        "pg": 0,
-        "pp": 2,
-        "winrate": 0
+        "pj": 5,
+        "pg": 1,
+        "pp": 4,
+        "winrate": 20
       },
       "civs": {
         "Franks": {
@@ -96,16 +96,70 @@
               "winrate": 0
             }
           }
+        },
+        "Lithuanians": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "Nomad": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        },
+        "Cumans": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "Arena": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        },
+        "Spanish": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "Islands": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
         }
       },
       "mapas": {
         "Nomad": {
+          "pj": 2,
+          "pg": 0,
+          "pp": 2,
+          "winrate": 0
+        },
+        "CopaU_2026_High Tides v3 (Custom)": {
           "pj": 1,
           "pg": 0,
           "pp": 1,
           "winrate": 0
         },
-        "CopaU_2026_High Tides v3 (Custom)": {
+        "Arena": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        },
+        "Islands": {
           "pj": 1,
           "pg": 0,
           "pp": 1,
@@ -1242,18 +1296,94 @@
           "winrate": 0
         }
       }
+    },
+    "709904591453683766": {
+      "nick": "buyanjavyn",
+      "aoe2Id": "476764",
+      "global": {
+        "pj": 3,
+        "pg": 2,
+        "pp": 1,
+        "winrate": 66.7
+      },
+      "civs": {
+        "Persians": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "Nomad": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        },
+        "Italians": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "Arena": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        },
+        "Armenians": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "Islands": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        }
+      },
+      "mapas": {
+        "Nomad": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        },
+        "Arena": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        },
+        "Islands": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        }
+      }
     }
   },
   "mapas": {
     "Nomad": {
-      "total_partidas": 2,
+      "total_partidas": 3,
       "civs_ganadoras": {
         "Berbers": 1,
-        "Vikings": 1
+        "Vikings": 1,
+        "Persians": 1
       },
       "civs_perdedoras": {
         "Franks": 1,
-        "Bohemians": 1
+        "Bohemians": 1,
+        "Lithuanians": 1
       },
       "enfrentamientos": {
         "Berbers_vs_Franks": {
@@ -1267,6 +1397,12 @@
           "gano_primero": 0,
           "civ_a": "Bohemians",
           "civ_b": "Vikings"
+        },
+        "Lithuanians_vs_Persians": {
+          "total": 1,
+          "gano_primero": 0,
+          "civ_a": "Lithuanians",
+          "civ_b": "Persians"
         }
       }
     },
@@ -1554,6 +1690,40 @@
           "gano_primero": 0,
           "civ_a": "Lithuanians",
           "civ_b": "Portuguese"
+        }
+      }
+    },
+    "Arena": {
+      "total_partidas": 1,
+      "civs_ganadoras": {
+        "Cumans": 1
+      },
+      "civs_perdedoras": {
+        "Italians": 1
+      },
+      "enfrentamientos": {
+        "Cumans_vs_Italians": {
+          "total": 1,
+          "gano_primero": 1,
+          "civ_a": "Cumans",
+          "civ_b": "Italians"
+        }
+      }
+    },
+    "Islands": {
+      "total_partidas": 1,
+      "civs_ganadoras": {
+        "Armenians": 1
+      },
+      "civs_perdedoras": {
+        "Spanish": 1
+      },
+      "enfrentamientos": {
+        "Armenians_vs_Spanish": {
+          "total": 1,
+          "gano_primero": 1,
+          "civ_a": "Armenians",
+          "civ_b": "Spanish"
         }
       }
     }
@@ -1865,9 +2035,9 @@
       }
     },
     "Italians": {
-      "total_jugadas": 4,
+      "total_jugadas": 5,
       "total_ganadas": 2,
-      "winrate": 50,
+      "winrate": 40,
       "por_mapa": {
         "Hideout": {
           "jugadas": 2,
@@ -1883,6 +2053,11 @@
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "Arena": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       },
       "vs_civs": {
@@ -1905,13 +2080,18 @@
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "Cumans": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       }
     },
     "Persians": {
-      "total_jugadas": 4,
-      "total_ganadas": 2,
-      "winrate": 50,
+      "total_jugadas": 5,
+      "total_ganadas": 3,
+      "winrate": 60,
       "por_mapa": {
         "CopaU_2026_Shorelines (Custom)": {
           "jugadas": 2,
@@ -1927,6 +2107,11 @@
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "Nomad": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       },
       "vs_civs": {
@@ -1949,6 +2134,11 @@
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "Lithuanians": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       }
     },
@@ -2087,14 +2277,19 @@
       }
     },
     "Armenians": {
-      "total_jugadas": 1,
-      "total_ganadas": 0,
-      "winrate": 0,
+      "total_jugadas": 2,
+      "total_ganadas": 1,
+      "winrate": 50,
       "por_mapa": {
         "CopaU_2026_Shorelines (Custom)": {
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "Islands": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       },
       "vs_civs": {
@@ -2102,13 +2297,18 @@
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "Spanish": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       }
     },
     "Spanish": {
-      "total_jugadas": 2,
+      "total_jugadas": 3,
       "total_ganadas": 1,
-      "winrate": 50,
+      "winrate": 33.3,
       "por_mapa": {
         "Pilgrims": {
           "jugadas": 1,
@@ -2116,6 +2316,11 @@
           "winrate": 100
         },
         "Enclosed": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        },
+        "Islands": {
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
@@ -2128,6 +2333,11 @@
           "winrate": 100
         },
         "Italians": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        },
+        "Armenians": {
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
@@ -2240,11 +2450,16 @@
       }
     },
     "Lithuanians": {
-      "total_jugadas": 1,
+      "total_jugadas": 2,
       "total_ganadas": 0,
       "winrate": 0,
       "por_mapa": {
         "CopaU_2026_Comeer (Custom)": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        },
+        "Nomad": {
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
@@ -2255,6 +2470,30 @@
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "Persians": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        }
+      }
+    },
+    "Cumans": {
+      "total_jugadas": 1,
+      "total_ganadas": 1,
+      "winrate": 100,
+      "por_mapa": {
+        "Arena": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        }
+      },
+      "vs_civs": {
+        "Italians": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       }
     }
@@ -2755,6 +2994,66 @@
         "discordId": "485610092092456975",
         "nick": "Kroyen",
         "civ": "Mongols",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 470009198,
+      "fecha": "2026-04-12T21:16:17.000Z",
+      "mapa": "Nomad",
+      "duracion": 26,
+      "grupo": "A",
+      "ronda": 2,
+      "jugador1": {
+        "discordId": "709904591453683766",
+        "nick": "buyanjavyn",
+        "civ": "Persians",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "694749732467245088",
+        "nick": "[LOPDA] Shebby",
+        "civ": "Lithuanians",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 470005622,
+      "fecha": "2026-04-12T21:03:05.000Z",
+      "mapa": "Arena",
+      "duracion": 10,
+      "grupo": "A",
+      "ronda": 2,
+      "jugador1": {
+        "discordId": "709904591453683766",
+        "nick": "buyanjavyn",
+        "civ": "Italians",
+        "gano": false
+      },
+      "jugador2": {
+        "discordId": "694749732467245088",
+        "nick": "[LOPDA] Shebby",
+        "civ": "Cumans",
+        "gano": true
+      }
+    },
+    {
+      "matchId": 470000136,
+      "fecha": "2026-04-12T20:40:26.000Z",
+      "mapa": "Islands",
+      "duracion": 19,
+      "grupo": "A",
+      "ronda": 2,
+      "jugador1": {
+        "discordId": "709904591453683766",
+        "nick": "buyanjavyn",
+        "civ": "Armenians",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "694749732467245088",
+        "nick": "[LOPDA] Shebby",
+        "civ": "Spanish",
         "gano": false
       }
     }
