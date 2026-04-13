@@ -339,7 +339,11 @@
               "jugador1Nick": "Nacional",
               "jugador2Id": "709904591453683766",
               "jugador2Nick": "buyanjavyn",
-              "resultado": null
+              "resultado": null,
+              "fecha": "13/4/2026",
+              "horario": "20:30",
+              "diaSemana": "Lunes",
+              "coordinadoPor": "buyanjavyn"
             },
             {
               "jugador1Id": "959267535524606022",
