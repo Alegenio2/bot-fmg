@@ -629,7 +629,11 @@
               "jugador1Nick": "|FMG|DavidTG",
               "jugador2Id": "264781067506941962",
               "jugador2Nick": "|FMG| doomjota",
-              "resultado": null
+              "resultado": null,
+              "fecha": "15-04-2026",
+              "horario": "21:30",
+              "diaSemana": "Miércoles",
+              "coordinadoPor": "jabsuy"
             }
           ]
         },
