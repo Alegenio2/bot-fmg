@@ -96,54 +96,32 @@ function escapeHtml(text) {
   return div.innerHTML;
 }
 
+// Función vital para ordenar los próximos partidos por fecha y hora
 function parseDateTime(fechaStr, horaStr) {
   try {
     if (!fechaStr || !horaStr) return 8640000000000000;
-    // Asumiendo formato DD-MM-YYYY
-    const parts = fechaStr.split('-');
+    const cleanFecha = fechaStr.replace(/-/g, '/');
+    const parts = cleanFecha.split('/');
     const timeParts = horaStr.split(':');
-    
-    if (parts.length !== 3 || timeParts.length < 2) {
-      console.warn('Formato inválido:', fechaStr, horaStr);
-      return 8640000000000000;
-    }
-    
-    const dia = parseInt(parts[0]);
-    const mes = parseInt(parts[1]) - 1; // Los meses en JS son 0-indexed
-    const año = parseInt(parts[2]);
-    const hora = parseInt(timeParts[0]);
-    const minuto = parseInt(timeParts[1]);
-    
-    const date = new Date(año, mes, dia, hora, minuto);
-    
-    // Verificar que la fecha es válida
-    if (isNaN(date.getTime())) {
-      console.warn('Fecha inválida:', fechaStr, horaStr);
-      return 8640000000000000;
-    }
-    
-    return date.getTime();
-  } catch (e) { 
-    console.error('Error parseando fecha:', e, fechaStr, horaStr);
-    return 8640000000000000; 
-  }
+    return new Date(parts[2], parts[1]-1, parts[0], timeParts[0], timeParts[1]).getTime();
+  } catch (e) { return 8640000000000000; }
 }
 
 async function fetchData() {
   const statusEl = document.getElementById('status');
-  statusEl.innerText = "ACTUALIZANDO...";
+  statusEl.innerText = "RECUPERANDO DATOS...";
   
   try {
-    // 1. Traer datos del Admin (Resultados y Tablas) y de la API (Próximos)
+    // Traemos datos del servidor (admin) y del JSON original (torneo)
     const [resAdmin, resTorneo] = await Promise.all([
       fetch('https://aldeanooscar.squareweb.app/api/overlay/ticker'),
       fetch('https://aldeanooscar.squareweb.app/api/torneos/1v1_copa_uruguaya_2026')
     ]);
     
     const dataAdmin = await resAdmin.json();
-    const partidosData = await resTorneo.json();
+    const dataTorneo = await resTorneo.json();
     
-    // 2. Filtrar solo los grupos de tablas que seleccionaste mostrar
+    // 1. Tablas filtradas por el Admin
     const tablasFiltradas = {};
     if(dataAdmin.gruposVisibles && dataAdmin.tablas) {
         dataAdmin.gruposVisibles.forEach(g => {
@@ -151,35 +129,29 @@ async function fetchData() {
         });
     }
 
-    // 3. Obtener los próximos partidos (coordinados) directamente de la API
-    const próximos = [];
-    const ahora = Date.now();
-    
-    partidosData.rondas_grupos.forEach(g => g.partidos.forEach(r => r.partidos.forEach(p => {
-      if(!p.resultado && p.fecha && p.horario) {
-        const timestamp = parseDateTime(p.fecha, p.horario);
-        próximos.push({
-          ...p,
-          timestamp: timestamp
+    // 2. Extraer PRÓXIMOS partidos (los coordinados que no tienen resultado)
+    const proximos = [];
+    dataTorneo.rondas_grupos.forEach(rondaGrupo => {
+      rondaGrupo.partidos.forEach(ronda => {
+        ronda.partidos.forEach(p => {
+          // Si tiene fecha y hora pero NO tiene resultado, es un coordinado próximo
+          if (!p.resultado && p.fecha && p.horario) {
+            proximos.push(p);
+          }
         });
-      }
-    })));
-    
-    // Ordenar por fecha
-    próximos.sort((a, b) => a.timestamp - b.timestamp);
-    
-    // Debug: mostrar los primeros 5 próximos
-    console.log('Próximos partidos ordenados:');
-    próximos.slice(0, 5).forEach(p => {
-      console.log(`${p.fecha} ${p.horario} - ${p.jugador1Nick} vs ${p.jugador2Nick} (${new Date(p.timestamp).toLocaleString()})`);
+      });
     });
 
-    render(dataAdmin.resultados || [], tablasFiltradas, próximos);
+    // Ordenamos por fecha
+    proximos.sort((a,b) => parseDateTime(a.fecha, a.horario) - parseDateTime(b.fecha, b.horario));
+
+    render(dataAdmin.resultados || [], tablasFiltradas, proximos);
     
     statusEl.innerText = "LIVE - SIN SPOILERS (L: Refresh)";
     statusEl.style.color = "#4ade80";
   } catch(e) { 
-    statusEl.innerText = "ERROR CARGANDO DATOS";
+    console.error(e);
+    statusEl.innerText = "ERROR DE CARGA";
     statusEl.style.color = "#f87171";
   }
 }
@@ -192,7 +164,7 @@ function render(partidosElegidos, tablasData, proximosData) {
   wrapper.classList.remove('animate');
   let html = "";
 
-  // --- RESULTADOS SELECCIONADOS EN ADMIN ---
+  // --- RESULTADOS (Admin) ---
   if(partidosElegidos.length > 0){
     html += '<span class="section-tag">RESULTADOS</span>';
     partidosElegidos.forEach(r => {
@@ -208,22 +180,19 @@ function render(partidosElegidos, tablasData, proximosData) {
     });
   }
 
-  // --- PRÓXIMOS (Coordinados desde JSON original) ---
-  // Mostrar solo los próximos 8 partidos más cercanos
-  const proximosLimitados = proximosData.slice(0, 8);
-  
-  if(proximosLimitados.length > 0){
+  // --- PRÓXIMOS (Coordinados) ---
+  if(proximosData.length > 0){
     html += '<span class="section-tag">PRÓXIMOS</span>';
-    proximosLimitados.forEach(p => {
+    proximosData.forEach(p => {
       html += `<div class="ticker-card">
                 <span class="ticker-nick">${escapeHtml(p.jugador1Nick)}</span>
-                <span class="ticker-time">${p.diaSemana.substring(0,3).toUpperCase()} ${p.horario}</span>
+                <span class="ticker-time">${p.diaSemana ? p.diaSemana.substring(0,3).toUpperCase() : ''} ${p.horario}</span>
                 <span class="ticker-nick">${escapeHtml(p.jugador2Nick)}</span>
                </div>`;
     });
   }
 
-  // --- TABLAS CALCULADAS POR ADMIN ---
+  // --- TABLAS (Admin) ---
   if(Object.keys(tablasData).length > 0){
     html += '<span class="section-tag">TABLAS</span>';
     Object.entries(tablasData).forEach(([grupo, jug]) => {
@@ -247,14 +216,9 @@ function render(partidosElegidos, tablasData, proximosData) {
 window.addEventListener('keydown', e => {
   const key = e.key.toLowerCase();
   if(key === 'l') fetchData();
-  if(key === 'r') {
-    const w = document.getElementById('track-wrapper');
-    w.classList.remove('animate');
-    void w.offsetWidth;
-    w.classList.add('animate');
-  }
 });
 
+// Carga inicial
 fetchData();
 </script>
 </body>
