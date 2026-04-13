@@ -1,8 +1,8 @@
 {
   "meta": {
     "torneo": "copa_uruguaya_2026",
-    "ultima_actualizacion": "2026-04-12T21:43:59.216Z",
-    "total_partidas": 28
+    "ultima_actualizacion": "2026-04-13T00:38:33.844Z",
+    "total_partidas": 30
   },
   "jugadores": {
     "733765577570779279": {
@@ -1193,10 +1193,10 @@
       "nick": "VL Karistho",
       "aoe2Id": "2175073",
       "global": {
-        "pj": 2,
+        "pj": 4,
         "pg": 2,
-        "pp": 0,
-        "winrate": 100
+        "pp": 2,
+        "winrate": 50
       },
       "civs": {
         "Portuguese": {
@@ -1226,6 +1226,34 @@
               "winrate": 100
             }
           }
+        },
+        "Koreans": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "Nomad": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        },
+        "Vietnamese": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "CopaU_2026_Valley (Custom)": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
         }
       },
       "mapas": {
@@ -1240,6 +1268,18 @@
           "pg": 1,
           "pp": 0,
           "winrate": 100
+        },
+        "Nomad": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        },
+        "CopaU_2026_Valley (Custom)": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
         }
       }
     },
@@ -1370,20 +1410,76 @@
           "winrate": 100
         }
       }
+    },
+    "833806737902534738": {
+      "nick": "ToNGa",
+      "aoe2Id": "2639502",
+      "global": {
+        "pj": 2,
+        "pg": 2,
+        "pp": 0,
+        "winrate": 100
+      },
+      "civs": {
+        "Armenians": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "Nomad": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        },
+        "Mongols": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "CopaU_2026_Valley (Custom)": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        }
+      },
+      "mapas": {
+        "Nomad": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        },
+        "CopaU_2026_Valley (Custom)": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        }
+      }
     }
   },
   "mapas": {
     "Nomad": {
-      "total_partidas": 3,
+      "total_partidas": 4,
       "civs_ganadoras": {
         "Berbers": 1,
         "Vikings": 1,
-        "Persians": 1
+        "Persians": 1,
+        "Armenians": 1
       },
       "civs_perdedoras": {
         "Franks": 1,
         "Bohemians": 1,
-        "Lithuanians": 1
+        "Lithuanians": 1,
+        "Koreans": 1
       },
       "enfrentamientos": {
         "Berbers_vs_Franks": {
@@ -1403,6 +1499,12 @@
           "gano_primero": 0,
           "civ_a": "Lithuanians",
           "civ_b": "Persians"
+        },
+        "Armenians_vs_Koreans": {
+          "total": 1,
+          "gano_primero": 1,
+          "civ_a": "Armenians",
+          "civ_b": "Koreans"
         }
       }
     },
@@ -1726,6 +1828,23 @@
           "civ_b": "Spanish"
         }
       }
+    },
+    "CopaU_2026_Valley (Custom)": {
+      "total_partidas": 1,
+      "civs_ganadoras": {
+        "Mongols": 1
+      },
+      "civs_perdedoras": {
+        "Vietnamese": 1
+      },
+      "enfrentamientos": {
+        "Mongols_vs_Vietnamese": {
+          "total": 1,
+          "gano_primero": 1,
+          "civ_a": "Mongols",
+          "civ_b": "Vietnamese"
+        }
+      }
     }
   },
   "civs": {
@@ -1938,9 +2057,9 @@
       }
     },
     "Mongols": {
-      "total_jugadas": 2,
-      "total_ganadas": 0,
-      "winrate": 0,
+      "total_jugadas": 3,
+      "total_ganadas": 1,
+      "winrate": 33.3,
       "por_mapa": {
         "Arabia": {
           "jugadas": 1,
@@ -1951,6 +2070,11 @@
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "CopaU_2026_Valley (Custom)": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       },
       "vs_civs": {
@@ -1963,6 +2087,11 @@
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "Vietnamese": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       }
     },
@@ -2162,14 +2291,19 @@
       }
     },
     "Koreans": {
-      "total_jugadas": 1,
+      "total_jugadas": 2,
       "total_ganadas": 1,
-      "winrate": 100,
+      "winrate": 50,
       "por_mapa": {
         "CopaU_2026_High Tides v3 (Custom)": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "Nomad": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       },
       "vs_civs": {
@@ -2177,6 +2311,11 @@
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "Armenians": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       }
     },
@@ -2277,9 +2416,9 @@
       }
     },
     "Armenians": {
-      "total_jugadas": 2,
-      "total_ganadas": 1,
-      "winrate": 50,
+      "total_jugadas": 3,
+      "total_ganadas": 2,
+      "winrate": 66.7,
       "por_mapa": {
         "CopaU_2026_Shorelines (Custom)": {
           "jugadas": 1,
@@ -2287,6 +2426,11 @@
           "winrate": 0
         },
         "Islands": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        },
+        "Nomad": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
@@ -2299,6 +2443,11 @@
           "winrate": 0
         },
         "Spanish": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        },
+        "Koreans": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
@@ -2345,9 +2494,9 @@
       }
     },
     "Vietnamese": {
-      "total_jugadas": 2,
+      "total_jugadas": 3,
       "total_ganadas": 2,
-      "winrate": 100,
+      "winrate": 66.7,
       "por_mapa": {
         "Enclosed": {
           "jugadas": 1,
@@ -2358,6 +2507,11 @@
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "CopaU_2026_Valley (Custom)": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       },
       "vs_civs": {
@@ -2370,6 +2524,11 @@
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "Mongols": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       }
     },
@@ -3054,6 +3213,46 @@
         "discordId": "694749732467245088",
         "nick": "[LOPDA] Shebby",
         "civ": "Spanish",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 470040152,
+      "fecha": "2026-04-12T23:46:09.000Z",
+      "mapa": "Nomad",
+      "duracion": 29,
+      "grupo": "D",
+      "ronda": 2,
+      "jugador1": {
+        "discordId": "833806737902534738",
+        "nick": "ToNGa",
+        "civ": "Armenians",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "382688182002515978",
+        "nick": "VL Karistho",
+        "civ": "Koreans",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 470036459,
+      "fecha": "2026-04-12T23:27:01.000Z",
+      "mapa": "CopaU_2026_Valley (Custom)",
+      "duracion": 14,
+      "grupo": "D",
+      "ronda": 2,
+      "jugador1": {
+        "discordId": "833806737902534738",
+        "nick": "ToNGa",
+        "civ": "Mongols",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "382688182002515978",
+        "nick": "VL Karistho",
+        "civ": "Vietnamese",
         "gano": false
       }
     }
