@@ -16,7 +16,6 @@
     border-top: 2px solid #e8c87a;
   }
 
-  /* Contenedor principal de la animación */
   #track-wrapper {
     display: flex;
     width: max-content;
@@ -32,7 +31,6 @@
     100% { transform: translateX(-50%); }
   }
 
-  /* Contenedor de los items */
   .ticker-track { 
     display: flex; 
     gap: 40px; 
@@ -65,7 +63,6 @@
 
   .ticker-nick { font-family: 'Cinzel'; color: #fff; font-size: 16px; font-weight: 700; }
   .ticker-score { font-size: 22px; font-weight: 900; color: #e8c87a; display: flex; gap: 5px; align-items: center; }
-  .ticker-time { font-size: 15px; color: #5090b0; font-weight: 700; background: rgba(80,144,176,0.1); padding: 4px 10px; border-radius: 4px; border: 1px solid rgba(80,144,176,0.3); }
   
   .win { color: #4ade80; }
   .lose { color: #f87171; opacity: 0.8; }
@@ -91,7 +88,6 @@
 </div>
 
 <script>
-// SEGURIDAD: Solo carga manual con L para evitar spoilers
 function escapeHtml(text) {
   if (!text) return '';
   const div = document.createElement('div');
@@ -99,39 +95,35 @@ function escapeHtml(text) {
   return div.innerHTML;
 }
 
-function parseDateTime(fechaStr, horaStr) {
-  try {
-    if (!fechaStr || !horaStr) return 8640000000000000;
-    const cleanFecha = fechaStr.replace(/-/g, '/');
-    const parts = cleanFecha.split('/');
-    const timeParts = horaStr.split(':');
-    return new Date(parts[2], parts[1]-1, parts[0], timeParts[0], timeParts[1]).getTime();
-  } catch (e) { return 8640000000000000; }
-}
-
 async function fetchData() {
   const statusEl = document.getElementById('status');
-  statusEl.innerText = "ACTUALIZANDO...";
+  statusEl.innerText = "RECIBIENDO CONTROL...";
   
   try {
-    const [resP, resT] = await Promise.all([
-      fetch('https://aldeanooscar.squareweb.app/api/torneos/1v1_copa_uruguaya_2026'),
-      fetch('https://aldeanooscar.squareweb.app/api/torneos/tabla_posiciones')
-    ]);
+    // 1. Traer la configuración del servidor (lo que mandaste desde el celular)
+    const res = await fetch('https://aldeanooscar.squareweb.app/api/overlay/ticker');
+    const data = await res.json();
     
-    const partidosData = await resP.json();
-    const tablasData = await resT.json();
+    // 2. Filtrar solo los grupos de tablas que seleccionaste mostrar
+    const tablasFiltradas = {};
+    if(data.gruposVisibles && data.tablas) {
+        data.gruposVisibles.forEach(g => {
+            if(data.tablas[g]) tablasFiltradas[g] = data.tablas[g];
+        });
+    }
+
+    // 3. Renderizar resultados y tablas simuladas
+    render(data.resultados || [], tablasFiltradas);
     
-    render(partidosData, tablasData);
-    statusEl.innerText = "LIVE - MANUAL (L: Refrescar / R: Reset)";
+    statusEl.innerText = "LIVE - SIN SPOILERS (L: Refresh)";
     statusEl.style.color = "#4ade80";
   } catch(e) { 
-    statusEl.innerText = "ERROR API";
+    statusEl.innerText = "SIN DATOS DE ADMIN";
     statusEl.style.color = "#f87171";
   }
 }
 
-function render(partidosData, tablasData) {
+function render(partidosElegidos, tablasData) {
   const wrapper = document.getElementById('track-wrapper');
   const content1 = document.getElementById('track-content');
   const content2 = document.getElementById('track-content-clone');
@@ -139,49 +131,39 @@ function render(partidosData, tablasData) {
   wrapper.classList.remove('animate');
   let html = "";
 
-  // --- RESULTADOS ---
-  const res = [];
-  partidosData.rondas_grupos.forEach(g => g.partidos.forEach(r => r.partidos.forEach(p => {
-    if(p.resultado && p.jugador1Id) res.push({p1:p.jugador1Nick, p2:p.jugador2Nick, s1:p.resultado[p.jugador1Id], s2:p.resultado[p.jugador2Id]});
-  })));
-  
-  if(res.length > 0){
+  // --- RESULTADOS SELECCIONADOS EN ADMIN ---
+  if(partidosElegidos.length > 0){
     html += '<span class="section-tag">RESULTADOS</span>';
-    res.forEach(r => {
-      html += `<div class="ticker-card"><span class="ticker-nick">${escapeHtml(r.p1)}</span><div class="ticker-score"><span class="${r.s1>r.s2?'win':'lose'}">${r.s1}</span><span style="opacity:0.3">-</span><span class="${r.s2>r.s1?'win':'lose'}">${r.s2}</span></div><span class="ticker-nick">${escapeHtml(r.p2)}</span></div>`;
+    partidosElegidos.forEach(r => {
+      html += `<div class="ticker-card">
+                <span class="ticker-nick">${escapeHtml(r.p1)}</span>
+                <div class="ticker-score">
+                    <span class="${r.s1 > r.s2 ? 'win' : 'lose'}">${r.s1}</span>
+                    <span style="opacity:0.3">-</span>
+                    <span class="${r.s2 > r.s1 ? 'win' : 'lose'}">${r.s2}</span>
+                </div>
+                <span class="ticker-nick">${escapeHtml(r.p2)}</span>
+               </div>`;
     });
   }
 
-  // --- PRÓXIMOS (Ordenados por fecha/hora) ---
-  const coord = [];
-  partidosData.rondas_grupos.forEach(g => g.partidos.forEach(r => r.partidos.forEach(p => {
-    if(!p.resultado && p.fecha && p.horario) coord.push(p);
-  })));
-  coord.sort((a,b) => parseDateTime(a.fecha, a.horario) - parseDateTime(b.fecha, b.horario));
-
-  if(coord.length > 0){
-    html += '<span class="section-tag">PRÓXIMOS</span>';
-    coord.forEach(p => {
-      html += `<div class="ticker-card"><span class="ticker-nick">${escapeHtml(p.jugador1Nick)}</span><span class="ticker-time">${p.diaSemana.substring(0,3).toUpperCase()} ${p.horario}</span><span class="ticker-nick">${escapeHtml(p.jugador2Nick)}</span></div>`;
-    });
-  }
-
-  // --- TABLAS ---
-  if(tablasData){
+  // --- TABLAS CALCULADAS POR ADMIN ---
+  if(Object.keys(tablasData).length > 0){
     html += '<span class="section-tag">TABLAS</span>';
     Object.entries(tablasData).forEach(([grupo, jug]) => {
       html += `<span class="section-tag" style="border-left:1px solid #444; font-size:11px">${grupo}</span>`;
       jug.forEach(j => {
-        html += `<div class="ticker-card"><span class="ticker-nick">${escapeHtml(j.nick)}</span><span class="ticker-score">${j.pts} <small style="font-size:10px">PTS</small></span></div>`;
+        html += `<div class="ticker-card">
+                    <span class="ticker-nick">${escapeHtml(j.nick)}</span>
+                    <span class="ticker-score">${j.pts} <small style="font-size:10px">PTS</small></span>
+                 </div>`;
       });
     });
   }
 
-  // Inyectamos en ambos contenedores para que el scroll sea infinito y perfecto
   content1.innerHTML = html;
   content2.innerHTML = html;
   
-  // Reiniciar animación
   void wrapper.offsetWidth;
   wrapper.classList.add('animate');
 }
@@ -197,7 +179,8 @@ window.addEventListener('keydown', e => {
   }
 });
 
-fetchData();
+// Nota: No se carga automáticamente para evitar cualquier spoiler al abrir OBS.
+// Presiona "L" en la interacción de OBS cuando estés listo.
 </script>
 </body>
 </html>
