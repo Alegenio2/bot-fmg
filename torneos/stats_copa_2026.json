@@ -1,8 +1,8 @@
 {
   "meta": {
     "torneo": "copa_uruguaya_2026",
-    "ultima_actualizacion": "2026-04-13T01:22:54.177Z",
-    "total_partidas": 34
+    "ultima_actualizacion": "2026-04-13T23:41:58.182Z",
+    "total_partidas": 37
   },
   "jugadores": {
     "733765577570779279": {
@@ -1617,10 +1617,10 @@
       "nick": "N4cHoV",
       "aoe2Id": "2295211",
       "global": {
-        "pj": 2,
-        "pg": 0,
-        "pp": 2,
-        "winrate": 0
+        "pj": 5,
+        "pg": 2,
+        "pp": 3,
+        "winrate": 40
       },
       "civs": {
         "Goths": {
@@ -1638,12 +1638,46 @@
           }
         },
         "Berbers": {
+          "pj": 2,
+          "pg": 1,
+          "pp": 1,
+          "winrate": 50,
+          "por_mapa": {
+            "CopaU_2026_Shorelines (Custom)": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            },
+            "CopaU_2026_High Tides v3 (Custom)": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        },
+        "Spanish": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "CopaU_2026_Stranded v3 (Custom)": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        },
+        "Cumans": {
           "pj": 1,
           "pg": 0,
           "pp": 1,
           "winrate": 0,
           "por_mapa": {
-            "CopaU_2026_Shorelines (Custom)": {
+            "CopaU_2026_Quarry v3 (Custom)": {
               "pj": 1,
               "pg": 0,
               "pp": 1,
@@ -1664,6 +1698,98 @@
           "pg": 0,
           "pp": 1,
           "winrate": 0
+        },
+        "CopaU_2026_Stranded v3 (Custom)": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        },
+        "CopaU_2026_High Tides v3 (Custom)": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        },
+        "CopaU_2026_Quarry v3 (Custom)": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        }
+      }
+    },
+    "689907393001291884": {
+      "nick": "Culero Connor",
+      "aoe2Id": "5736044",
+      "global": {
+        "pj": 3,
+        "pg": 1,
+        "pp": 2,
+        "winrate": 33.3
+      },
+      "civs": {
+        "Wu": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "CopaU_2026_Stranded v3 (Custom)": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        },
+        "Dravidians": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "CopaU_2026_High Tides v3 (Custom)": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        },
+        "Portuguese": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "CopaU_2026_Quarry v3 (Custom)": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        }
+      },
+      "mapas": {
+        "CopaU_2026_Stranded v3 (Custom)": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        },
+        "CopaU_2026_High Tides v3 (Custom)": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        },
+        "CopaU_2026_Quarry v3 (Custom)": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
         }
       }
     }
@@ -1718,14 +1844,16 @@
       }
     },
     "CopaU_2026_High Tides v3 (Custom)": {
-      "total_partidas": 2,
+      "total_partidas": 3,
       "civs_ganadoras": {
         "Japanese": 1,
-        "Koreans": 1
+        "Koreans": 1,
+        "Berbers": 1
       },
       "civs_perdedoras": {
         "Malay": 1,
-        "Vikings": 1
+        "Vikings": 1,
+        "Dravidians": 1
       },
       "enfrentamientos": {
         "Japanese_vs_Malay": {
@@ -1739,6 +1867,12 @@
           "gano_primero": 1,
           "civ_a": "Koreans",
           "civ_b": "Vikings"
+        },
+        "Berbers_vs_Dravidians": {
+          "total": 1,
+          "gano_primero": 1,
+          "civ_a": "Berbers",
+          "civ_b": "Dravidians"
         }
       }
     },
@@ -1881,12 +2015,14 @@
       }
     },
     "CopaU_2026_Stranded v3 (Custom)": {
-      "total_partidas": 1,
+      "total_partidas": 2,
       "civs_ganadoras": {
-        "Chinese": 1
+        "Chinese": 1,
+        "Spanish": 1
       },
       "civs_perdedoras": {
-        "Persians": 1
+        "Persians": 1,
+        "Wu": 1
       },
       "enfrentamientos": {
         "Chinese_vs_Persians": {
@@ -1894,6 +2030,12 @@
           "gano_primero": 1,
           "civ_a": "Chinese",
           "civ_b": "Persians"
+        },
+        "Spanish_vs_Wu": {
+          "total": 1,
+          "gano_primero": 1,
+          "civ_a": "Spanish",
+          "civ_b": "Wu"
         }
       }
     },
@@ -1979,14 +2121,16 @@
       }
     },
     "CopaU_2026_Quarry v3 (Custom)": {
-      "total_partidas": 2,
+      "total_partidas": 3,
       "civs_ganadoras": {
         "Malay": 1,
-        "Tatars": 1
+        "Tatars": 1,
+        "Portuguese": 1
       },
       "civs_perdedoras": {
         "Saracens": 1,
-        "Mongols": 1
+        "Mongols": 1,
+        "Cumans": 1
       },
       "enfrentamientos": {
         "Malay_vs_Saracens": {
@@ -2000,6 +2144,12 @@
           "gano_primero": 0,
           "civ_a": "Mongols",
           "civ_b": "Tatars"
+        },
+        "Cumans_vs_Portuguese": {
+          "total": 1,
+          "gano_primero": 0,
+          "civ_a": "Cumans",
+          "civ_b": "Portuguese"
         }
       }
     },
@@ -2082,9 +2232,9 @@
   },
   "civs": {
     "Berbers": {
-      "total_jugadas": 4,
-      "total_ganadas": 2,
-      "winrate": 50,
+      "total_jugadas": 5,
+      "total_ganadas": 3,
+      "winrate": 60,
       "por_mapa": {
         "Nomad": {
           "jugadas": 2,
@@ -2100,6 +2250,11 @@
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "CopaU_2026_High Tides v3 (Custom)": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       },
       "vs_civs": {
@@ -2119,9 +2274,9 @@
           "winrate": 100
         },
         "Dravidians": {
-          "jugadas": 1,
-          "ganadas": 0,
-          "winrate": 0
+          "jugadas": 2,
+          "ganadas": 1,
+          "winrate": 50
         }
       }
     },
@@ -2238,8 +2393,8 @@
       }
     },
     "Portuguese": {
-      "total_jugadas": 2,
-      "total_ganadas": 2,
+      "total_jugadas": 3,
+      "total_ganadas": 3,
       "winrate": 100,
       "por_mapa": {
         "CopaU_2026_Slopes v2 (Custom)": {
@@ -2248,6 +2403,11 @@
           "winrate": 100
         },
         "CopaU_2026_Comeer (Custom)": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        },
+        "CopaU_2026_Quarry v3 (Custom)": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
@@ -2260,6 +2420,11 @@
           "winrate": 100
         },
         "Lithuanians": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        },
+        "Cumans": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
@@ -2733,9 +2898,9 @@
       }
     },
     "Spanish": {
-      "total_jugadas": 4,
-      "total_ganadas": 1,
-      "winrate": 25,
+      "total_jugadas": 5,
+      "total_ganadas": 2,
+      "winrate": 40,
       "por_mapa": {
         "Pilgrims": {
           "jugadas": 1,
@@ -2756,6 +2921,11 @@
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "CopaU_2026_Stranded v3 (Custom)": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       },
       "vs_civs": {
@@ -2778,6 +2948,11 @@
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "Wu": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       }
     },
@@ -2926,14 +3101,19 @@
       }
     },
     "Cumans": {
-      "total_jugadas": 1,
+      "total_jugadas": 2,
       "total_ganadas": 1,
-      "winrate": 100,
+      "winrate": 50,
       "por_mapa": {
         "Arena": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "CopaU_2026_Quarry v3 (Custom)": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       },
       "vs_civs": {
@@ -2941,6 +3121,11 @@
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "Portuguese": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       }
     },
@@ -2964,21 +3149,45 @@
       }
     },
     "Dravidians": {
-      "total_jugadas": 1,
+      "total_jugadas": 2,
       "total_ganadas": 1,
-      "winrate": 100,
+      "winrate": 50,
       "por_mapa": {
         "CopaU_2026_Shorelines (Custom)": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "CopaU_2026_High Tides v3 (Custom)": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       },
       "vs_civs": {
         "Berbers": {
-          "jugadas": 1,
+          "jugadas": 2,
           "ganadas": 1,
-          "winrate": 100
+          "winrate": 50
+        }
+      }
+    },
+    "Wu": {
+      "total_jugadas": 1,
+      "total_ganadas": 0,
+      "winrate": 0,
+      "por_mapa": {
+        "CopaU_2026_Stranded v3 (Custom)": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        }
+      },
+      "vs_civs": {
+        "Spanish": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       }
     }
@@ -3659,6 +3868,66 @@
         "discordId": "594988359965999118",
         "nick": "N4cHoV",
         "civ": "Berbers",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 470249894,
+      "fecha": "2026-04-13T21:47:26.000Z",
+      "mapa": "CopaU_2026_Stranded v3 (Custom)",
+      "duracion": 30,
+      "grupo": "F",
+      "ronda": 2,
+      "jugador1": {
+        "discordId": "689907393001291884",
+        "nick": "Culero Connor",
+        "civ": "Wu",
+        "gano": false
+      },
+      "jugador2": {
+        "discordId": "594988359965999118",
+        "nick": "N4cHoV",
+        "civ": "Spanish",
+        "gano": true
+      }
+    },
+    {
+      "matchId": 470244113,
+      "fecha": "2026-04-13T21:16:43.000Z",
+      "mapa": "CopaU_2026_High Tides v3 (Custom)",
+      "duracion": 26,
+      "grupo": "F",
+      "ronda": 2,
+      "jugador1": {
+        "discordId": "689907393001291884",
+        "nick": "Culero Connor",
+        "civ": "Dravidians",
+        "gano": false
+      },
+      "jugador2": {
+        "discordId": "594988359965999118",
+        "nick": "N4cHoV",
+        "civ": "Berbers",
+        "gano": true
+      }
+    },
+    {
+      "matchId": 470240042,
+      "fecha": "2026-04-13T20:58:23.000Z",
+      "mapa": "CopaU_2026_Quarry v3 (Custom)",
+      "duracion": 15,
+      "grupo": "F",
+      "ronda": 2,
+      "jugador1": {
+        "discordId": "689907393001291884",
+        "nick": "Culero Connor",
+        "civ": "Portuguese",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "594988359965999118",
+        "nick": "N4cHoV",
+        "civ": "Cumans",
         "gano": false
       }
     }
