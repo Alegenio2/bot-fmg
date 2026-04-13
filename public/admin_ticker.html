@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Ticker — Copa Uruguaya 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet"/>
+    <style>
+        :root { --gold:#e8c87a; --bg0:#0a0a0a; --bg2:#1a1208; --brown:#3a2a1a; }
+        body { font-family:'Inter',sans-serif; background:var(--bg0); color:#e8e0d0; padding:20px; }
+        .section { background:var(--bg2); border:1px solid var(--brown); border-radius:10px; padding:15px; margin-bottom:20px; }
+        h1, h2 { font-family:'Cinzel'; color:var(--gold); text-transform:uppercase; letter-spacing:1px; }
+        .item-row { display:flex; align-items:center; gap:12px; padding:12px; border-bottom:1px solid var(--brown); }
+        .btn-update { background:var(--gold); color:black; border:none; padding:15px; width:100%; border-radius:8px; font-family:'Cinzel'; font-weight:700; cursor:pointer; position:sticky; bottom:10px; }
+    </style>
+</head>
+<body>
+
+<h1>Control de Resultados</h1>
+
+<div class="section">
+    <h2>Partidos Jugados</h2>
+    <div id="list-partidos">Cargando...</div>
+</div>
+
+<div class="section">
+    <h2>Tablas de Grupos</h2>
+    <div id="list-tablas">Cargando...</div>
+</div>
+
+<button class="btn-update" id="btnActualizar">↺ ACTUALIZAR TICKER EN OBS</button>
+
+<script>
+const WS_SERVER = 'https://aldeanooscar.squareweb.app';
+const TOKEN_KEY = 'aua_admin_token_draft'; // El que ya usas
+
+async function cargarDatos() {
+    const [resP, resT] = await Promise.all([
+        fetch(WS_SERVER + '/api/torneos/1v1_copa_uruguaya_2026'),
+        fetch(WS_SERVER + '/api/torneos/tabla_posiciones')
+    ]);
+    const partidosData = await resP.json();
+    const tablasData = await resT.json();
+    
+    // Render de Partidos
+    const pDiv = document.getElementById('list-partidos');
+    pDiv.innerHTML = "";
+    partidosData.rondas_grupos.forEach(g => {
+        g.partidos.forEach(r => r.partidos.forEach(p => {
+            if(p.resultado) {
+                pDiv.innerHTML += `
+                <div class="item-row">
+                    <input type="checkbox" class="chk-res" data-info='${JSON.stringify({p1:p.jugador1Nick, p2:p.jugador2Nick, s1:p.resultado[p.jugador1Id], s2:p.resultado[p.jugador2Id]})}'>
+                    <span>${p.jugador1Nick} ${p.resultado[p.jugador1Id]} - ${p.resultado[p.jugador2Id]} ${p.jugador2Nick}</span>
+                </div>`;
+            }
+        }));
+    });
+
+    // Render de Tablas
+    const tDiv = document.getElementById('list-tablas');
+    tDiv.innerHTML = "";
+    Object.keys(tablasData).forEach(grupo => {
+        tDiv.innerHTML += `<div class="item-row"><input type="checkbox" class="chk-tab" value="${grupo}"><span>Grupo ${grupo}</span></div>`;
+    });
+}
+
+document.getElementById('btnActualizar').addEventListener('click', async () => {
+    const selectedRes = Array.from(document.querySelectorAll('.chk-res:checked')).map(cb => JSON.parse(cb.dataset.info));
+    const selectedTab = Array.from(document.querySelectorAll('.chk-tab:checked')).map(cb => cb.value);
+
+    const state = { 
+        resultados: selectedRes, 
+        grupos: selectedTab, 
+        ts: Date.now() 
+    };
+
+    // Enviamos al servidor igual que en tus otros códigos
+    try {
+        const r = await fetch(WS_SERVER + '/overlay/ticker_update', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem(TOKEN_KEY) },
+            body: JSON.stringify(state)
+        });
+        if(r.ok) alert("Ticker actualizado!");
+    } catch(e) { alert("Error al conectar con el servidor"); }
+});
+
+cargarDatos();
+</script>
+</body>
+</html>
