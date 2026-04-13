@@ -99,11 +99,34 @@ function escapeHtml(text) {
 function parseDateTime(fechaStr, horaStr) {
   try {
     if (!fechaStr || !horaStr) return 8640000000000000;
-    const cleanFecha = fechaStr.replace(/-/g, '/');
-    const parts = cleanFecha.split('/');
+    // Asumiendo formato DD-MM-YYYY
+    const parts = fechaStr.split('-');
     const timeParts = horaStr.split(':');
-    return new Date(parts[2], parts[1]-1, parts[0], timeParts[0], timeParts[1]).getTime();
-  } catch (e) { return 8640000000000000; }
+    
+    if (parts.length !== 3 || timeParts.length < 2) {
+      console.warn('Formato inválido:', fechaStr, horaStr);
+      return 8640000000000000;
+    }
+    
+    const dia = parseInt(parts[0]);
+    const mes = parseInt(parts[1]) - 1; // Los meses en JS son 0-indexed
+    const año = parseInt(parts[2]);
+    const hora = parseInt(timeParts[0]);
+    const minuto = parseInt(timeParts[1]);
+    
+    const date = new Date(año, mes, dia, hora, minuto);
+    
+    // Verificar que la fecha es válida
+    if (isNaN(date.getTime())) {
+      console.warn('Fecha inválida:', fechaStr, horaStr);
+      return 8640000000000000;
+    }
+    
+    return date.getTime();
+  } catch (e) { 
+    console.error('Error parseando fecha:', e, fechaStr, horaStr);
+    return 8640000000000000; 
+  }
 }
 
 async function fetchData() {
@@ -130,10 +153,26 @@ async function fetchData() {
 
     // 3. Obtener los próximos partidos (coordinados) directamente de la API
     const próximos = [];
+    const ahora = Date.now();
+    
     partidosData.rondas_grupos.forEach(g => g.partidos.forEach(r => r.partidos.forEach(p => {
-      if(!p.resultado && p.fecha && p.horario) próximos.push(p);
+      if(!p.resultado && p.fecha && p.horario) {
+        const timestamp = parseDateTime(p.fecha, p.horario);
+        próximos.push({
+          ...p,
+          timestamp: timestamp
+        });
+      }
     })));
-    próximos.sort((a,b) => parseDateTime(a.fecha, a.horario) - parseDateTime(b.fecha, b.horario));
+    
+    // Ordenar por fecha
+    próximos.sort((a, b) => a.timestamp - b.timestamp);
+    
+    // Debug: mostrar los primeros 5 próximos
+    console.log('Próximos partidos ordenados:');
+    próximos.slice(0, 5).forEach(p => {
+      console.log(`${p.fecha} ${p.horario} - ${p.jugador1Nick} vs ${p.jugador2Nick} (${new Date(p.timestamp).toLocaleString()})`);
+    });
 
     render(dataAdmin.resultados || [], tablasFiltradas, próximos);
     
@@ -170,9 +209,12 @@ function render(partidosElegidos, tablasData, proximosData) {
   }
 
   // --- PRÓXIMOS (Coordinados desde JSON original) ---
-  if(proximosData.length > 0){
+  // Mostrar solo los próximos 8 partidos más cercanos
+  const proximosLimitados = proximosData.slice(0, 8);
+  
+  if(proximosLimitados.length > 0){
     html += '<span class="section-tag">PRÓXIMOS</span>';
-    proximosData.forEach(p => {
+    proximosLimitados.forEach(p => {
       html += `<div class="ticker-card">
                 <span class="ticker-nick">${escapeHtml(p.jugador1Nick)}</span>
                 <span class="ticker-time">${p.diaSemana.substring(0,3).toUpperCase()} ${p.horario}</span>
