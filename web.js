@@ -158,6 +158,7 @@ app.get('/api/overlay/ticker', (req, res) => {
   res.json(global.lastTickerState || { resultados: [], tablas: {}, gruposVisibles: [] });
 });
 
+
 // ── Datos de un torneo específico (para overlays) ───────────────────────────────
 app.get('/api/torneos/:archivo', (req, res) => {
   let archivo = req.params.archivo;
