@@ -684,7 +684,14 @@
               "jugador1Nick": "|FMG| Nadie",
               "jugador2Id": "594988359965999118",
               "jugador2Nick": "N4cHoV",
-              "resultado": null
+              "resultado": {
+                "341001672786575360": 2,
+                "594988359965999118": 0,
+                "mapas": "https://aoe2cm.net/draft/dvGsd",
+                "civs": "https://aoe2cm.net/draft/JGfJM",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1493058860829638828/MP_Replay_v101.103.39862.0_2026.04.12_204302_1.aoe2record?ex=69dd96ec&is=69dc456c&hm=2bbaea3ce0bfae4108903b250e6f76577b72fe7b3d390a78a89811e16abab38f&",
+                "fecha_registro": "2026-04-13T01:22:52.953Z"
+              }
             },
             {
               "jugador1Id": "689907393001291884",
