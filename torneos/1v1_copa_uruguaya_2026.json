@@ -83,7 +83,7 @@
           "idaoe2": "2304739"
         },
         {
-          "id": "286607198854053890",
+          "id": "701537224248000563",
           "nick": "Aztreonam",
           "elo": 1450,
           "elo_real": 1452,
@@ -461,7 +461,7 @@
               "coordinadoPor": "jabsuy"
             },
             {
-              "jugador1Id": "286607198854053890",
+              "jugador1Id": "701537224248000563",
               "jugador1Nick": "Aztreonam",
               "jugador2Id": "755853346149105786",
               "jugador2Nick": "|FMG| Donde Estan Mis 5 Pizzas",
@@ -482,7 +482,7 @@
             {
               "jugador1Id": "1008090545513570495",
               "jugador1Nick": "ElOsoConBarba",
-              "jugador2Id": "286607198854053890",
+              "jugador2Id": "701537224248000563",
               "jugador2Nick": "Aztreonam",
               "resultado": null
             }
@@ -494,7 +494,7 @@
             {
               "jugador1Id": "697996987210924072",
               "jugador1Nick": "|FMG| TINCHO",
-              "jugador2Id": "286607198854053890",
+              "jugador2Id": "701537224248000563",
               "jugador2Nick": "Aztreonam",
               "resultado": null
             },
