@@ -649,7 +649,11 @@
               "jugador1Nick": "DGHIR | Garezo",
               "jugador2Id": "264781067506941962",
               "jugador2Nick": "|FMG| doomjota",
-              "resultado": null
+              "resultado": null,
+              "fecha": "16-04-2026",
+              "horario": "22:00",
+              "diaSemana": "Jueves",
+              "coordinadoPor": "garezo"
             },
             {
               "jugador1Id": "852387609916211270",
