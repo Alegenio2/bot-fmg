@@ -119,7 +119,7 @@ module.exports = {
         content: `📅 **PARTIDO COORDINADO - COPA 2026**\n` +
                  `━━━━━━━━━━━━━━━━━━━━━━━━\n` +
                  `🏆 **Grupo ${grupoLetra}** - Ronda ${nroRonda}\n` +
-                 `👥 **${jugador.username}** vs **${rival.username}**\n` +
+                 `👥 **${data1.nick}** vs **${data2.nick}**\n` +
                  `🕒 **${fecha}** (${obtenerDiaSemana(fechaFormatoCorrecto)}) - **${horarioFormateado}hs**\n\n` +
                  `${msgHandicap}\n` +
                  `━━━━━━━━━━━━━━━━━━━━━━━━`,
