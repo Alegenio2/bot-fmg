@@ -870,7 +870,11 @@
               "jugador1Nick": "URU | Juasteint",
               "jugador2Id": "582941701518262412",
               "jugador2Nick": "Matixxx",
-              "resultado": null
+              "resultado": null,
+              "fecha": "13/04/2026",
+              "horario": "22:30",
+              "diaSemana": "Lunes",
+              "coordinadoPor": "juasteint"
             }
           ]
         },
