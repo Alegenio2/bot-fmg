@@ -63,6 +63,7 @@
 
   .ticker-nick { font-family: 'Cinzel'; color: #fff; font-size: 16px; font-weight: 700; }
   .ticker-score { font-size: 22px; font-weight: 900; color: #e8c87a; display: flex; gap: 5px; align-items: center; }
+  .ticker-time { font-size: 15px; color: #5090b0; font-weight: 700; background: rgba(80,144,176,0.1); padding: 4px 10px; border-radius: 4px; border: 1px solid rgba(80,144,176,0.3); }
   
   .win { color: #4ade80; }
   .lose { color: #f87171; opacity: 0.8; }
@@ -95,35 +96,56 @@ function escapeHtml(text) {
   return div.innerHTML;
 }
 
+function parseDateTime(fechaStr, horaStr) {
+  try {
+    if (!fechaStr || !horaStr) return 8640000000000000;
+    const cleanFecha = fechaStr.replace(/-/g, '/');
+    const parts = cleanFecha.split('/');
+    const timeParts = horaStr.split(':');
+    return new Date(parts[2], parts[1]-1, parts[0], timeParts[0], timeParts[1]).getTime();
+  } catch (e) { return 8640000000000000; }
+}
+
 async function fetchData() {
   const statusEl = document.getElementById('status');
-  statusEl.innerText = "RECIBIENDO CONTROL...";
+  statusEl.innerText = "ACTUALIZANDO...";
   
   try {
-    // 1. Traer la configuración del servidor (lo que mandaste desde el celular)
-    const res = await fetch('https://aldeanooscar.squareweb.app/api/overlay/ticker');
-    const data = await res.json();
+    // 1. Traer datos del Admin (Resultados y Tablas) y de la API (Próximos)
+    const [resAdmin, resTorneo] = await Promise.all([
+      fetch('https://aldeanooscar.squareweb.app/api/overlay/ticker'),
+      fetch('https://aldeanooscar.squareweb.app/api/torneos/1v1_copa_uruguaya_2026')
+    ]);
+    
+    const dataAdmin = await resAdmin.json();
+    const partidosData = await resTorneo.json();
     
     // 2. Filtrar solo los grupos de tablas que seleccionaste mostrar
     const tablasFiltradas = {};
-    if(data.gruposVisibles && data.tablas) {
-        data.gruposVisibles.forEach(g => {
-            if(data.tablas[g]) tablasFiltradas[g] = data.tablas[g];
+    if(dataAdmin.gruposVisibles && dataAdmin.tablas) {
+        dataAdmin.gruposVisibles.forEach(g => {
+            if(dataAdmin.tablas[g]) tablasFiltradas[g] = dataAdmin.tablas[g];
         });
     }
 
-    // 3. Renderizar resultados y tablas simuladas
-    render(data.resultados || [], tablasFiltradas);
+    // 3. Obtener los próximos partidos (coordinados) directamente de la API
+    const próximos = [];
+    partidosData.rondas_grupos.forEach(g => g.partidos.forEach(r => r.partidos.forEach(p => {
+      if(!p.resultado && p.fecha && p.horario) próximos.push(p);
+    })));
+    próximos.sort((a,b) => parseDateTime(a.fecha, a.horario) - parseDateTime(b.fecha, b.horario));
+
+    render(dataAdmin.resultados || [], tablasFiltradas, próximos);
     
     statusEl.innerText = "LIVE - SIN SPOILERS (L: Refresh)";
     statusEl.style.color = "#4ade80";
   } catch(e) { 
-    statusEl.innerText = "SIN DATOS DE ADMIN";
+    statusEl.innerText = "ERROR CARGANDO DATOS";
     statusEl.style.color = "#f87171";
   }
 }
 
-function render(partidosElegidos, tablasData) {
+function render(partidosElegidos, tablasData, proximosData) {
   const wrapper = document.getElementById('track-wrapper');
   const content1 = document.getElementById('track-content');
   const content2 = document.getElementById('track-content-clone');
@@ -143,6 +165,18 @@ function render(partidosElegidos, tablasData) {
                     <span class="${r.s2 > r.s1 ? 'win' : 'lose'}">${r.s2}</span>
                 </div>
                 <span class="ticker-nick">${escapeHtml(r.p2)}</span>
+               </div>`;
+    });
+  }
+
+  // --- PRÓXIMOS (Coordinados desde JSON original) ---
+  if(proximosData.length > 0){
+    html += '<span class="section-tag">PRÓXIMOS</span>';
+    proximosData.forEach(p => {
+      html += `<div class="ticker-card">
+                <span class="ticker-nick">${escapeHtml(p.jugador1Nick)}</span>
+                <span class="ticker-time">${p.diaSemana.substring(0,3).toUpperCase()} ${p.horario}</span>
+                <span class="ticker-nick">${escapeHtml(p.jugador2Nick)}</span>
                </div>`;
     });
   }
@@ -179,8 +213,7 @@ window.addEventListener('keydown', e => {
   }
 });
 
-// Nota: No se carga automáticamente para evitar cualquier spoiler al abrir OBS.
-// Presiona "L" en la interacción de OBS cuando estés listo.
+fetchData();
 </script>
 </body>
 </html>
