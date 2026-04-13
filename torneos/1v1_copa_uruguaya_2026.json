@@ -550,7 +550,14 @@
               "jugador1Nick": "URU | ToNGa",
               "jugador2Id": "382688182002515978",
               "jugador2Nick": "[VL] Karistho",
-              "resultado": null,
+              "resultado": {
+                "833806737902534738": 2,
+                "382688182002515978": 0,
+                "mapas": "https://aoe2cm.net/draft/PxBbo",
+                "civs": "https://aoe2cm.net/draft/njeax",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1493047703813230782/Tonga_vs_Karistho.zip?ex=69dd8c88&is=69dc3b08&hm=8e7b13f009bf279d9a1e254b94f70d4326b5521c8295551909ec75e9341f2c9a&",
+                "fecha_registro": "2026-04-13T00:38:32.867Z"
+              },
               "fecha": "12-04-2026",
               "horario": "20:30",
               "diaSemana": "Domingo",
