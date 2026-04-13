@@ -729,7 +729,14 @@
               "jugador1Nick": "N4cHoV",
               "jugador2Id": "689907393001291884",
               "jugador2Nick": "Culero Connor",
-              "resultado": null,
+              "resultado": {
+                "689907393001291884": 1,
+                "594988359965999118": 2,
+                "mapas": "https://aoe2cm.net/draft/gIfZK",
+                "civs": "https://aoe2cm.net/draft/SZyKe",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1493395845729615882/Culero_vs_n4chov.zip?ex=69ded0c3&is=69dd7f43&hm=90c5149b667a0c934f16f20d3fdad208465f2732aba3e4e490dcca888a5d7767&",
+                "fecha_registro": "2026-04-13T23:41:56.383Z"
+              },
               "fecha": "13-04-2026",
               "horario": "19:35",
               "diaSemana": "Lunes",
