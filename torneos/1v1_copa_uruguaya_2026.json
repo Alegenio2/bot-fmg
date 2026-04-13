@@ -496,7 +496,14 @@
               "jugador1Nick": "|FMG| TINCHO",
               "jugador2Id": "701537224248000563",
               "jugador2Nick": "Aztreonam",
-              "resultado": null
+              "resultado": {
+                "701537224248000563": 0,
+                "697996987210924072": 2,
+                "mapas": "https://aoe2cm.net/draft/jvykg",
+                "civs": "https://aoe2cm.net/draft/vgiSZ",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1493051074104266762/aztreo_vs_tincho.zip?ex=69dd8fab&is=69dc3e2b&hm=3e49b49f70d0674eb08ee9f4a11167200412952b76ee38303684bcc6cb972aa8&",
+                "fecha_registro": "2026-04-13T00:51:57.329Z"
+              }
             },
             {
               "jugador1Id": "755853346149105786",
