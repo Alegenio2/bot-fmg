@@ -1,8 +1,8 @@
 {
   "meta": {
     "torneo": "copa_uruguaya_2026",
-    "ultima_actualizacion": "2026-04-13T00:51:58.420Z",
-    "total_partidas": 32
+    "ultima_actualizacion": "2026-04-13T01:22:54.177Z",
+    "total_partidas": 34
   },
   "jugadores": {
     "733765577570779279": {
@@ -1558,6 +1558,114 @@
           "winrate": 0
         }
       }
+    },
+    "341001672786575360": {
+      "nick": "|FMG| Nadie",
+      "aoe2Id": "673060",
+      "global": {
+        "pj": 2,
+        "pg": 2,
+        "pp": 0,
+        "winrate": 100
+      },
+      "civs": {
+        "Japanese": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "CopaU_2026_Valley (Custom)": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        },
+        "Dravidians": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "CopaU_2026_Shorelines (Custom)": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        }
+      },
+      "mapas": {
+        "CopaU_2026_Valley (Custom)": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        },
+        "CopaU_2026_Shorelines (Custom)": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        }
+      }
+    },
+    "594988359965999118": {
+      "nick": "N4cHoV",
+      "aoe2Id": "2295211",
+      "global": {
+        "pj": 2,
+        "pg": 0,
+        "pp": 2,
+        "winrate": 0
+      },
+      "civs": {
+        "Goths": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "CopaU_2026_Valley (Custom)": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        },
+        "Berbers": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "CopaU_2026_Shorelines (Custom)": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        }
+      },
+      "mapas": {
+        "CopaU_2026_Valley (Custom)": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        },
+        "CopaU_2026_Shorelines (Custom)": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        }
+      }
     }
   },
   "mapas": {
@@ -1733,15 +1841,17 @@
       }
     },
     "CopaU_2026_Shorelines (Custom)": {
-      "total_partidas": 3,
+      "total_partidas": 4,
       "civs_ganadoras": {
         "Persians": 2,
-        "Italians": 1
+        "Italians": 1,
+        "Dravidians": 1
       },
       "civs_perdedoras": {
         "Georgians": 1,
         "Armenians": 1,
-        "Magyars": 1
+        "Magyars": 1,
+        "Berbers": 1
       },
       "enfrentamientos": {
         "Georgians_vs_Persians": {
@@ -1761,6 +1871,12 @@
           "gano_primero": 1,
           "civ_a": "Italians",
           "civ_b": "Magyars"
+        },
+        "Berbers_vs_Dravidians": {
+          "total": 1,
+          "gano_primero": 0,
+          "civ_a": "Berbers",
+          "civ_b": "Dravidians"
         }
       }
     },
@@ -1939,12 +2055,14 @@
       }
     },
     "CopaU_2026_Valley (Custom)": {
-      "total_partidas": 1,
+      "total_partidas": 2,
       "civs_ganadoras": {
-        "Mongols": 1
+        "Mongols": 1,
+        "Japanese": 1
       },
       "civs_perdedoras": {
-        "Vietnamese": 1
+        "Vietnamese": 1,
+        "Goths": 1
       },
       "enfrentamientos": {
         "Mongols_vs_Vietnamese": {
@@ -1952,15 +2070,21 @@
           "gano_primero": 1,
           "civ_a": "Mongols",
           "civ_b": "Vietnamese"
+        },
+        "Goths_vs_Japanese": {
+          "total": 1,
+          "gano_primero": 0,
+          "civ_a": "Goths",
+          "civ_b": "Japanese"
         }
       }
     }
   },
   "civs": {
     "Berbers": {
-      "total_jugadas": 3,
+      "total_jugadas": 4,
       "total_ganadas": 2,
-      "winrate": 66.7,
+      "winrate": 50,
       "por_mapa": {
         "Nomad": {
           "jugadas": 2,
@@ -1968,6 +2092,11 @@
           "winrate": 100
         },
         "Arabia": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        },
+        "CopaU_2026_Shorelines (Custom)": {
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
@@ -1988,6 +2117,11 @@
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "Dravidians": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       }
     },
@@ -2011,9 +2145,9 @@
       }
     },
     "Japanese": {
-      "total_jugadas": 7,
-      "total_ganadas": 6,
-      "winrate": 85.7,
+      "total_jugadas": 8,
+      "total_ganadas": 7,
+      "winrate": 87.5,
       "por_mapa": {
         "CopaU_2026_High Tides v3 (Custom)": {
           "jugadas": 1,
@@ -2029,6 +2163,11 @@
           "jugadas": 4,
           "ganadas": 3,
           "winrate": 75
+        },
+        "CopaU_2026_Valley (Custom)": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       },
       "vs_civs": {
@@ -2058,6 +2197,11 @@
           "winrate": 50
         },
         "Mongols": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        },
+        "Goths": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
@@ -2799,6 +2943,44 @@
           "winrate": 100
         }
       }
+    },
+    "Goths": {
+      "total_jugadas": 1,
+      "total_ganadas": 0,
+      "winrate": 0,
+      "por_mapa": {
+        "CopaU_2026_Valley (Custom)": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        }
+      },
+      "vs_civs": {
+        "Japanese": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        }
+      }
+    },
+    "Dravidians": {
+      "total_jugadas": 1,
+      "total_ganadas": 1,
+      "winrate": 100,
+      "por_mapa": {
+        "CopaU_2026_Shorelines (Custom)": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        }
+      },
+      "vs_civs": {
+        "Berbers": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        }
+      }
     }
   },
   "partidas": [
@@ -3438,6 +3620,46 @@
         "nick": "|FMG| TINCHO",
         "civ": "Tatars",
         "gano": true
+      }
+    },
+    {
+      "matchId": 470050769,
+      "fecha": "2026-04-13T00:43:00.000Z",
+      "mapa": "CopaU_2026_Valley (Custom)",
+      "duracion": 28,
+      "grupo": "F",
+      "ronda": 1,
+      "jugador1": {
+        "discordId": "341001672786575360",
+        "nick": "|FMG| Nadie",
+        "civ": "Japanese",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "594988359965999118",
+        "nick": "N4cHoV",
+        "civ": "Goths",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 470043442,
+      "fecha": "2026-04-13T00:03:56.000Z",
+      "mapa": "CopaU_2026_Shorelines (Custom)",
+      "duracion": 36,
+      "grupo": "F",
+      "ronda": 1,
+      "jugador1": {
+        "discordId": "341001672786575360",
+        "nick": "|FMG| Nadie",
+        "civ": "Dravidians",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "594988359965999118",
+        "nick": "N4cHoV",
+        "civ": "Berbers",
+        "gano": false
       }
     }
   ]
