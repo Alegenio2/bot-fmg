@@ -153,6 +153,11 @@ app.get('/api/torneos/tabla_posiciones', (req, res) => {
   }
 });
 
+// ── API: obtener estado actual del ticker ────────────────────────────────────
+app.get('/api/overlay/ticker', (req, res) => {
+  res.json(global.lastTickerState || { resultados: [], tablas: {}, gruposVisibles: [] });
+});
+
 // ── Datos de un torneo específico (para overlays) ───────────────────────────────
 app.get('/api/torneos/:archivo', (req, res) => {
   let archivo = req.params.archivo;
@@ -210,6 +215,15 @@ app.post('/overlay/mapa', requireAuth, (req, res) => {
   const state = { ...req.body, ts: Date.now() };
   broadcast('mapa', state);
   console.log(`[overlay] mapa → ${state.name || 'oculto'}`);
+  res.json({ ok: true, ts: state.ts });
+});
+
+// ── Overlay: actualizar ticker (desde admin_ticker) ──────────────────────────
+app.post('/overlay/ticker', requireAuth, (req, res) => {
+  const state = { ...req.body, ts: Date.now() };
+  global.lastTickerState = state;
+  broadcast('ticker', state);
+   console.log(`[overlay] ticker actualizado: ${state.resultados.length} partidos`);
   res.json({ ok: true, ts: state.ts });
 });
 
