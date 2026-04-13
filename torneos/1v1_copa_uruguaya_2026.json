@@ -729,7 +729,11 @@
               "jugador1Nick": "N4cHoV",
               "jugador2Id": "689907393001291884",
               "jugador2Nick": "Culero Connor",
-              "resultado": null
+              "resultado": null,
+              "fecha": "13-04-2026",
+              "horario": "19:35",
+              "diaSemana": "Lunes",
+              "coordinadoPor": "culero_connor"
             }
           ]
         },
