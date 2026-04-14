@@ -717,7 +717,14 @@
               "jugador1Nick": "Culero Connor",
               "jugador2Id": "896216989922635777",
               "jugador2Nick": "|FMG| TatoSky",
-              "resultado": null
+              "resultado": {
+                "689907393001291884": 2,
+                "896216989922635777": 1,
+                "mapas": "https://aoe2cm.net/draft/QMAKx",
+                "civs": "https://aoe2cm.net/draft/zVyyG",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1493713697888145489/Culero_vs_Tatosky.zip?ex=69dff8c9&is=69dea749&hm=19838bb2a44d4bee0094f8211957d16efb9fc973cfee92be46b930eb7163b37f&",
+                "fecha_registro": "2026-04-14T20:44:58.184Z"
+              }
             }
           ]
         },
