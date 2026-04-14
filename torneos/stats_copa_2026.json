@@ -1,8 +1,8 @@
 {
   "meta": {
     "torneo": "copa_uruguaya_2026",
-    "ultima_actualizacion": "2026-04-14T02:46:50.516Z",
-    "total_partidas": 41
+    "ultima_actualizacion": "2026-04-14T20:44:59.047Z",
+    "total_partidas": 44
   },
   "jugadores": {
     "733765577570779279": {
@@ -1801,10 +1801,10 @@
       "nick": "Culero Connor",
       "aoe2Id": "5736044",
       "global": {
-        "pj": 3,
-        "pg": 1,
-        "pp": 2,
-        "winrate": 33.3
+        "pj": 6,
+        "pg": 3,
+        "pp": 3,
+        "winrate": 50
       },
       "civs": {
         "Wu": {
@@ -1848,6 +1848,48 @@
               "winrate": 100
             }
           }
+        },
+        "Bengalis": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "Arena": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        },
+        "Persians": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "Nomad": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        },
+        "Chinese": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "Enclosed": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
         }
       },
       "mapas": {
@@ -1868,6 +1910,24 @@
           "pg": 1,
           "pp": 0,
           "winrate": 100
+        },
+        "Arena": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        },
+        "Nomad": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        },
+        "Enclosed": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
         }
       }
     },
@@ -1924,21 +1984,95 @@
           "winrate": 100
         }
       }
+    },
+    "896216989922635777": {
+      "nick": "|FMG| TatoSky",
+      "aoe2Id": "8921754",
+      "global": {
+        "pj": 3,
+        "pg": 1,
+        "pp": 2,
+        "winrate": 33.3
+      },
+      "civs": {
+        "Cumans": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "Arena": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        },
+        "Lithuanians": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "Nomad": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        },
+        "Romans": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "Enclosed": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        }
+      },
+      "mapas": {
+        "Arena": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        },
+        "Nomad": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        },
+        "Enclosed": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        }
+      }
     }
   },
   "mapas": {
     "Nomad": {
-      "total_partidas": 5,
+      "total_partidas": 6,
       "civs_ganadoras": {
         "Berbers": 2,
         "Vikings": 1,
-        "Persians": 1,
+        "Persians": 2,
         "Armenians": 1
       },
       "civs_perdedoras": {
         "Franks": 1,
         "Bohemians": 1,
-        "Lithuanians": 1,
+        "Lithuanians": 2,
         "Koreans": 1,
         "Spanish": 1
       },
@@ -1956,7 +2090,7 @@
           "civ_b": "Vikings"
         },
         "Lithuanians_vs_Persians": {
-          "total": 1,
+          "total": 2,
           "gano_primero": 0,
           "civ_a": "Lithuanians",
           "civ_b": "Persians"
@@ -2233,16 +2367,17 @@
       }
     },
     "Enclosed": {
-      "total_partidas": 3,
+      "total_partidas": 4,
       "civs_ganadoras": {
-        "Romans": 1,
+        "Romans": 2,
         "Vietnamese": 1,
         "Italians": 1
       },
       "civs_perdedoras": {
         "Magyars": 1,
         "Shu": 1,
-        "Spanish": 1
+        "Spanish": 1,
+        "Chinese": 1
       },
       "enfrentamientos": {
         "Magyars_vs_Romans": {
@@ -2262,6 +2397,12 @@
           "gano_primero": 1,
           "civ_a": "Italians",
           "civ_b": "Spanish"
+        },
+        "Chinese_vs_Romans": {
+          "total": 1,
+          "gano_primero": 0,
+          "civ_a": "Chinese",
+          "civ_b": "Romans"
         }
       }
     },
@@ -2333,12 +2474,14 @@
       }
     },
     "Arena": {
-      "total_partidas": 1,
+      "total_partidas": 2,
       "civs_ganadoras": {
-        "Cumans": 1
+        "Cumans": 1,
+        "Bengalis": 1
       },
       "civs_perdedoras": {
-        "Italians": 1
+        "Italians": 1,
+        "Cumans": 1
       },
       "enfrentamientos": {
         "Cumans_vs_Italians": {
@@ -2346,6 +2489,12 @@
           "gano_primero": 1,
           "civ_a": "Cumans",
           "civ_b": "Italians"
+        },
+        "Bengalis_vs_Cumans": {
+          "total": 1,
+          "gano_primero": 1,
+          "civ_a": "Bengalis",
+          "civ_b": "Cumans"
         }
       }
     },
@@ -2828,9 +2977,9 @@
       }
     },
     "Persians": {
-      "total_jugadas": 6,
-      "total_ganadas": 3,
-      "winrate": 50,
+      "total_jugadas": 7,
+      "total_ganadas": 4,
+      "winrate": 57.1,
       "por_mapa": {
         "CopaU_2026_Shorelines (Custom)": {
           "jugadas": 2,
@@ -2848,8 +2997,8 @@
           "winrate": 0
         },
         "Nomad": {
-          "jugadas": 1,
-          "ganadas": 1,
+          "jugadas": 2,
+          "ganadas": 2,
           "winrate": 100
         },
         "CopaU_2026_High Tides v3 (Custom)": {
@@ -2880,8 +3029,8 @@
           "winrate": 0
         },
         "Lithuanians": {
-          "jugadas": 1,
-          "ganadas": 1,
+          "jugadas": 2,
+          "ganadas": 2,
           "winrate": 100
         },
         "Malians": {
@@ -2979,9 +3128,9 @@
       }
     },
     "Chinese": {
-      "total_jugadas": 2,
+      "total_jugadas": 3,
       "total_ganadas": 2,
-      "winrate": 100,
+      "winrate": 66.7,
       "por_mapa": {
         "CopaU_2026_Stranded v3 (Custom)": {
           "jugadas": 1,
@@ -2992,6 +3141,11 @@
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "Enclosed": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       },
       "vs_civs": {
@@ -3004,6 +3158,11 @@
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "Romans": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       }
     },
@@ -3027,13 +3186,13 @@
       }
     },
     "Romans": {
-      "total_jugadas": 2,
-      "total_ganadas": 1,
-      "winrate": 50,
+      "total_jugadas": 3,
+      "total_ganadas": 2,
+      "winrate": 66.7,
       "por_mapa": {
         "Enclosed": {
-          "jugadas": 1,
-          "ganadas": 1,
+          "jugadas": 2,
+          "ganadas": 2,
           "winrate": 100
         },
         "CopaU_2026_Stranded v3 (Custom)": {
@@ -3052,6 +3211,11 @@
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "Chinese": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       }
     },
@@ -3269,7 +3433,7 @@
       }
     },
     "Lithuanians": {
-      "total_jugadas": 2,
+      "total_jugadas": 3,
       "total_ganadas": 0,
       "winrate": 0,
       "por_mapa": {
@@ -3279,7 +3443,7 @@
           "winrate": 0
         },
         "Nomad": {
-          "jugadas": 1,
+          "jugadas": 2,
           "ganadas": 0,
           "winrate": 0
         }
@@ -3291,21 +3455,21 @@
           "winrate": 0
         },
         "Persians": {
-          "jugadas": 1,
+          "jugadas": 2,
           "ganadas": 0,
           "winrate": 0
         }
       }
     },
     "Cumans": {
-      "total_jugadas": 2,
+      "total_jugadas": 3,
       "total_ganadas": 1,
-      "winrate": 50,
+      "winrate": 33.3,
       "por_mapa": {
         "Arena": {
-          "jugadas": 1,
+          "jugadas": 2,
           "ganadas": 1,
-          "winrate": 100
+          "winrate": 50
         },
         "CopaU_2026_Quarry v3 (Custom)": {
           "jugadas": 1,
@@ -3320,6 +3484,11 @@
           "winrate": 100
         },
         "Portuguese": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        },
+        "Bengalis": {
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
@@ -3435,6 +3604,25 @@
       },
       "vs_civs": {
         "Japanese": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        }
+      }
+    },
+    "Bengalis": {
+      "total_jugadas": 1,
+      "total_ganadas": 1,
+      "winrate": 100,
+      "por_mapa": {
+        "Arena": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        }
+      },
+      "vs_civs": {
+        "Cumans": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
@@ -4259,6 +4447,66 @@
         "nick": "URU | Juasteint",
         "civ": "Romans",
         "gano": false
+      }
+    },
+    {
+      "matchId": 470457125,
+      "fecha": "2026-04-14T20:26:21.000Z",
+      "mapa": "Arena",
+      "duracion": 13,
+      "grupo": "F",
+      "ronda": 1,
+      "jugador1": {
+        "discordId": "689907393001291884",
+        "nick": "Culero Connor",
+        "civ": "Bengalis",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "896216989922635777",
+        "nick": "|FMG| TatoSky",
+        "civ": "Cumans",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 470450682,
+      "fecha": "2026-04-14T20:01:08.000Z",
+      "mapa": "Nomad",
+      "duracion": 20,
+      "grupo": "F",
+      "ronda": 1,
+      "jugador1": {
+        "discordId": "689907393001291884",
+        "nick": "Culero Connor",
+        "civ": "Persians",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "896216989922635777",
+        "nick": "|FMG| TatoSky",
+        "civ": "Lithuanians",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 470445693,
+      "fecha": "2026-04-14T19:33:41.000Z",
+      "mapa": "Enclosed",
+      "duracion": 22,
+      "grupo": "F",
+      "ronda": 1,
+      "jugador1": {
+        "discordId": "689907393001291884",
+        "nick": "Culero Connor",
+        "civ": "Chinese",
+        "gano": false
+      },
+      "jugador2": {
+        "discordId": "896216989922635777",
+        "nick": "|FMG| TatoSky",
+        "civ": "Romans",
+        "gano": true
       }
     }
   ]
