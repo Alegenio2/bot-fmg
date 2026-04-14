@@ -2,20 +2,20 @@
   "Grupo A": [
     {
       "nick": "Nacional",
-      "pj": 1,
-      "pg": 1,
+      "pj": 2,
+      "pg": 2,
       "pp": 0,
-      "sf": 2,
+      "sf": 4,
       "sc": 0,
-      "pts": 2
+      "pts": 4
     },
     {
       "nick": "buyanjavyn",
-      "pj": 1,
+      "pj": 2,
       "pg": 1,
-      "pp": 0,
+      "pp": 1,
       "sf": 2,
-      "sc": 1,
+      "sc": 3,
       "pts": 2
     },
     {
