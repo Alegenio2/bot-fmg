@@ -1,8 +1,8 @@
 {
   "meta": {
     "torneo": "copa_uruguaya_2026",
-    "ultima_actualizacion": "2026-04-14T00:58:20.804Z",
-    "total_partidas": 39
+    "ultima_actualizacion": "2026-04-14T02:46:50.516Z",
+    "total_partidas": 41
   },
   "jugadores": {
     "733765577570779279": {
@@ -649,23 +649,23 @@
       "nick": "URU | Juasteint",
       "aoe2Id": "2878364",
       "global": {
-        "pj": 3,
+        "pj": 5,
         "pg": 2,
-        "pp": 1,
-        "winrate": 66.7
+        "pp": 3,
+        "winrate": 40
       },
       "civs": {
         "Japanese": {
-          "pj": 2,
+          "pj": 3,
           "pg": 1,
-          "pp": 1,
-          "winrate": 50,
+          "pp": 2,
+          "winrate": 33.3,
           "por_mapa": {
             "CopaU_2026_Dry River (Custom)": {
-              "pj": 1,
+              "pj": 2,
               "pg": 1,
-              "pp": 0,
-              "winrate": 100
+              "pp": 1,
+              "winrate": 50
             },
             "CopaU_2026_Shorelines (Custom)": {
               "pj": 1,
@@ -676,26 +676,32 @@
           }
         },
         "Romans": {
-          "pj": 1,
+          "pj": 2,
           "pg": 1,
-          "pp": 0,
-          "winrate": 100,
+          "pp": 1,
+          "winrate": 50,
           "por_mapa": {
             "Enclosed": {
               "pj": 1,
               "pg": 1,
               "pp": 0,
               "winrate": 100
+            },
+            "CopaU_2026_Stranded v3 (Custom)": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
             }
           }
         }
       },
       "mapas": {
         "CopaU_2026_Dry River (Custom)": {
-          "pj": 1,
+          "pj": 2,
           "pg": 1,
-          "pp": 0,
-          "winrate": 100
+          "pp": 1,
+          "winrate": 50
         },
         "CopaU_2026_Shorelines (Custom)": {
           "pj": 1,
@@ -708,6 +714,12 @@
           "pg": 1,
           "pp": 0,
           "winrate": 100
+        },
+        "CopaU_2026_Stranded v3 (Custom)": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
         }
       }
     },
@@ -1858,6 +1870,60 @@
           "winrate": 100
         }
       }
+    },
+    "582941701518262412": {
+      "nick": "Matixxx",
+      "aoe2Id": "14779963",
+      "global": {
+        "pj": 2,
+        "pg": 2,
+        "pp": 0,
+        "winrate": 100
+      },
+      "civs": {
+        "Burmese": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "CopaU_2026_Dry River (Custom)": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        },
+        "Dravidians": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "CopaU_2026_Stranded v3 (Custom)": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        }
+      },
+      "mapas": {
+        "CopaU_2026_Dry River (Custom)": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        },
+        "CopaU_2026_Stranded v3 (Custom)": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        }
+      }
     }
   },
   "mapas": {
@@ -2089,16 +2155,17 @@
       }
     },
     "CopaU_2026_Stranded v3 (Custom)": {
-      "total_partidas": 3,
+      "total_partidas": 4,
       "civs_ganadoras": {
         "Chinese": 1,
         "Spanish": 1,
-        "Dravidians": 1
+        "Dravidians": 2
       },
       "civs_perdedoras": {
         "Persians": 1,
         "Wu": 1,
-        "Georgians": 1
+        "Georgians": 1,
+        "Romans": 1
       },
       "enfrentamientos": {
         "Chinese_vs_Persians": {
@@ -2118,18 +2185,25 @@
           "gano_primero": 1,
           "civ_a": "Dravidians",
           "civ_b": "Georgians"
+        },
+        "Dravidians_vs_Romans": {
+          "total": 1,
+          "gano_primero": 1,
+          "civ_a": "Dravidians",
+          "civ_b": "Romans"
         }
       }
     },
     "CopaU_2026_Dry River (Custom)": {
-      "total_partidas": 3,
+      "total_partidas": 4,
       "civs_ganadoras": {
-        "Japanese": 3
+        "Japanese": 3,
+        "Burmese": 1
       },
       "civs_perdedoras": {
         "Bulgarians": 1,
         "Britons": 1,
-        "Japanese": 1
+        "Japanese": 2
       },
       "enfrentamientos": {
         "Bulgarians_vs_Japanese": {
@@ -2148,6 +2222,12 @@
           "total": 1,
           "gano_primero": 1,
           "civ_a": "Japanese",
+          "civ_b": "Japanese"
+        },
+        "Burmese_vs_Japanese": {
+          "total": 1,
+          "gano_primero": 1,
+          "civ_a": "Burmese",
           "civ_b": "Japanese"
         }
       }
@@ -2382,9 +2462,9 @@
       }
     },
     "Japanese": {
-      "total_jugadas": 8,
+      "total_jugadas": 9,
       "total_ganadas": 7,
-      "winrate": 87.5,
+      "winrate": 77.8,
       "por_mapa": {
         "CopaU_2026_High Tides v3 (Custom)": {
           "jugadas": 1,
@@ -2397,9 +2477,9 @@
           "winrate": 100
         },
         "CopaU_2026_Dry River (Custom)": {
-          "jugadas": 4,
+          "jugadas": 5,
           "ganadas": 3,
-          "winrate": 75
+          "winrate": 60
         },
         "CopaU_2026_Valley (Custom)": {
           "jugadas": 1,
@@ -2442,6 +2522,11 @@
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "Burmese": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       }
     },
@@ -2942,14 +3027,19 @@
       }
     },
     "Romans": {
-      "total_jugadas": 1,
+      "total_jugadas": 2,
       "total_ganadas": 1,
-      "winrate": 100,
+      "winrate": 50,
       "por_mapa": {
         "Enclosed": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "CopaU_2026_Stranded v3 (Custom)": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       },
       "vs_civs": {
@@ -2957,6 +3047,11 @@
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "Dravidians": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       }
     },
@@ -3251,9 +3346,9 @@
       }
     },
     "Dravidians": {
-      "total_jugadas": 3,
-      "total_ganadas": 2,
-      "winrate": 66.7,
+      "total_jugadas": 4,
+      "total_ganadas": 3,
+      "winrate": 75,
       "por_mapa": {
         "CopaU_2026_Shorelines (Custom)": {
           "jugadas": 1,
@@ -3266,8 +3361,8 @@
           "winrate": 0
         },
         "CopaU_2026_Stranded v3 (Custom)": {
-          "jugadas": 1,
-          "ganadas": 1,
+          "jugadas": 2,
+          "ganadas": 2,
           "winrate": 100
         }
       },
@@ -3278,6 +3373,11 @@
           "winrate": 50
         },
         "Georgians": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        },
+        "Romans": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
@@ -3316,6 +3416,25 @@
       },
       "vs_civs": {
         "Persians": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        }
+      }
+    },
+    "Burmese": {
+      "total_jugadas": 1,
+      "total_ganadas": 1,
+      "winrate": 100,
+      "por_mapa": {
+        "CopaU_2026_Dry River (Custom)": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        }
+      },
+      "vs_civs": {
+        "Japanese": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
@@ -4100,6 +4219,46 @@
         "nick": "Nacional",
         "civ": "Malians",
         "gano": true
+      }
+    },
+    {
+      "matchId": 470294485,
+      "fecha": "2026-04-14T02:16:42.000Z",
+      "mapa": "CopaU_2026_Dry River (Custom)",
+      "duracion": 8,
+      "grupo": "H",
+      "ronda": 1,
+      "jugador1": {
+        "discordId": "582941701518262412",
+        "nick": "Matixxx",
+        "civ": "Burmese",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "135113382217908224",
+        "nick": "URU | Juasteint",
+        "civ": "Japanese",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 470289988,
+      "fecha": "2026-04-14T01:53:08.000Z",
+      "mapa": "CopaU_2026_Stranded v3 (Custom)",
+      "duracion": 21,
+      "grupo": "H",
+      "ronda": 1,
+      "jugador1": {
+        "discordId": "582941701518262412",
+        "nick": "Matixxx",
+        "civ": "Dravidians",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "135113382217908224",
+        "nick": "URU | Juasteint",
+        "civ": "Romans",
+        "gano": false
       }
     }
   ]
