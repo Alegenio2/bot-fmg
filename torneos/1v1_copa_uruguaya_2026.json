@@ -896,7 +896,14 @@
               "jugador1Nick": "URU | Juasteint",
               "jugador2Id": "582941701518262412",
               "jugador2Nick": "Matixxx",
-              "resultado": null,
+              "resultado": {
+                "582941701518262412": 2,
+                "135113382217908224": 0,
+                "mapas": "https://aoe2cm.net/draft/QpNcR",
+                "civs": "https://aoe2cm.net/draft/lWzRY",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1493442373877895300/MatixxxVSJuasteint.zip?ex=69defc18&is=69ddaa98&hm=d801b2e74c4941d2653e38cbc4b18cf79b77592122aa4684c4442b2f0f5d7821&",
+                "fecha_registro": "2026-04-14T02:46:49.479Z"
+              },
               "fecha": "13/04/2026",
               "horario": "22:30",
               "diaSemana": "Lunes",
