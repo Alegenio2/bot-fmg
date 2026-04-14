@@ -339,7 +339,14 @@
               "jugador1Nick": "Nacional",
               "jugador2Id": "709904591453683766",
               "jugador2Nick": "buyanjavyn",
-              "resultado": null,
+              "resultado": {
+                "709904591453683766": 0,
+                "733765577570779279": 2,
+                "mapas": "https://aoe2cm.net/draft/wlfBc",
+                "civs": "https://aoe2cm.net/draft/GVsqb",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1493415067771863218/buyan_v_nacional.rar?ex=69dee2aa&is=69dd912a&hm=eeb62d2ff47eef9e5e2457268bf9dac625272b6483e7ce44d74aed5d515e937c&",
+                "fecha_registro": "2026-04-14T00:58:19.342Z"
+              },
               "fecha": "13/4/2026",
               "horario": "20:30",
               "diaSemana": "Lunes",
