@@ -926,7 +926,11 @@
               "jugador1Nick": "-FMG- Rodri",
               "jugador2Id": "582941701518262412",
               "jugador2Nick": "Matixxx",
-              "resultado": null
+              "resultado": null,
+              "fecha": "14-04-2026",
+              "horario": "21:00",
+              "diaSemana": "Martes",
+              "coordinadoPor": "rodrigo41"
             },
             {
               "jugador1Id": "465307831583637514",
