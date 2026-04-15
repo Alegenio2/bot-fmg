@@ -229,6 +229,15 @@
   ],
   "Grupo G": [
     {
+      "nick": "DGHIR | NICOGP11",
+      "pj": 2,
+      "pg": 2,
+      "pp": 0,
+      "sf": 4,
+      "sc": 0,
+      "pts": 4
+    },
+    {
       "nick": "kakaidolo",
       "pj": 2,
       "pg": 2,
@@ -238,21 +247,12 @@
       "pts": 4
     },
     {
-      "nick": "DGHIR | NICOGP11",
-      "pj": 1,
-      "pg": 1,
-      "pp": 0,
-      "sf": 2,
-      "sc": 0,
-      "pts": 2
-    },
-    {
       "nick": "|FMG| Tano Stokes",
-      "pj": 1,
+      "pj": 2,
       "pg": 0,
-      "pp": 1,
+      "pp": 2,
       "sf": 1,
-      "sc": 2,
+      "sc": 4,
       "pts": 1
     },
     {
@@ -268,20 +268,20 @@
   "Grupo H": [
     {
       "nick": "-FMG- Rodri",
-      "pj": 2,
-      "pg": 1,
+      "pj": 3,
+      "pg": 2,
       "pp": 1,
-      "sf": 3,
+      "sf": 5,
       "sc": 2,
-      "pts": 3
+      "pts": 5
     },
     {
       "nick": "Matixxx",
-      "pj": 1,
+      "pj": 2,
       "pg": 1,
-      "pp": 0,
+      "pp": 1,
       "sf": 2,
-      "sc": 0,
+      "sc": 2,
       "pts": 2
     },
     {
