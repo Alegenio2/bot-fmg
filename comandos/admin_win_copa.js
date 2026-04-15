@@ -30,14 +30,17 @@ module.exports = {
       let faseActual = null;
       let nombreGrupo = "";
 
-      // 1. BUSCAR EN GRUPOS (Estructura real de tu JSON)
-      if (data.grupos && Array.isArray(data.grupos)) {
-        for (const grupo of data.grupos) {
-          if (!grupo.partidos) continue; // Estas son las rondas
+      // 1. BUSCAR EN GRUPOS (Estructura CORRECTA del JSON)
+      // El JSON tiene: rondas_grupos → [{ grupo: "A", partidos: [{ ronda: 1, partidos: [...] }] }]
+      if (data.rondas_grupos && Array.isArray(data.rondas_grupos)) {
+        for (const grupoRondas of data.rondas_grupos) {
+          if (!grupoRondas.partidos) continue;
 
-          for (const rondaObj of grupo.partidos) {
-            if (!rondaObj.partidos) continue; // Estos son los juegos
+          // Iteramos sobre las rondas del grupo
+          for (const rondaObj of grupoRondas.partidos) {
+            if (!rondaObj.partidos) continue;
 
+            // Buscamos en los partidos de cada ronda
             const p = rondaObj.partidos.find(partido => {
               const pJ1 = String(partido.jugador1Id).trim();
               const pJ2 = String(partido.jugador2Id).trim();
@@ -47,7 +50,7 @@ module.exports = {
             if (p) {
               partidoEncontrado = p;
               faseActual = "grupos";
-              nombreGrupo = grupo.nombre;
+              nombreGrupo = `Grupo ${grupoRondas.grupo}`;
               break;
             }
           }
