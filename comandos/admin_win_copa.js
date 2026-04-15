@@ -32,7 +32,7 @@ module.exports = {
 
       // 1. BUSCAR EN GRUPOS (Estructura: grupos -> rondas -> partidos)
       if (data.grupos && Array.isArray(data.grupos)) {
-        for (const grupo de data.grupos) {
+        for (const grupo of data.grupos) {
           // 'grupo.partidos' en tu JSON contiene el array de rondas
           if (!grupo.partidos || !Array.isArray(grupo.partidos)) continue;
 
