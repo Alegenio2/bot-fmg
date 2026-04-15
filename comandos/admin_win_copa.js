@@ -36,7 +36,7 @@ module.exports = {
           // 'grupo.partidos' en tu JSON contiene el array de rondas
           if (!grupo.partidos || !Array.isArray(grupo.partidos)) continue;
 
-          for (const rondaObj de grupo.partidos) {
+          for (const rondaObj of grupo.partidos) {
             // 'rondaObj.partidos' contiene los enfrentamientos reales
             if (!rondaObj.partidos || !Array.isArray(rondaObj.partidos)) continue;
 
