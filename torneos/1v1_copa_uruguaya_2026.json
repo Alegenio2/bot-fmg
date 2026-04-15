@@ -934,7 +934,14 @@
               "jugador1Nick": "-FMG- Rodri",
               "jugador2Id": "582941701518262412",
               "jugador2Nick": "Matixxx",
-              "resultado": null,
+              "resultado": {
+                "408054148110614529": 2,
+                "582941701518262412": 0,
+                "mapas": "https://aoe2cm.net/draft/RvdOq",
+                "civs": "https://aoe2cm.net/draft/AzBKT",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1493794252436672623/RodriVsMatixx.rar?ex=69e043cf&is=69def24f&hm=7ff4698c5cdea4ea606b8abf155af51477c4ecb4c75cbecb8ebb7b2e47b8eaae&",
+                "fecha_registro": "2026-04-15T02:05:04.067Z"
+              },
               "fecha": "14-04-2026",
               "horario": "21:00",
               "diaSemana": "Martes",
