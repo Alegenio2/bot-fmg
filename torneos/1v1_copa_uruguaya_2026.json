@@ -423,7 +423,11 @@
               "jugador1Nick": "FMG | Rxon",
               "jugador2Id": "697973693157998712",
               "jugador2Nick": "DGHIR | SamuraiNinja08",
-              "resultado": null
+              "resultado": null,
+              "fecha": "17-04-2026",
+              "horario": "21:00",
+              "diaSemana": "Viernes",
+              "coordinadoPor": "samuraininja08"
             },
             {
               "jugador1Id": "831027477652570132",
