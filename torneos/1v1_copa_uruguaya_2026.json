@@ -309,7 +309,11 @@
               "jugador1Nick": "Nacional",
               "jugador2Id": "959267535524606022",
               "jugador2Nick": "DGHIR | Rorro Knight®",
-              "resultado": null
+              "resultado": null,
+              "fecha": "16-04-2026",
+              "horario": "21:00",
+              "diaSemana": "Jueves",
+              "coordinadoPor": "rorroknight"
             },
             {
               "jugador1Id": "694749732467245088",
