@@ -873,7 +873,11 @@
               "jugador1Nick": "|FMG| Tano Stokes",
               "jugador2Id": "481154599881932811",
               "jugador2Nick": "|FMG| Lautreamont",
-              "resultado": null
+              "resultado": {
+                "481154599881932811": 2,
+                "760308403087867916": 0,
+                "fecha_registro": "2026-04-15T15:43:12.682Z"
+              }
             },
             {
               "jugador1Id": "425297928610119692",
