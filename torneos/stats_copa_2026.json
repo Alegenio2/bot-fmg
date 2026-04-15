@@ -654,19 +654,27 @@
         "pp": 3,
         "winrate": 40
       },
-      "civs": {
+       "civs": {
         "Japanese": {
-          "pj": 3,
+          "pj": 2,
           "pg": 1,
-          "pp": 2,
-          "winrate": 33.3,
+          "pp": 1,
+          "winrate": 50,
           "por_mapa": {
             "CopaU_2026_Dry River (Custom)": {
               "pj": 2,
               "pg": 1,
               "pp": 1,
               "winrate": 50
-            },
+            }
+          }
+        },
+         "Armenians": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
             "CopaU_2026_Shorelines (Custom)": {
               "pj": 1,
               "pg": 0,
