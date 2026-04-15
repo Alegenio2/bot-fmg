@@ -8,17 +8,17 @@ module.exports = {
   data: new SlashCommandBuilder()
     .setName('admin_win_copa')
     .setDescription('Registra un resultado manualmente (Admin)')
-    .addUserOption(opt => opt.setName('jugador').setDescription('Ganador o J1 (Puedes pegar el ID si no está en el server)').setRequired(true))
-    .addIntegerOption(opt => opt.setName('puntos_j1').setDescription('Sets ganados por J1').setRequired(true))
-    .addUserOption(opt => opt.setName('rival').setDescription('Perdedor o J2 (Puedes pegar el ID si no está en el server)').setRequired(true))
-    .addIntegerOption(opt => opt.setName('puntos_rival').setDescription('Sets ganados por Rival').setRequired(true)),
+    .addUserOption(opt => opt.setName('jugador').setDescription('Ganador o J1 (Puedes pegar el ID)').setRequired(true))
+    .addIntegerOption(opt => opt.setName('puntos_j1').setDescription('Sets J1').setRequired(true))
+    .addUserOption(opt => opt.setName('rival').setDescription('Perdedor o J2 (Puedes pegar el ID)').setRequired(true))
+    .addIntegerOption(opt => opt.setName('puntos_rival').setDescription('Sets Rival').setRequired(true)),
 
   async execute(interaction) {
     await interaction.deferReply();
 
-    // Extraemos los IDs de las opciones (funciona aunque el usuario se haya ido)
-    const j1Id = interaction.options.get('jugador').value;
-    const j2Id = interaction.options.get('rival').value;
+    // BLINDAJE: Convertimos los IDs a String y quitamos espacios para asegurar el match con el JSON
+    const j1Id = String(interaction.options.get('jugador').value).trim();
+    const j2Id = String(interaction.options.get('rival').value).trim();
     const pts1 = interaction.options.getInteger('puntos_j1');
     const pts2 = interaction.options.getInteger('puntos_rival');
 
@@ -33,17 +33,16 @@ module.exports = {
       // 1. BUSCAR EN GRUPOS (Estructura: grupos -> rondas -> partidos)
       if (data.grupos && Array.isArray(data.grupos)) {
         for (const grupo of data.grupos) {
-          // 'grupo.partidos' en tu JSON contiene el array de rondas
           if (!grupo.partidos || !Array.isArray(grupo.partidos)) continue;
 
           for (const rondaObj of grupo.partidos) {
-            // 'rondaObj.partidos' contiene los enfrentamientos reales
             if (!rondaObj.partidos || !Array.isArray(rondaObj.partidos)) continue;
 
-            const p = rondaObj.partidos.find(partido => 
-              (partido.jugador1Id === j1Id && partido.jugador2Id === j2Id) ||
-              (partido.jugador1Id === j2Id && partido.jugador2Id === j1Id)
-            );
+            const p = rondaObj.partidos.find(partido => {
+                const pJ1 = String(partido.jugador1Id).trim();
+                const pJ2 = String(partido.jugador2Id).trim();
+                return (pJ1 === j1Id && pJ2 === j2Id) || (pJ1 === j2Id && pJ2 === j1Id);
+            });
 
             if (p) {
               partidoEncontrado = p;
@@ -59,10 +58,11 @@ module.exports = {
       // 2. BUSCAR EN ELIMINATORIAS (Octavos, Cuartos, etc.)
       if (!partidoEncontrado && data.eliminatorias) {
         for (const fase in data.eliminatorias) {
-          const p = data.eliminatorias[fase].find(partido => 
-            (partido.jugador1Id === j1Id && partido.jugador2Id === j2Id) ||
-            (partido.jugador1Id === j2Id && partido.jugador2Id === j1Id)
-          );
+          const p = data.eliminatorias[fase].find(partido => {
+                const pJ1 = String(partido.jugador1Id).trim();
+                const pJ2 = String(partido.jugador2Id).trim();
+                return (pJ1 === j1Id && pJ2 === j2Id) || (pJ1 === j2Id && pJ2 === j1Id);
+          });
           if (p) {
             partidoEncontrado = p;
             faseActual = fase;
@@ -72,7 +72,7 @@ module.exports = {
       }
 
       if (!partidoEncontrado) {
-        return interaction.editReply("❌ No se encontró ningún partido entre esos dos IDs en el archivo JSON.");
+        return interaction.editReply(`❌ No se encontró el partido. IDs buscados: \`${j1Id}\` y \`${j2Id}\`. Revisa que el JSON sea el correcto.`);
       }
 
       // 3. REGISTRAR EL RESULTADO
@@ -82,11 +82,11 @@ module.exports = {
         fecha_registro: new Date().toISOString()
       };
 
-      // 4. LÓGICA DE AVANCE AUTOMÁTICO (Solo para fases finales)
+      // 4. LÓGICA DE AVANCE AUTOMÁTICO
       let logAvance = "";
       if (faseActual !== 'grupos' && partidoEncontrado.va_a) {
         const ganadorId = pts1 > pts2 ? j1Id : j2Id;
-        const ganadorNick = (ganadorId === partidoEncontrado.jugador1Id) 
+        const ganadorNick = (ganadorId === String(partidoEncontrado.jugador1Id).trim()) 
             ? partidoEncontrado.jugador1Nick 
             : partidoEncontrado.jugador2Nick;
 
@@ -105,16 +105,19 @@ module.exports = {
       // 5. GUARDAR Y SINCRONIZAR
       await fs.writeFile(pathJSON, JSON.stringify(data, null, 2));
       
-      // Intentamos actualizar tablas y subir a Git
-      await obtenerEstadisticasCopa(); 
-      await subirTodosLosTorneos(); 
+      try {
+          await obtenerEstadisticasCopa(); 
+          await subirTodosLosTorneos(); 
+      } catch (e) {
+          console.error("Error al sincronizar:", e);
+      }
 
-      const infoFase = faseActual === "grupos" ? nombreGrupo : faseActual.toUpperCase();
-      await interaction.editReply(`✅ **Resultado registrado por Admin**\n🏆 Fase: ${infoFase}\n🔢 Marcador: ${pts1} - ${pts2}${logAvance}`);
+      const infoFase = faseActual === "grupos" ? `Grupo ${nombreGrupo}` : faseActual.toUpperCase();
+      await interaction.editReply(`✅ **Resultado Admin Registrado**\n🏆 Fase: ${infoFase}\n🔢 Marcador: ${pts1} - ${pts2}${logAvance}`);
 
     } catch (error) {
-      console.error("Error en admin_win_copa:", error);
-      await interaction.editReply("❌ Error al procesar el comando. Revisa la consola del bot.");
+      console.error("Error crítico en admin_win_copa:", error);
+      await interaction.editReply("❌ Error crítico al procesar. Revisa la consola.");
     }
   }
 };
