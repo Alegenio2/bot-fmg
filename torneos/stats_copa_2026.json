@@ -1,8 +1,8 @@
 {
   "meta": {
     "torneo": "copa_uruguaya_2026",
-    "ultima_actualizacion": "2026-04-14T20:44:59.047Z",
-    "total_partidas": 44
+    "ultima_actualizacion": "2026-04-15T02:05:05.155Z",
+    "total_partidas": 46
   },
   "jugadores": {
     "733765577570779279": {
@@ -727,10 +727,10 @@
       "nick": "-FMG- Rodri",
       "aoe2Id": "3147129",
       "global": {
-        "pj": 5,
-        "pg": 3,
+        "pj": 7,
+        "pg": 5,
         "pp": 2,
-        "winrate": 60
+        "winrate": 71.4
       },
       "civs": {
         "Bulgarians": {
@@ -794,6 +794,34 @@
               "winrate": 100
             }
           }
+        },
+        "Bengalis": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "Arena": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        },
+        "Koreans": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "CopaU_2026_Shorelines (Custom)": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
         }
       },
       "mapas": {
@@ -804,8 +832,8 @@
           "winrate": 50
         },
         "CopaU_2026_Shorelines (Custom)": {
-          "pj": 1,
-          "pg": 1,
+          "pj": 2,
+          "pg": 2,
           "pp": 0,
           "winrate": 100
         },
@@ -816,6 +844,12 @@
           "winrate": 0
         },
         "Arabia": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        },
+        "Arena": {
           "pj": 1,
           "pg": 1,
           "pp": 0,
@@ -1935,37 +1969,49 @@
       "nick": "Matixxx",
       "aoe2Id": "14779963",
       "global": {
-        "pj": 2,
+        "pj": 4,
         "pg": 2,
-        "pp": 0,
-        "winrate": 100
+        "pp": 2,
+        "winrate": 50
       },
       "civs": {
         "Burmese": {
-          "pj": 1,
+          "pj": 2,
           "pg": 1,
-          "pp": 0,
-          "winrate": 100,
+          "pp": 1,
+          "winrate": 50,
           "por_mapa": {
             "CopaU_2026_Dry River (Custom)": {
               "pj": 1,
               "pg": 1,
               "pp": 0,
               "winrate": 100
+            },
+            "Arena": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
             }
           }
         },
         "Dravidians": {
-          "pj": 1,
+          "pj": 2,
           "pg": 1,
-          "pp": 0,
-          "winrate": 100,
+          "pp": 1,
+          "winrate": 50,
           "por_mapa": {
             "CopaU_2026_Stranded v3 (Custom)": {
               "pj": 1,
               "pg": 1,
               "pp": 0,
               "winrate": 100
+            },
+            "CopaU_2026_Shorelines (Custom)": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
             }
           }
         }
@@ -1982,6 +2028,18 @@
           "pg": 1,
           "pp": 0,
           "winrate": 100
+        },
+        "Arena": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        },
+        "CopaU_2026_Shorelines (Custom)": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
         }
       }
     },
@@ -2249,17 +2307,19 @@
       }
     },
     "CopaU_2026_Shorelines (Custom)": {
-      "total_partidas": 4,
+      "total_partidas": 5,
       "civs_ganadoras": {
         "Persians": 2,
         "Italians": 1,
-        "Dravidians": 1
+        "Dravidians": 1,
+        "Koreans": 1
       },
       "civs_perdedoras": {
         "Georgians": 1,
         "Armenians": 1,
         "Magyars": 1,
-        "Berbers": 1
+        "Berbers": 1,
+        "Dravidians": 1
       },
       "enfrentamientos": {
         "Georgians_vs_Persians": {
@@ -2285,6 +2345,12 @@
           "gano_primero": 0,
           "civ_a": "Berbers",
           "civ_b": "Dravidians"
+        },
+        "Dravidians_vs_Koreans": {
+          "total": 1,
+          "gano_primero": 0,
+          "civ_a": "Dravidians",
+          "civ_b": "Koreans"
         }
       }
     },
@@ -2474,14 +2540,15 @@
       }
     },
     "Arena": {
-      "total_partidas": 2,
+      "total_partidas": 3,
       "civs_ganadoras": {
         "Cumans": 1,
-        "Bengalis": 1
+        "Bengalis": 2
       },
       "civs_perdedoras": {
         "Italians": 1,
-        "Cumans": 1
+        "Cumans": 1,
+        "Burmese": 1
       },
       "enfrentamientos": {
         "Cumans_vs_Italians": {
@@ -2495,6 +2562,12 @@
           "gano_primero": 1,
           "civ_a": "Bengalis",
           "civ_b": "Cumans"
+        },
+        "Bengalis_vs_Burmese": {
+          "total": 1,
+          "gano_primero": 1,
+          "civ_a": "Bengalis",
+          "civ_b": "Burmese"
         }
       }
     },
@@ -3070,9 +3143,9 @@
       }
     },
     "Koreans": {
-      "total_jugadas": 2,
-      "total_ganadas": 1,
-      "winrate": 50,
+      "total_jugadas": 3,
+      "total_ganadas": 2,
+      "winrate": 66.7,
       "por_mapa": {
         "CopaU_2026_High Tides v3 (Custom)": {
           "jugadas": 1,
@@ -3083,6 +3156,11 @@
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "CopaU_2026_Shorelines (Custom)": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       },
       "vs_civs": {
@@ -3095,6 +3173,11 @@
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "Dravidians": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       }
     },
@@ -3515,14 +3598,14 @@
       }
     },
     "Dravidians": {
-      "total_jugadas": 4,
+      "total_jugadas": 5,
       "total_ganadas": 3,
-      "winrate": 75,
+      "winrate": 60,
       "por_mapa": {
         "CopaU_2026_Shorelines (Custom)": {
-          "jugadas": 1,
+          "jugadas": 2,
           "ganadas": 1,
-          "winrate": 100
+          "winrate": 50
         },
         "CopaU_2026_High Tides v3 (Custom)": {
           "jugadas": 1,
@@ -3550,6 +3633,11 @@
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "Koreans": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       }
     },
@@ -3592,14 +3680,19 @@
       }
     },
     "Burmese": {
-      "total_jugadas": 1,
+      "total_jugadas": 2,
       "total_ganadas": 1,
-      "winrate": 100,
+      "winrate": 50,
       "por_mapa": {
         "CopaU_2026_Dry River (Custom)": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "Arena": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       },
       "vs_civs": {
@@ -3607,22 +3700,32 @@
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "Bengalis": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       }
     },
     "Bengalis": {
-      "total_jugadas": 1,
-      "total_ganadas": 1,
+      "total_jugadas": 2,
+      "total_ganadas": 2,
       "winrate": 100,
       "por_mapa": {
         "Arena": {
-          "jugadas": 1,
-          "ganadas": 1,
+          "jugadas": 2,
+          "ganadas": 2,
           "winrate": 100
         }
       },
       "vs_civs": {
         "Cumans": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        },
+        "Burmese": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
@@ -4507,6 +4610,46 @@
         "nick": "|FMG| TatoSky",
         "civ": "Romans",
         "gano": true
+      }
+    },
+    {
+      "matchId": 470506029,
+      "fecha": "2026-04-15T01:21:03.000Z",
+      "mapa": "Arena",
+      "duracion": 31,
+      "grupo": "H",
+      "ronda": 2,
+      "jugador1": {
+        "discordId": "408054148110614529",
+        "nick": "-FMG- Rodri",
+        "civ": "Bengalis",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "582941701518262412",
+        "nick": "Matixxx",
+        "civ": "Burmese",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 470499046,
+      "fecha": "2026-04-15T00:38:44.000Z",
+      "mapa": "CopaU_2026_Shorelines (Custom)",
+      "duracion": 39,
+      "grupo": "H",
+      "ronda": 2,
+      "jugador1": {
+        "discordId": "408054148110614529",
+        "nick": "-FMG- Rodri",
+        "civ": "Koreans",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "582941701518262412",
+        "nick": "Matixxx",
+        "civ": "Dravidians",
+        "gano": false
       }
     }
   ]
