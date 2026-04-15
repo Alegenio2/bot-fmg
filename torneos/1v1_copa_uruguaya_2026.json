@@ -839,7 +839,11 @@
               "jugador1Nick": "|FMG| Tano Stokes",
               "jugador2Id": "425297928610119692",
               "jugador2Nick": "DGHIR | NICOGP11",
-              "resultado": null
+              "resultado": {
+                "425297928610119692": 2,
+                "760308403087867916": 0,
+                "fecha_registro": "2026-04-15T14:48:29.839Z"
+              }
             },
             {
               "jugador1Id": "662427737138528308",
