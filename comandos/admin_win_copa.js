@@ -8,17 +8,17 @@ module.exports = {
   data: new SlashCommandBuilder()
     .setName('admin_win_copa')
     .setDescription('Registra un resultado manualmente (Admin)')
-    .addUserOption(opt => opt.setName('jugador').setDescription('Ganador o J1').setRequired(true))
-    .addIntegerOption(opt => opt.setName('puntos_j1').setDescription('Sets J1').setRequired(true))
-    .addUserOption(opt => opt.setName('rival').setDescription('Perdedor o J2').setRequired(true))
-    .addIntegerOption(opt => opt.setName('puntos_rival').setDescription('Sets Rival').setRequired(true)),
+    .addUserOption(opt => opt.setName('jugador').setDescription('Ganador o J1 (Puedes pegar el ID si se fue)').setRequired(true))
+    .addIntegerOption(opt => opt.setName('puntos_j1').setDescription('Sets ganados por J1').setRequired(true))
+    .addUserOption(opt => opt.setName('rival').setDescription('Perdedor o J2 (Puedes pegar el ID si se fue)').setRequired(true))
+    .addIntegerOption(opt => opt.setName('puntos_rival').setDescription('Sets ganados por Rival').setRequired(true)),
 
   async execute(interaction) {
-    // Verificar permisos de admin si es necesario
     await interaction.deferReply();
 
-    const j1 = interaction.options.getUser('jugador');
-    const j2 = interaction.options.getUser('rival');
+    // Obtenemos los IDs directamente para que funcione aunque no estén en el servidor
+    const j1Id = interaction.options.get('jugador').value;
+    const j2Id = interaction.options.get('rival').value;
     const pts1 = interaction.options.getInteger('puntos_j1');
     const pts2 = interaction.options.getInteger('puntos_rival');
 
@@ -27,77 +27,92 @@ module.exports = {
       const data = JSON.parse(await fs.readFile(pathJSON, 'utf-8'));
 
       let partidoEncontrado = null;
-      let faseActual = null; // 'grupos' o 'eliminatorias'
+      let faseActual = null; 
 
       // 1. BUSCAR EN GRUPOS
       for (const grupo of data.grupos) {
-        for (const ronda of grupo.partidos) { // Asumiendo estructura de rondas
+        // Buscamos en todas las rondas del grupo
+        for (const ronda of grupo.partidos) {
             const p = ronda.partidos.find(partido => 
-                (partido.jugador1Id === j1.id && partido.jugador2Id === j2.id) ||
-                (partido.jugador1Id === j2.id && partido.jugador2Id === j1.id)
+                (partido.jugador1Id === j1Id && partido.jugador2Id === j2Id) ||
+                (partido.jugador1Id === j2Id && partido.jugador2Id === j1Id)
             );
             if (p) {
                 partidoEncontrado = p;
-                faseActual = 'grupos';
+                faseActual = "grupos";
+                partidoEncontrado.grupoNombre = grupo.nombre; // Para el log
                 break;
             }
         }
         if (partidoEncontrado) break;
       }
 
-      // 2. BUSCAR EN ELIMINATORIAS (si no se encontró en grupos)
+      // 2. BUSCAR EN ELIMINATORIAS (Octavos, Cuartos, Semis, Final)
       if (!partidoEncontrado && data.eliminatorias) {
         for (const fase in data.eliminatorias) {
           const p = data.eliminatorias[fase].find(partido => 
-            (partido.jugador1Id === j1.id && partido.jugador2Id === j2.id) ||
-            (partido.jugador1Id === j2.id && partido.jugador2Id === j1.id)
+            (partido.jugador1Id === j1Id && partido.jugador2Id === j2Id) ||
+            (partido.jugador1Id === j2Id && partido.jugador2Id === j1Id)
           );
           if (p) {
             partidoEncontrado = p;
-            faseActual = fase; // 'octavos', 'cuartos', etc.
+            faseActual = fase; 
             break;
           }
         }
       }
 
       if (!partidoEncontrado) {
-        return interaction.editReply("❌ No se encontró un enfrentamiento entre esos dos jugadores.");
+        return interaction.editReply("❌ No se encontró un enfrentamiento programado entre esos dos IDs.");
       }
 
-      // 3. ACTUALIZAR EL RESULTADO
+      // 3. REGISTRAR RESULTADO
+      // Usamos los IDs como llaves para que el statsEngine lo lea bien
       partidoEncontrado.resultado = {
-        [j1.id]: pts1,
-        [j2.id]: pts2,
+        [j1Id]: pts1,
+        [j2Id]: pts2,
         fecha_registro: new Date().toISOString()
       };
 
-      // 4. LÓGICA DE AVANCE (Si es eliminatoria)
+      // 4. LÓGICA DE AVANCE AUTOMÁTICO
+      let logAvance = "";
       if (faseActual !== 'grupos' && partidoEncontrado.va_a) {
-        const ganadorId = pts1 > pts2 ? j1.id : j2.id;
-        const ganadorNick = pts1 > pts2 ? j1.username : j2.username;
+        const ganadorId = pts1 > pts2 ? j1Id : j2Id;
+        // Priorizamos el nick que ya tenemos en el partido para evitar errores de Discord
+        const ganadorNick = (ganadorId === partidoEncontrado.jugador1Id) 
+            ? partidoEncontrado.jugador1Nick 
+            : partidoEncontrado.jugador2Nick;
 
-        // Buscar el partido siguiente para poner al ganador
+        // Buscar el partido siguiente en el cuadro
         for (const fase in data.eliminatorias) {
           const siguiente = data.eliminatorias[fase].find(p => p.partidoId === partidoEncontrado.va_a);
           if (siguiente) {
-            const posicion = partidoEncontrado.posicion_en_siguiente; // 'jugador1' o 'jugador2'
-            siguiente[`${posicion}Id`] = ganadorId;
-            siguiente[`${posicion}Nick`] = ganadorNick;
+            const pos = partidoEncontrado.posicion_en_siguiente; // 'jugador1' o 'jugador2'
+            siguiente[`${pos}Id`] = ganadorId;
+            siguiente[`${pos}Nick`] = ganadorNick;
+            logAvance = `\n➡️ **${ganadorNick}** avanzó a ${partidoEncontrado.va_a}.`;
             break;
           }
         }
       }
 
-      // 5. GUARDAR Y RECALCULAR
+      // 5. GUARDAR Y SINCRONIZAR
       await fs.writeFile(pathJSON, JSON.stringify(data, null, 2));
-      await obtenerEstadisticasCopa(); // Recalcula tablas para la web
-      await subirTodosLosTorneos(); // Sube a Git
+      
+      // Intentar subir a Git y recalcular
+      try {
+          await obtenerEstadisticasCopa(); 
+          await subirTodosLosTorneos(); 
+      } catch (e) {
+          console.error("Error en sincronización:", e);
+      }
 
-      await interaction.editReply(`✅ Resultado registrado: **${j1.username} ${pts1} - ${pts2} ${j2.username}** en ${faseActual.toUpperCase()}.`);
+      const nombreFase = faseActual === "grupos" ? partidoEncontrado.grupoNombre : faseActual.toUpperCase();
+      await interaction.editReply(`✅ **Resultado registrado exitosamente**\n🏆 Fase: ${nombreFase}\n🔢 Marcador: ${pts1} - ${pts2}${logAvance}`);
 
     } catch (error) {
       console.error(error);
-      await interaction.editReply("❌ Error al procesar el admin_win.");
+      await interaction.editReply("❌ Error crítico al procesar el admin_win.");
     }
   }
 };
