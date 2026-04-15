@@ -723,7 +723,7 @@
         }
       }
     },
-    "408054148110614529": {
+   "408054148110614529": {
       "nick": "-FMG- Rodri",
       "aoe2Id": "3147129",
       "global": {
@@ -734,17 +734,25 @@
       },
       "civs": {
         "Bulgarians": {
-          "pj": 2,
-          "pg": 1,
+          "pj": 1,
+          "pg": 0,
           "pp": 1,
-          "winrate": 50,
+          "winrate": 0,
           "por_mapa": {
             "CopaU_2026_Dry River (Custom)": {
               "pj": 1,
               "pg": 0,
               "pp": 1,
               "winrate": 0
-            },
+            }
+          }
+        },
+          "Persians": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 100,
+          "por_mapa": {
             "CopaU_2026_Shorelines (Custom)": {
               "pj": 1,
               "pg": 1,
