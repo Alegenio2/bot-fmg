@@ -1,8 +1,8 @@
 {
   "meta": {
     "torneo": "copa_uruguaya_2026",
-    "ultima_actualizacion": "2026-04-16T02:27:37.494Z",
-    "total_partidas": 49
+    "ultima_actualizacion": "2026-04-16T04:15:12.169Z",
+    "total_partidas": 52
   },
   "jugadores": {
     "733765577570779279": {
@@ -393,10 +393,10 @@
       "nick": "|FMG| TINCHO",
       "aoe2Id": "2304739",
       "global": {
-        "pj": 4,
-        "pg": 4,
-        "pp": 0,
-        "winrate": 100
+        "pj": 7,
+        "pg": 6,
+        "pp": 1,
+        "winrate": 85.7
       },
       "civs": {
         "Bohemians": {
@@ -454,6 +454,48 @@
               "winrate": 100
             }
           }
+        },
+        "Romans": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "CopaU_2026_Dry River (Custom)": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        },
+        "Mongols": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "CopaU_2026_High Tides v3 (Custom)": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        },
+        "Japanese": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "Islands": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
         }
       },
       "mapas": {
@@ -480,6 +522,24 @@
           "pg": 1,
           "pp": 0,
           "winrate": 100
+        },
+        "CopaU_2026_Dry River (Custom)": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        },
+        "CopaU_2026_High Tides v3 (Custom)": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        },
+        "Islands": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
         }
       }
     },
@@ -2264,6 +2324,80 @@
           "winrate": 100
         }
       }
+    },
+    "755853346149105786": {
+      "nick": "|FMG| Donde Estan Mis 5 Pizzas",
+      "aoe2Id": "10222046",
+      "global": {
+        "pj": 3,
+        "pg": 1,
+        "pp": 2,
+        "winrate": 33.3
+      },
+      "civs": {
+        "Magyars": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "CopaU_2026_Dry River (Custom)": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        },
+        "Persians": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "CopaU_2026_High Tides v3 (Custom)": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        },
+        "Portuguese": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "Islands": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        }
+      },
+      "mapas": {
+        "CopaU_2026_Dry River (Custom)": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        },
+        "CopaU_2026_High Tides v3 (Custom)": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        },
+        "Islands": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        }
+      }
     }
   },
   "mapas": {
@@ -2323,18 +2457,19 @@
       }
     },
     "CopaU_2026_High Tides v3 (Custom)": {
-      "total_partidas": 4,
+      "total_partidas": 5,
       "civs_ganadoras": {
         "Japanese": 1,
         "Koreans": 1,
         "Berbers": 1,
-        "Malians": 1
+        "Malians": 1,
+        "Mongols": 1
       },
       "civs_perdedoras": {
         "Malay": 1,
         "Vikings": 1,
         "Dravidians": 1,
-        "Persians": 1
+        "Persians": 2
       },
       "enfrentamientos": {
         "Japanese_vs_Malay": {
@@ -2359,6 +2494,12 @@
           "total": 1,
           "gano_primero": 1,
           "civ_a": "Malians",
+          "civ_b": "Persians"
+        },
+        "Mongols_vs_Persians": {
+          "total": 1,
+          "gano_primero": 1,
+          "civ_a": "Mongols",
           "civ_b": "Persians"
         }
       }
@@ -2558,15 +2699,17 @@
       }
     },
     "CopaU_2026_Dry River (Custom)": {
-      "total_partidas": 4,
+      "total_partidas": 5,
       "civs_ganadoras": {
         "Japanese": 3,
-        "Burmese": 1
+        "Burmese": 1,
+        "Romans": 1
       },
       "civs_perdedoras": {
         "Bulgarians": 1,
         "Britons": 1,
-        "Japanese": 2
+        "Japanese": 2,
+        "Magyars": 1
       },
       "enfrentamientos": {
         "Bulgarians_vs_Japanese": {
@@ -2592,6 +2735,12 @@
           "gano_primero": 1,
           "civ_a": "Burmese",
           "civ_b": "Japanese"
+        },
+        "Magyars_vs_Romans": {
+          "total": 1,
+          "gano_primero": 0,
+          "civ_a": "Magyars",
+          "civ_b": "Romans"
         }
       }
     },
@@ -2735,12 +2884,14 @@
       }
     },
     "Islands": {
-      "total_partidas": 1,
+      "total_partidas": 2,
       "civs_ganadoras": {
-        "Armenians": 1
+        "Armenians": 1,
+        "Portuguese": 1
       },
       "civs_perdedoras": {
-        "Spanish": 1
+        "Spanish": 1,
+        "Japanese": 1
       },
       "enfrentamientos": {
         "Armenians_vs_Spanish": {
@@ -2748,6 +2899,12 @@
           "gano_primero": 1,
           "civ_a": "Armenians",
           "civ_b": "Spanish"
+        },
+        "Japanese_vs_Portuguese": {
+          "total": 1,
+          "gano_primero": 0,
+          "civ_a": "Japanese",
+          "civ_b": "Portuguese"
         }
       }
     },
@@ -2864,9 +3021,9 @@
       }
     },
     "Japanese": {
-      "total_jugadas": 9,
+      "total_jugadas": 10,
       "total_ganadas": 7,
-      "winrate": 77.8,
+      "winrate": 70,
       "por_mapa": {
         "CopaU_2026_High Tides v3 (Custom)": {
           "jugadas": 1,
@@ -2887,6 +3044,11 @@
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "Islands": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       },
       "vs_civs": {
@@ -2929,6 +3091,11 @@
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "Portuguese": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       }
     },
@@ -2962,8 +3129,8 @@
       }
     },
     "Portuguese": {
-      "total_jugadas": 3,
-      "total_ganadas": 3,
+      "total_jugadas": 4,
+      "total_ganadas": 4,
       "winrate": 100,
       "por_mapa": {
         "CopaU_2026_Slopes v2 (Custom)": {
@@ -2977,6 +3144,11 @@
           "winrate": 100
         },
         "CopaU_2026_Quarry v3 (Custom)": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        },
+        "Islands": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
@@ -2994,6 +3166,11 @@
           "winrate": 100
         },
         "Cumans": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        },
+        "Japanese": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
@@ -3059,9 +3236,9 @@
       }
     },
     "Mongols": {
-      "total_jugadas": 4,
-      "total_ganadas": 1,
-      "winrate": 25,
+      "total_jugadas": 5,
+      "total_ganadas": 2,
+      "winrate": 40,
       "por_mapa": {
         "Arabia": {
           "jugadas": 1,
@@ -3082,6 +3259,11 @@
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "CopaU_2026_High Tides v3 (Custom)": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       },
       "vs_civs": {
@@ -3104,11 +3286,16 @@
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "Persians": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       }
     },
     "Magyars": {
-      "total_jugadas": 3,
+      "total_jugadas": 4,
       "total_ganadas": 0,
       "winrate": 0,
       "por_mapa": {
@@ -3126,6 +3313,11 @@
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "CopaU_2026_Dry River (Custom)": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       },
       "vs_civs": {
@@ -3135,7 +3327,7 @@
           "winrate": 0
         },
         "Romans": {
-          "jugadas": 1,
+          "jugadas": 2,
           "ganadas": 0,
           "winrate": 0
         },
@@ -3235,9 +3427,9 @@
       }
     },
     "Persians": {
-      "total_jugadas": 7,
+      "total_jugadas": 8,
       "total_ganadas": 4,
-      "winrate": 57.1,
+      "winrate": 50,
       "por_mapa": {
         "CopaU_2026_Shorelines (Custom)": {
           "jugadas": 2,
@@ -3260,7 +3452,7 @@
           "winrate": 100
         },
         "CopaU_2026_High Tides v3 (Custom)": {
-          "jugadas": 1,
+          "jugadas": 2,
           "ganadas": 0,
           "winrate": 0
         }
@@ -3292,6 +3484,11 @@
           "winrate": 100
         },
         "Malians": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        },
+        "Mongols": {
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
@@ -3454,9 +3651,9 @@
       }
     },
     "Romans": {
-      "total_jugadas": 3,
-      "total_ganadas": 2,
-      "winrate": 66.7,
+      "total_jugadas": 4,
+      "total_ganadas": 3,
+      "winrate": 75,
       "por_mapa": {
         "Enclosed": {
           "jugadas": 2,
@@ -3467,12 +3664,17 @@
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "CopaU_2026_Dry River (Custom)": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       },
       "vs_civs": {
         "Magyars": {
-          "jugadas": 1,
-          "ganadas": 1,
+          "jugadas": 2,
+          "ganadas": 2,
           "winrate": 100
         },
         "Dravidians": {
@@ -4943,6 +5145,66 @@
         "discordId": "264781067506941962",
         "nick": "|FMG| doomjota",
         "civ": "Spanish",
+        "gano": true
+      }
+    },
+    {
+      "matchId": 470745371,
+      "fecha": "2026-04-16T03:50:08.000Z",
+      "mapa": "CopaU_2026_Dry River (Custom)",
+      "duracion": 12,
+      "grupo": "C",
+      "ronda": 2,
+      "jugador1": {
+        "discordId": "697996987210924072",
+        "nick": "|FMG| TINCHO",
+        "civ": "Romans",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "755853346149105786",
+        "nick": "|FMG| Donde Estan Mis 5 Pizzas",
+        "civ": "Magyars",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 470741711,
+      "fecha": "2026-04-16T03:27:21.000Z",
+      "mapa": "CopaU_2026_High Tides v3 (Custom)",
+      "duracion": 18,
+      "grupo": "C",
+      "ronda": 2,
+      "jugador1": {
+        "discordId": "697996987210924072",
+        "nick": "|FMG| TINCHO",
+        "civ": "Mongols",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "755853346149105786",
+        "nick": "|FMG| Donde Estan Mis 5 Pizzas",
+        "civ": "Persians",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 470735733,
+      "fecha": "2026-04-16T02:49:16.000Z",
+      "mapa": "Islands",
+      "duracion": 34,
+      "grupo": "C",
+      "ronda": 2,
+      "jugador1": {
+        "discordId": "697996987210924072",
+        "nick": "|FMG| TINCHO",
+        "civ": "Japanese",
+        "gano": false
+      },
+      "jugador2": {
+        "discordId": "755853346149105786",
+        "nick": "|FMG| Donde Estan Mis 5 Pizzas",
+        "civ": "Portuguese",
         "gano": true
       }
     }
