@@ -78,21 +78,21 @@
   "Grupo C": [
     {
       "nick": "|FMG| TINCHO",
-      "pj": 2,
-      "pg": 2,
+      "pj": 3,
+      "pg": 3,
       "pp": 0,
-      "sf": 4,
-      "sc": 0,
-      "pts": 4
+      "sf": 6,
+      "sc": 1,
+      "pts": 6
     },
     {
       "nick": "|FMG| Donde Estan Mis 5 Pizzas",
-      "pj": 0,
+      "pj": 1,
       "pg": 0,
-      "pp": 0,
-      "sf": 0,
-      "sc": 0,
-      "pts": 0
+      "pp": 1,
+      "sf": 1,
+      "sc": 2,
+      "pts": 1
     },
     {
       "nick": "Aztreonam",
@@ -116,7 +116,7 @@
   "Grupo D": [
     {
       "nick": "URU | ToNGa",
-      "pj": 1,
+      "pj": 2,
       "pg": 1,
       "pp": 0,
       "sf": 2,
@@ -134,7 +134,7 @@
     },
     {
       "nick": "DityUy",
-      "pj": 0,
+      "pj": 1,
       "pg": 0,
       "pp": 0,
       "sf": 0,
