@@ -609,7 +609,11 @@
               "jugador1Nick": "DityUy",
               "jugador2Id": "485610092092456975",
               "jugador2Nick": "Kroyen",
-              "resultado": null
+              "resultado": {
+                "485610092092456975": 2,
+                "330453336522489857": 0,
+                "fecha_registro": "2026-04-16T16:30:35.746Z"
+              }
             }
           ]
         },
