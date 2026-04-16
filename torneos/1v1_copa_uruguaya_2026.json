@@ -755,7 +755,11 @@
               "jugador1Nick": "|FMG| Nadie",
               "jugador2Id": "896216989922635777",
               "jugador2Nick": "|FMG| TatoSky",
-              "resultado": null
+              "resultado": null,
+              "fecha": "16-04-2026",
+              "horario": "22:00",
+              "diaSemana": "Jueves",
+              "coordinadoPor": "nadie6689"
             },
             {
               "jugador1Id": "594988359965999118",
