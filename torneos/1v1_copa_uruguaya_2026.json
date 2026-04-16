@@ -557,7 +557,11 @@
               "jugador1Nick": "URU | ToNGa",
               "jugador2Id": "330453336522489857",
               "jugador2Nick": "DityUy",
-              "resultado": null
+              "resultado": {
+                "330453336522489857": 0,
+                "833806737902534738": 0,
+                "fecha_registro": "2026-04-16T16:29:44.728Z"
+              }
             },
             {
               "jugador1Id": "485610092092456975",
