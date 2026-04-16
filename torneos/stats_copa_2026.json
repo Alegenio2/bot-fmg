@@ -1,8 +1,8 @@
 {
   "meta": {
     "torneo": "copa_uruguaya_2026",
-    "ultima_actualizacion": "2026-04-15T02:05:05.155Z",
-    "total_partidas": 46
+    "ultima_actualizacion": "2026-04-16T02:27:37.494Z",
+    "total_partidas": 49
   },
   "jugadores": {
     "733765577570779279": {
@@ -2116,23 +2116,172 @@
           "winrate": 100
         }
       }
+    },
+    "442189398667296788": {
+      "nick": "|FMG|DavidTG",
+      "aoe2Id": "4465309",
+      "global": {
+        "pj": 3,
+        "pg": 1,
+        "pp": 2,
+        "winrate": 33.3
+      },
+      "civs": {
+        "Spanish": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "Nomad": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        },
+        "Malians": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "Arabia": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        },
+        "Khmer": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "Land Madness": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        }
+      },
+      "mapas": {
+        "Nomad": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        },
+        "Arabia": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        },
+        "Land Madness": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        }
+      }
+    },
+    "264781067506941962": {
+      "nick": "|FMG| doomjota",
+      "aoe2Id": "2251303",
+      "global": {
+        "pj": 3,
+        "pg": 2,
+        "pp": 1,
+        "winrate": 66.7
+      },
+      "civs": {
+        "Italians": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "Nomad": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        },
+        "Saracens": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "Arabia": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        },
+        "Spanish": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "Land Madness": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        }
+      },
+      "mapas": {
+        "Nomad": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        },
+        "Arabia": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        },
+        "Land Madness": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        }
+      }
     }
   },
   "mapas": {
     "Nomad": {
-      "total_partidas": 6,
+      "total_partidas": 7,
       "civs_ganadoras": {
         "Berbers": 2,
         "Vikings": 1,
         "Persians": 2,
-        "Armenians": 1
+        "Armenians": 1,
+        "Italians": 1
       },
       "civs_perdedoras": {
         "Franks": 1,
         "Bohemians": 1,
         "Lithuanians": 2,
         "Koreans": 1,
-        "Spanish": 1
+        "Spanish": 2
       },
       "enfrentamientos": {
         "Berbers_vs_Franks": {
@@ -2163,6 +2312,12 @@
           "total": 1,
           "gano_primero": 1,
           "civ_a": "Berbers",
+          "civ_b": "Spanish"
+        },
+        "Italians_vs_Spanish": {
+          "total": 1,
+          "gano_primero": 1,
+          "civ_a": "Italians",
           "civ_b": "Spanish"
         }
       }
@@ -2226,16 +2381,18 @@
       }
     },
     "Arabia": {
-      "total_partidas": 3,
+      "total_partidas": 4,
       "civs_ganadoras": {
         "Khitans": 1,
         "Vietnamese": 1,
-        "Chinese": 1
+        "Chinese": 1,
+        "Malians": 1
       },
       "civs_perdedoras": {
         "Mongols": 1,
         "Ethiopians": 1,
-        "Berbers": 1
+        "Berbers": 1,
+        "Saracens": 1
       },
       "enfrentamientos": {
         "Khitans_vs_Mongols": {
@@ -2255,6 +2412,12 @@
           "gano_primero": 0,
           "civ_a": "Berbers",
           "civ_b": "Chinese"
+        },
+        "Malians_vs_Saracens": {
+          "total": 1,
+          "gano_primero": 1,
+          "civ_a": "Malians",
+          "civ_b": "Saracens"
         }
       }
     },
@@ -2610,6 +2773,23 @@
           "gano_primero": 0,
           "civ_a": "Goths",
           "civ_b": "Japanese"
+        }
+      }
+    },
+    "Land Madness": {
+      "total_partidas": 1,
+      "civs_ganadoras": {
+        "Spanish": 1
+      },
+      "civs_perdedoras": {
+        "Khmer": 1
+      },
+      "enfrentamientos": {
+        "Khmer_vs_Spanish": {
+          "total": 1,
+          "gano_primero": 0,
+          "civ_a": "Khmer",
+          "civ_b": "Spanish"
         }
       }
     }
@@ -2996,9 +3176,9 @@
       }
     },
     "Italians": {
-      "total_jugadas": 5,
-      "total_ganadas": 2,
-      "winrate": 40,
+      "total_jugadas": 6,
+      "total_ganadas": 3,
+      "winrate": 50,
       "por_mapa": {
         "Hideout": {
           "jugadas": 2,
@@ -3019,6 +3199,11 @@
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "Nomad": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       },
       "vs_civs": {
@@ -3028,8 +3213,8 @@
           "winrate": 0
         },
         "Spanish": {
-          "jugadas": 1,
-          "ganadas": 1,
+          "jugadas": 2,
+          "ganadas": 2,
           "winrate": 100
         },
         "Khitans": {
@@ -3342,9 +3527,9 @@
       }
     },
     "Spanish": {
-      "total_jugadas": 5,
-      "total_ganadas": 2,
-      "winrate": 40,
+      "total_jugadas": 7,
+      "total_ganadas": 3,
+      "winrate": 42.9,
       "por_mapa": {
         "Pilgrims": {
           "jugadas": 1,
@@ -3362,11 +3547,16 @@
           "winrate": 0
         },
         "Nomad": {
-          "jugadas": 1,
+          "jugadas": 2,
           "ganadas": 0,
           "winrate": 0
         },
         "CopaU_2026_Stranded v3 (Custom)": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        },
+        "Land Madness": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
@@ -3379,7 +3569,7 @@
           "winrate": 100
         },
         "Italians": {
-          "jugadas": 1,
+          "jugadas": 2,
           "ganadas": 0,
           "winrate": 0
         },
@@ -3394,6 +3584,11 @@
           "winrate": 0
         },
         "Wu": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        },
+        "Khmer": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
@@ -3459,7 +3654,7 @@
       }
     },
     "Saracens": {
-      "total_jugadas": 1,
+      "total_jugadas": 2,
       "total_ganadas": 0,
       "winrate": 0,
       "por_mapa": {
@@ -3467,10 +3662,20 @@
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "Arabia": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       },
       "vs_civs": {
         "Malay": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        },
+        "Malians": {
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
@@ -3661,11 +3866,16 @@
       }
     },
     "Malians": {
-      "total_jugadas": 1,
-      "total_ganadas": 1,
+      "total_jugadas": 2,
+      "total_ganadas": 2,
       "winrate": 100,
       "por_mapa": {
         "CopaU_2026_High Tides v3 (Custom)": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        },
+        "Arabia": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
@@ -3673,6 +3883,11 @@
       },
       "vs_civs": {
         "Persians": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        },
+        "Saracens": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
@@ -3729,6 +3944,25 @@
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        }
+      }
+    },
+    "Khmer": {
+      "total_jugadas": 1,
+      "total_ganadas": 0,
+      "winrate": 0,
+      "por_mapa": {
+        "Land Madness": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        }
+      },
+      "vs_civs": {
+        "Spanish": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       }
     }
@@ -4650,6 +4884,66 @@
         "nick": "Matixxx",
         "civ": "Dravidians",
         "gano": false
+      }
+    },
+    {
+      "matchId": 470727706,
+      "fecha": "2026-04-16T01:56:26.000Z",
+      "mapa": "Nomad",
+      "duracion": 25,
+      "grupo": "E",
+      "ronda": 1,
+      "jugador1": {
+        "discordId": "442189398667296788",
+        "nick": "|FMG|DavidTG",
+        "civ": "Spanish",
+        "gano": false
+      },
+      "jugador2": {
+        "discordId": "264781067506941962",
+        "nick": "|FMG| doomjota",
+        "civ": "Italians",
+        "gano": true
+      }
+    },
+    {
+      "matchId": 470723653,
+      "fecha": "2026-04-16T01:29:54.000Z",
+      "mapa": "Arabia",
+      "duracion": 21,
+      "grupo": "E",
+      "ronda": 1,
+      "jugador1": {
+        "discordId": "442189398667296788",
+        "nick": "|FMG|DavidTG",
+        "civ": "Malians",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "264781067506941962",
+        "nick": "|FMG| doomjota",
+        "civ": "Saracens",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 470719433,
+      "fecha": "2026-04-16T01:07:27.000Z",
+      "mapa": "Land Madness",
+      "duracion": 21,
+      "grupo": "E",
+      "ronda": 1,
+      "jugador1": {
+        "discordId": "442189398667296788",
+        "nick": "|FMG|DavidTG",
+        "civ": "Khmer",
+        "gano": false
+      },
+      "jugador2": {
+        "discordId": "264781067506941962",
+        "nick": "|FMG| doomjota",
+        "civ": "Spanish",
+        "gano": true
       }
     }
   ]
