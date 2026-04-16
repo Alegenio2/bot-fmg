@@ -632,7 +632,11 @@
               "jugador1Nick": "[VL] Karistho",
               "jugador2Id": "330453336522489857",
               "jugador2Nick": "DityUy",
-              "resultado": null
+              "resultado": {
+                "382688182002515978": 2,
+                "330453336522489857": 0,
+                "fecha_registro": "2026-04-16T16:31:05.578Z"
+              }
             }
           ]
         }
