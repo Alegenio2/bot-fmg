@@ -124,6 +124,15 @@
       "pts": 4
     },
     {
+      "nick": "[VL] Karistho",
+      "pj": 3,
+      "pg": 2,
+      "pp": 1,
+      "sf": 4,
+      "sc": 2,
+      "pts": 4
+    },
+    {
       "nick": "Kroyen",
       "pj": 2,
       "pg": 1,
@@ -133,21 +142,12 @@
       "pts": 2
     },
     {
-      "nick": "[VL] Karistho",
-      "pj": 2,
-      "pg": 1,
-      "pp": 1,
-      "sf": 2,
-      "sc": 2,
-      "pts": 2
-    },
-    {
       "nick": "DityUy",
-      "pj": 2,
+      "pj": 3,
       "pg": 0,
-      "pp": 2,
+      "pp": 3,
       "sf": 0,
-      "sc": 4,
+      "sc": 6,
       "pts": 0
     }
   ],
