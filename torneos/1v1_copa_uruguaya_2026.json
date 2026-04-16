@@ -500,7 +500,14 @@
               "jugador1Nick": "|FMG| TINCHO",
               "jugador2Id": "755853346149105786",
               "jugador2Nick": "|FMG| Donde Estan Mis 5 Pizzas",
-              "resultado": null
+              "resultado": {
+                "697996987210924072": 2,
+                "755853346149105786": 1,
+                "mapas": "https://aoe2cm.net/draft/BNWOS",
+                "civs": "https://aoe2cm.net/draft/AsqdK",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1494189386462531614/gino_vs_tincho.zip?ex=69e1b3ce&is=69e0624e&hm=2619ad328a21f9c06c96aeec406911061c4403289067337d55c50a1cbe0323c4&",
+                "fecha_registro": "2026-04-16T04:15:11.089Z"
+              }
             },
             {
               "jugador1Id": "1008090545513570495",
