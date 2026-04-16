@@ -652,7 +652,14 @@
               "jugador1Nick": "|FMG|DavidTG",
               "jugador2Id": "264781067506941962",
               "jugador2Nick": "|FMG| doomjota",
-              "resultado": null,
+              "resultado": {
+                "442189398667296788": 1,
+                "264781067506941962": 2,
+                "mapas": "https://aoe2cm.net/draft/Kqqrz",
+                "civs": "https://aoe2cm.net/draft/WVrAM",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1494162305770983605/David_vs_Jota.zip?ex=69e19a95&is=69e04915&hm=7b69ffa6dee3fb3b315c11d6c3089b0e1d6554851f9a42298bd0470172df8fe0&",
+                "fecha_registro": "2026-04-16T02:27:36.380Z"
+              },
               "fecha": "15-04-2026",
               "horario": "21:30",
               "diaSemana": "Miércoles",
