@@ -495,7 +495,14 @@
               "jugador1Nick": "Aztreonam",
               "jugador2Id": "755853346149105786",
               "jugador2Nick": "|FMG| Donde Estan Mis 5 Pizzas",
-              "resultado": null
+              "resultado": {
+                "701537224248000563": 0,
+                "755853346149105786": 2,
+                "mapas": "https://aoe2cm.net/draft/qnOJb",
+                "civs": "https://aoe2cm.net/draft/syQHS",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1494839336003436706/REC01_PEREGRINOS_AZTREON_VS_GINO.aoe2record?ex=69e4111e&is=69e2bf9e&hm=d3b83e51205797bea19d060cfd0b86eb811abfb0d9db145a60b62ba0f34a440b&",
+                "fecha_registro": "2026-04-17T23:17:51.240Z"
+              }
             }
           ]
         },
