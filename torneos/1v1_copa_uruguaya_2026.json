@@ -639,7 +639,14 @@
               "jugador1Nick": "URU | ToNGa",
               "jugador2Id": "485610092092456975",
               "jugador2Nick": "Kroyen",
-              "resultado": null,
+              "resultado": {
+                "833806737902534738": 2,
+                "485610092092456975": 0,
+                "mapas": "https://aoe2cm.net/draft/jOuaj",
+                "civs": "https://aoe2cm.net/draft/DaqQz",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1494849804172525730/Kroyen_vs_tonga.zip?ex=69e41ade&is=69e2c95e&hm=9b05770a19f01d4de8a09943513d9d00e634a442aaede2bdc15ae698a63c3520&",
+                "fecha_registro": "2026-04-17T23:59:27.109Z"
+              },
               "fecha": "17/04/2026",
               "horario": "19:10",
               "diaSemana": "Viernes",
