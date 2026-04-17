@@ -313,7 +313,14 @@
               "jugador1Nick": "Nacional",
               "jugador2Id": "959267535524606022",
               "jugador2Nick": "DGHIR | Rorro Knight®",
-              "resultado": null,
+              "resultado": {
+                "959267535524606022": 2,
+                "733765577570779279": 1,
+                "mapas": "https://aoe2cm.net/draft/avTjF",
+                "civs": "https://aoe2cm.net/draft/Swgpl",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1494530886258004008/Rorro_vs_nacional.rar?ex=69e2f1da&is=69e1a05a&hm=9a7805ac740cc0c818baad1cfb448e545372dbdff4324b56efc3e3b6da8dbfe1&",
+                "fecha_registro": "2026-04-17T02:52:11.608Z"
+              },
               "fecha": "16-04-2026",
               "horario": "21:00",
               "diaSemana": "Jueves",
