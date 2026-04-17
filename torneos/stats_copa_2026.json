@@ -1,8 +1,8 @@
 {
   "meta": {
     "torneo": "copa_uruguaya_2026",
-    "ultima_actualizacion": "2026-04-17T23:17:52.234Z",
-    "total_partidas": 59
+    "ultima_actualizacion": "2026-04-17T23:59:28.139Z",
+    "total_partidas": 61
   },
   "jugadores": {
     "733765577570779279": {
@@ -1533,9 +1533,9 @@
       "nick": "Kroyen",
       "aoe2Id": "828458",
       "global": {
-        "pj": 2,
+        "pj": 4,
         "pg": 0,
-        "pp": 2,
+        "pp": 4,
         "winrate": 0
       },
       "civs": {
@@ -1566,6 +1566,34 @@
               "winrate": 0
             }
           }
+        },
+        "Saracens": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "Hideout": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        },
+        "Hindustanis": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "Arabia": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
         }
       },
       "mapas": {
@@ -1576,6 +1604,18 @@
           "winrate": 0
         },
         "CopaU_2026_African River v3 (Custom)": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        },
+        "Hideout": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        },
+        "Arabia": {
           "pj": 1,
           "pg": 0,
           "pp": 1,
@@ -1693,8 +1733,8 @@
       "nick": "ToNGa",
       "aoe2Id": "2639502",
       "global": {
-        "pj": 2,
-        "pg": 2,
+        "pj": 4,
+        "pg": 4,
         "pp": 0,
         "winrate": 100
       },
@@ -1726,6 +1766,34 @@
               "winrate": 100
             }
           }
+        },
+        "Wei": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "Hideout": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        },
+        "Maya": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "Arabia": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
         }
       },
       "mapas": {
@@ -1736,6 +1804,18 @@
           "winrate": 100
         },
         "CopaU_2026_Valley (Custom)": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        },
+        "Hideout": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        },
+        "Arabia": {
           "pj": 1,
           "pg": 1,
           "pp": 0,
@@ -2785,21 +2865,23 @@
       }
     },
     "Arabia": {
-      "total_partidas": 6,
+      "total_partidas": 7,
       "civs_ganadoras": {
         "Khitans": 1,
         "Vietnamese": 1,
         "Chinese": 1,
         "Malians": 1,
         "Japanese": 1,
-        "Sicilians": 1
+        "Sicilians": 1,
+        "Maya": 1
       },
       "civs_perdedoras": {
         "Mongols": 1,
         "Ethiopians": 1,
         "Berbers": 2,
         "Saracens": 1,
-        "Byzantines": 1
+        "Byzantines": 1,
+        "Hindustanis": 1
       },
       "enfrentamientos": {
         "Khitans_vs_Mongols": {
@@ -2837,6 +2919,12 @@
           "gano_primero": 0,
           "civ_a": "Byzantines",
           "civ_b": "Sicilians"
+        },
+        "Hindustanis_vs_Maya": {
+          "total": 1,
+          "gano_primero": 0,
+          "civ_a": "Hindustanis",
+          "civ_b": "Maya"
         }
       }
     },
@@ -2865,13 +2953,15 @@
       }
     },
     "Hideout": {
-      "total_partidas": 2,
+      "total_partidas": 3,
       "civs_ganadoras": {
         "Bohemians": 1,
-        "Khitans": 1
+        "Khitans": 1,
+        "Wei": 1
       },
       "civs_perdedoras": {
-        "Italians": 2
+        "Italians": 2,
+        "Saracens": 1
       },
       "enfrentamientos": {
         "Bohemians_vs_Italians": {
@@ -2885,6 +2975,12 @@
           "gano_primero": 0,
           "civ_a": "Italians",
           "civ_b": "Khitans"
+        },
+        "Saracens_vs_Wei": {
+          "total": 1,
+          "gano_primero": 0,
+          "civ_a": "Saracens",
+          "civ_b": "Wei"
         }
       }
     },
@@ -4204,7 +4300,7 @@
       }
     },
     "Saracens": {
-      "total_jugadas": 2,
+      "total_jugadas": 3,
       "total_ganadas": 0,
       "winrate": 0,
       "por_mapa": {
@@ -4217,6 +4313,11 @@
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "Hideout": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       },
       "vs_civs": {
@@ -4226,6 +4327,11 @@
           "winrate": 0
         },
         "Malians": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        },
+        "Wei": {
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
@@ -4580,6 +4686,63 @@
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        }
+      }
+    },
+    "Wei": {
+      "total_jugadas": 1,
+      "total_ganadas": 1,
+      "winrate": 100,
+      "por_mapa": {
+        "Hideout": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        }
+      },
+      "vs_civs": {
+        "Saracens": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        }
+      }
+    },
+    "Maya": {
+      "total_jugadas": 1,
+      "total_ganadas": 1,
+      "winrate": 100,
+      "por_mapa": {
+        "Arabia": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        }
+      },
+      "vs_civs": {
+        "Hindustanis": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        }
+      }
+    },
+    "Hindustanis": {
+      "total_jugadas": 1,
+      "total_ganadas": 0,
+      "winrate": 0,
+      "por_mapa": {
+        "Arabia": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        }
+      },
+      "vs_civs": {
+        "Maya": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       }
     }
@@ -5761,6 +5924,46 @@
         "nick": "|FMG| Donde Estan Mis 5 Pizzas",
         "civ": "Dravidians",
         "gano": true
+      }
+    },
+    {
+      "matchId": 471151690,
+      "fecha": "2026-04-17T22:40:10.000Z",
+      "mapa": "Hideout",
+      "duracion": 17,
+      "grupo": "D",
+      "ronda": 3,
+      "jugador1": {
+        "discordId": "833806737902534738",
+        "nick": "ToNGa",
+        "civ": "Wei",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "485610092092456975",
+        "nick": "Kroyen",
+        "civ": "Saracens",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 471147576,
+      "fecha": "2026-04-17T22:19:48.000Z",
+      "mapa": "Arabia",
+      "duracion": 16,
+      "grupo": "D",
+      "ronda": 3,
+      "jugador1": {
+        "discordId": "833806737902534738",
+        "nick": "ToNGa",
+        "civ": "Maya",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "485610092092456975",
+        "nick": "Kroyen",
+        "civ": "Hindustanis",
+        "gano": false
       }
     }
   ]
