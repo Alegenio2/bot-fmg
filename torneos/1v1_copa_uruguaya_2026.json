@@ -632,7 +632,11 @@
               "jugador1Nick": "URU | ToNGa",
               "jugador2Id": "485610092092456975",
               "jugador2Nick": "Kroyen",
-              "resultado": null
+              "resultado": null,
+              "fecha": "17/04/2026",
+              "horario": "19:10",
+              "diaSemana": "Viernes",
+              "coordinadoPor": "hola15151512335062"
             },
             {
               "jugador1Id": "382688182002515978",
