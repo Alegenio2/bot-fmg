@@ -847,7 +847,11 @@
               "jugador1Nick": "|FMG| TatoSky",
               "jugador2Id": "594988359965999118",
               "jugador2Nick": "N4cHoV",
-              "resultado": null
+              "resultado": null,
+              "fecha": "18/04/2026",
+              "horario": "13:00",
+              "diaSemana": "Sábado",
+              "coordinadoPor": "n4chov_"
             }
           ]
         }
