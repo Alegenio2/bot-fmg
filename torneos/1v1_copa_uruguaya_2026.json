@@ -851,7 +851,14 @@
               "jugador1Nick": "|FMG| TatoSky",
               "jugador2Id": "594988359965999118",
               "jugador2Nick": "N4cHoV",
-              "resultado": null,
+              "resultado": {
+                "896216989922635777": 1,
+                "594988359965999118": 2,
+                "mapas": "https://aoe2cm.net/draft/srXYP",
+                "civs": "https://aoe2cm.net/draft/dSyEs",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1495126294067679343/partidas.rar?ex=69e51c5e&is=69e3cade&hm=21e32a1cda263189ee696259d8a1c0565f5b0faab37f685aca28265868897517&",
+                "fecha_registro": "2026-04-18T18:18:07.592Z"
+              },
               "fecha": "18/04/2026",
               "horario": "13:00",
               "diaSemana": "Sábado",
