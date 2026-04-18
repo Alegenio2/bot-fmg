@@ -1,8 +1,8 @@
 {
   "meta": {
     "torneo": "copa_uruguaya_2026",
-    "ultima_actualizacion": "2026-04-17T23:59:28.139Z",
-    "total_partidas": 61
+    "ultima_actualizacion": "2026-04-18T18:18:08.274Z",
+    "total_partidas": 64
   },
   "jugadores": {
     "733765577570779279": {
@@ -1975,10 +1975,10 @@
       "nick": "N4cHoV",
       "aoe2Id": "2295211",
       "global": {
-        "pj": 5,
-        "pg": 2,
-        "pp": 3,
-        "winrate": 40
+        "pj": 8,
+        "pg": 4,
+        "pp": 4,
+        "winrate": 50
       },
       "civs": {
         "Goths": {
@@ -2030,16 +2030,50 @@
           }
         },
         "Cumans": {
-          "pj": 1,
-          "pg": 0,
+          "pj": 2,
+          "pg": 1,
           "pp": 1,
-          "winrate": 0,
+          "winrate": 50,
           "por_mapa": {
             "CopaU_2026_Quarry v3 (Custom)": {
               "pj": 1,
               "pg": 0,
               "pp": 1,
               "winrate": 0
+            },
+            "CopaU_2026_High Tides v3 (Custom)": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        },
+        "Hindustanis": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "Enclosed": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        },
+        "Mongols": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "CopaU_2026_Slopes v2 (Custom)": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
             }
           }
         }
@@ -2064,8 +2098,8 @@
           "winrate": 100
         },
         "CopaU_2026_High Tides v3 (Custom)": {
-          "pj": 1,
-          "pg": 1,
+          "pj": 2,
+          "pg": 2,
           "pp": 0,
           "winrate": 100
         },
@@ -2074,6 +2108,18 @@
           "pg": 0,
           "pp": 1,
           "winrate": 0
+        },
+        "Enclosed": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        },
+        "CopaU_2026_Slopes v2 (Custom)": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
         }
       }
     },
@@ -2293,9 +2339,9 @@
       "nick": "|FMG| TatoSky",
       "aoe2Id": "8921754",
       "global": {
-        "pj": 3,
-        "pg": 1,
-        "pp": 2,
+        "pj": 6,
+        "pg": 2,
+        "pp": 4,
         "winrate": 33.3
       },
       "civs": {
@@ -2328,16 +2374,44 @@
           }
         },
         "Romans": {
-          "pj": 1,
-          "pg": 1,
+          "pj": 2,
+          "pg": 2,
           "pp": 0,
           "winrate": 100,
           "por_mapa": {
             "Enclosed": {
-              "pj": 1,
-              "pg": 1,
+              "pj": 2,
+              "pg": 2,
               "pp": 0,
               "winrate": 100
+            }
+          }
+        },
+        "Sicilians": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "CopaU_2026_High Tides v3 (Custom)": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        },
+        "Franks": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "CopaU_2026_Slopes v2 (Custom)": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
             }
           }
         }
@@ -2356,10 +2430,22 @@
           "winrate": 0
         },
         "Enclosed": {
-          "pj": 1,
-          "pg": 1,
+          "pj": 2,
+          "pg": 2,
           "pp": 0,
           "winrate": 100
+        },
+        "CopaU_2026_High Tides v3 (Custom)": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        },
+        "CopaU_2026_Slopes v2 (Custom)": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
         }
       }
     },
@@ -2790,21 +2876,23 @@
       }
     },
     "CopaU_2026_High Tides v3 (Custom)": {
-      "total_partidas": 6,
+      "total_partidas": 7,
       "civs_ganadoras": {
         "Japanese": 1,
         "Koreans": 1,
         "Berbers": 1,
         "Malians": 1,
         "Mongols": 1,
-        "Persians": 1
+        "Persians": 1,
+        "Cumans": 1
       },
       "civs_perdedoras": {
         "Malay": 1,
         "Vikings": 1,
         "Dravidians": 1,
         "Persians": 2,
-        "Malians": 1
+        "Malians": 1,
+        "Sicilians": 1
       },
       "enfrentamientos": {
         "Japanese_vs_Malay": {
@@ -2836,18 +2924,25 @@
           "gano_primero": 1,
           "civ_a": "Mongols",
           "civ_b": "Persians"
+        },
+        "Cumans_vs_Sicilians": {
+          "total": 1,
+          "gano_primero": 1,
+          "civ_a": "Cumans",
+          "civ_b": "Sicilians"
         }
       }
     },
     "CopaU_2026_Slopes v2 (Custom)": {
-      "total_partidas": 2,
+      "total_partidas": 3,
       "civs_ganadoras": {
         "Portuguese": 1,
-        "Gurjaras": 1
+        "Gurjaras": 1,
+        "Mongols": 1
       },
       "civs_perdedoras": {
         "Tatars": 1,
-        "Franks": 1
+        "Franks": 2
       },
       "enfrentamientos": {
         "Portuguese_vs_Tatars": {
@@ -2861,6 +2956,12 @@
           "gano_primero": 0,
           "civ_a": "Franks",
           "civ_b": "Gurjaras"
+        },
+        "Franks_vs_Mongols": {
+          "total": 1,
+          "gano_primero": 0,
+          "civ_a": "Franks",
+          "civ_b": "Mongols"
         }
       }
     },
@@ -3126,9 +3227,9 @@
       }
     },
     "Enclosed": {
-      "total_partidas": 4,
+      "total_partidas": 5,
       "civs_ganadoras": {
-        "Romans": 2,
+        "Romans": 3,
         "Vietnamese": 1,
         "Italians": 1
       },
@@ -3136,7 +3237,8 @@
         "Magyars": 1,
         "Shu": 1,
         "Spanish": 1,
-        "Chinese": 1
+        "Chinese": 1,
+        "Hindustanis": 1
       },
       "enfrentamientos": {
         "Magyars_vs_Romans": {
@@ -3161,6 +3263,12 @@
           "total": 1,
           "gano_primero": 0,
           "civ_a": "Chinese",
+          "civ_b": "Romans"
+        },
+        "Hindustanis_vs_Romans": {
+          "total": 1,
+          "gano_primero": 0,
+          "civ_a": "Hindustanis",
           "civ_b": "Romans"
         }
       }
@@ -3396,7 +3504,7 @@
       }
     },
     "Franks": {
-      "total_jugadas": 2,
+      "total_jugadas": 3,
       "total_ganadas": 0,
       "winrate": 0,
       "por_mapa": {
@@ -3406,7 +3514,7 @@
           "winrate": 0
         },
         "CopaU_2026_Slopes v2 (Custom)": {
-          "jugadas": 1,
+          "jugadas": 2,
           "ganadas": 0,
           "winrate": 0
         }
@@ -3418,6 +3526,11 @@
           "winrate": 0
         },
         "Gurjaras": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        },
+        "Mongols": {
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
@@ -3660,9 +3773,9 @@
       }
     },
     "Mongols": {
-      "total_jugadas": 5,
-      "total_ganadas": 2,
-      "winrate": 40,
+      "total_jugadas": 6,
+      "total_ganadas": 3,
+      "winrate": 50,
       "por_mapa": {
         "Arabia": {
           "jugadas": 1,
@@ -3685,6 +3798,11 @@
           "winrate": 0
         },
         "CopaU_2026_High Tides v3 (Custom)": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        },
+        "CopaU_2026_Slopes v2 (Custom)": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
@@ -3712,6 +3830,11 @@
           "winrate": 0
         },
         "Persians": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        },
+        "Franks": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
@@ -4085,13 +4208,13 @@
       }
     },
     "Romans": {
-      "total_jugadas": 6,
-      "total_ganadas": 4,
-      "winrate": 66.7,
+      "total_jugadas": 7,
+      "total_ganadas": 5,
+      "winrate": 71.4,
       "por_mapa": {
         "Enclosed": {
-          "jugadas": 2,
-          "ganadas": 2,
+          "jugadas": 3,
+          "ganadas": 3,
           "winrate": 100
         },
         "CopaU_2026_Stranded v3 (Custom)": {
@@ -4125,6 +4248,11 @@
           "jugadas": 2,
           "ganadas": 1,
           "winrate": 50
+        },
+        "Hindustanis": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       }
     },
@@ -4406,9 +4534,9 @@
       }
     },
     "Cumans": {
-      "total_jugadas": 3,
-      "total_ganadas": 1,
-      "winrate": 33.3,
+      "total_jugadas": 4,
+      "total_ganadas": 2,
+      "winrate": 50,
       "por_mapa": {
         "Arena": {
           "jugadas": 2,
@@ -4419,6 +4547,11 @@
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "CopaU_2026_High Tides v3 (Custom)": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       },
       "vs_civs": {
@@ -4436,6 +4569,11 @@
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "Sicilians": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       }
     },
@@ -4671,14 +4809,19 @@
       }
     },
     "Sicilians": {
-      "total_jugadas": 1,
+      "total_jugadas": 2,
       "total_ganadas": 1,
-      "winrate": 100,
+      "winrate": 50,
       "por_mapa": {
         "Arabia": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "CopaU_2026_High Tides v3 (Custom)": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       },
       "vs_civs": {
@@ -4686,6 +4829,11 @@
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "Cumans": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       }
     },
@@ -4728,7 +4876,7 @@
       }
     },
     "Hindustanis": {
-      "total_jugadas": 1,
+      "total_jugadas": 2,
       "total_ganadas": 0,
       "winrate": 0,
       "por_mapa": {
@@ -4736,10 +4884,20 @@
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "Enclosed": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       },
       "vs_civs": {
         "Maya": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        },
+        "Romans": {
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
@@ -5964,6 +6122,66 @@
         "nick": "Kroyen",
         "civ": "Hindustanis",
         "gano": false
+      }
+    },
+    {
+      "matchId": 471359009,
+      "fecha": "2026-04-18T17:46:38.000Z",
+      "mapa": "CopaU_2026_High Tides v3 (Custom)",
+      "duracion": 18,
+      "grupo": "F",
+      "ronda": 3,
+      "jugador1": {
+        "discordId": "896216989922635777",
+        "nick": "|FMG| TatoSky",
+        "civ": "Sicilians",
+        "gano": false
+      },
+      "jugador2": {
+        "discordId": "594988359965999118",
+        "nick": "N4cHoV",
+        "civ": "Cumans",
+        "gano": true
+      }
+    },
+    {
+      "matchId": 471353068,
+      "fecha": "2026-04-18T17:20:46.000Z",
+      "mapa": "Enclosed",
+      "duracion": 17,
+      "grupo": "F",
+      "ronda": 3,
+      "jugador1": {
+        "discordId": "896216989922635777",
+        "nick": "|FMG| TatoSky",
+        "civ": "Romans",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "594988359965999118",
+        "nick": "N4cHoV",
+        "civ": "Hindustanis",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 471345056,
+      "fecha": "2026-04-18T16:44:05.000Z",
+      "mapa": "CopaU_2026_Slopes v2 (Custom)",
+      "duracion": 28,
+      "grupo": "F",
+      "ronda": 3,
+      "jugador1": {
+        "discordId": "896216989922635777",
+        "nick": "|FMG| TatoSky",
+        "civ": "Franks",
+        "gano": false
+      },
+      "jugador2": {
+        "discordId": "594988359965999118",
+        "nick": "N4cHoV",
+        "civ": "Mongols",
+        "gano": true
       }
     }
   ]
