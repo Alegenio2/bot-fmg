@@ -1,8 +1,8 @@
 {
   "meta": {
     "torneo": "copa_uruguaya_2026",
-    "ultima_actualizacion": "2026-04-18T18:18:08.274Z",
-    "total_partidas": 64
+    "ultima_actualizacion": "2026-04-19T23:26:40.748Z",
+    "total_partidas": 66
   },
   "jugadores": {
     "733765577570779279": {
@@ -687,9 +687,9 @@
       "nick": "DGHIR | SamuraiNinja08",
       "aoe2Id": "1465372",
       "global": {
-        "pj": 2,
+        "pj": 4,
         "pg": 0,
-        "pp": 2,
+        "pp": 4,
         "winrate": 0
       },
       "civs": {
@@ -720,6 +720,34 @@
               "winrate": 0
             }
           }
+        },
+        "Aztecs": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "CopaU_2026_Dry River (Custom)": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        },
+        "Dravidians": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "Islands": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
         }
       },
       "mapas": {
@@ -730,6 +758,18 @@
           "winrate": 0
         },
         "CopaU_2026_Stranded v3 (Custom)": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        },
+        "CopaU_2026_Dry River (Custom)": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        },
+        "Islands": {
           "pj": 1,
           "pg": 0,
           "pp": 1,
@@ -1331,8 +1371,8 @@
       "nick": "FMG | Rxon",
       "aoe2Id": "1780624",
       "global": {
-        "pj": 2,
-        "pg": 2,
+        "pj": 4,
+        "pg": 4,
         "pp": 0,
         "winrate": 100
       },
@@ -1364,6 +1404,34 @@
               "winrate": 100
             }
           }
+        },
+        "Goths": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "CopaU_2026_Dry River (Custom)": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        },
+        "Armenians": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "Islands": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
         }
       },
       "mapas": {
@@ -1374,6 +1442,18 @@
           "winrate": 100
         },
         "CopaU_2026_Shorelines (Custom)": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        },
+        "CopaU_2026_Dry River (Custom)": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        },
+        "Islands": {
           "pj": 1,
           "pg": 1,
           "pp": 0,
@@ -3174,18 +3254,20 @@
       }
     },
     "CopaU_2026_Dry River (Custom)": {
-      "total_partidas": 6,
+      "total_partidas": 7,
       "civs_ganadoras": {
         "Japanese": 3,
         "Burmese": 1,
-        "Romans": 2
+        "Romans": 2,
+        "Goths": 1
       },
       "civs_perdedoras": {
         "Bulgarians": 1,
         "Britons": 1,
         "Japanese": 2,
         "Magyars": 1,
-        "Romans": 1
+        "Romans": 1,
+        "Aztecs": 1
       },
       "enfrentamientos": {
         "Bulgarians_vs_Japanese": {
@@ -3223,6 +3305,12 @@
           "gano_primero": 1,
           "civ_a": "Romans",
           "civ_b": "Romans"
+        },
+        "Aztecs_vs_Goths": {
+          "total": 1,
+          "gano_primero": 0,
+          "civ_a": "Aztecs",
+          "civ_b": "Goths"
         }
       }
     },
@@ -3381,14 +3469,15 @@
       }
     },
     "Islands": {
-      "total_partidas": 2,
+      "total_partidas": 3,
       "civs_ganadoras": {
-        "Armenians": 1,
+        "Armenians": 2,
         "Portuguese": 1
       },
       "civs_perdedoras": {
         "Spanish": 1,
-        "Japanese": 1
+        "Japanese": 1,
+        "Dravidians": 1
       },
       "enfrentamientos": {
         "Armenians_vs_Spanish": {
@@ -3402,6 +3491,12 @@
           "gano_primero": 0,
           "civ_a": "Japanese",
           "civ_b": "Portuguese"
+        },
+        "Armenians_vs_Dravidians": {
+          "total": 1,
+          "gano_primero": 1,
+          "civ_a": "Armenians",
+          "civ_b": "Dravidians"
         }
       }
     },
@@ -4257,9 +4352,9 @@
       }
     },
     "Armenians": {
-      "total_jugadas": 3,
-      "total_ganadas": 2,
-      "winrate": 66.7,
+      "total_jugadas": 4,
+      "total_ganadas": 3,
+      "winrate": 75,
       "por_mapa": {
         "CopaU_2026_Shorelines (Custom)": {
           "jugadas": 1,
@@ -4267,8 +4362,8 @@
           "winrate": 0
         },
         "Islands": {
-          "jugadas": 1,
-          "ganadas": 1,
+          "jugadas": 2,
+          "ganadas": 2,
           "winrate": 100
         },
         "Nomad": {
@@ -4289,6 +4384,11 @@
           "winrate": 100
         },
         "Koreans": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        },
+        "Dravidians": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
@@ -4578,14 +4678,19 @@
       }
     },
     "Goths": {
-      "total_jugadas": 1,
-      "total_ganadas": 0,
-      "winrate": 0,
+      "total_jugadas": 2,
+      "total_ganadas": 1,
+      "winrate": 50,
       "por_mapa": {
         "CopaU_2026_Valley (Custom)": {
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "CopaU_2026_Dry River (Custom)": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       },
       "vs_civs": {
@@ -4593,13 +4698,18 @@
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "Aztecs": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       }
     },
     "Dravidians": {
-      "total_jugadas": 6,
+      "total_jugadas": 7,
       "total_ganadas": 4,
-      "winrate": 66.7,
+      "winrate": 57.1,
       "por_mapa": {
         "CopaU_2026_Shorelines (Custom)": {
           "jugadas": 2,
@@ -4620,6 +4730,11 @@
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "Islands": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       },
       "vs_civs": {
@@ -4647,6 +4762,11 @@
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "Armenians": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       }
     },
@@ -4898,6 +5018,25 @@
           "winrate": 0
         },
         "Romans": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        }
+      }
+    },
+    "Aztecs": {
+      "total_jugadas": 1,
+      "total_ganadas": 0,
+      "winrate": 0,
+      "por_mapa": {
+        "CopaU_2026_Dry River (Custom)": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        }
+      },
+      "vs_civs": {
+        "Goths": {
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
@@ -6182,6 +6321,46 @@
         "nick": "N4cHoV",
         "civ": "Mongols",
         "gano": true
+      }
+    },
+    {
+      "matchId": 471163228,
+      "fecha": "2026-04-17T23:44:52.000Z",
+      "mapa": "CopaU_2026_Dry River (Custom)",
+      "duracion": 12,
+      "grupo": "B",
+      "ronda": 2,
+      "jugador1": {
+        "discordId": "238414625417330688",
+        "nick": "FMG | Rxon",
+        "civ": "Goths",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "697973693157998712",
+        "nick": "DGHIR | SamuraiNinja08",
+        "civ": "Aztecs",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 471158177,
+      "fecha": "2026-04-17T23:15:13.000Z",
+      "mapa": "Islands",
+      "duracion": 25,
+      "grupo": "B",
+      "ronda": 2,
+      "jugador1": {
+        "discordId": "238414625417330688",
+        "nick": "FMG | Rxon",
+        "civ": "Armenians",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "697973693157998712",
+        "nick": "DGHIR | SamuraiNinja08",
+        "civ": "Dravidians",
+        "gano": false
       }
     }
   ]
