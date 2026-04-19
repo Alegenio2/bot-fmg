@@ -430,7 +430,14 @@
               "jugador1Nick": "FMG | Rxon",
               "jugador2Id": "697973693157998712",
               "jugador2Nick": "DGHIR | SamuraiNinja08",
-              "resultado": null,
+              "resultado": {
+                "238414625417330688": 2,
+                "697973693157998712": 0,
+                "mapas": "https://aoe2cm.net/draft/oLuZZ",
+                "civs": "https://aoe2cm.net/draft/qLBXi",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1495566329518755850/rxon_v_samurai.rar?ex=69e6b62f&is=69e564af&hm=9015ff0478b3a133cb92f97c188d6095fd0ead22cecb76e87d66bc462941f9ac&",
+                "fecha_registro": "2026-04-19T23:26:40.004Z"
+              },
               "fecha": "17-04-2026",
               "horario": "21:00",
               "diaSemana": "Viernes",
