@@ -753,7 +753,11 @@
               "jugador1Nick": "DGHIR | Garezo",
               "jugador2Id": "442189398667296788",
               "jugador2Nick": "|FMG|DavidTG",
-              "resultado": null
+              "resultado": null,
+              "fecha": "21-04-2026",
+              "horario": "21:00",
+              "diaSemana": "Martes",
+              "coordinadoPor": "garezo"
             },
             {
               "jugador1Id": "264781067506941962",
