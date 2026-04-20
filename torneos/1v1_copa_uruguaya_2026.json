@@ -855,7 +855,11 @@
               "jugador1Nick": "|FMG| Nadie",
               "jugador2Id": "689907393001291884",
               "jugador2Nick": "Culero Connor",
-              "resultado": null
+              "resultado": null,
+              "fecha": "22-04-2026",
+              "horario": "21:00",
+              "diaSemana": "Miércoles",
+              "coordinadoPor": "nadie6689"
             },
             {
               "jugador1Id": "896216989922635777",
