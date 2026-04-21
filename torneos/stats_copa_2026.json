@@ -1,8 +1,8 @@
 {
   "meta": {
     "torneo": "copa_uruguaya_2026",
-    "ultima_actualizacion": "2026-04-19T23:26:40.748Z",
-    "total_partidas": 66
+    "ultima_actualizacion": "2026-04-21T02:25:13.365Z",
+    "total_partidas": 68
   },
   "jugadores": {
     "733765577570779279": {
@@ -633,8 +633,8 @@
       "nick": "DGHIR | Lionerrt",
       "aoe2Id": "5204719",
       "global": {
-        "pj": 2,
-        "pg": 2,
+        "pj": 4,
+        "pg": 4,
         "pp": 0,
         "winrate": 100
       },
@@ -666,16 +666,50 @@
               "winrate": 100
             }
           }
+        },
+        "Hindustanis": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "Arabia": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        },
+        "Persians": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "CopaU_2026_High Tides v3 (Custom)": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
         }
       },
       "mapas": {
         "CopaU_2026_High Tides v3 (Custom)": {
+          "pj": 2,
+          "pg": 2,
+          "pp": 0,
+          "winrate": 100
+        },
+        "CopaU_2026_Stranded v3 (Custom)": {
           "pj": 1,
           "pg": 1,
           "pp": 0,
           "winrate": 100
         },
-        "CopaU_2026_Stranded v3 (Custom)": {
+        "Arabia": {
           "pj": 1,
           "pg": 1,
           "pp": 0,
@@ -1465,9 +1499,9 @@
       "nick": "[VL] Santiagoi1212",
       "aoe2Id": "2249432",
       "global": {
-        "pj": 2,
+        "pj": 4,
         "pg": 0,
-        "pp": 2,
+        "pp": 4,
         "winrate": 0
       },
       "civs": {
@@ -1486,12 +1520,32 @@
           }
         },
         "Magyars": {
+          "pj": 2,
+          "pg": 0,
+          "pp": 2,
+          "winrate": 0,
+          "por_mapa": {
+            "CopaU_2026_Shorelines (Custom)": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            },
+            "Arabia": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        },
+        "Bulgarians": {
           "pj": 1,
           "pg": 0,
           "pp": 1,
           "winrate": 0,
           "por_mapa": {
-            "CopaU_2026_Shorelines (Custom)": {
+            "CopaU_2026_High Tides v3 (Custom)": {
               "pj": 1,
               "pg": 0,
               "pp": 1,
@@ -1502,12 +1556,18 @@
       },
       "mapas": {
         "Arabia": {
+          "pj": 2,
+          "pg": 0,
+          "pp": 2,
+          "winrate": 0
+        },
+        "CopaU_2026_Shorelines (Custom)": {
           "pj": 1,
           "pg": 0,
           "pp": 1,
           "winrate": 0
         },
-        "CopaU_2026_Shorelines (Custom)": {
+        "CopaU_2026_High Tides v3 (Custom)": {
           "pj": 1,
           "pg": 0,
           "pp": 1,
@@ -2956,14 +3016,14 @@
       }
     },
     "CopaU_2026_High Tides v3 (Custom)": {
-      "total_partidas": 7,
+      "total_partidas": 8,
       "civs_ganadoras": {
         "Japanese": 1,
         "Koreans": 1,
         "Berbers": 1,
         "Malians": 1,
         "Mongols": 1,
-        "Persians": 1,
+        "Persians": 2,
         "Cumans": 1
       },
       "civs_perdedoras": {
@@ -2972,7 +3032,8 @@
         "Dravidians": 1,
         "Persians": 2,
         "Malians": 1,
-        "Sicilians": 1
+        "Sicilians": 1,
+        "Bulgarians": 1
       },
       "enfrentamientos": {
         "Japanese_vs_Malay": {
@@ -3010,6 +3071,12 @@
           "gano_primero": 1,
           "civ_a": "Cumans",
           "civ_b": "Sicilians"
+        },
+        "Bulgarians_vs_Persians": {
+          "total": 1,
+          "gano_primero": 0,
+          "civ_a": "Bulgarians",
+          "civ_b": "Persians"
         }
       }
     },
@@ -3046,7 +3113,7 @@
       }
     },
     "Arabia": {
-      "total_partidas": 7,
+      "total_partidas": 8,
       "civs_ganadoras": {
         "Khitans": 1,
         "Vietnamese": 1,
@@ -3054,7 +3121,8 @@
         "Malians": 1,
         "Japanese": 1,
         "Sicilians": 1,
-        "Maya": 1
+        "Maya": 1,
+        "Hindustanis": 1
       },
       "civs_perdedoras": {
         "Mongols": 1,
@@ -3062,7 +3130,8 @@
         "Berbers": 2,
         "Saracens": 1,
         "Byzantines": 1,
-        "Hindustanis": 1
+        "Hindustanis": 1,
+        "Magyars": 1
       },
       "enfrentamientos": {
         "Khitans_vs_Mongols": {
@@ -3106,6 +3175,12 @@
           "gano_primero": 0,
           "civ_a": "Hindustanis",
           "civ_b": "Maya"
+        },
+        "Hindustanis_vs_Magyars": {
+          "total": 1,
+          "gano_primero": 1,
+          "civ_a": "Hindustanis",
+          "civ_b": "Magyars"
         }
       }
     },
@@ -3937,7 +4012,7 @@
       }
     },
     "Magyars": {
-      "total_jugadas": 4,
+      "total_jugadas": 5,
       "total_ganadas": 0,
       "winrate": 0,
       "por_mapa": {
@@ -3960,6 +4035,11 @@
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "Arabia": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       },
       "vs_civs": {
@@ -3974,6 +4054,11 @@
           "winrate": 0
         },
         "Italians": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        },
+        "Hindustanis": {
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
@@ -4079,9 +4164,9 @@
       }
     },
     "Persians": {
-      "total_jugadas": 9,
-      "total_ganadas": 5,
-      "winrate": 55.6,
+      "total_jugadas": 10,
+      "total_ganadas": 6,
+      "winrate": 60,
       "por_mapa": {
         "CopaU_2026_Shorelines (Custom)": {
           "jugadas": 2,
@@ -4104,9 +4189,9 @@
           "winrate": 100
         },
         "CopaU_2026_High Tides v3 (Custom)": {
-          "jugadas": 3,
-          "ganadas": 1,
-          "winrate": 33.3
+          "jugadas": 4,
+          "ganadas": 2,
+          "winrate": 50
         }
       },
       "vs_civs": {
@@ -4144,6 +4229,11 @@
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "Bulgarians": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       }
     },
@@ -4284,11 +4374,16 @@
       }
     },
     "Bulgarians": {
-      "total_jugadas": 2,
+      "total_jugadas": 3,
       "total_ganadas": 1,
-      "winrate": 50,
+      "winrate": 33.3,
       "por_mapa": {
         "CopaU_2026_Dry River (Custom)": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        },
+        "CopaU_2026_High Tides v3 (Custom)": {
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
@@ -4296,6 +4391,11 @@
       },
       "vs_civs": {
         "Japanese": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        },
+        "Persians": {
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
@@ -4996,14 +5096,14 @@
       }
     },
     "Hindustanis": {
-      "total_jugadas": 2,
-      "total_ganadas": 0,
-      "winrate": 0,
+      "total_jugadas": 3,
+      "total_ganadas": 1,
+      "winrate": 33.3,
       "por_mapa": {
         "Arabia": {
-          "jugadas": 1,
-          "ganadas": 0,
-          "winrate": 0
+          "jugadas": 2,
+          "ganadas": 1,
+          "winrate": 50
         },
         "Enclosed": {
           "jugadas": 1,
@@ -5021,6 +5121,11 @@
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "Magyars": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       }
     },
@@ -6360,6 +6465,46 @@
         "discordId": "697973693157998712",
         "nick": "DGHIR | SamuraiNinja08",
         "civ": "Dravidians",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 471995848,
+      "fecha": "2026-04-21T01:46:26.000Z",
+      "mapa": "Arabia",
+      "duracion": 31,
+      "grupo": "B",
+      "ronda": 2,
+      "jugador1": {
+        "discordId": "277256502023290881",
+        "nick": "DGHIR | Lionerrt",
+        "civ": "Hindustanis",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "831027477652570132",
+        "nick": "[VL] Santiagoi1212",
+        "civ": "Magyars",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 471990847,
+      "fecha": "2026-04-21T01:22:55.000Z",
+      "mapa": "CopaU_2026_High Tides v3 (Custom)",
+      "duracion": 22,
+      "grupo": "B",
+      "ronda": 2,
+      "jugador1": {
+        "discordId": "277256502023290881",
+        "nick": "DGHIR | Lionerrt",
+        "civ": "Persians",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "831027477652570132",
+        "nick": "[VL] Santiagoi1212",
+        "civ": "Bulgarians",
         "gano": false
       }
     }
