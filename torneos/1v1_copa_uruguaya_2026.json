@@ -448,7 +448,14 @@
               "jugador1Nick": "[VL] Santiagoi1212",
               "jugador2Id": "277256502023290881",
               "jugador2Nick": "DGHIR | Lionerrt",
-              "resultado": null,
+              "resultado": {
+                "277256502023290881": 2,
+                "831027477652570132": 0,
+                "mapas": "https://aoe2cm.net/draft/nPqnL",
+                "civs": "https://aoe2cm.net/draft/CfNjD",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1495973639735087104/Santiagoi1212_vs_Lionerrt.rar?ex=69e83185&is=69e6e005&hm=b9fe60ed17a050b2e879a2a330f850af17d5844c1be880e993b12f733f7720c2&",
+                "fecha_registro": "2026-04-21T02:25:12.277Z"
+              },
               "fecha": "20-04-2026",
               "horario": "22:00",
               "diaSemana": "Lunes",
