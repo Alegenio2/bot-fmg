@@ -835,5 +835,18 @@
     "clan": "FUMAG",
     "elomax": 1880,
     "ultimapartida": "2026-03-30T02:08:25.000Z"
+  },
+  "1013557270682030080": {
+    "profileId": "1800273",
+    "nombre": "diego3390",
+    "elo": 1339,
+    "rank": 7811,
+    "wins": 151,
+    "losses": 123,
+    "pais": "🇺🇾",
+    "country": "uy",
+    "clan": "CSKS",
+    "elomax": 1339,
+    "ultimapartida": "2026-03-29T20:05:09.000Z"
   }
 }
