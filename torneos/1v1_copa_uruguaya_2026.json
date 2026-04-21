@@ -372,7 +372,11 @@
               "jugador1Nick": "DGHIR | Rorro Knight®",
               "jugador2Id": "694749732467245088",
               "jugador2Nick": "[LOPDA] Shebby",
-              "resultado": null
+              "resultado": null,
+              "fecha": "21-04-2026",
+              "horario": "22:00",
+              "diaSemana": "Martes",
+              "coordinadoPor": "rorroknight"
             }
           ]
         }
