@@ -771,7 +771,11 @@
               "jugador1Nick": "|FMG| doomjota",
               "jugador2Id": "852387609916211270",
               "jugador2Nick": "Zakk El Rabdomante",
-              "resultado": null
+              "resultado": null,
+              "fecha": "23-04-2026",
+              "horario": "21:00",
+              "diaSemana": "Jueves",
+              "coordinadoPor": "doomjota"
             }
           ]
         }
