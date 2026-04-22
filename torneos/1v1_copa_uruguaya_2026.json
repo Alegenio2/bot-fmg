@@ -372,7 +372,14 @@
               "jugador1Nick": "DGHIR | Rorro Knight®",
               "jugador2Id": "694749732467245088",
               "jugador2Nick": "[LOPDA] Shebby",
-              "resultado": null,
+              "resultado": {
+                "959267535524606022": 2,
+                "694749732467245088": 0,
+                "mapas": "https://aoe2cm.net/draft/bzKcG",
+                "civs": "https://aoe2cm.net/draft/MWNxe",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1496336227371319456/Shebby_vs_Rorro.rar?ex=69e98335&is=69e831b5&hm=920fc598c5f8dbc2f7b1c69a8b7af0bd8b143e660c2ae23007eaab6d4940ddd6&",
+                "fecha_registro": "2026-04-22T02:25:58.430Z"
+              },
               "fecha": "21-04-2026",
               "horario": "22:00",
               "diaSemana": "Martes",
