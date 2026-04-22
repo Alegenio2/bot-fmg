@@ -1,8 +1,8 @@
 {
   "meta": {
     "torneo": "copa_uruguaya_2026",
-    "ultima_actualizacion": "2026-04-21T02:25:13.365Z",
-    "total_partidas": 68
+    "ultima_actualizacion": "2026-04-22T02:25:59.387Z",
+    "total_partidas": 70
   },
   "jugadores": {
     "733765577570779279": {
@@ -129,10 +129,10 @@
       "nick": "[LOPDA] Shebby",
       "aoe2Id": "2213923",
       "global": {
-        "pj": 5,
+        "pj": 7,
         "pg": 1,
-        "pp": 4,
-        "winrate": 20
+        "pp": 6,
+        "winrate": 14.3
       },
       "civs": {
         "Franks": {
@@ -204,6 +204,34 @@
               "winrate": 0
             }
           }
+        },
+        "Turks": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "Arena": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        },
+        "Magyars": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "Islands": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
         }
       },
       "mapas": {
@@ -220,15 +248,15 @@
           "winrate": 0
         },
         "Arena": {
-          "pj": 1,
+          "pj": 2,
           "pg": 1,
-          "pp": 0,
-          "winrate": 100
+          "pp": 1,
+          "winrate": 50
         },
         "Islands": {
-          "pj": 1,
+          "pj": 2,
           "pg": 0,
-          "pp": 1,
+          "pp": 2,
           "winrate": 0
         }
       }
@@ -2881,10 +2909,10 @@
       "nick": "DGHIR | Rorro Knight®",
       "aoe2Id": "5627235",
       "global": {
-        "pj": 3,
-        "pg": 2,
+        "pj": 5,
+        "pg": 4,
         "pp": 1,
-        "winrate": 66.7
+        "winrate": 80
       },
       "civs": {
         "Romans": {
@@ -2928,6 +2956,34 @@
               "winrate": 100
             }
           }
+        },
+        "Portuguese": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "Arena": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        },
+        "Malay": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "Islands": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
         }
       },
       "mapas": {
@@ -2944,6 +3000,18 @@
           "winrate": 0
         },
         "CopaU_2026_High Tides v3 (Custom)": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        },
+        "Arena": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        },
+        "Islands": {
           "pj": 1,
           "pg": 1,
           "pp": 0,
@@ -3512,15 +3580,17 @@
       }
     },
     "Arena": {
-      "total_partidas": 3,
+      "total_partidas": 4,
       "civs_ganadoras": {
         "Cumans": 1,
-        "Bengalis": 2
+        "Bengalis": 2,
+        "Portuguese": 1
       },
       "civs_perdedoras": {
         "Italians": 1,
         "Cumans": 1,
-        "Burmese": 1
+        "Burmese": 1,
+        "Turks": 1
       },
       "enfrentamientos": {
         "Cumans_vs_Italians": {
@@ -3540,19 +3610,27 @@
           "gano_primero": 1,
           "civ_a": "Bengalis",
           "civ_b": "Burmese"
+        },
+        "Portuguese_vs_Turks": {
+          "total": 1,
+          "gano_primero": 1,
+          "civ_a": "Portuguese",
+          "civ_b": "Turks"
         }
       }
     },
     "Islands": {
-      "total_partidas": 3,
+      "total_partidas": 4,
       "civs_ganadoras": {
         "Armenians": 2,
-        "Portuguese": 1
+        "Portuguese": 1,
+        "Malay": 1
       },
       "civs_perdedoras": {
         "Spanish": 1,
         "Japanese": 1,
-        "Dravidians": 1
+        "Dravidians": 1,
+        "Magyars": 1
       },
       "enfrentamientos": {
         "Armenians_vs_Spanish": {
@@ -3572,6 +3650,12 @@
           "gano_primero": 1,
           "civ_a": "Armenians",
           "civ_b": "Dravidians"
+        },
+        "Magyars_vs_Malay": {
+          "total": 1,
+          "gano_primero": 0,
+          "civ_a": "Magyars",
+          "civ_b": "Malay"
         }
       }
     },
@@ -3797,9 +3881,9 @@
       }
     },
     "Malay": {
-      "total_jugadas": 3,
-      "total_ganadas": 2,
-      "winrate": 66.7,
+      "total_jugadas": 4,
+      "total_ganadas": 3,
+      "winrate": 75,
       "por_mapa": {
         "CopaU_2026_High Tides v3 (Custom)": {
           "jugadas": 1,
@@ -3812,6 +3896,11 @@
           "winrate": 100
         },
         "Nomad": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        },
+        "Islands": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
@@ -3832,12 +3921,17 @@
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "Magyars": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       }
     },
     "Portuguese": {
-      "total_jugadas": 4,
-      "total_ganadas": 4,
+      "total_jugadas": 5,
+      "total_ganadas": 5,
       "winrate": 100,
       "por_mapa": {
         "CopaU_2026_Slopes v2 (Custom)": {
@@ -3856,6 +3950,11 @@
           "winrate": 100
         },
         "Islands": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        },
+        "Arena": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
@@ -3878,6 +3977,11 @@
           "winrate": 100
         },
         "Japanese": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        },
+        "Turks": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
@@ -4012,7 +4116,7 @@
       }
     },
     "Magyars": {
-      "total_jugadas": 5,
+      "total_jugadas": 6,
       "total_ganadas": 0,
       "winrate": 0,
       "por_mapa": {
@@ -4040,6 +4144,11 @@
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "Islands": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       },
       "vs_civs": {
@@ -4059,6 +4168,11 @@
           "winrate": 0
         },
         "Hindustanis": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        },
+        "Malay": {
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
@@ -5142,6 +5256,25 @@
       },
       "vs_civs": {
         "Goths": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        }
+      }
+    },
+    "Turks": {
+      "total_jugadas": 1,
+      "total_ganadas": 0,
+      "winrate": 0,
+      "por_mapa": {
+        "Arena": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        }
+      },
+      "vs_civs": {
+        "Portuguese": {
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
@@ -6505,6 +6638,46 @@
         "discordId": "831027477652570132",
         "nick": "[VL] Santiagoi1212",
         "civ": "Bulgarians",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 472220370,
+      "fecha": "2026-04-22T01:45:55.000Z",
+      "mapa": "Arena",
+      "duracion": 35,
+      "grupo": "A",
+      "ronda": 3,
+      "jugador1": {
+        "discordId": "959267535524606022",
+        "nick": "DGHIR | Rorro Knight®",
+        "civ": "Portuguese",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "694749732467245088",
+        "nick": "[LOPDA] Shebby",
+        "civ": "Turks",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 472213635,
+      "fecha": "2026-04-22T01:08:45.000Z",
+      "mapa": "Islands",
+      "duracion": 33,
+      "grupo": "A",
+      "ronda": 3,
+      "jugador1": {
+        "discordId": "959267535524606022",
+        "nick": "DGHIR | Rorro Knight®",
+        "civ": "Malay",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "694749732467245088",
+        "nick": "[LOPDA] Shebby",
+        "civ": "Magyars",
         "gano": false
       }
     }
