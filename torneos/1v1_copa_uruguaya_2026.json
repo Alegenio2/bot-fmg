@@ -482,7 +482,11 @@
               "jugador1Nick": "FMG | Rxon",
               "jugador2Id": "277256502023290881",
               "jugador2Nick": "DGHIR | Lionerrt",
-              "resultado": null
+              "resultado": null,
+              "fecha": "23-04-2026",
+              "horario": "17:30",
+              "diaSemana": "Jueves",
+              "coordinadoPor": "rxon"
             },
             {
               "jugador1Id": "697973693157998712",
