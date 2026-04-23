@@ -782,7 +782,14 @@
               "jugador1Nick": "DGHIR | Garezo",
               "jugador2Id": "442189398667296788",
               "jugador2Nick": "|FMG|DavidTG",
-              "resultado": null,
+              "resultado": {
+                "244547091362217984": 2,
+                "442189398667296788": 1,
+                "mapas": "https://aoe2cm.net/draft/bHcTl",
+                "civs": "https://aoe2cm.net/draft/WjsKt",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1496687439563984926/Copa_Uruguaya_-_Garezo_vs_DavidTG.rar?ex=69eaca4c&is=69e978cc&hm=c34311eb05b9b0642628b4789da978e3ec6f40b7c2abe2b0c6f8b295a68cba83&",
+                "fecha_registro": "2026-04-23T01:41:33.599Z"
+              },
               "fecha": "22-04-2026",
               "horario": "21:00",
               "diaSemana": "Miércoles",
