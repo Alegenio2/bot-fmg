@@ -770,7 +770,11 @@
               "jugador1Nick": "Zakk El Rabdomante",
               "jugador2Id": "442189398667296788",
               "jugador2Nick": "|FMG|DavidTG",
-              "resultado": null
+              "resultado": null,
+              "fecha": "25-04-2026",
+              "horario": "20:00",
+              "diaSemana": "Sábado",
+              "coordinadoPor": ".davidtg"
             }
           ]
         },
