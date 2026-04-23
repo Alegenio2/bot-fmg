@@ -1126,7 +1126,11 @@
               "jugador1Nick": "Matixxx",
               "jugador2Id": "465307831583637514",
               "jugador2Nick": "|FMG| ROGELIO III",
-              "resultado": null
+              "resultado": null,
+              "fecha": "25-04-2026",
+              "horario": "13:00",
+              "diaSemana": "Sábado",
+              "coordinadoPor": "rogelio_tercero"
             }
           ]
         }
