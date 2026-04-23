@@ -1,8 +1,8 @@
 {
   "meta": {
     "torneo": "copa_uruguaya_2026",
-    "ultima_actualizacion": "2026-04-23T01:57:22.492Z",
-    "total_partidas": 72
+    "ultima_actualizacion": "2026-04-23T21:54:17.690Z",
+    "total_partidas": 75
   },
   "jugadores": {
     "733765577570779279": {
@@ -661,10 +661,10 @@
       "nick": "DGHIR | Lionerrt",
       "aoe2Id": "5204719",
       "global": {
-        "pj": 4,
-        "pg": 4,
-        "pp": 0,
-        "winrate": 100
+        "pj": 7,
+        "pg": 6,
+        "pp": 1,
+        "winrate": 85.7
       },
       "civs": {
         "Koreans": {
@@ -682,14 +682,14 @@
           }
         },
         "Chinese": {
-          "pj": 1,
-          "pg": 1,
+          "pj": 2,
+          "pg": 2,
           "pp": 0,
           "winrate": 100,
           "por_mapa": {
             "CopaU_2026_Stranded v3 (Custom)": {
-              "pj": 1,
-              "pg": 1,
+              "pj": 2,
+              "pg": 2,
               "pp": 0,
               "winrate": 100
             }
@@ -722,6 +722,34 @@
               "winrate": 100
             }
           }
+        },
+        "Berbers": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "Arabia": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        },
+        "Vikings": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "Islands": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
         }
       },
       "mapas": {
@@ -732,12 +760,18 @@
           "winrate": 100
         },
         "CopaU_2026_Stranded v3 (Custom)": {
-          "pj": 1,
-          "pg": 1,
+          "pj": 2,
+          "pg": 2,
           "pp": 0,
           "winrate": 100
         },
         "Arabia": {
+          "pj": 2,
+          "pg": 1,
+          "pp": 1,
+          "winrate": 50
+        },
+        "Islands": {
           "pj": 1,
           "pg": 1,
           "pp": 0,
@@ -1433,10 +1467,10 @@
       "nick": "FMG | Rxon",
       "aoe2Id": "1780624",
       "global": {
-        "pj": 4,
-        "pg": 4,
-        "pp": 0,
-        "winrate": 100
+        "pj": 7,
+        "pg": 5,
+        "pp": 2,
+        "winrate": 71.4
       },
       "civs": {
         "Chinese": {
@@ -1494,12 +1528,54 @@
               "winrate": 100
             }
           }
+        },
+        "Japanese": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "CopaU_2026_Stranded v3 (Custom)": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        },
+        "Vietnamese": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "Arabia": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        },
+        "Portuguese": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "Islands": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
         }
       },
       "mapas": {
         "Arabia": {
-          "pj": 1,
-          "pg": 1,
+          "pj": 2,
+          "pg": 2,
           "pp": 0,
           "winrate": 100
         },
@@ -1516,10 +1592,16 @@
           "winrate": 100
         },
         "Islands": {
-          "pj": 1,
+          "pj": 2,
           "pg": 1,
-          "pp": 0,
-          "winrate": 100
+          "pp": 1,
+          "winrate": 50
+        },
+        "CopaU_2026_Stranded v3 (Custom)": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
         }
       }
     },
@@ -3253,10 +3335,10 @@
       }
     },
     "Arabia": {
-      "total_partidas": 8,
+      "total_partidas": 9,
       "civs_ganadoras": {
         "Khitans": 1,
-        "Vietnamese": 1,
+        "Vietnamese": 2,
         "Chinese": 1,
         "Malians": 1,
         "Japanese": 1,
@@ -3267,7 +3349,7 @@
       "civs_perdedoras": {
         "Mongols": 1,
         "Ethiopians": 1,
-        "Berbers": 2,
+        "Berbers": 3,
         "Saracens": 1,
         "Byzantines": 1,
         "Hindustanis": 1,
@@ -3321,6 +3403,12 @@
           "gano_primero": 1,
           "civ_a": "Hindustanis",
           "civ_b": "Magyars"
+        },
+        "Berbers_vs_Vietnamese": {
+          "total": 1,
+          "gano_primero": 0,
+          "civ_a": "Berbers",
+          "civ_b": "Vietnamese"
         }
       }
     },
@@ -3437,9 +3525,9 @@
       }
     },
     "CopaU_2026_Stranded v3 (Custom)": {
-      "total_partidas": 4,
+      "total_partidas": 5,
       "civs_ganadoras": {
-        "Chinese": 1,
+        "Chinese": 2,
         "Spanish": 1,
         "Dravidians": 2
       },
@@ -3447,7 +3535,8 @@
         "Persians": 1,
         "Wu": 1,
         "Georgians": 1,
-        "Romans": 1
+        "Romans": 1,
+        "Japanese": 1
       },
       "enfrentamientos": {
         "Chinese_vs_Persians": {
@@ -3473,6 +3562,12 @@
           "gano_primero": 1,
           "civ_a": "Dravidians",
           "civ_b": "Romans"
+        },
+        "Chinese_vs_Japanese": {
+          "total": 1,
+          "gano_primero": 1,
+          "civ_a": "Chinese",
+          "civ_b": "Japanese"
         }
       }
     },
@@ -3707,17 +3802,19 @@
       }
     },
     "Islands": {
-      "total_partidas": 4,
+      "total_partidas": 5,
       "civs_ganadoras": {
         "Armenians": 2,
         "Portuguese": 1,
-        "Malay": 1
+        "Malay": 1,
+        "Vikings": 1
       },
       "civs_perdedoras": {
         "Spanish": 1,
         "Japanese": 1,
         "Dravidians": 1,
-        "Magyars": 1
+        "Magyars": 1,
+        "Portuguese": 1
       },
       "enfrentamientos": {
         "Armenians_vs_Spanish": {
@@ -3743,6 +3840,12 @@
           "gano_primero": 0,
           "civ_a": "Magyars",
           "civ_b": "Malay"
+        },
+        "Portuguese_vs_Vikings": {
+          "total": 1,
+          "gano_primero": 0,
+          "civ_a": "Portuguese",
+          "civ_b": "Vikings"
         }
       }
     },
@@ -3791,9 +3894,9 @@
   },
   "civs": {
     "Berbers": {
-      "total_jugadas": 6,
+      "total_jugadas": 7,
       "total_ganadas": 3,
-      "winrate": 50,
+      "winrate": 42.9,
       "por_mapa": {
         "Nomad": {
           "jugadas": 2,
@@ -3801,7 +3904,7 @@
           "winrate": 100
         },
         "Arabia": {
-          "jugadas": 2,
+          "jugadas": 3,
           "ganadas": 0,
           "winrate": 0
         },
@@ -3838,6 +3941,11 @@
           "winrate": 50
         },
         "Japanese": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        },
+        "Vietnamese": {
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
@@ -3879,9 +3987,9 @@
       }
     },
     "Japanese": {
-      "total_jugadas": 11,
+      "total_jugadas": 12,
       "total_ganadas": 8,
-      "winrate": 72.7,
+      "winrate": 66.7,
       "por_mapa": {
         "CopaU_2026_High Tides v3 (Custom)": {
           "jugadas": 1,
@@ -3912,6 +4020,11 @@
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "CopaU_2026_Stranded v3 (Custom)": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       },
       "vs_civs": {
@@ -3964,6 +4077,11 @@
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "Chinese": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       }
     },
@@ -4017,9 +4135,9 @@
       }
     },
     "Portuguese": {
-      "total_jugadas": 5,
+      "total_jugadas": 6,
       "total_ganadas": 5,
-      "winrate": 100,
+      "winrate": 83.3,
       "por_mapa": {
         "CopaU_2026_Slopes v2 (Custom)": {
           "jugadas": 1,
@@ -4037,9 +4155,9 @@
           "winrate": 100
         },
         "Islands": {
-          "jugadas": 1,
+          "jugadas": 2,
           "ganadas": 1,
-          "winrate": 100
+          "winrate": 50
         },
         "Arena": {
           "jugadas": 1,
@@ -4072,6 +4190,11 @@
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "Vikings": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       }
     },
@@ -4517,9 +4640,9 @@
       }
     },
     "Vikings": {
-      "total_jugadas": 2,
-      "total_ganadas": 1,
-      "winrate": 50,
+      "total_jugadas": 3,
+      "total_ganadas": 2,
+      "winrate": 66.7,
       "por_mapa": {
         "CopaU_2026_High Tides v3 (Custom)": {
           "jugadas": 1,
@@ -4527,6 +4650,11 @@
           "winrate": 0
         },
         "Nomad": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        },
+        "Islands": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
@@ -4542,17 +4670,22 @@
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "Portuguese": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       }
     },
     "Chinese": {
-      "total_jugadas": 3,
-      "total_ganadas": 2,
-      "winrate": 66.7,
+      "total_jugadas": 4,
+      "total_ganadas": 3,
+      "winrate": 75,
       "por_mapa": {
         "CopaU_2026_Stranded v3 (Custom)": {
-          "jugadas": 1,
-          "ganadas": 1,
+          "jugadas": 2,
+          "ganadas": 2,
           "winrate": 100
         },
         "Arabia": {
@@ -4581,6 +4714,11 @@
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "Japanese": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       }
     },
@@ -4796,9 +4934,9 @@
       }
     },
     "Vietnamese": {
-      "total_jugadas": 3,
-      "total_ganadas": 2,
-      "winrate": 66.7,
+      "total_jugadas": 4,
+      "total_ganadas": 3,
+      "winrate": 75,
       "por_mapa": {
         "Enclosed": {
           "jugadas": 1,
@@ -4806,8 +4944,8 @@
           "winrate": 100
         },
         "Arabia": {
-          "jugadas": 1,
-          "ganadas": 1,
+          "jugadas": 2,
+          "ganadas": 2,
           "winrate": 100
         },
         "CopaU_2026_Valley (Custom)": {
@@ -4831,6 +4969,11 @@
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "Berbers": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       }
     },
@@ -6841,6 +6984,66 @@
         "nick": "Culero Connor",
         "civ": "Armenians",
         "gano": false
+      }
+    },
+    {
+      "matchId": 472626084,
+      "fecha": "2026-04-23T21:22:31.000Z",
+      "mapa": "CopaU_2026_Stranded v3 (Custom)",
+      "duracion": 27,
+      "grupo": "B",
+      "ronda": 3,
+      "jugador1": {
+        "discordId": "238414625417330688",
+        "nick": "FMG | Rxon",
+        "civ": "Japanese",
+        "gano": false
+      },
+      "jugador2": {
+        "discordId": "277256502023290881",
+        "nick": "DGHIR | Lionerrt",
+        "civ": "Chinese",
+        "gano": true
+      }
+    },
+    {
+      "matchId": 472620667,
+      "fecha": "2026-04-23T20:56:42.000Z",
+      "mapa": "Arabia",
+      "duracion": 24,
+      "grupo": "B",
+      "ronda": 3,
+      "jugador1": {
+        "discordId": "238414625417330688",
+        "nick": "FMG | Rxon",
+        "civ": "Vietnamese",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "277256502023290881",
+        "nick": "DGHIR | Lionerrt",
+        "civ": "Berbers",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 472614891,
+      "fecha": "2026-04-23T20:32:35.000Z",
+      "mapa": "Islands",
+      "duracion": 23,
+      "grupo": "B",
+      "ronda": 3,
+      "jugador1": {
+        "discordId": "238414625417330688",
+        "nick": "FMG | Rxon",
+        "civ": "Portuguese",
+        "gano": false
+      },
+      "jugador2": {
+        "discordId": "277256502023290881",
+        "nick": "DGHIR | Lionerrt",
+        "civ": "Vikings",
+        "gano": true
       }
     }
   ]
