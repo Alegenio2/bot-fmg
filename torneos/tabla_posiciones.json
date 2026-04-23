@@ -191,6 +191,15 @@
   ],
   "Grupo F": [
     {
+      "nick": "|FMG| Nadie",
+      "pj": 2,
+      "pg": 2,
+      "pp": 0,
+      "sf": 4,
+      "sc": 0,
+      "pts": 4
+    },
+    {
       "nick": "N4cHoV",
       "pj": 3,
       "pg": 2,
@@ -201,21 +210,12 @@
     },
     {
       "nick": "Culero Connor",
-      "pj": 2,
+      "pj": 3,
       "pg": 1,
-      "pp": 1,
+      "pp": 2,
       "sf": 3,
-      "sc": 3,
+      "sc": 5,
       "pts": 3
-    },
-    {
-      "nick": "|FMG| Nadie",
-      "pj": 1,
-      "pg": 1,
-      "pp": 0,
-      "sf": 2,
-      "sc": 0,
-      "pts": 2
     },
     {
       "nick": "|FMG| TatoSky",
