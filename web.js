@@ -13,7 +13,7 @@ const PASS_DRAFT   = process.env.ADMIN_PASSWORD_DRAFT   || 'draft-cambiar';
 const PASS_CONTROL = process.env.ADMIN_PASSWORD_CONTROL || 'control-cambiar';
 const JWT_SECRET   = process.env.JWT_SECRET             || crypto.randomBytes(32).toString('hex');
 const GH_TOKEN     = process.env.GH_TOKENO              || '';
-const JWT_EXPIRES  = '12h';
+const JWT_EXPIRES  = '2h';
 
 // ── Middleware de autenticación ───────────────────────────────────────────────
 function requireAuth(req, res, next) {
