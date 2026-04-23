@@ -482,7 +482,14 @@
               "jugador1Nick": "FMG | Rxon",
               "jugador2Id": "277256502023290881",
               "jugador2Nick": "DGHIR | Lionerrt",
-              "resultado": null,
+              "resultado": {
+                "238414625417330688": 1,
+                "277256502023290881": 2,
+                "mapas": "https://aoe2cm.net/draft/zCwcP",
+                "civs": "https://aoe2cm.net/draft/FcqRT",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1496992617395785818/Rxon_vs_Lionert.rar?ex=69ebe684&is=69ea9504&hm=1067abd7a88466ba40b6a04551b16f66da0545042e3d96fa84a142f57c15b98e&",
+                "fecha_registro": "2026-04-23T21:54:16.298Z"
+              },
               "fecha": "23-04-2026",
               "horario": "17:30",
               "diaSemana": "Jueves",
