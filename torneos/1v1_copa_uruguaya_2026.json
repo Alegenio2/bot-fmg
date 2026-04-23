@@ -888,7 +888,14 @@
               "jugador1Nick": "|FMG| Nadie",
               "jugador2Id": "689907393001291884",
               "jugador2Nick": "Culero Connor",
-              "resultado": null,
+              "resultado": {
+                "341001672786575360": 2,
+                "689907393001291884": 0,
+                "mapas": "https://aoe2cm.net/draft/Gbaba",
+                "civs": "https://aoe2cm.net/draft/gMhBs",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1496691414107684994/MP_Replay_v101.103.39862.0_2026.04.22_202629_2.aoe2record?ex=69eace00&is=69e97c80&hm=a3960bb96e71113edcc8fd3f71e01ee939b097ada7b7eceb2321e3e02afdb804&",
+                "fecha_registro": "2026-04-23T01:57:21.626Z"
+              },
               "fecha": "22-04-2026",
               "horario": "21:00",
               "diaSemana": "Miércoles",
