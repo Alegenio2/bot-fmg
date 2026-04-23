@@ -154,12 +154,12 @@
   "Grupo E": [
     {
       "nick": "DGHIR | Garezo",
-      "pj": 2,
-      "pg": 2,
+      "pj": 3,
+      "pg": 3,
       "pp": 0,
-      "sf": 4,
-      "sc": 1,
-      "pts": 4
+      "sf": 6,
+      "sc": 2,
+      "pts": 6
     },
     {
       "nick": "|FMG| doomjota",
@@ -172,12 +172,12 @@
     },
     {
       "nick": "|FMG|DavidTG",
-      "pj": 1,
+      "pj": 2,
       "pg": 0,
-      "pp": 1,
-      "sf": 1,
-      "sc": 2,
-      "pts": 1
+      "pp": 2,
+      "sf": 2,
+      "sc": 4,
+      "pts": 2
     },
     {
       "nick": "Zakk El Rabdomante",
