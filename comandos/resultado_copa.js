@@ -9,7 +9,7 @@ const { obtenerUsuario }              = require('../utils/asociar');
 const { buscarEstadisticasEncuentro } = require('../utils/aoe2stats');
 const { acumularStats }               = require('../utils/statsEngine');
 const { publicarStatsEncuentro }      = require('../utils/publicarStatsEncuentro');
-const { obtenerEstadisticasCopa } = require('../utils/calculoTablaCopa');
+const { obtenerEstadisticasCopa }     = require('../utils/calculoTablaCopa');
 
 function asegurarHttps(url) {
   if (!url) return null;
@@ -49,8 +49,10 @@ module.exports = {
       const data   = await fs.readFile(filePath, 'utf8');
       const torneo = JSON.parse(data);
       let partidoEncontrado = false;
-      let infoExtra = { grupo: "", ronda: "" };
+      let infoExtra = { grupo: "", ronda: "", fase: "" };
+      let partidoRef = null; // 👈 NUEVO
 
+      // GRUPOS
       for (const grupoObj of torneo.rondas_grupos) {
         for (const rondaObj of grupoObj.partidos) {
           for (const partido of rondaObj.partidos) {
@@ -67,7 +69,8 @@ module.exports = {
                 fecha_registro: new Date().toISOString()
               };
               partidoEncontrado = true;
-              infoExtra = { grupo: grupoObj.grupo, ronda: rondaObj.ronda };
+              partidoRef = partido; // 👈 NUEVO
+              infoExtra = { grupo: grupoObj.grupo, ronda: rondaObj.ronda, fase: "grupos" };
               break;
             }
           }
@@ -76,8 +79,68 @@ module.exports = {
         if (partidoEncontrado) break;
       }
 
+      // ELIMINATORIAS
+      if (!partidoEncontrado && torneo.eliminatorias) {
+        const fases = ['octavos', 'cuartos', 'semis', 'final'];
+        
+        for (const nombreFase of fases) {
+          const fase = torneo.eliminatorias[nombreFase];
+          if (!fase) continue;
+          
+          for (const partido of fase) {
+            if (
+              (partido.jugador1Id === j1.id && partido.jugador2Id === j2.id) ||
+              (partido.jugador1Id === j2.id && partido.jugador2Id === j1.id)
+            ) {
+              partido.resultado = {
+                [j1.id]: p1,
+                [j2.id]: p2,
+                mapas: linkMapas,
+                civs:  linkCivs,
+                recs_url: attachment.url,
+                fecha_registro: new Date().toISOString()
+              };
+              partidoEncontrado = true;
+              partidoRef = partido; // 👈 NUEVO
+              infoExtra = { 
+                grupo: "", 
+                ronda: partido.partidoId, 
+                fase: nombreFase.toUpperCase() 
+              };
+              break;
+            }
+          }
+          if (partidoEncontrado) break;
+        }
+      }
+
       if (!partidoEncontrado) return interaction.editReply({ content: `⚠️ Partido no encontrado en el torneo.` });
 
+      // 🚀 AVANCE AUTOMÁTICO DE FASE (SOLO ELIMINATORIAS)
+      if (infoExtra.fase !== "grupos" && partidoRef && partidoRef.va_a) {
+        const ganadorId = p1 > p2 ? j1.id : j2.id;
+        const ganadorNick = p1 > p2 ? j1.username : j2.username;
+
+        const destinoId = partidoRef.va_a;
+        const posicion = partidoRef.posicion_en_siguiente;
+
+        const fasesDestino = ['cuartos', 'semis', 'final'];
+
+        for (const faseNombre of fasesDestino) {
+          const fase = torneo.eliminatorias[faseNombre];
+          if (!fase) continue;
+
+          const siguiente = fase.find(p => p.partidoId === destinoId);
+
+          if (siguiente) {
+            siguiente[posicion + 'Id'] = ganadorId;
+            siguiente[posicion + 'Nick'] = ganadorNick;
+            break;
+          }
+        }
+      }
+
+      // GUARDAR
       await fs.writeFile(filePath, JSON.stringify(torneo, null, 2), 'utf8');
 
       const datosJ1  = obtenerUsuario(j1.id);
@@ -92,67 +155,39 @@ module.exports = {
         new ButtonBuilder().setLabel('Civ Draft').setStyle(ButtonStyle.Link).setURL(linkCivs)
       );
 
+      const mensajeFase = infoExtra.fase === "grupos" 
+        ? `🏆 **Copa 2026** | **Grupo ${infoExtra.grupo}** - Ronda ${infoExtra.ronda}`
+        : `🏆 **Copa 2026** | **${infoExtra.fase}** - ${infoExtra.ronda}`;
+
       await interaction.editReply({
         content: `📢 **RESULTADO REGISTRADO**\n` +
              `━━━━━━━━━━━━━━━━━━━━━━━━\n` +
-             `🏆 **Copa 2026** | **Grupo ${infoExtra.grupo}** - Ronda ${infoExtra.ronda}\n\n` +
+             `${mensajeFase}\n\n` +
              `⚔️ **Duelo:** ${nombreJ1} **vs** ${nombreJ2}\n` +
              `📊 **Resultado:** ${marcador}\n\n` +
               `*Haz clic en el cuadro oscuro para ver quién ganó.*`,
         components: [row]
       });
 
-      // ── Tareas en segundo plano ───────────────────────────────────────────
       (async () => {
         try {
-
-          // 1. Descargar REC
-          const nombreArchivo = `Copa26_G${infoExtra.grupo}_R${infoExtra.ronda}_${j1.username}_vs_${j2.username}_${attachment.name}`;
+          const nombreArchivo = infoExtra.fase === "grupos"
+            ? `Copa26_G${infoExtra.grupo}_R${infoExtra.ronda}_${j1.username}_vs_${j2.username}_${attachment.name}`
+            : `Copa26_${infoExtra.fase}_${infoExtra.ronda}_${j1.username}_vs_${j2.username}_${attachment.name}`;
+          
           const rutaLocalRec  = path.join(recsFolder, nombreArchivo);
           const resp = await axios({ method: 'GET', url: attachment.url, responseType: 'stream' });
           resp.data.pipe(createWriteStream(rutaLocalRec));
 
-          // 2. Buscar partidas en aoe2companion
           const totalPartidas = p1 + p2;
-          console.log(`🔍 Buscando ${totalPartidas} partidas: ${nombreJ1} vs ${nombreJ2}`);
-
           const encuentro = await buscarEstadisticasEncuentro(torneo, j1.id, j2.id, totalPartidas);
 
           if (encuentro) {
-            // 3. Acumular en stats_copa_2026.json
-            acumularStats(encuentro, infoExtra.grupo, infoExtra.ronda);
-            console.log(`✅ stats_copa_2026.json actualizado`);
-          } else {
-            console.warn(`⚠️ No se encontraron partidas en aoe2companion`);
+            acumularStats(encuentro, infoExtra.grupo || infoExtra.fase, infoExtra.ronda);
           }
 
-          // 4. Subir todo a GitHub (incluye stats_copa_2026.json)
           await subirTodosLosTorneos();
-
-          // DISPARAR RECÁLCULO DE TABLA
-console.log("🔄 Recalculando tabla de posiciones para la API...");
-await obtenerEstadisticasCopa();
-
-//await interaction.editReply({ content: `✅ Resultado registrado y tabla actualizada.` });
-
-        // 5. Publicar tabla de posiciones 
-// SE COMENTA PARA EVITAR SPOILERS EN DISCORD
-// await publicarTablaCopa(interaction.client);
-
-// 6. Publicar embed con civs y mapas
-// SE COMENTA PARA EVITAR SPOILERS EN DISCORD
-/* if (encuentro) {
-  await publicarStatsEncuentro(
-    interaction.client,
-    encuentro,
-    p1, p2,
-    infoExtra.grupo,
-    infoExtra.ronda
-  );
-} 
-*/
-
-console.log(`✅ Resultado de ${infoExtra.grupo} procesado silenciosamente.`);
+          await obtenerEstadisticasCopa();
 
         } catch (err) {
           console.error("❌ Error en tareas de fondo:", err);
@@ -165,8 +200,3 @@ console.log(`✅ Resultado de ${infoExtra.grupo} procesado silenciosamente.`);
     }
   }
 };
-
-
-
-
-

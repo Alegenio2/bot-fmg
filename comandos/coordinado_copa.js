@@ -42,10 +42,11 @@ module.exports = {
       const torneo = JSON.parse(fs.readFileSync(rutaTorneo, 'utf8'));
 
       let partidoEncontrado = null;
-      let grupoLetra = "";
-      let nroRonda = "";
+      let infoPartido = { grupo: "", ronda: "", fase: "" };
 
-      // 2. BUSCAR PARTIDO EN EL JSON DEL TORNEO
+      // ═══════════════════════════════════════════════════════════
+      // 2. BUSCAR PARTIDO EN FASE DE GRUPOS
+      // ═══════════════════════════════════════════════════════════
       for (const grupoObj of torneo.rondas_grupos) {
         for (const rondaObj of grupoObj.partidos) {
           for (const partido of rondaObj.partidos) {
@@ -58,8 +59,7 @@ module.exports = {
               partido.coordinadoPor = user.username;
               
               partidoEncontrado = partido;
-              grupoLetra = grupoObj.grupo;
-              nroRonda = rondaObj.ronda;
+              infoPartido = { grupo: grupoObj.grupo, ronda: rondaObj.ronda, fase: "grupos" };
               break;
             }
           }
@@ -68,11 +68,45 @@ module.exports = {
         if (partidoEncontrado) break;
       }
 
+      // ═══════════════════════════════════════════════════════════
+      // 3. BUSCAR EN ELIMINATORIAS (si no se encontró en grupos)
+      // ═══════════════════════════════════════════════════════════
+      if (!partidoEncontrado && torneo.eliminatorias) {
+        const fases = ['octavos', 'cuartos', 'semis', 'final'];
+        
+        for (const nombreFase of fases) {
+          const fase = torneo.eliminatorias[nombreFase];
+          if (!fase) continue;
+          
+          for (const partido of fase) {
+            if ((partido.jugador1Id === jugador.id && partido.jugador2Id === rival.id) || 
+                (partido.jugador1Id === rival.id && partido.jugador2Id === jugador.id)) {
+              
+              partido.fecha = fecha;
+              partido.horario = horarioFormateado;
+              partido.diaSemana = obtenerDiaSemana(fechaFormatoCorrecto);
+              partido.coordinadoPor = user.username;
+              
+              partidoEncontrado = partido;
+              infoPartido = { 
+                grupo: "", 
+                ronda: partido.partidoId, 
+                fase: nombreFase.toUpperCase() 
+              };
+              break;
+            }
+          }
+          if (partidoEncontrado) break;
+        }
+      }
+
       if (!partidoEncontrado) {
         return await interaction.editReply(`❌ No encontré un partido pendiente entre ${jugador.username} y ${rival.username}.`);
       }
 
-      // 3. CÁLCULO DE HÁNDICAP (Tomando ELO del JSON del torneo)
+      // ═══════════════════════════════════════════════════════════
+      // 4. CÁLCULO DE HÁNDICAP (Tomando ELO del JSON del torneo)
+      // ═══════════════════════════════════════════════════════════
       let msgHandicap = "⚖️ **Duelo equilibrado:** Sin hándicap.";
       
       // Buscamos los datos de los jugadores en el array de grupos para obtener el ELO redondeado
@@ -104,7 +138,9 @@ module.exports = {
         }
       }
 
-      // 4. GUARDAR Y ANUNCIAR
+      // ═══════════════════════════════════════════════════════════
+      // 5. GUARDAR Y ANUNCIAR
+      // ═══════════════════════════════════════════════════════════
       fs.writeFileSync(rutaTorneo, JSON.stringify(torneo, null, 2), 'utf8');
       
       try { 
@@ -115,11 +151,18 @@ module.exports = {
 
       await interaction.editReply({ content: "✅ Coordinación registrada exitosamente." });
 
+      // ═══════════════════════════════════════════════════════════
+      // 6. MENSAJE DIFERENCIADO SEGÚN FASE
+      // ═══════════════════════════════════════════════════════════
+      const mensajeFase = infoPartido.fase === "grupos"
+        ? `🏆 **Grupo ${infoPartido.grupo}** - Ronda ${infoPartido.ronda}`
+        : `🏆 **${infoPartido.fase}** - ${infoPartido.ronda}`;
+
       await interaction.followUp({
         content: `📅 **PARTIDO COORDINADO - COPA 2026**\n` +
                  `━━━━━━━━━━━━━━━━━━━━━━━━\n` +
-                 `🏆 **Grupo ${grupoLetra}** - Ronda ${nroRonda}\n` +
-                 `👥 **${data1.nick}** vs **${data2.nick}**\n` +
+                 `${mensajeFase}\n` +
+                 `👥 **${jugador.username}** vs **${rival.username}**\n` +
                  `🕒 **${fecha}** (${obtenerDiaSemana(fechaFormatoCorrecto)}) - **${horarioFormateado}hs**\n\n` +
                  `${msgHandicap}\n` +
                  `━━━━━━━━━━━━━━━━━━━━━━━━`,
