@@ -811,7 +811,14 @@
               "jugador1Nick": "|FMG| doomjota",
               "jugador2Id": "852387609916211270",
               "jugador2Nick": "Zakk El Rabdomante",
-              "resultado": null,
+              "resultado": {
+                "852387609916211270": 0,
+                "264781067506941962": 2,
+                "mapas": "https://aoe2cm.net/draft/mxGOu",
+                "civs": "https://aoe2cm.net/draft/TuqoS",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1497060158101127208/Escritorio.zip?ex=69ec256b&is=69ead3eb&hm=ac45a65a3e264e55e5bef1886e05ae9e7fdb56134ed55b63a4ff46c98e681532&",
+                "fecha_registro": "2026-04-24T02:22:36.620Z"
+              },
               "fecha": "23-04-2026",
               "horario": "21:00",
               "diaSemana": "Jueves",
