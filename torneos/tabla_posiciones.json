@@ -39,22 +39,22 @@
   ],
   "Grupo B": [
     {
-      "nick": "FMG | Rxon",
-      "pj": 2,
-      "pg": 2,
+      "nick": "DGHIR | Lionerrt",
+      "pj": 3,
+      "pg": 3,
       "pp": 0,
-      "sf": 4,
-      "sc": 0,
-      "pts": 4
+      "sf": 6,
+      "sc": 1,
+      "pts": 6
     },
     {
-      "nick": "DGHIR | Lionerrt",
-      "pj": 2,
+      "nick": "FMG | Rxon",
+      "pj": 3,
       "pg": 2,
-      "pp": 0,
-      "sf": 4,
-      "sc": 0,
-      "pts": 4
+      "pp": 1,
+      "sf": 5,
+      "sc": 2,
+      "pts": 5
     },
     {
       "nick": "DGHIR | SamuraiNinja08",
