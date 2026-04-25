@@ -1038,7 +1038,14 @@
               "jugador1Nick": "DGHIR | NICOGP11",
               "jugador2Id": "662427737138528308",
               "jugador2Nick": "kakaidolo",
-              "resultado": null
+              "resultado": {
+                "425297928610119692": 2,
+                "662427737138528308": 1,
+                "mapas": "https://aoe2cm.net/draft/iXvXY",
+                "civs": "https://aoe2cm.net/draft/ZcRlm",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1497411479429971978/NicoGP11_vs_Kakaidolo_CopaUruguaya2026.zip?ex=69ed6c9d&is=69ec1b1d&hm=77cb3e2f1a9d0257c208c9b789a054118950997e22ddc6360a526137eac67c67&",
+                "fecha_registro": "2026-04-25T01:38:38.042Z"
+              }
             }
           ]
         }
