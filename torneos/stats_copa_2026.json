@@ -1,8 +1,8 @@
 {
   "meta": {
     "torneo": "copa_uruguaya_2026",
-    "ultima_actualizacion": "2026-04-24T02:22:37.674Z",
-    "total_partidas": 77
+    "ultima_actualizacion": "2026-04-25T01:38:39.203Z",
+    "total_partidas": 80
   },
   "jugadores": {
     "733765577570779279": {
@@ -265,35 +265,41 @@
       "nick": "kakaidolo",
       "aoe2Id": "14501687",
       "global": {
-        "pj": 5,
-        "pg": 4,
-        "pp": 1,
-        "winrate": 80
+        "pj": 8,
+        "pg": 5,
+        "pp": 3,
+        "winrate": 62.5
       },
       "civs": {
         "Portuguese": {
-          "pj": 1,
+          "pj": 2,
           "pg": 1,
-          "pp": 0,
-          "winrate": 100,
+          "pp": 1,
+          "winrate": 50,
           "por_mapa": {
             "CopaU_2026_Slopes v2 (Custom)": {
               "pj": 1,
               "pg": 1,
               "pp": 0,
               "winrate": 100
+            },
+            "Pilgrims": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
             }
           }
         },
         "Khitans": {
-          "pj": 1,
-          "pg": 1,
+          "pj": 2,
+          "pg": 2,
           "pp": 0,
           "winrate": 100,
           "por_mapa": {
             "Arabia": {
-              "pj": 1,
-              "pg": 1,
+              "pj": 2,
+              "pg": 2,
               "pp": 0,
               "winrate": 100
             }
@@ -340,6 +346,20 @@
               "winrate": 100
             }
           }
+        },
+        "Malians": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "Hideout": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
         }
       },
       "mapas": {
@@ -350,8 +370,8 @@
           "winrate": 100
         },
         "Arabia": {
-          "pj": 1,
-          "pg": 1,
+          "pj": 2,
+          "pg": 2,
           "pp": 0,
           "winrate": 100
         },
@@ -362,16 +382,22 @@
           "winrate": 0
         },
         "Pilgrims": {
-          "pj": 1,
+          "pj": 2,
           "pg": 1,
-          "pp": 0,
-          "winrate": 100
+          "pp": 1,
+          "winrate": 50
         },
         "Enclosed": {
           "pj": 1,
           "pg": 1,
           "pp": 0,
           "winrate": 100
+        },
+        "Hideout": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
         }
       }
     },
@@ -1177,23 +1203,29 @@
       "nick": "DGHIR | NICOGP11",
       "aoe2Id": "1464680",
       "global": {
-        "pj": 2,
-        "pg": 2,
-        "pp": 0,
-        "winrate": 100
+        "pj": 5,
+        "pg": 4,
+        "pp": 1,
+        "winrate": 80
       },
       "civs": {
         "Malay": {
-          "pj": 1,
+          "pj": 2,
           "pg": 1,
-          "pp": 0,
-          "winrate": 100,
+          "pp": 1,
+          "winrate": 50,
           "por_mapa": {
             "CopaU_2026_Quarry v3 (Custom)": {
               "pj": 1,
               "pg": 1,
               "pp": 0,
               "winrate": 100
+            },
+            "Arabia": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
             }
           }
         },
@@ -1210,6 +1242,34 @@
               "winrate": 100
             }
           }
+        },
+        "Spanish": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "Pilgrims": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        },
+        "Wei": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "Hideout": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
         }
       },
       "mapas": {
@@ -1220,6 +1280,24 @@
           "winrate": 100
         },
         "Enclosed": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        },
+        "Pilgrims": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        },
+        "Arabia": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        },
+        "Hideout": {
           "pj": 1,
           "pg": 1,
           "pp": 0,
@@ -3417,9 +3495,9 @@
       }
     },
     "Arabia": {
-      "total_partidas": 9,
+      "total_partidas": 10,
       "civs_ganadoras": {
-        "Khitans": 1,
+        "Khitans": 2,
         "Vietnamese": 2,
         "Chinese": 1,
         "Malians": 1,
@@ -3435,7 +3513,8 @@
         "Saracens": 1,
         "Byzantines": 1,
         "Hindustanis": 1,
-        "Magyars": 1
+        "Magyars": 1,
+        "Malay": 1
       },
       "enfrentamientos": {
         "Khitans_vs_Mongols": {
@@ -3491,6 +3570,12 @@
           "gano_primero": 0,
           "civ_a": "Berbers",
           "civ_b": "Vietnamese"
+        },
+        "Khitans_vs_Malay": {
+          "total": 1,
+          "gano_primero": 1,
+          "civ_a": "Khitans",
+          "civ_b": "Malay"
         }
       }
     },
@@ -3527,15 +3612,16 @@
       }
     },
     "Hideout": {
-      "total_partidas": 3,
+      "total_partidas": 4,
       "civs_ganadoras": {
         "Bohemians": 1,
         "Khitans": 1,
-        "Wei": 1
+        "Wei": 2
       },
       "civs_perdedoras": {
         "Italians": 2,
-        "Saracens": 1
+        "Saracens": 1,
+        "Malians": 1
       },
       "enfrentamientos": {
         "Bohemians_vs_Italians": {
@@ -3554,6 +3640,12 @@
           "total": 1,
           "gano_primero": 0,
           "civ_a": "Saracens",
+          "civ_b": "Wei"
+        },
+        "Malians_vs_Wei": {
+          "total": 1,
+          "gano_primero": 0,
+          "civ_a": "Malians",
           "civ_b": "Wei"
         }
       }
@@ -3777,14 +3869,15 @@
       }
     },
     "Pilgrims": {
-      "total_partidas": 2,
+      "total_partidas": 3,
       "civs_ganadoras": {
-        "Spanish": 1,
+        "Spanish": 2,
         "Dravidians": 1
       },
       "civs_perdedoras": {
         "Persians": 1,
-        "Italians": 1
+        "Italians": 1,
+        "Portuguese": 1
       },
       "enfrentamientos": {
         "Persians_vs_Spanish": {
@@ -3798,6 +3891,12 @@
           "gano_primero": 1,
           "civ_a": "Dravidians",
           "civ_b": "Italians"
+        },
+        "Portuguese_vs_Spanish": {
+          "total": 1,
+          "gano_primero": 0,
+          "civ_a": "Portuguese",
+          "civ_b": "Spanish"
         }
       }
     },
@@ -4176,9 +4275,9 @@
       }
     },
     "Malay": {
-      "total_jugadas": 4,
+      "total_jugadas": 5,
       "total_ganadas": 3,
-      "winrate": 75,
+      "winrate": 60,
       "por_mapa": {
         "CopaU_2026_High Tides v3 (Custom)": {
           "jugadas": 1,
@@ -4199,6 +4298,11 @@
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "Arabia": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       },
       "vs_civs": {
@@ -4221,13 +4325,18 @@
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "Khitans": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       }
     },
     "Portuguese": {
-      "total_jugadas": 6,
+      "total_jugadas": 7,
       "total_ganadas": 5,
-      "winrate": 83.3,
+      "winrate": 71.4,
       "por_mapa": {
         "CopaU_2026_Slopes v2 (Custom)": {
           "jugadas": 1,
@@ -4253,6 +4362,11 @@
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "Pilgrims": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       },
       "vs_civs": {
@@ -4282,6 +4396,11 @@
           "winrate": 100
         },
         "Vikings": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        },
+        "Spanish": {
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
@@ -4318,13 +4437,13 @@
       }
     },
     "Khitans": {
-      "total_jugadas": 2,
-      "total_ganadas": 2,
+      "total_jugadas": 3,
+      "total_ganadas": 3,
       "winrate": 100,
       "por_mapa": {
         "Arabia": {
-          "jugadas": 1,
-          "ganadas": 1,
+          "jugadas": 2,
+          "ganadas": 2,
           "winrate": 100
         },
         "Hideout": {
@@ -4340,6 +4459,11 @@
           "winrate": 100
         },
         "Italians": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        },
+        "Malay": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
@@ -4965,13 +5089,13 @@
       }
     },
     "Spanish": {
-      "total_jugadas": 8,
-      "total_ganadas": 3,
-      "winrate": 37.5,
+      "total_jugadas": 9,
+      "total_ganadas": 4,
+      "winrate": 44.4,
       "por_mapa": {
         "Pilgrims": {
-          "jugadas": 1,
-          "ganadas": 1,
+          "jugadas": 2,
+          "ganadas": 2,
           "winrate": 100
         },
         "Enclosed": {
@@ -5035,6 +5159,11 @@
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "Portuguese": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       }
     },
@@ -5384,9 +5513,9 @@
       }
     },
     "Malians": {
-      "total_jugadas": 3,
+      "total_jugadas": 4,
       "total_ganadas": 2,
-      "winrate": 66.7,
+      "winrate": 50,
       "por_mapa": {
         "CopaU_2026_High Tides v3 (Custom)": {
           "jugadas": 2,
@@ -5397,6 +5526,11 @@
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "Hideout": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       },
       "vs_civs": {
@@ -5409,6 +5543,11 @@
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "Wei": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       }
     },
@@ -5552,18 +5691,23 @@
       }
     },
     "Wei": {
-      "total_jugadas": 1,
-      "total_ganadas": 1,
+      "total_jugadas": 2,
+      "total_ganadas": 2,
       "winrate": 100,
       "por_mapa": {
         "Hideout": {
-          "jugadas": 1,
-          "ganadas": 1,
+          "jugadas": 2,
+          "ganadas": 2,
           "winrate": 100
         }
       },
       "vs_civs": {
         "Saracens": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        },
+        "Malians": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
@@ -7204,6 +7348,66 @@
         "nick": "|FMG| doomjota",
         "civ": "Goths",
         "gano": true
+      }
+    },
+    {
+      "matchId": 472912417,
+      "fecha": "2026-04-25T01:17:40.000Z",
+      "mapa": "Pilgrims",
+      "duracion": 18,
+      "grupo": "G",
+      "ronda": 3,
+      "jugador1": {
+        "discordId": "425297928610119692",
+        "nick": "DGHIR | NICOGP11",
+        "civ": "Spanish",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "662427737138528308",
+        "nick": "kakaidolo",
+        "civ": "Portuguese",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 472903491,
+      "fecha": "2026-04-25T00:31:33.000Z",
+      "mapa": "Arabia",
+      "duracion": 31,
+      "grupo": "G",
+      "ronda": 3,
+      "jugador1": {
+        "discordId": "425297928610119692",
+        "nick": "DGHIR | NICOGP11",
+        "civ": "Malay",
+        "gano": false
+      },
+      "jugador2": {
+        "discordId": "662427737138528308",
+        "nick": "kakaidolo",
+        "civ": "Khitans",
+        "gano": true
+      }
+    },
+    {
+      "matchId": 472894848,
+      "fecha": "2026-04-24T23:45:11.000Z",
+      "mapa": "Hideout",
+      "duracion": 40,
+      "grupo": "G",
+      "ronda": 3,
+      "jugador1": {
+        "discordId": "425297928610119692",
+        "nick": "DGHIR | NICOGP11",
+        "civ": "Wei",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "662427737138528308",
+        "nick": "kakaidolo",
+        "civ": "Malians",
+        "gano": false
       }
     }
   ]
