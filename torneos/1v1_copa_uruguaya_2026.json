@@ -297,7 +297,14 @@
               "jugador1Nick": "buyanjavyn",
               "jugador2Id": "959267535524606022",
               "jugador2Nick": "DGHIR | Rorro Knight®",
-              "resultado": null,
+              "resultado": {
+                "709904591453683766": 2,
+                "959267535524606022": 1,
+                "mapas": "https://aoe2cm.net/draft/cQhtA",
+                "civs": "https://aoe2cm.net/draft/qEgfU",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1497428547244130424/buyan_v_rorro.rar?ex=69ed7c82&is=69ec2b02&hm=ceff02218f8432a68d181a04cee2cb12eeb1c83a71010c512e537550b423cd27&",
+                "fecha_registro": "2026-04-25T02:46:27.282Z"
+              },
               "fecha": "24-04-2026",
               "horario": "22:00",
               "diaSemana": "Viernes",
