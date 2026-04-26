@@ -575,7 +575,11 @@
               "jugador1Nick": "ElOsoConBarba",
               "jugador2Id": "701537224248000563",
               "jugador2Nick": "Aztreonam",
-              "resultado": null
+              "resultado": {
+                "701537224248000563": 0,
+                "1008090545513570495": 2,
+                "fecha_registro": "2026-04-26T20:37:31.135Z"
+              }
             }
           ]
         },
