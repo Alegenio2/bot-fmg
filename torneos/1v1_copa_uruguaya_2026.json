@@ -1181,7 +1181,14 @@
               "jugador1Nick": "Matixxx",
               "jugador2Id": "465307831583637514",
               "jugador2Nick": "|FMG| ROGELIO III",
-              "resultado": null,
+              "resultado": {
+                "465307831583637514": 2,
+                "582941701518262412": 0,
+                "mapas": "https://aoe2cm.net/draft/BBjqD",
+                "civs": "https://aoe2cm.net/draft/tDnvU",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1498106055409008731/ROGELIOvsMATIXXX.zip?ex=69eff37d&is=69eea1fd&hm=f00c9906b9cf914a14e1da80d992df23048bfeb7eeaaa56515d78ba62fb6257d&",
+                "fecha_registro": "2026-04-26T23:38:37.775Z"
+              },
               "fecha": "26-04-2026",
               "horario": "19:00",
               "diaSemana": "Domingo",
