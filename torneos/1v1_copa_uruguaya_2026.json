@@ -1128,7 +1128,11 @@
               "jugador1Nick": "|FMG| ROGELIO III",
               "jugador2Id": "135113382217908224",
               "jugador2Nick": "URU | Juasteint",
-              "resultado": null
+              "resultado": null,
+              "fecha": "26-04-2026",
+              "horario": "21:00",
+              "diaSemana": "Domingo",
+              "coordinadoPor": "rogelio_tercero"
             }
           ]
         },
