@@ -1,8 +1,8 @@
 {
   "meta": {
     "torneo": "copa_uruguaya_2026",
-    "ultima_actualizacion": "2026-04-26T01:42:37.371Z",
-    "total_partidas": 86
+    "ultima_actualizacion": "2026-04-26T23:38:38.738Z",
+    "total_partidas": 87
   },
   "jugadores": {
     "733765577570779279": {
@@ -1563,10 +1563,10 @@
       "nick": "|FMG| ROGELIO III",
       "aoe2Id": "19032038",
       "global": {
-        "pj": 2,
-        "pg": 0,
+        "pj": 3,
+        "pg": 1,
         "pp": 2,
-        "winrate": 0
+        "winrate": 33.3
       },
       "civs": {
         "Ethiopians": {
@@ -1596,6 +1596,20 @@
               "winrate": 0
             }
           }
+        },
+        "Lithuanians": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "CopaU_2026_African River v3 (Custom)": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
         }
       },
       "mapas": {
@@ -1610,6 +1624,12 @@
           "pg": 0,
           "pp": 1,
           "winrate": 0
+        },
+        "CopaU_2026_African River v3 (Custom)": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
         }
       }
     },
@@ -2779,10 +2799,10 @@
       "nick": "Matixxx",
       "aoe2Id": "14779963",
       "global": {
-        "pj": 4,
+        "pj": 5,
         "pg": 2,
-        "pp": 2,
-        "winrate": 50
+        "pp": 3,
+        "winrate": 40
       },
       "civs": {
         "Burmese": {
@@ -2824,6 +2844,20 @@
               "winrate": 0
             }
           }
+        },
+        "Mongols": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "CopaU_2026_African River v3 (Custom)": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
         }
       },
       "mapas": {
@@ -2846,6 +2880,12 @@
           "winrate": 0
         },
         "CopaU_2026_Shorelines (Custom)": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        },
+        "CopaU_2026_African River v3 (Custom)": {
           "pj": 1,
           "pg": 0,
           "pp": 1,
@@ -3780,14 +3820,15 @@
       }
     },
     "CopaU_2026_African River v3 (Custom)": {
-      "total_partidas": 3,
+      "total_partidas": 4,
       "civs_ganadoras": {
         "Japanese": 2,
-        "Persians": 1
+        "Persians": 1,
+        "Lithuanians": 1
       },
       "civs_perdedoras": {
         "Magyars": 1,
-        "Mongols": 1,
+        "Mongols": 2,
         "Dravidians": 1
       },
       "enfrentamientos": {
@@ -3808,6 +3849,12 @@
           "gano_primero": 0,
           "civ_a": "Dravidians",
           "civ_b": "Persians"
+        },
+        "Lithuanians_vs_Mongols": {
+          "total": 1,
+          "gano_primero": 1,
+          "civ_a": "Lithuanians",
+          "civ_b": "Mongols"
         }
       }
     },
@@ -4699,9 +4746,9 @@
       }
     },
     "Mongols": {
-      "total_jugadas": 6,
+      "total_jugadas": 7,
       "total_ganadas": 3,
-      "winrate": 50,
+      "winrate": 42.9,
       "por_mapa": {
         "Arabia": {
           "jugadas": 1,
@@ -4709,7 +4756,7 @@
           "winrate": 0
         },
         "CopaU_2026_African River v3 (Custom)": {
-          "jugadas": 1,
+          "jugadas": 2,
           "ganadas": 0,
           "winrate": 0
         },
@@ -4764,6 +4811,11 @@
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "Lithuanians": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       }
     },
@@ -5566,9 +5618,9 @@
       }
     },
     "Lithuanians": {
-      "total_jugadas": 3,
-      "total_ganadas": 0,
-      "winrate": 0,
+      "total_jugadas": 4,
+      "total_ganadas": 1,
+      "winrate": 25,
       "por_mapa": {
         "CopaU_2026_Comeer (Custom)": {
           "jugadas": 1,
@@ -5579,6 +5631,11 @@
           "jugadas": 2,
           "ganadas": 0,
           "winrate": 0
+        },
+        "CopaU_2026_African River v3 (Custom)": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       },
       "vs_civs": {
@@ -5591,6 +5648,11 @@
           "jugadas": 2,
           "ganadas": 0,
           "winrate": 0
+        },
+        "Mongols": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       }
     },
@@ -7805,6 +7867,26 @@
         "discordId": "852387609916211270",
         "nick": "Zakk El Rabdomante",
         "civ": "Bulgarians",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 473476587,
+      "fecha": "2026-04-26T22:39:00.000Z",
+      "mapa": "CopaU_2026_African River v3 (Custom)",
+      "duracion": 40,
+      "grupo": "H",
+      "ronda": 3,
+      "jugador1": {
+        "discordId": "465307831583637514",
+        "nick": "|FMG| ROGELIO III",
+        "civ": "Lithuanians",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "582941701518262412",
+        "nick": "Matixxx",
+        "civ": "Mongols",
         "gano": false
       }
     }
