@@ -784,7 +784,14 @@
               "jugador1Nick": "Zakk El Rabdomante",
               "jugador2Id": "442189398667296788",
               "jugador2Nick": "|FMG|DavidTG",
-              "resultado": null,
+              "resultado": {
+                "442189398667296788": 2,
+                "852387609916211270": 1,
+                "mapas": "https://aoe2cm.net/draft/Rzsbe",
+                "civs": "https://aoe2cm.net/draft/LkYBI",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1497774865183150252/savegame.rar?ex=69eebf0b&is=69ed6d8b&hm=c425d102b98a284c36955a417ec50792013ef3cabb61301892a10663d41dc879&",
+                "fecha_registro": "2026-04-26T01:42:36.252Z"
+              },
               "fecha": "25-04-2026",
               "horario": "20:00",
               "diaSemana": "Sábado",
