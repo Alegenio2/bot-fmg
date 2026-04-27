@@ -83,7 +83,7 @@
           "idaoe2": "2304739"
         },
         {
-          "id": "286607198854053890",
+          "id": "701537224248000563",
           "nick": "Aztreonam",
           "elo": 1450,
           "elo_real": 1452,
@@ -149,11 +149,11 @@
           "idaoe2": "15605540"
         },
         {
-          "id": "724668688145580062",
-          "nick": "|FMG| Gral_Artigas",
-          "elo": 1500,
-          "elo_real": 1498,
-          "idaoe2": "2899006"
+          "id": "442189398667296788",
+          "nick": "|FMG|DavidTG",
+          "elo": 1400,
+          "elo_real": 1336,
+          "idaoe2": "4465309"
         },
         {
           "id": "264781067506941962",
@@ -297,7 +297,18 @@
               "jugador1Nick": "buyanjavyn",
               "jugador2Id": "959267535524606022",
               "jugador2Nick": "DGHIR | Rorro Knight®",
-              "resultado": null
+              "resultado": {
+                "709904591453683766": 2,
+                "959267535524606022": 1,
+                "mapas": "https://aoe2cm.net/draft/cQhtA",
+                "civs": "https://aoe2cm.net/draft/qEgfU",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1497428547244130424/buyan_v_rorro.rar?ex=69ed7c82&is=69ec2b02&hm=ceff02218f8432a68d181a04cee2cb12eeb1c83a71010c512e537550b423cd27&",
+                "fecha_registro": "2026-04-25T02:46:27.282Z"
+              },
+              "fecha": "24-04-2026",
+              "horario": "22:00",
+              "diaSemana": "Viernes",
+              "coordinadoPor": "rorroknight"
             }
           ]
         },
@@ -309,14 +320,36 @@
               "jugador1Nick": "Nacional",
               "jugador2Id": "959267535524606022",
               "jugador2Nick": "DGHIR | Rorro Knight®",
-              "resultado": null
+              "resultado": {
+                "959267535524606022": 2,
+                "733765577570779279": 1,
+                "mapas": "https://aoe2cm.net/draft/avTjF",
+                "civs": "https://aoe2cm.net/draft/Swgpl",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1494530886258004008/Rorro_vs_nacional.rar?ex=69e2f1da&is=69e1a05a&hm=9a7805ac740cc0c818baad1cfb448e545372dbdff4324b56efc3e3b6da8dbfe1&",
+                "fecha_registro": "2026-04-17T02:52:11.608Z"
+              },
+              "fecha": "16-04-2026",
+              "horario": "21:00",
+              "diaSemana": "Jueves",
+              "coordinadoPor": "rorroknight"
             },
             {
               "jugador1Id": "694749732467245088",
               "jugador1Nick": "[LOPDA] Shebby",
               "jugador2Id": "709904591453683766",
               "jugador2Nick": "buyanjavyn",
-              "resultado": null
+              "resultado": {
+                "709904591453683766": 2,
+                "694749732467245088": 1,
+                "mapas": "https://aoe2cm.net/draft/kjAnR",
+                "civs": "https://aoe2cm.net/draft/pUwFo",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1493003768470704319/buyan_v_shebby.zip?ex=69dd639d&is=69dc121d&hm=b7c351e22386ab2dda888c091da500b031a9dc7c90cce522644d4e5f45c11605&",
+                "fecha_registro": "2026-04-12T21:43:57.987Z"
+              },
+              "fecha": "12/4/2026",
+              "horario": "17:30",
+              "diaSemana": "Domingo",
+              "coordinadoPor": "buyanjavyn"
             }
           ]
         },
@@ -328,14 +361,36 @@
               "jugador1Nick": "Nacional",
               "jugador2Id": "709904591453683766",
               "jugador2Nick": "buyanjavyn",
-              "resultado": null
+              "resultado": {
+                "709904591453683766": 0,
+                "733765577570779279": 2,
+                "mapas": "https://aoe2cm.net/draft/wlfBc",
+                "civs": "https://aoe2cm.net/draft/GVsqb",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1493415067771863218/buyan_v_nacional.rar?ex=69dee2aa&is=69dd912a&hm=eeb62d2ff47eef9e5e2457268bf9dac625272b6483e7ce44d74aed5d515e937c&",
+                "fecha_registro": "2026-04-14T00:58:19.342Z"
+              },
+              "fecha": "13/4/2026",
+              "horario": "20:30",
+              "diaSemana": "Lunes",
+              "coordinadoPor": "buyanjavyn"
             },
             {
               "jugador1Id": "959267535524606022",
               "jugador1Nick": "DGHIR | Rorro Knight®",
               "jugador2Id": "694749732467245088",
               "jugador2Nick": "[LOPDA] Shebby",
-              "resultado": null
+              "resultado": {
+                "959267535524606022": 2,
+                "694749732467245088": 0,
+                "mapas": "https://aoe2cm.net/draft/bzKcG",
+                "civs": "https://aoe2cm.net/draft/MWNxe",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1496336227371319456/Shebby_vs_Rorro.rar?ex=69e98335&is=69e831b5&hm=920fc598c5f8dbc2f7b1c69a8b7af0bd8b143e660c2ae23007eaab6d4940ddd6&",
+                "fecha_registro": "2026-04-22T02:25:58.430Z"
+              },
+              "fecha": "21-04-2026",
+              "horario": "22:00",
+              "diaSemana": "Martes",
+              "coordinadoPor": "rorroknight"
             }
           ]
         }
@@ -352,10 +407,17 @@
               "jugador1Nick": "FMG | Rxon",
               "jugador2Id": "831027477652570132",
               "jugador2Nick": "[VL] Santiagoi1212",
-              "resultado": null,
-              "fecha": "08-04-2026",
+              "resultado": {
+                "238414625417330688": 2,
+                "831027477652570132": 0,
+                "mapas": "https://aoe2cm.net/draft/ieDiW",
+                "civs": "https://aoe2cm.net/draft/tNwqi",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1492730697041838090/Rxon_vs_Santiago.rar?ex=69dc654b&is=69db13cb&hm=4c459802c17409232d246677229b4d8652041c7b50fd918dcbfc940ffff1204f&",
+                "fecha_registro": "2026-04-12T03:38:52.638Z"
+              },
+              "fecha": "11-04-2026",
               "horario": "19:00",
-              "diaSemana": "Miércoles",
+              "diaSemana": "Sábado",
               "coordinadoPor": "rxon"
             },
             {
@@ -363,7 +425,14 @@
               "jugador1Nick": "DGHIR | Lionerrt",
               "jugador2Id": "697973693157998712",
               "jugador2Nick": "DGHIR | SamuraiNinja08",
-              "resultado": null,
+              "resultado": {
+                "277256502023290881": 2,
+                "697973693157998712": 0,
+                "mapas": "https://aoe2cm.net/draft/rpzzs",
+                "civs": "https://aoe2cm.net/draft/aIRKF",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1491634195255267419/Lionerrt_vs_Samuraininja.zip?ex=69d86819&is=69d71699&hm=21f768ed1269663e32e551be6895a92bc06a33c54ba09f400f3d1d9cb1948ba2&",
+                "fecha_registro": "2026-04-09T03:01:45.988Z"
+              },
               "fecha": "08-04-2026",
               "horario": "22:30",
               "diaSemana": "Miércoles",
@@ -379,14 +448,36 @@
               "jugador1Nick": "FMG | Rxon",
               "jugador2Id": "697973693157998712",
               "jugador2Nick": "DGHIR | SamuraiNinja08",
-              "resultado": null
+              "resultado": {
+                "238414625417330688": 2,
+                "697973693157998712": 0,
+                "mapas": "https://aoe2cm.net/draft/oLuZZ",
+                "civs": "https://aoe2cm.net/draft/qLBXi",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1495566329518755850/rxon_v_samurai.rar?ex=69e6b62f&is=69e564af&hm=9015ff0478b3a133cb92f97c188d6095fd0ead22cecb76e87d66bc462941f9ac&",
+                "fecha_registro": "2026-04-19T23:26:40.004Z"
+              },
+              "fecha": "17-04-2026",
+              "horario": "21:00",
+              "diaSemana": "Viernes",
+              "coordinadoPor": "samuraininja08"
             },
             {
               "jugador1Id": "831027477652570132",
               "jugador1Nick": "[VL] Santiagoi1212",
               "jugador2Id": "277256502023290881",
               "jugador2Nick": "DGHIR | Lionerrt",
-              "resultado": null
+              "resultado": {
+                "277256502023290881": 2,
+                "831027477652570132": 0,
+                "mapas": "https://aoe2cm.net/draft/nPqnL",
+                "civs": "https://aoe2cm.net/draft/CfNjD",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1495973639735087104/Santiagoi1212_vs_Lionerrt.rar?ex=69e83185&is=69e6e005&hm=b9fe60ed17a050b2e879a2a330f850af17d5844c1be880e993b12f733f7720c2&",
+                "fecha_registro": "2026-04-21T02:25:12.277Z"
+              },
+              "fecha": "20-04-2026",
+              "horario": "22:00",
+              "diaSemana": "Lunes",
+              "coordinadoPor": "lionerrt"
             }
           ]
         },
@@ -398,14 +489,32 @@
               "jugador1Nick": "FMG | Rxon",
               "jugador2Id": "277256502023290881",
               "jugador2Nick": "DGHIR | Lionerrt",
-              "resultado": null
+              "resultado": {
+                "238414625417330688": 1,
+                "277256502023290881": 2,
+                "mapas": "https://aoe2cm.net/draft/zCwcP",
+                "civs": "https://aoe2cm.net/draft/FcqRT",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1496992617395785818/Rxon_vs_Lionert.rar?ex=69ebe684&is=69ea9504&hm=1067abd7a88466ba40b6a04551b16f66da0545042e3d96fa84a142f57c15b98e&",
+                "fecha_registro": "2026-04-23T21:54:16.298Z"
+              },
+              "fecha": "23-04-2026",
+              "horario": "17:30",
+              "diaSemana": "Jueves",
+              "coordinadoPor": "rxon"
             },
             {
               "jugador1Id": "697973693157998712",
               "jugador1Nick": "DGHIR | SamuraiNinja08",
               "jugador2Id": "831027477652570132",
               "jugador2Nick": "[VL] Santiagoi1212",
-              "resultado": null
+              "resultado": {
+                "697973693157998712": 2,
+                "831027477652570132": 1,
+                "mapas": "https://aoe2cm.net/draft/cbMqu",
+                "civs": "https://aoe2cm.net/draft/bDQzG",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1498142317377228831/Samurai_vs_Santiagoi.zip?ex=69f01542&is=69eec3c2&hm=c181efc37ab265ad09f737a187dad826e2d71824be437968ff172bab88bb0245&",
+                "fecha_registro": "2026-04-27T02:02:43.273Z"
+              }
             }
           ]
         }
@@ -422,14 +531,32 @@
               "jugador1Nick": "|FMG| TINCHO",
               "jugador2Id": "1008090545513570495",
               "jugador2Nick": "ElOsoConBarba",
-              "resultado": null
+              "resultado": {
+                "697996987210924072": 2,
+                "1008090545513570495": 0,
+                "mapas": "https://aoe2cm.net/draft/YXuhd",
+                "civs": "https://aoe2cm.net/draft/cCuCo",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1491620091547353158/copa_uruguaya_oso_vs_tincho.zip?ex=69d85af6&is=69d70976&hm=d1bd879bf449920763ed76a50c184aff5c1d312a3d62cabb306cb61af9ec3886&",
+                "fecha_registro": "2026-04-09T02:05:43.707Z"
+              },
+              "fecha": "08-04-2026",
+              "horario": "22:00",
+              "diaSemana": "Miércoles",
+              "coordinadoPor": "jabsuy"
             },
             {
-              "jugador1Id": "286607198854053890",
+              "jugador1Id": "701537224248000563",
               "jugador1Nick": "Aztreonam",
               "jugador2Id": "755853346149105786",
               "jugador2Nick": "|FMG| Donde Estan Mis 5 Pizzas",
-              "resultado": null
+              "resultado": {
+                "701537224248000563": 0,
+                "755853346149105786": 2,
+                "mapas": "https://aoe2cm.net/draft/qnOJb",
+                "civs": "https://aoe2cm.net/draft/syQHS",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1494839336003436706/REC01_PEREGRINOS_AZTREON_VS_GINO.aoe2record?ex=69e4111e&is=69e2bf9e&hm=d3b83e51205797bea19d060cfd0b86eb811abfb0d9db145a60b62ba0f34a440b&",
+                "fecha_registro": "2026-04-17T23:17:51.240Z"
+              }
             }
           ]
         },
@@ -441,14 +568,25 @@
               "jugador1Nick": "|FMG| TINCHO",
               "jugador2Id": "755853346149105786",
               "jugador2Nick": "|FMG| Donde Estan Mis 5 Pizzas",
-              "resultado": null
+              "resultado": {
+                "697996987210924072": 2,
+                "755853346149105786": 1,
+                "mapas": "https://aoe2cm.net/draft/BNWOS",
+                "civs": "https://aoe2cm.net/draft/AsqdK",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1494189386462531614/gino_vs_tincho.zip?ex=69e1b3ce&is=69e0624e&hm=2619ad328a21f9c06c96aeec406911061c4403289067337d55c50a1cbe0323c4&",
+                "fecha_registro": "2026-04-16T04:15:11.089Z"
+              }
             },
             {
               "jugador1Id": "1008090545513570495",
               "jugador1Nick": "ElOsoConBarba",
-              "jugador2Id": "286607198854053890",
+              "jugador2Id": "701537224248000563",
               "jugador2Nick": "Aztreonam",
-              "resultado": null
+              "resultado": {
+                "701537224248000563": 0,
+                "1008090545513570495": 2,
+                "fecha_registro": "2026-04-26T20:37:31.135Z"
+              }
             }
           ]
         },
@@ -458,16 +596,27 @@
             {
               "jugador1Id": "697996987210924072",
               "jugador1Nick": "|FMG| TINCHO",
-              "jugador2Id": "286607198854053890",
+              "jugador2Id": "701537224248000563",
               "jugador2Nick": "Aztreonam",
-              "resultado": null
+              "resultado": {
+                "701537224248000563": 0,
+                "697996987210924072": 2,
+                "mapas": "https://aoe2cm.net/draft/jvykg",
+                "civs": "https://aoe2cm.net/draft/vgiSZ",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1493051074104266762/aztreo_vs_tincho.zip?ex=69dd8fab&is=69dc3e2b&hm=3e49b49f70d0674eb08ee9f4a11167200412952b76ee38303684bcc6cb972aa8&",
+                "fecha_registro": "2026-04-13T00:51:57.329Z"
+              }
             },
             {
               "jugador1Id": "755853346149105786",
               "jugador1Nick": "|FMG| Donde Estan Mis 5 Pizzas",
               "jugador2Id": "1008090545513570495",
               "jugador2Nick": "ElOsoConBarba",
-              "resultado": null
+              "resultado": {
+                "755853346149105786": 2,
+                "1008090545513570495": 0,
+                "fecha_registro": "2026-04-26T20:36:46.944Z"
+              }
             }
           ]
         }
@@ -484,14 +633,25 @@
               "jugador1Nick": "URU | ToNGa",
               "jugador2Id": "330453336522489857",
               "jugador2Nick": "DityUy",
-              "resultado": null
+              "resultado": {
+                "330453336522489857": 0,
+                "833806737902534738": 2,
+                "fecha_registro": "2026-04-16T16:30:13.230Z"
+              }
             },
             {
               "jugador1Id": "485610092092456975",
               "jugador1Nick": "Kroyen",
               "jugador2Id": "382688182002515978",
               "jugador2Nick": "[VL] Karistho",
-              "resultado": null,
+              "resultado": {
+                "382688182002515978": 2,
+                "485610092092456975": 0,
+                "mapas": "https://aoe2cm.net/draft/byaQz",
+                "civs": "https://aoe2cm.net/draft/mgiBP",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1492979277153571006/Karistho_VS_Kroyen.rar?ex=69dd4ccd&is=69dbfb4d&hm=5d39aa3701fa899a94e91ea495259b2c2e653f902809419b4c8195053af2cc98&",
+                "fecha_registro": "2026-04-12T20:06:38.737Z"
+              },
               "fecha": "12-04-2026",
               "horario": "16:00",
               "diaSemana": "Domingo",
@@ -507,14 +667,29 @@
               "jugador1Nick": "URU | ToNGa",
               "jugador2Id": "382688182002515978",
               "jugador2Nick": "[VL] Karistho",
-              "resultado": null
+              "resultado": {
+                "833806737902534738": 2,
+                "382688182002515978": 0,
+                "mapas": "https://aoe2cm.net/draft/PxBbo",
+                "civs": "https://aoe2cm.net/draft/njeax",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1493047703813230782/Tonga_vs_Karistho.zip?ex=69dd8c88&is=69dc3b08&hm=8e7b13f009bf279d9a1e254b94f70d4326b5521c8295551909ec75e9341f2c9a&",
+                "fecha_registro": "2026-04-13T00:38:32.867Z"
+              },
+              "fecha": "12-04-2026",
+              "horario": "20:30",
+              "diaSemana": "Domingo",
+              "coordinadoPor": "hola15151512335062"
             },
             {
               "jugador1Id": "330453336522489857",
               "jugador1Nick": "DityUy",
               "jugador2Id": "485610092092456975",
               "jugador2Nick": "Kroyen",
-              "resultado": null
+              "resultado": {
+                "485610092092456975": 2,
+                "330453336522489857": 0,
+                "fecha_registro": "2026-04-16T16:30:35.746Z"
+              }
             }
           ]
         },
@@ -526,14 +701,29 @@
               "jugador1Nick": "URU | ToNGa",
               "jugador2Id": "485610092092456975",
               "jugador2Nick": "Kroyen",
-              "resultado": null
+              "resultado": {
+                "833806737902534738": 2,
+                "485610092092456975": 0,
+                "mapas": "https://aoe2cm.net/draft/jOuaj",
+                "civs": "https://aoe2cm.net/draft/DaqQz",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1494849804172525730/Kroyen_vs_tonga.zip?ex=69e41ade&is=69e2c95e&hm=9b05770a19f01d4de8a09943513d9d00e634a442aaede2bdc15ae698a63c3520&",
+                "fecha_registro": "2026-04-17T23:59:27.109Z"
+              },
+              "fecha": "17/04/2026",
+              "horario": "19:10",
+              "diaSemana": "Viernes",
+              "coordinadoPor": "hola15151512335062"
             },
             {
               "jugador1Id": "382688182002515978",
               "jugador1Nick": "[VL] Karistho",
               "jugador2Id": "330453336522489857",
               "jugador2Nick": "DityUy",
-              "resultado": null
+              "resultado": {
+                "382688182002515978": 2,
+                "330453336522489857": 0,
+                "fecha_registro": "2026-04-16T16:31:05.578Z"
+              }
             }
           ]
         }
@@ -550,14 +740,36 @@
               "jugador1Nick": "DGHIR | Garezo",
               "jugador2Id": "852387609916211270",
               "jugador2Nick": "Zakk El Rabdomante",
-              "resultado": null
+              "resultado": {
+                "244547091362217984": 2,
+                "852387609916211270": 1,
+                "mapas": "https://aoe2cm.net/draft/YzpxG",
+                "civs": "https://aoe2cm.net/draft/hJIyf",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1492328095787515954/Copa_Uruguaya_-_Garezo_vs_Zakk_el_Rabdomante.rar?ex=69daee58&is=69d99cd8&hm=81147729de97a553bfb33c016e74e7d1dd57d13f7a8c0b76c76b673ac23bdbc0&",
+                "fecha_registro": "2026-04-11T00:59:05.735Z"
+              },
+              "fecha": "10-04-2026",
+              "horario": "20:00",
+              "diaSemana": "Viernes",
+              "coordinadoPor": "garezo"
             },
             {
-              "jugador1Id": "724668688145580062",
-              "jugador1Nick": "|FMG| Gral_Artigas",
+              "jugador1Id": "442189398667296788",
+              "jugador1Nick": "|FMG|DavidTG",
               "jugador2Id": "264781067506941962",
               "jugador2Nick": "|FMG| doomjota",
-              "resultado": null
+              "resultado": {
+                "442189398667296788": 1,
+                "264781067506941962": 2,
+                "mapas": "https://aoe2cm.net/draft/Kqqrz",
+                "civs": "https://aoe2cm.net/draft/WVrAM",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1494162305770983605/David_vs_Jota.zip?ex=69e19a95&is=69e04915&hm=7b69ffa6dee3fb3b315c11d6c3089b0e1d6554851f9a42298bd0470172df8fe0&",
+                "fecha_registro": "2026-04-16T02:27:36.380Z"
+              },
+              "fecha": "15-04-2026",
+              "horario": "21:30",
+              "diaSemana": "Miércoles",
+              "coordinadoPor": "doomjota"
             }
           ]
         },
@@ -569,14 +781,36 @@
               "jugador1Nick": "DGHIR | Garezo",
               "jugador2Id": "264781067506941962",
               "jugador2Nick": "|FMG| doomjota",
-              "resultado": null
+              "resultado": {
+                "244547091362217984": 2,
+                "264781067506941962": 0,
+                "mapas": "https://aoe2cm.net/draft/JlSXi",
+                "civs": "https://aoe2cm.net/draft/MQXde",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1494535824614887526/Copa_Uruguaya_-_Garezo_vs_doomjota.rar?ex=69e2f673&is=69e1a4f3&hm=f81a59522672e02a56adc4244e2c549b606fb00477dbbe89c8344310ae058025&",
+                "fecha_registro": "2026-04-17T03:11:50.765Z"
+              },
+              "fecha": "16-04-2026",
+              "horario": "22:00",
+              "diaSemana": "Jueves",
+              "coordinadoPor": "garezo"
             },
             {
               "jugador1Id": "852387609916211270",
               "jugador1Nick": "Zakk El Rabdomante",
-              "jugador2Id": "724668688145580062",
-              "jugador2Nick": "|FMG| Gral_Artigas",
-              "resultado": null
+              "jugador2Id": "442189398667296788",
+              "jugador2Nick": "|FMG|DavidTG",
+              "resultado": {
+                "442189398667296788": 2,
+                "852387609916211270": 1,
+                "mapas": "https://aoe2cm.net/draft/Rzsbe",
+                "civs": "https://aoe2cm.net/draft/LkYBI",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1497774865183150252/savegame.rar?ex=69eebf0b&is=69ed6d8b&hm=c425d102b98a284c36955a417ec50792013ef3cabb61301892a10663d41dc879&",
+                "fecha_registro": "2026-04-26T01:42:36.252Z"
+              },
+              "fecha": "25-04-2026",
+              "horario": "20:00",
+              "diaSemana": "Sábado",
+              "coordinadoPor": ".davidtg"
             }
           ]
         },
@@ -586,16 +820,38 @@
             {
               "jugador1Id": "244547091362217984",
               "jugador1Nick": "DGHIR | Garezo",
-              "jugador2Id": "724668688145580062",
-              "jugador2Nick": "|FMG| Gral_Artigas",
-              "resultado": null
+              "jugador2Id": "442189398667296788",
+              "jugador2Nick": "|FMG|DavidTG",
+              "resultado": {
+                "244547091362217984": 2,
+                "442189398667296788": 1,
+                "mapas": "https://aoe2cm.net/draft/bHcTl",
+                "civs": "https://aoe2cm.net/draft/WjsKt",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1496687439563984926/Copa_Uruguaya_-_Garezo_vs_DavidTG.rar?ex=69eaca4c&is=69e978cc&hm=c34311eb05b9b0642628b4789da978e3ec6f40b7c2abe2b0c6f8b295a68cba83&",
+                "fecha_registro": "2026-04-23T01:41:33.599Z"
+              },
+              "fecha": "22-04-2026",
+              "horario": "21:00",
+              "diaSemana": "Miércoles",
+              "coordinadoPor": "garezo"
             },
             {
               "jugador1Id": "264781067506941962",
               "jugador1Nick": "|FMG| doomjota",
               "jugador2Id": "852387609916211270",
               "jugador2Nick": "Zakk El Rabdomante",
-              "resultado": null
+              "resultado": {
+                "852387609916211270": 0,
+                "264781067506941962": 2,
+                "mapas": "https://aoe2cm.net/draft/mxGOu",
+                "civs": "https://aoe2cm.net/draft/TuqoS",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1497060158101127208/Escritorio.zip?ex=69ec256b&is=69ead3eb&hm=ac45a65a3e264e55e5bef1886e05ae9e7fdb56134ed55b63a4ff46c98e681532&",
+                "fecha_registro": "2026-04-24T02:22:36.620Z"
+              },
+              "fecha": "23-04-2026",
+              "horario": "21:00",
+              "diaSemana": "Jueves",
+              "coordinadoPor": "doomjota"
             }
           ]
         }
@@ -612,14 +868,28 @@
               "jugador1Nick": "|FMG| Nadie",
               "jugador2Id": "594988359965999118",
               "jugador2Nick": "N4cHoV",
-              "resultado": null
+              "resultado": {
+                "341001672786575360": 2,
+                "594988359965999118": 0,
+                "mapas": "https://aoe2cm.net/draft/dvGsd",
+                "civs": "https://aoe2cm.net/draft/JGfJM",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1493058860829638828/MP_Replay_v101.103.39862.0_2026.04.12_204302_1.aoe2record?ex=69dd96ec&is=69dc456c&hm=2bbaea3ce0bfae4108903b250e6f76577b72fe7b3d390a78a89811e16abab38f&",
+                "fecha_registro": "2026-04-13T01:22:52.953Z"
+              }
             },
             {
               "jugador1Id": "689907393001291884",
               "jugador1Nick": "Culero Connor",
               "jugador2Id": "896216989922635777",
               "jugador2Nick": "|FMG| TatoSky",
-              "resultado": null
+              "resultado": {
+                "689907393001291884": 2,
+                "896216989922635777": 1,
+                "mapas": "https://aoe2cm.net/draft/QMAKx",
+                "civs": "https://aoe2cm.net/draft/zVyyG",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1493713697888145489/Culero_vs_Tatosky.zip?ex=69dff8c9&is=69dea749&hm=19838bb2a44d4bee0094f8211957d16efb9fc973cfee92be46b930eb7163b37f&",
+                "fecha_registro": "2026-04-14T20:44:58.184Z"
+              }
             }
           ]
         },
@@ -631,14 +901,33 @@
               "jugador1Nick": "|FMG| Nadie",
               "jugador2Id": "896216989922635777",
               "jugador2Nick": "|FMG| TatoSky",
-              "resultado": null
+              "resultado": {
+                "341001672786575360": 2,
+                "896216989922635777": 0,
+                "fecha_registro": "2026-04-26T20:35:50.207Z"
+              },
+              "fecha": "16-04-2026",
+              "horario": "22:00",
+              "diaSemana": "Jueves",
+              "coordinadoPor": "nadie6689"
             },
             {
               "jugador1Id": "594988359965999118",
               "jugador1Nick": "N4cHoV",
               "jugador2Id": "689907393001291884",
               "jugador2Nick": "Culero Connor",
-              "resultado": null
+              "resultado": {
+                "689907393001291884": 1,
+                "594988359965999118": 2,
+                "mapas": "https://aoe2cm.net/draft/gIfZK",
+                "civs": "https://aoe2cm.net/draft/SZyKe",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1493395845729615882/Culero_vs_n4chov.zip?ex=69ded0c3&is=69dd7f43&hm=90c5149b667a0c934f16f20d3fdad208465f2732aba3e4e490dcca888a5d7767&",
+                "fecha_registro": "2026-04-13T23:41:56.383Z"
+              },
+              "fecha": "13-04-2026",
+              "horario": "19:35",
+              "diaSemana": "Lunes",
+              "coordinadoPor": "culero_connor"
             }
           ]
         },
@@ -650,14 +939,36 @@
               "jugador1Nick": "|FMG| Nadie",
               "jugador2Id": "689907393001291884",
               "jugador2Nick": "Culero Connor",
-              "resultado": null
+              "resultado": {
+                "341001672786575360": 2,
+                "689907393001291884": 0,
+                "mapas": "https://aoe2cm.net/draft/Gbaba",
+                "civs": "https://aoe2cm.net/draft/gMhBs",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1496691414107684994/MP_Replay_v101.103.39862.0_2026.04.22_202629_2.aoe2record?ex=69eace00&is=69e97c80&hm=a3960bb96e71113edcc8fd3f71e01ee939b097ada7b7eceb2321e3e02afdb804&",
+                "fecha_registro": "2026-04-23T01:57:21.626Z"
+              },
+              "fecha": "22-04-2026",
+              "horario": "21:00",
+              "diaSemana": "Miércoles",
+              "coordinadoPor": "nadie6689"
             },
             {
               "jugador1Id": "896216989922635777",
               "jugador1Nick": "|FMG| TatoSky",
               "jugador2Id": "594988359965999118",
               "jugador2Nick": "N4cHoV",
-              "resultado": null
+              "resultado": {
+                "896216989922635777": 1,
+                "594988359965999118": 2,
+                "mapas": "https://aoe2cm.net/draft/srXYP",
+                "civs": "https://aoe2cm.net/draft/dSyEs",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1495126294067679343/partidas.rar?ex=69e51c5e&is=69e3cade&hm=21e32a1cda263189ee696259d8a1c0565f5b0faab37f685aca28265868897517&",
+                "fecha_registro": "2026-04-18T18:18:07.592Z"
+              },
+              "fecha": "18/04/2026",
+              "horario": "13:00",
+              "diaSemana": "Sábado",
+              "coordinadoPor": "n4chov_"
             }
           ]
         }
@@ -692,7 +1003,18 @@
               "jugador1Nick": "|FMG| Lautreamont",
               "jugador2Id": "425297928610119692",
               "jugador2Nick": "DGHIR | NICOGP11",
-              "resultado": null
+              "resultado": {
+                "425297928610119692": 2,
+                "481154599881932811": 0,
+                "mapas": "https://aoe2cm.net/draft/lfIBl",
+                "civs": "https://aoe2cm.net/draft/LdPyk",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1492024432120827954/NicoGP11_vs_Lautreamont.zip?ex=69d9d389&is=69d88209&hm=fc979f9a6b9faafb4f06989401dd63c2eb2c2c087c67931b36a5d441de57ef07&",
+                "fecha_registro": "2026-04-10T04:52:26.025Z"
+              },
+              "fecha": "09-04-2026",
+              "horario": "22:00",
+              "diaSemana": "Jueves",
+              "coordinadoPor": "nicogp11"
             }
           ]
         },
@@ -704,14 +1026,29 @@
               "jugador1Nick": "|FMG| Tano Stokes",
               "jugador2Id": "425297928610119692",
               "jugador2Nick": "DGHIR | NICOGP11",
-              "resultado": null
+              "resultado": {
+                "425297928610119692": 2,
+                "760308403087867916": 0,
+                "fecha_registro": "2026-04-15T14:48:29.839Z"
+              }
             },
             {
               "jugador1Id": "662427737138528308",
               "jugador1Nick": "kakaidolo",
               "jugador2Id": "481154599881932811",
               "jugador2Nick": "|FMG| Lautreamont",
-              "resultado": null
+              "resultado": {
+                "662427737138528308": 2,
+                "481154599881932811": 0,
+                "mapas": "https://aoe2cm.net/draft/GOfPr",
+                "civs": "https://aoe2cm.net/draft/ToyGr",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1491948208752951497/kakaidolo_vs_Lautreamont.zip?ex=69d98c8c&is=69d83b0c&hm=884e61440e0e353c421276351f4a10f509465682392e84314de871942c5421d3&",
+                "fecha_registro": "2026-04-09T23:49:32.843Z"
+              },
+              "fecha": "09-04-2026",
+              "horario": "20:00",
+              "diaSemana": "Jueves",
+              "coordinadoPor": "jabsuy"
             }
           ]
         },
@@ -723,14 +1060,25 @@
               "jugador1Nick": "|FMG| Tano Stokes",
               "jugador2Id": "481154599881932811",
               "jugador2Nick": "|FMG| Lautreamont",
-              "resultado": null
+              "resultado": {
+                "481154599881932811": 2,
+                "760308403087867916": 0,
+                "fecha_registro": "2026-04-15T15:43:12.682Z"
+              }
             },
             {
               "jugador1Id": "425297928610119692",
               "jugador1Nick": "DGHIR | NICOGP11",
               "jugador2Id": "662427737138528308",
               "jugador2Nick": "kakaidolo",
-              "resultado": null
+              "resultado": {
+                "425297928610119692": 2,
+                "662427737138528308": 1,
+                "mapas": "https://aoe2cm.net/draft/iXvXY",
+                "civs": "https://aoe2cm.net/draft/ZcRlm",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1497411479429971978/NicoGP11_vs_Kakaidolo_CopaUruguaya2026.zip?ex=69ed6c9d&is=69ec1b1d&hm=77cb3e2f1a9d0257c208c9b789a054118950997e22ddc6360a526137eac67c67&",
+                "fecha_registro": "2026-04-25T01:38:38.042Z"
+              }
             }
           ]
         }
@@ -747,14 +1095,36 @@
               "jugador1Nick": "-FMG- Rodri",
               "jugador2Id": "465307831583637514",
               "jugador2Nick": "|FMG| ROGELIO III",
-              "resultado": null
+              "resultado": {
+                "465307831583637514": 0,
+                "408054148110614529": 2,
+                "mapas": "https://aoe2cm.net/draft/Tvrfi",
+                "civs": "https://aoe2cm.net/draft/qXuGn",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1492544184333111357/partidas_rogeliovsrodri.zip?ex=69dbb797&is=69da6617&hm=022d5dd314572b68f52554270991097d903d44c312c9504c0ae191d170b383cb&",
+                "fecha_registro": "2026-04-11T15:17:44.956Z"
+              },
+              "fecha": "11-04-2026",
+              "horario": "11:00",
+              "diaSemana": "Sábado",
+              "coordinadoPor": "ignatiusj.reilly"
             },
             {
               "jugador1Id": "135113382217908224",
               "jugador1Nick": "URU | Juasteint",
               "jugador2Id": "582941701518262412",
               "jugador2Nick": "Matixxx",
-              "resultado": null
+              "resultado": {
+                "582941701518262412": 2,
+                "135113382217908224": 0,
+                "mapas": "https://aoe2cm.net/draft/QpNcR",
+                "civs": "https://aoe2cm.net/draft/lWzRY",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1493442373877895300/MatixxxVSJuasteint.zip?ex=69defc18&is=69ddaa98&hm=d801b2e74c4941d2653e38cbc4b18cf79b77592122aa4684c4442b2f0f5d7821&",
+                "fecha_registro": "2026-04-14T02:46:49.479Z"
+              },
+              "fecha": "13/04/2026",
+              "horario": "22:30",
+              "diaSemana": "Lunes",
+              "coordinadoPor": "juasteint"
             }
           ]
         },
@@ -766,14 +1136,36 @@
               "jugador1Nick": "-FMG- Rodri",
               "jugador2Id": "582941701518262412",
               "jugador2Nick": "Matixxx",
-              "resultado": null
+              "resultado": {
+                "408054148110614529": 2,
+                "582941701518262412": 0,
+                "mapas": "https://aoe2cm.net/draft/RvdOq",
+                "civs": "https://aoe2cm.net/draft/AzBKT",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1493794252436672623/RodriVsMatixx.rar?ex=69e043cf&is=69def24f&hm=7ff4698c5cdea4ea606b8abf155af51477c4ecb4c75cbecb8ebb7b2e47b8eaae&",
+                "fecha_registro": "2026-04-15T02:05:04.067Z"
+              },
+              "fecha": "14-04-2026",
+              "horario": "21:00",
+              "diaSemana": "Martes",
+              "coordinadoPor": "rodrigo41"
             },
             {
               "jugador1Id": "465307831583637514",
               "jugador1Nick": "|FMG| ROGELIO III",
               "jugador2Id": "135113382217908224",
               "jugador2Nick": "URU | Juasteint",
-              "resultado": null
+              "resultado": {
+                "135113382217908224": 2,
+                "465307831583637514": 0,
+                "mapas": "https://aoe2cm.net/draft/hzSue",
+                "civs": "https://aoe2cm.net/draft/JHSNq",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1498147306254373007/Rogelio_vs_Juasteint_.rar?ex=69f019e8&is=69eec868&hm=e146d8d51773288fb16d3cbc58f931cbc418153bd983c4d3aaf6850dac78f420&",
+                "fecha_registro": "2026-04-27T02:22:32.922Z"
+              },
+              "fecha": "26-04-2026",
+              "horario": "21:00",
+              "diaSemana": "Domingo",
+              "coordinadoPor": "rogelio_tercero"
             }
           ]
         },
@@ -785,14 +1177,36 @@
               "jugador1Nick": "-FMG- Rodri",
               "jugador2Id": "135113382217908224",
               "jugador2Nick": "URU | Juasteint",
-              "resultado": null
+              "resultado": {
+                "135113382217908224": 2,
+                "408054148110614529": 1,
+                "mapas": "https://aoe2cm.net/draft/JSgtz",
+                "civs": "https://aoe2cm.net/draft/ZKjFk",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1491639061708931120/Juasteint_vs_Rodri_.rar?ex=69d86ca1&is=69d71b21&hm=ea45002251e8c4fe4c719373f3c0b0c8b7d2fc8f551c8ac29c59b397c614bd8d&",
+                "fecha_registro": "2026-04-09T03:21:06.261Z"
+              },
+              "fecha": "08/04/2026",
+              "horario": "22:45",
+              "diaSemana": "Miércoles",
+              "coordinadoPor": "juasteint"
             },
             {
               "jugador1Id": "582941701518262412",
               "jugador1Nick": "Matixxx",
               "jugador2Id": "465307831583637514",
               "jugador2Nick": "|FMG| ROGELIO III",
-              "resultado": null
+              "resultado": {
+                "465307831583637514": 2,
+                "582941701518262412": 0,
+                "mapas": "https://aoe2cm.net/draft/BBjqD",
+                "civs": "https://aoe2cm.net/draft/tDnvU",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1498106055409008731/ROGELIOvsMATIXXX.zip?ex=69eff37d&is=69eea1fd&hm=f00c9906b9cf914a14e1da80d992df23048bfeb7eeaaa56515d78ba62fb6257d&",
+                "fecha_registro": "2026-04-26T23:38:37.775Z"
+              },
+              "fecha": "26-04-2026",
+              "horario": "19:00",
+              "diaSemana": "Domingo",
+              "coordinadoPor": "rogelio_tercero"
             }
           ]
         }
