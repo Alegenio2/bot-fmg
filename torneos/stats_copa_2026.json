@@ -1,8 +1,8 @@
 {
   "meta": {
     "torneo": "copa_uruguaya_2026",
-    "ultima_actualizacion": "2026-04-26T23:38:38.738Z",
-    "total_partidas": 87
+    "ultima_actualizacion": "2026-04-27T02:02:44.273Z",
+    "total_partidas": 90
   },
   "jugadores": {
     "733765577570779279": {
@@ -809,10 +809,10 @@
       "nick": "DGHIR | SamuraiNinja08",
       "aoe2Id": "1465372",
       "global": {
-        "pj": 4,
-        "pg": 0,
-        "pp": 4,
-        "winrate": 0
+        "pj": 7,
+        "pg": 2,
+        "pp": 5,
+        "winrate": 28.6
       },
       "civs": {
         "Vikings": {
@@ -858,12 +858,46 @@
           }
         },
         "Dravidians": {
+          "pj": 2,
+          "pg": 1,
+          "pp": 1,
+          "winrate": 50,
+          "por_mapa": {
+            "Islands": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            },
+            "CopaU_2026_Comeer (Custom)": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        },
+        "Shu": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "CopaU_2026_Valley (Custom)": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        },
+        "Teutons": {
           "pj": 1,
           "pg": 0,
           "pp": 1,
           "winrate": 0,
           "por_mapa": {
-            "Islands": {
+            "CopaU_2026_Quarry v3 (Custom)": {
               "pj": 1,
               "pg": 0,
               "pp": 1,
@@ -892,6 +926,24 @@
           "winrate": 0
         },
         "Islands": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        },
+        "CopaU_2026_Valley (Custom)": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        },
+        "CopaU_2026_Comeer (Custom)": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        },
+        "CopaU_2026_Quarry v3 (Custom)": {
           "pj": 1,
           "pg": 0,
           "pp": 1,
@@ -1779,10 +1831,10 @@
       "nick": "[VL] Santiagoi1212",
       "aoe2Id": "2249432",
       "global": {
-        "pj": 4,
-        "pg": 0,
-        "pp": 4,
-        "winrate": 0
+        "pj": 7,
+        "pg": 1,
+        "pp": 6,
+        "winrate": 14.3
       },
       "civs": {
         "Berbers": {
@@ -1820,9 +1872,9 @@
           }
         },
         "Bulgarians": {
-          "pj": 1,
+          "pj": 2,
           "pg": 0,
-          "pp": 1,
+          "pp": 2,
           "winrate": 0,
           "por_mapa": {
             "CopaU_2026_High Tides v3 (Custom)": {
@@ -1830,6 +1882,40 @@
               "pg": 0,
               "pp": 1,
               "winrate": 0
+            },
+            "CopaU_2026_Valley (Custom)": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        },
+        "Italians": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "CopaU_2026_Comeer (Custom)": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        },
+        "Romans": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "CopaU_2026_Quarry v3 (Custom)": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
             }
           }
         }
@@ -1852,6 +1938,24 @@
           "pg": 0,
           "pp": 1,
           "winrate": 0
+        },
+        "CopaU_2026_Valley (Custom)": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        },
+        "CopaU_2026_Comeer (Custom)": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        },
+        "CopaU_2026_Quarry v3 (Custom)": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
         }
       }
     },
@@ -4156,16 +4260,18 @@
       }
     },
     "CopaU_2026_Quarry v3 (Custom)": {
-      "total_partidas": 3,
+      "total_partidas": 4,
       "civs_ganadoras": {
         "Malay": 1,
         "Tatars": 1,
-        "Portuguese": 1
+        "Portuguese": 1,
+        "Romans": 1
       },
       "civs_perdedoras": {
         "Saracens": 1,
         "Mongols": 1,
-        "Cumans": 1
+        "Cumans": 1,
+        "Teutons": 1
       },
       "enfrentamientos": {
         "Malay_vs_Saracens": {
@@ -4185,16 +4291,24 @@
           "gano_primero": 0,
           "civ_a": "Cumans",
           "civ_b": "Portuguese"
+        },
+        "Romans_vs_Teutons": {
+          "total": 1,
+          "gano_primero": 1,
+          "civ_a": "Romans",
+          "civ_b": "Teutons"
         }
       }
     },
     "CopaU_2026_Comeer (Custom)": {
-      "total_partidas": 1,
+      "total_partidas": 2,
       "civs_ganadoras": {
-        "Portuguese": 1
+        "Portuguese": 1,
+        "Dravidians": 1
       },
       "civs_perdedoras": {
-        "Lithuanians": 1
+        "Lithuanians": 1,
+        "Italians": 1
       },
       "enfrentamientos": {
         "Lithuanians_vs_Portuguese": {
@@ -4202,6 +4316,12 @@
           "gano_primero": 0,
           "civ_a": "Lithuanians",
           "civ_b": "Portuguese"
+        },
+        "Dravidians_vs_Italians": {
+          "total": 1,
+          "gano_primero": 1,
+          "civ_a": "Dravidians",
+          "civ_b": "Italians"
         }
       }
     },
@@ -4294,14 +4414,16 @@
       }
     },
     "CopaU_2026_Valley (Custom)": {
-      "total_partidas": 2,
+      "total_partidas": 3,
       "civs_ganadoras": {
         "Mongols": 1,
-        "Japanese": 1
+        "Japanese": 1,
+        "Shu": 1
       },
       "civs_perdedoras": {
         "Vietnamese": 1,
-        "Goths": 1
+        "Goths": 1,
+        "Bulgarians": 1
       },
       "enfrentamientos": {
         "Mongols_vs_Vietnamese": {
@@ -4315,6 +4437,12 @@
           "gano_primero": 0,
           "civ_a": "Goths",
           "civ_b": "Japanese"
+        },
+        "Bulgarians_vs_Shu": {
+          "total": 1,
+          "gano_primero": 0,
+          "civ_a": "Bulgarians",
+          "civ_b": "Shu"
         }
       }
     },
@@ -4923,9 +5051,9 @@
       }
     },
     "Italians": {
-      "total_jugadas": 8,
+      "total_jugadas": 9,
       "total_ganadas": 3,
-      "winrate": 37.5,
+      "winrate": 33.3,
       "por_mapa": {
         "Hideout": {
           "jugadas": 2,
@@ -4953,6 +5081,11 @@
           "winrate": 50
         },
         "Pilgrims": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        },
+        "CopaU_2026_Comeer (Custom)": {
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
@@ -4985,7 +5118,7 @@
           "winrate": 0
         },
         "Dravidians": {
-          "jugadas": 1,
+          "jugadas": 2,
           "ganadas": 0,
           "winrate": 0
         },
@@ -5247,9 +5380,9 @@
       }
     },
     "Bulgarians": {
-      "total_jugadas": 4,
+      "total_jugadas": 5,
       "total_ganadas": 1,
-      "winrate": 25,
+      "winrate": 20,
       "por_mapa": {
         "CopaU_2026_Dry River (Custom)": {
           "jugadas": 1,
@@ -5258,6 +5391,11 @@
         },
         "CopaU_2026_High Tides v3 (Custom)": {
           "jugadas": 2,
+          "ganadas": 0,
+          "winrate": 0
+        },
+        "CopaU_2026_Valley (Custom)": {
+          "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
         }
@@ -5277,13 +5415,18 @@
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "Shu": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       }
     },
     "Romans": {
-      "total_jugadas": 8,
-      "total_ganadas": 6,
-      "winrate": 75,
+      "total_jugadas": 9,
+      "total_ganadas": 7,
+      "winrate": 77.8,
       "por_mapa": {
         "Enclosed": {
           "jugadas": 3,
@@ -5299,6 +5442,11 @@
           "jugadas": 4,
           "ganadas": 3,
           "winrate": 75
+        },
+        "CopaU_2026_Quarry v3 (Custom)": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       },
       "vs_civs": {
@@ -5328,6 +5476,11 @@
           "winrate": 100
         },
         "Armenians": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        },
+        "Teutons": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
@@ -5512,14 +5665,19 @@
       }
     },
     "Shu": {
-      "total_jugadas": 1,
-      "total_ganadas": 0,
-      "winrate": 0,
+      "total_jugadas": 2,
+      "total_ganadas": 1,
+      "winrate": 50,
       "por_mapa": {
         "Enclosed": {
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "CopaU_2026_Valley (Custom)": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       },
       "vs_civs": {
@@ -5527,6 +5685,11 @@
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "Bulgarians": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       }
     },
@@ -5740,9 +5903,9 @@
       }
     },
     "Dravidians": {
-      "total_jugadas": 8,
-      "total_ganadas": 4,
-      "winrate": 50,
+      "total_jugadas": 9,
+      "total_ganadas": 5,
+      "winrate": 55.6,
       "por_mapa": {
         "CopaU_2026_Shorelines (Custom)": {
           "jugadas": 2,
@@ -5773,6 +5936,11 @@
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "CopaU_2026_Comeer (Custom)": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       },
       "vs_civs": {
@@ -5797,8 +5965,8 @@
           "winrate": 0
         },
         "Italians": {
-          "jugadas": 1,
-          "ganadas": 1,
+          "jugadas": 2,
+          "ganadas": 2,
           "winrate": 100
         },
         "Armenians": {
@@ -6144,6 +6312,25 @@
       },
       "vs_civs": {
         "Portuguese": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        }
+      }
+    },
+    "Teutons": {
+      "total_jugadas": 1,
+      "total_ganadas": 0,
+      "winrate": 0,
+      "por_mapa": {
+        "CopaU_2026_Quarry v3 (Custom)": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        }
+      },
+      "vs_civs": {
+        "Romans": {
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
@@ -7888,6 +8075,66 @@
         "nick": "Matixxx",
         "civ": "Mongols",
         "gano": false
+      }
+    },
+    {
+      "matchId": 473506857,
+      "fecha": "2026-04-27T01:14:28.000Z",
+      "mapa": "CopaU_2026_Valley (Custom)",
+      "duracion": 28,
+      "grupo": "B",
+      "ronda": 3,
+      "jugador1": {
+        "discordId": "697973693157998712",
+        "nick": "DGHIR | SamuraiNinja08",
+        "civ": "Shu",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "831027477652570132",
+        "nick": "[VL] Santiagoi1212",
+        "civ": "Bulgarians",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 473501431,
+      "fecha": "2026-04-27T00:46:36.000Z",
+      "mapa": "CopaU_2026_Comeer (Custom)",
+      "duracion": 23,
+      "grupo": "B",
+      "ronda": 3,
+      "jugador1": {
+        "discordId": "697973693157998712",
+        "nick": "DGHIR | SamuraiNinja08",
+        "civ": "Dravidians",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "831027477652570132",
+        "nick": "[VL] Santiagoi1212",
+        "civ": "Italians",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 473493591,
+      "fecha": "2026-04-27T00:08:43.000Z",
+      "mapa": "CopaU_2026_Quarry v3 (Custom)",
+      "duracion": 35,
+      "grupo": "B",
+      "ronda": 3,
+      "jugador1": {
+        "discordId": "697973693157998712",
+        "nick": "DGHIR | SamuraiNinja08",
+        "civ": "Teutons",
+        "gano": false
+      },
+      "jugador2": {
+        "discordId": "831027477652570132",
+        "nick": "[VL] Santiagoi1212",
+        "civ": "Romans",
+        "gano": true
       }
     }
   ]
