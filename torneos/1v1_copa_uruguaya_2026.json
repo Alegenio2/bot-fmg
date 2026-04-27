@@ -507,7 +507,14 @@
               "jugador1Nick": "DGHIR | SamuraiNinja08",
               "jugador2Id": "831027477652570132",
               "jugador2Nick": "[VL] Santiagoi1212",
-              "resultado": null
+              "resultado": {
+                "697973693157998712": 2,
+                "831027477652570132": 1,
+                "mapas": "https://aoe2cm.net/draft/cbMqu",
+                "civs": "https://aoe2cm.net/draft/bDQzG",
+                "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1498142317377228831/Samurai_vs_Santiagoi.zip?ex=69f01542&is=69eec3c2&hm=c181efc37ab265ad09f737a187dad826e2d71824be437968ff172bab88bb0245&",
+                "fecha_registro": "2026-04-27T02:02:43.273Z"
+              }
             }
           ]
         }
