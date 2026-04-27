@@ -1213,5 +1213,143 @@
       ]
     }
   ],
-  "creado": "2026-03-30T11:52:56.730Z"
+  "creado": "2026-03-30T11:52:56.730Z",
+  "eliminatorias": {
+    "octavos": [
+      {
+        "partidoId": "OF1",
+        "jugador1Id": "833806737902534738",
+        "jugador1Nick": "URU | ToNGa",
+        "jugador2Id": "959267535524606022",
+        "jugador2Nick": "DGHIR | Rorro Knight®",
+        "resultado": null,
+        "va_a": "CF1",
+        "posicion_en_siguiente": "jugador1"
+      },
+      {
+        "partidoId": "OF2",
+        "jugador1Id": "408054148110614529",
+        "jugador1Nick": "-FMG- Rodri",
+        "jugador2Id": "238414625417330688",
+        "jugador2Nick": "FMG | Rxon",
+        "resultado": null,
+        "va_a": "CF1",
+        "posicion_en_siguiente": "jugador2"
+      },
+      {
+        "partidoId": "OF3",
+        "jugador1Id": "425297928610119692",
+        "jugador1Nick": "DGHIR | NICOGP11",
+        "jugador2Id": "135113382217908224",
+        "jugador2Nick": "URU | Juasteint",
+        "resultado": null,
+        "va_a": "CF2",
+        "posicion_en_siguiente": "jugador1"
+      },
+      {
+        "partidoId": "OF4",
+        "jugador1Id": "697996987210924072",
+        "jugador1Nick": "|FMG| TINCHO",
+        "jugador2Id": "594988359965999118",
+        "jugador2Nick": "N4cHoV",
+        "resultado": null,
+        "va_a": "CF2",
+        "posicion_en_siguiente": "jugador2"
+      },
+      {
+        "partidoId": "OF5",
+        "jugador1Id": "341001672786575360",
+        "jugador1Nick": "|FMG| Nadie",
+        "jugador2Id": "662427737138528308",
+        "jugador2Nick": "kakaidolo",
+        "resultado": null,
+        "va_a": "CF3",
+        "posicion_en_siguiente": "jugador1"
+      },
+      {
+        "partidoId": "OF6",
+        "jugador1Id": "733765577570779279",
+        "jugador1Nick": "Nacional",
+        "jugador2Id": "264781067506941962",
+        "jugador2Nick": "|FMG| doomjota",
+        "resultado": null,
+        "va_a": "CF3",
+        "posicion_en_siguiente": "jugador2"
+      },
+      {
+        "partidoId": "OF7",
+        "jugador1Id": "244547091362217984",
+        "jugador1Nick": "DGHIR | Garezo",
+        "jugador2Id": "382688182002515978",
+        "jugador2Nick": "[VL] Karistho",
+        "resultado": null,
+        "va_a": "CF4",
+        "posicion_en_siguiente": "jugador1"
+      },
+      {
+        "partidoId": "OF8",
+        "jugador1Id": "277256502023290881",
+        "jugador1Nick": "DGHIR | Lionerrt",
+        "jugador2Id": "755853346149105786",
+        "jugador2Nick": "|FMG| Donde Estan Mis 5 Pizzas",
+        "resultado": null,
+        "va_a": "CF4",
+        "posicion_en_siguiente": "jugador2"
+      }
+    ],
+    "cuartos": [
+      {
+        "partidoId": "CF1",
+        "jugador1Id": null,
+        "jugador2Id": null,
+        "va_a": "SF1",
+        "posicion_en_siguiente": "jugador1"
+      },
+      {
+        "partidoId": "CF2",
+        "jugador1Id": null,
+        "jugador2Id": null,
+        "va_a": "SF1",
+        "posicion_en_siguiente": "jugador2"
+      },
+      {
+        "partidoId": "CF3",
+        "jugador1Id": null,
+        "jugador2Id": null,
+        "va_a": "SF2",
+        "posicion_en_siguiente": "jugador1"
+      },
+      {
+        "partidoId": "CF4",
+        "jugador1Id": null,
+        "jugador2Id": null,
+        "va_a": "SF2",
+        "posicion_en_siguiente": "jugador2"
+      }
+    ],
+    "semis": [
+      {
+        "partidoId": "SF1",
+        "jugador1Id": null,
+        "jugador2Id": null,
+        "va_a": "FINAL",
+        "posicion_en_siguiente": "jugador1"
+      },
+      {
+        "partidoId": "SF2",
+        "jugador1Id": null,
+        "jugador2Id": null,
+        "va_a": "FINAL",
+        "posicion_en_siguiente": "jugador2"
+      }
+    ],
+    "final": [
+      {
+        "partidoId": "FINAL",
+        "jugador1Id": null,
+        "jugador2Id": null,
+        "resultado": null
+      }
+    ]
+  }
 }
