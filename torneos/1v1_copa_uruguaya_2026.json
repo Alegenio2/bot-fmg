@@ -1284,7 +1284,11 @@
         "jugador2Nick": "[VL] Karistho",
         "resultado": null,
         "va_a": "CF4",
-        "posicion_en_siguiente": "jugador1"
+        "posicion_en_siguiente": "jugador1",
+        "fecha": "01-05-2026",
+        "horario": "20:00",
+        "diaSemana": "Viernes",
+        "coordinadoPor": "garezo"
       },
       {
         "partidoId": "OF8",
