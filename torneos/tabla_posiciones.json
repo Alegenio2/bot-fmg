@@ -276,25 +276,25 @@
       "pts": 5
     },
     {
-      "nick": "|FMG| ROGELIO III",
-      "pj": 2,
-      "pg": 1,
-      "pp": 1,
-      "sf": 2,
-      "sc": 2,
-      "pts": 2
-    },
-    {
       "nick": "URU | Juasteint",
-      "pj": 2,
-      "pg": 1,
+      "pj": 3,
+      "pg": 2,
       "pp": 1,
-      "sf": 2,
+      "sf": 4,
       "sc": 3,
-      "pts": 2
+      "pts": 4
     },
     {
       "nick": "Matixxx",
+      "pj": 3,
+      "pg": 1,
+      "pp": 2,
+      "sf": 2,
+      "sc": 4,
+      "pts": 2
+    },
+    {
+      "nick": "|FMG| ROGELIO III",
       "pj": 3,
       "pg": 1,
       "pp": 2,
