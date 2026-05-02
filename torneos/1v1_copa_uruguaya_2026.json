@@ -1301,7 +1301,14 @@
         "jugador1Nick": "DGHIR | Garezo",
         "jugador2Id": "382688182002515978",
         "jugador2Nick": "[VL] Karistho",
-        "resultado": null,
+        "resultado": {
+          "244547091362217984": 2,
+          "382688182002515978": 1,
+          "mapas": "https://aoe2cm.net/draft/WepTN",
+          "civs": "https://aoe2cm.net/draft/HpMiP",
+          "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1499965668991172698/Copa_Uruguaya_-_Garezo_vs_Karistho.rar?ex=69f6b763&is=69f565e3&hm=2af793d948ddb96b005b555ace52910d554275824c1c6ed5c45cf5bb810f44ba&",
+          "fecha_registro": "2026-05-02T02:48:06.010Z"
+        },
         "va_a": "CF4",
         "posicion_en_siguiente": "jugador1",
         "fecha": "01-05-2026",
@@ -1349,10 +1356,11 @@
       },
       {
         "partidoId": "CF4",
-        "jugador1Id": null,
+        "jugador1Id": "244547091362217984",
         "jugador2Id": null,
         "va_a": "SF2",
-        "posicion_en_siguiente": "jugador2"
+        "posicion_en_siguiente": "jugador2",
+        "jugador1Nick": "garezo"
       }
     ],
     "semis": [
