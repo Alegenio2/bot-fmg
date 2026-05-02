@@ -1289,7 +1289,11 @@
         "jugador2Nick": "|FMG| doomjota",
         "resultado": null,
         "va_a": "CF3",
-        "posicion_en_siguiente": "jugador2"
+        "posicion_en_siguiente": "jugador2",
+        "fecha": "03-05-2026",
+        "horario": "15:00",
+        "diaSemana": "Domingo",
+        "coordinadoPor": "massabelo"
       },
       {
         "partidoId": "OF7",
