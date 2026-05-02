@@ -1252,7 +1252,14 @@
         "jugador1Nick": "|FMG| TINCHO",
         "jugador2Id": "594988359965999118",
         "jugador2Nick": "N4cHoV",
-        "resultado": null,
+        "resultado": {
+          "697996987210924072": 2,
+          "594988359965999118": 0,
+          "mapas": "https://aoe2cm.net/draft/kjbXV",
+          "civs": "https://aoe2cm.net/draft/mvieG",
+          "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1499930856565903491/tincho_vs_nachov.zip?ex=69f696f7&is=69f54577&hm=182d6daa3c737d1a7e49f63eeaf2a34013a97d318eb8e8deb9fe22452d4cf097&",
+          "fecha_registro": "2026-05-02T00:29:44.198Z"
+        },
         "va_a": "CF2",
         "posicion_en_siguiente": "jugador2",
         "fecha": "01-05-2026",
@@ -1316,9 +1323,10 @@
       {
         "partidoId": "CF2",
         "jugador1Id": null,
-        "jugador2Id": null,
+        "jugador2Id": "697996987210924072",
         "va_a": "SF1",
-        "posicion_en_siguiente": "jugador2"
+        "posicion_en_siguiente": "jugador2",
+        "jugador2Nick": "tinchocrata"
       },
       {
         "partidoId": "CF3",
