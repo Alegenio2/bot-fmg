@@ -1317,7 +1317,11 @@
         "jugador2Nick": "|FMG| Donde Estan Mis 5 Pizzas",
         "resultado": null,
         "va_a": "CF4",
-        "posicion_en_siguiente": "jugador2"
+        "posicion_en_siguiente": "jugador2",
+        "fecha": "04-05-2026",
+        "horario": "17:00",
+        "diaSemana": "Lunes",
+        "coordinadoPor": "lionerrt"
       }
     ],
     "cuartos": [
