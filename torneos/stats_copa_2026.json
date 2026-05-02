@@ -1,8 +1,8 @@
 {
   "meta": {
     "torneo": "copa_uruguaya_2026",
-    "ultima_actualizacion": "2026-05-02T00:29:45.328Z",
-    "total_partidas": 94
+    "ultima_actualizacion": "2026-05-02T02:48:07.221Z",
+    "total_partidas": 97
   },
   "jugadores": {
     "733765577570779279": {
@@ -1433,10 +1433,10 @@
       "nick": "DGHIR | Garezo",
       "aoe2Id": "15605540",
       "global": {
-        "pj": 5,
-        "pg": 4,
-        "pp": 1,
-        "winrate": 80
+        "pj": 8,
+        "pg": 6,
+        "pp": 2,
+        "winrate": 75
       },
       "civs": {
         "Khitans": {
@@ -1508,6 +1508,48 @@
               "winrate": 100
             }
           }
+        },
+        "Bengalis": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "CopaU_2026_Quarry v3 (Custom)": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        },
+        "Chinese": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "CopaU_2026_African River v3 (Custom)": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        },
+        "Byzantines": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "Arabia": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
         }
       },
       "mapas": {
@@ -1530,6 +1572,24 @@
           "winrate": 100
         },
         "CopaU_2026_Slopes v2 (Custom)": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        },
+        "CopaU_2026_Quarry v3 (Custom)": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        },
+        "CopaU_2026_African River v3 (Custom)": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        },
+        "Arabia": {
           "pj": 1,
           "pg": 1,
           "pp": 0,
@@ -2067,10 +2127,10 @@
       "nick": "VL Karistho",
       "aoe2Id": "2175073",
       "global": {
-        "pj": 4,
-        "pg": 2,
-        "pp": 2,
-        "winrate": 50
+        "pj": 7,
+        "pg": 3,
+        "pp": 4,
+        "winrate": 42.9
       },
       "civs": {
         "Portuguese": {
@@ -2088,16 +2148,22 @@
           }
         },
         "Japanese": {
-          "pj": 1,
+          "pj": 2,
           "pg": 1,
-          "pp": 0,
-          "winrate": 100,
+          "pp": 1,
+          "winrate": 50,
           "por_mapa": {
             "CopaU_2026_African River v3 (Custom)": {
               "pj": 1,
               "pg": 1,
               "pp": 0,
               "winrate": 100
+            },
+            "CopaU_2026_Quarry v3 (Custom)": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
             }
           }
         },
@@ -2128,6 +2194,34 @@
               "winrate": 0
             }
           }
+        },
+        "Poles": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "CopaU_2026_African River v3 (Custom)": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        },
+        "Shu": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "Arabia": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
         }
       },
       "mapas": {
@@ -2138,8 +2232,8 @@
           "winrate": 100
         },
         "CopaU_2026_African River v3 (Custom)": {
-          "pj": 1,
-          "pg": 1,
+          "pj": 2,
+          "pg": 2,
           "pp": 0,
           "winrate": 100
         },
@@ -2150,6 +2244,18 @@
           "winrate": 0
         },
         "CopaU_2026_Valley (Custom)": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        },
+        "CopaU_2026_Quarry v3 (Custom)": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        },
+        "Arabia": {
           "pj": 1,
           "pg": 0,
           "pp": 1,
@@ -3978,7 +4084,7 @@
       }
     },
     "Arabia": {
-      "total_partidas": 11,
+      "total_partidas": 12,
       "civs_ganadoras": {
         "Khitans": 2,
         "Vietnamese": 2,
@@ -3987,7 +4093,8 @@
         "Japanese": 1,
         "Sicilians": 1,
         "Maya": 1,
-        "Hindustanis": 1
+        "Hindustanis": 1,
+        "Byzantines": 1
       },
       "civs_perdedoras": {
         "Mongols": 1,
@@ -3997,7 +4104,8 @@
         "Byzantines": 1,
         "Hindustanis": 1,
         "Magyars": 2,
-        "Malay": 1
+        "Malay": 1,
+        "Shu": 1
       },
       "enfrentamientos": {
         "Khitans_vs_Mongols": {
@@ -4065,20 +4173,28 @@
           "gano_primero": 0,
           "civ_a": "Magyars",
           "civ_b": "Malians"
+        },
+        "Byzantines_vs_Shu": {
+          "total": 1,
+          "gano_primero": 1,
+          "civ_a": "Byzantines",
+          "civ_b": "Shu"
         }
       }
     },
     "CopaU_2026_African River v3 (Custom)": {
-      "total_partidas": 4,
+      "total_partidas": 5,
       "civs_ganadoras": {
         "Japanese": 2,
         "Persians": 1,
-        "Lithuanians": 1
+        "Lithuanians": 1,
+        "Poles": 1
       },
       "civs_perdedoras": {
         "Magyars": 1,
         "Mongols": 2,
-        "Dravidians": 1
+        "Dravidians": 1,
+        "Chinese": 1
       },
       "enfrentamientos": {
         "Japanese_vs_Magyars": {
@@ -4104,6 +4220,12 @@
           "gano_primero": 1,
           "civ_a": "Lithuanians",
           "civ_b": "Mongols"
+        },
+        "Chinese_vs_Poles": {
+          "total": 1,
+          "gano_primero": 0,
+          "civ_a": "Chinese",
+          "civ_b": "Poles"
         }
       }
     },
@@ -4413,18 +4535,20 @@
       }
     },
     "CopaU_2026_Quarry v3 (Custom)": {
-      "total_partidas": 4,
+      "total_partidas": 5,
       "civs_ganadoras": {
         "Malay": 1,
         "Tatars": 1,
         "Portuguese": 1,
-        "Romans": 1
+        "Romans": 1,
+        "Bengalis": 1
       },
       "civs_perdedoras": {
         "Saracens": 1,
         "Mongols": 1,
         "Cumans": 1,
-        "Teutons": 1
+        "Teutons": 1,
+        "Japanese": 1
       },
       "enfrentamientos": {
         "Malay_vs_Saracens": {
@@ -4450,6 +4574,12 @@
           "gano_primero": 1,
           "civ_a": "Romans",
           "civ_b": "Teutons"
+        },
+        "Bengalis_vs_Japanese": {
+          "total": 1,
+          "gano_primero": 1,
+          "civ_a": "Bengalis",
+          "civ_b": "Japanese"
         }
       }
     },
@@ -4725,9 +4855,9 @@
       }
     },
     "Japanese": {
-      "total_jugadas": 15,
+      "total_jugadas": 16,
       "total_ganadas": 9,
-      "winrate": 60,
+      "winrate": 56.3,
       "por_mapa": {
         "CopaU_2026_High Tides v3 (Custom)": {
           "jugadas": 1,
@@ -4778,6 +4908,11 @@
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "CopaU_2026_Quarry v3 (Custom)": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       },
       "vs_civs": {
@@ -4842,6 +4977,11 @@
           "winrate": 0
         },
         "Saracens": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        },
+        "Bengalis": {
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
@@ -5522,9 +5662,9 @@
       }
     },
     "Chinese": {
-      "total_jugadas": 5,
+      "total_jugadas": 6,
       "total_ganadas": 4,
-      "winrate": 80,
+      "winrate": 66.7,
       "por_mapa": {
         "CopaU_2026_Stranded v3 (Custom)": {
           "jugadas": 3,
@@ -5537,6 +5677,11 @@
           "winrate": 100
         },
         "Enclosed": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        },
+        "CopaU_2026_African River v3 (Custom)": {
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
@@ -5562,6 +5707,11 @@
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "Poles": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       }
     },
@@ -5851,9 +6001,9 @@
       }
     },
     "Shu": {
-      "total_jugadas": 2,
+      "total_jugadas": 3,
       "total_ganadas": 1,
-      "winrate": 50,
+      "winrate": 33.3,
       "por_mapa": {
         "Enclosed": {
           "jugadas": 1,
@@ -5864,6 +6014,11 @@
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "Arabia": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       },
       "vs_civs": {
@@ -5876,6 +6031,11 @@
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "Byzantines": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       }
     },
@@ -6275,13 +6435,18 @@
       }
     },
     "Bengalis": {
-      "total_jugadas": 2,
-      "total_ganadas": 2,
+      "total_jugadas": 3,
+      "total_ganadas": 3,
       "winrate": 100,
       "por_mapa": {
         "Arena": {
           "jugadas": 2,
           "ganadas": 2,
+          "winrate": 100
+        },
+        "CopaU_2026_Quarry v3 (Custom)": {
+          "jugadas": 1,
+          "ganadas": 1,
           "winrate": 100
         }
       },
@@ -6292,6 +6457,11 @@
           "winrate": 100
         },
         "Burmese": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        },
+        "Japanese": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
@@ -6337,14 +6507,14 @@
       }
     },
     "Byzantines": {
-      "total_jugadas": 2,
-      "total_ganadas": 1,
-      "winrate": 50,
+      "total_jugadas": 3,
+      "total_ganadas": 2,
+      "winrate": 66.7,
       "por_mapa": {
         "Arabia": {
-          "jugadas": 1,
-          "ganadas": 0,
-          "winrate": 0
+          "jugadas": 2,
+          "ganadas": 1,
+          "winrate": 50
         },
         "Enclosed": {
           "jugadas": 1,
@@ -6359,6 +6529,11 @@
           "winrate": 0
         },
         "Japanese": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        },
+        "Shu": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
@@ -6551,6 +6726,25 @@
       },
       "vs_civs": {
         "Magyars": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        }
+      }
+    },
+    "Poles": {
+      "total_jugadas": 1,
+      "total_ganadas": 1,
+      "winrate": 100,
+      "por_mapa": {
+        "CopaU_2026_African River v3 (Custom)": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        }
+      },
+      "vs_civs": {
+        "Chinese": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
@@ -8434,6 +8628,66 @@
         "discordId": "594988359965999118",
         "nick": "N4cHoV",
         "civ": "Berbers",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 474665494,
+      "fecha": "2026-05-02T00:06:51.000Z",
+      "mapa": "CopaU_2026_Quarry v3 (Custom)",
+      "duracion": 29,
+      "grupo": "OCTAVOS",
+      "ronda": "OF7",
+      "jugador1": {
+        "discordId": "244547091362217984",
+        "nick": "DGHIR | Garezo",
+        "civ": "Bengalis",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "382688182002515978",
+        "nick": "VL Karistho",
+        "civ": "Japanese",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 474661651,
+      "fecha": "2026-05-01T23:45:26.000Z",
+      "mapa": "CopaU_2026_African River v3 (Custom)",
+      "duracion": 19,
+      "grupo": "OCTAVOS",
+      "ronda": "OF7",
+      "jugador1": {
+        "discordId": "244547091362217984",
+        "nick": "DGHIR | Garezo",
+        "civ": "Chinese",
+        "gano": false
+      },
+      "jugador2": {
+        "discordId": "382688182002515978",
+        "nick": "VL Karistho",
+        "civ": "Poles",
+        "gano": true
+      }
+    },
+    {
+      "matchId": 474654097,
+      "fecha": "2026-05-01T23:07:20.000Z",
+      "mapa": "Arabia",
+      "duracion": 36,
+      "grupo": "OCTAVOS",
+      "ronda": "OF7",
+      "jugador1": {
+        "discordId": "244547091362217984",
+        "nick": "DGHIR | Garezo",
+        "civ": "Byzantines",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "382688182002515978",
+        "nick": "VL Karistho",
+        "civ": "Shu",
         "gano": false
       }
     }
