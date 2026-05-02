@@ -1,8 +1,8 @@
 {
   "meta": {
     "torneo": "copa_uruguaya_2026",
-    "ultima_actualizacion": "2026-04-27T02:22:34.387Z",
-    "total_partidas": 92
+    "ultima_actualizacion": "2026-05-02T00:29:45.328Z",
+    "total_partidas": 94
   },
   "jugadores": {
     "733765577570779279": {
@@ -479,10 +479,10 @@
       "nick": "|FMG| TINCHO",
       "aoe2Id": "2304739",
       "global": {
-        "pj": 7,
-        "pg": 6,
+        "pj": 9,
+        "pg": 8,
         "pp": 1,
-        "winrate": 85.7
+        "winrate": 88.9
       },
       "civs": {
         "Bohemians": {
@@ -570,16 +570,36 @@
           }
         },
         "Japanese": {
-          "pj": 1,
-          "pg": 0,
+          "pj": 2,
+          "pg": 1,
           "pp": 1,
-          "winrate": 0,
+          "winrate": 50,
           "por_mapa": {
             "Islands": {
               "pj": 1,
               "pg": 0,
               "pp": 1,
               "winrate": 0
+            },
+            "Pilgrims": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        },
+        "Tupi": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "CopaU_2026_Slopes v2 (Custom)": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
             }
           }
         }
@@ -626,6 +646,18 @@
           "pg": 0,
           "pp": 1,
           "winrate": 0
+        },
+        "CopaU_2026_Slopes v2 (Custom)": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        },
+        "Pilgrims": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
         }
       }
     },
@@ -2657,10 +2689,10 @@
       "nick": "N4cHoV",
       "aoe2Id": "2295211",
       "global": {
-        "pj": 8,
+        "pj": 10,
         "pg": 4,
-        "pp": 4,
-        "winrate": 50
+        "pp": 6,
+        "winrate": 40
       },
       "civs": {
         "Goths": {
@@ -2678,10 +2710,10 @@
           }
         },
         "Berbers": {
-          "pj": 2,
+          "pj": 3,
           "pg": 1,
-          "pp": 1,
-          "winrate": 50,
+          "pp": 2,
+          "winrate": 33.3,
           "por_mapa": {
             "CopaU_2026_Shorelines (Custom)": {
               "pj": 1,
@@ -2694,6 +2726,12 @@
               "pg": 1,
               "pp": 0,
               "winrate": 100
+            },
+            "Pilgrims": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
             }
           }
         },
@@ -2758,6 +2796,20 @@
               "winrate": 100
             }
           }
+        },
+        "Magyars": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "CopaU_2026_Slopes v2 (Custom)": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
         }
       },
       "mapas": {
@@ -2798,10 +2850,16 @@
           "winrate": 0
         },
         "CopaU_2026_Slopes v2 (Custom)": {
-          "pj": 1,
+          "pj": 2,
           "pg": 1,
-          "pp": 0,
-          "winrate": 100
+          "pp": 1,
+          "winrate": 50
+        },
+        "Pilgrims": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
         }
       }
     },
@@ -3865,18 +3923,19 @@
       }
     },
     "CopaU_2026_Slopes v2 (Custom)": {
-      "total_partidas": 5,
+      "total_partidas": 6,
       "civs_ganadoras": {
         "Portuguese": 1,
         "Gurjaras": 1,
         "Mongols": 1,
         "Hindustanis": 1,
-        "Saracens": 1
+        "Saracens": 1,
+        "Tupi": 1
       },
       "civs_perdedoras": {
         "Tatars": 1,
         "Franks": 2,
-        "Magyars": 1,
+        "Magyars": 2,
         "Hindustanis": 1
       },
       "enfrentamientos": {
@@ -3909,6 +3968,12 @@
           "gano_primero": 0,
           "civ_a": "Hindustanis",
           "civ_b": "Saracens"
+        },
+        "Magyars_vs_Tupi": {
+          "total": 1,
+          "gano_primero": 0,
+          "civ_a": "Magyars",
+          "civ_b": "Tupi"
         }
       }
     },
@@ -4308,15 +4373,17 @@
       }
     },
     "Pilgrims": {
-      "total_partidas": 3,
+      "total_partidas": 4,
       "civs_ganadoras": {
         "Spanish": 2,
-        "Dravidians": 1
+        "Dravidians": 1,
+        "Japanese": 1
       },
       "civs_perdedoras": {
         "Persians": 1,
         "Italians": 1,
-        "Portuguese": 1
+        "Portuguese": 1,
+        "Berbers": 1
       },
       "enfrentamientos": {
         "Persians_vs_Spanish": {
@@ -4336,6 +4403,12 @@
           "gano_primero": 0,
           "civ_a": "Portuguese",
           "civ_b": "Spanish"
+        },
+        "Berbers_vs_Japanese": {
+          "total": 1,
+          "gano_primero": 0,
+          "civ_a": "Berbers",
+          "civ_b": "Japanese"
         }
       }
     },
@@ -4554,9 +4627,9 @@
   },
   "civs": {
     "Berbers": {
-      "total_jugadas": 7,
+      "total_jugadas": 8,
       "total_ganadas": 3,
-      "winrate": 42.9,
+      "winrate": 37.5,
       "por_mapa": {
         "Nomad": {
           "jugadas": 2,
@@ -4577,6 +4650,11 @@
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "Pilgrims": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       },
       "vs_civs": {
@@ -4601,7 +4679,7 @@
           "winrate": 50
         },
         "Japanese": {
-          "jugadas": 1,
+          "jugadas": 2,
           "ganadas": 0,
           "winrate": 0
         },
@@ -4647,9 +4725,9 @@
       }
     },
     "Japanese": {
-      "total_jugadas": 14,
-      "total_ganadas": 8,
-      "winrate": 57.1,
+      "total_jugadas": 15,
+      "total_ganadas": 9,
+      "winrate": 60,
       "por_mapa": {
         "CopaU_2026_High Tides v3 (Custom)": {
           "jugadas": 1,
@@ -4695,6 +4773,11 @@
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "Pilgrims": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       },
       "vs_civs": {
@@ -4744,8 +4827,8 @@
           "winrate": 0
         },
         "Berbers": {
-          "jugadas": 1,
-          "ganadas": 1,
+          "jugadas": 2,
+          "ganadas": 2,
           "winrate": 100
         },
         "Chinese": {
@@ -5046,7 +5129,7 @@
       }
     },
     "Magyars": {
-      "total_jugadas": 8,
+      "total_jugadas": 9,
       "total_ganadas": 0,
       "winrate": 0,
       "por_mapa": {
@@ -5081,7 +5164,7 @@
           "winrate": 0
         },
         "CopaU_2026_Slopes v2 (Custom)": {
-          "jugadas": 1,
+          "jugadas": 2,
           "ganadas": 0,
           "winrate": 0
         }
@@ -5113,6 +5196,11 @@
           "winrate": 0
         },
         "Malians": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        },
+        "Tupi": {
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
@@ -6447,6 +6535,25 @@
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        }
+      }
+    },
+    "Tupi": {
+      "total_jugadas": 1,
+      "total_ganadas": 1,
+      "winrate": 100,
+      "por_mapa": {
+        "CopaU_2026_Slopes v2 (Custom)": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        }
+      },
+      "vs_civs": {
+        "Magyars": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       }
     }
@@ -8287,6 +8394,46 @@
         "discordId": "465307831583637514",
         "nick": "|FMG| ROGELIO III",
         "civ": "Persians",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 474658997,
+      "fecha": "2026-05-01T23:32:05.000Z",
+      "mapa": "CopaU_2026_Slopes v2 (Custom)",
+      "duracion": 16,
+      "grupo": "OCTAVOS",
+      "ronda": "OF4",
+      "jugador1": {
+        "discordId": "697996987210924072",
+        "nick": "|FMG| TINCHO",
+        "civ": "Tupi",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "594988359965999118",
+        "nick": "N4cHoV",
+        "civ": "Magyars",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 474655378,
+      "fecha": "2026-05-01T23:16:18.000Z",
+      "mapa": "Pilgrims",
+      "duracion": 13,
+      "grupo": "OCTAVOS",
+      "ronda": "OF4",
+      "jugador1": {
+        "discordId": "697996987210924072",
+        "nick": "|FMG| TINCHO",
+        "civ": "Japanese",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "594988359965999118",
+        "nick": "N4cHoV",
+        "civ": "Berbers",
         "gano": false
       }
     }
