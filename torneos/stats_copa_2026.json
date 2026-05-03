@@ -1,8 +1,8 @@
 {
   "meta": {
     "torneo": "copa_uruguaya_2026",
-    "ultima_actualizacion": "2026-05-02T02:48:07.221Z",
-    "total_partidas": 97
+    "ultima_actualizacion": "2026-05-03T18:19:33.124Z",
+    "total_partidas": 99
   },
   "jugadores": {
     "733765577570779279": {
@@ -2513,10 +2513,10 @@
       "nick": "ToNGa",
       "aoe2Id": "2639502",
       "global": {
-        "pj": 4,
-        "pg": 4,
-        "pp": 0,
-        "winrate": 100
+        "pj": 6,
+        "pg": 5,
+        "pp": 1,
+        "winrate": 83.3
       },
       "civs": {
         "Armenians": {
@@ -2534,16 +2534,22 @@
           }
         },
         "Mongols": {
-          "pj": 1,
+          "pj": 2,
           "pg": 1,
-          "pp": 0,
-          "winrate": 100,
+          "pp": 1,
+          "winrate": 50,
           "por_mapa": {
             "CopaU_2026_Valley (Custom)": {
               "pj": 1,
               "pg": 1,
               "pp": 0,
               "winrate": 100
+            },
+            "Arabia": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
             }
           }
         },
@@ -2574,6 +2580,20 @@
               "winrate": 100
             }
           }
+        },
+        "Persians": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "Pilgrims": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
         }
       },
       "mapas": {
@@ -2596,6 +2616,12 @@
           "winrate": 100
         },
         "Arabia": {
+          "pj": 2,
+          "pg": 1,
+          "pp": 1,
+          "winrate": 50
+        },
+        "Pilgrims": {
           "pj": 1,
           "pg": 1,
           "pp": 0,
@@ -3707,10 +3733,10 @@
       "nick": "DGHIR | Rorro Knight®",
       "aoe2Id": "5627235",
       "global": {
-        "pj": 8,
-        "pg": 5,
-        "pp": 3,
-        "winrate": 62.5
+        "pj": 10,
+        "pg": 6,
+        "pp": 4,
+        "winrate": 60
       },
       "civs": {
         "Romans": {
@@ -3728,16 +3754,16 @@
           }
         },
         "Berbers": {
-          "pj": 1,
-          "pg": 0,
+          "pj": 2,
+          "pg": 1,
           "pp": 1,
-          "winrate": 0,
+          "winrate": 50,
           "por_mapa": {
             "Arabia": {
-              "pj": 1,
-              "pg": 0,
+              "pj": 2,
+              "pg": 1,
               "pp": 1,
-              "winrate": 0
+              "winrate": 50
             }
           }
         },
@@ -3824,6 +3850,20 @@
               "winrate": 100
             }
           }
+        },
+        "Armenians": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "Pilgrims": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
         }
       },
       "mapas": {
@@ -3834,10 +3874,10 @@
           "winrate": 100
         },
         "Arabia": {
-          "pj": 1,
-          "pg": 0,
+          "pj": 2,
+          "pg": 1,
           "pp": 1,
-          "winrate": 0
+          "winrate": 50
         },
         "CopaU_2026_High Tides v3 (Custom)": {
           "pj": 1,
@@ -3874,6 +3914,12 @@
           "pg": 1,
           "pp": 0,
           "winrate": 100
+        },
+        "Pilgrims": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
         }
       }
     }
@@ -4084,7 +4130,7 @@
       }
     },
     "Arabia": {
-      "total_partidas": 12,
+      "total_partidas": 13,
       "civs_ganadoras": {
         "Khitans": 2,
         "Vietnamese": 2,
@@ -4094,10 +4140,11 @@
         "Sicilians": 1,
         "Maya": 1,
         "Hindustanis": 1,
-        "Byzantines": 1
+        "Byzantines": 1,
+        "Berbers": 1
       },
       "civs_perdedoras": {
-        "Mongols": 1,
+        "Mongols": 2,
         "Ethiopians": 1,
         "Berbers": 3,
         "Saracens": 1,
@@ -4179,6 +4226,12 @@
           "gano_primero": 1,
           "civ_a": "Byzantines",
           "civ_b": "Shu"
+        },
+        "Berbers_vs_Mongols": {
+          "total": 1,
+          "gano_primero": 1,
+          "civ_a": "Berbers",
+          "civ_b": "Mongols"
         }
       }
     },
@@ -4495,17 +4548,19 @@
       }
     },
     "Pilgrims": {
-      "total_partidas": 4,
+      "total_partidas": 5,
       "civs_ganadoras": {
         "Spanish": 2,
         "Dravidians": 1,
-        "Japanese": 1
+        "Japanese": 1,
+        "Persians": 1
       },
       "civs_perdedoras": {
         "Persians": 1,
         "Italians": 1,
         "Portuguese": 1,
-        "Berbers": 1
+        "Berbers": 1,
+        "Armenians": 1
       },
       "enfrentamientos": {
         "Persians_vs_Spanish": {
@@ -4531,6 +4586,12 @@
           "gano_primero": 0,
           "civ_a": "Berbers",
           "civ_b": "Japanese"
+        },
+        "Armenians_vs_Persians": {
+          "total": 1,
+          "gano_primero": 0,
+          "civ_a": "Armenians",
+          "civ_b": "Persians"
         }
       }
     },
@@ -4757,9 +4818,9 @@
   },
   "civs": {
     "Berbers": {
-      "total_jugadas": 8,
-      "total_ganadas": 3,
-      "winrate": 37.5,
+      "total_jugadas": 9,
+      "total_ganadas": 4,
+      "winrate": 44.4,
       "por_mapa": {
         "Nomad": {
           "jugadas": 2,
@@ -4767,9 +4828,9 @@
           "winrate": 100
         },
         "Arabia": {
-          "jugadas": 3,
-          "ganadas": 0,
-          "winrate": 0
+          "jugadas": 4,
+          "ganadas": 1,
+          "winrate": 25
         },
         "CopaU_2026_Shorelines (Custom)": {
           "jugadas": 1,
@@ -4817,6 +4878,11 @@
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "Mongols": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       }
     },
@@ -5195,12 +5261,12 @@
       }
     },
     "Mongols": {
-      "total_jugadas": 7,
+      "total_jugadas": 8,
       "total_ganadas": 3,
-      "winrate": 42.9,
+      "winrate": 37.5,
       "por_mapa": {
         "Arabia": {
-          "jugadas": 1,
+          "jugadas": 2,
           "ganadas": 0,
           "winrate": 0
         },
@@ -5262,6 +5328,11 @@
           "winrate": 100
         },
         "Lithuanians": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        },
+        "Berbers": {
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
@@ -5456,9 +5527,9 @@
       }
     },
     "Persians": {
-      "total_jugadas": 14,
-      "total_ganadas": 7,
-      "winrate": 50,
+      "total_jugadas": 15,
+      "total_ganadas": 8,
+      "winrate": 53.3,
       "por_mapa": {
         "CopaU_2026_Shorelines (Custom)": {
           "jugadas": 2,
@@ -5471,9 +5542,9 @@
           "winrate": 0
         },
         "Pilgrims": {
-          "jugadas": 1,
-          "ganadas": 0,
-          "winrate": 0
+          "jugadas": 2,
+          "ganadas": 1,
+          "winrate": 50
         },
         "Nomad": {
           "jugadas": 3,
@@ -5503,8 +5574,8 @@
           "winrate": 100
         },
         "Armenians": {
-          "jugadas": 1,
-          "ganadas": 1,
+          "jugadas": 2,
+          "ganadas": 2,
           "winrate": 100
         },
         "Chinese": {
@@ -5824,9 +5895,9 @@
       }
     },
     "Armenians": {
-      "total_jugadas": 5,
+      "total_jugadas": 6,
       "total_ganadas": 3,
-      "winrate": 60,
+      "winrate": 50,
       "por_mapa": {
         "CopaU_2026_Shorelines (Custom)": {
           "jugadas": 1,
@@ -5847,11 +5918,16 @@
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "Pilgrims": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       },
       "vs_civs": {
         "Persians": {
-          "jugadas": 1,
+          "jugadas": 2,
           "ganadas": 0,
           "winrate": 0
         },
@@ -8688,6 +8764,46 @@
         "discordId": "382688182002515978",
         "nick": "VL Karistho",
         "civ": "Shu",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 474682316,
+      "fecha": "2026-05-02T02:42:44.000Z",
+      "mapa": "Arabia",
+      "duracion": 19,
+      "grupo": "OCTAVOS",
+      "ronda": "OF1",
+      "jugador1": {
+        "discordId": "833806737902534738",
+        "nick": "ToNGa",
+        "civ": "Mongols",
+        "gano": false
+      },
+      "jugador2": {
+        "discordId": "959267535524606022",
+        "nick": "DGHIR | Rorro Knight®",
+        "civ": "Berbers",
+        "gano": true
+      }
+    },
+    {
+      "matchId": 474678475,
+      "fecha": "2026-05-02T02:24:39.000Z",
+      "mapa": "Pilgrims",
+      "duracion": 14,
+      "grupo": "OCTAVOS",
+      "ronda": "OF1",
+      "jugador1": {
+        "discordId": "833806737902534738",
+        "nick": "ToNGa",
+        "civ": "Persians",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "959267535524606022",
+        "nick": "DGHIR | Rorro Knight®",
+        "civ": "Armenians",
         "gano": false
       }
     }
