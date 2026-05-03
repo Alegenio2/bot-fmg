@@ -1248,7 +1248,11 @@
         "jugador2Nick": "URU | Juasteint",
         "resultado": null,
         "va_a": "CF2",
-        "posicion_en_siguiente": "jugador1"
+        "posicion_en_siguiente": "jugador1",
+        "fecha": "03-05-2026",
+        "horario": "20:00",
+        "diaSemana": "Domingo",
+        "coordinadoPor": "nicogp11"
       },
       {
         "partidoId": "OF4",
