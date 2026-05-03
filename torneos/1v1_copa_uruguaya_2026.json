@@ -1222,7 +1222,14 @@
         "jugador1Nick": "URU | ToNGa",
         "jugador2Id": "959267535524606022",
         "jugador2Nick": "DGHIR | Rorro Knight®",
-        "resultado": null,
+        "resultado": {
+          "833806737902534738": 2,
+          "959267535524606022": 1,
+          "mapas": "https://aoe2cm.net/draft/shDjB",
+          "civs": "https://aoe2cm.net/draft/nrtfo",
+          "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1500562466009255956/Rorro_Tonga.zip?ex=69f8e332&is=69f791b2&hm=ad53e2596978e4140dc549d8a141d722e34b5eb26d2ed2e73a68ac2434a6a22c&",
+          "fecha_registro": "2026-05-03T18:19:31.712Z"
+        },
         "va_a": "CF1",
         "posicion_en_siguiente": "jugador1",
         "fecha": "01-05-2026",
@@ -1338,10 +1345,11 @@
     "cuartos": [
       {
         "partidoId": "CF1",
-        "jugador1Id": null,
+        "jugador1Id": "833806737902534738",
         "jugador2Id": null,
         "va_a": "SF1",
-        "posicion_en_siguiente": "jugador1"
+        "posicion_en_siguiente": "jugador1",
+        "jugador1Nick": "hola15151512335062"
       },
       {
         "partidoId": "CF2",
