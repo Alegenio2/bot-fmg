@@ -1298,7 +1298,14 @@
         "jugador1Nick": "Nacional",
         "jugador2Id": "264781067506941962",
         "jugador2Nick": "|FMG| doomjota",
-        "resultado": null,
+        "resultado": {
+          "733765577570779279": 2,
+          "264781067506941962": 0,
+          "mapas": "https://aoe2cm.net/draft/kVtWr",
+          "civs": "https://aoe2cm.net/draft/Oqcbu",
+          "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1500575007317950636/Nacional_VS_Jota.zip?ex=69f8eee1&is=69f79d61&hm=ba4b00cf103d66b93daa4a8f0408db3b3c7ddb81bcbc7186ca35f779f8289120&",
+          "fecha_registro": "2026-05-03T19:09:22.285Z"
+        },
         "va_a": "CF3",
         "posicion_en_siguiente": "jugador2",
         "fecha": "03-05-2026",
@@ -1362,9 +1369,10 @@
       {
         "partidoId": "CF3",
         "jugador1Id": null,
-        "jugador2Id": null,
+        "jugador2Id": "733765577570779279",
         "va_a": "SF2",
-        "posicion_en_siguiente": "jugador1"
+        "posicion_en_siguiente": "jugador1",
+        "jugador2Nick": "massabelo"
       },
       {
         "partidoId": "CF4",
