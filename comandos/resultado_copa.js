@@ -116,29 +116,24 @@ module.exports = {
 
       if (!partidoEncontrado) return interaction.editReply({ content: `⚠️ Partido no encontrado en el torneo.` });
 
-      // 🚀 AVANCE AUTOMÁTICO DE FASE (SOLO ELIMINATORIAS)
-      if (infoExtra.fase !== "grupos" && partidoRef && partidoRef.va_a) {
-        const ganadorId = p1 > p2 ? j1.id : j2.id;
-        const ganadorNick = p1 > p2 ? j1.username : j2.username;
-
-        const destinoId = partidoRef.va_a;
-        const posicion = partidoRef.posicion_en_siguiente;
-
-        const fasesDestino = ['cuartos', 'semis', 'final'];
-
-        for (const faseNombre of fasesDestino) {
-          const fase = torneo.eliminatorias[faseNombre];
-          if (!fase) continue;
-
-          const siguiente = fase.find(p => p.partidoId === destinoId);
-
-          if (siguiente) {
-            siguiente[posicion + 'Id'] = ganadorId;
-            siguiente[posicion + 'Nick'] = ganadorNick;
-            break;
-          }
-        }
-      }
+   // 🚀 AVANCE AUTOMÁTICO DE FASE (SOLO ELIMINATORIAS)
+if (infoExtra.fase !== "grupos" && partidoRef && partidoRef.va_a) {
+  const ganadorId = p1 > p2 ? j1.id : j2.id;
+  const ganadorNick = p1 > p2 ? partidoRef.jugador1Nick : partidoRef.jugador2Nick; // 👈 fix
+  const destinoId = partidoRef.va_a;
+  const posicion = partidoRef.posicion_en_siguiente;
+  const fasesDestino = ['cuartos', 'semis', 'final'];
+  for (const faseNombre of fasesDestino) {
+    const fase = torneo.eliminatorias[faseNombre];
+    if (!fase) continue;
+    const siguiente = fase.find(p => p.partidoId === destinoId);
+    if (siguiente) {
+      siguiente[posicion + 'Id'] = ganadorId;
+      siguiente[posicion + 'Nick'] = ganadorNick;
+      break;
+    }
+  }
+}
 
       // GUARDAR
       await fs.writeFile(filePath, JSON.stringify(torneo, null, 2), 'utf8');
