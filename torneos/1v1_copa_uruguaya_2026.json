@@ -1370,8 +1370,8 @@
         "jugador2Id": "238414625417330688",
         "va_a": "SF1",
         "posicion_en_siguiente": "jugador1",
-        "jugador1Nick": "hola15151512335062",
-        "jugador2Nick": "rxon"
+        "jugador1Nick": "URU | ToNGa",
+        "jugador2Nick": "FMG | Rxon"
       },
       {
         "partidoId": "CF2",
@@ -1379,7 +1379,7 @@
         "jugador2Id": "697996987210924072",
         "va_a": "SF1",
         "posicion_en_siguiente": "jugador2",
-        "jugador2Nick": "tinchocrata"
+        "jugador2Nick": "|FMG| TINCHO"
       },
       {
         "partidoId": "CF3",
@@ -1387,8 +1387,8 @@
         "jugador2Id": "733765577570779279",
         "va_a": "SF2",
         "posicion_en_siguiente": "jugador1",
-        "jugador2Nick": "massabelo",
-        "jugador1Nick": "nadie6689"
+        "jugador2Nick": "Nacional",
+        "jugador1Nick": "|FMG| Nadie"
       },
       {
         "partidoId": "CF4",
@@ -1396,7 +1396,7 @@
         "jugador2Id": null,
         "va_a": "SF2",
         "posicion_en_siguiente": "jugador2",
-        "jugador1Nick": "garezo"
+        "jugador1Nick": "DGHIR | Garezo"
       }
     ],
     "semis": [
