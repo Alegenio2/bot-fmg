@@ -1260,7 +1260,14 @@
         "jugador1Nick": "DGHIR | NICOGP11",
         "jugador2Id": "135113382217908224",
         "jugador2Nick": "URU | Juasteint",
-        "resultado": null,
+        "resultado": {
+          "425297928610119692": 0,
+          "135113382217908224": 2,
+          "mapas": "https://aoe2cm.net/draft/sGOoh",
+          "civs": "https://aoe2cm.net/draft/YqoSA",
+          "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1500677036535185490/Nico_vs_Juasteint.rar?ex=69f94de6&is=69f7fc66&hm=44799620f2e2e2c039e0e1a8bf7527c3e93835282ec74670f281d510906e1bc6&",
+          "fecha_registro": "2026-05-04T01:54:47.430Z"
+        },
         "va_a": "CF2",
         "posicion_en_siguiente": "jugador1",
         "fecha": "03-05-2026",
@@ -1370,16 +1377,17 @@
         "jugador2Id": "238414625417330688",
         "va_a": "SF1",
         "posicion_en_siguiente": "jugador1",
-        "jugador1Nick": "URU | ToNGa",
-        "jugador2Nick": "FMG | Rxon"
+        "jugador1Nick": "hola15151512335062",
+        "jugador2Nick": "rxon"
       },
       {
         "partidoId": "CF2",
-        "jugador1Id": null,
+        "jugador1Id": "135113382217908224",
         "jugador2Id": "697996987210924072",
         "va_a": "SF1",
         "posicion_en_siguiente": "jugador2",
-        "jugador2Nick": "|FMG| TINCHO"
+        "jugador2Nick": "tinchocrata",
+        "jugador1Nick": "URU | Juasteint"
       },
       {
         "partidoId": "CF3",
@@ -1387,8 +1395,8 @@
         "jugador2Id": "733765577570779279",
         "va_a": "SF2",
         "posicion_en_siguiente": "jugador1",
-        "jugador2Nick": "Nacional",
-        "jugador1Nick": "|FMG| Nadie"
+        "jugador2Nick": "massabelo",
+        "jugador1Nick": "nadie6689"
       },
       {
         "partidoId": "CF4",
@@ -1396,7 +1404,7 @@
         "jugador2Id": null,
         "va_a": "SF2",
         "posicion_en_siguiente": "jugador2",
-        "jugador1Nick": "DGHIR | Garezo"
+        "jugador1Nick": "garezo"
       }
     ],
     "semis": [
