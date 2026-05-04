@@ -273,7 +273,11 @@ async function getGHToken() {
             localStorage.removeItem(TOKEN_KEY_DRAFT);
             window.location.href = '/login.html?redirect=admindraft.html';
         }
-    } catch(e) { console.warn('[auth] No se pudo verificar:', e.message); }
+    } catch(e) {
+    console.warn('[auth] No se pudo verificar:', e.message);
+    localStorage.removeItem(TOKEN_KEY_DRAFT);
+    window.location.href = '/login.html?redirect=admindraft.html';
+}
 })();
 
 const WS_SERVER = 'https://aldeanooscar.squareweb.app';
