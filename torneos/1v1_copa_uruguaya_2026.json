@@ -1361,7 +1361,14 @@
         "jugador1Nick": "DGHIR | Lionerrt",
         "jugador2Id": "755853346149105786",
         "jugador2Nick": "|FMG| Donde Estan Mis 5 Pizzas",
-        "resultado": null,
+        "resultado": {
+          "277256502023290881": 2,
+          "755853346149105786": 0,
+          "mapas": "https://aoe2cm.net/draft/KsmFj",
+          "civs": "https://aoe2cm.net/draft/MruCh",
+          "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1500970250521411646/Donde_Estan_Mis_5_Pizzas_vs_Lionerrt.zip?ex=69fa5efa&is=69f90d7a&hm=d3a107b371502f5ec4812b2b8436ac1d06e42f460d07115414c8d8b4f92be110&",
+          "fecha_registro": "2026-05-04T21:19:55.313Z"
+        },
         "va_a": "CF4",
         "posicion_en_siguiente": "jugador2",
         "fecha": "04-05-2026",
@@ -1401,10 +1408,11 @@
       {
         "partidoId": "CF4",
         "jugador1Id": "244547091362217984",
-        "jugador2Id": null,
+        "jugador2Id": "277256502023290881",
         "va_a": "SF2",
         "posicion_en_siguiente": "jugador2",
-        "jugador1Nick": "DGHIR | Garezo"
+        "jugador1Nick": "DGHIR | Garezo",
+        "jugador2Nick": "DGHIR | Lionerrt"
       }
     ],
     "semis": [
