@@ -1,8 +1,8 @@
 {
   "meta": {
     "torneo": "copa_uruguaya_2026",
-    "ultima_actualizacion": "2026-05-04T00:31:09.925Z",
-    "total_partidas": 105
+    "ultima_actualizacion": "2026-05-04T01:54:48.528Z",
+    "total_partidas": 107
   },
   "jugadores": {
     "733765577570779279": {
@@ -1033,10 +1033,10 @@
       "nick": "URU | Juasteint",
       "aoe2Id": "2878364",
       "global": {
-        "pj": 7,
-        "pg": 4,
+        "pj": 9,
+        "pg": 6,
         "pp": 3,
-        "winrate": 57.1
+        "winrate": 66.7
       },
       "civs": {
         "Japanese": {
@@ -1094,12 +1094,32 @@
           }
         },
         "Malians": {
+          "pj": 2,
+          "pg": 2,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "Nomad": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            },
+            "CopaU_2026_Stranded v3 (Custom)": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        },
+        "Maya": {
           "pj": 1,
           "pg": 1,
           "pp": 0,
           "winrate": 100,
           "por_mapa": {
-            "Nomad": {
+            "Land Madness": {
               "pj": 1,
               "pg": 1,
               "pp": 0,
@@ -1128,10 +1148,10 @@
           "winrate": 100
         },
         "CopaU_2026_Stranded v3 (Custom)": {
-          "pj": 1,
-          "pg": 0,
+          "pj": 2,
+          "pg": 1,
           "pp": 1,
-          "winrate": 0
+          "winrate": 50
         },
         "CopaU_2026_Comeer (Custom)": {
           "pj": 1,
@@ -1140,6 +1160,12 @@
           "winrate": 100
         },
         "Nomad": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        },
+        "Land Madness": {
           "pj": 1,
           "pg": 1,
           "pp": 0,
@@ -1401,10 +1427,10 @@
       "nick": "DGHIR | NICOGP11",
       "aoe2Id": "1464680",
       "global": {
-        "pj": 5,
+        "pj": 7,
         "pg": 4,
-        "pp": 1,
-        "winrate": 80
+        "pp": 3,
+        "winrate": 57.1
       },
       "civs": {
         "Malay": {
@@ -1468,6 +1494,34 @@
               "winrate": 100
             }
           }
+        },
+        "Jurchens": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "CopaU_2026_Stranded v3 (Custom)": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        },
+        "Berbers": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "Land Madness": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
         }
       },
       "mapas": {
@@ -1500,6 +1554,18 @@
           "pg": 1,
           "pp": 0,
           "winrate": 100
+        },
+        "CopaU_2026_Stranded v3 (Custom)": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        },
+        "Land Madness": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
         }
       }
     },
@@ -4535,18 +4601,20 @@
       }
     },
     "CopaU_2026_Stranded v3 (Custom)": {
-      "total_partidas": 6,
+      "total_partidas": 7,
       "civs_ganadoras": {
         "Chinese": 3,
         "Spanish": 1,
-        "Dravidians": 2
+        "Dravidians": 2,
+        "Malians": 1
       },
       "civs_perdedoras": {
         "Persians": 2,
         "Wu": 1,
         "Georgians": 1,
         "Romans": 1,
-        "Japanese": 1
+        "Japanese": 1,
+        "Jurchens": 1
       },
       "enfrentamientos": {
         "Chinese_vs_Persians": {
@@ -4578,6 +4646,12 @@
           "gano_primero": 1,
           "civ_a": "Chinese",
           "civ_b": "Japanese"
+        },
+        "Jurchens_vs_Malians": {
+          "total": 1,
+          "gano_primero": 0,
+          "civ_a": "Jurchens",
+          "civ_b": "Malians"
         }
       }
     },
@@ -4986,14 +5060,16 @@
       }
     },
     "Land Madness": {
-      "total_partidas": 2,
+      "total_partidas": 3,
       "civs_ganadoras": {
         "Spanish": 1,
-        "Berbers": 1
+        "Berbers": 1,
+        "Maya": 1
       },
       "civs_perdedoras": {
         "Khmer": 1,
-        "Persians": 1
+        "Persians": 1,
+        "Berbers": 1
       },
       "enfrentamientos": {
         "Khmer_vs_Spanish": {
@@ -5007,15 +5083,21 @@
           "gano_primero": 1,
           "civ_a": "Berbers",
           "civ_b": "Persians"
+        },
+        "Berbers_vs_Maya": {
+          "total": 1,
+          "gano_primero": 0,
+          "civ_a": "Berbers",
+          "civ_b": "Maya"
         }
       }
     }
   },
   "civs": {
     "Berbers": {
-      "total_jugadas": 10,
+      "total_jugadas": 11,
       "total_ganadas": 5,
-      "winrate": 50,
+      "winrate": 45.5,
       "por_mapa": {
         "Nomad": {
           "jugadas": 2,
@@ -5043,9 +5125,9 @@
           "winrate": 0
         },
         "Land Madness": {
-          "jugadas": 1,
+          "jugadas": 2,
           "ganadas": 1,
-          "winrate": 100
+          "winrate": 50
         }
       },
       "vs_civs": {
@@ -5088,6 +5170,11 @@
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "Maya": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       }
     },
@@ -6698,9 +6785,9 @@
       }
     },
     "Malians": {
-      "total_jugadas": 6,
-      "total_ganadas": 4,
-      "winrate": 66.7,
+      "total_jugadas": 7,
+      "total_ganadas": 5,
+      "winrate": 71.4,
       "por_mapa": {
         "CopaU_2026_High Tides v3 (Custom)": {
           "jugadas": 2,
@@ -6718,6 +6805,11 @@
           "winrate": 0
         },
         "Nomad": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        },
+        "CopaU_2026_Stranded v3 (Custom)": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
@@ -6740,6 +6832,11 @@
           "winrate": 0
         },
         "Magyars": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        },
+        "Jurchens": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
@@ -6935,8 +7032,8 @@
       }
     },
     "Maya": {
-      "total_jugadas": 2,
-      "total_ganadas": 2,
+      "total_jugadas": 3,
+      "total_ganadas": 3,
       "winrate": 100,
       "por_mapa": {
         "Arabia": {
@@ -6945,6 +7042,11 @@
           "winrate": 100
         },
         "Hideout": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        },
+        "Land Madness": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
@@ -6957,6 +7059,11 @@
           "winrate": 100
         },
         "Bohemians": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        },
+        "Berbers": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
@@ -7099,6 +7206,25 @@
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        }
+      }
+    },
+    "Jurchens": {
+      "total_jugadas": 1,
+      "total_ganadas": 0,
+      "winrate": 0,
+      "por_mapa": {
+        "CopaU_2026_Stranded v3 (Custom)": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        }
+      },
+      "vs_civs": {
+        "Malians": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       }
     }
@@ -9200,6 +9326,46 @@
         "nick": "kakaidolo",
         "civ": "Vietnamese",
         "gano": false
+      }
+    },
+    {
+      "matchId": 475235666,
+      "fecha": "2026-05-04T00:17:13.000Z",
+      "mapa": "CopaU_2026_Stranded v3 (Custom)",
+      "duracion": 37,
+      "grupo": "OCTAVOS",
+      "ronda": "OF3",
+      "jugador1": {
+        "discordId": "425297928610119692",
+        "nick": "DGHIR | NICOGP11",
+        "civ": "Jurchens",
+        "gano": false
+      },
+      "jugador2": {
+        "discordId": "135113382217908224",
+        "nick": "URU | Juasteint",
+        "civ": "Malians",
+        "gano": true
+      }
+    },
+    {
+      "matchId": 475229893,
+      "fecha": "2026-05-03T23:46:34.000Z",
+      "mapa": "Land Madness",
+      "duracion": 28,
+      "grupo": "OCTAVOS",
+      "ronda": "OF3",
+      "jugador1": {
+        "discordId": "425297928610119692",
+        "nick": "DGHIR | NICOGP11",
+        "civ": "Berbers",
+        "gano": false
+      },
+      "jugador2": {
+        "discordId": "135113382217908224",
+        "nick": "URU | Juasteint",
+        "civ": "Maya",
+        "gano": true
       }
     }
   ]
