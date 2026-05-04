@@ -1,8 +1,8 @@
 {
   "meta": {
     "torneo": "copa_uruguaya_2026",
-    "ultima_actualizacion": "2026-05-04T00:27:04.444Z",
-    "total_partidas": 103
+    "ultima_actualizacion": "2026-05-04T00:31:09.925Z",
+    "total_partidas": 105
   },
   "jugadores": {
     "733765577570779279": {
@@ -291,10 +291,10 @@
       "nick": "kakaidolo",
       "aoe2Id": "14501687",
       "global": {
-        "pj": 8,
+        "pj": 10,
         "pg": 5,
-        "pp": 3,
-        "winrate": 62.5
+        "pp": 5,
+        "winrate": 50
       },
       "civs": {
         "Portuguese": {
@@ -360,16 +360,16 @@
           }
         },
         "Vietnamese": {
-          "pj": 1,
+          "pj": 2,
           "pg": 1,
-          "pp": 0,
-          "winrate": 100,
+          "pp": 1,
+          "winrate": 50,
           "por_mapa": {
             "Enclosed": {
-              "pj": 1,
+              "pj": 2,
               "pg": 1,
-              "pp": 0,
-              "winrate": 100
+              "pp": 1,
+              "winrate": 50
             }
           }
         },
@@ -380,6 +380,20 @@
           "winrate": 0,
           "por_mapa": {
             "Hideout": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        },
+        "Persians": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "Land Madness": {
               "pj": 1,
               "pg": 0,
               "pp": 1,
@@ -414,12 +428,18 @@
           "winrate": 50
         },
         "Enclosed": {
-          "pj": 1,
+          "pj": 2,
           "pg": 1,
-          "pp": 0,
-          "winrate": 100
+          "pp": 1,
+          "winrate": 50
         },
         "Hideout": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        },
+        "Land Madness": {
           "pj": 1,
           "pg": 0,
           "pp": 1,
@@ -2805,8 +2825,8 @@
       "nick": "|FMG| Nadie",
       "aoe2Id": "673060",
       "global": {
-        "pj": 4,
-        "pg": 4,
+        "pj": 6,
+        "pg": 6,
         "pp": 0,
         "winrate": 100
       },
@@ -2854,12 +2874,32 @@
           }
         },
         "Romans": {
+          "pj": 2,
+          "pg": 2,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "CopaU_2026_Dry River (Custom)": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            },
+            "Enclosed": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        },
+        "Berbers": {
           "pj": 1,
           "pg": 1,
           "pp": 0,
           "winrate": 100,
           "por_mapa": {
-            "CopaU_2026_Dry River (Custom)": {
+            "Land Madness": {
               "pj": 1,
               "pg": 1,
               "pp": 0,
@@ -2888,6 +2928,18 @@
           "winrate": 100
         },
         "CopaU_2026_Dry River (Custom)": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        },
+        "Land Madness": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        },
+        "Enclosed": {
           "pj": 1,
           "pg": 1,
           "pp": 0,
@@ -4598,9 +4650,9 @@
       }
     },
     "Enclosed": {
-      "total_partidas": 8,
+      "total_partidas": 9,
       "civs_ganadoras": {
-        "Romans": 3,
+        "Romans": 4,
         "Vietnamese": 1,
         "Italians": 1,
         "Goths": 1,
@@ -4615,7 +4667,8 @@
         "Hindustanis": 1,
         "Persians": 1,
         "Japanese": 1,
-        "Saracens": 1
+        "Saracens": 1,
+        "Vietnamese": 1
       },
       "enfrentamientos": {
         "Magyars_vs_Romans": {
@@ -4665,6 +4718,12 @@
           "gano_primero": 1,
           "civ_a": "Chinese",
           "civ_b": "Saracens"
+        },
+        "Romans_vs_Vietnamese": {
+          "total": 1,
+          "gano_primero": 1,
+          "civ_a": "Romans",
+          "civ_b": "Vietnamese"
         }
       }
     },
@@ -4927,12 +4986,14 @@
       }
     },
     "Land Madness": {
-      "total_partidas": 1,
+      "total_partidas": 2,
       "civs_ganadoras": {
-        "Spanish": 1
+        "Spanish": 1,
+        "Berbers": 1
       },
       "civs_perdedoras": {
-        "Khmer": 1
+        "Khmer": 1,
+        "Persians": 1
       },
       "enfrentamientos": {
         "Khmer_vs_Spanish": {
@@ -4940,15 +5001,21 @@
           "gano_primero": 0,
           "civ_a": "Khmer",
           "civ_b": "Spanish"
+        },
+        "Berbers_vs_Persians": {
+          "total": 1,
+          "gano_primero": 1,
+          "civ_a": "Berbers",
+          "civ_b": "Persians"
         }
       }
     }
   },
   "civs": {
     "Berbers": {
-      "total_jugadas": 9,
-      "total_ganadas": 4,
-      "winrate": 44.4,
+      "total_jugadas": 10,
+      "total_ganadas": 5,
+      "winrate": 50,
       "por_mapa": {
         "Nomad": {
           "jugadas": 2,
@@ -4974,6 +5041,11 @@
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "Land Madness": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       },
       "vs_civs": {
@@ -5008,6 +5080,11 @@
           "winrate": 0
         },
         "Mongols": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        },
+        "Persians": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
@@ -5675,9 +5752,9 @@
       }
     },
     "Persians": {
-      "total_jugadas": 15,
+      "total_jugadas": 16,
       "total_ganadas": 8,
-      "winrate": 53.3,
+      "winrate": 50,
       "por_mapa": {
         "CopaU_2026_Shorelines (Custom)": {
           "jugadas": 2,
@@ -5710,6 +5787,11 @@
           "winrate": 100
         },
         "Enclosed": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        },
+        "Land Madness": {
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
@@ -5762,6 +5844,11 @@
           "winrate": 100
         },
         "Goths": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        },
+        "Berbers": {
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
@@ -5984,13 +6071,13 @@
       }
     },
     "Romans": {
-      "total_jugadas": 9,
-      "total_ganadas": 7,
-      "winrate": 77.8,
+      "total_jugadas": 10,
+      "total_ganadas": 8,
+      "winrate": 80,
       "por_mapa": {
         "Enclosed": {
-          "jugadas": 3,
-          "ganadas": 3,
+          "jugadas": 4,
+          "ganadas": 4,
           "winrate": 100
         },
         "CopaU_2026_Stranded v3 (Custom)": {
@@ -6041,6 +6128,11 @@
           "winrate": 100
         },
         "Teutons": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        },
+        "Vietnamese": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
@@ -6186,14 +6278,14 @@
       }
     },
     "Vietnamese": {
-      "total_jugadas": 4,
+      "total_jugadas": 5,
       "total_ganadas": 3,
-      "winrate": 75,
+      "winrate": 60,
       "por_mapa": {
         "Enclosed": {
-          "jugadas": 1,
+          "jugadas": 2,
           "ganadas": 1,
-          "winrate": 100
+          "winrate": 50
         },
         "Arabia": {
           "jugadas": 2,
@@ -6226,6 +6318,11 @@
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "Romans": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       }
     },
@@ -9062,6 +9159,46 @@
         "discordId": "408054148110614529",
         "nick": "-FMG- Rodri",
         "civ": "Saracens",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 475227854,
+      "fecha": "2026-05-03T23:36:31.000Z",
+      "mapa": "Land Madness",
+      "duracion": 44,
+      "grupo": "OCTAVOS",
+      "ronda": "OF5",
+      "jugador1": {
+        "discordId": "341001672786575360",
+        "nick": "|FMG| Nadie",
+        "civ": "Berbers",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "662427737138528308",
+        "nick": "kakaidolo",
+        "civ": "Persians",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 475222467,
+      "fecha": "2026-05-03T23:11:55.000Z",
+      "mapa": "Enclosed",
+      "duracion": 20,
+      "grupo": "OCTAVOS",
+      "ronda": "OF5",
+      "jugador1": {
+        "discordId": "341001672786575360",
+        "nick": "|FMG| Nadie",
+        "civ": "Romans",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "662427737138528308",
+        "nick": "kakaidolo",
+        "civ": "Vietnamese",
         "gano": false
       }
     }
