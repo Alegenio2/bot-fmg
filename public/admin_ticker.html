@@ -170,6 +170,42 @@
                 }));
             });
 
+// 1B. Eliminatorias
+if (dbGlobal.eliminatorias) {
+    Object.entries(dbGlobal.eliminatorias).forEach(([fase, partidos]) => {
+
+        partidos.forEach(p => {
+            if (p.resultado && p.jugador1Nick && p.jugador2Nick) {
+
+                const id1 = p.jugador1Id;
+                const id2 = p.jugador2Id;
+
+                const s1 = p.resultado[id1];
+                const s2 = p.resultado[id2];
+
+                if (s1 !== undefined && s2 !== undefined) {
+                    pDiv.innerHTML += `
+                    <div class="item-row">
+                        <input type="checkbox" class="chk-res" 
+                            data-p1="${p.jugador1Nick}" 
+                            data-p2="${p.jugador2Nick}" 
+                            data-s1="${s1}" 
+                            data-s2="${s2}" 
+                            data-id1="${id1}" 
+                            data-id2="${id2}" 
+                            data-fase="${fase}">
+                        <span class="tag">${fase.toUpperCase()}</span>
+                        <span style="font-size:14px">
+                            ${p.jugador1Nick} <b>${s1}-${s2}</b> ${p.jugador2Nick}
+                        </span>
+                    </div>`;
+                }
+            }
+        });
+
+    });
+}
+            
             // 2. Grupos (Marcados por defecto)
             dbGlobal.grupos.forEach(g => {
                 tDiv.innerHTML += `
@@ -180,6 +216,8 @@
             });
         }
 
+
+        
         // Botón "Marcar Todos"
         document.getElementById('btnSelectAll').addEventListener('click', () => {
             const checks = document.querySelectorAll('.chk-res');
@@ -199,7 +237,8 @@
             });
 
             partidos.forEach(p => {
-                const gKey = "Grupo " + p.grupo;
+                if (!p.grupo) return; // ignorar eliminatorias
+const gKey = "Grupo " + p.grupo;
                 const stats = tablas[gKey];
                 if (stats && stats[p.id1] && stats[p.id2]) {
                     const s1 = parseInt(p.s1); const s2 = parseInt(p.s2);
