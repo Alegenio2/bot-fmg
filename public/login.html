@@ -64,7 +64,7 @@ const existingToken = localStorage.getItem(config.tokenKey);
 if (existingToken) {
   fetch(OSCAR + '/auth/verify', {
     headers: { 'Authorization': 'Bearer ' + existingToken }
-  }).then(r => { if (r.ok) window.location.href = redirect; });
+  }).then(r => { if (r.ok) window.location.href = OSCAR + '/' + redirect; });
 }
 
 async function doLogin() {
