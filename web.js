@@ -11,10 +11,13 @@ const crypto    = require('crypto');
 // ── Auth config (desde variables de entorno) ──────────────────────────────────
 const PASS_DRAFT   = process.env.ADMIN_PASSWORD_DRAFT   || 'draft-cambiar';
 const PASS_CONTROL = process.env.ADMIN_PASSWORD_CONTROL || 'control-cambiar';
-const JWT_SECRET   = process.env.JWT_SECRET             || crypto.randomBytes(32).toString('hex');
 const GH_TOKEN     = process.env.GH_TOKENO              || '';
 const JWT_EXPIRES  = '2h';
-
+if (!process.env.JWT_SECRET) {
+  console.error('❌ JWT_SECRET no definido');
+  process.exit(1);
+}
+const JWT_SECRET = process.env.JWT_SECRET;
 // ── Middleware de autenticación ───────────────────────────────────────────────
 function requireAuth(req, res, next) {
   const auth  = req.headers['authorization'] || '';
