@@ -1243,7 +1243,14 @@
         "jugador1Nick": "-FMG- Rodri",
         "jugador2Id": "238414625417330688",
         "jugador2Nick": "FMG | Rxon",
-        "resultado": null,
+        "resultado": {
+          "238414625417330688": 2,
+          "408054148110614529": 0,
+          "mapas": "https://aoe2cm.net/draft/dogQv",
+          "civs": "https://aoe2cm.net/draft/UzKYb",
+          "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1500654956091543694/Rxon_vs_Rodri.rar?ex=69f93956&is=69f7e7d6&hm=d9070770e645b578dd4487f5d4ab1af84072f0272d7c5e2dc8f6783ce86338af&",
+          "fecha_registro": "2026-05-04T00:27:03.412Z"
+        },
         "va_a": "CF1",
         "posicion_en_siguiente": "jugador2"
       },
@@ -1353,10 +1360,11 @@
       {
         "partidoId": "CF1",
         "jugador1Id": "833806737902534738",
-        "jugador2Id": null,
+        "jugador2Id": "238414625417330688",
         "va_a": "SF1",
         "posicion_en_siguiente": "jugador1",
-        "jugador1Nick": "hola15151512335062"
+        "jugador1Nick": "hola15151512335062",
+        "jugador2Nick": "rxon"
       },
       {
         "partidoId": "CF2",
