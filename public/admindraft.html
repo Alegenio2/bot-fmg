@@ -263,7 +263,7 @@ async function getGHToken() {
         return token;
     } catch(e) { return ''; }
 }
-
+const WS_SERVER = 'https://aldeanooscar.squareweb.app';
 (async function checkAuth() {
     const token = getAdminToken();
     if (!token) { window.location.href = '/login.html?redirect=admindraft.html'; return; }
