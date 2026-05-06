@@ -1412,7 +1412,11 @@
         "va_a": "SF2",
         "posicion_en_siguiente": "jugador2",
         "jugador1Nick": "DGHIR | Garezo",
-        "jugador2Nick": "DGHIR | Lionerrt"
+        "jugador2Nick": "DGHIR | Lionerrt",
+        "fecha": "08-05-2026",
+        "horario": "22:00",
+        "diaSemana": "Viernes",
+        "coordinadoPor": "garezo"
       }
     ],
     "semis": [
