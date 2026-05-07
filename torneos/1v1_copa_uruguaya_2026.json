@@ -1398,7 +1398,15 @@
         "fecha": "07/05/2026",
         "horario": "19:00",
         "diaSemana": "Jueves",
-        "coordinadoPor": "juasteint"
+        "coordinadoPor": "juasteint",
+        "resultado": {
+          "697996987210924072": 2,
+          "135113382217908224": 0,
+          "mapas": "https://aoe2cm.net/draft/siEAJ",
+          "civs": "https://aoe2cm.net/draft/nBxIP",
+          "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1502084319295049748/juasteint_vs_tincho_MP_Replay_v101.103.44206.0_2026.05.07_191551_1.zip?ex=69fe6c89&is=69fd1b09&hm=2ac8a734d267d5291568c0d6d9ab0b8a62d6d8475465d4b998945a8b03abd4ea&",
+          "fecha_registro": "2026-05-07T23:06:49.836Z"
+        }
       },
       {
         "partidoId": "CF3",
@@ -1431,9 +1439,10 @@
       {
         "partidoId": "SF1",
         "jugador1Id": null,
-        "jugador2Id": null,
+        "jugador2Id": "697996987210924072",
         "va_a": "FINAL",
-        "posicion_en_siguiente": "jugador1"
+        "posicion_en_siguiente": "jugador1",
+        "jugador2Nick": "URU | Juasteint"
       },
       {
         "partidoId": "SF2",
