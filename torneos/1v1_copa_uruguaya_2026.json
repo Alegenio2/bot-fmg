@@ -1403,7 +1403,11 @@
         "va_a": "SF2",
         "posicion_en_siguiente": "jugador1",
         "jugador2Nick": "Nacional",
-        "jugador1Nick": "|FMG| Nadie"
+        "jugador1Nick": "|FMG| Nadie",
+        "fecha": "07-05-2026",
+        "horario": "21:30",
+        "diaSemana": "Jueves",
+        "coordinadoPor": "massabelo"
       },
       {
         "partidoId": "CF4",
