@@ -1394,7 +1394,11 @@
         "va_a": "SF1",
         "posicion_en_siguiente": "jugador2",
         "jugador2Nick": "|FMG| TINCHO",
-        "jugador1Nick": "URU | Juasteint"
+        "jugador1Nick": "URU | Juasteint",
+        "fecha": "07/05/2026",
+        "horario": "19:00",
+        "diaSemana": "Jueves",
+        "coordinadoPor": "juasteint"
       },
       {
         "partidoId": "CF3",
