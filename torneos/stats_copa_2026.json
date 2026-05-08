@@ -1,18 +1,18 @@
 {
   "meta": {
     "torneo": "copa_uruguaya_2026",
-    "ultima_actualizacion": "2026-05-07T23:07:34.115Z",
-    "total_partidas": 111
+    "ultima_actualizacion": "2026-05-08T00:54:36.297Z",
+    "total_partidas": 113
   },
   "jugadores": {
     "733765577570779279": {
       "nick": "Nacional",
       "aoe2Id": "15442657",
       "global": {
-        "pj": 9,
+        "pj": 11,
         "pg": 7,
-        "pp": 2,
-        "winrate": 77.8
+        "pp": 4,
+        "winrate": 63.6
       },
       "civs": {
         "Berbers": {
@@ -110,6 +110,34 @@
               "winrate": 100
             }
           }
+        },
+        "Bulgarians": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "Land Madness": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        },
+        "Turks": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "Arena": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
         }
       },
       "mapas": {
@@ -148,6 +176,18 @@
           "pg": 1,
           "pp": 0,
           "winrate": 100
+        },
+        "Land Madness": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
+        },
+        "Arena": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
         }
       }
     },
@@ -2999,8 +3039,8 @@
       "nick": "|FMG| Nadie",
       "aoe2Id": "673060",
       "global": {
-        "pj": 6,
-        "pg": 6,
+        "pj": 8,
+        "pg": 8,
         "pp": 0,
         "winrate": 100
       },
@@ -3048,8 +3088,8 @@
           }
         },
         "Romans": {
-          "pj": 2,
-          "pg": 2,
+          "pj": 3,
+          "pg": 3,
           "pp": 0,
           "winrate": 100,
           "por_mapa": {
@@ -3064,6 +3104,12 @@
               "pg": 1,
               "pp": 0,
               "winrate": 100
+            },
+            "Land Madness": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
             }
           }
         },
@@ -3074,6 +3120,20 @@
           "winrate": 100,
           "por_mapa": {
             "Land Madness": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        },
+        "Bohemians": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "Arena": {
               "pj": 1,
               "pg": 1,
               "pp": 0,
@@ -3108,12 +3168,18 @@
           "winrate": 100
         },
         "Land Madness": {
+          "pj": 2,
+          "pg": 2,
+          "pp": 0,
+          "winrate": 100
+        },
+        "Enclosed": {
           "pj": 1,
           "pg": 1,
           "pp": 0,
           "winrate": 100
         },
-        "Enclosed": {
+        "Arena": {
           "pj": 1,
           "pg": 1,
           "pp": 0,
@@ -5084,17 +5150,18 @@
       }
     },
     "Arena": {
-      "total_partidas": 5,
+      "total_partidas": 6,
       "civs_ganadoras": {
         "Cumans": 1,
         "Bengalis": 2,
-        "Portuguese": 2
+        "Portuguese": 2,
+        "Bohemians": 1
       },
       "civs_perdedoras": {
         "Italians": 1,
         "Cumans": 1,
         "Burmese": 1,
-        "Turks": 1,
+        "Turks": 2,
         "Bohemians": 1
       },
       "enfrentamientos": {
@@ -5127,6 +5194,12 @@
           "gano_primero": 0,
           "civ_a": "Bohemians",
           "civ_b": "Portuguese"
+        },
+        "Bohemians_vs_Turks": {
+          "total": 1,
+          "gano_primero": 1,
+          "civ_a": "Bohemians",
+          "civ_b": "Turks"
         }
       }
     },
@@ -5212,16 +5285,18 @@
       }
     },
     "Land Madness": {
-      "total_partidas": 3,
+      "total_partidas": 4,
       "civs_ganadoras": {
         "Spanish": 1,
         "Berbers": 1,
-        "Maya": 1
+        "Maya": 1,
+        "Romans": 1
       },
       "civs_perdedoras": {
         "Khmer": 1,
         "Persians": 1,
-        "Berbers": 1
+        "Berbers": 1,
+        "Bulgarians": 1
       },
       "enfrentamientos": {
         "Khmer_vs_Spanish": {
@@ -5241,6 +5316,12 @@
           "gano_primero": 0,
           "civ_a": "Berbers",
           "civ_b": "Maya"
+        },
+        "Bulgarians_vs_Romans": {
+          "total": 1,
+          "gano_primero": 0,
+          "civ_a": "Bulgarians",
+          "civ_b": "Romans"
         }
       }
     }
@@ -5878,9 +5959,9 @@
       }
     },
     "Bohemians": {
-      "total_jugadas": 4,
-      "total_ganadas": 1,
-      "winrate": 25,
+      "total_jugadas": 5,
+      "total_ganadas": 2,
+      "winrate": 40,
       "por_mapa": {
         "Hideout": {
           "jugadas": 2,
@@ -5893,9 +5974,9 @@
           "winrate": 0
         },
         "Arena": {
-          "jugadas": 1,
-          "ganadas": 0,
-          "winrate": 0
+          "jugadas": 2,
+          "ganadas": 1,
+          "winrate": 50
         }
       },
       "vs_civs": {
@@ -5918,6 +5999,11 @@
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "Turks": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       }
     },
@@ -6286,9 +6372,9 @@
       }
     },
     "Bulgarians": {
-      "total_jugadas": 5,
+      "total_jugadas": 6,
       "total_ganadas": 1,
-      "winrate": 20,
+      "winrate": 16.7,
       "por_mapa": {
         "CopaU_2026_Dry River (Custom)": {
           "jugadas": 1,
@@ -6301,6 +6387,11 @@
           "winrate": 0
         },
         "CopaU_2026_Valley (Custom)": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        },
+        "Land Madness": {
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
@@ -6326,13 +6417,18 @@
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "Romans": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       }
     },
     "Romans": {
-      "total_jugadas": 10,
-      "total_ganadas": 8,
-      "winrate": 80,
+      "total_jugadas": 11,
+      "total_ganadas": 9,
+      "winrate": 81.8,
       "por_mapa": {
         "Enclosed": {
           "jugadas": 4,
@@ -6350,6 +6446,11 @@
           "winrate": 75
         },
         "CopaU_2026_Quarry v3 (Custom)": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        },
+        "Land Madness": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
@@ -6392,6 +6493,11 @@
           "winrate": 100
         },
         "Vietnamese": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        },
+        "Bulgarians": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
@@ -7311,18 +7417,23 @@
       }
     },
     "Turks": {
-      "total_jugadas": 1,
+      "total_jugadas": 2,
       "total_ganadas": 0,
       "winrate": 0,
       "por_mapa": {
         "Arena": {
-          "jugadas": 1,
+          "jugadas": 2,
           "ganadas": 0,
           "winrate": 0
         }
       },
       "vs_civs": {
         "Portuguese": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        },
+        "Bohemians": {
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
@@ -9641,6 +9752,46 @@
         "discordId": "135113382217908224",
         "nick": "URU | Juasteint",
         "civ": "Berbers",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 476121623,
+      "fecha": "2026-05-07T23:42:03.000Z",
+      "mapa": "Land Madness",
+      "duracion": 24,
+      "grupo": "CUARTOS",
+      "ronda": "CF3",
+      "jugador1": {
+        "discordId": "341001672786575360",
+        "nick": "|FMG| Nadie",
+        "civ": "Romans",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "733765577570779279",
+        "nick": "Nacional",
+        "civ": "Bulgarians",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 476116832,
+      "fecha": "2026-05-07T23:10:07.000Z",
+      "mapa": "Arena",
+      "duracion": 28,
+      "grupo": "CUARTOS",
+      "ronda": "CF3",
+      "jugador1": {
+        "discordId": "341001672786575360",
+        "nick": "|FMG| Nadie",
+        "civ": "Bohemians",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "733765577570779279",
+        "nick": "Nacional",
+        "civ": "Turks",
         "gano": false
       }
     }
