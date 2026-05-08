@@ -1419,7 +1419,15 @@
         "fecha": "07-05-2026",
         "horario": "21:30",
         "diaSemana": "Jueves",
-        "coordinadoPor": "massabelo"
+        "coordinadoPor": "massabelo",
+        "resultado": {
+          "341001672786575360": 2,
+          "733765577570779279": 0,
+          "mapas": "https://aoe2cm.net/draft/ByMsj",
+          "civs": "https://aoe2cm.net/draft/WaLZZ",
+          "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1502111437470961786/MP_Replay_v101.103.44206.0_2026.05.07_191011_1.zip?ex=69fe85ca&is=69fd344a&hm=31ee94018fd3803a67a087816b0da0de6e0ff9d6d6d8d75f22b8db0daa7d308a&",
+          "fecha_registro": "2026-05-08T00:54:35.255Z"
+        }
       },
       {
         "partidoId": "CF4",
@@ -1446,10 +1454,11 @@
       },
       {
         "partidoId": "SF2",
-        "jugador1Id": null,
+        "jugador1Id": "341001672786575360",
         "jugador2Id": null,
         "va_a": "FINAL",
-        "posicion_en_siguiente": "jugador2"
+        "posicion_en_siguiente": "jugador2",
+        "jugador1Nick": "|FMG| Nadie"
       }
     ],
     "final": [
