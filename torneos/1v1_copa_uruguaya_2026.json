@@ -1440,7 +1440,15 @@
         "fecha": "08-05-2026",
         "horario": "22:00",
         "diaSemana": "Viernes",
-        "coordinadoPor": "garezo"
+        "coordinadoPor": "garezo",
+        "resultado": {
+          "277256502023290881": 2,
+          "244547091362217984": 1,
+          "mapas": "https://aoe2cm.net/draft/wBxKR",
+          "civs": "https://aoe2cm.net/draft/WIshr",
+          "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1502501642031857714/Garezo_vs_Lionerrt.zip?ex=69fff132&is=69fe9fb2&hm=facf418748dfcc69cc49269b2a0d3f9f35dcd0e50c407721b23b35a43fb516b9&",
+          "fecha_registro": "2026-05-09T02:45:07.589Z"
+        }
       }
     ],
     "semis": [
@@ -1455,10 +1463,11 @@
       {
         "partidoId": "SF2",
         "jugador1Id": "341001672786575360",
-        "jugador2Id": null,
+        "jugador2Id": "277256502023290881",
         "va_a": "FINAL",
         "posicion_en_siguiente": "jugador2",
-        "jugador1Nick": "|FMG| Nadie"
+        "jugador1Nick": "|FMG| Nadie",
+        "jugador2Nick": "DGHIR | Garezo"
       }
     ],
     "final": [
