@@ -1,8 +1,8 @@
 {
   "meta": {
     "torneo": "copa_uruguaya_2026",
-    "ultima_actualizacion": "2026-05-08T00:54:36.297Z",
-    "total_partidas": 113
+    "ultima_actualizacion": "2026-05-09T02:45:08.788Z",
+    "total_partidas": 116
   },
   "jugadores": {
     "733765577570779279": {
@@ -839,10 +839,10 @@
       "nick": "DGHIR | Lionerrt",
       "aoe2Id": "5204719",
       "global": {
-        "pj": 9,
-        "pg": 8,
-        "pp": 1,
-        "winrate": 88.9
+        "pj": 12,
+        "pg": 10,
+        "pp": 2,
+        "winrate": 83.3
       },
       "civs": {
         "Koreans": {
@@ -902,12 +902,18 @@
           }
         },
         "Berbers": {
-          "pj": 1,
+          "pj": 2,
           "pg": 0,
-          "pp": 1,
+          "pp": 2,
           "winrate": 0,
           "por_mapa": {
             "Arabia": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            },
+            "Arena": {
               "pj": 1,
               "pg": 0,
               "pp": 1,
@@ -916,14 +922,14 @@
           }
         },
         "Vikings": {
-          "pj": 1,
-          "pg": 1,
+          "pj": 2,
+          "pg": 2,
           "pp": 0,
           "winrate": 100,
           "por_mapa": {
             "Islands": {
-              "pj": 1,
-              "pg": 1,
+              "pj": 2,
+              "pg": 2,
               "pp": 0,
               "winrate": 100
             }
@@ -956,6 +962,20 @@
               "winrate": 100
             }
           }
+        },
+        "Goths": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "CopaU_2026_Dry River (Custom)": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
         }
       },
       "mapas": {
@@ -978,8 +998,8 @@
           "winrate": 66.7
         },
         "Islands": {
-          "pj": 1,
-          "pg": 1,
+          "pj": 2,
+          "pg": 2,
           "pp": 0,
           "winrate": 100
         },
@@ -988,6 +1008,18 @@
           "pg": 1,
           "pp": 0,
           "winrate": 100
+        },
+        "CopaU_2026_Dry River (Custom)": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        },
+        "Arena": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
         }
       }
     },
@@ -1721,10 +1753,10 @@
       "nick": "DGHIR | Garezo",
       "aoe2Id": "15605540",
       "global": {
-        "pj": 8,
-        "pg": 6,
-        "pp": 2,
-        "winrate": 75
+        "pj": 11,
+        "pg": 7,
+        "pp": 4,
+        "winrate": 63.6
       },
       "civs": {
         "Khitans": {
@@ -1838,6 +1870,48 @@
               "winrate": 100
             }
           }
+        },
+        "Burgundians": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "CopaU_2026_Dry River (Custom)": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        },
+        "Teutons": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "Arena": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        },
+        "Dravidians": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "Islands": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
         }
       },
       "mapas": {
@@ -1854,10 +1928,10 @@
           "winrate": 50
         },
         "CopaU_2026_Dry River (Custom)": {
-          "pj": 1,
+          "pj": 2,
           "pg": 1,
-          "pp": 0,
-          "winrate": 100
+          "pp": 1,
+          "winrate": 50
         },
         "CopaU_2026_Slopes v2 (Custom)": {
           "pj": 1,
@@ -1882,6 +1956,18 @@
           "pg": 1,
           "pp": 0,
           "winrate": 100
+        },
+        "Arena": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        },
+        "Islands": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
         }
       }
     },
@@ -4866,12 +4952,12 @@
       }
     },
     "CopaU_2026_Dry River (Custom)": {
-      "total_partidas": 8,
+      "total_partidas": 9,
       "civs_ganadoras": {
         "Japanese": 3,
         "Burmese": 1,
         "Romans": 3,
-        "Goths": 1
+        "Goths": 2
       },
       "civs_perdedoras": {
         "Bulgarians": 1,
@@ -4880,7 +4966,8 @@
         "Magyars": 1,
         "Romans": 1,
         "Aztecs": 1,
-        "Armenians": 1
+        "Armenians": 1,
+        "Burgundians": 1
       },
       "enfrentamientos": {
         "Bulgarians_vs_Japanese": {
@@ -4930,6 +5017,12 @@
           "gano_primero": 0,
           "civ_a": "Armenians",
           "civ_b": "Romans"
+        },
+        "Burgundians_vs_Goths": {
+          "total": 1,
+          "gano_primero": 0,
+          "civ_a": "Burgundians",
+          "civ_b": "Goths"
         }
       }
     },
@@ -5150,19 +5243,21 @@
       }
     },
     "Arena": {
-      "total_partidas": 6,
+      "total_partidas": 7,
       "civs_ganadoras": {
         "Cumans": 1,
         "Bengalis": 2,
         "Portuguese": 2,
-        "Bohemians": 1
+        "Bohemians": 1,
+        "Teutons": 1
       },
       "civs_perdedoras": {
         "Italians": 1,
         "Cumans": 1,
         "Burmese": 1,
         "Turks": 2,
-        "Bohemians": 1
+        "Bohemians": 1,
+        "Berbers": 1
       },
       "enfrentamientos": {
         "Cumans_vs_Italians": {
@@ -5200,21 +5295,27 @@
           "gano_primero": 1,
           "civ_a": "Bohemians",
           "civ_b": "Turks"
+        },
+        "Berbers_vs_Teutons": {
+          "total": 1,
+          "gano_primero": 0,
+          "civ_a": "Berbers",
+          "civ_b": "Teutons"
         }
       }
     },
     "Islands": {
-      "total_partidas": 5,
+      "total_partidas": 6,
       "civs_ganadoras": {
         "Armenians": 2,
         "Portuguese": 1,
         "Malay": 1,
-        "Vikings": 1
+        "Vikings": 2
       },
       "civs_perdedoras": {
         "Spanish": 1,
         "Japanese": 1,
-        "Dravidians": 1,
+        "Dravidians": 2,
         "Magyars": 1,
         "Portuguese": 1
       },
@@ -5247,6 +5348,12 @@
           "total": 1,
           "gano_primero": 0,
           "civ_a": "Portuguese",
+          "civ_b": "Vikings"
+        },
+        "Dravidians_vs_Vikings": {
+          "total": 1,
+          "gano_primero": 0,
+          "civ_a": "Dravidians",
           "civ_b": "Vikings"
         }
       }
@@ -5328,9 +5435,9 @@
   },
   "civs": {
     "Berbers": {
-      "total_jugadas": 12,
+      "total_jugadas": 13,
       "total_ganadas": 5,
-      "winrate": 41.7,
+      "winrate": 38.5,
       "por_mapa": {
         "Nomad": {
           "jugadas": 2,
@@ -5361,6 +5468,11 @@
           "jugadas": 2,
           "ganadas": 1,
           "winrate": 50
+        },
+        "Arena": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       },
       "vs_civs": {
@@ -5405,6 +5517,11 @@
           "winrate": 100
         },
         "Maya": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        },
+        "Teutons": {
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
@@ -6269,9 +6386,9 @@
       }
     },
     "Vikings": {
-      "total_jugadas": 4,
-      "total_ganadas": 3,
-      "winrate": 75,
+      "total_jugadas": 5,
+      "total_ganadas": 4,
+      "winrate": 80,
       "por_mapa": {
         "CopaU_2026_High Tides v3 (Custom)": {
           "jugadas": 1,
@@ -6284,8 +6401,8 @@
           "winrate": 100
         },
         "Islands": {
-          "jugadas": 1,
-          "ganadas": 1,
+          "jugadas": 2,
+          "ganadas": 2,
           "winrate": 100
         }
       },
@@ -6306,6 +6423,11 @@
           "winrate": 100
         },
         "Italians": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        },
+        "Dravidians": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
@@ -6926,9 +7048,9 @@
       }
     },
     "Goths": {
-      "total_jugadas": 3,
-      "total_ganadas": 2,
-      "winrate": 66.7,
+      "total_jugadas": 4,
+      "total_ganadas": 3,
+      "winrate": 75,
       "por_mapa": {
         "CopaU_2026_Valley (Custom)": {
           "jugadas": 1,
@@ -6936,8 +7058,8 @@
           "winrate": 0
         },
         "CopaU_2026_Dry River (Custom)": {
-          "jugadas": 1,
-          "ganadas": 1,
+          "jugadas": 2,
+          "ganadas": 2,
           "winrate": 100
         },
         "Enclosed": {
@@ -6961,13 +7083,18 @@
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "Burgundians": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       }
     },
     "Dravidians": {
-      "total_jugadas": 11,
+      "total_jugadas": 12,
       "total_ganadas": 7,
-      "winrate": 63.6,
+      "winrate": 58.3,
       "por_mapa": {
         "CopaU_2026_Shorelines (Custom)": {
           "jugadas": 2,
@@ -6990,7 +7117,7 @@
           "winrate": 100
         },
         "Islands": {
-          "jugadas": 1,
+          "jugadas": 2,
           "ganadas": 0,
           "winrate": 0
         },
@@ -7045,6 +7172,11 @@
           "jugadas": 2,
           "ganadas": 1,
           "winrate": 50
+        },
+        "Vikings": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       }
     },
@@ -7441,14 +7573,19 @@
       }
     },
     "Teutons": {
-      "total_jugadas": 1,
-      "total_ganadas": 0,
-      "winrate": 0,
+      "total_jugadas": 2,
+      "total_ganadas": 1,
+      "winrate": 50,
       "por_mapa": {
         "CopaU_2026_Quarry v3 (Custom)": {
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "Arena": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       },
       "vs_civs": {
@@ -7456,6 +7593,11 @@
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "Berbers": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       }
     },
@@ -7529,6 +7671,25 @@
       },
       "vs_civs": {
         "Italians": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        }
+      }
+    },
+    "Burgundians": {
+      "total_jugadas": 1,
+      "total_ganadas": 0,
+      "winrate": 0,
+      "por_mapa": {
+        "CopaU_2026_Dry River (Custom)": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        }
+      },
+      "vs_civs": {
+        "Goths": {
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
@@ -9792,6 +9953,66 @@
         "discordId": "733765577570779279",
         "nick": "Nacional",
         "civ": "Turks",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 476396531,
+      "fecha": "2026-05-09T02:12:01.000Z",
+      "mapa": "CopaU_2026_Dry River (Custom)",
+      "duracion": 16,
+      "grupo": "CUARTOS",
+      "ronda": "CF4",
+      "jugador1": {
+        "discordId": "277256502023290881",
+        "nick": "DGHIR | Lionerrt",
+        "civ": "Goths",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "244547091362217984",
+        "nick": "DGHIR | Garezo",
+        "civ": "Burgundians",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 476390829,
+      "fecha": "2026-05-09T01:40:59.000Z",
+      "mapa": "Arena",
+      "duracion": 29,
+      "grupo": "CUARTOS",
+      "ronda": "CF4",
+      "jugador1": {
+        "discordId": "277256502023290881",
+        "nick": "DGHIR | Lionerrt",
+        "civ": "Berbers",
+        "gano": false
+      },
+      "jugador2": {
+        "discordId": "244547091362217984",
+        "nick": "DGHIR | Garezo",
+        "civ": "Teutons",
+        "gano": true
+      }
+    },
+    {
+      "matchId": 476385311,
+      "fecha": "2026-05-09T01:11:24.000Z",
+      "mapa": "Islands",
+      "duracion": 28,
+      "grupo": "CUARTOS",
+      "ronda": "CF4",
+      "jugador1": {
+        "discordId": "277256502023290881",
+        "nick": "DGHIR | Lionerrt",
+        "civ": "Vikings",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "244547091362217984",
+        "nick": "DGHIR | Garezo",
+        "civ": "Dravidians",
         "gano": false
       }
     }
