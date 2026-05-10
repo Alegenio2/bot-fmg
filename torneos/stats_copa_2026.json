@@ -1,8 +1,8 @@
 {
   "meta": {
     "torneo": "copa_uruguaya_2026",
-    "ultima_actualizacion": "2026-05-09T02:45:08.788Z",
-    "total_partidas": 116
+    "ultima_actualizacion": "2026-05-10T02:02:21.607Z",
+    "total_partidas": 119
   },
   "jugadores": {
     "733765577570779279": {
@@ -2227,10 +2227,10 @@
       "nick": "FMG | Rxon",
       "aoe2Id": "1780624",
       "global": {
-        "pj": 9,
-        "pg": 7,
-        "pp": 2,
-        "winrate": 77.8
+        "pj": 12,
+        "pg": 9,
+        "pp": 3,
+        "winrate": 75
       },
       "civs": {
         "Chinese": {
@@ -2254,16 +2254,22 @@
           }
         },
         "Italians": {
-          "pj": 1,
+          "pj": 2,
           "pg": 1,
-          "pp": 0,
-          "winrate": 100,
+          "pp": 1,
+          "winrate": 50,
           "por_mapa": {
             "CopaU_2026_Shorelines (Custom)": {
               "pj": 1,
               "pg": 1,
               "pp": 0,
               "winrate": 100
+            },
+            "CopaU_2026_Stranded v3 (Custom)": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
             }
           }
         },
@@ -2342,12 +2348,40 @@
               "winrate": 100
             }
           }
+        },
+        "Hindustanis": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "Arabia": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        },
+        "Bohemians": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "Arena": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
         }
       },
       "mapas": {
         "Arabia": {
-          "pj": 2,
-          "pg": 2,
+          "pj": 3,
+          "pg": 3,
           "pp": 0,
           "winrate": 100
         },
@@ -2370,14 +2404,14 @@
           "winrate": 50
         },
         "CopaU_2026_Stranded v3 (Custom)": {
-          "pj": 1,
+          "pj": 2,
           "pg": 0,
-          "pp": 1,
+          "pp": 2,
           "winrate": 0
         },
         "Arena": {
-          "pj": 1,
-          "pg": 1,
+          "pj": 2,
+          "pg": 2,
           "pp": 0,
           "winrate": 100
         },
@@ -2911,10 +2945,10 @@
       "nick": "ToNGa",
       "aoe2Id": "2639502",
       "global": {
-        "pj": 6,
-        "pg": 5,
-        "pp": 1,
-        "winrate": 83.3
+        "pj": 9,
+        "pg": 6,
+        "pp": 3,
+        "winrate": 66.7
       },
       "civs": {
         "Armenians": {
@@ -2992,6 +3026,48 @@
               "winrate": 100
             }
           }
+        },
+        "Huns": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "Arabia": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
+        },
+        "Tupi": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "CopaU_2026_Stranded v3 (Custom)": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
+        },
+        "Muisca": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "Arena": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
         }
       },
       "mapas": {
@@ -3014,16 +3090,28 @@
           "winrate": 100
         },
         "Arabia": {
-          "pj": 2,
+          "pj": 3,
           "pg": 1,
-          "pp": 1,
-          "winrate": 50
+          "pp": 2,
+          "winrate": 33.3
         },
         "Pilgrims": {
           "pj": 1,
           "pg": 1,
           "pp": 0,
           "winrate": 100
+        },
+        "CopaU_2026_Stranded v3 (Custom)": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        },
+        "Arena": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0
         }
       }
     },
@@ -4639,7 +4727,7 @@
       }
     },
     "Arabia": {
-      "total_partidas": 15,
+      "total_partidas": 16,
       "civs_ganadoras": {
         "Khitans": 2,
         "Vietnamese": 3,
@@ -4648,7 +4736,7 @@
         "Japanese": 1,
         "Sicilians": 1,
         "Maya": 1,
-        "Hindustanis": 1,
+        "Hindustanis": 2,
         "Byzantines": 1,
         "Berbers": 1,
         "Italians": 1
@@ -4663,7 +4751,7 @@
         "Magyars": 2,
         "Malay": 1,
         "Shu": 1,
-        "Huns": 1
+        "Huns": 2
       },
       "enfrentamientos": {
         "Khitans_vs_Mongols": {
@@ -4749,6 +4837,12 @@
           "gano_primero": 0,
           "civ_a": "Huns",
           "civ_b": "Italians"
+        },
+        "Hindustanis_vs_Huns": {
+          "total": 1,
+          "gano_primero": 1,
+          "civ_a": "Hindustanis",
+          "civ_b": "Huns"
         }
       }
     },
@@ -4897,12 +4991,13 @@
       }
     },
     "CopaU_2026_Stranded v3 (Custom)": {
-      "total_partidas": 7,
+      "total_partidas": 8,
       "civs_ganadoras": {
         "Chinese": 3,
         "Spanish": 1,
         "Dravidians": 2,
-        "Malians": 1
+        "Malians": 1,
+        "Tupi": 1
       },
       "civs_perdedoras": {
         "Persians": 2,
@@ -4910,7 +5005,8 @@
         "Georgians": 1,
         "Romans": 1,
         "Japanese": 1,
-        "Jurchens": 1
+        "Jurchens": 1,
+        "Italians": 1
       },
       "enfrentamientos": {
         "Chinese_vs_Persians": {
@@ -4948,6 +5044,12 @@
           "gano_primero": 0,
           "civ_a": "Jurchens",
           "civ_b": "Malians"
+        },
+        "Italians_vs_Tupi": {
+          "total": 1,
+          "gano_primero": 0,
+          "civ_a": "Italians",
+          "civ_b": "Tupi"
         }
       }
     },
@@ -5243,12 +5345,12 @@
       }
     },
     "Arena": {
-      "total_partidas": 7,
+      "total_partidas": 8,
       "civs_ganadoras": {
         "Cumans": 1,
         "Bengalis": 2,
         "Portuguese": 2,
-        "Bohemians": 1,
+        "Bohemians": 2,
         "Teutons": 1
       },
       "civs_perdedoras": {
@@ -5257,7 +5359,8 @@
         "Burmese": 1,
         "Turks": 2,
         "Bohemians": 1,
-        "Berbers": 1
+        "Berbers": 1,
+        "Muisca": 1
       },
       "enfrentamientos": {
         "Cumans_vs_Italians": {
@@ -5301,6 +5404,12 @@
           "gano_primero": 0,
           "civ_a": "Berbers",
           "civ_b": "Teutons"
+        },
+        "Bohemians_vs_Muisca": {
+          "total": 1,
+          "gano_primero": 1,
+          "civ_a": "Bohemians",
+          "civ_b": "Muisca"
         }
       }
     },
@@ -6076,9 +6185,9 @@
       }
     },
     "Bohemians": {
-      "total_jugadas": 5,
-      "total_ganadas": 2,
-      "winrate": 40,
+      "total_jugadas": 6,
+      "total_ganadas": 3,
+      "winrate": 50,
       "por_mapa": {
         "Hideout": {
           "jugadas": 2,
@@ -6091,9 +6200,9 @@
           "winrate": 0
         },
         "Arena": {
-          "jugadas": 2,
-          "ganadas": 1,
-          "winrate": 50
+          "jugadas": 3,
+          "ganadas": 2,
+          "winrate": 66.7
         }
       },
       "vs_civs": {
@@ -6121,13 +6230,18 @@
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "Muisca": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       }
     },
     "Italians": {
-      "total_jugadas": 11,
+      "total_jugadas": 12,
       "total_ganadas": 4,
-      "winrate": 36.4,
+      "winrate": 33.3,
       "por_mapa": {
         "Hideout": {
           "jugadas": 2,
@@ -6168,6 +6282,11 @@
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "CopaU_2026_Stranded v3 (Custom)": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       },
       "vs_civs": {
@@ -6210,6 +6329,11 @@
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "Tupi": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       }
     },
@@ -7486,14 +7610,14 @@
       }
     },
     "Hindustanis": {
-      "total_jugadas": 5,
-      "total_ganadas": 2,
-      "winrate": 40,
+      "total_jugadas": 6,
+      "total_ganadas": 3,
+      "winrate": 50,
       "por_mapa": {
         "Arabia": {
-          "jugadas": 2,
-          "ganadas": 1,
-          "winrate": 50
+          "jugadas": 3,
+          "ganadas": 2,
+          "winrate": 66.7
         },
         "Enclosed": {
           "jugadas": 1,
@@ -7526,6 +7650,11 @@
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "Huns": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       }
     },
@@ -7602,11 +7731,16 @@
       }
     },
     "Tupi": {
-      "total_jugadas": 1,
-      "total_ganadas": 1,
+      "total_jugadas": 2,
+      "total_ganadas": 2,
       "winrate": 100,
       "por_mapa": {
         "CopaU_2026_Slopes v2 (Custom)": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        },
+        "CopaU_2026_Stranded v3 (Custom)": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
@@ -7614,6 +7748,11 @@
       },
       "vs_civs": {
         "Magyars": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
+        },
+        "Italians": {
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
@@ -7659,18 +7798,23 @@
       }
     },
     "Huns": {
-      "total_jugadas": 1,
+      "total_jugadas": 2,
       "total_ganadas": 0,
       "winrate": 0,
       "por_mapa": {
         "Arabia": {
-          "jugadas": 1,
+          "jugadas": 2,
           "ganadas": 0,
           "winrate": 0
         }
       },
       "vs_civs": {
         "Italians": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        },
+        "Hindustanis": {
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
@@ -7690,6 +7834,25 @@
       },
       "vs_civs": {
         "Goths": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        }
+      }
+    },
+    "Muisca": {
+      "total_jugadas": 1,
+      "total_ganadas": 0,
+      "winrate": 0,
+      "por_mapa": {
+        "Arena": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
+        }
+      },
+      "vs_civs": {
+        "Bohemians": {
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
@@ -10013,6 +10176,66 @@
         "discordId": "244547091362217984",
         "nick": "DGHIR | Garezo",
         "civ": "Dravidians",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 476666738,
+      "fecha": "2026-05-10T01:20:33.000Z",
+      "mapa": "Arabia",
+      "duracion": 24,
+      "grupo": "CUARTOS",
+      "ronda": "CF1",
+      "jugador1": {
+        "discordId": "238414625417330688",
+        "nick": "FMG | Rxon",
+        "civ": "Hindustanis",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "833806737902534738",
+        "nick": "ToNGa",
+        "civ": "Huns",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 476662902,
+      "fecha": "2026-05-10T00:57:54.000Z",
+      "mapa": "CopaU_2026_Stranded v3 (Custom)",
+      "duracion": 18,
+      "grupo": "CUARTOS",
+      "ronda": "CF1",
+      "jugador1": {
+        "discordId": "238414625417330688",
+        "nick": "FMG | Rxon",
+        "civ": "Italians",
+        "gano": false
+      },
+      "jugador2": {
+        "discordId": "833806737902534738",
+        "nick": "ToNGa",
+        "civ": "Tupi",
+        "gano": true
+      }
+    },
+    {
+      "matchId": 476658127,
+      "fecha": "2026-05-10T00:30:07.000Z",
+      "mapa": "Arena",
+      "duracion": 24,
+      "grupo": "CUARTOS",
+      "ronda": "CF1",
+      "jugador1": {
+        "discordId": "238414625417330688",
+        "nick": "FMG | Rxon",
+        "civ": "Bohemians",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "833806737902534738",
+        "nick": "ToNGa",
+        "civ": "Muisca",
         "gano": false
       }
     }
