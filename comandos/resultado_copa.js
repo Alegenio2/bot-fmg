@@ -116,20 +116,29 @@ module.exports = {
 
       if (!partidoEncontrado) return interaction.editReply({ content: `⚠️ Partido no encontrado en el torneo.` });
 
-   // 🚀 AVANCE AUTOMÁTICO DE FASE (SOLO ELIMINATORIAS)
+// 🚀 AVANCE AUTOMÁTICO DE FASE (SOLO ELIMINATORIAS)
 if (infoExtra.fase !== "grupos" && partidoRef && partidoRef.va_a) {
+  // 1. Determinar el ID del ganador basándonos en los puntos ingresados
   const ganadorId = p1 > p2 ? j1.id : j2.id;
-  const ganadorNick = p1 > p2 ? partidoRef.jugador1Nick : partidoRef.jugador2Nick; // 👈 fix
+  
+  // 2. Buscar el Nick correcto comparando el ID ganador con los IDs del objeto original del partido
+  const ganadorNick = (ganadorId === partidoRef.jugador1Id) 
+    ? partidoRef.jugador1Nick 
+    : partidoRef.jugador2Nick;
+
   const destinoId = partidoRef.va_a;
   const posicion = partidoRef.posicion_en_siguiente;
   const fasesDestino = ['cuartos', 'semis', 'final'];
+
   for (const faseNombre of fasesDestino) {
     const fase = torneo.eliminatorias[faseNombre];
     if (!fase) continue;
+    
     const siguiente = fase.find(p => p.partidoId === destinoId);
     if (siguiente) {
-      siguiente[posicion + 'Id'] = ganadorId;
-      siguiente[posicion + 'Nick'] = ganadorNick;
+      // Asignamos usando la posición dinámica (jugador1 o jugador2)
+      siguiente[`${posicion}Id`] = ganadorId;
+      siguiente[`${posicion}Nick`] = ganadorNick;
       break;
     }
   }
