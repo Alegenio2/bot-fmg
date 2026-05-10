@@ -1385,7 +1385,15 @@
         "va_a": "SF1",
         "posicion_en_siguiente": "jugador1",
         "jugador1Nick": "URU | ToNGa",
-        "jugador2Nick": "FMG | Rxon"
+        "jugador2Nick": "FMG | Rxon",
+        "resultado": {
+          "238414625417330688": 2,
+          "833806737902534738": 1,
+          "mapas": "https://aoe2cm.net/draft/uvNif",
+          "civs": "https://aoe2cm.net/draft/buUme",
+          "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1502853260825071626/Rxon_vs_Vissti.rar?ex=6a0138ab&is=69ffe72b&hm=41ba3a857517b3e178fc8457b3abd3a11eeeb6dc8f6e194cc61b25f9691126f8&",
+          "fecha_registro": "2026-05-10T02:02:19.700Z"
+        }
       },
       {
         "partidoId": "CF2",
@@ -1454,11 +1462,12 @@
     "semis": [
       {
         "partidoId": "SF1",
-        "jugador1Id": null,
+        "jugador1Id": "238414625417330688",
         "jugador2Id": "697996987210924072",
         "va_a": "FINAL",
         "posicion_en_siguiente": "jugador1",
-        "jugador2Nick": "|FMG| TINCHO"
+        "jugador2Nick": "|FMG| TINCHO",
+        "jugador1Nick": "URU | ToNGa"
       },
       {
         "partidoId": "SF2",
