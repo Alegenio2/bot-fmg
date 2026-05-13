@@ -1480,15 +1480,24 @@
         "fecha": "12-05-2026",
         "horario": "22:00",
         "diaSemana": "Martes",
-        "coordinadoPor": "nadie6689"
+        "coordinadoPor": "nadie6689",
+        "resultado": {
+          "341001672786575360": 2,
+          "277256502023290881": 0,
+          "mapas": "https://aoe2cm.net/draft/xEJoa",
+          "civs": "https://aoe2cm.net/draft/QxZuy",
+          "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1504189604667064511/MP_Replay_v101.103.44206.0_2026.05.12_211258_1.zip?ex=6a06153c&is=6a04c3bc&hm=128cb2a03dd4e6186614a154b02d7f6dd64968a6c17f44f56108898459dc868a&",
+          "fecha_registro": "2026-05-13T18:32:29.108Z"
+        }
       }
     ],
     "final": [
       {
         "partidoId": "FINAL",
         "jugador1Id": null,
-        "jugador2Id": null,
-        "resultado": null
+        "jugador2Id": "341001672786575360",
+        "resultado": null,
+        "jugador2Nick": "|FMG| Nadie"
       }
     ]
   }
