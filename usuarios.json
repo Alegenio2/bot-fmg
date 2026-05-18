@@ -846,5 +846,18 @@
     "nombre": "c.t_19",
     "elo": 851,
     "pais": "🇺🇾"
+  },
+  "853043502211792916": {
+    "profileId": "5828797",
+    "nombre": "Ricky-Uruguay",
+    "elo": 1172,
+    "rank": 13592,
+    "wins": 81,
+    "losses": 66,
+    "pais": "🇺🇾",
+    "country": "uy",
+    "clan": "NDSA",
+    "elomax": 1186,
+    "ultimapartida": "2026-05-11T15:47:26.000Z"
   }
 }
