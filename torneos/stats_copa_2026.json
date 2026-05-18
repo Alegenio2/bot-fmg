@@ -1,8 +1,8 @@
 {
   "meta": {
     "torneo": "copa_uruguaya_2026",
-    "ultima_actualizacion": "2026-05-13T18:32:30.304Z",
-    "total_partidas": 121
+    "ultima_actualizacion": "2026-05-18T00:18:01.935Z",
+    "total_partidas": 123
   },
   "jugadores": {
     "733765577570779279": {
@@ -565,10 +565,10 @@
       "nick": "|FMG| TINCHO",
       "aoe2Id": "2304739",
       "global": {
-        "pj": 11,
+        "pj": 13,
         "pg": 10,
-        "pp": 1,
-        "winrate": 90.9
+        "pp": 3,
+        "winrate": 76.9
       },
       "civs": {
         "Bohemians": {
@@ -614,16 +614,16 @@
           }
         },
         "Tatars": {
-          "pj": 1,
+          "pj": 2,
           "pg": 1,
-          "pp": 0,
-          "winrate": 100,
+          "pp": 1,
+          "winrate": 50,
           "por_mapa": {
             "CopaU_2026_Quarry v3 (Custom)": {
-              "pj": 1,
+              "pj": 2,
               "pg": 1,
-              "pp": 0,
-              "winrate": 100
+              "pp": 1,
+              "winrate": 50
             }
           }
         },
@@ -716,6 +716,20 @@
               "winrate": 100
             }
           }
+        },
+        "Spanish": {
+          "pj": 1,
+          "pg": 0,
+          "pp": 1,
+          "winrate": 0,
+          "por_mapa": {
+            "Nomad": {
+              "pj": 1,
+              "pg": 0,
+              "pp": 1,
+              "winrate": 0
+            }
+          }
         }
       },
       "mapas": {
@@ -732,16 +746,16 @@
           "winrate": 100
         },
         "Nomad": {
-          "pj": 1,
+          "pj": 2,
           "pg": 1,
-          "pp": 0,
-          "winrate": 100
+          "pp": 1,
+          "winrate": 50
         },
         "CopaU_2026_Quarry v3 (Custom)": {
-          "pj": 1,
+          "pj": 2,
           "pg": 1,
-          "pp": 0,
-          "winrate": 100
+          "pp": 1,
+          "winrate": 50
         },
         "CopaU_2026_Dry River (Custom)": {
           "pj": 1,
@@ -2261,10 +2275,10 @@
       "nick": "FMG | Rxon",
       "aoe2Id": "1780624",
       "global": {
-        "pj": 12,
-        "pg": 9,
+        "pj": 14,
+        "pg": 11,
         "pp": 3,
-        "winrate": 75
+        "winrate": 78.6
       },
       "civs": {
         "Chinese": {
@@ -2288,10 +2302,10 @@
           }
         },
         "Italians": {
-          "pj": 2,
-          "pg": 1,
+          "pj": 3,
+          "pg": 2,
           "pp": 1,
-          "winrate": 50,
+          "winrate": 66.7,
           "por_mapa": {
             "CopaU_2026_Shorelines (Custom)": {
               "pj": 1,
@@ -2304,6 +2318,12 @@
               "pg": 0,
               "pp": 1,
               "winrate": 0
+            },
+            "Nomad": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
             }
           }
         },
@@ -2410,6 +2430,20 @@
               "winrate": 100
             }
           }
+        },
+        "Malay": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100,
+          "por_mapa": {
+            "CopaU_2026_Quarry v3 (Custom)": {
+              "pj": 1,
+              "pg": 1,
+              "pp": 0,
+              "winrate": 100
+            }
+          }
         }
       },
       "mapas": {
@@ -2450,6 +2484,18 @@
           "winrate": 100
         },
         "Enclosed": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        },
+        "Nomad": {
+          "pj": 1,
+          "pg": 1,
+          "pp": 0,
+          "winrate": 100
+        },
+        "CopaU_2026_Quarry v3 (Custom)": {
           "pj": 1,
           "pg": 1,
           "pp": 0,
@@ -4584,13 +4630,13 @@
   },
   "mapas": {
     "Nomad": {
-      "total_partidas": 11,
+      "total_partidas": 12,
       "civs_ganadoras": {
         "Berbers": 2,
         "Vikings": 2,
         "Persians": 2,
         "Armenians": 1,
-        "Italians": 1,
+        "Italians": 2,
         "Malay": 1,
         "Malians": 1,
         "Dravidians": 1
@@ -4600,7 +4646,7 @@
         "Bohemians": 1,
         "Lithuanians": 2,
         "Koreans": 1,
-        "Spanish": 3,
+        "Spanish": 4,
         "Italians": 2,
         "Persians": 1
       },
@@ -4636,8 +4682,8 @@
           "civ_b": "Spanish"
         },
         "Italians_vs_Spanish": {
-          "total": 1,
-          "gano_primero": 1,
+          "total": 2,
+          "gano_primero": 2,
           "civ_a": "Italians",
           "civ_b": "Spanish"
         },
@@ -5346,9 +5392,9 @@
       }
     },
     "CopaU_2026_Quarry v3 (Custom)": {
-      "total_partidas": 5,
+      "total_partidas": 6,
       "civs_ganadoras": {
-        "Malay": 1,
+        "Malay": 2,
         "Tatars": 1,
         "Portuguese": 1,
         "Romans": 1,
@@ -5359,7 +5405,8 @@
         "Mongols": 1,
         "Cumans": 1,
         "Teutons": 1,
-        "Japanese": 1
+        "Japanese": 1,
+        "Tatars": 1
       },
       "enfrentamientos": {
         "Malay_vs_Saracens": {
@@ -5391,6 +5438,12 @@
           "gano_primero": 1,
           "civ_a": "Bengalis",
           "civ_b": "Japanese"
+        },
+        "Malay_vs_Tatars": {
+          "total": 1,
+          "gano_primero": 1,
+          "civ_a": "Malay",
+          "civ_b": "Tatars"
         }
       }
     },
@@ -5889,9 +5942,9 @@
       }
     },
     "Malay": {
-      "total_jugadas": 7,
-      "total_ganadas": 4,
-      "winrate": 57.1,
+      "total_jugadas": 8,
+      "total_ganadas": 5,
+      "winrate": 62.5,
       "por_mapa": {
         "CopaU_2026_High Tides v3 (Custom)": {
           "jugadas": 1,
@@ -5899,8 +5952,8 @@
           "winrate": 0
         },
         "CopaU_2026_Quarry v3 (Custom)": {
-          "jugadas": 1,
-          "ganadas": 1,
+          "jugadas": 2,
+          "ganadas": 2,
           "winrate": 100
         },
         "Nomad": {
@@ -5959,6 +6012,11 @@
           "jugadas": 1,
           "ganadas": 0,
           "winrate": 0
+        },
+        "Tatars": {
+          "jugadas": 1,
+          "ganadas": 1,
+          "winrate": 100
         }
       }
     },
@@ -6052,9 +6110,9 @@
       }
     },
     "Tatars": {
-      "total_jugadas": 2,
+      "total_jugadas": 3,
       "total_ganadas": 1,
-      "winrate": 50,
+      "winrate": 33.3,
       "por_mapa": {
         "CopaU_2026_Slopes v2 (Custom)": {
           "jugadas": 1,
@@ -6062,9 +6120,9 @@
           "winrate": 0
         },
         "CopaU_2026_Quarry v3 (Custom)": {
-          "jugadas": 1,
+          "jugadas": 2,
           "ganadas": 1,
-          "winrate": 100
+          "winrate": 50
         }
       },
       "vs_civs": {
@@ -6077,6 +6135,11 @@
           "jugadas": 1,
           "ganadas": 1,
           "winrate": 100
+        },
+        "Malay": {
+          "jugadas": 1,
+          "ganadas": 0,
+          "winrate": 0
         }
       }
     },
@@ -6327,9 +6390,9 @@
       }
     },
     "Italians": {
-      "total_jugadas": 12,
-      "total_ganadas": 4,
-      "winrate": 33.3,
+      "total_jugadas": 13,
+      "total_ganadas": 5,
+      "winrate": 38.5,
       "por_mapa": {
         "Hideout": {
           "jugadas": 2,
@@ -6352,9 +6415,9 @@
           "winrate": 0
         },
         "Nomad": {
-          "jugadas": 3,
-          "ganadas": 1,
-          "winrate": 33.3
+          "jugadas": 4,
+          "ganadas": 2,
+          "winrate": 50
         },
         "Pilgrims": {
           "jugadas": 1,
@@ -6384,8 +6447,8 @@
           "winrate": 0
         },
         "Spanish": {
-          "jugadas": 2,
-          "ganadas": 2,
+          "jugadas": 3,
+          "ganadas": 3,
           "winrate": 100
         },
         "Khitans": {
@@ -6903,9 +6966,9 @@
       }
     },
     "Spanish": {
-      "total_jugadas": 9,
+      "total_jugadas": 10,
       "total_ganadas": 4,
-      "winrate": 44.4,
+      "winrate": 40,
       "por_mapa": {
         "Pilgrims": {
           "jugadas": 2,
@@ -6923,7 +6986,7 @@
           "winrate": 0
         },
         "Nomad": {
-          "jugadas": 3,
+          "jugadas": 4,
           "ganadas": 0,
           "winrate": 0
         },
@@ -6945,7 +7008,7 @@
           "winrate": 100
         },
         "Italians": {
-          "jugadas": 2,
+          "jugadas": 3,
           "ganadas": 0,
           "winrate": 0
         },
@@ -10384,6 +10447,46 @@
         "discordId": "277256502023290881",
         "nick": "DGHIR | Lionerrt",
         "civ": "Bengalis",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 477852384,
+      "fecha": "2026-05-15T01:49:09.000Z",
+      "mapa": "Nomad",
+      "duracion": 28,
+      "grupo": "SEMIS",
+      "ronda": "SF1",
+      "jugador1": {
+        "discordId": "238414625417330688",
+        "nick": "FMG | Rxon",
+        "civ": "Italians",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "697996987210924072",
+        "nick": "|FMG| TINCHO",
+        "civ": "Spanish",
+        "gano": false
+      }
+    },
+    {
+      "matchId": 477844621,
+      "fecha": "2026-05-15T01:18:56.000Z",
+      "mapa": "CopaU_2026_Quarry v3 (Custom)",
+      "duracion": 25,
+      "grupo": "SEMIS",
+      "ronda": "SF1",
+      "jugador1": {
+        "discordId": "238414625417330688",
+        "nick": "FMG | Rxon",
+        "civ": "Malay",
+        "gano": true
+      },
+      "jugador2": {
+        "discordId": "697996987210924072",
+        "nick": "|FMG| TINCHO",
+        "civ": "Tatars",
         "gano": false
       }
     }
