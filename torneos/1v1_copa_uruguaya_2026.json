@@ -1467,7 +1467,15 @@
         "va_a": "FINAL",
         "posicion_en_siguiente": "jugador1",
         "jugador2Nick": "|FMG| TINCHO",
-        "jugador1Nick": "FMG | Rxon"
+        "jugador1Nick": "FMG | Rxon",
+        "resultado": {
+          "238414625417330688": 2,
+          "697996987210924072": 0,
+          "mapas": "https://aoe2cm.net/draft/HzNEd",
+          "civs": "https://aoe2cm.net/draft/aUZWU",
+          "recs_url": "https://cdn.discordapp.com/ephemeral-attachments/1479563159777050707/1505726108857794721/Rxon_vs_Tincho.rar?ex=6a0bac37&is=6a0a5ab7&hm=e18d7eb354913dab507a95f5235246ceaa78d5e5c2b4cf34f7dda4d1bdd789cd&",
+          "fecha_registro": "2026-05-18T00:18:00.980Z"
+        }
       },
       {
         "partidoId": "SF2",
@@ -1494,10 +1502,11 @@
     "final": [
       {
         "partidoId": "FINAL",
-        "jugador1Id": null,
+        "jugador1Id": "238414625417330688",
         "jugador2Id": "341001672786575360",
         "resultado": null,
-        "jugador2Nick": "|FMG| Nadie"
+        "jugador2Nick": "|FMG| Nadie",
+        "jugador1Nick": "FMG | Rxon"
       }
     ]
   }
